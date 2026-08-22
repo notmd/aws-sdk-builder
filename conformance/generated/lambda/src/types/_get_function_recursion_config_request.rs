@@ -45,7 +45,7 @@ impl GetFunctionRecursionConfigRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetFunctionRecursionConfigRequest`](crate::types::GetFunctionRecursionConfigRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::GetFunctionRecursionConfigRequestBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::GetFunctionRecursionConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetFunctionRecursionConfigRequest {
             function_name: self.function_name.ok_or_else(|| {

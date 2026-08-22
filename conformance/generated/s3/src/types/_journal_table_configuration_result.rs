@@ -4,8 +4,19 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct JournalTableConfigurationResult {
-    /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the journal table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub table_status: ::std::string::String,
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub error: ::std::option::Option<crate::types::ErrorDetails>,
     /// <p>The name of the journal table.</p>
     pub table_name: ::std::string::String,
@@ -15,11 +26,22 @@ pub struct JournalTableConfigurationResult {
     pub record_expiration: ::std::option::Option<crate::types::RecordExpiration>,
 }
 impl JournalTableConfigurationResult {
-    /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the journal table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn table_status(&self) -> &str {
         use std::ops::Deref;
         self.table_status.deref()
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
         self.error.as_ref()
     }
@@ -55,29 +77,62 @@ pub struct JournalTableConfigurationResultBuilder {
     pub(crate) record_expiration: ::std::option::Option<crate::types::RecordExpiration>,
 }
 impl JournalTableConfigurationResultBuilder {
-    /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the journal table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     /// This field is required.
     pub fn table_status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the journal table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_status = input;
         self
     }
-    /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the journal table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_status
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error = input;
         self
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
         &self.error
     }
@@ -126,8 +181,8 @@ impl JournalTableConfigurationResultBuilder {
     }
     /// Consumes the builder and constructs a [`JournalTableConfigurationResult`](crate::types::JournalTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
-    /// - [`table_status`](Self::table_status)
-    /// - [`table_name`](Self::table_name)
+    /// - [`table_status`](crate::types::builders::JournalTableConfigurationResultBuilder::table_status)
+    /// - [`table_name`](crate::types::builders::JournalTableConfigurationResultBuilder::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::JournalTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::JournalTableConfigurationResult {
             table_status: self.table_status.ok_or_else(|| {

@@ -66,8 +66,8 @@ impl TargetTrackingScalingPolicyBuilder {
     }
     /// Consumes the builder and constructs a [`TargetTrackingScalingPolicy`](crate::types::TargetTrackingScalingPolicy).
     /// This method will fail if any of the following fields are not set:
-    /// - [`predefined_metric_type`](Self::predefined_metric_type)
-    /// - [`target_value`](Self::target_value)
+    /// - [`predefined_metric_type`](crate::types::builders::TargetTrackingScalingPolicyBuilder::predefined_metric_type)
+    /// - [`target_value`](crate::types::builders::TargetTrackingScalingPolicyBuilder::target_value)
     pub fn build(self) -> ::std::result::Result<crate::types::TargetTrackingScalingPolicy, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TargetTrackingScalingPolicy {
             predefined_metric_type: self.predefined_metric_type.ok_or_else(|| {

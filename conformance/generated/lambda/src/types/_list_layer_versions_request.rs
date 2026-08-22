@@ -139,7 +139,7 @@ impl ListLayerVersionsRequestBuilder {
     }
     /// Consumes the builder and constructs a [`ListLayerVersionsRequest`](crate::types::ListLayerVersionsRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`layer_name`](Self::layer_name)
+    /// - [`layer_name`](crate::types::builders::ListLayerVersionsRequestBuilder::layer_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ListLayerVersionsRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListLayerVersionsRequest {
             compatible_architecture: self.compatible_architecture,

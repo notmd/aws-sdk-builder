@@ -90,7 +90,7 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
     }
     /// Consumes the builder and constructs a [`GlobalTableGlobalSecondaryIndexSettingsUpdate`](crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`index_name`](Self::index_name)
+    /// - [`index_name`](crate::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder::index_name)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {

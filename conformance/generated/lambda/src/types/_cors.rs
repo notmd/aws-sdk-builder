@@ -24,19 +24,27 @@ impl Cors {
         self.allow_credentials
     }
     /// <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allow_headers.is_none()`.
     pub fn allow_headers(&self) -> &[::std::string::String] {
         self.allow_headers.as_deref().unwrap_or_default()
     }
     /// <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allow_methods.is_none()`.
     pub fn allow_methods(&self) -> &[::std::string::String] {
         self.allow_methods.as_deref().unwrap_or_default()
     }
     /// <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p>
     /// <p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allow_origins.is_none()`.
     pub fn allow_origins(&self) -> &[::std::string::String] {
         self.allow_origins.as_deref().unwrap_or_default()
     }
     /// <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.expose_headers.is_none()`.
     pub fn expose_headers(&self) -> &[::std::string::String] {
         self.expose_headers.as_deref().unwrap_or_default()
     }
@@ -78,10 +86,11 @@ impl CorsBuilder {
     pub fn get_allow_credentials(&self) -> &::std::option::Option<bool> {
         &self.allow_credentials
     }
-    /// <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
     /// Appends an item to `allow_headers`.
     ///
     /// To override the contents of this collection use [`set_allow_headers`](Self::set_allow_headers).
+    ///
+    /// <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
     pub fn allow_headers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allow_headers.unwrap_or_default();
         v.push(input.into());
@@ -97,10 +106,11 @@ impl CorsBuilder {
     pub fn get_allow_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allow_headers
     }
-    /// <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
     /// Appends an item to `allow_methods`.
     ///
     /// To override the contents of this collection use [`set_allow_methods`](Self::set_allow_methods).
+    ///
+    /// <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
     pub fn allow_methods(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allow_methods.unwrap_or_default();
         v.push(input.into());
@@ -116,11 +126,12 @@ impl CorsBuilder {
     pub fn get_allow_methods(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allow_methods
     }
-    /// <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p>
-    /// <p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
     /// Appends an item to `allow_origins`.
     ///
     /// To override the contents of this collection use [`set_allow_origins`](Self::set_allow_origins).
+    ///
+    /// <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p>
+    /// <p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
     pub fn allow_origins(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allow_origins.unwrap_or_default();
         v.push(input.into());
@@ -138,10 +149,11 @@ impl CorsBuilder {
     pub fn get_allow_origins(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allow_origins
     }
-    /// <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
     /// Appends an item to `expose_headers`.
     ///
     /// To override the contents of this collection use [`set_expose_headers`](Self::set_expose_headers).
+    ///
+    /// <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
     pub fn expose_headers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.expose_headers.unwrap_or_default();
         v.push(input.into());

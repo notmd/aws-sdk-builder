@@ -10,6 +10,8 @@ pub struct ListOpenIdConnectProvidersOutput {
 }
 impl ListOpenIdConnectProvidersOutput {
     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.open_id_connect_provider_list.is_none()`.
     pub fn open_id_connect_provider_list(&self) -> &[crate::types::OpenIdConnectProviderListEntry] {
         self.open_id_connect_provider_list.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct ListOpenIdConnectProvidersOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListOpenIdConnectProvidersOutputBuilder {
-    /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     /// Appends an item to `open_id_connect_provider_list`.
     ///
     /// To override the contents of this collection use [`set_open_id_connect_provider_list`](Self::set_open_id_connect_provider_list).
+    ///
+    /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     pub fn open_id_connect_provider_list(mut self, input: crate::types::OpenIdConnectProviderListEntry) -> Self {
         let mut v = self.open_id_connect_provider_list.unwrap_or_default();
         v.push(input);

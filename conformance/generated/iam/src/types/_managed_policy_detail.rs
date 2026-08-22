@@ -11,6 +11,8 @@ pub struct ManagedPolicyDetail {
     /// <p>The stable and unique string identifying the policy.</p>
     /// <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub policy_id: ::std::option::Option<::std::string::String>,
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The path to the policy.</p>
     /// <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -21,7 +23,7 @@ pub struct ManagedPolicyDetail {
     /// <p>The number of principal entities (users, groups, and roles) that the policy is attached to.</p>
     pub attachment_count: ::std::option::Option<i32>,
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub permissions_boundary_usage_count: ::std::option::Option<i32>,
     /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
     pub is_attachable: ::std::option::Option<bool>,
@@ -45,6 +47,8 @@ impl ManagedPolicyDetail {
     pub fn policy_id(&self) -> ::std::option::Option<&str> {
         self.policy_id.as_deref()
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(&self) -> ::std::option::Option<&str> {
         self.arn.as_deref()
     }
@@ -63,7 +67,7 @@ impl ManagedPolicyDetail {
         self.attachment_count
     }
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary_usage_count(&self) -> ::std::option::Option<i32> {
         self.permissions_boundary_usage_count
     }
@@ -85,6 +89,8 @@ impl ManagedPolicyDetail {
         self.update_date.as_ref()
     }
     /// <p>A list containing information about the versions of the policy.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_version_list.is_none()`.
     pub fn policy_version_list(&self) -> &[crate::types::PolicyVersion] {
         self.policy_version_list.as_deref().unwrap_or_default()
     }
@@ -145,14 +151,20 @@ impl ManagedPolicyDetailBuilder {
     pub fn get_policy_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.policy_id
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
@@ -205,19 +217,19 @@ impl ManagedPolicyDetailBuilder {
         &self.attachment_count
     }
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary_usage_count(mut self, input: i32) -> Self {
         self.permissions_boundary_usage_count = ::std::option::Option::Some(input);
         self
     }
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn set_permissions_boundary_usage_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.permissions_boundary_usage_count = input;
         self
     }
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn get_permissions_boundary_usage_count(&self) -> &::std::option::Option<i32> {
         &self.permissions_boundary_usage_count
     }
@@ -280,10 +292,11 @@ impl ManagedPolicyDetailBuilder {
     pub fn get_update_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.update_date
     }
-    /// <p>A list containing information about the versions of the policy.</p>
     /// Appends an item to `policy_version_list`.
     ///
     /// To override the contents of this collection use [`set_policy_version_list`](Self::set_policy_version_list).
+    ///
+    /// <p>A list containing information about the versions of the policy.</p>
     pub fn policy_version_list(mut self, input: crate::types::PolicyVersion) -> Self {
         let mut v = self.policy_version_list.unwrap_or_default();
         v.push(input);

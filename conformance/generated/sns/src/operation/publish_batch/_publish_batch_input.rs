@@ -15,6 +15,8 @@ impl PublishBatchInput {
         self.topic_arn.as_deref()
     }
     /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.publish_batch_request_entries.is_none()`.
     pub fn publish_batch_request_entries(&self) -> &[crate::types::PublishBatchRequestEntry] {
         self.publish_batch_request_entries.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl PublishBatchInputBuilder {
     pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.topic_arn
     }
-    /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
     /// Appends an item to `publish_batch_request_entries`.
     ///
     /// To override the contents of this collection use [`set_publish_batch_request_entries`](Self::set_publish_batch_request_entries).
+    ///
+    /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
     pub fn publish_batch_request_entries(mut self, input: crate::types::PublishBatchRequestEntry) -> Self {
         let mut v = self.publish_batch_request_entries.unwrap_or_default();
         v.push(input);

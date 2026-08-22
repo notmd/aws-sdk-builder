@@ -34,10 +34,11 @@ pub struct GetAccountPropertiesOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetAccountPropertiesOutputBuilder {
-    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     /// Adds a key-value pair to `properties`.
     ///
     /// To override the contents of this collection use [`set_properties`](Self::set_properties).
+    ///
+    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     pub fn properties(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.properties.unwrap_or_default();
         map.insert(k.into(), v.into());

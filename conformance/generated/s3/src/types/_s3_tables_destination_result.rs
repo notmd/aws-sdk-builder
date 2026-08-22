@@ -116,10 +116,10 @@ impl S3TablesDestinationResultBuilder {
     }
     /// Consumes the builder and constructs a [`S3TablesDestinationResult`](crate::types::S3TablesDestinationResult).
     /// This method will fail if any of the following fields are not set:
-    /// - [`table_bucket_arn`](Self::table_bucket_arn)
-    /// - [`table_name`](Self::table_name)
-    /// - [`table_arn`](Self::table_arn)
-    /// - [`table_namespace`](Self::table_namespace)
+    /// - [`table_bucket_arn`](crate::types::builders::S3TablesDestinationResultBuilder::table_bucket_arn)
+    /// - [`table_name`](crate::types::builders::S3TablesDestinationResultBuilder::table_name)
+    /// - [`table_arn`](crate::types::builders::S3TablesDestinationResultBuilder::table_arn)
+    /// - [`table_namespace`](crate::types::builders::S3TablesDestinationResultBuilder::table_namespace)
     pub fn build(self) -> ::std::result::Result<crate::types::S3TablesDestinationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3TablesDestinationResult {
             table_bucket_arn: self.table_bucket_arn.ok_or_else(|| {

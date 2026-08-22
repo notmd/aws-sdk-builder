@@ -91,9 +91,9 @@ impl MfaDeviceBuilder {
     }
     /// Consumes the builder and constructs a [`MfaDevice`](crate::types::MfaDevice).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`serial_number`](Self::serial_number)
-    /// - [`enable_date`](Self::enable_date)
+    /// - [`user_name`](crate::types::builders::MfaDeviceBuilder::user_name)
+    /// - [`serial_number`](crate::types::builders::MfaDeviceBuilder::serial_number)
+    /// - [`enable_date`](crate::types::builders::MfaDeviceBuilder::enable_date)
     pub fn build(self) -> ::std::result::Result<crate::types::MfaDevice, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MfaDevice {
             user_name: self.user_name.ok_or_else(|| {

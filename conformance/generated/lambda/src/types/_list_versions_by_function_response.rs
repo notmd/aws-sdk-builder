@@ -15,6 +15,8 @@ impl ListVersionsByFunctionResponse {
         self.next_marker.as_deref()
     }
     /// <p>A list of Lambda function versions.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.versions.is_none()`.
     pub fn versions(&self) -> &[crate::types::FunctionConfiguration] {
         self.versions.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListVersionsByFunctionResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>A list of Lambda function versions.</p>
     /// Appends an item to `versions`.
     ///
     /// To override the contents of this collection use [`set_versions`](Self::set_versions).
+    ///
+    /// <p>A list of Lambda function versions.</p>
     pub fn versions(mut self, input: crate::types::FunctionConfiguration) -> Self {
         let mut v = self.versions.unwrap_or_default();
         v.push(input);

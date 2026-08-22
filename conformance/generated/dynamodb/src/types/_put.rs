@@ -65,10 +65,11 @@ pub struct PutBuilder {
     pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl PutBuilder {
-    /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
     /// Adds a key-value pair to `item`.
     ///
     /// To override the contents of this collection use [`set_item`](Self::set_item).
+    ///
+    /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
     pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.item.unwrap_or_default();
         map.insert(k.into(), v);
@@ -116,10 +117,11 @@ impl PutBuilder {
     pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.condition_expression
     }
-    /// <p>One or more substitution tokens for attribute names in an expression.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
+    ///
+    /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn expression_attribute_names(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -144,10 +146,11 @@ impl PutBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
-    /// <p>One or more values that can be substituted in an expression.</p>
     /// Adds a key-value pair to `expression_attribute_values`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
+    ///
+    /// <p>One or more values that can be substituted in an expression.</p>
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.expression_attribute_values.unwrap_or_default();
         map.insert(k.into(), v);
@@ -187,8 +190,8 @@ impl PutBuilder {
     }
     /// Consumes the builder and constructs a [`Put`](crate::types::Put).
     /// This method will fail if any of the following fields are not set:
-    /// - [`item`](Self::item)
-    /// - [`table_name`](Self::table_name)
+    /// - [`item`](crate::types::builders::PutBuilder::item)
+    /// - [`table_name`](crate::types::builders::PutBuilder::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::Put, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Put {
             item: self.item.ok_or_else(|| {

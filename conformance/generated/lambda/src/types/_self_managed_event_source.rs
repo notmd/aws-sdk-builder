@@ -29,10 +29,11 @@ pub struct SelfManagedEventSourceBuilder {
     pub(crate) endpoints: ::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
 }
 impl SelfManagedEventSourceBuilder {
-    /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
     /// Adds a key-value pair to `endpoints`.
     ///
     /// To override the contents of this collection use [`set_endpoints`](Self::set_endpoints).
+    ///
+    /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
     pub fn endpoints(mut self, k: crate::types::EndPointType, v: ::std::vec::Vec<::std::string::String>) -> Self {
         let mut map = self.endpoints.unwrap_or_default();
         map.insert(k, v);

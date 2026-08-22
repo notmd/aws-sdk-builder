@@ -15,21 +15,80 @@ pub struct PublishInput {
     /// <p>The message you want to send.</p>
     /// <p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter.</p>
     /// <p></p>
-    /// <p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li><li><p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
+    /// <p>Constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li>
+    /// <li>
+    /// <p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
     /// <p>If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.</p>
-    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
+    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li>
+    /// </ul>
+    /// <p>JSON-specific constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li>
+    /// <li>
+    /// <p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li>
+    /// <li>
+    /// <p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li>
+    /// <li>
+    /// <p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li>
+    /// <li>
+    /// <p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li>
+    /// <li>
+    /// <p>Non-string values will cause the key to be ignored.</p></li>
+    /// <li>
+    /// <p>Keys that do not correspond to supported transport protocols are ignored.</p></li>
+    /// <li>
+    /// <p>Duplicate keys are not allowed.</p></li>
+    /// <li>
+    /// <p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li>
+    /// </ul>
     pub message: ::std::option::Option<::std::string::String>,
     /// <p>Optional parameter to be used as the "Subject" line when the message is delivered to email endpoints. This field will also be included, if present, in the standard JSON messages delivered to other endpoints.</p>
     /// <p>Constraints: Subjects must be UTF-8 text with no line breaks or control characters, and less than 100 characters long.</p>
     pub subject: ::std::option::Option<::std::string::String>,
-    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
+    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p>
+    /// <ul>
+    /// <li>
+    /// <p>be a syntactically valid JSON object; and</p></li>
+    /// <li>
+    /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
+    /// </ul>
+    /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
     pub message_structure: ::std::option::Option<::std::string::String>,
     /// <p>Message attributes for Publish action.</p>
     pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
-    /// <ul><li><p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li><li><p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li><li><p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>:</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li></ul>
+    /// <ul>
+    /// <li>
+    /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li>
+    /// <li>
+    /// <p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li>
+    /// <li>
+    /// <p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
+    /// <li>
+    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
+    /// <li>
+    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
+    /// <li>
+    /// <p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li>
+    /// <li>
+    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
+    /// </ul>
     pub message_deduplication_id: ::std::option::Option<::std::string::String>,
-    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
     pub message_group_id: ::std::option::Option<::std::string::String>,
@@ -52,9 +111,36 @@ impl PublishInput {
     /// <p>The message you want to send.</p>
     /// <p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter.</p>
     /// <p></p>
-    /// <p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li><li><p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
+    /// <p>Constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li>
+    /// <li>
+    /// <p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
     /// <p>If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.</p>
-    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
+    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li>
+    /// </ul>
+    /// <p>JSON-specific constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li>
+    /// <li>
+    /// <p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li>
+    /// <li>
+    /// <p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li>
+    /// <li>
+    /// <p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li>
+    /// <li>
+    /// <p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li>
+    /// <li>
+    /// <p>Non-string values will cause the key to be ignored.</p></li>
+    /// <li>
+    /// <p>Keys that do not correspond to supported transport protocols are ignored.</p></li>
+    /// <li>
+    /// <p>Duplicate keys are not allowed.</p></li>
+    /// <li>
+    /// <p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li>
+    /// </ul>
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
@@ -63,7 +149,14 @@ impl PublishInput {
     pub fn subject(&self) -> ::std::option::Option<&str> {
         self.subject.as_deref()
     }
-    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
+    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p>
+    /// <ul>
+    /// <li>
+    /// <p>be a syntactically valid JSON object; and</p></li>
+    /// <li>
+    /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
+    /// </ul>
+    /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
     pub fn message_structure(&self) -> ::std::option::Option<&str> {
         self.message_structure.as_deref()
@@ -74,11 +167,36 @@ impl PublishInput {
     ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
         self.message_attributes.as_ref()
     }
-    /// <ul><li><p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li><li><p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li><li><p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>:</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li></ul>
+    /// <ul>
+    /// <li>
+    /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li>
+    /// <li>
+    /// <p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li>
+    /// <li>
+    /// <p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
+    /// <li>
+    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
+    /// <li>
+    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
+    /// <li>
+    /// <p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li>
+    /// <li>
+    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
+    /// </ul>
     pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> {
         self.message_deduplication_id.as_deref()
     }
-    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
     pub fn message_group_id(&self) -> ::std::option::Option<&str> {
@@ -158,9 +276,36 @@ impl PublishInputBuilder {
     /// <p>The message you want to send.</p>
     /// <p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter.</p>
     /// <p></p>
-    /// <p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li><li><p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
+    /// <p>Constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li>
+    /// <li>
+    /// <p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
     /// <p>If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.</p>
-    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
+    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li>
+    /// </ul>
+    /// <p>JSON-specific constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li>
+    /// <li>
+    /// <p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li>
+    /// <li>
+    /// <p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li>
+    /// <li>
+    /// <p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li>
+    /// <li>
+    /// <p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li>
+    /// <li>
+    /// <p>Non-string values will cause the key to be ignored.</p></li>
+    /// <li>
+    /// <p>Keys that do not correspond to supported transport protocols are ignored.</p></li>
+    /// <li>
+    /// <p>Duplicate keys are not allowed.</p></li>
+    /// <li>
+    /// <p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li>
+    /// </ul>
     /// This field is required.
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
@@ -169,9 +314,36 @@ impl PublishInputBuilder {
     /// <p>The message you want to send.</p>
     /// <p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter.</p>
     /// <p></p>
-    /// <p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li><li><p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
+    /// <p>Constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li>
+    /// <li>
+    /// <p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
     /// <p>If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.</p>
-    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
+    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li>
+    /// </ul>
+    /// <p>JSON-specific constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li>
+    /// <li>
+    /// <p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li>
+    /// <li>
+    /// <p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li>
+    /// <li>
+    /// <p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li>
+    /// <li>
+    /// <p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li>
+    /// <li>
+    /// <p>Non-string values will cause the key to be ignored.</p></li>
+    /// <li>
+    /// <p>Keys that do not correspond to supported transport protocols are ignored.</p></li>
+    /// <li>
+    /// <p>Duplicate keys are not allowed.</p></li>
+    /// <li>
+    /// <p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li>
+    /// </ul>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self
@@ -179,9 +351,36 @@ impl PublishInputBuilder {
     /// <p>The message you want to send.</p>
     /// <p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter.</p>
     /// <p></p>
-    /// <p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li><li><p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
+    /// <p>Constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li>
+    /// <li>
+    /// <p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p>
     /// <p>If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.</p>
-    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
+    /// <p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li>
+    /// </ul>
+    /// <p>JSON-specific constraints:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li>
+    /// <li>
+    /// <p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li>
+    /// <li>
+    /// <p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li>
+    /// <li>
+    /// <p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li>
+    /// <li>
+    /// <p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li>
+    /// <li>
+    /// <p>Non-string values will cause the key to be ignored.</p></li>
+    /// <li>
+    /// <p>Keys that do not correspond to supported transport protocols are ignored.</p></li>
+    /// <li>
+    /// <p>Duplicate keys are not allowed.</p></li>
+    /// <li>
+    /// <p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li>
+    /// </ul>
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.message
     }
@@ -202,27 +401,49 @@ impl PublishInputBuilder {
     pub fn get_subject(&self) -> &::std::option::Option<::std::string::String> {
         &self.subject
     }
-    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
+    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p>
+    /// <ul>
+    /// <li>
+    /// <p>be a syntactically valid JSON object; and</p></li>
+    /// <li>
+    /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
+    /// </ul>
+    /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
     pub fn message_structure(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_structure = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
+    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p>
+    /// <ul>
+    /// <li>
+    /// <p>be a syntactically valid JSON object; and</p></li>
+    /// <li>
+    /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
+    /// </ul>
+    /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
     pub fn set_message_structure(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_structure = input;
         self
     }
-    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
+    /// <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must:</p>
+    /// <ul>
+    /// <li>
+    /// <p>be a syntactically valid JSON object; and</p></li>
+    /// <li>
+    /// <p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li>
+    /// </ul>
+    /// <p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p>
     /// <p>Valid value: <code>json</code></p>
     pub fn get_message_structure(&self) -> &::std::option::Option<::std::string::String> {
         &self.message_structure
     }
-    /// <p>Message attributes for Publish action.</p>
     /// Adds a key-value pair to `message_attributes`.
     ///
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
+    ///
+    /// <p>Message attributes for Publish action.</p>
     pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::MessageAttributeValue) -> Self {
         let mut map = self.message_attributes.unwrap_or_default();
         map.insert(k.into(), v);
@@ -243,35 +464,110 @@ impl PublishInputBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
         &self.message_attributes
     }
-    /// <ul><li><p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li><li><p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li><li><p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>:</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li></ul>
+    /// <ul>
+    /// <li>
+    /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li>
+    /// <li>
+    /// <p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li>
+    /// <li>
+    /// <p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
+    /// <li>
+    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
+    /// <li>
+    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
+    /// <li>
+    /// <p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li>
+    /// <li>
+    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
+    /// </ul>
     pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_deduplication_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <ul><li><p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li><li><p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li><li><p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>:</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li></ul>
+    /// <ul>
+    /// <li>
+    /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li>
+    /// <li>
+    /// <p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li>
+    /// <li>
+    /// <p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
+    /// <li>
+    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
+    /// <li>
+    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
+    /// <li>
+    /// <p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li>
+    /// <li>
+    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
+    /// </ul>
     pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_deduplication_id = input;
         self
     }
-    /// <ul><li><p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li><li><p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li><li><p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li><li><p>Every message must have a unique <code>MessageDeduplicationId</code>:</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li></ul>
+    /// <ul>
+    /// <li>
+    /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages within the 5 minute minimum deduplication interval.</p></li>
+    /// <li>
+    /// <p>The scope of deduplication depends on the <code>FifoThroughputScope</code> attribute, when set to <code>Topic</code> the message deduplication scope is across the entire topic, when set to <code>MessageGroup</code> the message deduplication scope is within each individual message group.</p></li>
+    /// <li>
+    /// <p>If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages within the deduplication scope and interval, with the same <code>MessageDeduplicationId</code>, are accepted successfully but aren't delivered.</p></li>
+    /// <li>
+    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
+    /// <li>
+    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your topic, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
+    /// <li>
+    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the topic doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
+    /// <li>
+    /// <p>If the topic has a <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication scope and interval are treated as duplicates and only one copy of the message is delivered.</p></li>
+    /// <li>
+    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled, and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates, within the deduplication scope and interval, and only one copy of the message is delivered.</p></li>
+    /// </ul>
     pub fn get_message_deduplication_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.message_deduplication_id
     }
-    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
     pub fn message_group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message_group_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
     pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_group_id = input;
         self
     }
-    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+    /// <p>The <code>MessageGroupId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
     /// <p>For FIFO topics: The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). Every message must include a <code>MessageGroupId</code>.</p>
     /// <p>For standard topics: The <code>MessageGroupId</code> is optional and is forwarded only to Amazon SQS standard subscriptions to activate <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fair-queues.html">fair queues</a>. The <code>MessageGroupId</code> is not used for, or sent to, any other endpoint types. When provided, the same validation rules apply as for FIFO topics.</p>
     pub fn get_message_group_id(&self) -> &::std::option::Option<::std::string::String> {

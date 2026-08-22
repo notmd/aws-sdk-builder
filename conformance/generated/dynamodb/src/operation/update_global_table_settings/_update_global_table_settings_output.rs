@@ -16,6 +16,8 @@ impl UpdateGlobalTableSettingsOutput {
         self.global_table_name.as_deref()
     }
     /// <p>The Region-specific settings for the global table.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_settings.is_none()`.
     pub fn replica_settings(&self) -> &[crate::types::ReplicaSettingsDescription] {
         self.replica_settings.as_deref().unwrap_or_default()
     }
@@ -55,10 +57,11 @@ impl UpdateGlobalTableSettingsOutputBuilder {
     pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.global_table_name
     }
-    /// <p>The Region-specific settings for the global table.</p>
     /// Appends an item to `replica_settings`.
     ///
     /// To override the contents of this collection use [`set_replica_settings`](Self::set_replica_settings).
+    ///
+    /// <p>The Region-specific settings for the global table.</p>
     pub fn replica_settings(mut self, input: crate::types::ReplicaSettingsDescription) -> Self {
         let mut v = self.replica_settings.unwrap_or_default();
         v.push(input);

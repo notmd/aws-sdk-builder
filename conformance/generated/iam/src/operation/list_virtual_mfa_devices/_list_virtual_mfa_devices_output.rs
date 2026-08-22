@@ -49,10 +49,11 @@ pub struct ListVirtualMfaDevicesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListVirtualMfaDevicesOutputBuilder {
-    /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
     /// Appends an item to `virtual_mfa_devices`.
     ///
     /// To override the contents of this collection use [`set_virtual_mfa_devices`](Self::set_virtual_mfa_devices).
+    ///
+    /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
     pub fn virtual_mfa_devices(mut self, input: crate::types::VirtualMfaDevice) -> Self {
         let mut v = self.virtual_mfa_devices.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListVirtualMfaDevicesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`virtual_mfa_devices`](Self::virtual_mfa_devices)
+    /// - [`virtual_mfa_devices`](crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder::virtual_mfa_devices)
     pub fn build(
         self,
     ) -> ::std::result::Result<

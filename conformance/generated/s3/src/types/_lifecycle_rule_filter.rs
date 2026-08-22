@@ -4,7 +4,9 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct LifecycleRuleFilter {
-    /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// </important>
     pub prefix: ::std::option::Option<::std::string::String>,
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
@@ -14,10 +16,13 @@ pub struct LifecycleRuleFilter {
     pub object_size_greater_than: ::std::option::Option<i64>,
     /// <p>Maximum object size to which the rule applies.</p>
     pub object_size_less_than: ::std::option::Option<i64>,
+    /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
     pub and: ::std::option::Option<crate::types::LifecycleRuleAndOperator>,
 }
 impl LifecycleRuleFilter {
-    /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// </important>
     pub fn prefix(&self) -> ::std::option::Option<&str> {
         self.prefix.as_deref()
     }
@@ -35,6 +40,7 @@ impl LifecycleRuleFilter {
     pub fn object_size_less_than(&self) -> ::std::option::Option<i64> {
         self.object_size_less_than
     }
+    /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
     pub fn and(&self) -> ::std::option::Option<&crate::types::LifecycleRuleAndOperator> {
         self.and.as_ref()
     }
@@ -57,17 +63,23 @@ pub struct LifecycleRuleFilterBuilder {
     pub(crate) and: ::std::option::Option<crate::types::LifecycleRuleAndOperator>,
 }
 impl LifecycleRuleFilterBuilder {
-    /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// </important>
     pub fn prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// </important>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
     }
-    /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p><important>
+    /// <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints"> XML related object key constraints</a>.</p>
+    /// </important>
     pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
         &self.prefix
     }
@@ -119,14 +131,17 @@ impl LifecycleRuleFilterBuilder {
     pub fn get_object_size_less_than(&self) -> &::std::option::Option<i64> {
         &self.object_size_less_than
     }
+    /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
     pub fn and(mut self, input: crate::types::LifecycleRuleAndOperator) -> Self {
         self.and = ::std::option::Option::Some(input);
         self
     }
+    /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
     pub fn set_and(mut self, input: ::std::option::Option<crate::types::LifecycleRuleAndOperator>) -> Self {
         self.and = input;
         self
     }
+    /// <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
     pub fn get_and(&self) -> &::std::option::Option<crate::types::LifecycleRuleAndOperator> {
         &self.and
     }

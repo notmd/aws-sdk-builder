@@ -31,12 +31,13 @@ pub struct PutAccountPropertiesInputBuilder {
     pub(crate) properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl PutAccountPropertiesInputBuilder {
-    /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
-    /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
-    /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     /// Adds a key-value pair to `properties`.
     ///
     /// To override the contents of this collection use [`set_properties`](Self::set_properties).
+    ///
+    /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
+    /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
+    /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn properties(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.properties.unwrap_or_default();
         map.insert(k.into(), v.into());

@@ -9,29 +9,88 @@ pub struct PutItemInput {
     /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
     /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
-    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p><ul><li><p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li><li><p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li><li><p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li></ul><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li>
+    /// <li>
+    /// <p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li>
+    /// <li>
+    /// <p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li>
+    /// </ul>
+    /// <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
     /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
     pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
-    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p>
+    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li>
+    /// <li>
+    /// <p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li>
+    /// </ul>
+    /// <p>The values returned are strongly consistent.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
     /// </note>
     pub return_values: ::std::option::Option<crate::types::ReturnValue>,
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
     pub return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub conditional_operator: ::std::option::Option<crate::types::ConditionalOperator>,
     /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
-    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
-    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>An expression can contain any of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
+    /// <p>These function names are case-sensitive.</p></li>
+    /// <li>
+    /// <p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li>
+    /// <li>
+    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
+    /// </ul>
+    /// <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub condition_expression: ::std::option::Option<::std::string::String>,
-    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li>
+    /// <li>
+    /// <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li>
+    /// <li>
+    /// <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li>
+    /// </ul>
+    /// <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Percentile</code></p></li>
+    /// </ul>
+    /// <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>{"#P":"Percentile"}</code></p></li>
+    /// </ul>
+    /// <p>You could then use this substitution in an expression, as in this example:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>#P = :val</code></p></li>
+    /// </ul><note>
     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
-    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note>
+    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>One or more values that can be substituted in an expression.</p>
     /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
@@ -54,7 +113,16 @@ impl PutItemInput {
     /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
     /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
-    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p><ul><li><p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li><li><p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li><li><p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li></ul><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li>
+    /// <li>
+    /// <p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li>
+    /// <li>
+    /// <p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li>
+    /// </ul>
+    /// <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
     /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
     pub fn item(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
@@ -64,13 +132,30 @@ impl PutItemInput {
     pub fn expected(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>> {
         self.expected.as_ref()
     }
-    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p>
+    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li>
+    /// <li>
+    /// <p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li>
+    /// </ul>
+    /// <p>The values returned are strongly consistent.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
     /// </note>
     pub fn return_values(&self) -> ::std::option::Option<&crate::types::ReturnValue> {
         self.return_values.as_ref()
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
@@ -83,14 +168,47 @@ impl PutItemInput {
         self.conditional_operator.as_ref()
     }
     /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
-    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
-    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>An expression can contain any of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
+    /// <p>These function names are case-sensitive.</p></li>
+    /// <li>
+    /// <p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li>
+    /// <li>
+    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
+    /// </ul>
+    /// <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn condition_expression(&self) -> ::std::option::Option<&str> {
         self.condition_expression.as_deref()
     }
-    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li>
+    /// <li>
+    /// <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li>
+    /// <li>
+    /// <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li>
+    /// </ul>
+    /// <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Percentile</code></p></li>
+    /// </ul>
+    /// <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>{"#P":"Percentile"}</code></p></li>
+    /// </ul>
+    /// <p>You could then use this substitution in an expression, as in this example:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>#P = :val</code></p></li>
+    /// </ul><note>
     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
-    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note>
+    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.expression_attribute_names.as_ref()
     }
@@ -152,15 +270,25 @@ impl PutItemInputBuilder {
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_name
     }
-    /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
-    /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
-    /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
-    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p><ul><li><p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li><li><p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li><li><p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li></ul><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
-    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
     /// Adds a key-value pair to `item`.
     ///
     /// To override the contents of this collection use [`set_item`](Self::set_item).
+    ///
+    /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
+    /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
+    /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
+    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li>
+    /// <li>
+    /// <p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li>
+    /// <li>
+    /// <p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li>
+    /// </ul>
+    /// <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
     pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.item.unwrap_or_default();
         map.insert(k.into(), v);
@@ -170,7 +298,16 @@ impl PutItemInputBuilder {
     /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
     /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
-    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p><ul><li><p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li><li><p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li><li><p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li></ul><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li>
+    /// <li>
+    /// <p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li>
+    /// <li>
+    /// <p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li>
+    /// </ul>
+    /// <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
     /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
     pub fn set_item(
@@ -183,16 +320,26 @@ impl PutItemInputBuilder {
     /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
     /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
-    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p><ul><li><p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li><li><p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li><li><p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li></ul><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li>
+    /// <li>
+    /// <p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li>
+    /// <li>
+    /// <p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li>
+    /// </ul>
+    /// <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
     /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
     pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.item
     }
-    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Adds a key-value pair to `expected`.
     ///
     /// To override the contents of this collection use [`set_expected`](Self::set_expected).
+    ///
+    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expected(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::ExpectedAttributeValue) -> Self {
         let mut map = self.expected.unwrap_or_default();
         map.insert(k.into(), v);
@@ -211,7 +358,14 @@ impl PutItemInputBuilder {
     pub fn get_expected(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>> {
         &self.expected
     }
-    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p>
+    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li>
+    /// <li>
+    /// <p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li>
+    /// </ul>
+    /// <p>The values returned are strongly consistent.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
     /// </note>
@@ -219,7 +373,14 @@ impl PutItemInputBuilder {
         self.return_values = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p>
+    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li>
+    /// <li>
+    /// <p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li>
+    /// </ul>
+    /// <p>The values returned are strongly consistent.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
     /// </note>
@@ -227,21 +388,58 @@ impl PutItemInputBuilder {
         self.return_values = input;
         self
     }
-    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p>
+    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li>
+    /// <li>
+    /// <p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li>
+    /// </ul>
+    /// <p>The values returned are strongly consistent.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
     /// </note>
     pub fn get_return_values(&self) -> &::std::option::Option<crate::types::ReturnValue> {
         &self.return_values
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
         self.return_consumed_capacity = input;
         self
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
@@ -274,31 +472,83 @@ impl PutItemInputBuilder {
         &self.conditional_operator
     }
     /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
-    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
-    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>An expression can contain any of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
+    /// <p>These function names are case-sensitive.</p></li>
+    /// <li>
+    /// <p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li>
+    /// <li>
+    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
+    /// </ul>
+    /// <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
-    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
-    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>An expression can contain any of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
+    /// <p>These function names are case-sensitive.</p></li>
+    /// <li>
+    /// <p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li>
+    /// <li>
+    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
+    /// </ul>
+    /// <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.condition_expression = input;
         self
     }
     /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
-    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
-    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>An expression can contain any of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
+    /// <p>These function names are case-sensitive.</p></li>
+    /// <li>
+    /// <p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li>
+    /// <li>
+    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
+    /// </ul>
+    /// <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.condition_expression
     }
-    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
-    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
-    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
+    ///
+    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li>
+    /// <li>
+    /// <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li>
+    /// <li>
+    /// <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li>
+    /// </ul>
+    /// <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Percentile</code></p></li>
+    /// </ul>
+    /// <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>{"#P":"Percentile"}</code></p></li>
+    /// </ul>
+    /// <p>You could then use this substitution in an expression, as in this example:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>#P = :val</code></p></li>
+    /// </ul><note>
+    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
+    /// </note>
+    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expression_attribute_names(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -309,9 +559,33 @@ impl PutItemInputBuilder {
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
-    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li>
+    /// <li>
+    /// <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li>
+    /// <li>
+    /// <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li>
+    /// </ul>
+    /// <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Percentile</code></p></li>
+    /// </ul>
+    /// <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>{"#P":"Percentile"}</code></p></li>
+    /// </ul>
+    /// <p>You could then use this substitution in an expression, as in this example:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>#P = :val</code></p></li>
+    /// </ul><note>
     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
-    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note>
+    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_expression_attribute_names(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -319,14 +593,42 @@ impl PutItemInputBuilder {
         self.expression_attribute_names = input;
         self
     }
-    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li>
+    /// <li>
+    /// <p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li>
+    /// <li>
+    /// <p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li>
+    /// </ul>
+    /// <p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Percentile</code></p></li>
+    /// </ul>
+    /// <p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>{"#P":"Percentile"}</code></p></li>
+    /// </ul>
+    /// <p>You could then use this substitution in an expression, as in this example:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>#P = :val</code></p></li>
+    /// </ul><note>
     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
-    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note>
+    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_expression_attribute_names(
         &self,
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
+    /// Adds a key-value pair to `expression_attribute_values`.
+    ///
+    /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
+    ///
     /// <p>One or more values that can be substituted in an expression.</p>
     /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
     /// <p><code>Available | Backordered | Discontinued</code></p>
@@ -335,9 +637,6 @@ impl PutItemInputBuilder {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    /// Adds a key-value pair to `expression_attribute_values`.
-    ///
-    /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.expression_attribute_values.unwrap_or_default();
         map.insert(k.into(), v);

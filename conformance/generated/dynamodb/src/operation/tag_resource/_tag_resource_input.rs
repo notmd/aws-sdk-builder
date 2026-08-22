@@ -15,6 +15,8 @@ impl TagResourceInput {
         self.resource_arn.as_deref()
     }
     /// <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl TagResourceInputBuilder {
     pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource_arn
     }
-    /// <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

@@ -10,6 +10,8 @@ pub struct ReceiveMessageOutput {
 }
 impl ReceiveMessageOutput {
     /// <p>A list of messages.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.messages.is_none()`.
     pub fn messages(&self) -> &[crate::types::Message] {
         self.messages.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct ReceiveMessageOutputBuilder {
     _request_id: Option<String>,
 }
 impl ReceiveMessageOutputBuilder {
-    /// <p>A list of messages.</p>
     /// Appends an item to `messages`.
     ///
     /// To override the contents of this collection use [`set_messages`](Self::set_messages).
+    ///
+    /// <p>A list of messages.</p>
     pub fn messages(mut self, input: crate::types::Message) -> Self {
         let mut v = self.messages.unwrap_or_default();
         v.push(input);

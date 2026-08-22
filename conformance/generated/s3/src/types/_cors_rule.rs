@@ -23,6 +23,8 @@ impl CorsRule {
         self.id.as_deref()
     }
     /// <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allowed_headers.is_none()`.
     pub fn allowed_headers(&self) -> &[::std::string::String] {
         self.allowed_headers.as_deref().unwrap_or_default()
     }
@@ -37,6 +39,8 @@ impl CorsRule {
         self.allowed_origins.deref()
     }
     /// <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.expose_headers.is_none()`.
     pub fn expose_headers(&self) -> &[::std::string::String] {
         self.expose_headers.as_deref().unwrap_or_default()
     }
@@ -78,10 +82,11 @@ impl CorsRuleBuilder {
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
-    /// <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.</p>
     /// Appends an item to `allowed_headers`.
     ///
     /// To override the contents of this collection use [`set_allowed_headers`](Self::set_allowed_headers).
+    ///
+    /// <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.</p>
     pub fn allowed_headers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allowed_headers.unwrap_or_default();
         v.push(input.into());
@@ -97,10 +102,11 @@ impl CorsRuleBuilder {
     pub fn get_allowed_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_headers
     }
-    /// <p>An HTTP method that you allow the origin to execute. Valid values are <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and <code>DELETE</code>.</p>
     /// Appends an item to `allowed_methods`.
     ///
     /// To override the contents of this collection use [`set_allowed_methods`](Self::set_allowed_methods).
+    ///
+    /// <p>An HTTP method that you allow the origin to execute. Valid values are <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and <code>DELETE</code>.</p>
     pub fn allowed_methods(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allowed_methods.unwrap_or_default();
         v.push(input.into());
@@ -116,10 +122,11 @@ impl CorsRuleBuilder {
     pub fn get_allowed_methods(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_methods
     }
-    /// <p>One or more origins you want customers to be able to access the bucket from.</p>
     /// Appends an item to `allowed_origins`.
     ///
     /// To override the contents of this collection use [`set_allowed_origins`](Self::set_allowed_origins).
+    ///
+    /// <p>One or more origins you want customers to be able to access the bucket from.</p>
     pub fn allowed_origins(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allowed_origins.unwrap_or_default();
         v.push(input.into());
@@ -135,10 +142,11 @@ impl CorsRuleBuilder {
     pub fn get_allowed_origins(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_origins
     }
-    /// <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
     /// Appends an item to `expose_headers`.
     ///
     /// To override the contents of this collection use [`set_expose_headers`](Self::set_expose_headers).
+    ///
+    /// <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
     pub fn expose_headers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.expose_headers.unwrap_or_default();
         v.push(input.into());
@@ -170,8 +178,8 @@ impl CorsRuleBuilder {
     }
     /// Consumes the builder and constructs a [`CorsRule`](crate::types::CorsRule).
     /// This method will fail if any of the following fields are not set:
-    /// - [`allowed_methods`](Self::allowed_methods)
-    /// - [`allowed_origins`](Self::allowed_origins)
+    /// - [`allowed_methods`](crate::types::builders::CorsRuleBuilder::allowed_methods)
+    /// - [`allowed_origins`](crate::types::builders::CorsRuleBuilder::allowed_origins)
     pub fn build(self) -> ::std::result::Result<crate::types::CorsRule, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CorsRule {
             id: self.id,

@@ -44,7 +44,7 @@ impl StopDurableExecutionResponseBuilder {
     }
     /// Consumes the builder and constructs a [`StopDurableExecutionResponse`](crate::types::StopDurableExecutionResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`stop_timestamp`](Self::stop_timestamp)
+    /// - [`stop_timestamp`](crate::types::builders::StopDurableExecutionResponseBuilder::stop_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::StopDurableExecutionResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StopDurableExecutionResponse {
             stop_timestamp: self.stop_timestamp.ok_or_else(|| {

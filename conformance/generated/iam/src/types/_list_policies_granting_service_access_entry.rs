@@ -18,6 +18,8 @@ impl ListPoliciesGrantingServiceAccessEntry {
         self.service_namespace.as_deref()
     }
     /// <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
     pub fn policies(&self) -> &[crate::types::PolicyGrantingServiceAccess] {
         self.policies.as_deref().unwrap_or_default()
     }
@@ -54,10 +56,11 @@ impl ListPoliciesGrantingServiceAccessEntryBuilder {
     pub fn get_service_namespace(&self) -> &::std::option::Option<::std::string::String> {
         &self.service_namespace
     }
-    /// <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
     /// Appends an item to `policies`.
     ///
     /// To override the contents of this collection use [`set_policies`](Self::set_policies).
+    ///
+    /// <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
     pub fn policies(mut self, input: crate::types::PolicyGrantingServiceAccess) -> Self {
         let mut v = self.policies.unwrap_or_default();
         v.push(input);

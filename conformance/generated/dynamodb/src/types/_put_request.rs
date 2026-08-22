@@ -27,10 +27,11 @@ pub struct PutRequestBuilder {
     pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 }
 impl PutRequestBuilder {
-    /// <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
     /// Adds a key-value pair to `item`.
     ///
     /// To override the contents of this collection use [`set_item`](Self::set_item).
+    ///
+    /// <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
     pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.item.unwrap_or_default();
         map.insert(k.into(), v);
@@ -51,7 +52,7 @@ impl PutRequestBuilder {
     }
     /// Consumes the builder and constructs a [`PutRequest`](crate::types::PutRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`item`](Self::item)
+    /// - [`item`](crate::types::builders::PutRequestBuilder::item)
     pub fn build(self) -> ::std::result::Result<crate::types::PutRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PutRequest {
             item: self.item.ok_or_else(|| {

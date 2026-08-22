@@ -83,8 +83,8 @@ impl DeleteMessageBatchRequestEntryBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteMessageBatchRequestEntry`](crate::types::DeleteMessageBatchRequestEntry).
     /// This method will fail if any of the following fields are not set:
-    /// - [`id`](Self::id)
-    /// - [`receipt_handle`](Self::receipt_handle)
+    /// - [`id`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::id)
+    /// - [`receipt_handle`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::receipt_handle)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteMessageBatchRequestEntry {
             id: self.id.ok_or_else(|| {

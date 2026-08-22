@@ -49,10 +49,11 @@ pub struct ListAccessKeysOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListAccessKeysOutputBuilder {
-    /// <p>A list of objects containing metadata about the access keys.</p>
     /// Appends an item to `access_key_metadata`.
     ///
     /// To override the contents of this collection use [`set_access_key_metadata`](Self::set_access_key_metadata).
+    ///
+    /// <p>A list of objects containing metadata about the access keys.</p>
     pub fn access_key_metadata(mut self, input: crate::types::AccessKeyMetadata) -> Self {
         let mut v = self.access_key_metadata.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListAccessKeysOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListAccessKeysOutput`](crate::operation::list_access_keys::ListAccessKeysOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`access_key_metadata`](Self::access_key_metadata)
+    /// - [`access_key_metadata`](crate::operation::list_access_keys::builders::ListAccessKeysOutputBuilder::access_key_metadata)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_access_keys::ListAccessKeysOutput, ::aws_smithy_types::error::operation::BuildError> {

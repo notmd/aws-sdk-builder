@@ -44,7 +44,7 @@ impl EphemeralStorageBuilder {
     }
     /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
     /// This method will fail if any of the following fields are not set:
-    /// - [`size`](Self::size)
+    /// - [`size`](crate::types::builders::EphemeralStorageBuilder::size)
     pub fn build(self) -> ::std::result::Result<crate::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::EphemeralStorage {
             size: self.size.ok_or_else(|| {

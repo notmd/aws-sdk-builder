@@ -6,7 +6,13 @@
 pub struct LocalSecondaryIndexInfo {
     /// <p>Represents the name of the local secondary index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
-    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -19,10 +25,18 @@ impl LocalSecondaryIndexInfo {
     pub fn index_name(&self) -> ::std::option::Option<&str> {
         self.index_name.as_deref()
     }
-    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.key_schema.is_none()`.
     pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
         self.key_schema.as_deref().unwrap_or_default()
     }
@@ -61,20 +75,33 @@ impl LocalSecondaryIndexInfoBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
-    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
-    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
-    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note>
     /// Appends an item to `key_schema`.
     ///
     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
+    ///
+    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
+    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+    /// </note>
     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -82,7 +109,13 @@ impl LocalSecondaryIndexInfoBuilder {
         self.key_schema = input;
         self
     }
-    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>

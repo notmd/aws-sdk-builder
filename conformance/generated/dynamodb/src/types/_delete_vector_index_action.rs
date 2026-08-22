@@ -45,7 +45,7 @@ impl DeleteVectorIndexActionBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteVectorIndexAction`](crate::types::DeleteVectorIndexAction).
     /// This method will fail if any of the following fields are not set:
-    /// - [`index_name`](Self::index_name)
+    /// - [`index_name`](crate::types::builders::DeleteVectorIndexActionBuilder::index_name)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteVectorIndexAction {
             index_name: self.index_name.ok_or_else(|| {

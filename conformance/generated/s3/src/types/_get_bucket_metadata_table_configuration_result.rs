@@ -8,7 +8,15 @@
 pub struct GetBucketMetadataTableConfigurationResult {
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
     pub metadata_table_configuration_result: ::std::option::Option<crate::types::MetadataTableConfigurationResult>,
-    /// <p>The status of the metadata table. The status values are:</p><ul><li><p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li></ul>
+    /// <p>The status of the metadata table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li>
+    /// </ul>
     pub status: ::std::string::String,
     /// <p>If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p>
     pub error: ::std::option::Option<crate::types::ErrorDetails>,
@@ -18,7 +26,15 @@ impl GetBucketMetadataTableConfigurationResult {
     pub fn metadata_table_configuration_result(&self) -> ::std::option::Option<&crate::types::MetadataTableConfigurationResult> {
         self.metadata_table_configuration_result.as_ref()
     }
-    /// <p>The status of the metadata table. The status values are:</p><ul><li><p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li></ul>
+    /// <p>The status of the metadata table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li>
+    /// </ul>
     pub fn status(&self) -> &str {
         use std::ops::Deref;
         self.status.deref()
@@ -58,18 +74,42 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
     pub fn get_metadata_table_configuration_result(&self) -> &::std::option::Option<crate::types::MetadataTableConfigurationResult> {
         &self.metadata_table_configuration_result
     }
-    /// <p>The status of the metadata table. The status values are:</p><ul><li><p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li></ul>
+    /// <p>The status of the metadata table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li>
+    /// </ul>
     /// This field is required.
     pub fn status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the metadata table. The status values are:</p><ul><li><p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li></ul>
+    /// <p>The status of the metadata table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li>
+    /// </ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status = input;
         self
     }
-    /// <p>The status of the metadata table. The status values are:</p><ul><li><p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li></ul>
+    /// <p>The status of the metadata table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li>
+    /// </ul>
     pub fn get_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.status
     }
@@ -89,7 +129,7 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
     }
     /// Consumes the builder and constructs a [`GetBucketMetadataTableConfigurationResult`](crate::types::GetBucketMetadataTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
-    /// - [`status`](Self::status)
+    /// - [`status`](crate::types::builders::GetBucketMetadataTableConfigurationResultBuilder::status)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::GetBucketMetadataTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {

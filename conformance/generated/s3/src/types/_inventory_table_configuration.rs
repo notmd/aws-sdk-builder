@@ -65,7 +65,7 @@ impl InventoryTableConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`InventoryTableConfiguration`](crate::types::InventoryTableConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`configuration_state`](Self::configuration_state)
+    /// - [`configuration_state`](crate::types::builders::InventoryTableConfigurationBuilder::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryTableConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryTableConfiguration {
             configuration_state: self.configuration_state.ok_or_else(|| {

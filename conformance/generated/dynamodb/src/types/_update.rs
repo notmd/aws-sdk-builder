@@ -73,10 +73,11 @@ pub struct UpdateBuilder {
     pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl UpdateBuilder {
-    /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
     /// Adds a key-value pair to `key`.
     ///
     /// To override the contents of this collection use [`set_key`](Self::set_key).
+    ///
+    /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.key.unwrap_or_default();
         map.insert(k.into(), v);
@@ -136,10 +137,11 @@ impl UpdateBuilder {
     pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.condition_expression
     }
-    /// <p>One or more substitution tokens for attribute names in an expression.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
+    ///
+    /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn expression_attribute_names(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -164,10 +166,11 @@ impl UpdateBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
-    /// <p>One or more values that can be substituted in an expression.</p>
     /// Adds a key-value pair to `expression_attribute_values`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
+    ///
+    /// <p>One or more values that can be substituted in an expression.</p>
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.expression_attribute_values.unwrap_or_default();
         map.insert(k.into(), v);
@@ -207,9 +210,9 @@ impl UpdateBuilder {
     }
     /// Consumes the builder and constructs a [`Update`](crate::types::Update).
     /// This method will fail if any of the following fields are not set:
-    /// - [`key`](Self::key)
-    /// - [`update_expression`](Self::update_expression)
-    /// - [`table_name`](Self::table_name)
+    /// - [`key`](crate::types::builders::UpdateBuilder::key)
+    /// - [`update_expression`](crate::types::builders::UpdateBuilder::update_expression)
+    /// - [`table_name`](crate::types::builders::UpdateBuilder::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::Update, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Update {
             key: self.key.ok_or_else(|| {

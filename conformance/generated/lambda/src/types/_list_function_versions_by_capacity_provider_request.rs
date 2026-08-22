@@ -87,7 +87,7 @@ impl ListFunctionVersionsByCapacityProviderRequestBuilder {
     }
     /// Consumes the builder and constructs a [`ListFunctionVersionsByCapacityProviderRequest`](crate::types::ListFunctionVersionsByCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_name`](Self::capacity_provider_name)
+    /// - [`capacity_provider_name`](crate::types::builders::ListFunctionVersionsByCapacityProviderRequestBuilder::capacity_provider_name)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::ListFunctionVersionsByCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {

@@ -111,9 +111,9 @@ impl RemoveLayerVersionPermissionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`RemoveLayerVersionPermissionRequest`](crate::types::RemoveLayerVersionPermissionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`layer_name`](Self::layer_name)
-    /// - [`version_number`](Self::version_number)
-    /// - [`statement_id`](Self::statement_id)
+    /// - [`layer_name`](crate::types::builders::RemoveLayerVersionPermissionRequestBuilder::layer_name)
+    /// - [`version_number`](crate::types::builders::RemoveLayerVersionPermissionRequestBuilder::version_number)
+    /// - [`statement_id`](crate::types::builders::RemoveLayerVersionPermissionRequestBuilder::statement_id)
     pub fn build(self) -> ::std::result::Result<crate::types::RemoveLayerVersionPermissionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RemoveLayerVersionPermissionRequest {
             layer_name: self.layer_name.ok_or_else(|| {

@@ -19,10 +19,14 @@ pub struct SourceTableFeatureDetails {
 }
 impl SourceTableFeatureDetails {
     /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.local_secondary_indexes.is_none()`.
     pub fn local_secondary_indexes(&self) -> &[crate::types::LocalSecondaryIndexInfo] {
         self.local_secondary_indexes.as_deref().unwrap_or_default()
     }
     /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
     pub fn global_secondary_indexes(&self) -> &[crate::types::GlobalSecondaryIndexInfo] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
@@ -39,6 +43,8 @@ impl SourceTableFeatureDetails {
         self.sse_description.as_ref()
     }
     /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.vector_indexes.is_none()`.
     pub fn vector_indexes(&self) -> &[crate::types::VectorIndexInfo] {
         self.vector_indexes.as_deref().unwrap_or_default()
     }
@@ -62,10 +68,11 @@ pub struct SourceTableFeatureDetailsBuilder {
     pub(crate) vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>>,
 }
 impl SourceTableFeatureDetailsBuilder {
-    /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
     /// Appends an item to `local_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_local_secondary_indexes`](Self::set_local_secondary_indexes).
+    ///
+    /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
     pub fn local_secondary_indexes(mut self, input: crate::types::LocalSecondaryIndexInfo) -> Self {
         let mut v = self.local_secondary_indexes.unwrap_or_default();
         v.push(input);
@@ -81,10 +88,11 @@ impl SourceTableFeatureDetailsBuilder {
     pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>> {
         &self.local_secondary_indexes
     }
-    /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+    ///
+    /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
     pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndexInfo) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
@@ -142,10 +150,11 @@ impl SourceTableFeatureDetailsBuilder {
     pub fn get_sse_description(&self) -> &::std::option::Option<crate::types::SseDescription> {
         &self.sse_description
     }
-    /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
     /// Appends an item to `vector_indexes`.
     ///
     /// To override the contents of this collection use [`set_vector_indexes`](Self::set_vector_indexes).
+    ///
+    /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
     pub fn vector_indexes(mut self, input: crate::types::VectorIndexInfo) -> Self {
         let mut v = self.vector_indexes.unwrap_or_default();
         v.push(input);

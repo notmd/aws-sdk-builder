@@ -6,7 +6,17 @@
 pub struct ReplicaSettingsDescription {
     /// <p>The Region name of the replica.</p>
     pub region_name: ::std::string::String,
-    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
+    /// <p>The current state of the Region:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The Region is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The Region is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The Region is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The Region is ready for use.</p></li>
+    /// </ul>
     pub replica_status: ::std::option::Option<crate::types::ReplicaStatus>,
     /// <p>The read/write capacity mode of the replica.</p>
     pub replica_billing_mode_summary: ::std::option::Option<crate::types::BillingModeSummary>,
@@ -20,6 +30,7 @@ pub struct ReplicaSettingsDescription {
     pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
     /// <p>Replica global secondary index settings for the global table.</p>
     pub replica_global_secondary_index_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsDescription>>,
+    /// <p>Contains details of the table class.</p>
     pub replica_table_class_summary: ::std::option::Option<crate::types::TableClassSummary>,
 }
 impl ReplicaSettingsDescription {
@@ -28,7 +39,17 @@ impl ReplicaSettingsDescription {
         use std::ops::Deref;
         self.region_name.deref()
     }
-    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
+    /// <p>The current state of the Region:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The Region is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The Region is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The Region is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The Region is ready for use.</p></li>
+    /// </ul>
     pub fn replica_status(&self) -> ::std::option::Option<&crate::types::ReplicaStatus> {
         self.replica_status.as_ref()
     }
@@ -53,9 +74,12 @@ impl ReplicaSettingsDescription {
         self.replica_provisioned_write_capacity_auto_scaling_settings.as_ref()
     }
     /// <p>Replica global secondary index settings for the global table.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_global_secondary_index_settings.is_none()`.
     pub fn replica_global_secondary_index_settings(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexSettingsDescription] {
         self.replica_global_secondary_index_settings.as_deref().unwrap_or_default()
     }
+    /// <p>Contains details of the table class.</p>
     pub fn replica_table_class_summary(&self) -> ::std::option::Option<&crate::types::TableClassSummary> {
         self.replica_table_class_summary.as_ref()
     }
@@ -98,17 +122,47 @@ impl ReplicaSettingsDescriptionBuilder {
     pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.region_name
     }
-    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
+    /// <p>The current state of the Region:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The Region is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The Region is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The Region is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The Region is ready for use.</p></li>
+    /// </ul>
     pub fn replica_status(mut self, input: crate::types::ReplicaStatus) -> Self {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
+    /// <p>The current state of the Region:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The Region is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The Region is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The Region is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The Region is ready for use.</p></li>
+    /// </ul>
     pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
         self.replica_status = input;
         self
     }
-    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
+    /// <p>The current state of the Region:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The Region is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The Region is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The Region is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The Region is ready for use.</p></li>
+    /// </ul>
     pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
         &self.replica_status
     }
@@ -192,10 +246,11 @@ impl ReplicaSettingsDescriptionBuilder {
     ) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
         &self.replica_provisioned_write_capacity_auto_scaling_settings
     }
-    /// <p>Replica global secondary index settings for the global table.</p>
     /// Appends an item to `replica_global_secondary_index_settings`.
     ///
     /// To override the contents of this collection use [`set_replica_global_secondary_index_settings`](Self::set_replica_global_secondary_index_settings).
+    ///
+    /// <p>Replica global secondary index settings for the global table.</p>
     pub fn replica_global_secondary_index_settings(mut self, input: crate::types::ReplicaGlobalSecondaryIndexSettingsDescription) -> Self {
         let mut v = self.replica_global_secondary_index_settings.unwrap_or_default();
         v.push(input);
@@ -216,20 +271,23 @@ impl ReplicaSettingsDescriptionBuilder {
     ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsDescription>> {
         &self.replica_global_secondary_index_settings
     }
+    /// <p>Contains details of the table class.</p>
     pub fn replica_table_class_summary(mut self, input: crate::types::TableClassSummary) -> Self {
         self.replica_table_class_summary = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains details of the table class.</p>
     pub fn set_replica_table_class_summary(mut self, input: ::std::option::Option<crate::types::TableClassSummary>) -> Self {
         self.replica_table_class_summary = input;
         self
     }
+    /// <p>Contains details of the table class.</p>
     pub fn get_replica_table_class_summary(&self) -> &::std::option::Option<crate::types::TableClassSummary> {
         &self.replica_table_class_summary
     }
     /// Consumes the builder and constructs a [`ReplicaSettingsDescription`](crate::types::ReplicaSettingsDescription).
     /// This method will fail if any of the following fields are not set:
-    /// - [`region_name`](Self::region_name)
+    /// - [`region_name`](crate::types::builders::ReplicaSettingsDescriptionBuilder::region_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicaSettingsDescription, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicaSettingsDescription {
             region_name: self.region_name.ok_or_else(|| {

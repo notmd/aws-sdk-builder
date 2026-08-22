@@ -10,6 +10,8 @@ pub struct GetContextKeysForCustomPolicyOutput {
 }
 impl GetContextKeysForCustomPolicyOutput {
     /// <p>The list of context keys that are referenced in the input policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_key_names.is_none()`.
     pub fn context_key_names(&self) -> &[::std::string::String] {
         self.context_key_names.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct GetContextKeysForCustomPolicyOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetContextKeysForCustomPolicyOutputBuilder {
-    /// <p>The list of context keys that are referenced in the input policies.</p>
     /// Appends an item to `context_key_names`.
     ///
     /// To override the contents of this collection use [`set_context_key_names`](Self::set_context_key_names).
+    ///
+    /// <p>The list of context keys that are referenced in the input policies.</p>
     pub fn context_key_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.context_key_names.unwrap_or_default();
         v.push(input.into());

@@ -66,8 +66,8 @@ impl WaitStartedDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`WaitStartedDetails`](crate::types::WaitStartedDetails).
     /// This method will fail if any of the following fields are not set:
-    /// - [`duration`](Self::duration)
-    /// - [`scheduled_end_timestamp`](Self::scheduled_end_timestamp)
+    /// - [`duration`](crate::types::builders::WaitStartedDetailsBuilder::duration)
+    /// - [`scheduled_end_timestamp`](crate::types::builders::WaitStartedDetailsBuilder::scheduled_end_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::WaitStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::WaitStartedDetails {
             duration: self.duration.ok_or_else(|| {

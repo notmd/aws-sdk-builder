@@ -113,10 +113,10 @@ impl SshPublicKeyMetadataBuilder {
     }
     /// Consumes the builder and constructs a [`SshPublicKeyMetadata`](crate::types::SshPublicKeyMetadata).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`ssh_public_key_id`](Self::ssh_public_key_id)
-    /// - [`status`](Self::status)
-    /// - [`upload_date`](Self::upload_date)
+    /// - [`user_name`](crate::types::builders::SshPublicKeyMetadataBuilder::user_name)
+    /// - [`ssh_public_key_id`](crate::types::builders::SshPublicKeyMetadataBuilder::ssh_public_key_id)
+    /// - [`status`](crate::types::builders::SshPublicKeyMetadataBuilder::status)
+    /// - [`upload_date`](crate::types::builders::SshPublicKeyMetadataBuilder::upload_date)
     pub fn build(self) -> ::std::result::Result<crate::types::SshPublicKeyMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SshPublicKeyMetadata {
             user_name: self.user_name.ok_or_else(|| {

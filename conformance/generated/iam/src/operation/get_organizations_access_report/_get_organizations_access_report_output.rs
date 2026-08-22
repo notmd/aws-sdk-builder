@@ -21,6 +21,8 @@ pub struct GetOrganizationsAccessReportOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    /// <p>Contains information about the reason that the operation failed.</p>
+    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
     pub error_details: ::std::option::Option<crate::types::ErrorDetails>,
     _request_id: Option<String>,
 }
@@ -47,6 +49,8 @@ impl GetOrganizationsAccessReportOutput {
         self.number_of_services_not_accessed
     }
     /// <p>An object that contains details about the most recent attempt to access the service.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.access_details.is_none()`.
     pub fn access_details(&self) -> &[crate::types::AccessDetail] {
         self.access_details.as_deref().unwrap_or_default()
     }
@@ -58,6 +62,8 @@ impl GetOrganizationsAccessReportOutput {
     pub fn marker(&self) -> ::std::option::Option<&str> {
         self.marker.as_deref()
     }
+    /// <p>Contains information about the reason that the operation failed.</p>
+    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
     pub fn error_details(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
         self.error_details.as_ref()
     }
@@ -165,10 +171,11 @@ impl GetOrganizationsAccessReportOutputBuilder {
     pub fn get_number_of_services_not_accessed(&self) -> &::std::option::Option<i32> {
         &self.number_of_services_not_accessed
     }
-    /// <p>An object that contains details about the most recent attempt to access the service.</p>
     /// Appends an item to `access_details`.
     ///
     /// To override the contents of this collection use [`set_access_details`](Self::set_access_details).
+    ///
+    /// <p>An object that contains details about the most recent attempt to access the service.</p>
     pub fn access_details(mut self, input: crate::types::AccessDetail) -> Self {
         let mut v = self.access_details.unwrap_or_default();
         v.push(input);
@@ -212,14 +219,20 @@ impl GetOrganizationsAccessReportOutputBuilder {
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.marker
     }
+    /// <p>Contains information about the reason that the operation failed.</p>
+    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
     pub fn error_details(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains information about the reason that the operation failed.</p>
+    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
     pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error_details = input;
         self
     }
+    /// <p>Contains information about the reason that the operation failed.</p>
+    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
     pub fn get_error_details(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
         &self.error_details
     }
@@ -234,8 +247,8 @@ impl GetOrganizationsAccessReportOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`job_status`](Self::job_status)
-    /// - [`job_creation_date`](Self::job_creation_date)
+    /// - [`job_status`](crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::job_status)
+    /// - [`job_creation_date`](crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::job_creation_date)
     pub fn build(
         self,
     ) -> ::std::result::Result<

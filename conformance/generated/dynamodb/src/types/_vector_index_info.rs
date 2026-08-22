@@ -27,6 +27,8 @@ impl VectorIndexInfo {
         self.vector_attribute.as_ref()
     }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_schema.is_none()`.
     pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
         self.search_schema.as_deref().unwrap_or_default()
     }
@@ -90,10 +92,11 @@ impl VectorIndexInfoBuilder {
     pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
         &self.vector_attribute
     }
-    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     /// Appends an item to `search_schema`.
     ///
     /// To override the contents of this collection use [`set_search_schema`](Self::set_search_schema).
+    ///
+    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
         let mut v = self.search_schema.unwrap_or_default();
         v.push(input);

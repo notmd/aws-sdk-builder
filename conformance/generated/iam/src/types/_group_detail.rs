@@ -11,6 +11,8 @@ pub struct GroupDetail {
     pub group_name: ::std::option::Option<::std::string::String>,
     /// <p>The stable and unique string identifying the group. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub group_id: ::std::option::Option<::std::string::String>,
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the group was created.</p>
     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -32,6 +34,8 @@ impl GroupDetail {
     pub fn group_id(&self) -> ::std::option::Option<&str> {
         self.group_id.as_deref()
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(&self) -> ::std::option::Option<&str> {
         self.arn.as_deref()
     }
@@ -40,10 +44,14 @@ impl GroupDetail {
         self.create_date.as_ref()
     }
     /// <p>A list of the inline policies embedded in the group.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_policy_list.is_none()`.
     pub fn group_policy_list(&self) -> &[crate::types::PolicyDetail] {
         self.group_policy_list.as_deref().unwrap_or_default()
     }
     /// <p>A list of the managed policies attached to the group.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
         self.attached_managed_policies.as_deref().unwrap_or_default()
     }
@@ -110,14 +118,20 @@ impl GroupDetailBuilder {
     pub fn get_group_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.group_id
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
@@ -135,10 +149,11 @@ impl GroupDetailBuilder {
     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.create_date
     }
-    /// <p>A list of the inline policies embedded in the group.</p>
     /// Appends an item to `group_policy_list`.
     ///
     /// To override the contents of this collection use [`set_group_policy_list`](Self::set_group_policy_list).
+    ///
+    /// <p>A list of the inline policies embedded in the group.</p>
     pub fn group_policy_list(mut self, input: crate::types::PolicyDetail) -> Self {
         let mut v = self.group_policy_list.unwrap_or_default();
         v.push(input);
@@ -154,10 +169,11 @@ impl GroupDetailBuilder {
     pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
         &self.group_policy_list
     }
-    /// <p>A list of the managed policies attached to the group.</p>
     /// Appends an item to `attached_managed_policies`.
     ///
     /// To override the contents of this collection use [`set_attached_managed_policies`](Self::set_attached_managed_policies).
+    ///
+    /// <p>A list of the managed policies attached to the group.</p>
     pub fn attached_managed_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
         let mut v = self.attached_managed_policies.unwrap_or_default();
         v.push(input);

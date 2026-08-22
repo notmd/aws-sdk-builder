@@ -22,6 +22,8 @@ impl ReplicateKeyOutput {
         self.replica_policy.as_deref()
     }
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_tags.is_none()`.
     pub fn replica_tags(&self) -> &[crate::types::Tag] {
         self.replica_tags.as_deref().unwrap_or_default()
     }
@@ -76,10 +78,11 @@ impl ReplicateKeyOutputBuilder {
     pub fn get_replica_policy(&self) -> &::std::option::Option<::std::string::String> {
         &self.replica_policy
     }
-    /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
     /// Appends an item to `replica_tags`.
     ///
     /// To override the contents of this collection use [`set_replica_tags`](Self::set_replica_tags).
+    ///
+    /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
     pub fn replica_tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.replica_tags.unwrap_or_default();
         v.push(input);

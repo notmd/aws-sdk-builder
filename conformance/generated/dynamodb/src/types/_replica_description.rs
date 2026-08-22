@@ -6,11 +6,25 @@
 pub struct ReplicaDescription {
     /// <p>The name of the Region.</p>
     pub region_name: ::std::option::Option<::std::string::String>,
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// <li>
+    /// <p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
+    /// </note></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note>
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li></ul>
+    /// </note></li>
+    /// </ul>
     pub replica_status: ::std::option::Option<crate::types::ReplicaStatus>,
     /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
     pub replica_arn: ::std::option::Option<::std::string::String>,
@@ -30,8 +44,17 @@ pub struct ReplicaDescription {
     pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>,
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
     pub replica_inaccessible_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>Contains details of the table class.</p>
     pub replica_table_class_summary: ::std::option::Option<crate::types::TableClassSummary>,
-    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
 }
 impl ReplicaDescription {
@@ -39,11 +62,25 @@ impl ReplicaDescription {
     pub fn region_name(&self) -> ::std::option::Option<&str> {
         self.region_name.as_deref()
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// <li>
+    /// <p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
+    /// </note></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note>
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li></ul>
+    /// </note></li>
+    /// </ul>
     pub fn replica_status(&self) -> ::std::option::Option<&crate::types::ReplicaStatus> {
         self.replica_status.as_ref()
     }
@@ -76,6 +113,8 @@ impl ReplicaDescription {
         self.warm_throughput.as_ref()
     }
     /// <p>Replica-specific global secondary index settings.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
     pub fn global_secondary_indexes(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexDescription] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
@@ -83,10 +122,19 @@ impl ReplicaDescription {
     pub fn replica_inaccessible_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.replica_inaccessible_date_time.as_ref()
     }
+    /// <p>Contains details of the table class.</p>
     pub fn replica_table_class_summary(&self) -> ::std::option::Option<&crate::types::TableClassSummary> {
         self.replica_table_class_summary.as_ref()
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn global_table_settings_replication_mode(&self) -> ::std::option::Option<&crate::types::GlobalTableSettingsReplicationMode> {
         self.global_table_settings_replication_mode.as_ref()
     }
@@ -131,29 +179,71 @@ impl ReplicaDescriptionBuilder {
     pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.region_name
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// <li>
+    /// <p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
+    /// </note></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note>
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li></ul>
+    /// </note></li>
+    /// </ul>
     pub fn replica_status(mut self, input: crate::types::ReplicaStatus) -> Self {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// <li>
+    /// <p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
+    /// </note></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note>
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li></ul>
+    /// </note></li>
+    /// </ul>
     pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
         self.replica_status = input;
         self
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// <li>
+    /// <p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
+    /// </note></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note>
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
-    /// </note></li></ul>
+    /// </note></li>
+    /// </ul>
     pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
         &self.replica_status
     }
@@ -255,10 +345,11 @@ impl ReplicaDescriptionBuilder {
     pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> {
         &self.warm_throughput
     }
-    /// <p>Replica-specific global secondary index settings.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+    ///
+    /// <p>Replica-specific global secondary index settings.</p>
     pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndexDescription) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
@@ -291,23 +382,42 @@ impl ReplicaDescriptionBuilder {
     pub fn get_replica_inaccessible_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.replica_inaccessible_date_time
     }
+    /// <p>Contains details of the table class.</p>
     pub fn replica_table_class_summary(mut self, input: crate::types::TableClassSummary) -> Self {
         self.replica_table_class_summary = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains details of the table class.</p>
     pub fn set_replica_table_class_summary(mut self, input: ::std::option::Option<crate::types::TableClassSummary>) -> Self {
         self.replica_table_class_summary = input;
         self
     }
+    /// <p>Contains details of the table class.</p>
     pub fn get_replica_table_class_summary(&self) -> &::std::option::Option<crate::types::TableClassSummary> {
         &self.replica_table_class_summary
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn global_table_settings_replication_mode(mut self, input: crate::types::GlobalTableSettingsReplicationMode) -> Self {
         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn set_global_table_settings_replication_mode(
         mut self,
         input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
@@ -315,7 +425,15 @@ impl ReplicaDescriptionBuilder {
         self.global_table_settings_replication_mode = input;
         self
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
         &self.global_table_settings_replication_mode
     }

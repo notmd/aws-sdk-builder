@@ -14,6 +14,8 @@ pub struct ListBackupsOutput {
 }
 impl ListBackupsOutput {
     /// <p>List of <code>BackupSummary</code> objects.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.backup_summaries.is_none()`.
     pub fn backup_summaries(&self) -> &[crate::types::BackupSummary] {
         self.backup_summaries.as_deref().unwrap_or_default()
     }
@@ -45,10 +47,11 @@ pub struct ListBackupsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListBackupsOutputBuilder {
-    /// <p>List of <code>BackupSummary</code> objects.</p>
     /// Appends an item to `backup_summaries`.
     ///
     /// To override the contents of this collection use [`set_backup_summaries`](Self::set_backup_summaries).
+    ///
+    /// <p>List of <code>BackupSummary</code> objects.</p>
     pub fn backup_summaries(mut self, input: crate::types::BackupSummary) -> Self {
         let mut v = self.backup_summaries.unwrap_or_default();
         v.push(input);

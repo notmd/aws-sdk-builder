@@ -12,6 +12,8 @@ pub struct ListTagsOfResourceOutput {
 }
 impl ListTagsOfResourceOutput {
     /// <p>The tags currently associated with the Amazon DynamoDB resource.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListTagsOfResourceOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListTagsOfResourceOutputBuilder {
-    /// <p>The tags currently associated with the Amazon DynamoDB resource.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The tags currently associated with the Amazon DynamoDB resource.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

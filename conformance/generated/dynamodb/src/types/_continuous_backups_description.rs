@@ -65,7 +65,7 @@ impl ContinuousBackupsDescriptionBuilder {
     }
     /// Consumes the builder and constructs a [`ContinuousBackupsDescription`](crate::types::ContinuousBackupsDescription).
     /// This method will fail if any of the following fields are not set:
-    /// - [`continuous_backups_status`](Self::continuous_backups_status)
+    /// - [`continuous_backups_status`](crate::types::builders::ContinuousBackupsDescriptionBuilder::continuous_backups_status)
     pub fn build(self) -> ::std::result::Result<crate::types::ContinuousBackupsDescription, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ContinuousBackupsDescription {
             continuous_backups_status: self.continuous_backups_status.ok_or_else(|| {

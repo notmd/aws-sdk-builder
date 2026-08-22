@@ -44,7 +44,7 @@ impl AccessControlTranslationBuilder {
     }
     /// Consumes the builder and constructs a [`AccessControlTranslation`](crate::types::AccessControlTranslation).
     /// This method will fail if any of the following fields are not set:
-    /// - [`owner`](Self::owner)
+    /// - [`owner`](crate::types::builders::AccessControlTranslationBuilder::owner)
     pub fn build(self) -> ::std::result::Result<crate::types::AccessControlTranslation, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AccessControlTranslation {
             owner: self.owner.ok_or_else(|| {

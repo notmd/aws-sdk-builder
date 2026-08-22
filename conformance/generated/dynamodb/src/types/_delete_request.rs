@@ -27,10 +27,11 @@ pub struct DeleteRequestBuilder {
     pub(crate) key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 }
 impl DeleteRequestBuilder {
-    /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
     /// Adds a key-value pair to `key`.
     ///
     /// To override the contents of this collection use [`set_key`](Self::set_key).
+    ///
+    /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.key.unwrap_or_default();
         map.insert(k.into(), v);
@@ -48,7 +49,7 @@ impl DeleteRequestBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteRequest`](crate::types::DeleteRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`key`](Self::key)
+    /// - [`key`](crate::types::builders::DeleteRequestBuilder::key)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteRequest {
             key: self.key.ok_or_else(|| {

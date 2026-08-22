@@ -6,7 +6,7 @@
 pub struct GetHumanReadableSummaryInput {
     /// <p>Arn of the entity to be summarized. At this time, the only supported entity type is <code>delegation-request</code></p>
     pub entity_arn: ::std::option::Option<::std::string::String>,
-    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
     pub locale: ::std::option::Option<::std::string::String>,
 }
 impl GetHumanReadableSummaryInput {
@@ -14,7 +14,7 @@ impl GetHumanReadableSummaryInput {
     pub fn entity_arn(&self) -> ::std::option::Option<&str> {
         self.entity_arn.as_deref()
     }
-    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
     pub fn locale(&self) -> ::std::option::Option<&str> {
         self.locale.as_deref()
     }
@@ -49,17 +49,17 @@ impl GetHumanReadableSummaryInputBuilder {
     pub fn get_entity_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.entity_arn
     }
-    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
     pub fn locale(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.locale = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
     pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.locale = input;
         self
     }
-    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
     pub fn get_locale(&self) -> &::std::option::Option<::std::string::String> {
         &self.locale
     }

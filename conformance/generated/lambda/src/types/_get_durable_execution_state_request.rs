@@ -110,8 +110,8 @@ impl GetDurableExecutionStateRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetDurableExecutionStateRequest`](crate::types::GetDurableExecutionStateRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
-    /// - [`checkpoint_token`](Self::checkpoint_token)
+    /// - [`durable_execution_arn`](crate::types::builders::GetDurableExecutionStateRequestBuilder::durable_execution_arn)
+    /// - [`checkpoint_token`](crate::types::builders::GetDurableExecutionStateRequestBuilder::checkpoint_token)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionStateRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionStateRequest {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

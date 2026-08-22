@@ -19,6 +19,8 @@ impl ParameterizedStatement {
         self.statement.deref()
     }
     /// <p>The parameter values.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
     pub fn parameters(&self) -> &[crate::types::AttributeValue] {
         self.parameters.as_deref().unwrap_or_default()
     }
@@ -59,10 +61,11 @@ impl ParameterizedStatementBuilder {
     pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
         &self.statement
     }
-    /// <p>The parameter values.</p>
     /// Appends an item to `parameters`.
     ///
     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
+    ///
+    /// <p>The parameter values.</p>
     pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
         let mut v = self.parameters.unwrap_or_default();
         v.push(input);
@@ -100,7 +103,7 @@ impl ParameterizedStatementBuilder {
     }
     /// Consumes the builder and constructs a [`ParameterizedStatement`](crate::types::ParameterizedStatement).
     /// This method will fail if any of the following fields are not set:
-    /// - [`statement`](Self::statement)
+    /// - [`statement`](crate::types::builders::ParameterizedStatementBuilder::statement)
     pub fn build(self) -> ::std::result::Result<crate::types::ParameterizedStatement, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ParameterizedStatement {
             statement: self.statement.ok_or_else(|| {

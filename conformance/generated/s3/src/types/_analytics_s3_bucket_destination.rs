@@ -119,8 +119,8 @@ impl AnalyticsS3BucketDestinationBuilder {
     }
     /// Consumes the builder and constructs a [`AnalyticsS3BucketDestination`](crate::types::AnalyticsS3BucketDestination).
     /// This method will fail if any of the following fields are not set:
-    /// - [`format`](Self::format)
-    /// - [`bucket`](Self::bucket)
+    /// - [`format`](crate::types::builders::AnalyticsS3BucketDestinationBuilder::format)
+    /// - [`bucket`](crate::types::builders::AnalyticsS3BucketDestinationBuilder::bucket)
     pub fn build(self) -> ::std::result::Result<crate::types::AnalyticsS3BucketDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnalyticsS3BucketDestination {
             format: self.format.ok_or_else(|| {

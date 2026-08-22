@@ -34,10 +34,11 @@ pub struct GetQueueAttributesOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetQueueAttributesOutputBuilder {
-    /// <p>A map of attributes to their respective values.</p>
     /// Adds a key-value pair to `attributes`.
     ///
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
+    ///
+    /// <p>A map of attributes to their respective values.</p>
     pub fn attributes(mut self, k: crate::types::QueueAttributeName, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.attributes.unwrap_or_default();
         map.insert(k, v.into());

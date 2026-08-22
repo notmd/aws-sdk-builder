@@ -28,10 +28,11 @@ pub struct ReplacementValueEntryBuilder {
     pub(crate) values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl ReplacementValueEntryBuilder {
-    /// <p>The list of replacement values for the template parameter.</p>
     /// Appends an item to `values`.
     ///
     /// To override the contents of this collection use [`set_values`](Self::set_values).
+    ///
+    /// <p>The list of replacement values for the template parameter.</p>
     pub fn values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.values.unwrap_or_default();
         v.push(input.into());
@@ -49,7 +50,7 @@ impl ReplacementValueEntryBuilder {
     }
     /// Consumes the builder and constructs a [`ReplacementValueEntry`](crate::types::ReplacementValueEntry).
     /// This method will fail if any of the following fields are not set:
-    /// - [`values`](Self::values)
+    /// - [`values`](crate::types::builders::ReplacementValueEntryBuilder::values)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplacementValueEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplacementValueEntry {
             values: self.values.ok_or_else(|| {

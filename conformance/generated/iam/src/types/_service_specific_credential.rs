@@ -240,11 +240,11 @@ impl ServiceSpecificCredentialBuilder {
     }
     /// Consumes the builder and constructs a [`ServiceSpecificCredential`](crate::types::ServiceSpecificCredential).
     /// This method will fail if any of the following fields are not set:
-    /// - [`create_date`](Self::create_date)
-    /// - [`service_name`](Self::service_name)
-    /// - [`service_specific_credential_id`](Self::service_specific_credential_id)
-    /// - [`user_name`](Self::user_name)
-    /// - [`status`](Self::status)
+    /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialBuilder::create_date)
+    /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialBuilder::service_name)
+    /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialBuilder::service_specific_credential_id)
+    /// - [`user_name`](crate::types::builders::ServiceSpecificCredentialBuilder::user_name)
+    /// - [`status`](crate::types::builders::ServiceSpecificCredentialBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredential, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServiceSpecificCredential {
             create_date: self.create_date.ok_or_else(|| {

@@ -130,10 +130,11 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
     pub fn get_job_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.job_creation_date
     }
-    /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
     /// Appends an item to `services_last_accessed`.
     ///
     /// To override the contents of this collection use [`set_services_last_accessed`](Self::set_services_last_accessed).
+    ///
+    /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
     pub fn services_last_accessed(mut self, input: crate::types::ServiceLastAccessed) -> Self {
         let mut v = self.services_last_accessed.unwrap_or_default();
         v.push(input);
@@ -220,10 +221,10 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetServiceLastAccessedDetailsOutput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`job_status`](Self::job_status)
-    /// - [`job_creation_date`](Self::job_creation_date)
-    /// - [`services_last_accessed`](Self::services_last_accessed)
-    /// - [`job_completion_date`](Self::job_completion_date)
+    /// - [`job_status`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::job_status)
+    /// - [`job_creation_date`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::job_creation_date)
+    /// - [`services_last_accessed`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::services_last_accessed)
+    /// - [`job_completion_date`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::job_completion_date)
     pub fn build(
         self,
     ) -> ::std::result::Result<

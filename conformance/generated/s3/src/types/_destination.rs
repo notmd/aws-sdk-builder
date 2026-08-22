@@ -181,7 +181,7 @@ impl DestinationBuilder {
     }
     /// Consumes the builder and constructs a [`Destination`](crate::types::Destination).
     /// This method will fail if any of the following fields are not set:
-    /// - [`bucket`](Self::bucket)
+    /// - [`bucket`](crate::types::builders::DestinationBuilder::bucket)
     pub fn build(self) -> ::std::result::Result<crate::types::Destination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Destination {
             bucket: self.bucket.ok_or_else(|| {

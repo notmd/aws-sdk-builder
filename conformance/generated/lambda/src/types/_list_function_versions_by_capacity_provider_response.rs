@@ -58,10 +58,11 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
     pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.capacity_provider_arn
     }
-    /// <p>A list of function versions that use the specified capacity provider.</p>
     /// Appends an item to `function_versions`.
     ///
     /// To override the contents of this collection use [`set_function_versions`](Self::set_function_versions).
+    ///
+    /// <p>A list of function versions that use the specified capacity provider.</p>
     pub fn function_versions(mut self, input: crate::types::FunctionVersionsByCapacityProviderListItem) -> Self {
         let mut v = self.function_versions.unwrap_or_default();
         v.push(input);
@@ -96,8 +97,8 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
     }
     /// Consumes the builder and constructs a [`ListFunctionVersionsByCapacityProviderResponse`](crate::types::ListFunctionVersionsByCapacityProviderResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_arn`](Self::capacity_provider_arn)
-    /// - [`function_versions`](Self::function_versions)
+    /// - [`capacity_provider_arn`](crate::types::builders::ListFunctionVersionsByCapacityProviderResponseBuilder::capacity_provider_arn)
+    /// - [`function_versions`](crate::types::builders::ListFunctionVersionsByCapacityProviderResponseBuilder::function_versions)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::ListFunctionVersionsByCapacityProviderResponse, ::aws_smithy_types::error::operation::BuildError> {

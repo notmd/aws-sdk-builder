@@ -7,7 +7,7 @@ pub struct SendMessageBatchInput {
     /// <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
     pub queue_url: ::std::option::Option<::std::string::String>,
-    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
+    /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
     pub entries: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>,
 }
 impl SendMessageBatchInput {
@@ -16,7 +16,9 @@ impl SendMessageBatchInput {
     pub fn queue_url(&self) -> ::std::option::Option<&str> {
         self.queue_url.as_deref()
     }
-    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
+    /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.entries.is_none()`.
     pub fn entries(&self) -> &[crate::types::SendMessageBatchRequestEntry] {
         self.entries.as_deref().unwrap_or_default()
     }
@@ -54,22 +56,23 @@ impl SendMessageBatchInputBuilder {
     pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
         &self.queue_url
     }
-    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
     /// Appends an item to `entries`.
     ///
     /// To override the contents of this collection use [`set_entries`](Self::set_entries).
+    ///
+    /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
     pub fn entries(mut self, input: crate::types::SendMessageBatchRequestEntry) -> Self {
         let mut v = self.entries.unwrap_or_default();
         v.push(input);
         self.entries = ::std::option::Option::Some(v);
         self
     }
-    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
+    /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
     pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>) -> Self {
         self.entries = input;
         self
     }
-    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
+    /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
     pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
         &self.entries
     }

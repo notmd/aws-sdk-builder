@@ -15,6 +15,8 @@ impl UntagResourceInput {
         self.resource.as_deref()
     }
     /// <p>A list of tag keys to remove from the resource.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
     pub fn tag_keys(&self) -> &[::std::string::String] {
         self.tag_keys.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl UntagResourceInputBuilder {
     pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource
     }
-    /// <p>A list of tag keys to remove from the resource.</p>
     /// Appends an item to `tag_keys`.
     ///
     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
+    ///
+    /// <p>A list of tag keys to remove from the resource.</p>
     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.tag_keys.unwrap_or_default();
         v.push(input.into());

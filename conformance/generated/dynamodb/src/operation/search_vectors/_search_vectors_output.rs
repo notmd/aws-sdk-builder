@@ -16,6 +16,8 @@ impl SearchVectorsOutput {
         self.consumed_capacity.as_ref()
     }
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_results.is_none()`.
     pub fn search_results(&self) -> &[crate::types::SearchResultItem] {
         self.search_results.as_deref().unwrap_or_default()
     }
@@ -55,10 +57,11 @@ impl SearchVectorsOutputBuilder {
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::VectorCapacity> {
         &self.consumed_capacity
     }
-    /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     /// Appends an item to `search_results`.
     ///
     /// To override the contents of this collection use [`set_search_results`](Self::set_search_results).
+    ///
+    /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     pub fn search_results(mut self, input: crate::types::SearchResultItem) -> Self {
         let mut v = self.search_results.unwrap_or_default();
         v.push(input);

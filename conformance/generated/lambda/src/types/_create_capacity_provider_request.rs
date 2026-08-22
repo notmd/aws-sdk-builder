@@ -169,10 +169,11 @@ impl CreateCapacityProviderRequestBuilder {
     pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.kms_key_arn
     }
-    /// <p>A list of tags to associate with the capacity provider.</p>
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags to associate with the capacity provider.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.tags.unwrap_or_default();
         map.insert(k.into(), v.into());
@@ -218,7 +219,7 @@ impl CreateCapacityProviderRequestBuilder {
     }
     /// Consumes the builder and constructs a [`CreateCapacityProviderRequest`](crate::types::CreateCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_name`](Self::capacity_provider_name)
+    /// - [`capacity_provider_name`](crate::types::builders::CreateCapacityProviderRequestBuilder::capacity_provider_name)
     pub fn build(self) -> ::std::result::Result<crate::types::CreateCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateCapacityProviderRequest {
             capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {

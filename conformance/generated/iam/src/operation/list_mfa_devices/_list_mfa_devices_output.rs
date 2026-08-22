@@ -49,10 +49,11 @@ pub struct ListMfaDevicesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListMfaDevicesOutputBuilder {
-    /// <p>A list of MFA devices.</p>
     /// Appends an item to `mfa_devices`.
     ///
     /// To override the contents of this collection use [`set_mfa_devices`](Self::set_mfa_devices).
+    ///
+    /// <p>A list of MFA devices.</p>
     pub fn mfa_devices(mut self, input: crate::types::MfaDevice) -> Self {
         let mut v = self.mfa_devices.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListMfaDevicesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListMfaDevicesOutput`](crate::operation::list_mfa_devices::ListMfaDevicesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`mfa_devices`](Self::mfa_devices)
+    /// - [`mfa_devices`](crate::operation::list_mfa_devices::builders::ListMfaDevicesOutputBuilder::mfa_devices)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_mfa_devices::ListMfaDevicesOutput, ::aws_smithy_types::error::operation::BuildError> {

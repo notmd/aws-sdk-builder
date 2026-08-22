@@ -48,10 +48,11 @@ impl EndpointBuilder {
     pub fn get_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.endpoint_arn
     }
-    /// <p>Attributes for endpoint.</p>
     /// Adds a key-value pair to `attributes`.
     ///
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
+    ///
+    /// <p>Attributes for endpoint.</p>
     pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.attributes.unwrap_or_default();
         map.insert(k.into(), v.into());

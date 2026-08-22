@@ -45,7 +45,7 @@ impl DeleteCodeSigningConfigRequestBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteCodeSigningConfigRequest`](crate::types::DeleteCodeSigningConfigRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
+    /// - [`code_signing_config_arn`](crate::types::builders::DeleteCodeSigningConfigRequestBuilder::code_signing_config_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteCodeSigningConfigRequest {
             code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {

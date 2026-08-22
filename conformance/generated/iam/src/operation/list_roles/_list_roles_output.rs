@@ -49,10 +49,11 @@ pub struct ListRolesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListRolesOutputBuilder {
-    /// <p>A list of roles.</p>
     /// Appends an item to `roles`.
     ///
     /// To override the contents of this collection use [`set_roles`](Self::set_roles).
+    ///
+    /// <p>A list of roles.</p>
     pub fn roles(mut self, input: crate::types::Role) -> Self {
         let mut v = self.roles.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListRolesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`roles`](Self::roles)
+    /// - [`roles`](crate::operation::list_roles::builders::ListRolesOutputBuilder::roles)
     pub fn build(self) -> ::std::result::Result<crate::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_roles::ListRolesOutput {
             roles: self.roles.ok_or_else(|| {

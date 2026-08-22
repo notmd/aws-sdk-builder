@@ -11,6 +11,8 @@ pub struct ListDurableExecutionsByFunctionResponse {
 }
 impl ListDurableExecutionsByFunctionResponse {
     /// <p>List of durable execution summaries matching the filter criteria.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.durable_executions.is_none()`.
     pub fn durable_executions(&self) -> &[crate::types::Execution] {
         self.durable_executions.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct ListDurableExecutionsByFunctionResponseBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl ListDurableExecutionsByFunctionResponseBuilder {
-    /// <p>List of durable execution summaries matching the filter criteria.</p>
     /// Appends an item to `durable_executions`.
     ///
     /// To override the contents of this collection use [`set_durable_executions`](Self::set_durable_executions).
+    ///
+    /// <p>List of durable execution summaries matching the filter criteria.</p>
     pub fn durable_executions(mut self, input: crate::types::Execution) -> Self {
         let mut v = self.durable_executions.unwrap_or_default();
         v.push(input);

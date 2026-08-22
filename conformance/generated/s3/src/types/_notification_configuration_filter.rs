@@ -4,9 +4,11 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct NotificationConfigurationFilter {
+    /// <p>A container for object key name prefix and suffix filtering rules.</p>
     pub key: ::std::option::Option<crate::types::S3KeyFilter>,
 }
 impl NotificationConfigurationFilter {
+    /// <p>A container for object key name prefix and suffix filtering rules.</p>
     pub fn key(&self) -> ::std::option::Option<&crate::types::S3KeyFilter> {
         self.key.as_ref()
     }
@@ -25,14 +27,17 @@ pub struct NotificationConfigurationFilterBuilder {
     pub(crate) key: ::std::option::Option<crate::types::S3KeyFilter>,
 }
 impl NotificationConfigurationFilterBuilder {
+    /// <p>A container for object key name prefix and suffix filtering rules.</p>
     pub fn key(mut self, input: crate::types::S3KeyFilter) -> Self {
         self.key = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container for object key name prefix and suffix filtering rules.</p>
     pub fn set_key(mut self, input: ::std::option::Option<crate::types::S3KeyFilter>) -> Self {
         self.key = input;
         self
     }
+    /// <p>A container for object key name prefix and suffix filtering rules.</p>
     pub fn get_key(&self) -> &::std::option::Option<crate::types::S3KeyFilter> {
         &self.key
     }

@@ -14,6 +14,8 @@ pub struct ListKeyRotationsOutput {
 }
 impl ListKeyRotationsOutput {
     /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.rotations.is_none()`.
     pub fn rotations(&self) -> &[crate::types::RotationsListEntry] {
         self.rotations.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListKeyRotationsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListKeyRotationsOutputBuilder {
-    /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
     /// Appends an item to `rotations`.
     ///
     /// To override the contents of this collection use [`set_rotations`](Self::set_rotations).
+    ///
+    /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
     pub fn rotations(mut self, input: crate::types::RotationsListEntry) -> Self {
         let mut v = self.rotations.unwrap_or_default();
         v.push(input);

@@ -45,7 +45,7 @@ impl DeleteCapacityProviderRequestBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteCapacityProviderRequest`](crate::types::DeleteCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_name`](Self::capacity_provider_name)
+    /// - [`capacity_provider_name`](crate::types::builders::DeleteCapacityProviderRequestBuilder::capacity_provider_name)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteCapacityProviderRequest {
             capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {

@@ -12,6 +12,8 @@ pub struct ListContributorInsightsOutput {
 }
 impl ListContributorInsightsOutput {
     /// <p>A list of ContributorInsightsSummary.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.contributor_insights_summaries.is_none()`.
     pub fn contributor_insights_summaries(&self) -> &[crate::types::ContributorInsightsSummary] {
         self.contributor_insights_summaries.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListContributorInsightsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListContributorInsightsOutputBuilder {
-    /// <p>A list of ContributorInsightsSummary.</p>
     /// Appends an item to `contributor_insights_summaries`.
     ///
     /// To override the contents of this collection use [`set_contributor_insights_summaries`](Self::set_contributor_insights_summaries).
+    ///
+    /// <p>A list of ContributorInsightsSummary.</p>
     pub fn contributor_insights_summaries(mut self, input: crate::types::ContributorInsightsSummary) -> Self {
         let mut v = self.contributor_insights_summaries.unwrap_or_default();
         v.push(input);

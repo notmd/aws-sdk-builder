@@ -6,12 +6,40 @@
 pub struct UpdateEventSourceMappingRequest {
     /// <p>The identifier of the event source mapping.</p>
     pub uuid: ::std::string::String,
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
     /// <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p>
     /// <p>Default: True</p>
     pub enabled: ::std::option::Option<bool>,
-    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li><li><p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li></ul>
+    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li>
+    /// <li>
+    /// <p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li>
+    /// </ul>
     pub batch_size: ::std::option::Option<i32>,
     /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
     pub filter_criteria: ::std::option::Option<crate::types::FilterCriteria>,
@@ -19,6 +47,7 @@ pub struct UpdateEventSourceMappingRequest {
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
     pub metrics_config: ::std::option::Option<crate::types::EventSourceMappingMetricsConfig>,
+    /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
     pub logging_config: ::std::option::Option<crate::types::EventSourceMappingLoggingConfig>,
     /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
     pub scaling_config: ::std::option::Option<crate::types::ScalingConfig>,
@@ -42,7 +71,9 @@ pub struct UpdateEventSourceMappingRequest {
     pub source_access_configurations: ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
     pub function_response_types: ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>,
+    /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
     pub amazon_managed_kafka_event_source_config: ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
+    /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
     pub self_managed_kafka_event_source_config: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
     pub document_db_event_source_config: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>,
@@ -55,7 +86,19 @@ impl UpdateEventSourceMappingRequest {
         use std::ops::Deref;
         self.uuid.deref()
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
     pub fn function_name(&self) -> ::std::option::Option<&str> {
         self.function_name.as_deref()
     }
@@ -64,7 +107,23 @@ impl UpdateEventSourceMappingRequest {
     pub fn enabled(&self) -> ::std::option::Option<bool> {
         self.enabled
     }
-    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li><li><p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li></ul>
+    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li>
+    /// <li>
+    /// <p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li>
+    /// </ul>
     pub fn batch_size(&self) -> ::std::option::Option<i32> {
         self.batch_size
     }
@@ -80,6 +139,7 @@ impl UpdateEventSourceMappingRequest {
     pub fn metrics_config(&self) -> ::std::option::Option<&crate::types::EventSourceMappingMetricsConfig> {
         self.metrics_config.as_ref()
     }
+    /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
     pub fn logging_config(&self) -> ::std::option::Option<&crate::types::EventSourceMappingLoggingConfig> {
         self.logging_config.as_ref()
     }
@@ -118,16 +178,22 @@ impl UpdateEventSourceMappingRequest {
         self.tumbling_window_in_seconds
     }
     /// <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.source_access_configurations.is_none()`.
     pub fn source_access_configurations(&self) -> &[crate::types::SourceAccessConfiguration] {
         self.source_access_configurations.as_deref().unwrap_or_default()
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.function_response_types.is_none()`.
     pub fn function_response_types(&self) -> &[crate::types::FunctionResponseType] {
         self.function_response_types.as_deref().unwrap_or_default()
     }
+    /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
     pub fn amazon_managed_kafka_event_source_config(&self) -> ::std::option::Option<&crate::types::AmazonManagedKafkaEventSourceConfig> {
         self.amazon_managed_kafka_event_source_config.as_ref()
     }
+    /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
     pub fn self_managed_kafka_event_source_config(&self) -> ::std::option::Option<&crate::types::SelfManagedKafkaEventSourceConfig> {
         self.self_managed_kafka_event_source_config.as_ref()
     }
@@ -190,17 +256,53 @@ impl UpdateEventSourceMappingRequestBuilder {
     pub fn get_uuid(&self) -> &::std::option::Option<::std::string::String> {
         &self.uuid
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
@@ -221,17 +323,65 @@ impl UpdateEventSourceMappingRequestBuilder {
     pub fn get_enabled(&self) -> &::std::option::Option<bool> {
         &self.enabled
     }
-    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li><li><p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li></ul>
+    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li>
+    /// <li>
+    /// <p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li>
+    /// </ul>
     pub fn batch_size(mut self, input: i32) -> Self {
         self.batch_size = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li><li><p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li></ul>
+    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li>
+    /// <li>
+    /// <p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li>
+    /// </ul>
     pub fn set_batch_size(mut self, input: ::std::option::Option<i32>) -> Self {
         self.batch_size = input;
         self
     }
-    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p><ul><li><p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li><li><p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li><li><p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li></ul>
+    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Amazon Kinesis</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li>
+    /// <li>
+    /// <p><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p></li>
+    /// <li>
+    /// <p><b>DocumentDB</b> – Default 100. Max 10,000.</p></li>
+    /// </ul>
     pub fn get_batch_size(&self) -> &::std::option::Option<i32> {
         &self.batch_size
     }
@@ -277,14 +427,17 @@ impl UpdateEventSourceMappingRequestBuilder {
     pub fn get_metrics_config(&self) -> &::std::option::Option<crate::types::EventSourceMappingMetricsConfig> {
         &self.metrics_config
     }
+    /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
     pub fn logging_config(mut self, input: crate::types::EventSourceMappingLoggingConfig) -> Self {
         self.logging_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
     pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::EventSourceMappingLoggingConfig>) -> Self {
         self.logging_config = input;
         self
     }
+    /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.</p>
     pub fn get_logging_config(&self) -> &::std::option::Option<crate::types::EventSourceMappingLoggingConfig> {
         &self.logging_config
     }
@@ -406,10 +559,11 @@ impl UpdateEventSourceMappingRequestBuilder {
     pub fn get_tumbling_window_in_seconds(&self) -> &::std::option::Option<i32> {
         &self.tumbling_window_in_seconds
     }
-    /// <p>An array of authentication protocols or VPC components required to secure your event source.</p>
     /// Appends an item to `source_access_configurations`.
     ///
     /// To override the contents of this collection use [`set_source_access_configurations`](Self::set_source_access_configurations).
+    ///
+    /// <p>An array of authentication protocols or VPC components required to secure your event source.</p>
     pub fn source_access_configurations(mut self, input: crate::types::SourceAccessConfiguration) -> Self {
         let mut v = self.source_access_configurations.unwrap_or_default();
         v.push(input);
@@ -428,10 +582,11 @@ impl UpdateEventSourceMappingRequestBuilder {
     pub fn get_source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>> {
         &self.source_access_configurations
     }
-    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
     /// Appends an item to `function_response_types`.
     ///
     /// To override the contents of this collection use [`set_function_response_types`](Self::set_function_response_types).
+    ///
+    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
     pub fn function_response_types(mut self, input: crate::types::FunctionResponseType) -> Self {
         let mut v = self.function_response_types.unwrap_or_default();
         v.push(input);
@@ -447,10 +602,12 @@ impl UpdateEventSourceMappingRequestBuilder {
     pub fn get_function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>> {
         &self.function_response_types
     }
+    /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
     pub fn amazon_managed_kafka_event_source_config(mut self, input: crate::types::AmazonManagedKafkaEventSourceConfig) -> Self {
         self.amazon_managed_kafka_event_source_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
     pub fn set_amazon_managed_kafka_event_source_config(
         mut self,
         input: ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
@@ -458,13 +615,16 @@ impl UpdateEventSourceMappingRequestBuilder {
         self.amazon_managed_kafka_event_source_config = input;
         self
     }
+    /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
     pub fn get_amazon_managed_kafka_event_source_config(&self) -> &::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig> {
         &self.amazon_managed_kafka_event_source_config
     }
+    /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
     pub fn self_managed_kafka_event_source_config(mut self, input: crate::types::SelfManagedKafkaEventSourceConfig) -> Self {
         self.self_managed_kafka_event_source_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
     pub fn set_self_managed_kafka_event_source_config(
         mut self,
         input: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
@@ -472,6 +632,7 @@ impl UpdateEventSourceMappingRequestBuilder {
         self.self_managed_kafka_event_source_config = input;
         self
     }
+    /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
     pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig> {
         &self.self_managed_kafka_event_source_config
     }
@@ -505,7 +666,7 @@ impl UpdateEventSourceMappingRequestBuilder {
     }
     /// Consumes the builder and constructs a [`UpdateEventSourceMappingRequest`](crate::types::UpdateEventSourceMappingRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`uuid`](Self::uuid)
+    /// - [`uuid`](crate::types::builders::UpdateEventSourceMappingRequestBuilder::uuid)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateEventSourceMappingRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateEventSourceMappingRequest {
             uuid: self.uuid.ok_or_else(|| {

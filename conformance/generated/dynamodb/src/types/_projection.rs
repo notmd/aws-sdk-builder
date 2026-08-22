@@ -4,19 +4,39 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Projection {
-    /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
+    /// <p>The set of attributes that are projected into the index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul>
+    /// <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
     pub projection_type: ::std::option::Option<crate::types::ProjectionType>,
     /// <p>Represents the non-key attribute names which will be projected into the index.</p>
     /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
     pub non_key_attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl Projection {
-    /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
+    /// <p>The set of attributes that are projected into the index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul>
+    /// <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
     pub fn projection_type(&self) -> ::std::option::Option<&crate::types::ProjectionType> {
         self.projection_type.as_ref()
     }
     /// <p>Represents the non-key attribute names which will be projected into the index.</p>
     /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.non_key_attributes.is_none()`.
     pub fn non_key_attributes(&self) -> &[::std::string::String] {
         self.non_key_attributes.as_deref().unwrap_or_default()
     }
@@ -36,25 +56,53 @@ pub struct ProjectionBuilder {
     pub(crate) non_key_attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl ProjectionBuilder {
-    /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
+    /// <p>The set of attributes that are projected into the index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul>
+    /// <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
     pub fn projection_type(mut self, input: crate::types::ProjectionType) -> Self {
         self.projection_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
+    /// <p>The set of attributes that are projected into the index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul>
+    /// <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
     pub fn set_projection_type(mut self, input: ::std::option::Option<crate::types::ProjectionType>) -> Self {
         self.projection_type = input;
         self
     }
-    /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
+    /// <p>The set of attributes that are projected into the index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul>
+    /// <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
     pub fn get_projection_type(&self) -> &::std::option::Option<crate::types::ProjectionType> {
         &self.projection_type
     }
-    /// <p>Represents the non-key attribute names which will be projected into the index.</p>
-    /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
     /// Appends an item to `non_key_attributes`.
     ///
     /// To override the contents of this collection use [`set_non_key_attributes`](Self::set_non_key_attributes).
+    ///
+    /// <p>Represents the non-key attribute names which will be projected into the index.</p>
+    /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
     pub fn non_key_attributes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.non_key_attributes.unwrap_or_default();
         v.push(input.into());

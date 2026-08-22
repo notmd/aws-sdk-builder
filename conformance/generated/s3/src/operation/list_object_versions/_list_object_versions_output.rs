@@ -32,6 +32,9 @@ pub struct ListObjectVersionsOutput {
     /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
     pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
@@ -58,10 +61,14 @@ impl ListObjectVersionsOutput {
         self.next_version_id_marker.as_deref()
     }
     /// <p>Container for version information.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.versions.is_none()`.
     pub fn versions(&self) -> &[crate::types::ObjectVersion] {
         self.versions.as_deref().unwrap_or_default()
     }
     /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delete_markers.is_none()`.
     pub fn delete_markers(&self) -> &[crate::types::DeleteMarkerEntry] {
         self.delete_markers.as_deref().unwrap_or_default()
     }
@@ -82,6 +89,8 @@ impl ListObjectVersionsOutput {
         self.max_keys
     }
     /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.common_prefixes.is_none()`.
     pub fn common_prefixes(&self) -> &[crate::types::CommonPrefix] {
         self.common_prefixes.as_deref().unwrap_or_default()
     }
@@ -91,6 +100,9 @@ impl ListObjectVersionsOutput {
     pub fn encoding_type(&self) -> ::std::option::Option<&crate::types::EncodingType> {
         self.encoding_type.as_ref()
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
         self.request_charged.as_ref()
     }
@@ -204,10 +216,11 @@ impl ListObjectVersionsOutputBuilder {
     pub fn get_next_version_id_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_version_id_marker
     }
-    /// <p>Container for version information.</p>
     /// Appends an item to `versions`.
     ///
     /// To override the contents of this collection use [`set_versions`](Self::set_versions).
+    ///
+    /// <p>Container for version information.</p>
     pub fn versions(mut self, input: crate::types::ObjectVersion) -> Self {
         let mut v = self.versions.unwrap_or_default();
         v.push(input);
@@ -223,10 +236,11 @@ impl ListObjectVersionsOutputBuilder {
     pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectVersion>> {
         &self.versions
     }
-    /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
     /// Appends an item to `delete_markers`.
     ///
     /// To override the contents of this collection use [`set_delete_markers`](Self::set_delete_markers).
+    ///
+    /// <p>Container for an object that is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p>
     pub fn delete_markers(mut self, input: crate::types::DeleteMarkerEntry) -> Self {
         let mut v = self.delete_markers.unwrap_or_default();
         v.push(input);
@@ -298,10 +312,11 @@ impl ListObjectVersionsOutputBuilder {
     pub fn get_max_keys(&self) -> &::std::option::Option<i32> {
         &self.max_keys
     }
-    /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
     /// Appends an item to `common_prefixes`.
     ///
     /// To override the contents of this collection use [`set_common_prefixes`](Self::set_common_prefixes).
+    ///
+    /// <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
     pub fn common_prefixes(mut self, input: crate::types::CommonPrefix) -> Self {
         let mut v = self.common_prefixes.unwrap_or_default();
         v.push(input);
@@ -337,14 +352,23 @@ impl ListObjectVersionsOutputBuilder {
     pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
         &self.encoding_type
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
         &self.request_charged
     }

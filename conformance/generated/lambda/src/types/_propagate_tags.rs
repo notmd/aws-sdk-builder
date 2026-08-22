@@ -48,10 +48,11 @@ impl PropagateTagsBuilder {
     pub fn get_mode(&self) -> &::std::option::Option<crate::types::PropagateTagsMode> {
         &self.mode
     }
-    /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
     /// Adds a key-value pair to `explicit_tags`.
     ///
     /// To override the contents of this collection use [`set_explicit_tags`](Self::set_explicit_tags).
+    ///
+    /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
     pub fn explicit_tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.explicit_tags.unwrap_or_default();
         map.insert(k.into(), v.into());

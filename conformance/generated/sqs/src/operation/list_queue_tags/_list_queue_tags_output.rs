@@ -34,10 +34,11 @@ pub struct ListQueueTagsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListQueueTagsOutputBuilder {
-    /// <p>The list of all tags added to the specified queue.</p>
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The list of all tags added to the specified queue.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.tags.unwrap_or_default();
         map.insert(k.into(), v.into());

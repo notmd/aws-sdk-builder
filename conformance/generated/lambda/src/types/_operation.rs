@@ -28,7 +28,9 @@ pub struct Operation {
     pub step_details: ::std::option::Option<crate::types::StepDetails>,
     /// <p>Details about the wait operation, if this operation represents a wait.</p>
     pub wait_details: ::std::option::Option<crate::types::WaitDetails>,
+    /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
     pub callback_details: ::std::option::Option<crate::types::CallbackDetails>,
+    /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
     pub chained_invoke_details: ::std::option::Option<crate::types::ChainedInvokeDetails>,
 }
 impl Operation {
@@ -81,9 +83,11 @@ impl Operation {
     pub fn wait_details(&self) -> ::std::option::Option<&crate::types::WaitDetails> {
         self.wait_details.as_ref()
     }
+    /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
     pub fn callback_details(&self) -> ::std::option::Option<&crate::types::CallbackDetails> {
         self.callback_details.as_ref()
     }
+    /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
     pub fn chained_invoke_details(&self) -> ::std::option::Option<&crate::types::ChainedInvokeDetails> {
         self.chained_invoke_details.as_ref()
     }
@@ -287,34 +291,40 @@ impl OperationBuilder {
     pub fn get_wait_details(&self) -> &::std::option::Option<crate::types::WaitDetails> {
         &self.wait_details
     }
+    /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
     pub fn callback_details(mut self, input: crate::types::CallbackDetails) -> Self {
         self.callback_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
     pub fn set_callback_details(mut self, input: ::std::option::Option<crate::types::CallbackDetails>) -> Self {
         self.callback_details = input;
         self
     }
+    /// <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
     pub fn get_callback_details(&self) -> &::std::option::Option<crate::types::CallbackDetails> {
         &self.callback_details
     }
+    /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
     pub fn chained_invoke_details(mut self, input: crate::types::ChainedInvokeDetails) -> Self {
         self.chained_invoke_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
     pub fn set_chained_invoke_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeDetails>) -> Self {
         self.chained_invoke_details = input;
         self
     }
+    /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
     pub fn get_chained_invoke_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeDetails> {
         &self.chained_invoke_details
     }
     /// Consumes the builder and constructs a [`Operation`](crate::types::Operation).
     /// This method will fail if any of the following fields are not set:
-    /// - [`id`](Self::id)
-    /// - [`r#type`](Self::r#type)
-    /// - [`start_timestamp`](Self::start_timestamp)
-    /// - [`status`](Self::status)
+    /// - [`id`](crate::types::builders::OperationBuilder::id)
+    /// - [`r#type`](crate::types::builders::OperationBuilder::r#type)
+    /// - [`start_timestamp`](crate::types::builders::OperationBuilder::start_timestamp)
+    /// - [`status`](crate::types::builders::OperationBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::Operation, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Operation {
             id: self.id.ok_or_else(|| {

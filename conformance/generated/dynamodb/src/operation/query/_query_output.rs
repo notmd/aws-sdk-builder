@@ -23,6 +23,8 @@ pub struct QueryOutput {
 }
 impl QueryOutput {
     /// <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.items.is_none()`.
     pub fn items(&self) -> &[::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>] {
         self.items.as_deref().unwrap_or_default()
     }
@@ -72,10 +74,11 @@ pub struct QueryOutputBuilder {
     _request_id: Option<String>,
 }
 impl QueryOutputBuilder {
-    /// <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
     /// Appends an item to `items`.
     ///
     /// To override the contents of this collection use [`set_items`](Self::set_items).
+    ///
+    /// <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
     pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>) -> Self {
         let mut v = self.items.unwrap_or_default();
         v.push(input);
@@ -133,12 +136,13 @@ impl QueryOutputBuilder {
     pub fn get_scanned_count(&self) -> &::std::option::Option<i32> {
         &self.scanned_count
     }
-    /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
-    /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
-    /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
     /// Adds a key-value pair to `last_evaluated_key`.
     ///
     /// To override the contents of this collection use [`set_last_evaluated_key`](Self::set_last_evaluated_key).
+    ///
+    /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
+    /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
+    /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
     pub fn last_evaluated_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.last_evaluated_key.unwrap_or_default();
         map.insert(k.into(), v);

@@ -12,7 +12,24 @@ pub struct Message {
     pub md5_of_body: ::std::option::Option<::std::string::String>,
     /// <p>The message's contents (not URL-encoded).</p>
     pub body: ::std::option::Option<::std::string::String>,
-    /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
+    /// <p>A map of the attributes requested in <code> <code>ReceiveMessage</code> </code> to their respective values. Supported attributes:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ApproximateReceiveCount</code></p></li>
+    /// <li>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>MessageDeduplicationId</code></p></li>
+    /// <li>
+    /// <p><code>MessageGroupId</code></p></li>
+    /// <li>
+    /// <p><code>SenderId</code></p></li>
+    /// <li>
+    /// <p><code>SentTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>SequenceNumber</code></p></li>
+    /// </ul>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     pub attributes: ::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>>,
     /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
     pub md5_of_message_attributes: ::std::option::Option<::std::string::String>,
@@ -36,7 +53,24 @@ impl Message {
     pub fn body(&self) -> ::std::option::Option<&str> {
         self.body.as_deref()
     }
-    /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
+    /// <p>A map of the attributes requested in <code> <code>ReceiveMessage</code> </code> to their respective values. Supported attributes:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ApproximateReceiveCount</code></p></li>
+    /// <li>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>MessageDeduplicationId</code></p></li>
+    /// <li>
+    /// <p><code>MessageGroupId</code></p></li>
+    /// <li>
+    /// <p><code>SenderId</code></p></li>
+    /// <li>
+    /// <p><code>SentTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>SequenceNumber</code></p></li>
+    /// </ul>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>> {
         self.attributes.as_ref()
     }
@@ -127,17 +161,52 @@ impl MessageBuilder {
     pub fn get_body(&self) -> &::std::option::Option<::std::string::String> {
         &self.body
     }
-    /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     /// Adds a key-value pair to `attributes`.
     ///
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
+    ///
+    /// <p>A map of the attributes requested in <code> <code>ReceiveMessage</code> </code> to their respective values. Supported attributes:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ApproximateReceiveCount</code></p></li>
+    /// <li>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>MessageDeduplicationId</code></p></li>
+    /// <li>
+    /// <p><code>MessageGroupId</code></p></li>
+    /// <li>
+    /// <p><code>SenderId</code></p></li>
+    /// <li>
+    /// <p><code>SentTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>SequenceNumber</code></p></li>
+    /// </ul>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     pub fn attributes(mut self, k: crate::types::MessageSystemAttributeName, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.attributes.unwrap_or_default();
         map.insert(k, v.into());
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
+    /// <p>A map of the attributes requested in <code> <code>ReceiveMessage</code> </code> to their respective values. Supported attributes:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ApproximateReceiveCount</code></p></li>
+    /// <li>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>MessageDeduplicationId</code></p></li>
+    /// <li>
+    /// <p><code>MessageGroupId</code></p></li>
+    /// <li>
+    /// <p><code>SenderId</code></p></li>
+    /// <li>
+    /// <p><code>SentTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>SequenceNumber</code></p></li>
+    /// </ul>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     pub fn set_attributes(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>>,
@@ -145,7 +214,24 @@ impl MessageBuilder {
         self.attributes = input;
         self
     }
-    /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
+    /// <p>A map of the attributes requested in <code> <code>ReceiveMessage</code> </code> to their respective values. Supported attributes:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ApproximateReceiveCount</code></p></li>
+    /// <li>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>MessageDeduplicationId</code></p></li>
+    /// <li>
+    /// <p><code>MessageGroupId</code></p></li>
+    /// <li>
+    /// <p><code>SenderId</code></p></li>
+    /// <li>
+    /// <p><code>SentTimestamp</code></p></li>
+    /// <li>
+    /// <p><code>SequenceNumber</code></p></li>
+    /// </ul>
+    /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     pub fn get_attributes(
         &self,
     ) -> &::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>> {
@@ -165,10 +251,11 @@ impl MessageBuilder {
     pub fn get_md5_of_message_attributes(&self) -> &::std::option::Option<::std::string::String> {
         &self.md5_of_message_attributes
     }
-    /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     /// Adds a key-value pair to `message_attributes`.
     ///
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
+    ///
+    /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::MessageAttributeValue) -> Self {
         let mut map = self.message_attributes.unwrap_or_default();
         map.insert(k.into(), v);

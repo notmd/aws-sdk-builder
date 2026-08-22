@@ -16,6 +16,8 @@ impl DescribeKinesisStreamingDestinationOutput {
         self.table_name.as_deref()
     }
     /// <p>The list of replica structures for the table being described.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.kinesis_data_stream_destinations.is_none()`.
     pub fn kinesis_data_stream_destinations(&self) -> &[crate::types::KinesisDataStreamDestination] {
         self.kinesis_data_stream_destinations.as_deref().unwrap_or_default()
     }
@@ -55,10 +57,11 @@ impl DescribeKinesisStreamingDestinationOutputBuilder {
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_name
     }
-    /// <p>The list of replica structures for the table being described.</p>
     /// Appends an item to `kinesis_data_stream_destinations`.
     ///
     /// To override the contents of this collection use [`set_kinesis_data_stream_destinations`](Self::set_kinesis_data_stream_destinations).
+    ///
+    /// <p>The list of replica structures for the table being described.</p>
     pub fn kinesis_data_stream_destinations(mut self, input: crate::types::KinesisDataStreamDestination) -> Self {
         let mut v = self.kinesis_data_stream_destinations.unwrap_or_default();
         v.push(input);

@@ -129,7 +129,7 @@ impl GetDurableExecutionHistoryRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetDurableExecutionHistoryRequest`](crate::types::GetDurableExecutionHistoryRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
+    /// - [`durable_execution_arn`](crate::types::builders::GetDurableExecutionHistoryRequestBuilder::durable_execution_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionHistoryRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionHistoryRequest {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

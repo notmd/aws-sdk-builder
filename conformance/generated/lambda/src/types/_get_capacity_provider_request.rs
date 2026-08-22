@@ -45,7 +45,7 @@ impl GetCapacityProviderRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetCapacityProviderRequest`](crate::types::GetCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_name`](Self::capacity_provider_name)
+    /// - [`capacity_provider_name`](crate::types::builders::GetCapacityProviderRequestBuilder::capacity_provider_name)
     pub fn build(self) -> ::std::result::Result<crate::types::GetCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetCapacityProviderRequest {
             capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {

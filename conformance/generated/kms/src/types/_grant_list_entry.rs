@@ -8,7 +8,7 @@ pub struct GrantListEntry {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier for the grant.</p>
     pub grant_id: ::std::option::Option<::std::string::String>,
-    /// <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
+    /// <p>The friendly name that identifies the grant. If a name was provided in the <code>CreateGrant</code> request, that name is returned. Otherwise this value is null.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>The date and time when the grant was created.</p>
     pub creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -37,7 +37,7 @@ impl GrantListEntry {
     pub fn grant_id(&self) -> ::std::option::Option<&str> {
         self.grant_id.as_deref()
     }
-    /// <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
+    /// <p>The friendly name that identifies the grant. If a name was provided in the <code>CreateGrant</code> request, that name is returned. Otherwise this value is null.</p>
     pub fn name(&self) -> ::std::option::Option<&str> {
         self.name.as_deref()
     }
@@ -59,6 +59,8 @@ impl GrantListEntry {
         self.issuing_account.as_deref()
     }
     /// <p>The list of operations permitted by the grant.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.operations.is_none()`.
     pub fn operations(&self) -> &[crate::types::GrantOperation] {
         self.operations.as_deref().unwrap_or_default()
     }
@@ -127,17 +129,17 @@ impl GrantListEntryBuilder {
     pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.grant_id
     }
-    /// <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
+    /// <p>The friendly name that identifies the grant. If a name was provided in the <code>CreateGrant</code> request, that name is returned. Otherwise this value is null.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
+    /// <p>The friendly name that identifies the grant. If a name was provided in the <code>CreateGrant</code> request, that name is returned. Otherwise this value is null.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
     }
-    /// <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
+    /// <p>The friendly name that identifies the grant. If a name was provided in the <code>CreateGrant</code> request, that name is returned. Otherwise this value is null.</p>
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
@@ -200,10 +202,11 @@ impl GrantListEntryBuilder {
     pub fn get_issuing_account(&self) -> &::std::option::Option<::std::string::String> {
         &self.issuing_account
     }
-    /// <p>The list of operations permitted by the grant.</p>
     /// Appends an item to `operations`.
     ///
     /// To override the contents of this collection use [`set_operations`](Self::set_operations).
+    ///
+    /// <p>The list of operations permitted by the grant.</p>
     pub fn operations(mut self, input: crate::types::GrantOperation) -> Self {
         let mut v = self.operations.unwrap_or_default();
         v.push(input);

@@ -12,7 +12,15 @@ pub struct BackupDetails {
     pub backup_size_bytes: ::std::option::Option<i64>,
     /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
     pub backup_status: crate::types::BackupStatus,
-    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
+    /// <p>BackupType:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li>
+    /// <li>
+    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
+    /// </ul>
     pub backup_type: crate::types::BackupType,
     /// <p>Time at which the backup was created. This is the request time of the backup.</p>
     pub backup_creation_date_time: ::aws_smithy_types::DateTime,
@@ -38,7 +46,15 @@ impl BackupDetails {
     pub fn backup_status(&self) -> &crate::types::BackupStatus {
         &self.backup_status
     }
-    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
+    /// <p>BackupType:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li>
+    /// <li>
+    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
+    /// </ul>
     pub fn backup_type(&self) -> &crate::types::BackupType {
         &self.backup_type
     }
@@ -130,18 +146,42 @@ impl BackupDetailsBuilder {
     pub fn get_backup_status(&self) -> &::std::option::Option<crate::types::BackupStatus> {
         &self.backup_status
     }
-    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
+    /// <p>BackupType:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li>
+    /// <li>
+    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
+    /// </ul>
     /// This field is required.
     pub fn backup_type(mut self, input: crate::types::BackupType) -> Self {
         self.backup_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
+    /// <p>BackupType:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li>
+    /// <li>
+    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
+    /// </ul>
     pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupType>) -> Self {
         self.backup_type = input;
         self
     }
-    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
+    /// <p>BackupType:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li>
+    /// <li>
+    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
+    /// </ul>
     pub fn get_backup_type(&self) -> &::std::option::Option<crate::types::BackupType> {
         &self.backup_type
     }
@@ -176,11 +216,11 @@ impl BackupDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`BackupDetails`](crate::types::BackupDetails).
     /// This method will fail if any of the following fields are not set:
-    /// - [`backup_arn`](Self::backup_arn)
-    /// - [`backup_name`](Self::backup_name)
-    /// - [`backup_status`](Self::backup_status)
-    /// - [`backup_type`](Self::backup_type)
-    /// - [`backup_creation_date_time`](Self::backup_creation_date_time)
+    /// - [`backup_arn`](crate::types::builders::BackupDetailsBuilder::backup_arn)
+    /// - [`backup_name`](crate::types::builders::BackupDetailsBuilder::backup_name)
+    /// - [`backup_status`](crate::types::builders::BackupDetailsBuilder::backup_status)
+    /// - [`backup_type`](crate::types::builders::BackupDetailsBuilder::backup_type)
+    /// - [`backup_creation_date_time`](crate::types::builders::BackupDetailsBuilder::backup_creation_date_time)
     pub fn build(self) -> ::std::result::Result<crate::types::BackupDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::BackupDetails {
             backup_arn: self.backup_arn.ok_or_else(|| {

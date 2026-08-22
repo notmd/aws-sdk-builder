@@ -5,16 +5,51 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct TableDescription {
     /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
-    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
+    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>AttributeType</code> - The data type for the attribute.</p></li>
+    /// </ul>
     pub attribute_definitions: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>,
     /// <p>The name of the table.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
-    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>KeyType</code> - The role of the attribute:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note></li>
+    /// </ul>
+    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub key_schema: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>,
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li>
+    /// </ul>
     pub table_status: ::std::option::Option<crate::types::TableStatus>,
     /// <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
     pub creation_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -30,15 +65,93 @@ pub struct TableDescription {
     pub table_id: ::std::option::Option<::std::string::String>,
     /// <p>Contains the details for the read/write capacity mode.</p>
     pub billing_mode_summary: ::std::option::Option<crate::types::BillingModeSummary>,
-    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the local secondary index.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexDescription>>,
-    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
-    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
+    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the global secondary index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The index is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexDescription>>,
     /// <p>The current DynamoDB Streams configuration for the table.</p>
     pub stream_specification: ::std::option::Option<crate::types::StreamSpecification>,
     /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
-    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
+    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Amazon Web Services customer ID</p></li>
+    /// <li>
+    /// <p>Table name</p></li>
+    /// <li>
+    /// <p><code>StreamLabel</code></p></li>
+    /// </ul>
     pub latest_stream_label: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.</p>
     pub latest_stream_arn: ::std::option::Option<::std::string::String>,
@@ -48,7 +161,15 @@ pub struct TableDescription {
     pub replicas: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>>,
     /// <p>The witness Region and its current status in the MRSC global table. Only one witness Region can be configured per MRSC global table.</p>
     pub global_table_witnesses: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessDescription>>,
-    /// <p>Indicates one of the settings synchronization modes for the global table:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
     /// <p>Contains details for the restore.</p>
     pub restore_summary: ::std::option::Option<crate::types::RestoreSummary>,
@@ -64,14 +185,53 @@ pub struct TableDescription {
     pub on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
     /// <p>Describes the warm throughput value of the base table.</p>
     pub warm_throughput: ::std::option::Option<crate::types::TableWarmThroughputDescription>,
-    /// <p>Indicates one of the following consistency modes for a global table:</p><ul><li><p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li><li><p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
+    /// <p>Indicates one of the following consistency modes for a global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li>
+    /// <li>
+    /// <p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li>
+    /// </ul>
+    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
     pub multi_region_consistency: ::std::option::Option<crate::types::MultiRegionConsistency>,
-    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the vector index.</p></li><li><p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li><li><p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li><li><p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li><li><p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul>
+    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li>
+    /// <li>
+    /// <p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li>
+    /// <li>
+    /// <p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li>
+    /// <li>
+    /// <p><code>Dimensions</code> - The number of dimensions in each vector.</p></li>
+    /// <li>
+    /// <p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li>
+    /// <li>
+    /// <p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
     pub vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexDescription>>,
 }
 impl TableDescription {
     /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
-    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
+    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>AttributeType</code> - The data type for the attribute.</p></li>
+    /// </ul>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attribute_definitions.is_none()`.
     pub fn attribute_definitions(&self) -> &[crate::types::AttributeDefinition] {
         self.attribute_definitions.as_deref().unwrap_or_default()
     }
@@ -79,14 +239,45 @@ impl TableDescription {
     pub fn table_name(&self) -> ::std::option::Option<&str> {
         self.table_name.as_deref()
     }
-    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>KeyType</code> - The role of the attribute:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note></li>
+    /// </ul>
+    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.key_schema.is_none()`.
     pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
         self.key_schema.as_deref().unwrap_or_default()
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li>
+    /// </ul>
     pub fn table_status(&self) -> ::std::option::Option<&crate::types::TableStatus> {
         self.table_status.as_ref()
     }
@@ -118,12 +309,86 @@ impl TableDescription {
     pub fn billing_mode_summary(&self) -> ::std::option::Option<&crate::types::BillingModeSummary> {
         self.billing_mode_summary.as_ref()
     }
-    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the local secondary index.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.local_secondary_indexes.is_none()`.
     pub fn local_secondary_indexes(&self) -> &[crate::types::LocalSecondaryIndexDescription] {
         self.local_secondary_indexes.as_deref().unwrap_or_default()
     }
-    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
-    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
+    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the global secondary index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The index is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
     pub fn global_secondary_indexes(&self) -> &[crate::types::GlobalSecondaryIndexDescription] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
@@ -132,7 +397,15 @@ impl TableDescription {
         self.stream_specification.as_ref()
     }
     /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
-    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
+    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Amazon Web Services customer ID</p></li>
+    /// <li>
+    /// <p>Table name</p></li>
+    /// <li>
+    /// <p><code>StreamLabel</code></p></li>
+    /// </ul>
     pub fn latest_stream_label(&self) -> ::std::option::Option<&str> {
         self.latest_stream_label.as_deref()
     }
@@ -145,14 +418,26 @@ impl TableDescription {
         self.global_table_version.as_deref()
     }
     /// <p>Represents replicas of the table.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replicas.is_none()`.
     pub fn replicas(&self) -> &[crate::types::ReplicaDescription] {
         self.replicas.as_deref().unwrap_or_default()
     }
     /// <p>The witness Region and its current status in the MRSC global table. Only one witness Region can be configured per MRSC global table.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_table_witnesses.is_none()`.
     pub fn global_table_witnesses(&self) -> &[crate::types::GlobalTableWitnessDescription] {
         self.global_table_witnesses.as_deref().unwrap_or_default()
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn global_table_settings_replication_mode(&self) -> ::std::option::Option<&crate::types::GlobalTableSettingsReplicationMode> {
         self.global_table_settings_replication_mode.as_ref()
     }
@@ -184,11 +469,44 @@ impl TableDescription {
     pub fn warm_throughput(&self) -> ::std::option::Option<&crate::types::TableWarmThroughputDescription> {
         self.warm_throughput.as_ref()
     }
-    /// <p>Indicates one of the following consistency modes for a global table:</p><ul><li><p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li><li><p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
+    /// <p>Indicates one of the following consistency modes for a global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li>
+    /// <li>
+    /// <p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li>
+    /// </ul>
+    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
     pub fn multi_region_consistency(&self) -> ::std::option::Option<&crate::types::MultiRegionConsistency> {
         self.multi_region_consistency.as_ref()
     }
-    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the vector index.</p></li><li><p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li><li><p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li><li><p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li><li><p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul>
+    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li>
+    /// <li>
+    /// <p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li>
+    /// <li>
+    /// <p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li>
+    /// <li>
+    /// <p><code>Dimensions</code> - The number of dimensions in each vector.</p></li>
+    /// <li>
+    /// <p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li>
+    /// <li>
+    /// <p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.vector_indexes.is_none()`.
     pub fn vector_indexes(&self) -> &[crate::types::VectorIndexDescription] {
         self.vector_indexes.as_deref().unwrap_or_default()
     }
@@ -235,11 +553,18 @@ pub struct TableDescriptionBuilder {
     pub(crate) vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexDescription>>,
 }
 impl TableDescriptionBuilder {
-    /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
-    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
     /// Appends an item to `attribute_definitions`.
     ///
     /// To override the contents of this collection use [`set_attribute_definitions`](Self::set_attribute_definitions).
+    ///
+    /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
+    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>AttributeType</code> - The data type for the attribute.</p></li>
+    /// </ul>
     pub fn attribute_definitions(mut self, input: crate::types::AttributeDefinition) -> Self {
         let mut v = self.attribute_definitions.unwrap_or_default();
         v.push(input);
@@ -247,13 +572,25 @@ impl TableDescriptionBuilder {
         self
     }
     /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
-    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
+    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>AttributeType</code> - The data type for the attribute.</p></li>
+    /// </ul>
     pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
         self.attribute_definitions = input;
         self
     }
     /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
-    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
+    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>AttributeType</code> - The data type for the attribute.</p></li>
+    /// </ul>
     pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
         &self.attribute_definitions
     }
@@ -271,45 +608,133 @@ impl TableDescriptionBuilder {
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_name
     }
-    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
-    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
-    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Appends an item to `key_schema`.
     ///
     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
+    ///
+    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>KeyType</code> - The role of the attribute:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
+    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+    /// </note></li>
+    /// </ul>
+    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>KeyType</code> - The role of the attribute:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note></li>
+    /// </ul>
+    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
     }
-    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>AttributeName</code> - The name of the attribute.</p></li>
+    /// <li>
+    /// <p><code>KeyType</code> - The role of the attribute:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// </note></li>
+    /// </ul>
+    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
         &self.key_schema
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li>
+    /// </ul>
     pub fn table_status(mut self, input: crate::types::TableStatus) -> Self {
         self.table_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li>
+    /// </ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
         self.table_status = input;
         self
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// <li>
+    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li>
+    /// <li>
+    /// <p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li>
+    /// </ul>
     pub fn get_table_status(&self) -> &::std::option::Option<crate::types::TableStatus> {
         &self.table_status
     }
@@ -411,17 +836,72 @@ impl TableDescriptionBuilder {
     pub fn get_billing_mode_summary(&self) -> &::std::option::Option<crate::types::BillingModeSummary> {
         &self.billing_mode_summary
     }
-    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     /// Appends an item to `local_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_local_secondary_indexes`](Self::set_local_secondary_indexes).
+    ///
+    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the local secondary index.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub fn local_secondary_indexes(mut self, input: crate::types::LocalSecondaryIndexDescription) -> Self {
         let mut v = self.local_secondary_indexes.unwrap_or_default();
         v.push(input);
         self.local_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the local secondary index.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub fn set_local_secondary_indexes(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexDescription>>,
@@ -429,23 +909,137 @@ impl TableDescriptionBuilder {
         self.local_secondary_indexes = input;
         self
     }
-    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the local secondary index.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexDescription>> {
         &self.local_secondary_indexes
     }
-    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
-    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+    ///
+    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
+    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the global secondary index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The index is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndexDescription) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
-    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
+    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the global secondary index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The index is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub fn set_global_secondary_indexes(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexDescription>>,
@@ -453,8 +1047,51 @@ impl TableDescriptionBuilder {
         self.global_secondary_indexes = input;
         self
     }
-    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
-    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
+    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the global secondary index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The index is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ProjectionType</code> - One of the following:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li>
+    /// <li>
+    /// <p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
+    /// </ul></li>
+    /// <li>
+    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li>
+    /// </ul>
+    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
     pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexDescription>> {
         &self.global_secondary_indexes
     }
@@ -473,19 +1110,43 @@ impl TableDescriptionBuilder {
         &self.stream_specification
     }
     /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
-    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
+    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Amazon Web Services customer ID</p></li>
+    /// <li>
+    /// <p>Table name</p></li>
+    /// <li>
+    /// <p><code>StreamLabel</code></p></li>
+    /// </ul>
     pub fn latest_stream_label(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.latest_stream_label = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
-    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
+    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Amazon Web Services customer ID</p></li>
+    /// <li>
+    /// <p>Table name</p></li>
+    /// <li>
+    /// <p><code>StreamLabel</code></p></li>
+    /// </ul>
     pub fn set_latest_stream_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.latest_stream_label = input;
         self
     }
     /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
-    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
+    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
+    /// <ul>
+    /// <li>
+    /// <p>Amazon Web Services customer ID</p></li>
+    /// <li>
+    /// <p>Table name</p></li>
+    /// <li>
+    /// <p><code>StreamLabel</code></p></li>
+    /// </ul>
     pub fn get_latest_stream_label(&self) -> &::std::option::Option<::std::string::String> {
         &self.latest_stream_label
     }
@@ -517,10 +1178,11 @@ impl TableDescriptionBuilder {
     pub fn get_global_table_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.global_table_version
     }
-    /// <p>Represents replicas of the table.</p>
     /// Appends an item to `replicas`.
     ///
     /// To override the contents of this collection use [`set_replicas`](Self::set_replicas).
+    ///
+    /// <p>Represents replicas of the table.</p>
     pub fn replicas(mut self, input: crate::types::ReplicaDescription) -> Self {
         let mut v = self.replicas.unwrap_or_default();
         v.push(input);
@@ -536,10 +1198,11 @@ impl TableDescriptionBuilder {
     pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>> {
         &self.replicas
     }
-    /// <p>The witness Region and its current status in the MRSC global table. Only one witness Region can be configured per MRSC global table.</p>
     /// Appends an item to `global_table_witnesses`.
     ///
     /// To override the contents of this collection use [`set_global_table_witnesses`](Self::set_global_table_witnesses).
+    ///
+    /// <p>The witness Region and its current status in the MRSC global table. Only one witness Region can be configured per MRSC global table.</p>
     pub fn global_table_witnesses(mut self, input: crate::types::GlobalTableWitnessDescription) -> Self {
         let mut v = self.global_table_witnesses.unwrap_or_default();
         v.push(input);
@@ -555,12 +1218,28 @@ impl TableDescriptionBuilder {
     pub fn get_global_table_witnesses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessDescription>> {
         &self.global_table_witnesses
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn global_table_settings_replication_mode(mut self, input: crate::types::GlobalTableSettingsReplicationMode) -> Self {
         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn set_global_table_settings_replication_mode(
         mut self,
         input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
@@ -568,7 +1247,15 @@ impl TableDescriptionBuilder {
         self.global_table_settings_replication_mode = input;
         self
     }
-    /// <p>Indicates one of the settings synchronization modes for the global table:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
+    /// <p>Indicates one of the settings synchronization modes for the global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li>
+    /// <li>
+    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
+    /// </ul>
     pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
         &self.global_table_settings_replication_mode
     }
@@ -670,36 +1357,130 @@ impl TableDescriptionBuilder {
     pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> {
         &self.warm_throughput
     }
-    /// <p>Indicates one of the following consistency modes for a global table:</p><ul><li><p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li><li><p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
+    /// <p>Indicates one of the following consistency modes for a global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li>
+    /// <li>
+    /// <p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li>
+    /// </ul>
+    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
     pub fn multi_region_consistency(mut self, input: crate::types::MultiRegionConsistency) -> Self {
         self.multi_region_consistency = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Indicates one of the following consistency modes for a global table:</p><ul><li><p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li><li><p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
+    /// <p>Indicates one of the following consistency modes for a global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li>
+    /// <li>
+    /// <p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li>
+    /// </ul>
+    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
     pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<crate::types::MultiRegionConsistency>) -> Self {
         self.multi_region_consistency = input;
         self
     }
-    /// <p>Indicates one of the following consistency modes for a global table:</p><ul><li><p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li><li><p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
+    /// <p>Indicates one of the following consistency modes for a global table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li>
+    /// <li>
+    /// <p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li>
+    /// </ul>
+    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
     pub fn get_multi_region_consistency(&self) -> &::std::option::Option<crate::types::MultiRegionConsistency> {
         &self.multi_region_consistency
     }
-    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the vector index.</p></li><li><p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li><li><p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li><li><p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li><li><p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul>
     /// Appends an item to `vector_indexes`.
     ///
     /// To override the contents of this collection use [`set_vector_indexes`](Self::set_vector_indexes).
+    ///
+    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li>
+    /// <li>
+    /// <p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li>
+    /// <li>
+    /// <p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li>
+    /// <li>
+    /// <p><code>Dimensions</code> - The number of dimensions in each vector.</p></li>
+    /// <li>
+    /// <p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li>
+    /// <li>
+    /// <p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
     pub fn vector_indexes(mut self, input: crate::types::VectorIndexDescription) -> Self {
         let mut v = self.vector_indexes.unwrap_or_default();
         v.push(input);
         self.vector_indexes = ::std::option::Option::Some(v);
         self
     }
-    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the vector index.</p></li><li><p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li><li><p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li><li><p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li><li><p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul>
+    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li>
+    /// <li>
+    /// <p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li>
+    /// <li>
+    /// <p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li>
+    /// <li>
+    /// <p><code>Dimensions</code> - The number of dimensions in each vector.</p></li>
+    /// <li>
+    /// <p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li>
+    /// <li>
+    /// <p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
     pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexDescription>>) -> Self {
         self.vector_indexes = input;
         self
     }
-    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the vector index.</p></li><li><p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li><li><p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li><li><p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li><li><p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul>
+    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IndexName</code> - The name of the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li>
+    /// <li>
+    /// <p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li>
+    /// <li>
+    /// <p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li>
+    /// <li>
+    /// <p><code>Dimensions</code> - The number of dimensions in each vector.</p></li>
+    /// <li>
+    /// <p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li>
+    /// <li>
+    /// <p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li>
+    /// <li>
+    /// <p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li>
+    /// <li>
+    /// <p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li>
+    /// <li>
+    /// <p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// <li>
+    /// <p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
+    /// </ul>
     pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndexDescription>> {
         &self.vector_indexes
     }

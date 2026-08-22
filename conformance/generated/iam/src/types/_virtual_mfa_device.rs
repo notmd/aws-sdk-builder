@@ -40,6 +40,8 @@ impl VirtualMfaDevice {
         self.enable_date.as_ref()
     }
     /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -134,10 +136,11 @@ impl VirtualMfaDeviceBuilder {
     pub fn get_enable_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.enable_date
     }
-    /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
@@ -155,7 +158,7 @@ impl VirtualMfaDeviceBuilder {
     }
     /// Consumes the builder and constructs a [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
     /// This method will fail if any of the following fields are not set:
-    /// - [`serial_number`](Self::serial_number)
+    /// - [`serial_number`](crate::types::builders::VirtualMfaDeviceBuilder::serial_number)
     pub fn build(self) -> ::std::result::Result<crate::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VirtualMfaDevice {
             serial_number: self.serial_number.ok_or_else(|| {

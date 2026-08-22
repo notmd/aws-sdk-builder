@@ -4,9 +4,19 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PublishVersionRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::string::String,
-    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
+    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <code>UpdateFunctionCode</code>.</p>
     pub code_sha256: ::std::option::Option<::std::string::String>,
     /// <p>A description for the version to override the description in the function configuration.</p>
     pub description: ::std::option::Option<::std::string::String>,
@@ -16,12 +26,22 @@ pub struct PublishVersionRequest {
     pub publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
 }
 impl PublishVersionRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn function_name(&self) -> &str {
         use std::ops::Deref;
         self.function_name.deref()
     }
-    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
+    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <code>UpdateFunctionCode</code>.</p>
     pub fn code_sha256(&self) -> ::std::option::Option<&str> {
         self.code_sha256.as_deref()
     }
@@ -56,32 +76,62 @@ pub struct PublishVersionRequestBuilder {
     pub(crate) publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
 }
 impl PublishVersionRequestBuilder {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
-    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
+    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <code>UpdateFunctionCode</code>.</p>
     pub fn code_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code_sha256 = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
+    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <code>UpdateFunctionCode</code>.</p>
     pub fn set_code_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code_sha256 = input;
         self
     }
-    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
+    /// <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <code>UpdateFunctionCode</code>.</p>
     pub fn get_code_sha256(&self) -> &::std::option::Option<::std::string::String> {
         &self.code_sha256
     }
@@ -129,7 +179,7 @@ impl PublishVersionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`PublishVersionRequest`](crate::types::PublishVersionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::PublishVersionRequestBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::PublishVersionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PublishVersionRequest {
             function_name: self.function_name.ok_or_else(|| {

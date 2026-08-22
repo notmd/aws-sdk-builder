@@ -32,6 +32,8 @@ impl AnnotationEntry {
         self.e_tag.as_deref()
     }
     /// <p>The checksum algorithm used for the annotation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.checksum_algorithm.is_none()`.
     pub fn checksum_algorithm(&self) -> &[crate::types::ChecksumAlgorithm] {
         self.checksum_algorithm.as_deref().unwrap_or_default()
     }
@@ -107,10 +109,11 @@ impl AnnotationEntryBuilder {
     pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
         &self.e_tag
     }
-    /// <p>The checksum algorithm used for the annotation.</p>
     /// Appends an item to `checksum_algorithm`.
     ///
     /// To override the contents of this collection use [`set_checksum_algorithm`](Self::set_checksum_algorithm).
+    ///
+    /// <p>The checksum algorithm used for the annotation.</p>
     pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
         let mut v = self.checksum_algorithm.unwrap_or_default();
         v.push(input);
@@ -157,9 +160,9 @@ impl AnnotationEntryBuilder {
     }
     /// Consumes the builder and constructs a [`AnnotationEntry`](crate::types::AnnotationEntry).
     /// This method will fail if any of the following fields are not set:
-    /// - [`annotation_name`](Self::annotation_name)
-    /// - [`last_modified`](Self::last_modified)
-    /// - [`size`](Self::size)
+    /// - [`annotation_name`](crate::types::builders::AnnotationEntryBuilder::annotation_name)
+    /// - [`last_modified`](crate::types::builders::AnnotationEntryBuilder::last_modified)
+    /// - [`size`](crate::types::builders::AnnotationEntryBuilder::size)
     pub fn build(self) -> ::std::result::Result<crate::types::AnnotationEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnnotationEntry {
             annotation_name: self.annotation_name.ok_or_else(|| {

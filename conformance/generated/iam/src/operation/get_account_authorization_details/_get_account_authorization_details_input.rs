@@ -16,6 +16,8 @@ pub struct GetAccountAuthorizationDetailsInput {
 impl GetAccountAuthorizationDetailsInput {
     /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
     /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filter.is_none()`.
     pub fn filter(&self) -> &[crate::types::EntityType] {
         self.filter.as_deref().unwrap_or_default()
     }
@@ -45,11 +47,12 @@ pub struct GetAccountAuthorizationDetailsInputBuilder {
     pub(crate) marker: ::std::option::Option<::std::string::String>,
 }
 impl GetAccountAuthorizationDetailsInputBuilder {
-    /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
-    /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
     /// Appends an item to `filter`.
     ///
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
+    ///
+    /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
+    /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
     pub fn filter(mut self, input: crate::types::EntityType) -> Self {
         let mut v = self.filter.unwrap_or_default();
         v.push(input);

@@ -14,6 +14,8 @@ pub struct ListAliasesOutput {
 }
 impl ListAliasesOutput {
     /// <p>A list of aliases.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aliases.is_none()`.
     pub fn aliases(&self) -> &[crate::types::AliasListEntry] {
         self.aliases.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListAliasesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListAliasesOutputBuilder {
-    /// <p>A list of aliases.</p>
     /// Appends an item to `aliases`.
     ///
     /// To override the contents of this collection use [`set_aliases`](Self::set_aliases).
+    ///
+    /// <p>A list of aliases.</p>
     pub fn aliases(mut self, input: crate::types::AliasListEntry) -> Self {
         let mut v = self.aliases.unwrap_or_default();
         v.push(input);

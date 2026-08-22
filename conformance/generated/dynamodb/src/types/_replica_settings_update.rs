@@ -31,6 +31,8 @@ impl ReplicaSettingsUpdate {
         self.replica_provisioned_read_capacity_auto_scaling_settings_update.as_ref()
     }
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_global_secondary_index_settings_update.is_none()`.
     pub fn replica_global_secondary_index_settings_update(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate] {
         self.replica_global_secondary_index_settings_update.as_deref().unwrap_or_default()
     }
@@ -106,10 +108,11 @@ impl ReplicaSettingsUpdateBuilder {
     ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
         &self.replica_provisioned_read_capacity_auto_scaling_settings_update
     }
-    /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     /// Appends an item to `replica_global_secondary_index_settings_update`.
     ///
     /// To override the contents of this collection use [`set_replica_global_secondary_index_settings_update`](Self::set_replica_global_secondary_index_settings_update).
+    ///
+    /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     pub fn replica_global_secondary_index_settings_update(mut self, input: crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate) -> Self {
         let mut v = self.replica_global_secondary_index_settings_update.unwrap_or_default();
         v.push(input);
@@ -146,7 +149,7 @@ impl ReplicaSettingsUpdateBuilder {
     }
     /// Consumes the builder and constructs a [`ReplicaSettingsUpdate`](crate::types::ReplicaSettingsUpdate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`region_name`](Self::region_name)
+    /// - [`region_name`](crate::types::builders::ReplicaSettingsUpdateBuilder::region_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicaSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicaSettingsUpdate {
             region_name: self.region_name.ok_or_else(|| {

@@ -11,6 +11,8 @@ pub struct UserDetail {
     pub user_name: ::std::option::Option<::std::string::String>,
     /// <p>The stable and unique string identifying the user. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub user_id: ::std::option::Option<::std::string::String>,
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user was created.</p>
     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -21,7 +23,7 @@ pub struct UserDetail {
     /// <p>A list of the managed policies attached to the user.</p>
     pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -39,6 +41,8 @@ impl UserDetail {
     pub fn user_id(&self) -> ::std::option::Option<&str> {
         self.user_id.as_deref()
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(&self) -> ::std::option::Option<&str> {
         self.arn.as_deref()
     }
@@ -47,23 +51,31 @@ impl UserDetail {
         self.create_date.as_ref()
     }
     /// <p>A list of the inline policies embedded in the user.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_policy_list.is_none()`.
     pub fn user_policy_list(&self) -> &[crate::types::PolicyDetail] {
         self.user_policy_list.as_deref().unwrap_or_default()
     }
     /// <p>A list of IAM groups that the user is in.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_list.is_none()`.
     pub fn group_list(&self) -> &[::std::string::String] {
         self.group_list.as_deref().unwrap_or_default()
     }
     /// <p>A list of the managed policies attached to the user.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
         self.attached_managed_policies.as_deref().unwrap_or_default()
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
         self.permissions_boundary.as_ref()
     }
     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -133,14 +145,20 @@ impl UserDetailBuilder {
     pub fn get_user_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.user_id
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
@@ -158,10 +176,11 @@ impl UserDetailBuilder {
     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.create_date
     }
-    /// <p>A list of the inline policies embedded in the user.</p>
     /// Appends an item to `user_policy_list`.
     ///
     /// To override the contents of this collection use [`set_user_policy_list`](Self::set_user_policy_list).
+    ///
+    /// <p>A list of the inline policies embedded in the user.</p>
     pub fn user_policy_list(mut self, input: crate::types::PolicyDetail) -> Self {
         let mut v = self.user_policy_list.unwrap_or_default();
         v.push(input);
@@ -177,10 +196,11 @@ impl UserDetailBuilder {
     pub fn get_user_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
         &self.user_policy_list
     }
-    /// <p>A list of IAM groups that the user is in.</p>
     /// Appends an item to `group_list`.
     ///
     /// To override the contents of this collection use [`set_group_list`](Self::set_group_list).
+    ///
+    /// <p>A list of IAM groups that the user is in.</p>
     pub fn group_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.group_list.unwrap_or_default();
         v.push(input.into());
@@ -196,10 +216,11 @@ impl UserDetailBuilder {
     pub fn get_group_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.group_list
     }
-    /// <p>A list of the managed policies attached to the user.</p>
     /// Appends an item to `attached_managed_policies`.
     ///
     /// To override the contents of this collection use [`set_attached_managed_policies`](Self::set_attached_managed_policies).
+    ///
+    /// <p>A list of the managed policies attached to the user.</p>
     pub fn attached_managed_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
         let mut v = self.attached_managed_policies.unwrap_or_default();
         v.push(input);
@@ -216,26 +237,27 @@ impl UserDetailBuilder {
         &self.attached_managed_policies
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
         self.permissions_boundary = ::std::option::Option::Some(input);
         self
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
         self.permissions_boundary = input;
         self
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
         &self.permissions_boundary
     }
-    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

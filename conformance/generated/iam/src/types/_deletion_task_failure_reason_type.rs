@@ -16,6 +16,8 @@ impl DeletionTaskFailureReasonType {
         self.reason.as_deref()
     }
     /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_usage_list.is_none()`.
     pub fn role_usage_list(&self) -> &[crate::types::RoleUsageType] {
         self.role_usage_list.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl DeletionTaskFailureReasonTypeBuilder {
     pub fn get_reason(&self) -> &::std::option::Option<::std::string::String> {
         &self.reason
     }
-    /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
     /// Appends an item to `role_usage_list`.
     ///
     /// To override the contents of this collection use [`set_role_usage_list`](Self::set_role_usage_list).
+    ///
+    /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
     pub fn role_usage_list(mut self, input: crate::types::RoleUsageType) -> Self {
         let mut v = self.role_usage_list.unwrap_or_default();
         v.push(input);

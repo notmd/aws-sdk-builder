@@ -41,10 +41,11 @@ pub struct GetItemOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetItemOutputBuilder {
-    /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
     /// Adds a key-value pair to `item`.
     ///
     /// To override the contents of this collection use [`set_item`](Self::set_item).
+    ///
+    /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
     pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.item.unwrap_or_default();
         map.insert(k.into(), v);

@@ -35,10 +35,11 @@ pub struct ListFunctionUrlConfigsResponseBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl ListFunctionUrlConfigsResponseBuilder {
-    /// <p>A list of function URL configurations.</p>
     /// Appends an item to `function_url_configs`.
     ///
     /// To override the contents of this collection use [`set_function_url_configs`](Self::set_function_url_configs).
+    ///
+    /// <p>A list of function URL configurations.</p>
     pub fn function_url_configs(mut self, input: crate::types::FunctionUrlConfig) -> Self {
         let mut v = self.function_url_configs.unwrap_or_default();
         v.push(input);
@@ -70,7 +71,7 @@ impl ListFunctionUrlConfigsResponseBuilder {
     }
     /// Consumes the builder and constructs a [`ListFunctionUrlConfigsResponse`](crate::types::ListFunctionUrlConfigsResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_url_configs`](Self::function_url_configs)
+    /// - [`function_url_configs`](crate::types::builders::ListFunctionUrlConfigsResponseBuilder::function_url_configs)
     pub fn build(self) -> ::std::result::Result<crate::types::ListFunctionUrlConfigsResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListFunctionUrlConfigsResponse {
             function_url_configs: self.function_url_configs.ok_or_else(|| {

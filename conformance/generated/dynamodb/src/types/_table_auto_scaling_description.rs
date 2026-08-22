@@ -6,7 +6,17 @@
 pub struct TableAutoScalingDescription {
     /// <p>The name of the table.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// </ul>
     pub table_status: ::std::option::Option<crate::types::TableStatus>,
     /// <p>Represents replicas of the global table.</p>
     pub replicas: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>,
@@ -16,11 +26,23 @@ impl TableAutoScalingDescription {
     pub fn table_name(&self) -> ::std::option::Option<&str> {
         self.table_name.as_deref()
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// </ul>
     pub fn table_status(&self) -> ::std::option::Option<&crate::types::TableStatus> {
         self.table_status.as_ref()
     }
     /// <p>Represents replicas of the global table.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replicas.is_none()`.
     pub fn replicas(&self) -> &[crate::types::ReplicaAutoScalingDescription] {
         self.replicas.as_deref().unwrap_or_default()
     }
@@ -55,24 +77,55 @@ impl TableAutoScalingDescriptionBuilder {
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_name
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// </ul>
     pub fn table_status(mut self, input: crate::types::TableStatus) -> Self {
         self.table_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// </ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
         self.table_status = input;
         self
     }
-    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+    /// <p>The current state of the table:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The table is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The table is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
+    /// </ul>
     pub fn get_table_status(&self) -> &::std::option::Option<crate::types::TableStatus> {
         &self.table_status
     }
-    /// <p>Represents replicas of the global table.</p>
     /// Appends an item to `replicas`.
     ///
     /// To override the contents of this collection use [`set_replicas`](Self::set_replicas).
+    ///
+    /// <p>Represents replicas of the global table.</p>
     pub fn replicas(mut self, input: crate::types::ReplicaAutoScalingDescription) -> Self {
         let mut v = self.replicas.unwrap_or_default();
         v.push(input);

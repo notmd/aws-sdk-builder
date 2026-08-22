@@ -4,7 +4,15 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CsvInput {
-    /// <p>Describes the first line of input. Valid values are:</p><ul><li><p><code>NONE</code>: First line is not a header.</p></li><li><p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li><li><p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li></ul>
+    /// <p>Describes the first line of input. Valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code>: First line is not a header.</p></li>
+    /// <li>
+    /// <p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li>
+    /// <li>
+    /// <p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li>
+    /// </ul>
     pub file_header_info: ::std::option::Option<crate::types::FileHeaderInfo>,
     /// <p>A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line. The default character is <code>#</code>.</p>
     /// <p>Default: <code>#</code></p>
@@ -24,7 +32,15 @@ pub struct CsvInput {
     pub allow_quoted_record_delimiter: ::std::option::Option<bool>,
 }
 impl CsvInput {
-    /// <p>Describes the first line of input. Valid values are:</p><ul><li><p><code>NONE</code>: First line is not a header.</p></li><li><p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li><li><p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li></ul>
+    /// <p>Describes the first line of input. Valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code>: First line is not a header.</p></li>
+    /// <li>
+    /// <p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li>
+    /// <li>
+    /// <p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li>
+    /// </ul>
     pub fn file_header_info(&self) -> ::std::option::Option<&crate::types::FileHeaderInfo> {
         self.file_header_info.as_ref()
     }
@@ -77,17 +93,41 @@ pub struct CsvInputBuilder {
     pub(crate) allow_quoted_record_delimiter: ::std::option::Option<bool>,
 }
 impl CsvInputBuilder {
-    /// <p>Describes the first line of input. Valid values are:</p><ul><li><p><code>NONE</code>: First line is not a header.</p></li><li><p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li><li><p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li></ul>
+    /// <p>Describes the first line of input. Valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code>: First line is not a header.</p></li>
+    /// <li>
+    /// <p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li>
+    /// <li>
+    /// <p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li>
+    /// </ul>
     pub fn file_header_info(mut self, input: crate::types::FileHeaderInfo) -> Self {
         self.file_header_info = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Describes the first line of input. Valid values are:</p><ul><li><p><code>NONE</code>: First line is not a header.</p></li><li><p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li><li><p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li></ul>
+    /// <p>Describes the first line of input. Valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code>: First line is not a header.</p></li>
+    /// <li>
+    /// <p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li>
+    /// <li>
+    /// <p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li>
+    /// </ul>
     pub fn set_file_header_info(mut self, input: ::std::option::Option<crate::types::FileHeaderInfo>) -> Self {
         self.file_header_info = input;
         self
     }
-    /// <p>Describes the first line of input. Valid values are:</p><ul><li><p><code>NONE</code>: First line is not a header.</p></li><li><p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li><li><p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li></ul>
+    /// <p>Describes the first line of input. Valid values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>NONE</code>: First line is not a header.</p></li>
+    /// <li>
+    /// <p><code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p></li>
+    /// <li>
+    /// <p><code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT "name" FROM OBJECT</code>).</p></li>
+    /// </ul>
     pub fn get_file_header_info(&self) -> &::std::option::Option<crate::types::FileHeaderInfo> {
         &self.file_header_info
     }

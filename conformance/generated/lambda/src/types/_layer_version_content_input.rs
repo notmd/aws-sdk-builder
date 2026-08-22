@@ -10,7 +10,13 @@ pub struct LayerVersionContentInput {
     pub s3_key: ::std::option::Option<::std::string::String>,
     /// <p>For versioned objects, the version of the layer archive object to use.</p>
     pub s3_object_version: ::std::option::Option<::std::string::String>,
-    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the layer archive is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
     pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
@@ -28,7 +34,13 @@ impl LayerVersionContentInput {
     pub fn s3_object_version(&self) -> ::std::option::Option<&str> {
         self.s3_object_version.as_deref()
     }
-    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the layer archive is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
         self.s3_object_storage_mode.as_ref()
     }
@@ -97,17 +109,35 @@ impl LayerVersionContentInputBuilder {
     pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.s3_object_version
     }
-    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the layer archive is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn s3_object_storage_mode(mut self, input: crate::types::S3ObjectStorageMode) -> Self {
         self.s3_object_storage_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the layer archive is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
         self.s3_object_storage_mode = input;
         self
     }
-    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the layer archive is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
         &self.s3_object_storage_mode
     }

@@ -128,10 +128,11 @@ impl GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
     pub fn get_job_completion_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.job_completion_date
     }
-    /// <p>An <code>EntityDetailsList</code> object that contains details about when an IAM entity (user or role) used group or policy permissions in an attempt to access the specified Amazon Web Services service.</p>
     /// Appends an item to `entity_details_list`.
     ///
     /// To override the contents of this collection use [`set_entity_details_list`](Self::set_entity_details_list).
+    ///
+    /// <p>An <code>EntityDetailsList</code> object that contains details about when an IAM entity (user or role) used group or policy permissions in an attempt to access the specified Amazon Web Services service.</p>
     pub fn entity_details_list(mut self, input: crate::types::EntityDetails) -> Self {
         let mut v = self.entity_details_list.unwrap_or_default();
         v.push(input);
@@ -200,10 +201,10 @@ impl GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetServiceLastAccessedDetailsWithEntitiesOutput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`job_status`](Self::job_status)
-    /// - [`job_creation_date`](Self::job_creation_date)
-    /// - [`job_completion_date`](Self::job_completion_date)
-    /// - [`entity_details_list`](Self::entity_details_list)
+    /// - [`job_status`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::job_status)
+    /// - [`job_creation_date`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::job_creation_date)
+    /// - [`job_completion_date`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::job_completion_date)
+    /// - [`entity_details_list`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::entity_details_list)
     pub fn build(
         self,
     ) -> ::std::result::Result<

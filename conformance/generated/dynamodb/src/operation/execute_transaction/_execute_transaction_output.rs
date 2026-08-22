@@ -12,10 +12,14 @@ pub struct ExecuteTransactionOutput {
 }
 impl ExecuteTransactionOutput {
     /// <p>The response to a PartiQL transaction.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.responses.is_none()`.
     pub fn responses(&self) -> &[crate::types::ItemResponse] {
         self.responses.as_deref().unwrap_or_default()
     }
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.consumed_capacity.is_none()`.
     pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
         self.consumed_capacity.as_deref().unwrap_or_default()
     }
@@ -41,10 +45,11 @@ pub struct ExecuteTransactionOutputBuilder {
     _request_id: Option<String>,
 }
 impl ExecuteTransactionOutputBuilder {
-    /// <p>The response to a PartiQL transaction.</p>
     /// Appends an item to `responses`.
     ///
     /// To override the contents of this collection use [`set_responses`](Self::set_responses).
+    ///
+    /// <p>The response to a PartiQL transaction.</p>
     pub fn responses(mut self, input: crate::types::ItemResponse) -> Self {
         let mut v = self.responses.unwrap_or_default();
         v.push(input);
@@ -60,10 +65,11 @@ impl ExecuteTransactionOutputBuilder {
     pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>> {
         &self.responses
     }
-    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     /// Appends an item to `consumed_capacity`.
     ///
     /// To override the contents of this collection use [`set_consumed_capacity`](Self::set_consumed_capacity).
+    ///
+    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
         let mut v = self.consumed_capacity.unwrap_or_default();
         v.push(input);

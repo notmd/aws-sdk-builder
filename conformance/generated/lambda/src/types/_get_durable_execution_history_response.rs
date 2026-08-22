@@ -35,10 +35,11 @@ pub struct GetDurableExecutionHistoryResponseBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl GetDurableExecutionHistoryResponseBuilder {
-    /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
     /// Appends an item to `events`.
     ///
     /// To override the contents of this collection use [`set_events`](Self::set_events).
+    ///
+    /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
     pub fn events(mut self, input: crate::types::Event) -> Self {
         let mut v = self.events.unwrap_or_default();
         v.push(input);
@@ -70,7 +71,7 @@ impl GetDurableExecutionHistoryResponseBuilder {
     }
     /// Consumes the builder and constructs a [`GetDurableExecutionHistoryResponse`](crate::types::GetDurableExecutionHistoryResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`events`](Self::events)
+    /// - [`events`](crate::types::builders::GetDurableExecutionHistoryResponseBuilder::events)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionHistoryResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionHistoryResponse {
             events: self.events.ok_or_else(|| {

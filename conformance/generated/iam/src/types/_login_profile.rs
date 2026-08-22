@@ -89,8 +89,8 @@ impl LoginProfileBuilder {
     }
     /// Consumes the builder and constructs a [`LoginProfile`](crate::types::LoginProfile).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`create_date`](Self::create_date)
+    /// - [`user_name`](crate::types::builders::LoginProfileBuilder::user_name)
+    /// - [`create_date`](crate::types::builders::LoginProfileBuilder::create_date)
     pub fn build(self) -> ::std::result::Result<crate::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LoginProfile {
             user_name: self.user_name.ok_or_else(|| {

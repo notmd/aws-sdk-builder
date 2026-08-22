@@ -14,6 +14,8 @@ pub struct SimulateCustomPolicyOutput {
 }
 impl SimulateCustomPolicyOutput {
     /// <p>The results of the simulation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.evaluation_results.is_none()`.
     pub fn evaluation_results(&self) -> &[crate::types::EvaluationResult] {
         self.evaluation_results.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct SimulateCustomPolicyOutputBuilder {
     _request_id: Option<String>,
 }
 impl SimulateCustomPolicyOutputBuilder {
-    /// <p>The results of the simulation.</p>
     /// Appends an item to `evaluation_results`.
     ///
     /// To override the contents of this collection use [`set_evaluation_results`](Self::set_evaluation_results).
+    ///
+    /// <p>The results of the simulation.</p>
     pub fn evaluation_results(mut self, input: crate::types::EvaluationResult) -> Self {
         let mut v = self.evaluation_results.unwrap_or_default();
         v.push(input);

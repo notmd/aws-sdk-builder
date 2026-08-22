@@ -24,11 +24,15 @@ impl AddPermissionInput {
         self.label.as_deref()
     }
     /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aws_account_id.is_none()`.
     pub fn aws_account_id(&self) -> &[::std::string::String] {
         self.aws_account_id.as_deref().unwrap_or_default()
     }
     /// <p>The action you want to allow for the specified principal(s).</p>
     /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.action_name.is_none()`.
     pub fn action_name(&self) -> &[::std::string::String] {
         self.action_name.as_deref().unwrap_or_default()
     }
@@ -80,10 +84,11 @@ impl AddPermissionInputBuilder {
     pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
         &self.label
     }
-    /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
     /// Appends an item to `aws_account_id`.
     ///
     /// To override the contents of this collection use [`set_aws_account_id`](Self::set_aws_account_id).
+    ///
+    /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
     pub fn aws_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.aws_account_id.unwrap_or_default();
         v.push(input.into());
@@ -99,11 +104,12 @@ impl AddPermissionInputBuilder {
     pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.aws_account_id
     }
-    /// <p>The action you want to allow for the specified principal(s).</p>
-    /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
     /// Appends an item to `action_name`.
     ///
     /// To override the contents of this collection use [`set_action_name`](Self::set_action_name).
+    ///
+    /// <p>The action you want to allow for the specified principal(s).</p>
+    /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
     pub fn action_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.action_name.unwrap_or_default();
         v.push(input.into());

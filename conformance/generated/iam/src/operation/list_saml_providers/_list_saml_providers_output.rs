@@ -10,6 +10,8 @@ pub struct ListSamlProvidersOutput {
 }
 impl ListSamlProvidersOutput {
     /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.saml_provider_list.is_none()`.
     pub fn saml_provider_list(&self) -> &[crate::types::SamlProviderListEntry] {
         self.saml_provider_list.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct ListSamlProvidersOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListSamlProvidersOutputBuilder {
-    /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
     /// Appends an item to `saml_provider_list`.
     ///
     /// To override the contents of this collection use [`set_saml_provider_list`](Self::set_saml_provider_list).
+    ///
+    /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
     pub fn saml_provider_list(mut self, input: crate::types::SamlProviderListEntry) -> Self {
         let mut v = self.saml_provider_list.unwrap_or_default();
         v.push(input);

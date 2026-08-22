@@ -14,6 +14,8 @@ pub struct ListKeyPoliciesOutput {
 }
 impl ListKeyPoliciesOutput {
     /// <p>A list of key policy names. The only valid value is <code>default</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_names.is_none()`.
     pub fn policy_names(&self) -> &[::std::string::String] {
         self.policy_names.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListKeyPoliciesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListKeyPoliciesOutputBuilder {
-    /// <p>A list of key policy names. The only valid value is <code>default</code>.</p>
     /// Appends an item to `policy_names`.
     ///
     /// To override the contents of this collection use [`set_policy_names`](Self::set_policy_names).
+    ///
+    /// <p>A list of key policy names. The only valid value is <code>default</code>.</p>
     pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.policy_names.unwrap_or_default();
         v.push(input.into());

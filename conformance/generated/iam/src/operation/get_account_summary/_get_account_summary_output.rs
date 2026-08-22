@@ -34,10 +34,11 @@ pub struct GetAccountSummaryOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetAccountSummaryOutputBuilder {
-    /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
     /// Adds a key-value pair to `summary_map`.
     ///
     /// To override the contents of this collection use [`set_summary_map`](Self::set_summary_map).
+    ///
+    /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
     pub fn summary_map(mut self, k: crate::types::SummaryKeyType, v: i32) -> Self {
         let mut map = self.summary_map.unwrap_or_default();
         map.insert(k, v);

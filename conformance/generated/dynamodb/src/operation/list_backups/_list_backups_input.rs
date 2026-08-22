@@ -15,7 +15,15 @@ pub struct ListBackupsInput {
     /// <p><code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results.</p>
     pub exclusive_start_backup_arn: ::std::option::Option<::std::string::String>,
     /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
-    /// <p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
+    /// <p>Where <code>BackupType</code> can be:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+    /// </ul>
     pub backup_type: ::std::option::Option<crate::types::BackupTypeFilter>,
 }
 impl ListBackupsInput {
@@ -40,7 +48,15 @@ impl ListBackupsInput {
         self.exclusive_start_backup_arn.as_deref()
     }
     /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
-    /// <p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
+    /// <p>Where <code>BackupType</code> can be:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+    /// </ul>
     pub fn backup_type(&self) -> ::std::option::Option<&crate::types::BackupTypeFilter> {
         self.backup_type.as_ref()
     }
@@ -135,19 +151,43 @@ impl ListBackupsInputBuilder {
         &self.exclusive_start_backup_arn
     }
     /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
-    /// <p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
+    /// <p>Where <code>BackupType</code> can be:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+    /// </ul>
     pub fn backup_type(mut self, input: crate::types::BackupTypeFilter) -> Self {
         self.backup_type = ::std::option::Option::Some(input);
         self
     }
     /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
-    /// <p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
+    /// <p>Where <code>BackupType</code> can be:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+    /// </ul>
     pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupTypeFilter>) -> Self {
         self.backup_type = input;
         self
     }
     /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
-    /// <p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
+    /// <p>Where <code>BackupType</code> can be:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li>
+    /// <li>
+    /// <p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li>
+    /// <li>
+    /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
+    /// </ul>
     pub fn get_backup_type(&self) -> &::std::option::Option<crate::types::BackupTypeFilter> {
         &self.backup_type
     }

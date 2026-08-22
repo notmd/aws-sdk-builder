@@ -87,7 +87,7 @@ impl S3BucketSourceBuilder {
     }
     /// Consumes the builder and constructs a [`S3BucketSource`](crate::types::S3BucketSource).
     /// This method will fail if any of the following fields are not set:
-    /// - [`s3_bucket`](Self::s3_bucket)
+    /// - [`s3_bucket`](crate::types::builders::S3BucketSourceBuilder::s3_bucket)
     pub fn build(self) -> ::std::result::Result<crate::types::S3BucketSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3BucketSource {
             s3_bucket_owner: self.s3_bucket_owner,

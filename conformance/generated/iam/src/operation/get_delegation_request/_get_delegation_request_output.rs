@@ -7,9 +7,25 @@ pub struct GetDelegationRequestOutput {
     /// <p>The delegation request object containing all details about the request.</p>
     pub delegation_request: ::std::option::Option<crate::types::DelegationRequest>,
     /// <p>The status of the permission check for the delegation request.</p>
-    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
+    /// <li>
+    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
+    /// </ul>
     pub permission_check_status: ::std::option::Option<crate::types::PermissionCheckStatusType>,
-    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
+    /// </ul>
     pub permission_check_result: ::std::option::Option<crate::types::PermissionCheckResultType>,
     _request_id: Option<String>,
 }
@@ -19,11 +35,27 @@ impl GetDelegationRequestOutput {
         self.delegation_request.as_ref()
     }
     /// <p>The status of the permission check for the delegation request.</p>
-    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
+    /// <li>
+    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
+    /// </ul>
     pub fn permission_check_status(&self) -> ::std::option::Option<&crate::types::PermissionCheckStatusType> {
         self.permission_check_status.as_ref()
     }
-    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
+    /// </ul>
     pub fn permission_check_result(&self) -> ::std::option::Option<&crate::types::PermissionCheckResultType> {
         self.permission_check_result.as_ref()
     }
@@ -65,33 +97,81 @@ impl GetDelegationRequestOutputBuilder {
         &self.delegation_request
     }
     /// <p>The status of the permission check for the delegation request.</p>
-    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
+    /// <li>
+    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
+    /// </ul>
     pub fn permission_check_status(mut self, input: crate::types::PermissionCheckStatusType) -> Self {
         self.permission_check_status = ::std::option::Option::Some(input);
         self
     }
     /// <p>The status of the permission check for the delegation request.</p>
-    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
+    /// <li>
+    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
+    /// </ul>
     pub fn set_permission_check_status(mut self, input: ::std::option::Option<crate::types::PermissionCheckStatusType>) -> Self {
         self.permission_check_status = input;
         self
     }
     /// <p>The status of the permission check for the delegation request.</p>
-    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
+    /// <li>
+    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
+    /// </ul>
     pub fn get_permission_check_status(&self) -> &::std::option::Option<crate::types::PermissionCheckStatusType> {
         &self.permission_check_status
     }
-    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
+    /// </ul>
     pub fn permission_check_result(mut self, input: crate::types::PermissionCheckResultType) -> Self {
         self.permission_check_result = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
+    /// </ul>
     pub fn set_permission_check_result(mut self, input: ::std::option::Option<crate::types::PermissionCheckResultType>) -> Self {
         self.permission_check_result = input;
         self
     }
-    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
+    /// <li>
+    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
+    /// </ul>
     pub fn get_permission_check_result(&self) -> &::std::option::Option<crate::types::PermissionCheckResultType> {
         &self.permission_check_result
     }

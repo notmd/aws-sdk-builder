@@ -15,6 +15,8 @@ impl ListEventSourceMappingsResponse {
         self.next_marker.as_deref()
     }
     /// <p>A list of event source mappings.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.event_source_mappings.is_none()`.
     pub fn event_source_mappings(&self) -> &[crate::types::EventSourceMappingConfiguration] {
         self.event_source_mappings.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListEventSourceMappingsResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>A list of event source mappings.</p>
     /// Appends an item to `event_source_mappings`.
     ///
     /// To override the contents of this collection use [`set_event_source_mappings`](Self::set_event_source_mappings).
+    ///
+    /// <p>A list of event source mappings.</p>
     pub fn event_source_mappings(mut self, input: crate::types::EventSourceMappingConfiguration) -> Self {
         let mut v = self.event_source_mappings.unwrap_or_default();
         v.push(input);

@@ -12,6 +12,8 @@ pub struct ListEndpointsByPlatformApplicationOutput {
 }
 impl ListEndpointsByPlatformApplicationOutput {
     /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.endpoints.is_none()`.
     pub fn endpoints(&self) -> &[crate::types::Endpoint] {
         self.endpoints.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListEndpointsByPlatformApplicationOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListEndpointsByPlatformApplicationOutputBuilder {
-    /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
     /// Appends an item to `endpoints`.
     ///
     /// To override the contents of this collection use [`set_endpoints`](Self::set_endpoints).
+    ///
+    /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
     pub fn endpoints(mut self, input: crate::types::Endpoint) -> Self {
         let mut v = self.endpoints.unwrap_or_default();
         v.push(input);

@@ -113,10 +113,10 @@ impl CredentialsBuilder {
     }
     /// Consumes the builder and constructs a [`Credentials`](crate::types::Credentials).
     /// This method will fail if any of the following fields are not set:
-    /// - [`access_key_id`](Self::access_key_id)
-    /// - [`secret_access_key`](Self::secret_access_key)
-    /// - [`session_token`](Self::session_token)
-    /// - [`expiration`](Self::expiration)
+    /// - [`access_key_id`](crate::types::builders::CredentialsBuilder::access_key_id)
+    /// - [`secret_access_key`](crate::types::builders::CredentialsBuilder::secret_access_key)
+    /// - [`session_token`](crate::types::builders::CredentialsBuilder::session_token)
+    /// - [`expiration`](crate::types::builders::CredentialsBuilder::expiration)
     pub fn build(self) -> ::std::result::Result<crate::types::Credentials, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Credentials {
             access_key_id: self.access_key_id.ok_or_else(|| {

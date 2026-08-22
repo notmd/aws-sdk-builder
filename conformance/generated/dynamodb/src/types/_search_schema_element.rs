@@ -6,7 +6,13 @@
 pub struct SearchSchemaElement {
     /// <p>The name of the attribute.</p>
     pub attribute_name: ::std::string::String,
-    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
+    /// <p>The role of the attribute in the search schema. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li>
+    /// <li>
+    /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
+    /// </ul>
     pub search_schema_element_type: crate::types::SearchSchemaElementType,
 }
 impl SearchSchemaElement {
@@ -15,7 +21,13 @@ impl SearchSchemaElement {
         use std::ops::Deref;
         self.attribute_name.deref()
     }
-    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
+    /// <p>The role of the attribute in the search schema. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li>
+    /// <li>
+    /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
+    /// </ul>
     pub fn search_schema_element_type(&self) -> &crate::types::SearchSchemaElementType {
         &self.search_schema_element_type
     }
@@ -50,25 +62,43 @@ impl SearchSchemaElementBuilder {
     pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.attribute_name
     }
-    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
+    /// <p>The role of the attribute in the search schema. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li>
+    /// <li>
+    /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
+    /// </ul>
     /// This field is required.
     pub fn search_schema_element_type(mut self, input: crate::types::SearchSchemaElementType) -> Self {
         self.search_schema_element_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
+    /// <p>The role of the attribute in the search schema. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li>
+    /// <li>
+    /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
+    /// </ul>
     pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<crate::types::SearchSchemaElementType>) -> Self {
         self.search_schema_element_type = input;
         self
     }
-    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
+    /// <p>The role of the attribute in the search schema. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li>
+    /// <li>
+    /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
+    /// </ul>
     pub fn get_search_schema_element_type(&self) -> &::std::option::Option<crate::types::SearchSchemaElementType> {
         &self.search_schema_element_type
     }
     /// Consumes the builder and constructs a [`SearchSchemaElement`](crate::types::SearchSchemaElement).
     /// This method will fail if any of the following fields are not set:
-    /// - [`attribute_name`](Self::attribute_name)
-    /// - [`search_schema_element_type`](Self::search_schema_element_type)
+    /// - [`attribute_name`](crate::types::builders::SearchSchemaElementBuilder::attribute_name)
+    /// - [`search_schema_element_type`](crate::types::builders::SearchSchemaElementBuilder::search_schema_element_type)
     pub fn build(self) -> ::std::result::Result<crate::types::SearchSchemaElement, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SearchSchemaElement {
             attribute_name: self.attribute_name.ok_or_else(|| {

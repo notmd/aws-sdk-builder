@@ -4,11 +4,27 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateGlobalTableWitnessGroupMemberAction {
-    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p><ul><li><p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li><li><p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li><li><p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li></ul>
+    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p>
+    /// <ul>
+    /// <li>
+    /// <p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li>
+    /// <li>
+    /// <p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li>
+    /// <li>
+    /// <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li>
+    /// </ul>
     pub region_name: ::std::string::String,
 }
 impl CreateGlobalTableWitnessGroupMemberAction {
-    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p><ul><li><p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li><li><p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li><li><p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li></ul>
+    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p>
+    /// <ul>
+    /// <li>
+    /// <p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li>
+    /// <li>
+    /// <p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li>
+    /// <li>
+    /// <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li>
+    /// </ul>
     pub fn region_name(&self) -> &str {
         use std::ops::Deref;
         self.region_name.deref()
@@ -28,24 +44,48 @@ pub struct CreateGlobalTableWitnessGroupMemberActionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
 }
 impl CreateGlobalTableWitnessGroupMemberActionBuilder {
-    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p><ul><li><p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li><li><p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li><li><p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li></ul>
+    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p>
+    /// <ul>
+    /// <li>
+    /// <p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li>
+    /// <li>
+    /// <p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li>
+    /// <li>
+    /// <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li>
+    /// </ul>
     /// This field is required.
     pub fn region_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p><ul><li><p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li><li><p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li><li><p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li></ul>
+    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p>
+    /// <ul>
+    /// <li>
+    /// <p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li>
+    /// <li>
+    /// <p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li>
+    /// <li>
+    /// <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li>
+    /// </ul>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self
     }
-    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p><ul><li><p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li><li><p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li><li><p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li></ul>
+    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p>
+    /// <ul>
+    /// <li>
+    /// <p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li>
+    /// <li>
+    /// <p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li>
+    /// <li>
+    /// <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li>
+    /// </ul>
     pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.region_name
     }
     /// Consumes the builder and constructs a [`CreateGlobalTableWitnessGroupMemberAction`](crate::types::CreateGlobalTableWitnessGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
-    /// - [`region_name`](Self::region_name)
+    /// - [`region_name`](crate::types::builders::CreateGlobalTableWitnessGroupMemberActionBuilder::region_name)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::CreateGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {

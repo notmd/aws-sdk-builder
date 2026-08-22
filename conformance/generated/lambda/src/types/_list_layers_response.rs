@@ -15,6 +15,8 @@ impl ListLayersResponse {
         self.next_marker.as_deref()
     }
     /// <p>A list of function layers.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.layers.is_none()`.
     pub fn layers(&self) -> &[crate::types::LayersListItem] {
         self.layers.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListLayersResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>A list of function layers.</p>
     /// Appends an item to `layers`.
     ///
     /// To override the contents of this collection use [`set_layers`](Self::set_layers).
+    ///
+    /// <p>A list of function layers.</p>
     pub fn layers(mut self, input: crate::types::LayersListItem) -> Self {
         let mut v = self.layers.unwrap_or_default();
         v.push(input);

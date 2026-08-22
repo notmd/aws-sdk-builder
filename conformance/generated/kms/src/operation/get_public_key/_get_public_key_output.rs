@@ -59,15 +59,21 @@ impl GetPublicKeyOutput {
     /// <p>The encryption algorithms that KMS supports for this key.</p>
     /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
     /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.encryption_algorithms.is_none()`.
     pub fn encryption_algorithms(&self) -> &[crate::types::EncryptionAlgorithmSpec] {
         self.encryption_algorithms.as_deref().unwrap_or_default()
     }
     /// <p>The signing algorithms that KMS supports for this key.</p>
     /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.signing_algorithms.is_none()`.
     pub fn signing_algorithms(&self) -> &[crate::types::SigningAlgorithmSpec] {
         self.signing_algorithms.as_deref().unwrap_or_default()
     }
     /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.key_agreement_algorithms.is_none()`.
     pub fn key_agreement_algorithms(&self) -> &[crate::types::KeyAgreementAlgorithmSpec] {
         self.key_agreement_algorithms.as_deref().unwrap_or_default()
     }
@@ -184,12 +190,13 @@ impl GetPublicKeyOutputBuilder {
     pub fn get_key_usage(&self) -> &::std::option::Option<crate::types::KeyUsageType> {
         &self.key_usage
     }
-    /// <p>The encryption algorithms that KMS supports for this key.</p>
-    /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
-    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
     /// Appends an item to `encryption_algorithms`.
     ///
     /// To override the contents of this collection use [`set_encryption_algorithms`](Self::set_encryption_algorithms).
+    ///
+    /// <p>The encryption algorithms that KMS supports for this key.</p>
+    /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
+    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
     pub fn encryption_algorithms(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
         let mut v = self.encryption_algorithms.unwrap_or_default();
         v.push(input);
@@ -209,11 +216,12 @@ impl GetPublicKeyOutputBuilder {
     pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>> {
         &self.encryption_algorithms
     }
-    /// <p>The signing algorithms that KMS supports for this key.</p>
-    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
     /// Appends an item to `signing_algorithms`.
     ///
     /// To override the contents of this collection use [`set_signing_algorithms`](Self::set_signing_algorithms).
+    ///
+    /// <p>The signing algorithms that KMS supports for this key.</p>
+    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
     pub fn signing_algorithms(mut self, input: crate::types::SigningAlgorithmSpec) -> Self {
         let mut v = self.signing_algorithms.unwrap_or_default();
         v.push(input);
@@ -231,10 +239,11 @@ impl GetPublicKeyOutputBuilder {
     pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>> {
         &self.signing_algorithms
     }
-    /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
     /// Appends an item to `key_agreement_algorithms`.
     ///
     /// To override the contents of this collection use [`set_key_agreement_algorithms`](Self::set_key_agreement_algorithms).
+    ///
+    /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
     pub fn key_agreement_algorithms(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
         let mut v = self.key_agreement_algorithms.unwrap_or_default();
         v.push(input);

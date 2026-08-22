@@ -6,7 +6,13 @@
 pub struct GlobalSecondaryIndex {
     /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
     pub index_name: ::std::string::String,
-    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -27,7 +33,13 @@ impl GlobalSecondaryIndex {
         use std::ops::Deref;
         self.index_name.deref()
     }
-    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -87,20 +99,33 @@ impl GlobalSecondaryIndexBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
-    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
-    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
-    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-    /// </note>
     /// Appends an item to `key_schema`.
     ///
     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
+    ///
+    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
+    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+    /// </note>
     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -108,7 +133,13 @@ impl GlobalSecondaryIndexBuilder {
         self.key_schema = input;
         self
     }
-    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -176,8 +207,8 @@ impl GlobalSecondaryIndexBuilder {
     }
     /// Consumes the builder and constructs a [`GlobalSecondaryIndex`](crate::types::GlobalSecondaryIndex).
     /// This method will fail if any of the following fields are not set:
-    /// - [`index_name`](Self::index_name)
-    /// - [`key_schema`](Self::key_schema)
+    /// - [`index_name`](crate::types::builders::GlobalSecondaryIndexBuilder::index_name)
+    /// - [`key_schema`](crate::types::builders::GlobalSecondaryIndexBuilder::key_schema)
     pub fn build(self) -> ::std::result::Result<crate::types::GlobalSecondaryIndex, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GlobalSecondaryIndex {
             index_name: self.index_name.ok_or_else(|| {

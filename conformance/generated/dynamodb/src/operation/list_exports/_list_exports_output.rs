@@ -12,6 +12,8 @@ pub struct ListExportsOutput {
 }
 impl ListExportsOutput {
     /// <p>A list of <code>ExportSummary</code> objects.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.export_summaries.is_none()`.
     pub fn export_summaries(&self) -> &[crate::types::ExportSummary] {
         self.export_summaries.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListExportsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListExportsOutputBuilder {
-    /// <p>A list of <code>ExportSummary</code> objects.</p>
     /// Appends an item to `export_summaries`.
     ///
     /// To override the contents of this collection use [`set_export_summaries`](Self::set_export_summaries).
+    ///
+    /// <p>A list of <code>ExportSummary</code> objects.</p>
     pub fn export_summaries(mut self, input: crate::types::ExportSummary) -> Self {
         let mut v = self.export_summaries.unwrap_or_default();
         v.push(input);

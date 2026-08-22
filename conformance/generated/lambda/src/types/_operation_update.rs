@@ -26,7 +26,9 @@ pub struct OperationUpdate {
     pub step_options: ::std::option::Option<crate::types::StepOptions>,
     /// <p>Options for wait operations.</p>
     pub wait_options: ::std::option::Option<crate::types::WaitOptions>,
+    /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
     pub callback_options: ::std::option::Option<crate::types::CallbackOptions>,
+    /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
     pub chained_invoke_options: ::std::option::Option<crate::types::ChainedInvokeOptions>,
 }
 impl OperationUpdate {
@@ -75,9 +77,11 @@ impl OperationUpdate {
     pub fn wait_options(&self) -> ::std::option::Option<&crate::types::WaitOptions> {
         self.wait_options.as_ref()
     }
+    /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
     pub fn callback_options(&self) -> ::std::option::Option<&crate::types::CallbackOptions> {
         self.callback_options.as_ref()
     }
+    /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
     pub fn chained_invoke_options(&self) -> ::std::option::Option<&crate::types::ChainedInvokeOptions> {
         self.chained_invoke_options.as_ref()
     }
@@ -265,33 +269,39 @@ impl OperationUpdateBuilder {
     pub fn get_wait_options(&self) -> &::std::option::Option<crate::types::WaitOptions> {
         &self.wait_options
     }
+    /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
     pub fn callback_options(mut self, input: crate::types::CallbackOptions) -> Self {
         self.callback_options = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
     pub fn set_callback_options(mut self, input: ::std::option::Option<crate::types::CallbackOptions>) -> Self {
         self.callback_options = input;
         self
     }
+    /// <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
     pub fn get_callback_options(&self) -> &::std::option::Option<crate::types::CallbackOptions> {
         &self.callback_options
     }
+    /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
     pub fn chained_invoke_options(mut self, input: crate::types::ChainedInvokeOptions) -> Self {
         self.chained_invoke_options = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
     pub fn set_chained_invoke_options(mut self, input: ::std::option::Option<crate::types::ChainedInvokeOptions>) -> Self {
         self.chained_invoke_options = input;
         self
     }
+    /// <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
     pub fn get_chained_invoke_options(&self) -> &::std::option::Option<crate::types::ChainedInvokeOptions> {
         &self.chained_invoke_options
     }
     /// Consumes the builder and constructs a [`OperationUpdate`](crate::types::OperationUpdate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`id`](Self::id)
-    /// - [`r#type`](Self::r#type)
-    /// - [`action`](Self::action)
+    /// - [`id`](crate::types::builders::OperationUpdateBuilder::id)
+    /// - [`r#type`](crate::types::builders::OperationUpdateBuilder::r#type)
+    /// - [`action`](crate::types::builders::OperationUpdateBuilder::action)
     pub fn build(self) -> ::std::result::Result<crate::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OperationUpdate {
             id: self.id.ok_or_else(|| {

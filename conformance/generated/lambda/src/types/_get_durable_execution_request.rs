@@ -66,7 +66,7 @@ impl GetDurableExecutionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetDurableExecutionRequest`](crate::types::GetDurableExecutionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
+    /// - [`durable_execution_arn`](crate::types::builders::GetDurableExecutionRequestBuilder::durable_execution_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionRequest {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

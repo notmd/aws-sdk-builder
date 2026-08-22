@@ -25,6 +25,8 @@ impl CheckpointDurableExecutionRequest {
         self.checkpoint_token.deref()
     }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.updates.is_none()`.
     pub fn updates(&self) -> &[crate::types::OperationUpdate] {
         self.updates.as_deref().unwrap_or_default()
     }
@@ -80,10 +82,11 @@ impl CheckpointDurableExecutionRequestBuilder {
     pub fn get_checkpoint_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.checkpoint_token
     }
-    /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
     /// Appends an item to `updates`.
     ///
     /// To override the contents of this collection use [`set_updates`](Self::set_updates).
+    ///
+    /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
     pub fn updates(mut self, input: crate::types::OperationUpdate) -> Self {
         let mut v = self.updates.unwrap_or_default();
         v.push(input);
@@ -115,8 +118,8 @@ impl CheckpointDurableExecutionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`CheckpointDurableExecutionRequest`](crate::types::CheckpointDurableExecutionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
-    /// - [`checkpoint_token`](Self::checkpoint_token)
+    /// - [`durable_execution_arn`](crate::types::builders::CheckpointDurableExecutionRequestBuilder::durable_execution_arn)
+    /// - [`checkpoint_token`](crate::types::builders::CheckpointDurableExecutionRequestBuilder::checkpoint_token)
     pub fn build(self) -> ::std::result::Result<crate::types::CheckpointDurableExecutionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CheckpointDurableExecutionRequest {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

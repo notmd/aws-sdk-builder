@@ -39,12 +39,13 @@ pub struct DeleteBuilder {
     pub(crate) quiet: ::std::option::Option<bool>,
 }
 impl DeleteBuilder {
-    /// <p>The object to delete.</p><note>
-    /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
-    /// </note>
     /// Appends an item to `objects`.
     ///
     /// To override the contents of this collection use [`set_objects`](Self::set_objects).
+    ///
+    /// <p>The object to delete.</p><note>
+    /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
+    /// </note>
     pub fn objects(mut self, input: crate::types::ObjectIdentifier) -> Self {
         let mut v = self.objects.unwrap_or_default();
         v.push(input);
@@ -80,7 +81,7 @@ impl DeleteBuilder {
     }
     /// Consumes the builder and constructs a [`Delete`](crate::types::Delete).
     /// This method will fail if any of the following fields are not set:
-    /// - [`objects`](Self::objects)
+    /// - [`objects`](crate::types::builders::DeleteBuilder::objects)
     pub fn build(self) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Delete {
             objects: self.objects.ok_or_else(|| {

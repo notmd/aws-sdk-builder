@@ -14,6 +14,8 @@ pub struct ListAttachedUserPoliciesOutput {
 }
 impl ListAttachedUserPoliciesOutput {
     /// <p>A list of the attached policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_policies.is_none()`.
     pub fn attached_policies(&self) -> &[crate::types::AttachedPolicy] {
         self.attached_policies.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListAttachedUserPoliciesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListAttachedUserPoliciesOutputBuilder {
-    /// <p>A list of the attached policies.</p>
     /// Appends an item to `attached_policies`.
     ///
     /// To override the contents of this collection use [`set_attached_policies`](Self::set_attached_policies).
+    ///
+    /// <p>A list of the attached policies.</p>
     pub fn attached_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
         let mut v = self.attached_policies.unwrap_or_default();
         v.push(input);

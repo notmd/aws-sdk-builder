@@ -15,6 +15,8 @@ impl ListAliasesResponse {
         self.next_marker.as_deref()
     }
     /// <p>A list of aliases.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.aliases.is_none()`.
     pub fn aliases(&self) -> &[crate::types::AliasConfiguration] {
         self.aliases.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListAliasesResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>A list of aliases.</p>
     /// Appends an item to `aliases`.
     ///
     /// To override the contents of this collection use [`set_aliases`](Self::set_aliases).
+    ///
+    /// <p>A list of aliases.</p>
     pub fn aliases(mut self, input: crate::types::AliasConfiguration) -> Self {
         let mut v = self.aliases.unwrap_or_default();
         v.push(input);

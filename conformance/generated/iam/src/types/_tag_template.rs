@@ -68,8 +68,8 @@ impl TagTemplateBuilder {
     }
     /// Consumes the builder and constructs a [`TagTemplate`](crate::types::TagTemplate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`key`](Self::key)
-    /// - [`value`](Self::value)
+    /// - [`key`](crate::types::builders::TagTemplateBuilder::key)
+    /// - [`value`](crate::types::builders::TagTemplateBuilder::value)
     pub fn build(self) -> ::std::result::Result<crate::types::TagTemplate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TagTemplate {
             key: self.key.ok_or_else(|| {

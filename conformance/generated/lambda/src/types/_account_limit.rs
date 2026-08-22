@@ -12,7 +12,7 @@ pub struct AccountLimit {
     pub code_size_zipped: ::std::option::Option<i64>,
     /// <p>The maximum number of simultaneous function executions.</p>
     pub concurrent_executions: ::std::option::Option<i32>,
-    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
+    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
     pub unreserved_concurrent_executions: ::std::option::Option<i32>,
 }
 impl AccountLimit {
@@ -32,7 +32,7 @@ impl AccountLimit {
     pub fn concurrent_executions(&self) -> ::std::option::Option<i32> {
         self.concurrent_executions
     }
-    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
+    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
     pub fn unreserved_concurrent_executions(&self) -> ::std::option::Option<i32> {
         self.unreserved_concurrent_executions
     }
@@ -111,17 +111,17 @@ impl AccountLimitBuilder {
     pub fn get_concurrent_executions(&self) -> &::std::option::Option<i32> {
         &self.concurrent_executions
     }
-    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
+    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
     pub fn unreserved_concurrent_executions(mut self, input: i32) -> Self {
         self.unreserved_concurrent_executions = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
+    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
     pub fn set_unreserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.unreserved_concurrent_executions = input;
         self
     }
-    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
+    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
     pub fn get_unreserved_concurrent_executions(&self) -> &::std::option::Option<i32> {
         &self.unreserved_concurrent_executions
     }

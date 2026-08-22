@@ -35,10 +35,11 @@ pub struct ListCapacityProvidersResponseBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl ListCapacityProvidersResponseBuilder {
-    /// <p>A list of capacity providers in your account.</p>
     /// Appends an item to `capacity_providers`.
     ///
     /// To override the contents of this collection use [`set_capacity_providers`](Self::set_capacity_providers).
+    ///
+    /// <p>A list of capacity providers in your account.</p>
     pub fn capacity_providers(mut self, input: crate::types::CapacityProvider) -> Self {
         let mut v = self.capacity_providers.unwrap_or_default();
         v.push(input);
@@ -70,7 +71,7 @@ impl ListCapacityProvidersResponseBuilder {
     }
     /// Consumes the builder and constructs a [`ListCapacityProvidersResponse`](crate::types::ListCapacityProvidersResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_providers`](Self::capacity_providers)
+    /// - [`capacity_providers`](crate::types::builders::ListCapacityProvidersResponseBuilder::capacity_providers)
     pub fn build(self) -> ::std::result::Result<crate::types::ListCapacityProvidersResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListCapacityProvidersResponse {
             capacity_providers: self.capacity_providers.ok_or_else(|| {

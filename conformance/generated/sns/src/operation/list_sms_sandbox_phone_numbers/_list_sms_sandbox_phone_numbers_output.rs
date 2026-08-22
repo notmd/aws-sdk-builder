@@ -42,10 +42,11 @@ pub struct ListSmsSandboxPhoneNumbersOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListSmsSandboxPhoneNumbersOutputBuilder {
-    /// <p>A list of the calling account's pending and verified phone numbers.</p>
     /// Appends an item to `phone_numbers`.
     ///
     /// To override the contents of this collection use [`set_phone_numbers`](Self::set_phone_numbers).
+    ///
+    /// <p>A list of the calling account's pending and verified phone numbers.</p>
     pub fn phone_numbers(mut self, input: crate::types::SmsSandboxPhoneNumber) -> Self {
         let mut v = self.phone_numbers.unwrap_or_default();
         v.push(input);
@@ -86,7 +87,7 @@ impl ListSmsSandboxPhoneNumbersOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListSmsSandboxPhoneNumbersOutput`](crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`phone_numbers`](Self::phone_numbers)
+    /// - [`phone_numbers`](crate::operation::list_sms_sandbox_phone_numbers::builders::ListSmsSandboxPhoneNumbersOutputBuilder::phone_numbers)
     pub fn build(
         self,
     ) -> ::std::result::Result<

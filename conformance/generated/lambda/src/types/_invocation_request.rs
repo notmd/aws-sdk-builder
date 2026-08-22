@@ -4,9 +4,27 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct InvocationRequest {
-    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::string::String,
-    /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Choose from the following options.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub invocation_type: ::std::option::Option<crate::types::InvocationType>,
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub log_type: ::std::option::Option<crate::types::LogType>,
@@ -24,12 +42,30 @@ pub struct InvocationRequest {
     pub tenant_id: ::std::option::Option<::std::string::String>,
 }
 impl InvocationRequest {
-    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn function_name(&self) -> &str {
         use std::ops::Deref;
         self.function_name.deref()
     }
-    /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Choose from the following options.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn invocation_type(&self) -> ::std::option::Option<&crate::types::InvocationType> {
         self.invocation_type.as_ref()
     }
@@ -81,32 +117,86 @@ pub struct InvocationRequestBuilder {
     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
 }
 impl InvocationRequestBuilder {
-    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
-    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
-    /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Choose from the following options.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn invocation_type(mut self, input: crate::types::InvocationType) -> Self {
         self.invocation_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Choose from the following options.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::InvocationType>) -> Self {
         self.invocation_type = input;
         self
     }
-    /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Choose from the following options.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::InvocationType> {
         &self.invocation_type
     }
@@ -202,7 +292,7 @@ impl InvocationRequestBuilder {
     }
     /// Consumes the builder and constructs a [`InvocationRequest`](crate::types::InvocationRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::InvocationRequestBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::InvocationRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvocationRequest {
             function_name: self.function_name.ok_or_else(|| {

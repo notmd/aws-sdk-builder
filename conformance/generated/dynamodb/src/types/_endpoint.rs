@@ -67,8 +67,8 @@ impl EndpointBuilder {
     }
     /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
     /// This method will fail if any of the following fields are not set:
-    /// - [`address`](Self::address)
-    /// - [`cache_period_in_minutes`](Self::cache_period_in_minutes)
+    /// - [`address`](crate::types::builders::EndpointBuilder::address)
+    /// - [`cache_period_in_minutes`](crate::types::builders::EndpointBuilder::cache_period_in_minutes)
     pub fn build(self) -> ::std::result::Result<crate::types::Endpoint, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Endpoint {
             address: self.address.ok_or_else(|| {

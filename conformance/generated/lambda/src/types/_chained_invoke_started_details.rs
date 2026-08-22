@@ -129,7 +129,7 @@ impl ChainedInvokeStartedDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::ChainedInvokeStartedDetailsBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ChainedInvokeStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ChainedInvokeStartedDetails {
             function_name: self.function_name.ok_or_else(|| {

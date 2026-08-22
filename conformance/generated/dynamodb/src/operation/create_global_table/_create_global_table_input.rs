@@ -15,6 +15,8 @@ impl CreateGlobalTableInput {
         self.global_table_name.as_deref()
     }
     /// <p>The Regions where the global table needs to be created.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replication_group.is_none()`.
     pub fn replication_group(&self) -> &[crate::types::Replica] {
         self.replication_group.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl CreateGlobalTableInputBuilder {
     pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.global_table_name
     }
-    /// <p>The Regions where the global table needs to be created.</p>
     /// Appends an item to `replication_group`.
     ///
     /// To override the contents of this collection use [`set_replication_group`](Self::set_replication_group).
+    ///
+    /// <p>The Regions where the global table needs to be created.</p>
     pub fn replication_group(mut self, input: crate::types::Replica) -> Self {
         let mut v = self.replication_group.unwrap_or_default();
         v.push(input);

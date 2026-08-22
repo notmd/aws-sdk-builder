@@ -15,6 +15,8 @@ impl ListFunctionsResponse {
         self.next_marker.as_deref()
     }
     /// <p>A list of Lambda functions.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.functions.is_none()`.
     pub fn functions(&self) -> &[crate::types::FunctionConfiguration] {
         self.functions.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListFunctionsResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>A list of Lambda functions.</p>
     /// Appends an item to `functions`.
     ///
     /// To override the contents of this collection use [`set_functions`](Self::set_functions).
+    ///
+    /// <p>A list of Lambda functions.</p>
     pub fn functions(mut self, input: crate::types::FunctionConfiguration) -> Self {
         let mut v = self.functions.unwrap_or_default();
         v.push(input);

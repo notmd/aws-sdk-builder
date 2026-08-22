@@ -22,6 +22,8 @@ impl LoggingEnabled {
     }
     /// <p>Container for granting information.</p>
     /// <p>Buckets that use the bucket owner enforced setting for Object Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.target_grants.is_none()`.
     pub fn target_grants(&self) -> &[crate::types::TargetGrant] {
         self.target_grants.as_deref().unwrap_or_default()
     }
@@ -67,11 +69,12 @@ impl LoggingEnabledBuilder {
     pub fn get_target_bucket(&self) -> &::std::option::Option<::std::string::String> {
         &self.target_bucket
     }
-    /// <p>Container for granting information.</p>
-    /// <p>Buckets that use the bucket owner enforced setting for Object Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// Appends an item to `target_grants`.
     ///
     /// To override the contents of this collection use [`set_target_grants`](Self::set_target_grants).
+    ///
+    /// <p>Container for granting information.</p>
+    /// <p>Buckets that use the bucket owner enforced setting for Object Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn target_grants(mut self, input: crate::types::TargetGrant) -> Self {
         let mut v = self.target_grants.unwrap_or_default();
         v.push(input);
@@ -120,8 +123,8 @@ impl LoggingEnabledBuilder {
     }
     /// Consumes the builder and constructs a [`LoggingEnabled`](crate::types::LoggingEnabled).
     /// This method will fail if any of the following fields are not set:
-    /// - [`target_bucket`](Self::target_bucket)
-    /// - [`target_prefix`](Self::target_prefix)
+    /// - [`target_bucket`](crate::types::builders::LoggingEnabledBuilder::target_bucket)
+    /// - [`target_prefix`](crate::types::builders::LoggingEnabledBuilder::target_prefix)
     pub fn build(self) -> ::std::result::Result<crate::types::LoggingEnabled, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LoggingEnabled {
             target_bucket: self.target_bucket.ok_or_else(|| {

@@ -15,6 +15,8 @@ pub struct TransactWriteItemsOutput {
 impl TransactWriteItemsOutput {
     /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
     /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.consumed_capacity.is_none()`.
     pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
         self.consumed_capacity.as_deref().unwrap_or_default()
     }
@@ -47,11 +49,12 @@ pub struct TransactWriteItemsOutputBuilder {
     _request_id: Option<String>,
 }
 impl TransactWriteItemsOutputBuilder {
-    /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
-    /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
     /// Appends an item to `consumed_capacity`.
     ///
     /// To override the contents of this collection use [`set_consumed_capacity`](Self::set_consumed_capacity).
+    ///
+    /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
+    /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
     pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
         let mut v = self.consumed_capacity.unwrap_or_default();
         v.push(input);
@@ -69,10 +72,11 @@ impl TransactWriteItemsOutputBuilder {
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
         &self.consumed_capacity
     }
-    /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
     /// Adds a key-value pair to `item_collection_metrics`.
     ///
     /// To override the contents of this collection use [`set_item_collection_metrics`](Self::set_item_collection_metrics).
+    ///
+    /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
     pub fn item_collection_metrics(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,

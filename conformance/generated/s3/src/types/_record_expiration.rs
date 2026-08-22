@@ -65,7 +65,7 @@ impl RecordExpirationBuilder {
     }
     /// Consumes the builder and constructs a [`RecordExpiration`](crate::types::RecordExpiration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`expiration`](Self::expiration)
+    /// - [`expiration`](crate::types::builders::RecordExpirationBuilder::expiration)
     pub fn build(self) -> ::std::result::Result<crate::types::RecordExpiration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RecordExpiration {
             expiration: self.expiration.ok_or_else(|| {

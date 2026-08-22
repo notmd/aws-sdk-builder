@@ -49,10 +49,11 @@ pub struct GetBuilder {
     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl GetBuilder {
-    /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
     /// Adds a key-value pair to `key`.
     ///
     /// To override the contents of this collection use [`set_key`](Self::set_key).
+    ///
+    /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.key.unwrap_or_default();
         map.insert(k.into(), v);
@@ -97,10 +98,11 @@ impl GetBuilder {
     pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.projection_expression
     }
-    /// <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
+    ///
+    /// <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>
     pub fn expression_attribute_names(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -127,8 +129,8 @@ impl GetBuilder {
     }
     /// Consumes the builder and constructs a [`Get`](crate::types::Get).
     /// This method will fail if any of the following fields are not set:
-    /// - [`key`](Self::key)
-    /// - [`table_name`](Self::table_name)
+    /// - [`key`](crate::types::builders::GetBuilder::key)
+    /// - [`table_name`](crate::types::builders::GetBuilder::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::Get, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Get {
             key: self.key.ok_or_else(|| {

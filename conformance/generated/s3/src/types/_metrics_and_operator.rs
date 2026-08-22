@@ -21,6 +21,8 @@ impl MetricsAndOperator {
     /// <p>The list of tags used when evaluating an AND predicate.</p><note>
     /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
     /// </note>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -59,12 +61,13 @@ impl MetricsAndOperatorBuilder {
     pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
         &self.prefix
     }
-    /// <p>The list of tags used when evaluating an AND predicate.</p><note>
-    /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
-    /// </note>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The list of tags used when evaluating an AND predicate.</p><note>
+    /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
+    /// </note>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

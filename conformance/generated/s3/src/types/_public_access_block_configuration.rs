@@ -4,7 +4,16 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PublicAccessBlockConfiguration {
-    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p><ul><li><p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li><li><p>PUT Object calls fail if the request includes a public ACL.</p></li><li><p>PUT Bucket calls fail if the request includes a public ACL.</p></li></ul><p>Enabling this setting doesn't affect existing policies or ACLs.</p>
+    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p>
+    /// <ul>
+    /// <li>
+    /// <p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li>
+    /// <li>
+    /// <p>PUT Object calls fail if the request includes a public ACL.</p></li>
+    /// <li>
+    /// <p>PUT Bucket calls fail if the request includes a public ACL.</p></li>
+    /// </ul>
+    /// <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
     pub block_public_acls: ::std::option::Option<bool>,
     /// <p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.</p>
     /// <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.</p>
@@ -17,7 +26,16 @@ pub struct PublicAccessBlockConfiguration {
     pub restrict_public_buckets: ::std::option::Option<bool>,
 }
 impl PublicAccessBlockConfiguration {
-    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p><ul><li><p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li><li><p>PUT Object calls fail if the request includes a public ACL.</p></li><li><p>PUT Bucket calls fail if the request includes a public ACL.</p></li></ul><p>Enabling this setting doesn't affect existing policies or ACLs.</p>
+    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p>
+    /// <ul>
+    /// <li>
+    /// <p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li>
+    /// <li>
+    /// <p>PUT Object calls fail if the request includes a public ACL.</p></li>
+    /// <li>
+    /// <p>PUT Bucket calls fail if the request includes a public ACL.</p></li>
+    /// </ul>
+    /// <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
     pub fn block_public_acls(&self) -> ::std::option::Option<bool> {
         self.block_public_acls
     }
@@ -54,17 +72,44 @@ pub struct PublicAccessBlockConfigurationBuilder {
     pub(crate) restrict_public_buckets: ::std::option::Option<bool>,
 }
 impl PublicAccessBlockConfigurationBuilder {
-    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p><ul><li><p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li><li><p>PUT Object calls fail if the request includes a public ACL.</p></li><li><p>PUT Bucket calls fail if the request includes a public ACL.</p></li></ul><p>Enabling this setting doesn't affect existing policies or ACLs.</p>
+    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p>
+    /// <ul>
+    /// <li>
+    /// <p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li>
+    /// <li>
+    /// <p>PUT Object calls fail if the request includes a public ACL.</p></li>
+    /// <li>
+    /// <p>PUT Bucket calls fail if the request includes a public ACL.</p></li>
+    /// </ul>
+    /// <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
     pub fn block_public_acls(mut self, input: bool) -> Self {
         self.block_public_acls = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p><ul><li><p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li><li><p>PUT Object calls fail if the request includes a public ACL.</p></li><li><p>PUT Bucket calls fail if the request includes a public ACL.</p></li></ul><p>Enabling this setting doesn't affect existing policies or ACLs.</p>
+    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p>
+    /// <ul>
+    /// <li>
+    /// <p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li>
+    /// <li>
+    /// <p>PUT Object calls fail if the request includes a public ACL.</p></li>
+    /// <li>
+    /// <p>PUT Bucket calls fail if the request includes a public ACL.</p></li>
+    /// </ul>
+    /// <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
     pub fn set_block_public_acls(mut self, input: ::std::option::Option<bool>) -> Self {
         self.block_public_acls = input;
         self
     }
-    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p><ul><li><p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li><li><p>PUT Object calls fail if the request includes a public ACL.</p></li><li><p>PUT Bucket calls fail if the request includes a public ACL.</p></li></ul><p>Enabling this setting doesn't affect existing policies or ACLs.</p>
+    /// <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p>
+    /// <ul>
+    /// <li>
+    /// <p>PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.</p></li>
+    /// <li>
+    /// <p>PUT Object calls fail if the request includes a public ACL.</p></li>
+    /// <li>
+    /// <p>PUT Bucket calls fail if the request includes a public ACL.</p></li>
+    /// </ul>
+    /// <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
     pub fn get_block_public_acls(&self) -> &::std::option::Option<bool> {
         &self.block_public_acls
     }

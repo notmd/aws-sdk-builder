@@ -4,7 +4,17 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateAliasRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::string::String,
     /// <p>The name of the alias.</p>
     pub name: ::std::string::String,
@@ -16,7 +26,17 @@ pub struct CreateAliasRequest {
     pub routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
 }
 impl CreateAliasRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn function_name(&self) -> &str {
         use std::ops::Deref;
         self.function_name.deref()
@@ -58,18 +78,48 @@ pub struct CreateAliasRequestBuilder {
     pub(crate) routing_config: ::std::option::Option<crate::types::AliasRoutingConfiguration>,
 }
 impl CreateAliasRequestBuilder {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> - <code>MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
@@ -133,9 +183,9 @@ impl CreateAliasRequestBuilder {
     }
     /// Consumes the builder and constructs a [`CreateAliasRequest`](crate::types::CreateAliasRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
-    /// - [`name`](Self::name)
-    /// - [`function_version`](Self::function_version)
+    /// - [`function_name`](crate::types::builders::CreateAliasRequestBuilder::function_name)
+    /// - [`name`](crate::types::builders::CreateAliasRequestBuilder::name)
+    /// - [`function_version`](crate::types::builders::CreateAliasRequestBuilder::function_version)
     pub fn build(self) -> ::std::result::Result<crate::types::CreateAliasRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateAliasRequest {
             function_name: self.function_name.ok_or_else(|| {

@@ -35,10 +35,11 @@ pub struct DescribeEndpointsOutputBuilder {
     _request_id: Option<String>,
 }
 impl DescribeEndpointsOutputBuilder {
-    /// <p>List of endpoints.</p>
     /// Appends an item to `endpoints`.
     ///
     /// To override the contents of this collection use [`set_endpoints`](Self::set_endpoints).
+    ///
+    /// <p>List of endpoints.</p>
     pub fn endpoints(mut self, input: crate::types::Endpoint) -> Self {
         let mut v = self.endpoints.unwrap_or_default();
         v.push(input);
@@ -65,7 +66,7 @@ impl DescribeEndpointsOutputBuilder {
     }
     /// Consumes the builder and constructs a [`DescribeEndpointsOutput`](crate::operation::describe_endpoints::DescribeEndpointsOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`endpoints`](Self::endpoints)
+    /// - [`endpoints`](crate::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder::endpoints)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::describe_endpoints::DescribeEndpointsOutput, ::aws_smithy_types::error::operation::BuildError> {

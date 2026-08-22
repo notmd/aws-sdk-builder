@@ -45,7 +45,7 @@ impl VectorAttributeDefinitionBuilder {
     }
     /// Consumes the builder and constructs a [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
     /// This method will fail if any of the following fields are not set:
-    /// - [`attribute_name`](Self::attribute_name)
+    /// - [`attribute_name`](crate::types::builders::VectorAttributeDefinitionBuilder::attribute_name)
     pub fn build(self) -> ::std::result::Result<crate::types::VectorAttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VectorAttributeDefinition {
             attribute_name: self.attribute_name.ok_or_else(|| {

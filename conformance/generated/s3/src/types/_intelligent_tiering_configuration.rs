@@ -95,10 +95,11 @@ impl IntelligentTieringConfigurationBuilder {
     pub fn get_status(&self) -> &::std::option::Option<crate::types::IntelligentTieringStatus> {
         &self.status
     }
-    /// <p>Specifies the S3 Intelligent-Tiering storage class tier of the configuration.</p>
     /// Appends an item to `tierings`.
     ///
     /// To override the contents of this collection use [`set_tierings`](Self::set_tierings).
+    ///
+    /// <p>Specifies the S3 Intelligent-Tiering storage class tier of the configuration.</p>
     pub fn tierings(mut self, input: crate::types::Tiering) -> Self {
         let mut v = self.tierings.unwrap_or_default();
         v.push(input);
@@ -116,9 +117,9 @@ impl IntelligentTieringConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`IntelligentTieringConfiguration`](crate::types::IntelligentTieringConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`id`](Self::id)
-    /// - [`status`](Self::status)
-    /// - [`tierings`](Self::tierings)
+    /// - [`id`](crate::types::builders::IntelligentTieringConfigurationBuilder::id)
+    /// - [`status`](crate::types::builders::IntelligentTieringConfigurationBuilder::status)
+    /// - [`tierings`](crate::types::builders::IntelligentTieringConfigurationBuilder::tierings)
     pub fn build(self) -> ::std::result::Result<crate::types::IntelligentTieringConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::IntelligentTieringConfiguration {
             id: self.id.ok_or_else(|| {

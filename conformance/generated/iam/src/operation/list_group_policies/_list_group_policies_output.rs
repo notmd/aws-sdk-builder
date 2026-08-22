@@ -51,11 +51,12 @@ pub struct ListGroupPoliciesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListGroupPoliciesOutputBuilder {
-    /// <p>A list of policy names.</p>
-    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// Appends an item to `policy_names`.
     ///
     /// To override the contents of this collection use [`set_policy_names`](Self::set_policy_names).
+    ///
+    /// <p>A list of policy names.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.policy_names.unwrap_or_default();
         v.push(input.into());
@@ -112,7 +113,7 @@ impl ListGroupPoliciesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListGroupPoliciesOutput`](crate::operation::list_group_policies::ListGroupPoliciesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`policy_names`](Self::policy_names)
+    /// - [`policy_names`](crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::policy_names)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_group_policies::ListGroupPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {

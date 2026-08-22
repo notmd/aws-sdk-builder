@@ -90,9 +90,9 @@ impl InlinePolicyIdentifierTypeBuilder {
     }
     /// Consumes the builder and constructs a [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
     /// This method will fail if any of the following fields are not set:
-    /// - [`policy_name`](Self::policy_name)
-    /// - [`attachment_type`](Self::attachment_type)
-    /// - [`attachment_name`](Self::attachment_name)
+    /// - [`policy_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::policy_name)
+    /// - [`attachment_type`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_type)
+    /// - [`attachment_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_name)
     pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicyIdentifierType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InlinePolicyIdentifierType {
             policy_name: self.policy_name.ok_or_else(|| {

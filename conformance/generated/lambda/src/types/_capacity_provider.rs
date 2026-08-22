@@ -20,6 +20,7 @@ pub struct CapacityProvider {
     pub kms_key_arn: ::std::option::Option<::std::string::String>,
     /// <p>The date and time when the capacity provider was last modified.</p>
     pub last_modified: ::std::option::Option<::std::string::String>,
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
     /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
     pub telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
@@ -58,6 +59,7 @@ impl CapacityProvider {
     pub fn last_modified(&self) -> ::std::option::Option<&str> {
         self.last_modified.as_deref()
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn propagate_tags(&self) -> ::std::option::Option<&crate::types::PropagateTags> {
         self.propagate_tags.as_ref()
     }
@@ -203,14 +205,17 @@ impl CapacityProviderBuilder {
     pub fn get_last_modified(&self) -> &::std::option::Option<::std::string::String> {
         &self.last_modified
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn propagate_tags(mut self, input: crate::types::PropagateTags) -> Self {
         self.propagate_tags = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
         self.propagate_tags = input;
         self
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
         &self.propagate_tags
     }
@@ -230,8 +235,8 @@ impl CapacityProviderBuilder {
     }
     /// Consumes the builder and constructs a [`CapacityProvider`](crate::types::CapacityProvider).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_arn`](Self::capacity_provider_arn)
-    /// - [`state`](Self::state)
+    /// - [`capacity_provider_arn`](crate::types::builders::CapacityProviderBuilder::capacity_provider_arn)
+    /// - [`state`](crate::types::builders::CapacityProviderBuilder::state)
     pub fn build(self) -> ::std::result::Result<crate::types::CapacityProvider, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CapacityProvider {
             capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {

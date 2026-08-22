@@ -87,7 +87,7 @@ impl ListFunctionsByCodeSigningConfigRequestBuilder {
     }
     /// Consumes the builder and constructs a [`ListFunctionsByCodeSigningConfigRequest`](crate::types::ListFunctionsByCodeSigningConfigRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
+    /// - [`code_signing_config_arn`](crate::types::builders::ListFunctionsByCodeSigningConfigRequestBuilder::code_signing_config_arn)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::ListFunctionsByCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {

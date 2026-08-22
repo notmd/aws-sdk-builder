@@ -30,8 +30,8 @@ Updated 2026-08-22. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 1,137 exact matches (17.38% arithmetic average),
-  with 2,461 mismatches, 2,863 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 1,403 exact matches (21.12% arithmetic average),
+  with 2,195 mismatches, 2,863 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -50,6 +50,41 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Smithy HTML documentation and builder parity
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now uses a generic, model-driven
+  HTML documentation normalizer aligned with Smithy Rust's Jsoup-backed
+  `normalizeHtml`: structural list/definition-list line breaks are retained,
+  anchors without `href` become code spans, text brackets are escaped, and
+  modeled member documentation is inherited from the target shape when the
+  member has no direct documentation. Deprecated traits now render bare
+  `#[deprecated]` annotations for empty/boolean forms and preserve `message` and
+  `since` values. Collection helper docs, flattened-list accessor notes, and
+  required-field doc links follow Smithy's `StructureGenerator` and
+  `BuilderGenerator` ordering.
+- Formatter audit: `/tmp/smithy-rs` at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` confirms that generated crates are
+  finalized with `cargo fmt -- --config max_width=150`; the local snapshot path
+  continues to use per-file `rustfmt --edition 2021 --config
+  max_width=150,skip_children=true` because snapshots have no temporary Cargo
+  manifest.
+- Evidence: `just conformance` regenerated all 8 all-operation snapshots and
+  compared 6,584 files; `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` passed. Conformance
+  intentionally exits 1 because parity remains incomplete.
+- Conformance: the previous checkpoint had `1,137` exact, `2,461` mismatches,
+  `2,863` missing, and `123` extra files overall; this checkpoint has `1,403`
+  exact, `2,195` mismatches, `2,863` missing, and `123` extra. S3 increased from
+  `293` exact / `539` mismatches / `512` missing / `0` extra to `375` exact /
+  `457` mismatches / `512` missing / `0` extra. Exact coverage increased by
+  266 files overall and 82 files for S3.
+- Blocker: the missing protocol/runtime source tree, endpoint/auth/retry/checksum
+  support, pagination/waiters, and full operation semantics remain.
+- Next action: port the next shared protocol serialization/runtime boundary while
+  preserving the verified Smithy formatter and documentation rules.
 
 ### Checkpoint: 2026-08-22 — Generic setter documentation parity
 

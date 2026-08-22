@@ -65,7 +65,7 @@ impl ReplicationTimeBuilder {
     }
     /// Consumes the builder and constructs a [`ReplicationTime`](crate::types::ReplicationTime).
     /// This method will fail if any of the following fields are not set:
-    /// - [`status`](Self::status)
+    /// - [`status`](crate::types::builders::ReplicationTimeBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicationTime, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicationTime {
             status: self.status.ok_or_else(|| {

@@ -10,6 +10,8 @@ pub struct ListMessageMoveTasksOutput {
 }
 impl ListMessageMoveTasksOutput {
     /// <p>A list of message movement tasks and their attributes.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.results.is_none()`.
     pub fn results(&self) -> &[crate::types::ListMessageMoveTasksResultEntry] {
         self.results.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct ListMessageMoveTasksOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListMessageMoveTasksOutputBuilder {
-    /// <p>A list of message movement tasks and their attributes.</p>
     /// Appends an item to `results`.
     ///
     /// To override the contents of this collection use [`set_results`](Self::set_results).
+    ///
+    /// <p>A list of message movement tasks and their attributes.</p>
     pub fn results(mut self, input: crate::types::ListMessageMoveTasksResultEntry) -> Self {
         let mut v = self.results.unwrap_or_default();
         v.push(input);

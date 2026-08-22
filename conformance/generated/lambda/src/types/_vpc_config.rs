@@ -13,10 +13,14 @@ pub struct VpcConfig {
 }
 impl VpcConfig {
     /// <p>A list of VPC subnet IDs.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.subnet_ids.is_none()`.
     pub fn subnet_ids(&self) -> &[::std::string::String] {
         self.subnet_ids.as_deref().unwrap_or_default()
     }
     /// <p>A list of VPC security group IDs.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.security_group_ids.is_none()`.
     pub fn security_group_ids(&self) -> &[::std::string::String] {
         self.security_group_ids.as_deref().unwrap_or_default()
     }
@@ -41,10 +45,11 @@ pub struct VpcConfigBuilder {
     pub(crate) ipv6_allowed_for_dual_stack: ::std::option::Option<bool>,
 }
 impl VpcConfigBuilder {
-    /// <p>A list of VPC subnet IDs.</p>
     /// Appends an item to `subnet_ids`.
     ///
     /// To override the contents of this collection use [`set_subnet_ids`](Self::set_subnet_ids).
+    ///
+    /// <p>A list of VPC subnet IDs.</p>
     pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.subnet_ids.unwrap_or_default();
         v.push(input.into());
@@ -60,10 +65,11 @@ impl VpcConfigBuilder {
     pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.subnet_ids
     }
-    /// <p>A list of VPC security group IDs.</p>
     /// Appends an item to `security_group_ids`.
     ///
     /// To override the contents of this collection use [`set_security_group_ids`](Self::set_security_group_ids).
+    ///
+    /// <p>A list of VPC security group IDs.</p>
     pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.security_group_ids.unwrap_or_default();
         v.push(input.into());

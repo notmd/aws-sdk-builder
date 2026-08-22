@@ -13,6 +13,8 @@ pub struct ListDirectoryBucketsOutput {
 }
 impl ListDirectoryBucketsOutput {
     /// <p>The list of buckets owned by the requester.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.buckets.is_none()`.
     pub fn buckets(&self) -> &[crate::types::Bucket] {
         self.buckets.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListDirectoryBucketsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListDirectoryBucketsOutputBuilder {
-    /// <p>The list of buckets owned by the requester.</p>
     /// Appends an item to `buckets`.
     ///
     /// To override the contents of this collection use [`set_buckets`](Self::set_buckets).
+    ///
+    /// <p>The list of buckets owned by the requester.</p>
     pub fn buckets(mut self, input: crate::types::Bucket) -> Self {
         let mut v = self.buckets.unwrap_or_default();
         v.push(input);

@@ -49,10 +49,11 @@ pub struct ListGroupsForUserOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListGroupsForUserOutputBuilder {
-    /// <p>A list of groups.</p>
     /// Appends an item to `groups`.
     ///
     /// To override the contents of this collection use [`set_groups`](Self::set_groups).
+    ///
+    /// <p>A list of groups.</p>
     pub fn groups(mut self, input: crate::types::Group) -> Self {
         let mut v = self.groups.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListGroupsForUserOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListGroupsForUserOutput`](crate::operation::list_groups_for_user::ListGroupsForUserOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`groups`](Self::groups)
+    /// - [`groups`](crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::groups)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_groups_for_user::ListGroupsForUserOutput, ::aws_smithy_types::error::operation::BuildError>

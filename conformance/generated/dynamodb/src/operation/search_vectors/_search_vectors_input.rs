@@ -8,6 +8,16 @@ pub struct SearchVectorsInput {
     pub table_name: ::std::option::Option<::std::string::String>,
     /// <p>The name of the vector index to search. The index must be in the <code>ACTIVE</code> state.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     pub expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -34,6 +44,16 @@ impl SearchVectorsInput {
     pub fn index_name(&self) -> ::std::option::Option<&str> {
         self.index_name.as_deref()
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
         self.return_consumed_capacity.as_ref()
     }
@@ -54,6 +74,8 @@ impl SearchVectorsInput {
     }
     /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
     /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_vector.is_none()`.
     pub fn search_vector(&self) -> &[crate::types::AttributeValue] {
         self.search_vector.as_deref().unwrap_or_default()
     }
@@ -119,21 +141,52 @@ impl SearchVectorsInputBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
         self.return_consumed_capacity = input;
         self
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p>
+    /// <p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li>
+    /// <li>
+    /// <p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li>
+    /// <li>
+    /// <p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li>
+    /// </ul>
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
         &self.return_consumed_capacity
     }
-    /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
+    ///
+    /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     pub fn expression_attribute_names(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -158,10 +211,11 @@ impl SearchVectorsInputBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
-    /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
     /// Adds a key-value pair to `expression_attribute_values`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
+    ///
+    /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.expression_attribute_values.unwrap_or_default();
         map.insert(k.into(), v);
@@ -199,11 +253,12 @@ impl SearchVectorsInputBuilder {
     pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.projection_expression
     }
-    /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
-    /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
     /// Appends an item to `search_vector`.
     ///
     /// To override the contents of this collection use [`set_search_vector`](Self::set_search_vector).
+    ///
+    /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
+    /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
     pub fn search_vector(mut self, input: crate::types::AttributeValue) -> Self {
         let mut v = self.search_vector.unwrap_or_default();
         v.push(input);

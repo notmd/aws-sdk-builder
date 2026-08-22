@@ -27,10 +27,11 @@ pub struct EnvironmentBuilder {
     pub(crate) variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl EnvironmentBuilder {
-    /// <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
     /// Adds a key-value pair to `variables`.
     ///
     /// To override the contents of this collection use [`set_variables`](Self::set_variables).
+    ///
+    /// <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
     pub fn variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.variables.unwrap_or_default();
         map.insert(k.into(), v.into());

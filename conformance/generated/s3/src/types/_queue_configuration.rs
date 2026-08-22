@@ -4,14 +4,17 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QueueConfiguration {
+    /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
     pub id: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.</p>
     pub queue_arn: ::std::string::String,
     /// <p>A collection of bucket events for which to send notifications</p>
     pub events: ::std::vec::Vec<crate::types::Event>,
+    /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub filter: ::std::option::Option<crate::types::NotificationConfigurationFilter>,
 }
 impl QueueConfiguration {
+    /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
     pub fn id(&self) -> ::std::option::Option<&str> {
         self.id.as_deref()
     }
@@ -25,6 +28,7 @@ impl QueueConfiguration {
         use std::ops::Deref;
         self.events.deref()
     }
+    /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn filter(&self) -> ::std::option::Option<&crate::types::NotificationConfigurationFilter> {
         self.filter.as_ref()
     }
@@ -46,14 +50,17 @@ pub struct QueueConfigurationBuilder {
     pub(crate) filter: ::std::option::Option<crate::types::NotificationConfigurationFilter>,
 }
 impl QueueConfigurationBuilder {
+    /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
     }
+    /// <p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>
     pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.id
     }
@@ -72,10 +79,11 @@ impl QueueConfigurationBuilder {
     pub fn get_queue_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.queue_arn
     }
-    /// <p>A collection of bucket events for which to send notifications</p>
     /// Appends an item to `events`.
     ///
     /// To override the contents of this collection use [`set_events`](Self::set_events).
+    ///
+    /// <p>A collection of bucket events for which to send notifications</p>
     pub fn events(mut self, input: crate::types::Event) -> Self {
         let mut v = self.events.unwrap_or_default();
         v.push(input);
@@ -91,21 +99,24 @@ impl QueueConfigurationBuilder {
     pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> {
         &self.events
     }
+    /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn filter(mut self, input: crate::types::NotificationConfigurationFilter) -> Self {
         self.filter = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self {
         self.filter = input;
         self
     }
+    /// <p>Specifies object key name filtering rules. For information about key name filtering, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event notifications using object key name filtering</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> {
         &self.filter
     }
     /// Consumes the builder and constructs a [`QueueConfiguration`](crate::types::QueueConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`queue_arn`](Self::queue_arn)
-    /// - [`events`](Self::events)
+    /// - [`queue_arn`](crate::types::builders::QueueConfigurationBuilder::queue_arn)
+    /// - [`events`](crate::types::builders::QueueConfigurationBuilder::events)
     pub fn build(self) -> ::std::result::Result<crate::types::QueueConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::QueueConfiguration {
             id: self.id,

@@ -44,7 +44,7 @@ impl RequestPaymentConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`RequestPaymentConfiguration`](crate::types::RequestPaymentConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`payer`](Self::payer)
+    /// - [`payer`](crate::types::builders::RequestPaymentConfigurationBuilder::payer)
     pub fn build(self) -> ::std::result::Result<crate::types::RequestPaymentConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RequestPaymentConfiguration {
             payer: self.payer.ok_or_else(|| {

@@ -49,10 +49,11 @@ pub struct ListUserPoliciesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListUserPoliciesOutputBuilder {
-    /// <p>A list of policy names.</p>
     /// Appends an item to `policy_names`.
     ///
     /// To override the contents of this collection use [`set_policy_names`](Self::set_policy_names).
+    ///
+    /// <p>A list of policy names.</p>
     pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.policy_names.unwrap_or_default();
         v.push(input.into());
@@ -107,7 +108,7 @@ impl ListUserPoliciesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListUserPoliciesOutput`](crate::operation::list_user_policies::ListUserPoliciesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`policy_names`](Self::policy_names)
+    /// - [`policy_names`](crate::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder::policy_names)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_user_policies::ListUserPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {

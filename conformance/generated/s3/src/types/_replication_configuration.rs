@@ -51,10 +51,11 @@ impl ReplicationConfigurationBuilder {
     pub fn get_role(&self) -> &::std::option::Option<::std::string::String> {
         &self.role
     }
-    /// <p>A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.</p>
     /// Appends an item to `rules`.
     ///
     /// To override the contents of this collection use [`set_rules`](Self::set_rules).
+    ///
+    /// <p>A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.</p>
     pub fn rules(mut self, input: crate::types::ReplicationRule) -> Self {
         let mut v = self.rules.unwrap_or_default();
         v.push(input);
@@ -72,8 +73,8 @@ impl ReplicationConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`ReplicationConfiguration`](crate::types::ReplicationConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`role`](Self::role)
-    /// - [`rules`](Self::rules)
+    /// - [`role`](crate::types::builders::ReplicationConfigurationBuilder::role)
+    /// - [`rules`](crate::types::builders::ReplicationConfigurationBuilder::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicationConfiguration {
             role: self.role.ok_or_else(|| {

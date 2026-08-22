@@ -49,10 +49,11 @@ pub struct ListPoliciesGrantingServiceAccessOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListPoliciesGrantingServiceAccessOutputBuilder {
-    /// <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>
     /// Appends an item to `policies_granting_service_access`.
     ///
     /// To override the contents of this collection use [`set_policies_granting_service_access`](Self::set_policies_granting_service_access).
+    ///
+    /// <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>
     pub fn policies_granting_service_access(mut self, input: crate::types::ListPoliciesGrantingServiceAccessEntry) -> Self {
         let mut v = self.policies_granting_service_access.unwrap_or_default();
         v.push(input);
@@ -112,7 +113,7 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListPoliciesGrantingServiceAccessOutput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`policies_granting_service_access`](Self::policies_granting_service_access)
+    /// - [`policies_granting_service_access`](crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder::policies_granting_service_access)
     pub fn build(
         self,
     ) -> ::std::result::Result<

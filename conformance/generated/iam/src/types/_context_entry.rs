@@ -18,6 +18,8 @@ impl ContextEntry {
         self.context_key_name.as_deref()
     }
     /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_key_values.is_none()`.
     pub fn context_key_values(&self) -> &[::std::string::String] {
         self.context_key_values.as_deref().unwrap_or_default()
     }
@@ -56,10 +58,11 @@ impl ContextEntryBuilder {
     pub fn get_context_key_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.context_key_name
     }
-    /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
     /// Appends an item to `context_key_values`.
     ///
     /// To override the contents of this collection use [`set_context_key_values`](Self::set_context_key_values).
+    ///
+    /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
     pub fn context_key_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.context_key_values.unwrap_or_default();
         v.push(input.into());

@@ -6,6 +6,7 @@
 pub struct GlobalSecondaryIndexAutoScalingUpdate {
     /// <p>The name of the global secondary index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
+    /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub provisioned_write_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 }
 impl GlobalSecondaryIndexAutoScalingUpdate {
@@ -13,6 +14,7 @@ impl GlobalSecondaryIndexAutoScalingUpdate {
     pub fn index_name(&self) -> ::std::option::Option<&str> {
         self.index_name.as_deref()
     }
+    /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub fn provisioned_write_capacity_auto_scaling_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
         self.provisioned_write_capacity_auto_scaling_update.as_ref()
     }
@@ -46,10 +48,12 @@ impl GlobalSecondaryIndexAutoScalingUpdateBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
+    /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub fn provisioned_write_capacity_auto_scaling_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
         self.provisioned_write_capacity_auto_scaling_update = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub fn set_provisioned_write_capacity_auto_scaling_update(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
@@ -57,6 +61,7 @@ impl GlobalSecondaryIndexAutoScalingUpdateBuilder {
         self.provisioned_write_capacity_auto_scaling_update = input;
         self
     }
+    /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
         &self.provisioned_write_capacity_auto_scaling_update
     }

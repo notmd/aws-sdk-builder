@@ -32,6 +32,9 @@ pub struct ListObjectsOutput {
     /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
     /// </note>
     pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
@@ -52,6 +55,8 @@ impl ListObjectsOutput {
         self.next_marker.as_deref()
     }
     /// <p>Metadata about each object returned.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.contents.is_none()`.
     pub fn contents(&self) -> &[crate::types::Object] {
         self.contents.as_deref().unwrap_or_default()
     }
@@ -76,6 +81,8 @@ impl ListObjectsOutput {
     /// <p><code>CommonPrefixes</code> contains all (if there are any) keys between <code>Prefix</code> and the next occurrence of the string specified by the delimiter.</p>
     /// <p><code>CommonPrefixes</code> lists keys that act like subdirectories in the directory specified by <code>Prefix</code>.</p>
     /// <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>), as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.common_prefixes.is_none()`.
     pub fn common_prefixes(&self) -> &[crate::types::CommonPrefix] {
         self.common_prefixes.as_deref().unwrap_or_default()
     }
@@ -85,6 +92,9 @@ impl ListObjectsOutput {
     pub fn encoding_type(&self) -> ::std::option::Option<&crate::types::EncodingType> {
         self.encoding_type.as_ref()
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
         self.request_charged.as_ref()
     }
@@ -173,10 +183,11 @@ impl ListObjectsOutputBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>Metadata about each object returned.</p>
     /// Appends an item to `contents`.
     ///
     /// To override the contents of this collection use [`set_contents`](Self::set_contents).
+    ///
+    /// <p>Metadata about each object returned.</p>
     pub fn contents(mut self, input: crate::types::Object) -> Self {
         let mut v = self.contents.unwrap_or_default();
         v.push(input);
@@ -248,14 +259,15 @@ impl ListObjectsOutputBuilder {
     pub fn get_max_keys(&self) -> &::std::option::Option<i32> {
         &self.max_keys
     }
+    /// Appends an item to `common_prefixes`.
+    ///
+    /// To override the contents of this collection use [`set_common_prefixes`](Self::set_common_prefixes).
+    ///
     /// <p>All of the keys (up to 1,000) rolled up in a common prefix count as a single return when calculating the number of returns.</p>
     /// <p>A response can contain <code>CommonPrefixes</code> only if you specify a delimiter.</p>
     /// <p><code>CommonPrefixes</code> contains all (if there are any) keys between <code>Prefix</code> and the next occurrence of the string specified by the delimiter.</p>
     /// <p><code>CommonPrefixes</code> lists keys that act like subdirectories in the directory specified by <code>Prefix</code>.</p>
     /// <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>), as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
-    /// Appends an item to `common_prefixes`.
-    ///
-    /// To override the contents of this collection use [`set_common_prefixes`](Self::set_common_prefixes).
     pub fn common_prefixes(mut self, input: crate::types::CommonPrefix) -> Self {
         let mut v = self.common_prefixes.unwrap_or_default();
         v.push(input);
@@ -299,14 +311,23 @@ impl ListObjectsOutputBuilder {
     pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
         &self.encoding_type
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
         &self.request_charged
     }

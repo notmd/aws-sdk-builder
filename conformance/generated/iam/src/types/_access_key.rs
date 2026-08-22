@@ -137,10 +137,10 @@ impl AccessKeyBuilder {
     }
     /// Consumes the builder and constructs a [`AccessKey`](crate::types::AccessKey).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`access_key_id`](Self::access_key_id)
-    /// - [`status`](Self::status)
-    /// - [`secret_access_key`](Self::secret_access_key)
+    /// - [`user_name`](crate::types::builders::AccessKeyBuilder::user_name)
+    /// - [`access_key_id`](crate::types::builders::AccessKeyBuilder::access_key_id)
+    /// - [`status`](crate::types::builders::AccessKeyBuilder::status)
+    /// - [`secret_access_key`](crate::types::builders::AccessKeyBuilder::secret_access_key)
     pub fn build(self) -> ::std::result::Result<crate::types::AccessKey, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AccessKey {
             user_name: self.user_name.ok_or_else(|| {

@@ -44,7 +44,7 @@ impl SseKmsEncryptedObjectsBuilder {
     }
     /// Consumes the builder and constructs a [`SseKmsEncryptedObjects`](crate::types::SseKmsEncryptedObjects).
     /// This method will fail if any of the following fields are not set:
-    /// - [`status`](Self::status)
+    /// - [`status`](crate::types::builders::SseKmsEncryptedObjectsBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::SseKmsEncryptedObjects, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SseKmsEncryptedObjects {
             status: self.status.ok_or_else(|| {

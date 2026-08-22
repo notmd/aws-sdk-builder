@@ -36,6 +36,8 @@ impl UpdateReplicationGroupMemberAction {
         self.on_demand_throughput_override.as_ref()
     }
     /// <p>Replica-specific global secondary index settings.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
     pub fn global_secondary_indexes(&self) -> &[crate::types::ReplicaGlobalSecondaryIndex] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
@@ -120,10 +122,11 @@ impl UpdateReplicationGroupMemberActionBuilder {
     pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
         &self.on_demand_throughput_override
     }
-    /// <p>Replica-specific global secondary index settings.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+    ///
+    /// <p>Replica-specific global secondary index settings.</p>
     pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndex) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
@@ -155,7 +158,7 @@ impl UpdateReplicationGroupMemberActionBuilder {
     }
     /// Consumes the builder and constructs a [`UpdateReplicationGroupMemberAction`](crate::types::UpdateReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
-    /// - [`region_name`](Self::region_name)
+    /// - [`region_name`](crate::types::builders::UpdateReplicationGroupMemberActionBuilder::region_name)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateReplicationGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {

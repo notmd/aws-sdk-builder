@@ -13,6 +13,8 @@ pub struct ExecuteTransactionInput {
 }
 impl ExecuteTransactionInput {
     /// <p>The list of PartiQL statements representing the transaction to run.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.transact_statements.is_none()`.
     pub fn transact_statements(&self) -> &[crate::types::ParameterizedStatement] {
         self.transact_statements.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ExecuteTransactionInputBuilder {
     pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 }
 impl ExecuteTransactionInputBuilder {
-    /// <p>The list of PartiQL statements representing the transaction to run.</p>
     /// Appends an item to `transact_statements`.
     ///
     /// To override the contents of this collection use [`set_transact_statements`](Self::set_transact_statements).
+    ///
+    /// <p>The list of PartiQL statements representing the transaction to run.</p>
     pub fn transact_statements(mut self, input: crate::types::ParameterizedStatement) -> Self {
         let mut v = self.transact_statements.unwrap_or_default();
         v.push(input);

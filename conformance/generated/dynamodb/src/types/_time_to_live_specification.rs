@@ -67,8 +67,8 @@ impl TimeToLiveSpecificationBuilder {
     }
     /// Consumes the builder and constructs a [`TimeToLiveSpecification`](crate::types::TimeToLiveSpecification).
     /// This method will fail if any of the following fields are not set:
-    /// - [`enabled`](Self::enabled)
-    /// - [`attribute_name`](Self::attribute_name)
+    /// - [`enabled`](crate::types::builders::TimeToLiveSpecificationBuilder::enabled)
+    /// - [`attribute_name`](crate::types::builders::TimeToLiveSpecificationBuilder::attribute_name)
     pub fn build(self) -> ::std::result::Result<crate::types::TimeToLiveSpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TimeToLiveSpecification {
             enabled: self.enabled.ok_or_else(|| {

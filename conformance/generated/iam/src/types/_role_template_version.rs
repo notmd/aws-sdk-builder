@@ -112,10 +112,14 @@ impl RoleTemplateVersion {
         self.assume_role_policy_document_template.as_deref()
     }
     /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.inline_policy_templates.is_none()`.
     pub fn inline_policy_templates(&self) -> &[crate::types::InlinePolicy] {
         self.inline_policy_templates.as_deref().unwrap_or_default()
     }
     /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.managed_policy_arns.is_none()`.
     pub fn managed_policy_arns(&self) -> &[::std::string::String] {
         self.managed_policy_arns.as_deref().unwrap_or_default()
     }
@@ -125,10 +129,14 @@ impl RoleTemplateVersion {
         self.permission_boundary_arn.as_deref()
     }
     /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters_definition.is_none()`.
     pub fn parameters_definition(&self) -> &[crate::types::ParameterDefinition] {
         self.parameters_definition.as_deref().unwrap_or_default()
     }
     /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_tags_template.is_none()`.
     pub fn role_tags_template(&self) -> &[crate::types::TagTemplate] {
         self.role_tags_template.as_deref().unwrap_or_default()
     }
@@ -384,10 +392,11 @@ impl RoleTemplateVersionBuilder {
     pub fn get_assume_role_policy_document_template(&self) -> &::std::option::Option<::std::string::String> {
         &self.assume_role_policy_document_template
     }
-    /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
     /// Appends an item to `inline_policy_templates`.
     ///
     /// To override the contents of this collection use [`set_inline_policy_templates`](Self::set_inline_policy_templates).
+    ///
+    /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
     pub fn inline_policy_templates(mut self, input: crate::types::InlinePolicy) -> Self {
         let mut v = self.inline_policy_templates.unwrap_or_default();
         v.push(input);
@@ -403,10 +412,11 @@ impl RoleTemplateVersionBuilder {
     pub fn get_inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>> {
         &self.inline_policy_templates
     }
-    /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
     /// Appends an item to `managed_policy_arns`.
     ///
     /// To override the contents of this collection use [`set_managed_policy_arns`](Self::set_managed_policy_arns).
+    ///
+    /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
     pub fn managed_policy_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.managed_policy_arns.unwrap_or_default();
         v.push(input.into());
@@ -439,10 +449,11 @@ impl RoleTemplateVersionBuilder {
     pub fn get_permission_boundary_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.permission_boundary_arn
     }
-    /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
     /// Appends an item to `parameters_definition`.
     ///
     /// To override the contents of this collection use [`set_parameters_definition`](Self::set_parameters_definition).
+    ///
+    /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
     pub fn parameters_definition(mut self, input: crate::types::ParameterDefinition) -> Self {
         let mut v = self.parameters_definition.unwrap_or_default();
         v.push(input);
@@ -458,10 +469,11 @@ impl RoleTemplateVersionBuilder {
     pub fn get_parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>> {
         &self.parameters_definition
     }
-    /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
     /// Appends an item to `role_tags_template`.
     ///
     /// To override the contents of this collection use [`set_role_tags_template`](Self::set_role_tags_template).
+    ///
+    /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
     pub fn role_tags_template(mut self, input: crate::types::TagTemplate) -> Self {
         let mut v = self.role_tags_template.unwrap_or_default();
         v.push(input);

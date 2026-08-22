@@ -9,6 +9,8 @@ pub struct FilterCriteria {
 }
 impl FilterCriteria {
     /// <p>A list of filters.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filters.is_none()`.
     pub fn filters(&self) -> &[crate::types::Filter] {
         self.filters.as_deref().unwrap_or_default()
     }
@@ -27,10 +29,11 @@ pub struct FilterCriteriaBuilder {
     pub(crate) filters: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>,
 }
 impl FilterCriteriaBuilder {
-    /// <p>A list of filters.</p>
     /// Appends an item to `filters`.
     ///
     /// To override the contents of this collection use [`set_filters`](Self::set_filters).
+    ///
+    /// <p>A list of filters.</p>
     pub fn filters(mut self, input: crate::types::Filter) -> Self {
         let mut v = self.filters.unwrap_or_default();
         v.push(input);

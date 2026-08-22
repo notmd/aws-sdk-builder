@@ -15,6 +15,8 @@ impl CsvOptions {
         self.delimiter.as_deref()
     }
     /// <p>List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.header_list.is_none()`.
     pub fn header_list(&self) -> &[::std::string::String] {
         self.header_list.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl CsvOptionsBuilder {
     pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> {
         &self.delimiter
     }
-    /// <p>List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.</p>
     /// Appends an item to `header_list`.
     ///
     /// To override the contents of this collection use [`set_header_list`](Self::set_header_list).
+    ///
+    /// <p>List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.</p>
     pub fn header_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.header_list.unwrap_or_default();
         v.push(input.into());

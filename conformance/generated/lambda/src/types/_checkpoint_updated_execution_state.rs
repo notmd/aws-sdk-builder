@@ -11,6 +11,8 @@ pub struct CheckpointUpdatedExecutionState {
 }
 impl CheckpointUpdatedExecutionState {
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.operations.is_none()`.
     pub fn operations(&self) -> &[crate::types::Operation] {
         self.operations.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct CheckpointUpdatedExecutionStateBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl CheckpointUpdatedExecutionStateBuilder {
-    /// <p>A list of operations that have been updated since the last checkpoint.</p>
     /// Appends an item to `operations`.
     ///
     /// To override the contents of this collection use [`set_operations`](Self::set_operations).
+    ///
+    /// <p>A list of operations that have been updated since the last checkpoint.</p>
     pub fn operations(mut self, input: crate::types::Operation) -> Self {
         let mut v = self.operations.unwrap_or_default();
         v.push(input);

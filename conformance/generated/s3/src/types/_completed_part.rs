@@ -26,7 +26,14 @@ pub struct CompletedPart {
     pub checksum_xxhash3: ::std::option::Option<::std::string::String>,
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH128</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
-    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note><ul><li><p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li><li><p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li></ul></note>
+    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note>
+    /// <ul>
+    /// <li>
+    /// <p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li>
+    /// <li>
+    /// <p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li>
+    /// </ul>
+    /// </note>
     pub part_number: ::std::option::Option<i32>,
 }
 impl CompletedPart {
@@ -74,7 +81,14 @@ impl CompletedPart {
     pub fn checksum_xxhash128(&self) -> ::std::option::Option<&str> {
         self.checksum_xxhash128.as_deref()
     }
-    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note><ul><li><p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li><li><p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li></ul></note>
+    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note>
+    /// <ul>
+    /// <li>
+    /// <p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li>
+    /// <li>
+    /// <p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li>
+    /// </ul>
+    /// </note>
     pub fn part_number(&self) -> ::std::option::Option<i32> {
         self.part_number
     }
@@ -258,17 +272,38 @@ impl CompletedPartBuilder {
     pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> {
         &self.checksum_xxhash128
     }
-    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note><ul><li><p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li><li><p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li></ul></note>
+    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note>
+    /// <ul>
+    /// <li>
+    /// <p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li>
+    /// <li>
+    /// <p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li>
+    /// </ul>
+    /// </note>
     pub fn part_number(mut self, input: i32) -> Self {
         self.part_number = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note><ul><li><p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li><li><p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li></ul></note>
+    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note>
+    /// <ul>
+    /// <li>
+    /// <p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li>
+    /// <li>
+    /// <p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li>
+    /// </ul>
+    /// </note>
     pub fn set_part_number(mut self, input: ::std::option::Option<i32>) -> Self {
         self.part_number = input;
         self
     }
-    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note><ul><li><p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li><li><p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li></ul></note>
+    /// <p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p><note>
+    /// <ul>
+    /// <li>
+    /// <p><b>General purpose buckets</b> - In <code>CompleteMultipartUpload</code>, when a additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) is applied to each part, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP <code>400 Bad Request</code> status code and an <code>InvalidPartOrder</code> error code.</p></li>
+    /// <li>
+    /// <p><b>Directory buckets</b> - In <code>CompleteMultipartUpload</code>, the <code>PartNumber</code> must start at 1 and the part numbers must be consecutive.</p></li>
+    /// </ul>
+    /// </note>
     pub fn get_part_number(&self) -> &::std::option::Option<i32> {
         &self.part_number
     }

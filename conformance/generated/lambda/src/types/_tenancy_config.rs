@@ -44,7 +44,7 @@ impl TenancyConfigBuilder {
     }
     /// Consumes the builder and constructs a [`TenancyConfig`](crate::types::TenancyConfig).
     /// This method will fail if any of the following fields are not set:
-    /// - [`tenant_isolation_mode`](Self::tenant_isolation_mode)
+    /// - [`tenant_isolation_mode`](crate::types::builders::TenancyConfigBuilder::tenant_isolation_mode)
     pub fn build(self) -> ::std::result::Result<crate::types::TenancyConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TenancyConfig {
             tenant_isolation_mode: self.tenant_isolation_mode.ok_or_else(|| {

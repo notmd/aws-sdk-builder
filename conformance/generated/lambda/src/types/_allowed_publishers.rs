@@ -28,10 +28,11 @@ pub struct AllowedPublishersBuilder {
     pub(crate) signing_profile_version_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl AllowedPublishersBuilder {
-    /// <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.</p>
     /// Appends an item to `signing_profile_version_arns`.
     ///
     /// To override the contents of this collection use [`set_signing_profile_version_arns`](Self::set_signing_profile_version_arns).
+    ///
+    /// <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.</p>
     pub fn signing_profile_version_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.signing_profile_version_arns.unwrap_or_default();
         v.push(input.into());
@@ -49,7 +50,7 @@ impl AllowedPublishersBuilder {
     }
     /// Consumes the builder and constructs a [`AllowedPublishers`](crate::types::AllowedPublishers).
     /// This method will fail if any of the following fields are not set:
-    /// - [`signing_profile_version_arns`](Self::signing_profile_version_arns)
+    /// - [`signing_profile_version_arns`](crate::types::builders::AllowedPublishersBuilder::signing_profile_version_arns)
     pub fn build(self) -> ::std::result::Result<crate::types::AllowedPublishers, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AllowedPublishers {
             signing_profile_version_arns: self.signing_profile_version_arns.ok_or_else(|| {

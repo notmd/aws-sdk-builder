@@ -111,9 +111,9 @@ impl BatchResultErrorEntryBuilder {
     }
     /// Consumes the builder and constructs a [`BatchResultErrorEntry`](crate::types::BatchResultErrorEntry).
     /// This method will fail if any of the following fields are not set:
-    /// - [`id`](Self::id)
-    /// - [`sender_fault`](Self::sender_fault)
-    /// - [`code`](Self::code)
+    /// - [`id`](crate::types::builders::BatchResultErrorEntryBuilder::id)
+    /// - [`sender_fault`](crate::types::builders::BatchResultErrorEntryBuilder::sender_fault)
+    /// - [`code`](crate::types::builders::BatchResultErrorEntryBuilder::code)
     pub fn build(self) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::BatchResultErrorEntry {
             id: self.id.ok_or_else(|| {

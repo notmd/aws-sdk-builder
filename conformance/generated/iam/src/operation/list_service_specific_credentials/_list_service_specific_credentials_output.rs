@@ -14,6 +14,8 @@ pub struct ListServiceSpecificCredentialsOutput {
 }
 impl ListServiceSpecificCredentialsOutput {
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_specific_credentials.is_none()`.
     pub fn service_specific_credentials(&self) -> &[crate::types::ServiceSpecificCredentialMetadata] {
         self.service_specific_credentials.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListServiceSpecificCredentialsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListServiceSpecificCredentialsOutputBuilder {
-    /// <p>A list of structures that each contain details about a service-specific credential.</p>
     /// Appends an item to `service_specific_credentials`.
     ///
     /// To override the contents of this collection use [`set_service_specific_credentials`](Self::set_service_specific_credentials).
+    ///
+    /// <p>A list of structures that each contain details about a service-specific credential.</p>
     pub fn service_specific_credentials(mut self, input: crate::types::ServiceSpecificCredentialMetadata) -> Self {
         let mut v = self.service_specific_credentials.unwrap_or_default();
         v.push(input);

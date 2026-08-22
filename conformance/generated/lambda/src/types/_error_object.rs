@@ -27,6 +27,8 @@ impl ErrorObject {
         self.error_data.as_deref()
     }
     /// <p>Stack trace information for the error.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.stack_trace.is_none()`.
     pub fn stack_trace(&self) -> &[::std::string::String] {
         self.stack_trace.as_deref().unwrap_or_default()
     }
@@ -90,10 +92,11 @@ impl ErrorObjectBuilder {
     pub fn get_error_data(&self) -> &::std::option::Option<::std::string::String> {
         &self.error_data
     }
-    /// <p>Stack trace information for the error.</p>
     /// Appends an item to `stack_trace`.
     ///
     /// To override the contents of this collection use [`set_stack_trace`](Self::set_stack_trace).
+    ///
+    /// <p>Stack trace information for the error.</p>
     pub fn stack_trace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.stack_trace.unwrap_or_default();
         v.push(input.into());

@@ -18,14 +18,20 @@ pub struct ListEntitiesForPolicyOutput {
 }
 impl ListEntitiesForPolicyOutput {
     /// <p>A list of IAM groups that the policy is attached to.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_groups.is_none()`.
     pub fn policy_groups(&self) -> &[crate::types::PolicyGroup] {
         self.policy_groups.as_deref().unwrap_or_default()
     }
     /// <p>A list of IAM users that the policy is attached to.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_users.is_none()`.
     pub fn policy_users(&self) -> &[crate::types::PolicyUser] {
         self.policy_users.as_deref().unwrap_or_default()
     }
     /// <p>A list of IAM roles that the policy is attached to.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_roles.is_none()`.
     pub fn policy_roles(&self) -> &[crate::types::PolicyRole] {
         self.policy_roles.as_deref().unwrap_or_default()
     }
@@ -62,10 +68,11 @@ pub struct ListEntitiesForPolicyOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListEntitiesForPolicyOutputBuilder {
-    /// <p>A list of IAM groups that the policy is attached to.</p>
     /// Appends an item to `policy_groups`.
     ///
     /// To override the contents of this collection use [`set_policy_groups`](Self::set_policy_groups).
+    ///
+    /// <p>A list of IAM groups that the policy is attached to.</p>
     pub fn policy_groups(mut self, input: crate::types::PolicyGroup) -> Self {
         let mut v = self.policy_groups.unwrap_or_default();
         v.push(input);
@@ -81,10 +88,11 @@ impl ListEntitiesForPolicyOutputBuilder {
     pub fn get_policy_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>> {
         &self.policy_groups
     }
-    /// <p>A list of IAM users that the policy is attached to.</p>
     /// Appends an item to `policy_users`.
     ///
     /// To override the contents of this collection use [`set_policy_users`](Self::set_policy_users).
+    ///
+    /// <p>A list of IAM users that the policy is attached to.</p>
     pub fn policy_users(mut self, input: crate::types::PolicyUser) -> Self {
         let mut v = self.policy_users.unwrap_or_default();
         v.push(input);
@@ -100,10 +108,11 @@ impl ListEntitiesForPolicyOutputBuilder {
     pub fn get_policy_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>> {
         &self.policy_users
     }
-    /// <p>A list of IAM roles that the policy is attached to.</p>
     /// Appends an item to `policy_roles`.
     ///
     /// To override the contents of this collection use [`set_policy_roles`](Self::set_policy_roles).
+    ///
+    /// <p>A list of IAM roles that the policy is attached to.</p>
     pub fn policy_roles(mut self, input: crate::types::PolicyRole) -> Self {
         let mut v = self.policy_roles.unwrap_or_default();
         v.push(input);

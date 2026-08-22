@@ -4,7 +4,17 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct InvokeWithResponseStreamRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::string::String,
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub log_type: ::std::option::Option<crate::types::LogType>,
@@ -17,11 +27,27 @@ pub struct InvokeWithResponseStreamRequest {
     pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
     pub tenant_id: ::std::option::Option<::std::string::String>,
-    /// <p>Use one of the following options:</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
 }
 impl InvokeWithResponseStreamRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn function_name(&self) -> &str {
         use std::ops::Deref;
         self.function_name.deref()
@@ -47,7 +73,13 @@ impl InvokeWithResponseStreamRequest {
     pub fn tenant_id(&self) -> ::std::option::Option<&str> {
         self.tenant_id.as_deref()
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn invocation_type(&self) -> ::std::option::Option<&crate::types::ResponseStreamingInvocationType> {
         self.invocation_type.as_ref()
     }
@@ -72,18 +104,48 @@ pub struct InvokeWithResponseStreamRequestBuilder {
     pub(crate) invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
 }
 impl InvokeWithResponseStreamRequestBuilder {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
@@ -160,23 +222,41 @@ impl InvokeWithResponseStreamRequestBuilder {
     pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.tenant_id
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn invocation_type(mut self, input: crate::types::ResponseStreamingInvocationType) -> Self {
         self.invocation_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
         self.invocation_type = input;
         self
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>
+    /// <li>
+    /// <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li>
+    /// </ul>
     pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::ResponseStreamingInvocationType> {
         &self.invocation_type
     }
     /// Consumes the builder and constructs a [`InvokeWithResponseStreamRequest`](crate::types::InvokeWithResponseStreamRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::InvokeWithResponseStreamRequestBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::InvokeWithResponseStreamRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvokeWithResponseStreamRequest {
             function_name: self.function_name.ok_or_else(|| {

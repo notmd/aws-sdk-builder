@@ -34,10 +34,11 @@ pub struct EnvironmentResponseBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EnvironmentError>,
 }
 impl EnvironmentResponseBuilder {
-    /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
     /// Adds a key-value pair to `variables`.
     ///
     /// To override the contents of this collection use [`set_variables`](Self::set_variables).
+    ///
+    /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
     pub fn variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.variables.unwrap_or_default();
         map.insert(k.into(), v.into());

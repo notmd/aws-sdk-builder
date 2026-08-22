@@ -6,7 +6,7 @@
 pub struct ListImportsInput {
     /// <p>The Amazon Resource Name (ARN) associated with the table that was imported to.</p>
     pub table_arn: ::std::option::Option<::std::string::String>,
-    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
+    /// <p>The number of <code>ImportSummary </code>objects returned in a single page.</p>
     pub page_size: ::std::option::Option<i32>,
     /// <p>An optional string that, if supplied, must be copied from the output of a previous call to <code>ListImports</code>. When provided in this manner, the API fetches the next page of results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
@@ -16,7 +16,7 @@ impl ListImportsInput {
     pub fn table_arn(&self) -> ::std::option::Option<&str> {
         self.table_arn.as_deref()
     }
-    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
+    /// <p>The number of <code>ImportSummary </code>objects returned in a single page.</p>
     pub fn page_size(&self) -> ::std::option::Option<i32> {
         self.page_size
     }
@@ -55,17 +55,17 @@ impl ListImportsInputBuilder {
     pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_arn
     }
-    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
+    /// <p>The number of <code>ImportSummary </code>objects returned in a single page.</p>
     pub fn page_size(mut self, input: i32) -> Self {
         self.page_size = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
+    /// <p>The number of <code>ImportSummary </code>objects returned in a single page.</p>
     pub fn set_page_size(mut self, input: ::std::option::Option<i32>) -> Self {
         self.page_size = input;
         self
     }
-    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
+    /// <p>The number of <code>ImportSummary </code>objects returned in a single page.</p>
     pub fn get_page_size(&self) -> &::std::option::Option<i32> {
         &self.page_size
     }

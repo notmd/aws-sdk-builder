@@ -12,10 +12,14 @@ pub struct PublishBatchOutput {
 }
 impl PublishBatchOutput {
     /// <p>A list of successful <code>PublishBatch</code> responses.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.successful.is_none()`.
     pub fn successful(&self) -> &[crate::types::PublishBatchResultEntry] {
         self.successful.as_deref().unwrap_or_default()
     }
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.failed.is_none()`.
     pub fn failed(&self) -> &[crate::types::BatchResultErrorEntry] {
         self.failed.as_deref().unwrap_or_default()
     }
@@ -41,10 +45,11 @@ pub struct PublishBatchOutputBuilder {
     _request_id: Option<String>,
 }
 impl PublishBatchOutputBuilder {
-    /// <p>A list of successful <code>PublishBatch</code> responses.</p>
     /// Appends an item to `successful`.
     ///
     /// To override the contents of this collection use [`set_successful`](Self::set_successful).
+    ///
+    /// <p>A list of successful <code>PublishBatch</code> responses.</p>
     pub fn successful(mut self, input: crate::types::PublishBatchResultEntry) -> Self {
         let mut v = self.successful.unwrap_or_default();
         v.push(input);
@@ -60,10 +65,11 @@ impl PublishBatchOutputBuilder {
     pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>> {
         &self.successful
     }
-    /// <p>A list of failed <code>PublishBatch</code> responses.</p>
     /// Appends an item to `failed`.
     ///
     /// To override the contents of this collection use [`set_failed`](Self::set_failed).
+    ///
+    /// <p>A list of failed <code>PublishBatch</code> responses.</p>
     pub fn failed(mut self, input: crate::types::BatchResultErrorEntry) -> Self {
         let mut v = self.failed.unwrap_or_default();
         v.push(input);

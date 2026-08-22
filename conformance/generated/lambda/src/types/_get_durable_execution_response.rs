@@ -303,11 +303,11 @@ impl GetDurableExecutionResponseBuilder {
     }
     /// Consumes the builder and constructs a [`GetDurableExecutionResponse`](crate::types::GetDurableExecutionResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
-    /// - [`durable_execution_name`](Self::durable_execution_name)
-    /// - [`function_arn`](Self::function_arn)
-    /// - [`start_timestamp`](Self::start_timestamp)
-    /// - [`status`](Self::status)
+    /// - [`durable_execution_arn`](crate::types::builders::GetDurableExecutionResponseBuilder::durable_execution_arn)
+    /// - [`durable_execution_name`](crate::types::builders::GetDurableExecutionResponseBuilder::durable_execution_name)
+    /// - [`function_arn`](crate::types::builders::GetDurableExecutionResponseBuilder::function_arn)
+    /// - [`start_timestamp`](crate::types::builders::GetDurableExecutionResponseBuilder::start_timestamp)
+    /// - [`status`](crate::types::builders::GetDurableExecutionResponseBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionResponse {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

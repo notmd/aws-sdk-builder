@@ -4,6 +4,7 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetDelegatedAccessTokenOutput {
+    /// <p>Amazon Web Services credentials for API authentication.</p>
     pub credentials: ::std::option::Option<crate::types::Credentials>,
     /// <p>The percentage of the maximum policy size that is used by the session policy. The policy size is calculated as the sum of all the session policies and permission boundaries attached to the session. If the packed size exceeds 100%, the request fails.</p>
     pub packed_policy_size: ::std::option::Option<i32>,
@@ -12,6 +13,7 @@ pub struct GetDelegatedAccessTokenOutput {
     _request_id: Option<String>,
 }
 impl GetDelegatedAccessTokenOutput {
+    /// <p>Amazon Web Services credentials for API authentication.</p>
     pub fn credentials(&self) -> ::std::option::Option<&crate::types::Credentials> {
         self.credentials.as_ref()
     }
@@ -46,14 +48,17 @@ pub struct GetDelegatedAccessTokenOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetDelegatedAccessTokenOutputBuilder {
+    /// <p>Amazon Web Services credentials for API authentication.</p>
     pub fn credentials(mut self, input: crate::types::Credentials) -> Self {
         self.credentials = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Amazon Web Services credentials for API authentication.</p>
     pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::Credentials>) -> Self {
         self.credentials = input;
         self
     }
+    /// <p>Amazon Web Services credentials for API authentication.</p>
     pub fn get_credentials(&self) -> &::std::option::Option<crate::types::Credentials> {
         &self.credentials
     }

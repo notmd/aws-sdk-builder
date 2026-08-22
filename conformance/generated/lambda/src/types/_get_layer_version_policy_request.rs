@@ -67,8 +67,8 @@ impl GetLayerVersionPolicyRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetLayerVersionPolicyRequest`](crate::types::GetLayerVersionPolicyRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`layer_name`](Self::layer_name)
-    /// - [`version_number`](Self::version_number)
+    /// - [`layer_name`](crate::types::builders::GetLayerVersionPolicyRequestBuilder::layer_name)
+    /// - [`version_number`](crate::types::builders::GetLayerVersionPolicyRequestBuilder::version_number)
     pub fn build(self) -> ::std::result::Result<crate::types::GetLayerVersionPolicyRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetLayerVersionPolicyRequest {
             layer_name: self.layer_name.ok_or_else(|| {

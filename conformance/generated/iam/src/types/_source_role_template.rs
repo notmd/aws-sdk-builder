@@ -67,8 +67,8 @@ impl SourceRoleTemplateBuilder {
     }
     /// Consumes the builder and constructs a [`SourceRoleTemplate`](crate::types::SourceRoleTemplate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`template_arn`](Self::template_arn)
-    /// - [`template_minor_version`](Self::template_minor_version)
+    /// - [`template_arn`](crate::types::builders::SourceRoleTemplateBuilder::template_arn)
+    /// - [`template_minor_version`](crate::types::builders::SourceRoleTemplateBuilder::template_minor_version)
     pub fn build(self) -> ::std::result::Result<crate::types::SourceRoleTemplate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SourceRoleTemplate {
             template_arn: self.template_arn.ok_or_else(|| {

@@ -6,7 +6,11 @@
 pub struct SseSpecification {
     /// <p>Indicates whether server-side encryption is done using an Amazon Web Services managed key or an Amazon Web Services owned key. If enabled (true), server-side encryption type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to Amazon Web Services owned key.</p>
     pub enabled: ::std::option::Option<bool>,
-    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
+    /// <p>Server-side encryption type. The only supported value is:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
+    /// </ul>
     pub sse_type: ::std::option::Option<crate::types::SseType>,
     /// <p>The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key <code>alias/aws/dynamodb</code>.</p>
     pub kms_master_key_id: ::std::option::Option<::std::string::String>,
@@ -16,7 +20,11 @@ impl SseSpecification {
     pub fn enabled(&self) -> ::std::option::Option<bool> {
         self.enabled
     }
-    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
+    /// <p>Server-side encryption type. The only supported value is:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
+    /// </ul>
     pub fn sse_type(&self) -> ::std::option::Option<&crate::types::SseType> {
         self.sse_type.as_ref()
     }
@@ -55,17 +63,29 @@ impl SseSpecificationBuilder {
     pub fn get_enabled(&self) -> &::std::option::Option<bool> {
         &self.enabled
     }
-    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
+    /// <p>Server-side encryption type. The only supported value is:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
+    /// </ul>
     pub fn sse_type(mut self, input: crate::types::SseType) -> Self {
         self.sse_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
+    /// <p>Server-side encryption type. The only supported value is:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
+    /// </ul>
     pub fn set_sse_type(mut self, input: ::std::option::Option<crate::types::SseType>) -> Self {
         self.sse_type = input;
         self
     }
-    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
+    /// <p>Server-side encryption type. The only supported value is:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
+    /// </ul>
     pub fn get_sse_type(&self) -> &::std::option::Option<crate::types::SseType> {
         &self.sse_type
     }

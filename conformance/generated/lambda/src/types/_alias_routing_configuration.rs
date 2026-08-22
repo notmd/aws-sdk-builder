@@ -27,10 +27,11 @@ pub struct AliasRoutingConfigurationBuilder {
     pub(crate) additional_version_weights: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
 }
 impl AliasRoutingConfigurationBuilder {
-    /// <p>The second version, and the percentage of traffic that's routed to it.</p>
     /// Adds a key-value pair to `additional_version_weights`.
     ///
     /// To override the contents of this collection use [`set_additional_version_weights`](Self::set_additional_version_weights).
+    ///
+    /// <p>The second version, and the percentage of traffic that's routed to it.</p>
     pub fn additional_version_weights(mut self, k: impl ::std::convert::Into<::std::string::String>, v: f64) -> Self {
         let mut map = self.additional_version_weights.unwrap_or_default();
         map.insert(k.into(), v);

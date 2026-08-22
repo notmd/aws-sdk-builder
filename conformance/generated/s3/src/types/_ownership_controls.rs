@@ -28,10 +28,11 @@ pub struct OwnershipControlsBuilder {
     pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>>,
 }
 impl OwnershipControlsBuilder {
-    /// <p>The container element for an ownership control rule.</p>
     /// Appends an item to `rules`.
     ///
     /// To override the contents of this collection use [`set_rules`](Self::set_rules).
+    ///
+    /// <p>The container element for an ownership control rule.</p>
     pub fn rules(mut self, input: crate::types::OwnershipControlsRule) -> Self {
         let mut v = self.rules.unwrap_or_default();
         v.push(input);
@@ -49,7 +50,7 @@ impl OwnershipControlsBuilder {
     }
     /// Consumes the builder and constructs a [`OwnershipControls`](crate::types::OwnershipControls).
     /// This method will fail if any of the following fields are not set:
-    /// - [`rules`](Self::rules)
+    /// - [`rules`](crate::types::builders::OwnershipControlsBuilder::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::OwnershipControls, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OwnershipControls {
             rules: self.rules.ok_or_else(|| {

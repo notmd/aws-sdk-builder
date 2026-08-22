@@ -49,10 +49,11 @@ pub struct ListSamlProviderTagsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListSamlProviderTagsOutputBuilder {
-    /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListSamlProviderTagsOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListSamlProviderTagsOutput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`tags`](Self::tags)
+    /// - [`tags`](crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::tags)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>

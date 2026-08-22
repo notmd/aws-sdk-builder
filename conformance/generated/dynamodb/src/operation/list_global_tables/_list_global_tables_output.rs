@@ -12,6 +12,8 @@ pub struct ListGlobalTablesOutput {
 }
 impl ListGlobalTablesOutput {
     /// <p>List of global table names.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_tables.is_none()`.
     pub fn global_tables(&self) -> &[crate::types::GlobalTable] {
         self.global_tables.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListGlobalTablesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListGlobalTablesOutputBuilder {
-    /// <p>List of global table names.</p>
     /// Appends an item to `global_tables`.
     ///
     /// To override the contents of this collection use [`set_global_tables`](Self::set_global_tables).
+    ///
+    /// <p>List of global table names.</p>
     pub fn global_tables(mut self, input: crate::types::GlobalTable) -> Self {
         let mut v = self.global_tables.unwrap_or_default();
         v.push(input);

@@ -88,8 +88,8 @@ impl PutRuntimeManagementConfigResponseBuilder {
     }
     /// Consumes the builder and constructs a [`PutRuntimeManagementConfigResponse`](crate::types::PutRuntimeManagementConfigResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`update_runtime_on`](Self::update_runtime_on)
-    /// - [`function_arn`](Self::function_arn)
+    /// - [`update_runtime_on`](crate::types::builders::PutRuntimeManagementConfigResponseBuilder::update_runtime_on)
+    /// - [`function_arn`](crate::types::builders::PutRuntimeManagementConfigResponseBuilder::function_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::PutRuntimeManagementConfigResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PutRuntimeManagementConfigResponse {
             update_runtime_on: self.update_runtime_on.ok_or_else(|| {

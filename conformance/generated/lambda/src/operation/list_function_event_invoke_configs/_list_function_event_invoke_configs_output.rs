@@ -12,6 +12,8 @@ pub struct ListFunctionEventInvokeConfigsOutput {
 }
 impl ListFunctionEventInvokeConfigsOutput {
     /// <p>A list of configurations.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.function_event_invoke_configs.is_none()`.
     pub fn function_event_invoke_configs(&self) -> &[crate::types::FunctionEventInvokeConfig] {
         self.function_event_invoke_configs.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListFunctionEventInvokeConfigsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListFunctionEventInvokeConfigsOutputBuilder {
-    /// <p>A list of configurations.</p>
     /// Appends an item to `function_event_invoke_configs`.
     ///
     /// To override the contents of this collection use [`set_function_event_invoke_configs`](Self::set_function_event_invoke_configs).
+    ///
+    /// <p>A list of configurations.</p>
     pub fn function_event_invoke_configs(mut self, input: crate::types::FunctionEventInvokeConfig) -> Self {
         let mut v = self.function_event_invoke_configs.unwrap_or_default();
         v.push(input);

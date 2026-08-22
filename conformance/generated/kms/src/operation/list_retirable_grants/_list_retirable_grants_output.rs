@@ -14,6 +14,8 @@ pub struct ListRetirableGrantsOutput {
 }
 impl ListRetirableGrantsOutput {
     /// <p>A list of grants.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.grants.is_none()`.
     pub fn grants(&self) -> &[crate::types::GrantListEntry] {
         self.grants.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListRetirableGrantsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListRetirableGrantsOutputBuilder {
-    /// <p>A list of grants.</p>
     /// Appends an item to `grants`.
     ///
     /// To override the contents of this collection use [`set_grants`](Self::set_grants).
+    ///
+    /// <p>A list of grants.</p>
     pub fn grants(mut self, input: crate::types::GrantListEntry) -> Self {
         let mut v = self.grants.unwrap_or_default();
         v.push(input);

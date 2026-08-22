@@ -198,11 +198,11 @@ impl ServiceSpecificCredentialMetadataBuilder {
     }
     /// Consumes the builder and constructs a [`ServiceSpecificCredentialMetadata`](crate::types::ServiceSpecificCredentialMetadata).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`status`](Self::status)
-    /// - [`create_date`](Self::create_date)
-    /// - [`service_specific_credential_id`](Self::service_specific_credential_id)
-    /// - [`service_name`](Self::service_name)
+    /// - [`user_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::user_name)
+    /// - [`status`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::status)
+    /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::create_date)
+    /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_specific_credential_id)
+    /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServiceSpecificCredentialMetadata {
             user_name: self.user_name.ok_or_else(|| {

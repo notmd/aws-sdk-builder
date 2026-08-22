@@ -112,9 +112,9 @@ impl GetGroupPolicyOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetGroupPolicyOutput`](crate::operation::get_group_policy::GetGroupPolicyOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`group_name`](Self::group_name)
-    /// - [`policy_name`](Self::policy_name)
-    /// - [`policy_document`](Self::policy_document)
+    /// - [`group_name`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::group_name)
+    /// - [`policy_name`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::policy_name)
+    /// - [`policy_document`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::policy_document)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::get_group_policy::GetGroupPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {

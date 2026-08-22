@@ -16,7 +16,15 @@ pub struct VectorIndexDescription {
     pub dimensions: ::std::option::Option<i64>,
     /// <p>The distance function used to calculate similarity between vectors.</p>
     pub distance_function: ::std::option::Option<crate::types::VectorDistanceFunction>,
-    /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
+    /// <p>The current state of the vector index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// </ul>
     pub index_status: ::std::option::Option<crate::types::IndexStatus>,
     /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
     pub backfilling: ::std::option::Option<bool>,
@@ -33,6 +41,8 @@ impl VectorIndexDescription {
         self.index_name.as_deref()
     }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_schema.is_none()`.
     pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
         self.search_schema.as_deref().unwrap_or_default()
     }
@@ -52,7 +62,15 @@ impl VectorIndexDescription {
     pub fn distance_function(&self) -> ::std::option::Option<&crate::types::VectorDistanceFunction> {
         self.distance_function.as_ref()
     }
-    /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
+    /// <p>The current state of the vector index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// </ul>
     pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
         self.index_status.as_ref()
     }
@@ -111,10 +129,11 @@ impl VectorIndexDescriptionBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
-    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     /// Appends an item to `search_schema`.
     ///
     /// To override the contents of this collection use [`set_search_schema`](Self::set_search_schema).
+    ///
+    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
         let mut v = self.search_schema.unwrap_or_default();
         v.push(input);
@@ -186,17 +205,41 @@ impl VectorIndexDescriptionBuilder {
     pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
         &self.distance_function
     }
-    /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
+    /// <p>The current state of the vector index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// </ul>
     pub fn index_status(mut self, input: crate::types::IndexStatus) -> Self {
         self.index_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
+    /// <p>The current state of the vector index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// </ul>
     pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
         self.index_status = input;
         self
     }
-    /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
+    /// <p>The current state of the vector index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// </ul>
     pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
         &self.index_status
     }

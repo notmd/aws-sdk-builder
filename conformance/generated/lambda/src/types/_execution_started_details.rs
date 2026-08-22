@@ -65,7 +65,7 @@ impl ExecutionStartedDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
     /// This method will fail if any of the following fields are not set:
-    /// - [`execution_timeout`](Self::execution_timeout)
+    /// - [`execution_timeout`](crate::types::builders::ExecutionStartedDetailsBuilder::execution_timeout)
     pub fn build(self) -> ::std::result::Result<crate::types::ExecutionStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ExecutionStartedDetails {
             input: self.input,

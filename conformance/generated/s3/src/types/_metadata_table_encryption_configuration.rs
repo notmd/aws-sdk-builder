@@ -65,7 +65,7 @@ impl MetadataTableEncryptionConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`MetadataTableEncryptionConfiguration`](crate::types::MetadataTableEncryptionConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`sse_algorithm`](Self::sse_algorithm)
+    /// - [`sse_algorithm`](crate::types::builders::MetadataTableEncryptionConfigurationBuilder::sse_algorithm)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::MetadataTableEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {

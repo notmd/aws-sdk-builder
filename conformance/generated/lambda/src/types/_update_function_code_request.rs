@@ -4,7 +4,17 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct UpdateFunctionCodeRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::string::String,
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
     pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
@@ -14,13 +24,19 @@ pub struct UpdateFunctionCodeRequest {
     pub s3_key: ::std::option::Option<::std::string::String>,
     /// <p>For versioned objects, the version of the deployment package object to use.</p>
     pub s3_object_version: ::std::option::Option<::std::string::String>,
-    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the deployment package is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
     /// <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
     pub image_uri: ::std::option::Option<::std::string::String>,
     /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
     pub architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
     pub publish: ::std::option::Option<bool>,
     /// <p>Specifies where to publish the function version or configuration.</p>
     pub publish_to: ::std::option::Option<crate::types::FunctionVersionLatestPublished>,
@@ -32,7 +48,17 @@ pub struct UpdateFunctionCodeRequest {
     pub source_kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateFunctionCodeRequest {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn function_name(&self) -> &str {
         use std::ops::Deref;
         self.function_name.deref()
@@ -53,7 +79,13 @@ impl UpdateFunctionCodeRequest {
     pub fn s3_object_version(&self) -> ::std::option::Option<&str> {
         self.s3_object_version.as_deref()
     }
-    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the deployment package is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn s3_object_storage_mode(&self) -> ::std::option::Option<&crate::types::S3ObjectStorageMode> {
         self.s3_object_storage_mode.as_ref()
     }
@@ -62,10 +94,12 @@ impl UpdateFunctionCodeRequest {
         self.image_uri.as_deref()
     }
     /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.architectures.is_none()`.
     pub fn architectures(&self) -> &[crate::types::Architecture] {
         self.architectures.as_deref().unwrap_or_default()
     }
-    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
     pub fn publish(&self) -> ::std::option::Option<bool> {
         self.publish
     }
@@ -112,18 +146,48 @@ pub struct UpdateFunctionCodeRequestBuilder {
     pub(crate) source_kms_key_arn: ::std::option::Option<::std::string::String>,
 }
 impl UpdateFunctionCodeRequestBuilder {
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     /// This field is required.
     pub fn function_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
     }
-    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+    /// <p>The name or ARN of the Lambda function.</p>
+    /// <p class="title"><b>Name formats</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function name</b> – <code>my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>
+    /// <li>
+    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
+    /// </ul>
+    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.function_name
     }
@@ -183,17 +247,35 @@ impl UpdateFunctionCodeRequestBuilder {
     pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> {
         &self.s3_object_version
     }
-    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the deployment package is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn s3_object_storage_mode(mut self, input: crate::types::S3ObjectStorageMode) -> Self {
         self.s3_object_storage_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the deployment package is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
         self.s3_object_storage_mode = input;
         self
     }
-    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
+    /// <p>Specifies how the deployment package is stored. Valid values:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li>
+    /// <li>
+    /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
+    /// </ul>
     pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
         &self.s3_object_storage_mode
     }
@@ -211,10 +293,11 @@ impl UpdateFunctionCodeRequestBuilder {
     pub fn get_image_uri(&self) -> &::std::option::Option<::std::string::String> {
         &self.image_uri
     }
-    /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
     /// Appends an item to `architectures`.
     ///
     /// To override the contents of this collection use [`set_architectures`](Self::set_architectures).
+    ///
+    /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
     pub fn architectures(mut self, input: crate::types::Architecture) -> Self {
         let mut v = self.architectures.unwrap_or_default();
         v.push(input);
@@ -230,17 +313,17 @@ impl UpdateFunctionCodeRequestBuilder {
     pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         &self.architectures
     }
-    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
     pub fn publish(mut self, input: bool) -> Self {
         self.publish = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
     pub fn set_publish(mut self, input: ::std::option::Option<bool>) -> Self {
         self.publish = input;
         self
     }
-    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p>
     pub fn get_publish(&self) -> &::std::option::Option<bool> {
         &self.publish
     }
@@ -302,7 +385,7 @@ impl UpdateFunctionCodeRequestBuilder {
     }
     /// Consumes the builder and constructs a [`UpdateFunctionCodeRequest`](crate::types::UpdateFunctionCodeRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::UpdateFunctionCodeRequestBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateFunctionCodeRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateFunctionCodeRequest {
             function_name: self.function_name.ok_or_else(|| {

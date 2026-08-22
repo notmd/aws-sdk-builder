@@ -17,6 +17,8 @@ impl UpdateOpenIdConnectProviderThumbprintInput {
         self.open_id_connect_provider_arn.as_deref()
     }
     /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.thumbprint_list.is_none()`.
     pub fn thumbprint_list(&self) -> &[::std::string::String] {
         self.thumbprint_list.as_deref().unwrap_or_default()
     }
@@ -54,10 +56,11 @@ impl UpdateOpenIdConnectProviderThumbprintInputBuilder {
     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.open_id_connect_provider_arn
     }
-    /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
     /// Appends an item to `thumbprint_list`.
     ///
     /// To override the contents of this collection use [`set_thumbprint_list`](Self::set_thumbprint_list).
+    ///
+    /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
     pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.thumbprint_list.unwrap_or_default();
         v.push(input.into());

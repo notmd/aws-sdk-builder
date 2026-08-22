@@ -45,7 +45,7 @@ impl CapacityProviderPermissionsConfigBuilder {
     }
     /// Consumes the builder and constructs a [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_operator_role_arn`](Self::capacity_provider_operator_role_arn)
+    /// - [`capacity_provider_operator_role_arn`](crate::types::builders::CapacityProviderPermissionsConfigBuilder::capacity_provider_operator_role_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::CapacityProviderPermissionsConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CapacityProviderPermissionsConfig {
             capacity_provider_operator_role_arn: self.capacity_provider_operator_role_arn.ok_or_else(|| {

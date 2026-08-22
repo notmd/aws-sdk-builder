@@ -89,8 +89,8 @@ impl PutFunctionScalingConfigRequestBuilder {
     }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigRequest`](crate::types::PutFunctionScalingConfigRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
-    /// - [`qualifier`](Self::qualifier)
+    /// - [`function_name`](crate::types::builders::PutFunctionScalingConfigRequestBuilder::function_name)
+    /// - [`qualifier`](crate::types::builders::PutFunctionScalingConfigRequestBuilder::qualifier)
     pub fn build(self) -> ::std::result::Result<crate::types::PutFunctionScalingConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PutFunctionScalingConfigRequest {
             function_name: self.function_name.ok_or_else(|| {

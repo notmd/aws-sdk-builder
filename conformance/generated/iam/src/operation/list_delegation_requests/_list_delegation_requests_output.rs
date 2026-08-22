@@ -14,6 +14,8 @@ pub struct ListDelegationRequestsOutput {
 }
 impl ListDelegationRequestsOutput {
     /// <p>A list of delegation requests that match the specified criteria.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delegation_requests.is_none()`.
     pub fn delegation_requests(&self) -> &[crate::types::DelegationRequest] {
         self.delegation_requests.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListDelegationRequestsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListDelegationRequestsOutputBuilder {
-    /// <p>A list of delegation requests that match the specified criteria.</p>
     /// Appends an item to `delegation_requests`.
     ///
     /// To override the contents of this collection use [`set_delegation_requests`](Self::set_delegation_requests).
+    ///
+    /// <p>A list of delegation requests that match the specified criteria.</p>
     pub fn delegation_requests(mut self, input: crate::types::DelegationRequest) -> Self {
         let mut v = self.delegation_requests.unwrap_or_default();
         v.push(input);

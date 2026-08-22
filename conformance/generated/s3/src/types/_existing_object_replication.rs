@@ -46,7 +46,7 @@ impl ExistingObjectReplicationBuilder {
     }
     /// Consumes the builder and constructs a [`ExistingObjectReplication`](crate::types::ExistingObjectReplication).
     /// This method will fail if any of the following fields are not set:
-    /// - [`status`](Self::status)
+    /// - [`status`](crate::types::builders::ExistingObjectReplicationBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::ExistingObjectReplication, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ExistingObjectReplication {
             status: self.status.ok_or_else(|| {

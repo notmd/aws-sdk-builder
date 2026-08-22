@@ -15,6 +15,8 @@ impl UpdateGlobalTableInput {
         self.global_table_name.as_deref()
     }
     /// <p>A list of Regions that should be added or removed from the global table.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.replica_updates.is_none()`.
     pub fn replica_updates(&self) -> &[crate::types::ReplicaUpdate] {
         self.replica_updates.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl UpdateGlobalTableInputBuilder {
     pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.global_table_name
     }
-    /// <p>A list of Regions that should be added or removed from the global table.</p>
     /// Appends an item to `replica_updates`.
     ///
     /// To override the contents of this collection use [`set_replica_updates`](Self::set_replica_updates).
+    ///
+    /// <p>A list of Regions that should be added or removed from the global table.</p>
     pub fn replica_updates(mut self, input: crate::types::ReplicaUpdate) -> Self {
         let mut v = self.replica_updates.unwrap_or_default();
         v.push(input);

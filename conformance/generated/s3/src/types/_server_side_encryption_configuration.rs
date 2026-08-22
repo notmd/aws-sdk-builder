@@ -28,10 +28,11 @@ pub struct ServerSideEncryptionConfigurationBuilder {
     pub(crate) rules: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>,
 }
 impl ServerSideEncryptionConfigurationBuilder {
-    /// <p>Container for information about a particular server-side encryption configuration rule.</p>
     /// Appends an item to `rules`.
     ///
     /// To override the contents of this collection use [`set_rules`](Self::set_rules).
+    ///
+    /// <p>Container for information about a particular server-side encryption configuration rule.</p>
     pub fn rules(mut self, input: crate::types::ServerSideEncryptionRule) -> Self {
         let mut v = self.rules.unwrap_or_default();
         v.push(input);
@@ -49,7 +50,7 @@ impl ServerSideEncryptionConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`ServerSideEncryptionConfiguration`](crate::types::ServerSideEncryptionConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`rules`](Self::rules)
+    /// - [`rules`](crate::types::builders::ServerSideEncryptionConfigurationBuilder::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerSideEncryptionConfiguration {
             rules: self.rules.ok_or_else(|| {

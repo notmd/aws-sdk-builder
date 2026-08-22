@@ -173,8 +173,8 @@ impl AccessDetailBuilder {
     }
     /// Consumes the builder and constructs a [`AccessDetail`](crate::types::AccessDetail).
     /// This method will fail if any of the following fields are not set:
-    /// - [`service_name`](Self::service_name)
-    /// - [`service_namespace`](Self::service_namespace)
+    /// - [`service_name`](crate::types::builders::AccessDetailBuilder::service_name)
+    /// - [`service_namespace`](crate::types::builders::AccessDetailBuilder::service_namespace)
     pub fn build(self) -> ::std::result::Result<crate::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AccessDetail {
             service_name: self.service_name.ok_or_else(|| {

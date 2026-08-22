@@ -17,6 +17,8 @@ impl ItemCollectionMetrics {
     }
     /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
     /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.size_estimate_range_gb.is_none()`.
     pub fn size_estimate_range_gb(&self) -> &[f64] {
         self.size_estimate_range_gb.as_deref().unwrap_or_default()
     }
@@ -36,10 +38,11 @@ pub struct ItemCollectionMetricsBuilder {
     pub(crate) size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<f64>>,
 }
 impl ItemCollectionMetricsBuilder {
-    /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
     /// Adds a key-value pair to `item_collection_key`.
     ///
     /// To override the contents of this collection use [`set_item_collection_key`](Self::set_item_collection_key).
+    ///
+    /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
     pub fn item_collection_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.item_collection_key.unwrap_or_default();
         map.insert(k.into(), v);
@@ -60,11 +63,12 @@ impl ItemCollectionMetricsBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         &self.item_collection_key
     }
-    /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
-    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
     /// Appends an item to `size_estimate_range_gb`.
     ///
     /// To override the contents of this collection use [`set_size_estimate_range_gb`](Self::set_size_estimate_range_gb).
+    ///
+    /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
+    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
     pub fn size_estimate_range_gb(mut self, input: f64) -> Self {
         let mut v = self.size_estimate_range_gb.unwrap_or_default();
         v.push(input);

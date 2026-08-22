@@ -49,10 +49,11 @@ pub struct ListInstanceProfilesForRoleOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListInstanceProfilesForRoleOutputBuilder {
-    /// <p>A list of instance profiles.</p>
     /// Appends an item to `instance_profiles`.
     ///
     /// To override the contents of this collection use [`set_instance_profiles`](Self::set_instance_profiles).
+    ///
+    /// <p>A list of instance profiles.</p>
     pub fn instance_profiles(mut self, input: crate::types::InstanceProfile) -> Self {
         let mut v = self.instance_profiles.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListInstanceProfilesForRoleOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListInstanceProfilesForRoleOutput`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`instance_profiles`](Self::instance_profiles)
+    /// - [`instance_profiles`](crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::instance_profiles)
     pub fn build(
         self,
     ) -> ::std::result::Result<

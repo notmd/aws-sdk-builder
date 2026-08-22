@@ -60,6 +60,8 @@ impl ServiceLastAccessed {
     }
     /// <p>An object that contains details about the most recent attempt to access a tracked action within the service.</p>
     /// <p>This field is null if there no tracked actions or if the principal did not use the tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the service level and not the action level. For more information, see the <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tracked_actions_last_accessed.is_none()`.
     pub fn tracked_actions_last_accessed(&self) -> &[crate::types::TrackedActionLastAccessed] {
         self.tracked_actions_last_accessed.as_deref().unwrap_or_default()
     }
@@ -185,11 +187,12 @@ impl ServiceLastAccessedBuilder {
     pub fn get_total_authenticated_entities(&self) -> &::std::option::Option<i32> {
         &self.total_authenticated_entities
     }
-    /// <p>An object that contains details about the most recent attempt to access a tracked action within the service.</p>
-    /// <p>This field is null if there no tracked actions or if the principal did not use the tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the service level and not the action level. For more information, see the <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
     /// Appends an item to `tracked_actions_last_accessed`.
     ///
     /// To override the contents of this collection use [`set_tracked_actions_last_accessed`](Self::set_tracked_actions_last_accessed).
+    ///
+    /// <p>An object that contains details about the most recent attempt to access a tracked action within the service.</p>
+    /// <p>This field is null if there no tracked actions or if the principal did not use the tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the service level and not the action level. For more information, see the <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
     pub fn tracked_actions_last_accessed(mut self, input: crate::types::TrackedActionLastAccessed) -> Self {
         let mut v = self.tracked_actions_last_accessed.unwrap_or_default();
         v.push(input);
@@ -212,8 +215,8 @@ impl ServiceLastAccessedBuilder {
     }
     /// Consumes the builder and constructs a [`ServiceLastAccessed`](crate::types::ServiceLastAccessed).
     /// This method will fail if any of the following fields are not set:
-    /// - [`service_name`](Self::service_name)
-    /// - [`service_namespace`](Self::service_namespace)
+    /// - [`service_name`](crate::types::builders::ServiceLastAccessedBuilder::service_name)
+    /// - [`service_namespace`](crate::types::builders::ServiceLastAccessedBuilder::service_namespace)
     pub fn build(self) -> ::std::result::Result<crate::types::ServiceLastAccessed, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServiceLastAccessed {
             service_name: self.service_name.ok_or_else(|| {

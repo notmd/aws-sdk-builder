@@ -14,6 +14,8 @@ pub struct ListKeysOutput {
 }
 impl ListKeysOutput {
     /// <p>A list of KMS keys.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.keys.is_none()`.
     pub fn keys(&self) -> &[crate::types::KeyListEntry] {
         self.keys.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListKeysOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListKeysOutputBuilder {
-    /// <p>A list of KMS keys.</p>
     /// Appends an item to `keys`.
     ///
     /// To override the contents of this collection use [`set_keys`](Self::set_keys).
+    ///
+    /// <p>A list of KMS keys.</p>
     pub fn keys(mut self, input: crate::types::KeyListEntry) -> Self {
         let mut v = self.keys.unwrap_or_default();
         v.push(input);

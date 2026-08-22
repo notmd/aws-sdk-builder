@@ -16,6 +16,8 @@ impl ListOriginationNumbersOutput {
         self.next_token.as_deref()
     }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.phone_numbers.is_none()`.
     pub fn phone_numbers(&self) -> &[crate::types::PhoneNumberInformation] {
         self.phone_numbers.as_deref().unwrap_or_default()
     }
@@ -55,10 +57,11 @@ impl ListOriginationNumbersOutputBuilder {
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_token
     }
-    /// <p>A list of the calling account's verified and pending origination numbers.</p>
     /// Appends an item to `phone_numbers`.
     ///
     /// To override the contents of this collection use [`set_phone_numbers`](Self::set_phone_numbers).
+    ///
+    /// <p>A list of the calling account's verified and pending origination numbers.</p>
     pub fn phone_numbers(mut self, input: crate::types::PhoneNumberInformation) -> Self {
         let mut v = self.phone_numbers.unwrap_or_default();
         v.push(input);

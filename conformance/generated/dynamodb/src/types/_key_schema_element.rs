@@ -8,7 +8,13 @@
 pub struct KeySchemaElement {
     /// <p>The name of a key attribute.</p>
     pub attribute_name: ::std::string::String,
-    /// <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The role that this key attribute will assume:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -20,7 +26,13 @@ impl KeySchemaElement {
         use std::ops::Deref;
         self.attribute_name.deref()
     }
-    /// <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The role that this key attribute will assume:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -58,7 +70,13 @@ impl KeySchemaElementBuilder {
     pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.attribute_name
     }
-    /// <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The role that this key attribute will assume:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -67,7 +85,13 @@ impl KeySchemaElementBuilder {
         self.key_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The role that this key attribute will assume:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -75,7 +99,13 @@ impl KeySchemaElementBuilder {
         self.key_type = input;
         self
     }
-    /// <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The role that this key attribute will assume:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>HASH</code> - partition key</p></li>
+    /// <li>
+    /// <p><code>RANGE</code> - sort key</p></li>
+    /// </ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
@@ -84,8 +114,8 @@ impl KeySchemaElementBuilder {
     }
     /// Consumes the builder and constructs a [`KeySchemaElement`](crate::types::KeySchemaElement).
     /// This method will fail if any of the following fields are not set:
-    /// - [`attribute_name`](Self::attribute_name)
-    /// - [`key_type`](Self::key_type)
+    /// - [`attribute_name`](crate::types::builders::KeySchemaElementBuilder::attribute_name)
+    /// - [`key_type`](crate::types::builders::KeySchemaElementBuilder::key_type)
     pub fn build(self) -> ::std::result::Result<crate::types::KeySchemaElement, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::KeySchemaElement {
             attribute_name: self.attribute_name.ok_or_else(|| {

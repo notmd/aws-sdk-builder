@@ -49,10 +49,11 @@ pub struct ListUsersOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListUsersOutputBuilder {
-    /// <p>A list of users.</p>
     /// Appends an item to `users`.
     ///
     /// To override the contents of this collection use [`set_users`](Self::set_users).
+    ///
+    /// <p>A list of users.</p>
     pub fn users(mut self, input: crate::types::User) -> Self {
         let mut v = self.users.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListUsersOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`users`](Self::users)
+    /// - [`users`](crate::operation::list_users::builders::ListUsersOutputBuilder::users)
     pub fn build(self) -> ::std::result::Result<crate::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_users::ListUsersOutput {
             users: self.users.ok_or_else(|| {

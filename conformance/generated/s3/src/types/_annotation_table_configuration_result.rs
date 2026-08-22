@@ -8,6 +8,9 @@ pub struct AnnotationTableConfigurationResult {
     pub configuration_state: crate::types::AnnotationConfigurationState,
     /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
     pub table_status: ::std::option::Option<::std::string::String>,
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub error: ::std::option::Option<crate::types::ErrorDetails>,
     /// <p>The name of the annotation table.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
@@ -25,6 +28,9 @@ impl AnnotationTableConfigurationResult {
     pub fn table_status(&self) -> ::std::option::Option<&str> {
         self.table_status.as_deref()
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
         self.error.as_ref()
     }
@@ -89,14 +95,23 @@ impl AnnotationTableConfigurationResultBuilder {
     pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_status
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error = input;
         self
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
         &self.error
     }
@@ -144,7 +159,7 @@ impl AnnotationTableConfigurationResultBuilder {
     }
     /// Consumes the builder and constructs a [`AnnotationTableConfigurationResult`](crate::types::AnnotationTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
-    /// - [`configuration_state`](Self::configuration_state)
+    /// - [`configuration_state`](crate::types::builders::AnnotationTableConfigurationResultBuilder::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::AnnotationTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnnotationTableConfigurationResult {
             configuration_state: self.configuration_state.ok_or_else(|| {

@@ -112,9 +112,9 @@ impl GetUserPolicyOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetUserPolicyOutput`](crate::operation::get_user_policy::GetUserPolicyOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`policy_name`](Self::policy_name)
-    /// - [`policy_document`](Self::policy_document)
+    /// - [`user_name`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::user_name)
+    /// - [`policy_name`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::policy_name)
+    /// - [`policy_document`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::policy_document)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {

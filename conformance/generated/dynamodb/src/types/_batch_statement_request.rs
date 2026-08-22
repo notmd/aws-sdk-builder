@@ -21,6 +21,8 @@ impl BatchStatementRequest {
         self.statement.deref()
     }
     /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
     pub fn parameters(&self) -> &[crate::types::AttributeValue] {
         self.parameters.as_deref().unwrap_or_default()
     }
@@ -66,10 +68,11 @@ impl BatchStatementRequestBuilder {
     pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
         &self.statement
     }
-    /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
     /// Appends an item to `parameters`.
     ///
     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
+    ///
+    /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
     pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
         let mut v = self.parameters.unwrap_or_default();
         v.push(input);
@@ -121,7 +124,7 @@ impl BatchStatementRequestBuilder {
     }
     /// Consumes the builder and constructs a [`BatchStatementRequest`](crate::types::BatchStatementRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`statement`](Self::statement)
+    /// - [`statement`](crate::types::builders::BatchStatementRequestBuilder::statement)
     pub fn build(self) -> ::std::result::Result<crate::types::BatchStatementRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::BatchStatementRequest {
             statement: self.statement.ok_or_else(|| {

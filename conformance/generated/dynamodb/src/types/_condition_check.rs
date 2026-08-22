@@ -66,10 +66,11 @@ pub struct ConditionCheckBuilder {
     pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl ConditionCheckBuilder {
-    /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
     /// Adds a key-value pair to `key`.
     ///
     /// To override the contents of this collection use [`set_key`](Self::set_key).
+    ///
+    /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.key.unwrap_or_default();
         map.insert(k.into(), v);
@@ -115,10 +116,11 @@ impl ConditionCheckBuilder {
     pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
         &self.condition_expression
     }
-    /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
+    ///
+    /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expression_attribute_names(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -143,10 +145,11 @@ impl ConditionCheckBuilder {
     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.expression_attribute_names
     }
-    /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Adds a key-value pair to `expression_attribute_values`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
+    ///
+    /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
         let mut map = self.expression_attribute_values.unwrap_or_default();
         map.insert(k.into(), v);
@@ -186,9 +189,9 @@ impl ConditionCheckBuilder {
     }
     /// Consumes the builder and constructs a [`ConditionCheck`](crate::types::ConditionCheck).
     /// This method will fail if any of the following fields are not set:
-    /// - [`key`](Self::key)
-    /// - [`table_name`](Self::table_name)
-    /// - [`condition_expression`](Self::condition_expression)
+    /// - [`key`](crate::types::builders::ConditionCheckBuilder::key)
+    /// - [`table_name`](crate::types::builders::ConditionCheckBuilder::table_name)
+    /// - [`condition_expression`](crate::types::builders::ConditionCheckBuilder::condition_expression)
     pub fn build(self) -> ::std::result::Result<crate::types::ConditionCheck, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ConditionCheck {
             key: self.key.ok_or_else(|| {

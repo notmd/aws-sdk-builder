@@ -49,10 +49,11 @@ pub struct ListServerCertificatesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListServerCertificatesOutputBuilder {
-    /// <p>A list of server certificates.</p>
     /// Appends an item to `server_certificate_metadata_list`.
     ///
     /// To override the contents of this collection use [`set_server_certificate_metadata_list`](Self::set_server_certificate_metadata_list).
+    ///
+    /// <p>A list of server certificates.</p>
     pub fn server_certificate_metadata_list(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
         let mut v = self.server_certificate_metadata_list.unwrap_or_default();
         v.push(input);
@@ -110,7 +111,7 @@ impl ListServerCertificatesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListServerCertificatesOutput`](crate::operation::list_server_certificates::ListServerCertificatesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`server_certificate_metadata_list`](Self::server_certificate_metadata_list)
+    /// - [`server_certificate_metadata_list`](crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder::server_certificate_metadata_list)
     pub fn build(
         self,
     ) -> ::std::result::Result<

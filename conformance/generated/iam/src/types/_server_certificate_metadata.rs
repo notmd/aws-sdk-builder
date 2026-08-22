@@ -157,10 +157,10 @@ impl ServerCertificateMetadataBuilder {
     }
     /// Consumes the builder and constructs a [`ServerCertificateMetadata`](crate::types::ServerCertificateMetadata).
     /// This method will fail if any of the following fields are not set:
-    /// - [`path`](Self::path)
-    /// - [`server_certificate_name`](Self::server_certificate_name)
-    /// - [`server_certificate_id`](Self::server_certificate_id)
-    /// - [`arn`](Self::arn)
+    /// - [`path`](crate::types::builders::ServerCertificateMetadataBuilder::path)
+    /// - [`server_certificate_name`](crate::types::builders::ServerCertificateMetadataBuilder::server_certificate_name)
+    /// - [`server_certificate_id`](crate::types::builders::ServerCertificateMetadataBuilder::server_certificate_id)
+    /// - [`arn`](crate::types::builders::ServerCertificateMetadataBuilder::arn)
     pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificateMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerCertificateMetadata {
             path: self.path.ok_or_else(|| {

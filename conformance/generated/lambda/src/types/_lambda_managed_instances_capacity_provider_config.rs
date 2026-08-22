@@ -87,7 +87,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
     }
     /// Consumes the builder and constructs a [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_arn`](Self::capacity_provider_arn)
+    /// - [`capacity_provider_arn`](crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::capacity_provider_arn)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {

@@ -15,6 +15,8 @@ impl ListCodeSigningConfigsResponse {
         self.next_marker.as_deref()
     }
     /// <p>The code signing configurations</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.code_signing_configs.is_none()`.
     pub fn code_signing_configs(&self) -> &[crate::types::CodeSigningConfig] {
         self.code_signing_configs.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListCodeSigningConfigsResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>The code signing configurations</p>
     /// Appends an item to `code_signing_configs`.
     ///
     /// To override the contents of this collection use [`set_code_signing_configs`](Self::set_code_signing_configs).
+    ///
+    /// <p>The code signing configurations</p>
     pub fn code_signing_configs(mut self, input: crate::types::CodeSigningConfig) -> Self {
         let mut v = self.code_signing_configs.unwrap_or_default();
         v.push(input);

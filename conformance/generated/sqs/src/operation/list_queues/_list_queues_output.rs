@@ -12,6 +12,8 @@ pub struct ListQueuesOutput {
 }
 impl ListQueuesOutput {
     /// <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in the request.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.queue_urls.is_none()`.
     pub fn queue_urls(&self) -> &[::std::string::String] {
         self.queue_urls.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListQueuesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListQueuesOutputBuilder {
-    /// <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in the request.</p>
     /// Appends an item to `queue_urls`.
     ///
     /// To override the contents of this collection use [`set_queue_urls`](Self::set_queue_urls).
+    ///
+    /// <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in the request.</p>
     pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.queue_urls.unwrap_or_default();
         v.push(input.into());

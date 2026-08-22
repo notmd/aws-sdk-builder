@@ -20,18 +20,26 @@ pub struct GetAccountAuthorizationDetailsOutput {
 }
 impl GetAccountAuthorizationDetailsOutput {
     /// <p>A list containing information about IAM users.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_detail_list.is_none()`.
     pub fn user_detail_list(&self) -> &[crate::types::UserDetail] {
         self.user_detail_list.as_deref().unwrap_or_default()
     }
     /// <p>A list containing information about IAM groups.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_detail_list.is_none()`.
     pub fn group_detail_list(&self) -> &[crate::types::GroupDetail] {
         self.group_detail_list.as_deref().unwrap_or_default()
     }
     /// <p>A list containing information about IAM roles.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_detail_list.is_none()`.
     pub fn role_detail_list(&self) -> &[crate::types::RoleDetail] {
         self.role_detail_list.as_deref().unwrap_or_default()
     }
     /// <p>A list containing information about managed policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
     pub fn policies(&self) -> &[crate::types::ManagedPolicyDetail] {
         self.policies.as_deref().unwrap_or_default()
     }
@@ -69,10 +77,11 @@ pub struct GetAccountAuthorizationDetailsOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetAccountAuthorizationDetailsOutputBuilder {
-    /// <p>A list containing information about IAM users.</p>
     /// Appends an item to `user_detail_list`.
     ///
     /// To override the contents of this collection use [`set_user_detail_list`](Self::set_user_detail_list).
+    ///
+    /// <p>A list containing information about IAM users.</p>
     pub fn user_detail_list(mut self, input: crate::types::UserDetail) -> Self {
         let mut v = self.user_detail_list.unwrap_or_default();
         v.push(input);
@@ -88,10 +97,11 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserDetail>> {
         &self.user_detail_list
     }
-    /// <p>A list containing information about IAM groups.</p>
     /// Appends an item to `group_detail_list`.
     ///
     /// To override the contents of this collection use [`set_group_detail_list`](Self::set_group_detail_list).
+    ///
+    /// <p>A list containing information about IAM groups.</p>
     pub fn group_detail_list(mut self, input: crate::types::GroupDetail) -> Self {
         let mut v = self.group_detail_list.unwrap_or_default();
         v.push(input);
@@ -107,10 +117,11 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>> {
         &self.group_detail_list
     }
-    /// <p>A list containing information about IAM roles.</p>
     /// Appends an item to `role_detail_list`.
     ///
     /// To override the contents of this collection use [`set_role_detail_list`](Self::set_role_detail_list).
+    ///
+    /// <p>A list containing information about IAM roles.</p>
     pub fn role_detail_list(mut self, input: crate::types::RoleDetail) -> Self {
         let mut v = self.role_detail_list.unwrap_or_default();
         v.push(input);
@@ -126,10 +137,11 @@ impl GetAccountAuthorizationDetailsOutputBuilder {
     pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>> {
         &self.role_detail_list
     }
-    /// <p>A list containing information about managed policies.</p>
     /// Appends an item to `policies`.
     ///
     /// To override the contents of this collection use [`set_policies`](Self::set_policies).
+    ///
+    /// <p>A list containing information about managed policies.</p>
     pub fn policies(mut self, input: crate::types::ManagedPolicyDetail) -> Self {
         let mut v = self.policies.unwrap_or_default();
         v.push(input);

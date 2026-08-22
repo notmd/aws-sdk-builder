@@ -11,6 +11,8 @@ pub struct GetBucketCorsOutput {
 }
 impl GetBucketCorsOutput {
     /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.cors_rules.is_none()`.
     pub fn cors_rules(&self) -> &[crate::types::CorsRule] {
         self.cors_rules.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct GetBucketCorsOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetBucketCorsOutputBuilder {
-    /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
     /// Appends an item to `cors_rules`.
     ///
     /// To override the contents of this collection use [`set_cors_rules`](Self::set_cors_rules).
+    ///
+    /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
     pub fn cors_rules(mut self, input: crate::types::CorsRule) -> Self {
         let mut v = self.cors_rules.unwrap_or_default();
         v.push(input);

@@ -8,9 +8,21 @@ pub struct ReplicaAutoScalingDescription {
     pub region_name: ::std::option::Option<::std::string::String>,
     /// <p>Replica-specific global secondary index auto scaling settings.</p>
     pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// </ul>
     pub replica_status: ::std::option::Option<crate::types::ReplicaStatus>,
 }
 impl ReplicaAutoScalingDescription {
@@ -19,16 +31,30 @@ impl ReplicaAutoScalingDescription {
         self.region_name.as_deref()
     }
     /// <p>Replica-specific global secondary index auto scaling settings.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
     pub fn global_secondary_indexes(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
         self.replica_provisioned_read_capacity_auto_scaling_settings.as_ref()
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
         self.replica_provisioned_write_capacity_auto_scaling_settings.as_ref()
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// </ul>
     pub fn replica_status(&self) -> ::std::option::Option<&crate::types::ReplicaStatus> {
         self.replica_status.as_ref()
     }
@@ -65,10 +91,11 @@ impl ReplicaAutoScalingDescriptionBuilder {
     pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.region_name
     }
-    /// <p>Replica-specific global secondary index auto scaling settings.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+    ///
+    /// <p>Replica-specific global secondary index auto scaling settings.</p>
     pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
@@ -89,10 +116,12 @@ impl ReplicaAutoScalingDescriptionBuilder {
     ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>> {
         &self.global_secondary_indexes
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
         self.replica_provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
@@ -100,15 +129,18 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.replica_provisioned_read_capacity_auto_scaling_settings = input;
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn get_replica_provisioned_read_capacity_auto_scaling_settings(
         &self,
     ) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
         &self.replica_provisioned_read_capacity_auto_scaling_settings
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn replica_provisioned_write_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
         self.replica_provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn set_replica_provisioned_write_capacity_auto_scaling_settings(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
@@ -116,22 +148,53 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.replica_provisioned_write_capacity_auto_scaling_settings = input;
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn get_replica_provisioned_write_capacity_auto_scaling_settings(
         &self,
     ) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
         &self.replica_provisioned_write_capacity_auto_scaling_settings
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// </ul>
     pub fn replica_status(mut self, input: crate::types::ReplicaStatus) -> Self {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// </ul>
     pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
         self.replica_status = input;
         self
     }
-    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+    /// <p>The current state of the replica:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The replica is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The replica is being updated.</p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The replica is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
+    /// </ul>
     pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
         &self.replica_status
     }

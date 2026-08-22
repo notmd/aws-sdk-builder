@@ -108,8 +108,8 @@ impl RestoreSummaryBuilder {
     }
     /// Consumes the builder and constructs a [`RestoreSummary`](crate::types::RestoreSummary).
     /// This method will fail if any of the following fields are not set:
-    /// - [`restore_date_time`](Self::restore_date_time)
-    /// - [`restore_in_progress`](Self::restore_in_progress)
+    /// - [`restore_date_time`](crate::types::builders::RestoreSummaryBuilder::restore_date_time)
+    /// - [`restore_in_progress`](crate::types::builders::RestoreSummaryBuilder::restore_in_progress)
     pub fn build(self) -> ::std::result::Result<crate::types::RestoreSummary, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RestoreSummary {
             source_backup_arn: self.source_backup_arn,

@@ -4,7 +4,13 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct PointInTimeRecoveryDescription {
-    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
+    /// <p>The current state of point in time recovery:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code> - Point in time recovery is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
+    /// </ul>
     pub point_in_time_recovery_status: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>,
     /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional.</p>
     pub recovery_period_in_days: ::std::option::Option<i32>,
@@ -14,7 +20,13 @@ pub struct PointInTimeRecoveryDescription {
     pub latest_restorable_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl PointInTimeRecoveryDescription {
-    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
+    /// <p>The current state of point in time recovery:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code> - Point in time recovery is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
+    /// </ul>
     pub fn point_in_time_recovery_status(&self) -> ::std::option::Option<&crate::types::PointInTimeRecoveryStatus> {
         self.point_in_time_recovery_status.as_ref()
     }
@@ -48,17 +60,35 @@ pub struct PointInTimeRecoveryDescriptionBuilder {
     pub(crate) latest_restorable_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
 impl PointInTimeRecoveryDescriptionBuilder {
-    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
+    /// <p>The current state of point in time recovery:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code> - Point in time recovery is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
+    /// </ul>
     pub fn point_in_time_recovery_status(mut self, input: crate::types::PointInTimeRecoveryStatus) -> Self {
         self.point_in_time_recovery_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
+    /// <p>The current state of point in time recovery:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code> - Point in time recovery is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
+    /// </ul>
     pub fn set_point_in_time_recovery_status(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>) -> Self {
         self.point_in_time_recovery_status = input;
         self
     }
-    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
+    /// <p>The current state of point in time recovery:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>ENABLED</code> - Point in time recovery is enabled.</p></li>
+    /// <li>
+    /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
+    /// </ul>
     pub fn get_point_in_time_recovery_status(&self) -> &::std::option::Option<crate::types::PointInTimeRecoveryStatus> {
         &self.point_in_time_recovery_status
     }

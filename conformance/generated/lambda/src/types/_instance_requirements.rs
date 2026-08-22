@@ -13,14 +13,20 @@ pub struct InstanceRequirements {
 }
 impl InstanceRequirements {
     /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.architectures.is_none()`.
     pub fn architectures(&self) -> &[crate::types::Architecture] {
         self.architectures.as_deref().unwrap_or_default()
     }
     /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.allowed_instance_types.is_none()`.
     pub fn allowed_instance_types(&self) -> &[::std::string::String] {
         self.allowed_instance_types.as_deref().unwrap_or_default()
     }
     /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.excluded_instance_types.is_none()`.
     pub fn excluded_instance_types(&self) -> &[::std::string::String] {
         self.excluded_instance_types.as_deref().unwrap_or_default()
     }
@@ -41,10 +47,11 @@ pub struct InstanceRequirementsBuilder {
     pub(crate) excluded_instance_types: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl InstanceRequirementsBuilder {
-    /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
     /// Appends an item to `architectures`.
     ///
     /// To override the contents of this collection use [`set_architectures`](Self::set_architectures).
+    ///
+    /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
     pub fn architectures(mut self, input: crate::types::Architecture) -> Self {
         let mut v = self.architectures.unwrap_or_default();
         v.push(input);
@@ -60,10 +67,11 @@ impl InstanceRequirementsBuilder {
     pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
         &self.architectures
     }
-    /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
     /// Appends an item to `allowed_instance_types`.
     ///
     /// To override the contents of this collection use [`set_allowed_instance_types`](Self::set_allowed_instance_types).
+    ///
+    /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
     pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.allowed_instance_types.unwrap_or_default();
         v.push(input.into());
@@ -79,10 +87,11 @@ impl InstanceRequirementsBuilder {
     pub fn get_allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.allowed_instance_types
     }
-    /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
     /// Appends an item to `excluded_instance_types`.
     ///
     /// To override the contents of this collection use [`set_excluded_instance_types`](Self::set_excluded_instance_types).
+    ///
+    /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
     pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.excluded_instance_types.unwrap_or_default();
         v.push(input.into());

@@ -11,6 +11,8 @@ pub struct TransactGetItemsInput {
 }
 impl TransactGetItemsInput {
     /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.transact_items.is_none()`.
     pub fn transact_items(&self) -> &[crate::types::TransactGetItem] {
         self.transact_items.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct TransactGetItemsInputBuilder {
     pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 }
 impl TransactGetItemsInputBuilder {
-    /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
     /// Appends an item to `transact_items`.
     ///
     /// To override the contents of this collection use [`set_transact_items`](Self::set_transact_items).
+    ///
+    /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
     pub fn transact_items(mut self, input: crate::types::TransactGetItem) -> Self {
         let mut v = self.transact_items.unwrap_or_default();
         v.push(input);

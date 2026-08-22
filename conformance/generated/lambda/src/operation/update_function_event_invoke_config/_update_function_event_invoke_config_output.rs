@@ -12,7 +12,20 @@ pub struct UpdateFunctionEventInvokeConfigOutput {
     pub maximum_retry_attempts: ::std::option::Option<i32>,
     /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
     pub maximum_event_age_in_seconds: ::std::option::Option<i32>,
-    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+    /// <p>A destination for events after they have been sent to a function for processing.</p>
+    /// <p class="title"><b>Destinations</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li>
+    /// <li>
+    /// <p><b>Queue</b> - The ARN of a standard SQS queue.</p></li>
+    /// <li>
+    /// <p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li>
+    /// <li>
+    /// <p><b>Topic</b> - The ARN of a standard SNS topic.</p></li>
+    /// <li>
+    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
+    /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub destination_config: ::std::option::Option<crate::types::DestinationConfig>,
@@ -35,7 +48,20 @@ impl UpdateFunctionEventInvokeConfigOutput {
     pub fn maximum_event_age_in_seconds(&self) -> ::std::option::Option<i32> {
         self.maximum_event_age_in_seconds
     }
-    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+    /// <p>A destination for events after they have been sent to a function for processing.</p>
+    /// <p class="title"><b>Destinations</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li>
+    /// <li>
+    /// <p><b>Queue</b> - The ARN of a standard SQS queue.</p></li>
+    /// <li>
+    /// <p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li>
+    /// <li>
+    /// <p><b>Topic</b> - The ARN of a standard SNS topic.</p></li>
+    /// <li>
+    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
+    /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
@@ -122,21 +148,60 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
     pub fn get_maximum_event_age_in_seconds(&self) -> &::std::option::Option<i32> {
         &self.maximum_event_age_in_seconds
     }
-    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+    /// <p>A destination for events after they have been sent to a function for processing.</p>
+    /// <p class="title"><b>Destinations</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li>
+    /// <li>
+    /// <p><b>Queue</b> - The ARN of a standard SQS queue.</p></li>
+    /// <li>
+    /// <p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li>
+    /// <li>
+    /// <p><b>Topic</b> - The ARN of a standard SNS topic.</p></li>
+    /// <li>
+    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
+    /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
         self.destination_config = ::std::option::Option::Some(input);
         self
     }
-    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+    /// <p>A destination for events after they have been sent to a function for processing.</p>
+    /// <p class="title"><b>Destinations</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li>
+    /// <li>
+    /// <p><b>Queue</b> - The ARN of a standard SQS queue.</p></li>
+    /// <li>
+    /// <p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li>
+    /// <li>
+    /// <p><b>Topic</b> - The ARN of a standard SNS topic.</p></li>
+    /// <li>
+    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
+    /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
         self.destination_config = input;
         self
     }
-    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+    /// <p>A destination for events after they have been sent to a function for processing.</p>
+    /// <p class="title"><b>Destinations</b></p>
+    /// <ul>
+    /// <li>
+    /// <p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li>
+    /// <li>
+    /// <p><b>Queue</b> - The ARN of a standard SQS queue.</p></li>
+    /// <li>
+    /// <p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li>
+    /// <li>
+    /// <p><b>Topic</b> - The ARN of a standard SNS topic.</p></li>
+    /// <li>
+    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
+    /// </ul><note>
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {

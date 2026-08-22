@@ -36,10 +36,11 @@ pub struct CapacityProviderVpcConfigBuilder {
     pub(crate) security_group_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl CapacityProviderVpcConfigBuilder {
-    /// <p>A list of subnet IDs where the capacity provider launches compute instances.</p>
     /// Appends an item to `subnet_ids`.
     ///
     /// To override the contents of this collection use [`set_subnet_ids`](Self::set_subnet_ids).
+    ///
+    /// <p>A list of subnet IDs where the capacity provider launches compute instances.</p>
     pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.subnet_ids.unwrap_or_default();
         v.push(input.into());
@@ -55,10 +56,11 @@ impl CapacityProviderVpcConfigBuilder {
     pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.subnet_ids
     }
-    /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
     /// Appends an item to `security_group_ids`.
     ///
     /// To override the contents of this collection use [`set_security_group_ids`](Self::set_security_group_ids).
+    ///
+    /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
     pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.security_group_ids.unwrap_or_default();
         v.push(input.into());
@@ -76,8 +78,8 @@ impl CapacityProviderVpcConfigBuilder {
     }
     /// Consumes the builder and constructs a [`CapacityProviderVpcConfig`](crate::types::CapacityProviderVpcConfig).
     /// This method will fail if any of the following fields are not set:
-    /// - [`subnet_ids`](Self::subnet_ids)
-    /// - [`security_group_ids`](Self::security_group_ids)
+    /// - [`subnet_ids`](crate::types::builders::CapacityProviderVpcConfigBuilder::subnet_ids)
+    /// - [`security_group_ids`](crate::types::builders::CapacityProviderVpcConfigBuilder::security_group_ids)
     pub fn build(self) -> ::std::result::Result<crate::types::CapacityProviderVpcConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CapacityProviderVpcConfig {
             subnet_ids: self.subnet_ids.ok_or_else(|| {

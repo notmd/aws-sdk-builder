@@ -12,6 +12,8 @@ pub struct ListPlatformApplicationsOutput {
 }
 impl ListPlatformApplicationsOutput {
     /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.platform_applications.is_none()`.
     pub fn platform_applications(&self) -> &[crate::types::PlatformApplication] {
         self.platform_applications.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListPlatformApplicationsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListPlatformApplicationsOutputBuilder {
-    /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
     /// Appends an item to `platform_applications`.
     ///
     /// To override the contents of this collection use [`set_platform_applications`](Self::set_platform_applications).
+    ///
+    /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
     pub fn platform_applications(mut self, input: crate::types::PlatformApplication) -> Self {
         let mut v = self.platform_applications.unwrap_or_default();
         v.push(input);

@@ -77,8 +77,8 @@ impl ProvisionedThroughputBuilder {
     }
     /// Consumes the builder and constructs a [`ProvisionedThroughput`](crate::types::ProvisionedThroughput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`read_capacity_units`](Self::read_capacity_units)
-    /// - [`write_capacity_units`](Self::write_capacity_units)
+    /// - [`read_capacity_units`](crate::types::builders::ProvisionedThroughputBuilder::read_capacity_units)
+    /// - [`write_capacity_units`](crate::types::builders::ProvisionedThroughputBuilder::write_capacity_units)
     pub fn build(self) -> ::std::result::Result<crate::types::ProvisionedThroughput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ProvisionedThroughput {
             read_capacity_units: self.read_capacity_units.ok_or_else(|| {

@@ -12,8 +12,12 @@ pub struct TableCreationParameters {
     pub key_schema: ::std::vec::Vec<crate::types::KeySchemaElement>,
     /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
     pub billing_mode: ::std::option::Option<crate::types::BillingMode>,
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub provisioned_throughput: ::std::option::Option<crate::types::ProvisionedThroughput>,
+    /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub on_demand_throughput: ::std::option::Option<crate::types::OnDemandThroughput>,
+    /// <p>Represents the settings used to enable server-side encryption.</p>
     pub sse_specification: ::std::option::Option<crate::types::SseSpecification>,
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
     pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>,
@@ -40,20 +44,28 @@ impl TableCreationParameters {
     pub fn billing_mode(&self) -> ::std::option::Option<&crate::types::BillingMode> {
         self.billing_mode.as_ref()
     }
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn provisioned_throughput(&self) -> ::std::option::Option<&crate::types::ProvisionedThroughput> {
         self.provisioned_throughput.as_ref()
     }
+    /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn on_demand_throughput(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
         self.on_demand_throughput.as_ref()
     }
+    /// <p>Represents the settings used to enable server-side encryption.</p>
     pub fn sse_specification(&self) -> ::std::option::Option<&crate::types::SseSpecification> {
         self.sse_specification.as_ref()
     }
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_secondary_indexes.is_none()`.
     pub fn global_secondary_indexes(&self) -> &[crate::types::GlobalSecondaryIndex] {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
     /// <p>The vector indexes of the table to be created as part of the import operation.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.vector_indexes.is_none()`.
     pub fn vector_indexes(&self) -> &[crate::types::VectorIndex] {
         self.vector_indexes.as_deref().unwrap_or_default()
     }
@@ -95,10 +107,11 @@ impl TableCreationParametersBuilder {
     pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_name
     }
-    /// <p>The attributes of the table created as part of the import operation.</p>
     /// Appends an item to `attribute_definitions`.
     ///
     /// To override the contents of this collection use [`set_attribute_definitions`](Self::set_attribute_definitions).
+    ///
+    /// <p>The attributes of the table created as part of the import operation.</p>
     pub fn attribute_definitions(mut self, input: crate::types::AttributeDefinition) -> Self {
         let mut v = self.attribute_definitions.unwrap_or_default();
         v.push(input);
@@ -114,10 +127,11 @@ impl TableCreationParametersBuilder {
     pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
         &self.attribute_definitions
     }
-    /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
     /// Appends an item to `key_schema`.
     ///
     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
+    ///
+    /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
@@ -147,43 +161,56 @@ impl TableCreationParametersBuilder {
     pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
         &self.billing_mode
     }
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
     }
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use <code>ProvisionedThroughput</code> or <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
         &self.provisioned_throughput
     }
+    /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
     }
+    /// <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
         &self.on_demand_throughput
     }
+    /// <p>Represents the settings used to enable server-side encryption.</p>
     pub fn sse_specification(mut self, input: crate::types::SseSpecification) -> Self {
         self.sse_specification = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the settings used to enable server-side encryption.</p>
     pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
         self.sse_specification = input;
         self
     }
+    /// <p>Represents the settings used to enable server-side encryption.</p>
     pub fn get_sse_specification(&self) -> &::std::option::Option<crate::types::SseSpecification> {
         &self.sse_specification
     }
-    /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
     /// To override the contents of this collection use [`set_global_secondary_indexes`](Self::set_global_secondary_indexes).
+    ///
+    /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
     pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
         let mut v = self.global_secondary_indexes.unwrap_or_default();
         v.push(input);
@@ -199,10 +226,11 @@ impl TableCreationParametersBuilder {
     pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
         &self.global_secondary_indexes
     }
-    /// <p>The vector indexes of the table to be created as part of the import operation.</p>
     /// Appends an item to `vector_indexes`.
     ///
     /// To override the contents of this collection use [`set_vector_indexes`](Self::set_vector_indexes).
+    ///
+    /// <p>The vector indexes of the table to be created as part of the import operation.</p>
     pub fn vector_indexes(mut self, input: crate::types::VectorIndex) -> Self {
         let mut v = self.vector_indexes.unwrap_or_default();
         v.push(input);
@@ -220,9 +248,9 @@ impl TableCreationParametersBuilder {
     }
     /// Consumes the builder and constructs a [`TableCreationParameters`](crate::types::TableCreationParameters).
     /// This method will fail if any of the following fields are not set:
-    /// - [`table_name`](Self::table_name)
-    /// - [`attribute_definitions`](Self::attribute_definitions)
-    /// - [`key_schema`](Self::key_schema)
+    /// - [`table_name`](crate::types::builders::TableCreationParametersBuilder::table_name)
+    /// - [`attribute_definitions`](crate::types::builders::TableCreationParametersBuilder::attribute_definitions)
+    /// - [`key_schema`](crate::types::builders::TableCreationParametersBuilder::key_schema)
     pub fn build(self) -> ::std::result::Result<crate::types::TableCreationParameters, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TableCreationParameters {
             table_name: self.table_name.ok_or_else(|| {

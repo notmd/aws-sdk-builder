@@ -29,6 +29,8 @@ impl ListBucketMetricsConfigurationsOutput {
         self.next_continuation_token.as_deref()
     }
     /// <p>The list of metrics configurations for a bucket.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.metrics_configuration_list.is_none()`.
     pub fn metrics_configuration_list(&self) -> &[crate::types::MetricsConfiguration] {
         self.metrics_configuration_list.as_deref().unwrap_or_default()
     }
@@ -104,10 +106,11 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
     pub fn get_next_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_continuation_token
     }
-    /// <p>The list of metrics configurations for a bucket.</p>
     /// Appends an item to `metrics_configuration_list`.
     ///
     /// To override the contents of this collection use [`set_metrics_configuration_list`](Self::set_metrics_configuration_list).
+    ///
+    /// <p>The list of metrics configurations for a bucket.</p>
     pub fn metrics_configuration_list(mut self, input: crate::types::MetricsConfiguration) -> Self {
         let mut v = self.metrics_configuration_list.unwrap_or_default();
         v.push(input);

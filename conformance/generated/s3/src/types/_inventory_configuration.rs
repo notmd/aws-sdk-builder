@@ -46,6 +46,8 @@ impl InventoryConfiguration {
     /// <p>Contains the optional fields that are included in the inventory results.</p><note>
     /// <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided.</p>
     /// </note>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.optional_fields.is_none()`.
     pub fn optional_fields(&self) -> &[crate::types::InventoryOptionalField] {
         self.optional_fields.as_deref().unwrap_or_default()
     }
@@ -147,12 +149,13 @@ impl InventoryConfigurationBuilder {
     pub fn get_included_object_versions(&self) -> &::std::option::Option<crate::types::InventoryIncludedObjectVersions> {
         &self.included_object_versions
     }
-    /// <p>Contains the optional fields that are included in the inventory results.</p><note>
-    /// <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided.</p>
-    /// </note>
     /// Appends an item to `optional_fields`.
     ///
     /// To override the contents of this collection use [`set_optional_fields`](Self::set_optional_fields).
+    ///
+    /// <p>Contains the optional fields that are included in the inventory results.</p><note>
+    /// <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided.</p>
+    /// </note>
     pub fn optional_fields(mut self, input: crate::types::InventoryOptionalField) -> Self {
         let mut v = self.optional_fields.unwrap_or_default();
         v.push(input);
@@ -188,9 +191,9 @@ impl InventoryConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`InventoryConfiguration`](crate::types::InventoryConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`is_enabled`](Self::is_enabled)
-    /// - [`id`](Self::id)
-    /// - [`included_object_versions`](Self::included_object_versions)
+    /// - [`is_enabled`](crate::types::builders::InventoryConfigurationBuilder::is_enabled)
+    /// - [`id`](crate::types::builders::InventoryConfigurationBuilder::id)
+    /// - [`included_object_versions`](crate::types::builders::InventoryConfigurationBuilder::included_object_versions)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryConfiguration {
             destination: self.destination,

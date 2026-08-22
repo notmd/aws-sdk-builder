@@ -17,6 +17,8 @@ impl GetBucketAclOutput {
         self.owner.as_ref()
     }
     /// <p>A list of grants.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.grants.is_none()`.
     pub fn grants(&self) -> &[crate::types::Grant] {
         self.grants.as_deref().unwrap_or_default()
     }
@@ -62,10 +64,11 @@ impl GetBucketAclOutputBuilder {
     pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
         &self.owner
     }
-    /// <p>A list of grants.</p>
     /// Appends an item to `grants`.
     ///
     /// To override the contents of this collection use [`set_grants`](Self::set_grants).
+    ///
+    /// <p>A list of grants.</p>
     pub fn grants(mut self, input: crate::types::Grant) -> Self {
         let mut v = self.grants.unwrap_or_default();
         v.push(input);

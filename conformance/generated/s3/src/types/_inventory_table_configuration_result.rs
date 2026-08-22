@@ -6,8 +6,21 @@
 pub struct InventoryTableConfigurationResult {
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
     pub configuration_state: crate::types::InventoryConfigurationState,
-    /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the inventory table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li>
+    /// <li>
+    /// <p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub table_status: ::std::option::Option<::std::string::String>,
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub error: ::std::option::Option<crate::types::ErrorDetails>,
     /// <p>The name of the inventory table.</p>
     pub table_name: ::std::option::Option<::std::string::String>,
@@ -19,10 +32,23 @@ impl InventoryTableConfigurationResult {
     pub fn configuration_state(&self) -> &crate::types::InventoryConfigurationState {
         &self.configuration_state
     }
-    /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the inventory table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li>
+    /// <li>
+    /// <p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn table_status(&self) -> ::std::option::Option<&str> {
         self.table_status.as_deref()
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn error(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
         self.error.as_ref()
     }
@@ -68,28 +94,67 @@ impl InventoryTableConfigurationResultBuilder {
     pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
         &self.configuration_state
     }
-    /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the inventory table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li>
+    /// <li>
+    /// <p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn table_status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the inventory table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li>
+    /// <li>
+    /// <p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_status = input;
         self
     }
-    /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
+    /// <p>The status of the inventory table. The status values are:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li>
+    /// <li>
+    /// <p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li>
+    /// <li>
+    /// <p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li>
+    /// </ul>
     pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> {
         &self.table_status
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error = input;
         self
     }
+    /// <p>If an S3 Metadata V1 <code>CreateBucketMetadataTableConfiguration</code> or V2 <code>CreateBucketMetadataConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p><note>
+    /// <p>If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html">CreateBucketMetadataConfiguration</a> so that you can expire journal table records and create a live inventory table.</p>
+    /// </note>
     pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
         &self.error
     }
@@ -123,7 +188,7 @@ impl InventoryTableConfigurationResultBuilder {
     }
     /// Consumes the builder and constructs a [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
-    /// - [`configuration_state`](Self::configuration_state)
+    /// - [`configuration_state`](crate::types::builders::InventoryTableConfigurationResultBuilder::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryTableConfigurationResult {
             configuration_state: self.configuration_state.ok_or_else(|| {

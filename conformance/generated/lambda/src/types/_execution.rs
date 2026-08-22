@@ -177,11 +177,11 @@ impl ExecutionBuilder {
     }
     /// Consumes the builder and constructs a [`Execution`](crate::types::Execution).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
-    /// - [`durable_execution_name`](Self::durable_execution_name)
-    /// - [`function_arn`](Self::function_arn)
-    /// - [`status`](Self::status)
-    /// - [`start_timestamp`](Self::start_timestamp)
+    /// - [`durable_execution_arn`](crate::types::builders::ExecutionBuilder::durable_execution_arn)
+    /// - [`durable_execution_name`](crate::types::builders::ExecutionBuilder::durable_execution_name)
+    /// - [`function_arn`](crate::types::builders::ExecutionBuilder::function_arn)
+    /// - [`status`](crate::types::builders::ExecutionBuilder::status)
+    /// - [`start_timestamp`](crate::types::builders::ExecutionBuilder::start_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::Execution, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Execution {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

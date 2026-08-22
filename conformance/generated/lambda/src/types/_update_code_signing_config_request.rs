@@ -108,7 +108,7 @@ impl UpdateCodeSigningConfigRequestBuilder {
     }
     /// Consumes the builder and constructs a [`UpdateCodeSigningConfigRequest`](crate::types::UpdateCodeSigningConfigRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
+    /// - [`code_signing_config_arn`](crate::types::builders::UpdateCodeSigningConfigRequestBuilder::code_signing_config_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateCodeSigningConfigRequest {
             code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {

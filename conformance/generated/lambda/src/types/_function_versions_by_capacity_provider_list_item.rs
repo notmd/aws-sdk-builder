@@ -67,8 +67,8 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
     }
     /// Consumes the builder and constructs a [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_arn`](Self::function_arn)
-    /// - [`state`](Self::state)
+    /// - [`function_arn`](crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::function_arn)
+    /// - [`state`](crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::state)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {

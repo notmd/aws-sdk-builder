@@ -17,14 +17,20 @@ pub struct GetBucketNotificationConfigurationOutput {
 }
 impl GetBucketNotificationConfigurationOutput {
     /// <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topic_configurations.is_none()`.
     pub fn topic_configurations(&self) -> &[crate::types::TopicConfiguration] {
         self.topic_configurations.as_deref().unwrap_or_default()
     }
     /// <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.queue_configurations.is_none()`.
     pub fn queue_configurations(&self) -> &[crate::types::QueueConfiguration] {
         self.queue_configurations.as_deref().unwrap_or_default()
     }
     /// <p>Describes the Lambda functions to invoke and the events for which to invoke them.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.lambda_function_configurations.is_none()`.
     pub fn lambda_function_configurations(&self) -> &[crate::types::LambdaFunctionConfiguration] {
         self.lambda_function_configurations.as_deref().unwrap_or_default()
     }
@@ -62,10 +68,11 @@ pub struct GetBucketNotificationConfigurationOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetBucketNotificationConfigurationOutputBuilder {
-    /// <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
     /// Appends an item to `topic_configurations`.
     ///
     /// To override the contents of this collection use [`set_topic_configurations`](Self::set_topic_configurations).
+    ///
+    /// <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
     pub fn topic_configurations(mut self, input: crate::types::TopicConfiguration) -> Self {
         let mut v = self.topic_configurations.unwrap_or_default();
         v.push(input);
@@ -81,10 +88,11 @@ impl GetBucketNotificationConfigurationOutputBuilder {
     pub fn get_topic_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TopicConfiguration>> {
         &self.topic_configurations
     }
-    /// <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
     /// Appends an item to `queue_configurations`.
     ///
     /// To override the contents of this collection use [`set_queue_configurations`](Self::set_queue_configurations).
+    ///
+    /// <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
     pub fn queue_configurations(mut self, input: crate::types::QueueConfiguration) -> Self {
         let mut v = self.queue_configurations.unwrap_or_default();
         v.push(input);
@@ -100,10 +108,11 @@ impl GetBucketNotificationConfigurationOutputBuilder {
     pub fn get_queue_configurations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueConfiguration>> {
         &self.queue_configurations
     }
-    /// <p>Describes the Lambda functions to invoke and the events for which to invoke them.</p>
     /// Appends an item to `lambda_function_configurations`.
     ///
     /// To override the contents of this collection use [`set_lambda_function_configurations`](Self::set_lambda_function_configurations).
+    ///
+    /// <p>Describes the Lambda functions to invoke and the events for which to invoke them.</p>
     pub fn lambda_function_configurations(mut self, input: crate::types::LambdaFunctionConfiguration) -> Self {
         let mut v = self.lambda_function_configurations.unwrap_or_default();
         v.push(input);

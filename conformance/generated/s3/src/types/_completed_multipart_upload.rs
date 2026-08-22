@@ -11,6 +11,8 @@ pub struct CompletedMultipartUpload {
 impl CompletedMultipartUpload {
     /// <p>Array of CompletedPart data types.</p>
     /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parts.is_none()`.
     pub fn parts(&self) -> &[crate::types::CompletedPart] {
         self.parts.as_deref().unwrap_or_default()
     }
@@ -29,11 +31,12 @@ pub struct CompletedMultipartUploadBuilder {
     pub(crate) parts: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>,
 }
 impl CompletedMultipartUploadBuilder {
-    /// <p>Array of CompletedPart data types.</p>
-    /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
     /// Appends an item to `parts`.
     ///
     /// To override the contents of this collection use [`set_parts`](Self::set_parts).
+    ///
+    /// <p>Array of CompletedPart data types.</p>
+    /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
     pub fn parts(mut self, input: crate::types::CompletedPart) -> Self {
         let mut v = self.parts.unwrap_or_default();
         v.push(input);

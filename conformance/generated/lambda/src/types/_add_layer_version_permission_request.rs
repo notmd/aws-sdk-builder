@@ -178,11 +178,11 @@ impl AddLayerVersionPermissionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`AddLayerVersionPermissionRequest`](crate::types::AddLayerVersionPermissionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`layer_name`](Self::layer_name)
-    /// - [`version_number`](Self::version_number)
-    /// - [`statement_id`](Self::statement_id)
-    /// - [`action`](Self::action)
-    /// - [`principal`](Self::principal)
+    /// - [`layer_name`](crate::types::builders::AddLayerVersionPermissionRequestBuilder::layer_name)
+    /// - [`version_number`](crate::types::builders::AddLayerVersionPermissionRequestBuilder::version_number)
+    /// - [`statement_id`](crate::types::builders::AddLayerVersionPermissionRequestBuilder::statement_id)
+    /// - [`action`](crate::types::builders::AddLayerVersionPermissionRequestBuilder::action)
+    /// - [`principal`](crate::types::builders::AddLayerVersionPermissionRequestBuilder::principal)
     pub fn build(self) -> ::std::result::Result<crate::types::AddLayerVersionPermissionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AddLayerVersionPermissionRequest {
             layer_name: self.layer_name.ok_or_else(|| {

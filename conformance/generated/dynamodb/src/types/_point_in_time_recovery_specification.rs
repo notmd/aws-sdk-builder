@@ -65,7 +65,7 @@ impl PointInTimeRecoverySpecificationBuilder {
     }
     /// Consumes the builder and constructs a [`PointInTimeRecoverySpecification`](crate::types::PointInTimeRecoverySpecification).
     /// This method will fail if any of the following fields are not set:
-    /// - [`point_in_time_recovery_enabled`](Self::point_in_time_recovery_enabled)
+    /// - [`point_in_time_recovery_enabled`](crate::types::builders::PointInTimeRecoverySpecificationBuilder::point_in_time_recovery_enabled)
     pub fn build(self) -> ::std::result::Result<crate::types::PointInTimeRecoverySpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PointInTimeRecoverySpecification {
             point_in_time_recovery_enabled: self.point_in_time_recovery_enabled.ok_or_else(|| {

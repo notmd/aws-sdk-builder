@@ -110,9 +110,9 @@ impl InvocationCompletedDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
     /// This method will fail if any of the following fields are not set:
-    /// - [`start_timestamp`](Self::start_timestamp)
-    /// - [`end_timestamp`](Self::end_timestamp)
-    /// - [`request_id`](Self::request_id)
+    /// - [`start_timestamp`](crate::types::builders::InvocationCompletedDetailsBuilder::start_timestamp)
+    /// - [`end_timestamp`](crate::types::builders::InvocationCompletedDetailsBuilder::end_timestamp)
+    /// - [`request_id`](crate::types::builders::InvocationCompletedDetailsBuilder::request_id)
     pub fn build(self) -> ::std::result::Result<crate::types::InvocationCompletedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvocationCompletedDetails {
             start_timestamp: self.start_timestamp.ok_or_else(|| {

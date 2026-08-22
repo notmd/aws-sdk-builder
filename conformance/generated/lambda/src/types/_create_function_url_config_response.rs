@@ -14,7 +14,13 @@ pub struct CreateFunctionUrlConfigResponse {
     pub cors: ::std::option::Option<crate::types::Cors>,
     /// <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub creation_time: ::std::string::String,
-    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li>
+    /// <li>
+    /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
+    /// </ul>
     pub invoke_mode: ::std::option::Option<crate::types::InvokeMode>,
 }
 impl CreateFunctionUrlConfigResponse {
@@ -41,7 +47,13 @@ impl CreateFunctionUrlConfigResponse {
         use std::ops::Deref;
         self.creation_time.deref()
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li>
+    /// <li>
+    /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
+    /// </ul>
     pub fn invoke_mode(&self) -> ::std::option::Option<&crate::types::InvokeMode> {
         self.invoke_mode.as_ref()
     }
@@ -139,26 +151,44 @@ impl CreateFunctionUrlConfigResponseBuilder {
     pub fn get_creation_time(&self) -> &::std::option::Option<::std::string::String> {
         &self.creation_time
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li>
+    /// <li>
+    /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
+    /// </ul>
     pub fn invoke_mode(mut self, input: crate::types::InvokeMode) -> Self {
         self.invoke_mode = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li>
+    /// <li>
+    /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
+    /// </ul>
     pub fn set_invoke_mode(mut self, input: ::std::option::Option<crate::types::InvokeMode>) -> Self {
         self.invoke_mode = input;
         self
     }
-    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
+    /// <p>Use one of the following options:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li>
+    /// <li>
+    /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
+    /// </ul>
     pub fn get_invoke_mode(&self) -> &::std::option::Option<crate::types::InvokeMode> {
         &self.invoke_mode
     }
     /// Consumes the builder and constructs a [`CreateFunctionUrlConfigResponse`](crate::types::CreateFunctionUrlConfigResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_url`](Self::function_url)
-    /// - [`function_arn`](Self::function_arn)
-    /// - [`auth_type`](Self::auth_type)
-    /// - [`creation_time`](Self::creation_time)
+    /// - [`function_url`](crate::types::builders::CreateFunctionUrlConfigResponseBuilder::function_url)
+    /// - [`function_arn`](crate::types::builders::CreateFunctionUrlConfigResponseBuilder::function_arn)
+    /// - [`auth_type`](crate::types::builders::CreateFunctionUrlConfigResponseBuilder::auth_type)
+    /// - [`creation_time`](crate::types::builders::CreateFunctionUrlConfigResponseBuilder::creation_time)
     pub fn build(self) -> ::std::result::Result<crate::types::CreateFunctionUrlConfigResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateFunctionUrlConfigResponse {
             function_url: self.function_url.ok_or_else(|| {

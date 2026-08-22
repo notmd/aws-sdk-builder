@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `277` matched · `768` mismatches · `586` missing · `0` extra · `16.98%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `320` matched · `725` mismatches · `586` missing · `0` extra · `19.62%` match (100.00% means fully matched)
 
 ### `src/client/add_client_id_to_open_id_connect_provider.rs`
 
@@ -5557,16 +5557,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct AcquireRoleInput {
      /// <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p>
      /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-@@ -76,15 +77,14 @@
-     pub fn get_template_minor_version(&self) -> &::std::option::Option<i32> {
-         &self.template_minor_version
-     }
-+    /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
-     /// Adds a key-value pair to `replacement_values`.
+@@ -82,9 +83,9 @@
      ///
-     /// To override the contents of this collection use [`set_replacement_values`](Self::set_replacement_values).
--    ///
--    /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
+     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
      pub fn replacement_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::ReplacementValueEntry) -> Self {
 -        let mut hash_map = self.replacement_values.unwrap_or_default();
 -        hash_map.insert(k.into(), v);
@@ -5577,7 +5570,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
      /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
-@@ -102,11 +102,11 @@
+@@ -102,11 +103,11 @@
          &self.replacement_values
      }
      /// Consumes the builder and constructs a [`AcquireRoleInput`](crate::operation::acquire_role::AcquireRoleInput).
@@ -15719,33 +15712,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateInstanceProfileInput {
      /// <p>The name of the instance profile to create.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -30,8 +31,6 @@
-     /// <p>A list of tags that you want to attach to the newly created IAM instance profile. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -90,13 +89,12 @@
-     pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
-         &self.path
-     }
--    /// Appends an item to `tags`.
--    ///
--    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
-     /// <p>A list of tags that you want to attach to the newly created IAM instance profile. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
-+    /// Appends an item to `tags`.
-+    ///
-+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -117,14 +115,11 @@
+@@ -117,14 +118,11 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateInstanceProfileInput`](crate::operation::create_instance_profile::CreateInstanceProfileInput).
@@ -17395,89 +17362,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateOpenIdConnectProviderInput {
      /// <p>The URL of the identity provider. The URL must begin with <code>https://</code> and should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like <code>https://server.example.org</code> or <code>https://example.com</code>. The URL should not contain a port number.</p>
      /// <p>You cannot register the same provider multiple times in a single Amazon Web Services account. If you try to submit a URL that has already been used for an OpenID Connect provider in the Amazon Web Services account, you will get an error.</p>
-@@ -32,8 +33,6 @@
-     /// <p>Provides a list of client IDs, also known as audiences. When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. This is the value that's sent as the <code>client_id</code> parameter on OAuth requests.</p>
-     /// <p>You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.</p>
-     /// <p>There is no defined format for a client ID. The <code>CreateOpenIDConnectProviderRequest</code> operation accepts client IDs up to 255 characters long.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.client_id_list.is_none()`.
-     pub fn client_id_list(&self) -> &[::std::string::String] {
-         self.client_id_list.as_deref().unwrap_or_default()
-     }
-@@ -44,8 +43,6 @@
-     /// <p>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</p><note>
-     /// <p>If your OIDC provider's discovery endpoint and JWKS endpoint (<code>jwks_uri</code>) use different certificates or hosts, include the thumbprints for both endpoints in this list.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.thumbprint_list.is_none()`.
-     pub fn thumbprint_list(&self) -> &[::std::string::String] {
-         self.thumbprint_list.as_deref().unwrap_or_default()
-     }
-@@ -52,8 +49,6 @@
-     /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -93,13 +88,12 @@
-     pub fn get_url(&self) -> &::std::option::Option<::std::string::String> {
-         &self.url
-     }
--    /// Appends an item to `client_id_list`.
--    ///
--    /// To override the contents of this collection use [`set_client_id_list`](Self::set_client_id_list).
--    ///
-     /// <p>Provides a list of client IDs, also known as audiences. When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. This is the value that's sent as the <code>client_id</code> parameter on OAuth requests.</p>
-     /// <p>You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.</p>
-     /// <p>There is no defined format for a client ID. The <code>CreateOpenIDConnectProviderRequest</code> operation accepts client IDs up to 255 characters long.</p>
-+    /// Appends an item to `client_id_list`.
-+    ///
-+    /// To override the contents of this collection use [`set_client_id_list`](Self::set_client_id_list).
-     pub fn client_id_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.client_id_list.unwrap_or_default();
-         v.push(input.into());
-@@ -119,10 +113,6 @@
-     pub fn get_client_id_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.client_id_list
-     }
--    /// Appends an item to `thumbprint_list`.
--    ///
--    /// To override the contents of this collection use [`set_thumbprint_list`](Self::set_thumbprint_list).
--    ///
-     /// <p>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.</p>
-     /// <p>This parameter is optional. If it is not included, IAM will retrieve and use the top intermediate certificate authority (CA) thumbprint of the OpenID Connect identity provider server certificate.</p>
-     /// <p>The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.</p>
-@@ -130,6 +120,9 @@
-     /// <p>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</p><note>
-     /// <p>If your OIDC provider's discovery endpoint and JWKS endpoint (<code>jwks_uri</code>) use different certificates or hosts, include the thumbprints for both endpoints in this list.</p>
-     /// </note>
-+    /// Appends an item to `thumbprint_list`.
-+    ///
-+    /// To override the contents of this collection use [`set_thumbprint_list`](Self::set_thumbprint_list).
-     pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.thumbprint_list.unwrap_or_default();
-         v.push(input.into());
-@@ -157,13 +150,12 @@
-     pub fn get_thumbprint_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.thumbprint_list
-     }
-+    /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-+    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-+    /// </note>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
--    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
--    /// </note>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -184,17 +176,12 @@
+@@ -184,17 +185,12 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateOpenIdConnectProviderInput`](crate::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput).
@@ -17498,35 +17383,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_output.rs`
-
-```diff
---- reference/src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_output.rs
-+++ generated/src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_output.rs
-@@ -16,8 +16,6 @@
-         self.open_id_connect_provider_arn.as_deref()
-     }
-     /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -57,11 +55,10 @@
-     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.open_id_connect_provider_arn
-     }
-+    /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/create_open_id_connect_provider/builders.rs`
@@ -18381,118 +18237,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreatePolicyInput {
      /// <p>The friendly name of the policy.</p>
      /// <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".</p>
-@@ -17,15 +18,7 @@
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-     /// <p>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar of the IAM JSON policy language</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_document: ::std::option::Option<::std::string::String>,
-     /// <p>A friendly description of the policy.</p>
-     /// <p>Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."</p>
-@@ -55,15 +48,7 @@
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-     /// <p>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar of the IAM JSON policy language</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_document(&self) -> ::std::option::Option<&str> {
-         self.policy_document.as_deref()
-     }
-@@ -76,8 +61,6 @@
-     /// <p>A list of tags that you want to attach to the new IAM customer managed policy. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -151,15 +134,7 @@
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-     /// <p>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar of the IAM JSON policy language</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_document = ::std::option::Option::Some(input.into());
-@@ -169,15 +144,7 @@
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-     /// <p>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar of the IAM JSON policy language</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_document = input;
-         self
-@@ -186,15 +153,7 @@
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-     /// <p>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar of the IAM JSON policy language</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_document
-     }
-@@ -218,13 +177,12 @@
-     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
-         &self.description
-     }
--    /// Appends an item to `tags`.
--    ///
--    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
-     /// <p>A list of tags that you want to attach to the new IAM customer managed policy. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
-+    /// Appends an item to `tags`.
-+    ///
-+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -245,15 +203,13 @@
+@@ -245,15 +246,13 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreatePolicyInput`](crate::operation::create_policy::CreatePolicyInput).
@@ -19396,92 +19141,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreatePolicyVersionInput {
      /// <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.</p>
      /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-@@ -9,15 +10,7 @@
-     /// <p>The JSON policy document that you want to use as the content for this new version of the policy.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_document: ::std::option::Option<::std::string::String>,
-     /// <p>Specifies whether to set this version as the policy's default version.</p>
-     /// <p>When this parameter is <code>true</code>, the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.</p>
-@@ -33,15 +26,7 @@
-     /// <p>The JSON policy document that you want to use as the content for this new version of the policy.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_document(&self) -> ::std::option::Option<&str> {
-         self.policy_document.as_deref()
-     }
-@@ -89,15 +74,7 @@
-     /// <p>The JSON policy document that you want to use as the content for this new version of the policy.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_document = ::std::option::Option::Some(input.into());
-@@ -106,15 +83,7 @@
-     /// <p>The JSON policy document that you want to use as the content for this new version of the policy.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_document = input;
-         self
-@@ -122,15 +91,7 @@
-     /// <p>The JSON policy document that you want to use as the content for this new version of the policy.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_document
-     }
-@@ -155,14 +116,11 @@
+@@ -155,14 +156,11 @@
          &self.set_as_default
      }
      /// Consumes the builder and constructs a [`CreatePolicyVersionInput`](crate::operation::create_policy_version::CreatePolicyVersionInput).
@@ -20303,164 +19963,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateRoleInput {
      /// <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p>
      /// <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
-@@ -13,16 +14,7 @@
-     pub role_name: ::std::option::Option<::std::string::String>,
-     /// <p>The trust relationship policy document that grants an entity permission to assume the role.</p>
-     /// <p>In IAM, you must provide a JSON policy that has been converted to a string. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>Upon success, the response includes the same trust policy in JSON format.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>Upon success, the response includes the same trust policy in JSON format.</p>
-     pub assume_role_policy_document: ::std::option::Option<::std::string::String>,
-     /// <p>A description of the role.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-@@ -31,7 +23,7 @@
-     pub max_session_duration: ::std::option::Option<i32>,
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<::std::string::String>,
-     /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-@@ -53,16 +45,7 @@
-     }
-     /// <p>The trust relationship policy document that grants an entity permission to assume the role.</p>
-     /// <p>In IAM, you must provide a JSON policy that has been converted to a string. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>Upon success, the response includes the same trust policy in JSON format.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>Upon success, the response includes the same trust policy in JSON format.</p>
-     pub fn assume_role_policy_document(&self) -> ::std::option::Option<&str> {
-         self.assume_role_policy_document.as_deref()
-     }
-@@ -77,7 +60,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&str> {
-         self.permissions_boundary.as_deref()
-     }
-@@ -84,8 +67,6 @@
-     /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -153,16 +134,7 @@
-     }
-     /// <p>The trust relationship policy document that grants an entity permission to assume the role.</p>
-     /// <p>In IAM, you must provide a JSON policy that has been converted to a string. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>Upon success, the response includes the same trust policy in JSON format.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>Upon success, the response includes the same trust policy in JSON format.</p>
-     /// This field is required.
-     pub fn assume_role_policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.assume_role_policy_document = ::std::option::Option::Some(input.into());
-@@ -170,16 +142,7 @@
-     }
-     /// <p>The trust relationship policy document that grants an entity permission to assume the role.</p>
-     /// <p>In IAM, you must provide a JSON policy that has been converted to a string. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>Upon success, the response includes the same trust policy in JSON format.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>Upon success, the response includes the same trust policy in JSON format.</p>
-     pub fn set_assume_role_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.assume_role_policy_document = input;
-         self
-@@ -186,16 +149,7 @@
-     }
-     /// <p>The trust relationship policy document that grants an entity permission to assume the role.</p>
-     /// <p>In IAM, you must provide a JSON policy that has been converted to a string. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>Upon success, the response includes the same trust policy in JSON format.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>Upon success, the response includes the same trust policy in JSON format.</p>
-     pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<::std::string::String> {
-         &self.assume_role_policy_document
-     }
-@@ -232,7 +186,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input.into());
-         self
-@@ -239,7 +193,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.permissions_boundary = input;
-         self
-@@ -246,17 +200,16 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<::std::string::String> {
-         &self.permissions_boundary
-     }
-+    /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-+    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-+    /// </note>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
--    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
--    /// </note>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -277,8 +230,8 @@
+@@ -277,8 +278,8 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateRoleInput`](crate::operation::create_role::CreateRoleInput).
@@ -20471,7 +19974,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              path: self.path,
              role_name: self.role_name,
              assume_role_policy_document: self.assume_role_policy_document,
-@@ -286,6 +239,6 @@
+@@ -286,6 +287,6 @@
              max_session_duration: self.max_session_duration,
              permissions_boundary: self.permissions_boundary,
              tags: self.tags,
@@ -21402,16 +20905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateSamlProviderInput {
      /// <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation</a> in the <i>IAM User Guide</i></p>
-@@ -32,8 +33,6 @@
-     /// <p>A list of tags that you want to attach to the new IAM SAML provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -46,17 +45,6 @@
+@@ -46,17 +47,6 @@
          self.add_private_key.as_deref()
      }
  }
@@ -21429,7 +20923,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl CreateSamlProviderInput {
      /// Creates a new builder-style object to manufacture [`CreateSamlProviderInput`](crate::operation::create_saml_provider::CreateSamlProviderInput).
      pub fn builder() -> crate::operation::create_saml_provider::builders::CreateSamlProviderInputBuilder {
-@@ -65,7 +53,7 @@
+@@ -65,7 +55,7 @@
  }
 
  /// A builder for [`CreateSamlProviderInput`](crate::operation::create_saml_provider::CreateSamlProviderInput).
@@ -21438,24 +20932,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct CreateSamlProviderInputBuilder {
      pub(crate) saml_metadata_document: ::std::option::Option<::std::string::String>,
-@@ -111,13 +99,12 @@
-     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.name
-     }
--    /// Appends an item to `tags`.
--    ///
--    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
-     /// <p>A list of tags that you want to attach to the new IAM SAML provider. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
-+    /// Appends an item to `tags`.
-+    ///
-+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -166,27 +153,13 @@
+@@ -166,27 +156,13 @@
          &self.add_private_key
      }
      /// Consumes the builder and constructs a [`CreateSamlProviderInput`](crate::operation::create_saml_provider::CreateSamlProviderInput).
@@ -21486,35 +20963,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/create_saml_provider/_create_saml_provider_output.rs`
-
-```diff
---- reference/src/operation/create_saml_provider/_create_saml_provider_output.rs
-+++ generated/src/operation/create_saml_provider/_create_saml_provider_output.rs
-@@ -16,8 +16,6 @@
-         self.saml_provider_arn.as_deref()
-     }
-     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -57,11 +55,10 @@
-     pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.saml_provider_arn
-     }
-+    /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/create_saml_provider/builders.rs`
@@ -22318,7 +21766,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_service_linked_role/_create_service_linked_role_input.rs
 +++ generated/src/operation/create_service_linked_role/_create_service_linked_role_input.rs
-@@ -1,10 +1,11 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -22327,45 +21775,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  pub struct CreateServiceLinkedRoleInput {
      /// <p>The service principal for the Amazon Web Services service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.</p>
--    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-+    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes</b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-     pub aws_service_name: ::std::option::Option<::std::string::String>,
-     /// <p>The description of the role.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-@@ -15,7 +16,7 @@
- }
- impl CreateServiceLinkedRoleInput {
-     /// <p>The service principal for the Amazon Web Services service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.</p>
--    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-+    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes</b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-     pub fn aws_service_name(&self) -> ::std::option::Option<&str> {
-         self.aws_service_name.as_deref()
-     }
-@@ -47,7 +48,7 @@
- }
- impl CreateServiceLinkedRoleInputBuilder {
-     /// <p>The service principal for the Amazon Web Services service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.</p>
--    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-+    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes</b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-     /// This field is required.
-     pub fn aws_service_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.aws_service_name = ::std::option::Option::Some(input.into());
-@@ -54,13 +55,13 @@
-         self
-     }
-     /// <p>The service principal for the Amazon Web Services service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.</p>
--    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-+    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes</b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-     pub fn set_aws_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.aws_service_name = input;
-         self
-     }
-     /// <p>The service principal for the Amazon Web Services service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: <code>elasticbeanstalk.amazonaws.com</code>.</p>
--    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-+    /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes</b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
-     pub fn get_aws_service_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.aws_service_name
-     }
+     /// <p>Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">Amazon Web Services services that work with IAM</a> in the <i>IAM User Guide</i>. Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that service.</p>
 @@ -99,16 +100,11 @@
          &self.custom_suffix
      }
@@ -23197,55 +22607,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs
 +++ generated/src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs
-@@ -1,18 +1,15 @@
+@@ -1,4 +1,5 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct CreateServiceSpecificCredentialOutput {
--    /// <p>A structure that contains information about the newly created service-specific credential.</p><important>
--    /// <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
--    /// </important>
-+    /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
-     pub service_specific_credential: ::std::option::Option<crate::types::ServiceSpecificCredential>,
-     _request_id: Option<String>,
- }
- impl CreateServiceSpecificCredentialOutput {
--    /// <p>A structure that contains information about the newly created service-specific credential.</p><important>
--    /// <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
--    /// </important>
-+    /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
-     pub fn service_specific_credential(&self) -> ::std::option::Option<&crate::types::ServiceSpecificCredential> {
-         self.service_specific_credential.as_ref()
-     }
-@@ -37,23 +34,17 @@
-     _request_id: Option<String>,
- }
- impl CreateServiceSpecificCredentialOutputBuilder {
--    /// <p>A structure that contains information about the newly created service-specific credential.</p><important>
--    /// <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
--    /// </important>
-+    /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
-     pub fn service_specific_credential(mut self, input: crate::types::ServiceSpecificCredential) -> Self {
-         self.service_specific_credential = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A structure that contains information about the newly created service-specific credential.</p><important>
--    /// <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
--    /// </important>
-+    /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
-     pub fn set_service_specific_credential(mut self, input: ::std::option::Option<crate::types::ServiceSpecificCredential>) -> Self {
-         self.service_specific_credential = input;
-         self
-     }
--    /// <p>A structure that contains information about the newly created service-specific credential.</p><important>
--    /// <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
--    /// </important>
-+    /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
-     pub fn get_service_specific_credential(&self) -> &::std::option::Option<crate::types::ServiceSpecificCredential> {
-         &self.service_specific_credential
-     }
 ```
 
 ### `src/operation/create_service_specific_credential/builders.rs`
@@ -24011,74 +23378,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateUserInput {
      /// <p>The path for the user name. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
      /// <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
-@@ -12,7 +13,7 @@
-     pub user_name: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<::std::string::String>,
-     /// <p>A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-@@ -33,7 +34,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&str> {
-         self.permissions_boundary.as_deref()
-     }
-@@ -40,8 +41,6 @@
-     /// <p>A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -103,7 +102,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input.into());
-         self
-@@ -110,7 +109,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.permissions_boundary = input;
-         self
-@@ -117,17 +116,16 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<::std::string::String> {
-         &self.permissions_boundary
-     }
-+    /// <p>A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-+    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-+    /// </note>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
--    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
--    /// </note>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -148,12 +146,12 @@
+@@ -148,12 +149,12 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateUserInput`](crate::operation::create_user::CreateUserInput).
@@ -24905,33 +24205,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateVirtualMfaDeviceInput {
      /// <p>The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
      /// <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
-@@ -30,8 +31,6 @@
-     /// <p>A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -90,13 +89,12 @@
-     pub fn get_virtual_mfa_device_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.virtual_mfa_device_name
-     }
-+    /// <p>A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-+    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-+    /// </note>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
--    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
--    /// </note>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -117,16 +115,11 @@
+@@ -117,16 +118,11 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateVirtualMfaDeviceInput`](crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceInput).
@@ -37604,15 +36878,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_deletion_task_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.deletion_task_id
      }
-@@ -90,7 +61,7 @@
-     }
-     /// Consumes the builder and constructs a [`DeleteServiceLinkedRoleOutput`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`deletion_task_id`](crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::deletion_task_id)
-+    /// - [`deletion_task_id`](Self::deletion_task_id)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
 ```
 
 ### `src/operation/delete_service_linked_role/builders.rs`
@@ -45780,28 +45045,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -15,8 +16,6 @@
-         self.organization_id.as_deref()
-     }
-     /// <p>The features enabled for centralized root access for member accounts in your organization.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
-         self.enabled_features.as_deref().unwrap_or_default()
-     }
-@@ -58,11 +57,10 @@
-     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.organization_id
-     }
-+    /// <p>The features enabled for centralized root access for member accounts in your organization.</p>
-     /// Appends an item to `enabled_features`.
-     ///
-     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
--    ///
--    /// <p>The features enabled for centralized root access for member accounts in your organization.</p>
-     pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
-         let mut v = self.enabled_features.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/disable_organizations_root_credentials_management/builders.rs`
@@ -46497,28 +45740,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -15,8 +16,6 @@
-         self.organization_id.as_deref()
-     }
-     /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
-         self.enabled_features.as_deref().unwrap_or_default()
-     }
-@@ -56,11 +55,10 @@
-     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.organization_id
-     }
-+    /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
-     /// Appends an item to `enabled_features`.
-     ///
-     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
--    ///
--    /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
-     pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
-         let mut v = self.enabled_features.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/disable_organizations_root_sessions/builders.rs`
@@ -47824,99 +47045,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct EnableMfaDeviceInput {
      /// <p>The name of the IAM user for whom you want to enable the MFA device.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -10,14 +11,10 @@
-     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>
-     pub serial_number: ::std::option::Option<::std::string::String>,
-     /// <p>An authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub authentication_code1: ::std::option::Option<::std::string::String>,
-     /// <p>A subsequent authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub authentication_code2: ::std::option::Option<::std::string::String>,
- }
- impl EnableMfaDeviceInput {
-@@ -32,16 +29,12 @@
-         self.serial_number.as_deref()
-     }
-     /// <p>An authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub fn authentication_code1(&self) -> ::std::option::Option<&str> {
-         self.authentication_code1.as_deref()
-     }
-     /// <p>A subsequent authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub fn authentication_code2(&self) -> ::std::option::Option<&str> {
-         self.authentication_code2.as_deref()
-     }
-@@ -100,9 +93,7 @@
-         &self.serial_number
-     }
-     /// <p>An authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     /// This field is required.
-     pub fn authentication_code1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.authentication_code1 = ::std::option::Option::Some(input.into());
-@@ -109,24 +100,18 @@
-         self
-     }
-     /// <p>An authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub fn set_authentication_code1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.authentication_code1 = input;
-         self
-     }
-     /// <p>An authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub fn get_authentication_code1(&self) -> &::std::option::Option<::std::string::String> {
-         &self.authentication_code1
-     }
-     /// <p>A subsequent authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     /// This field is required.
-     pub fn authentication_code2(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.authentication_code2 = ::std::option::Option::Some(input.into());
-@@ -133,29 +118,23 @@
-         self
-     }
-     /// <p>A subsequent authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub fn set_authentication_code2(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.authentication_code2 = input;
-         self
-     }
-     /// <p>A subsequent authentication code emitted by the device.</p>
--    /// <p>The format for this parameter is a string of six digits.</p><important>
--    /// <p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p>
--    /// </important>
-+    /// <p>The format for this parameter is a string of six digits.</p> <important><p>Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the device</a>.</p></important>
-     pub fn get_authentication_code2(&self) -> &::std::option::Option<::std::string::String> {
+@@ -148,14 +149,12 @@
          &self.authentication_code2
      }
      /// Consumes the builder and constructs a [`EnableMfaDeviceInput`](crate::operation::enable_mfa_device::EnableMfaDeviceInput).
@@ -48797,28 +47926,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -15,8 +16,6 @@
-         self.organization_id.as_deref()
-     }
-     /// <p>The features you have enabled for centralized root access.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
-         self.enabled_features.as_deref().unwrap_or_default()
-     }
-@@ -57,11 +56,10 @@
-     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.organization_id
-     }
-+    /// <p>The features you have enabled for centralized root access.</p>
-     /// Appends an item to `enabled_features`.
-     ///
-     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
--    ///
--    /// <p>The features you have enabled for centralized root access.</p>
-     pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
-         let mut v = self.enabled_features.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/enable_organizations_root_credentials_management/builders.rs`
@@ -49533,28 +48640,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -15,8 +16,6 @@
-         self.organization_id.as_deref()
-     }
-     /// <p>The features you have enabled for centralized root access.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
-         self.enabled_features.as_deref().unwrap_or_default()
-     }
-@@ -56,11 +55,10 @@
-     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.organization_id
-     }
-+    /// <p>The features you have enabled for centralized root access.</p>
-     /// Appends an item to `enabled_features`.
-     ///
-     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
--    ///
--    /// <p>The features you have enabled for centralized root access.</p>
-     pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
-         let mut v = self.enabled_features.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/enable_organizations_root_sessions/builders.rs`
@@ -53769,31 +52854,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetAccountAuthorizationDetailsInput {
      /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
      /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
-@@ -15,8 +16,6 @@
- impl GetAccountAuthorizationDetailsInput {
-     /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
-     /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.filter.is_none()`.
-     pub fn filter(&self) -> &[crate::types::EntityType] {
-         self.filter.as_deref().unwrap_or_default()
-     }
-@@ -46,12 +45,11 @@
-     pub(crate) marker: ::std::option::Option<::std::string::String>,
- }
- impl GetAccountAuthorizationDetailsInputBuilder {
-+    /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
-+    /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
-     /// Appends an item to `filter`.
-     ///
-     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
--    ///
--    /// <p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p>
--    /// <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>
-     pub fn filter(mut self, input: crate::types::EntityType) -> Self {
-         let mut v = self.filter.unwrap_or_default();
-         v.push(input);
-@@ -101,16 +99,11 @@
+@@ -101,16 +102,11 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`GetAccountAuthorizationDetailsInput`](crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput).
@@ -53829,31 +52890,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -20,31 +20,23 @@
- }
- impl GetAccountAuthorizationDetailsOutput {
-     /// <p>A list containing information about IAM users.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_detail_list.is_none()`.
-     pub fn user_detail_list(&self) -> &[crate::types::UserDetail] {
-         self.user_detail_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list containing information about IAM groups.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_detail_list.is_none()`.
-     pub fn group_detail_list(&self) -> &[crate::types::GroupDetail] {
-         self.group_detail_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list containing information about IAM roles.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_detail_list.is_none()`.
-     pub fn role_detail_list(&self) -> &[crate::types::RoleDetail] {
-         self.role_detail_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list containing information about managed policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
-     pub fn policies(&self) -> &[crate::types::ManagedPolicyDetail] {
+@@ -44,7 +44,7 @@
          self.policies.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -53862,59 +52899,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -77,11 +69,10 @@
-     _request_id: Option<String>,
- }
- impl GetAccountAuthorizationDetailsOutputBuilder {
-+    /// <p>A list containing information about IAM users.</p>
-     /// Appends an item to `user_detail_list`.
-     ///
-     /// To override the contents of this collection use [`set_user_detail_list`](Self::set_user_detail_list).
--    ///
--    /// <p>A list containing information about IAM users.</p>
-     pub fn user_detail_list(mut self, input: crate::types::UserDetail) -> Self {
-         let mut v = self.user_detail_list.unwrap_or_default();
-         v.push(input);
-@@ -97,11 +88,10 @@
-     pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::UserDetail>> {
-         &self.user_detail_list
-     }
-+    /// <p>A list containing information about IAM groups.</p>
-     /// Appends an item to `group_detail_list`.
-     ///
-     /// To override the contents of this collection use [`set_group_detail_list`](Self::set_group_detail_list).
--    ///
--    /// <p>A list containing information about IAM groups.</p>
-     pub fn group_detail_list(mut self, input: crate::types::GroupDetail) -> Self {
-         let mut v = self.group_detail_list.unwrap_or_default();
-         v.push(input);
-@@ -117,11 +107,10 @@
-     pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GroupDetail>> {
-         &self.group_detail_list
-     }
-+    /// <p>A list containing information about IAM roles.</p>
-     /// Appends an item to `role_detail_list`.
-     ///
-     /// To override the contents of this collection use [`set_role_detail_list`](Self::set_role_detail_list).
--    ///
--    /// <p>A list containing information about IAM roles.</p>
-     pub fn role_detail_list(mut self, input: crate::types::RoleDetail) -> Self {
-         let mut v = self.role_detail_list.unwrap_or_default();
-         v.push(input);
-@@ -137,11 +126,10 @@
-     pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoleDetail>> {
-         &self.role_detail_list
-     }
-+    /// <p>A list containing information about managed policies.</p>
-     /// Appends an item to `policies`.
-     ///
-     /// To override the contents of this collection use [`set_policies`](Self::set_policies).
--    ///
--    /// <p>A list containing information about managed policies.</p>
-     pub fn policies(mut self, input: crate::types::ManagedPolicyDetail) -> Self {
-         let mut v = self.policies.unwrap_or_default();
-         v.push(input);
-@@ -201,7 +189,7 @@
+@@ -201,7 +201,7 @@
              group_detail_list: self.group_detail_list,
              role_detail_list: self.role_detail_list,
              policies: self.policies,
@@ -55348,16 +54333,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -33,15 +34,14 @@
-     _request_id: Option<String>,
- }
- impl GetAccountPropertiesOutputBuilder {
-+    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
-     /// Adds a key-value pair to `properties`.
+@@ -39,9 +40,9 @@
      ///
-     /// To override the contents of this collection use [`set_properties`](Self::set_properties).
--    ///
--    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
+     /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
      pub fn properties(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
 -        let mut hash_map = self.properties.unwrap_or_default();
 -        hash_map.insert(k.into(), v.into());
@@ -56018,16 +54996,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_summary/_get_account_summary_output.rs
 +++ generated/src/operation/get_account_summary/_get_account_summary_output.rs
-@@ -34,15 +34,14 @@
-     _request_id: Option<String>,
- }
- impl GetAccountSummaryOutputBuilder {
-+    /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-     /// Adds a key-value pair to `summary_map`.
+@@ -40,9 +40,9 @@
      ///
-     /// To override the contents of this collection use [`set_summary_map`](Self::set_summary_map).
--    ///
--    /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
+     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
      pub fn summary_map(mut self, k: crate::types::SummaryKeyType, v: i32) -> Self {
 -        let mut hash_map = self.summary_map.unwrap_or_default();
 -        hash_map.insert(k, v);
@@ -56636,7 +55607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_input.rs
 +++ generated/src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_input.rs
-@@ -1,33 +1,16 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -56645,88 +55616,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  pub struct GetContextKeysForCustomPolicyInput {
      /// <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
- }
- impl GetContextKeysForCustomPolicyInput {
-     /// <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_input_list.is_none()`.
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_input_list(&self) -> &[::std::string::String] {
-         self.policy_input_list.as_deref().unwrap_or_default()
-     }
-@@ -46,20 +29,11 @@
-     pub(crate) policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
- }
- impl GetContextKeysForCustomPolicyInputBuilder {
-+    /// <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// Appends an item to `policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_policy_input_list`](Self::set_policy_input_list).
--    ///
--    /// <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-     pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_input_list.unwrap_or_default();
-         v.push(input.into());
-@@ -67,41 +41,20 @@
-         self
-     }
-     /// <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.policy_input_list = input;
-         self
-     }
-     /// <p>A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+     /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
+@@ -94,14 +95,9 @@
          &self.policy_input_list
      }
      /// Consumes the builder and constructs a [`GetContextKeysForCustomPolicyInput`](crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput).
@@ -56744,35 +55635,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_output.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_output.rs
-+++ generated/src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_output.rs
-@@ -10,8 +10,6 @@
- }
- impl GetContextKeysForCustomPolicyOutput {
-     /// <p>The list of context keys that are referenced in the input policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_key_names.is_none()`.
-     pub fn context_key_names(&self) -> &[::std::string::String] {
-         self.context_key_names.as_deref().unwrap_or_default()
-     }
-@@ -36,11 +34,10 @@
-     _request_id: Option<String>,
- }
- impl GetContextKeysForCustomPolicyOutputBuilder {
-+    /// <p>The list of context keys that are referenced in the input policies.</p>
-     /// Appends an item to `context_key_names`.
-     ///
-     /// To override the contents of this collection use [`set_context_key_names`](Self::set_context_key_names).
--    ///
--    /// <p>The list of context keys that are referenced in the input policies.</p>
-     pub fn context_key_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.context_key_names.unwrap_or_default();
-         v.push(input.into());
 ```
 
 ### `src/operation/get_context_keys_for_custom_policy/builders.rs`
@@ -57430,7 +56292,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_input.rs
 +++ generated/src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_input.rs
-@@ -1,21 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -57440,93 +56302,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetContextKeysForPrincipalPolicyInput {
      /// <p>The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.</p>
      /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub policy_source_arn: ::std::option::Option<::std::string::String>,
-     /// <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
- }
- impl GetContextKeysForPrincipalPolicyInput {
-@@ -25,17 +18,7 @@
-         self.policy_source_arn.as_deref()
-     }
-     /// <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_input_list.is_none()`.
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_input_list(&self) -> &[::std::string::String] {
-         self.policy_input_list.as_deref().unwrap_or_default()
-     }
-@@ -73,20 +56,11 @@
-     pub fn get_policy_source_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_source_arn
-     }
-+    /// <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// Appends an item to `policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_policy_input_list`](Self::set_policy_input_list).
--    ///
--    /// <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-     pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_input_list.unwrap_or_default();
-         v.push(input.into());
-@@ -94,44 +68,21 @@
-         self
-     }
-     /// <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.policy_input_list = input;
-         self
-     }
-     /// <p>An optional list of additional policies for which you want the list of context keys that are referenced.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+@@ -121,17 +122,10 @@
          &self.policy_input_list
      }
      /// Consumes the builder and constructs a [`GetContextKeysForPrincipalPolicyInput`](crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyInput).
@@ -57549,35 +56325,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_output.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_output.rs
-+++ generated/src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_output.rs
-@@ -10,8 +10,6 @@
- }
- impl GetContextKeysForPrincipalPolicyOutput {
-     /// <p>The list of context keys that are referenced in the input policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_key_names.is_none()`.
-     pub fn context_key_names(&self) -> &[::std::string::String] {
-         self.context_key_names.as_deref().unwrap_or_default()
-     }
-@@ -36,11 +34,10 @@
-     _request_id: Option<String>,
- }
- impl GetContextKeysForPrincipalPolicyOutputBuilder {
-+    /// <p>The list of context keys that are referenced in the input policies.</p>
-     /// Appends an item to `context_key_names`.
-     ///
-     /// To override the contents of this collection use [`set_context_key_names`](Self::set_context_key_names).
--    ///
--    /// <p>The list of context keys that are referenced in the input policies.</p>
-     pub fn context_key_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.context_key_names.unwrap_or_default();
-         v.push(input.into());
 ```
 
 ### `src/operation/get_context_keys_for_principal_policy/builders.rs`
@@ -59083,152 +57830,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -6,25 +7,9 @@
-     /// <p>The delegation request object containing all details about the request.</p>
-     pub delegation_request: ::std::option::Option<crate::types::DelegationRequest>,
-     /// <p>The status of the permission check for the delegation request.</p>
--    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
--    /// <li>
--    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
--    /// <li>
--    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
--    /// </ul>
-+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
-     pub permission_check_status: ::std::option::Option<crate::types::PermissionCheckStatusType>,
--    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
--    /// </ul>
-+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
-     pub permission_check_result: ::std::option::Option<crate::types::PermissionCheckResultType>,
-     _request_id: Option<String>,
- }
-@@ -34,27 +19,11 @@
-         self.delegation_request.as_ref()
-     }
-     /// <p>The status of the permission check for the delegation request.</p>
--    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
--    /// <li>
--    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
--    /// <li>
--    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
--    /// </ul>
-+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
-     pub fn permission_check_status(&self) -> ::std::option::Option<&crate::types::PermissionCheckStatusType> {
-         self.permission_check_status.as_ref()
-     }
--    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
--    /// </ul>
-+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
-     pub fn permission_check_result(&self) -> ::std::option::Option<&crate::types::PermissionCheckResultType> {
-         self.permission_check_result.as_ref()
-     }
-@@ -96,81 +65,33 @@
-         &self.delegation_request
-     }
-     /// <p>The status of the permission check for the delegation request.</p>
--    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
--    /// <li>
--    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
--    /// <li>
--    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
--    /// </ul>
-+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
-     pub fn permission_check_status(mut self, input: crate::types::PermissionCheckStatusType) -> Self {
-         self.permission_check_status = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The status of the permission check for the delegation request.</p>
--    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
--    /// <li>
--    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
--    /// <li>
--    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
--    /// </ul>
-+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
-     pub fn set_permission_check_status(mut self, input: ::std::option::Option<crate::types::PermissionCheckStatusType>) -> Self {
-         self.permission_check_status = input;
-         self
-     }
-     /// <p>The status of the permission check for the delegation request.</p>
--    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>IN_PROGRESS</code> : The permission check process has started.</p></li>
--    /// <li>
--    /// <p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li>
--    /// <li>
--    /// <p><code>FAILED</code> : The permission check process has failed.</p></li>
--    /// </ul>
-+    /// <p>This value indicates the status of the process to check whether the caller has sufficient permissions to cover the requested actions in the delegation request. Since this is an asynchronous process, there are three potential values:</p><ul><li><p><code>IN_PROGRESS</code> : The permission check process has started.</p></li><li><p><code>COMPLETED</code> : The permission check process has completed. The <code>PermissionCheckResult</code> will include the result.</p></li><li><p><code>FAILED</code> : The permission check process has failed.</p></li></ul>
-     pub fn get_permission_check_status(&self) -> &::std::option::Option<crate::types::PermissionCheckStatusType> {
-         &self.permission_check_status
-     }
--    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
--    /// </ul>
-+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
-     pub fn permission_check_result(mut self, input: crate::types::PermissionCheckResultType) -> Self {
-         self.permission_check_result = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
--    /// </ul>
-+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
-     pub fn set_permission_check_result(mut self, input: ::std::option::Option<crate::types::PermissionCheckResultType>) -> Self {
-         self.permission_check_result = input;
-         self
-     }
--    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li>
--    /// <li>
--    /// <p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li>
--    /// </ul>
-+    /// <p>The result of the permission check, indicating whether the caller has sufficient permissions to cover the requested permissions. This is an approximate result.</p><ul><li><p><code>ALLOWED</code> : The caller has sufficient permissions cover all the requested permissions.</p></li><li><p><code>DENIED</code> : The caller does not have sufficient permissions to cover all the requested permissions.</p></li><li><p><code>UNSURE</code> : It is not possible to determine whether the caller has all the permissions needed. This output is most likely for cases when the caller has permissions with conditions.</p></li></ul>
-     pub fn get_permission_check_result(&self) -> &::std::option::Option<crate::types::PermissionCheckResultType> {
-         &self.permission_check_result
-     }
 ```
 
 ### `src/operation/get_delegation_request/builders.rs`
@@ -59990,29 +58591,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn group(mut self, input: crate::types::Group) -> Self {
          self.group = ::std::option::Option::Some(input);
          self
-@@ -71,11 +70,10 @@
-     pub fn get_group(&self) -> &::std::option::Option<crate::types::Group> {
-         &self.group
-     }
-+    /// <p>A list of users in the group.</p>
-     /// Appends an item to `users`.
-     ///
-     /// To override the contents of this collection use [`set_users`](Self::set_users).
--    ///
--    /// <p>A list of users in the group.</p>
-     pub fn users(mut self, input: crate::types::User) -> Self {
-         let mut v = self.users.unwrap_or_default();
-         v.push(input);
-@@ -130,7 +128,7 @@
-     }
-     /// Consumes the builder and constructs a [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`users`](crate::operation::get_group::builders::GetGroupOutputBuilder::users)
-+    /// - [`users`](Self::users)
-     pub fn build(self) -> ::std::result::Result<crate::operation::get_group::GetGroupOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::get_group::GetGroupOutput {
-             group: self.group,
-@@ -140,7 +138,7 @@
+@@ -140,7 +139,7 @@
                      "users was not specified but it is required when building GetGroupOutput",
                  )
              })?,
@@ -60752,26 +59331,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_group_policy/_get_group_policy_output.rs`
-
-```diff
---- reference/src/operation/get_group_policy/_get_group_policy_output.rs
-+++ generated/src/operation/get_group_policy/_get_group_policy_output.rs
-@@ -112,9 +112,9 @@
-     }
-     /// Consumes the builder and constructs a [`GetGroupPolicyOutput`](crate::operation::get_group_policy::GetGroupPolicyOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`group_name`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::group_name)
--    /// - [`policy_name`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::policy_name)
--    /// - [`policy_document`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::policy_document)
-+    /// - [`group_name`](Self::group_name)
-+    /// - [`policy_name`](Self::policy_name)
-+    /// - [`policy_document`](Self::policy_document)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::get_group_policy::GetGroupPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
-```
-
 ### `src/operation/get_group_policy/builders.rs`
 
 ```diff
@@ -61475,7 +60034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_human_readable_summary/_get_human_readable_summary_input.rs
 +++ generated/src/operation/get_human_readable_summary/_get_human_readable_summary_input.rs
-@@ -1,11 +1,12 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -61485,39 +60044,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetHumanReadableSummaryInput {
      /// <p>Arn of the entity to be summarized. At this time, the only supported entity type is <code>delegation-request</code></p>
      pub entity_arn: ::std::option::Option<::std::string::String>,
--    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
-+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
-     pub locale: ::std::option::Option<::std::string::String>,
- }
- impl GetHumanReadableSummaryInput {
-@@ -13,7 +14,7 @@
-     pub fn entity_arn(&self) -> ::std::option::Option<&str> {
-         self.entity_arn.as_deref()
-     }
--    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
-+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
-     pub fn locale(&self) -> ::std::option::Option<&str> {
-         self.locale.as_deref()
-     }
-@@ -48,30 +49,25 @@
-     pub fn get_entity_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.entity_arn
-     }
--    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
-+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
-     pub fn locale(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.locale = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
-+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
-     pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.locale = input;
-         self
-     }
--    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p>
-+    /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
-     pub fn get_locale(&self) -> &::std::option::Option<::std::string::String> {
+@@ -63,15 +64,10 @@
          &self.locale
      }
      /// Consumes the builder and constructs a [`GetHumanReadableSummaryInput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput).
@@ -63740,36 +62267,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -9,7 +10,7 @@
-     pub serial_number: ::std::string::String,
-     /// <p>The date that a specified user's MFA device was first enabled.</p>
-     pub enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
--    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
-+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
-     pub certifications: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-     _request_id: Option<String>,
- }
-@@ -27,7 +28,7 @@
-     pub fn enable_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
-         self.enable_date.as_ref()
-     }
--    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
-+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
-     pub fn certifications(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-         self.certifications.as_ref()
-     }
-@@ -98,22 +99,21 @@
-     pub fn get_enable_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.enable_date
-     }
-+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
-     /// Adds a key-value pair to `certifications`.
-     ///
-     /// To override the contents of this collection use [`set_certifications`](Self::set_certifications).
--    ///
--    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
-     pub fn certifications(
-         mut self,
+@@ -108,9 +109,9 @@
          k: impl ::std::convert::Into<::std::string::String>,
          v: impl ::std::convert::Into<::std::string::String>,
      ) -> Self {
@@ -63781,29 +62279,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.certifications = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
-+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
-     pub fn set_certifications(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -121,7 +121,7 @@
-         self.certifications = input;
-         self
-     }
--    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
-+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
-     pub fn get_certifications(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-         &self.certifications
-     }
-@@ -136,7 +136,7 @@
-     }
-     /// Consumes the builder and constructs a [`GetMfaDeviceOutput`](crate::operation::get_mfa_device::GetMfaDeviceOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`serial_number`](crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder::serial_number)
-+    /// - [`serial_number`](Self::serial_number)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::get_mfa_device::GetMfaDeviceOutput, ::aws_smithy_types::error::operation::BuildError> {
+     /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
 ```
 
 ### `src/operation/get_mfa_device/builders.rs`
@@ -64529,76 +63005,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_output.rs`
-
-```diff
---- reference/src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_output.rs
-+++ generated/src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_output.rs
-@@ -22,14 +22,10 @@
-         self.url.as_deref()
-     }
-     /// <p>A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.client_id_list.is_none()`.
-     pub fn client_id_list(&self) -> &[::std::string::String] {
-         self.client_id_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.thumbprint_list.is_none()`.
-     pub fn thumbprint_list(&self) -> &[::std::string::String] {
-         self.thumbprint_list.as_deref().unwrap_or_default()
-     }
-@@ -38,8 +34,6 @@
-         self.create_date.as_ref()
-     }
-     /// <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -82,11 +76,10 @@
-     pub fn get_url(&self) -> &::std::option::Option<::std::string::String> {
-         &self.url
-     }
-+    /// <p>A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-     /// Appends an item to `client_id_list`.
-     ///
-     /// To override the contents of this collection use [`set_client_id_list`](Self::set_client_id_list).
--    ///
--    /// <p>A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-     pub fn client_id_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.client_id_list.unwrap_or_default();
-         v.push(input.into());
-@@ -102,11 +95,10 @@
-     pub fn get_client_id_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.client_id_list
-     }
-+    /// <p>A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-     /// Appends an item to `thumbprint_list`.
-     ///
-     /// To override the contents of this collection use [`set_thumbprint_list`](Self::set_thumbprint_list).
--    ///
--    /// <p>A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-     pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.thumbprint_list.unwrap_or_default();
-         v.push(input.into());
-@@ -136,11 +128,10 @@
-     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.create_date
-     }
-+    /// <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/get_open_id_connect_provider/builders.rs`
@@ -65340,7 +63746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -17,11 +18,9 @@
+@@ -17,7 +18,7 @@
      /// <p>An object that contains details about the most recent attempt to access the service.</p>
      pub access_details: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -65348,18 +63754,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub is_truncated: ::std::option::Option<bool>,
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
--    /// <p>Contains information about the reason that the operation failed.</p>
--    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-     pub error_details: ::std::option::Option<crate::types::ErrorDetails>,
-     _request_id: Option<String>,
- }
-@@ -48,13 +47,11 @@
-         self.number_of_services_not_accessed
-     }
-     /// <p>An object that contains details about the most recent attempt to access the service.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.access_details.is_none()`.
-     pub fn access_details(&self) -> &[crate::types::AccessDetail] {
+     /// <p>Contains information about the reason that the operation failed.</p>
+@@ -54,7 +55,7 @@
          self.access_details.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -65368,61 +63764,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -61,8 +58,6 @@
-     pub fn marker(&self) -> ::std::option::Option<&str> {
-         self.marker.as_deref()
-     }
--    /// <p>Contains information about the reason that the operation failed.</p>
--    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-     pub fn error_details(&self) -> ::std::option::Option<&crate::types::ErrorDetails> {
-         self.error_details.as_ref()
-     }
-@@ -170,11 +165,10 @@
-     pub fn get_number_of_services_not_accessed(&self) -> &::std::option::Option<i32> {
-         &self.number_of_services_not_accessed
-     }
-+    /// <p>An object that contains details about the most recent attempt to access the service.</p>
-     /// Appends an item to `access_details`.
-     ///
-     /// To override the contents of this collection use [`set_access_details`](Self::set_access_details).
--    ///
--    /// <p>An object that contains details about the most recent attempt to access the service.</p>
-     pub fn access_details(mut self, input: crate::types::AccessDetail) -> Self {
-         let mut v = self.access_details.unwrap_or_default();
-         v.push(input);
-@@ -218,20 +212,14 @@
-     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
-         &self.marker
-     }
--    /// <p>Contains information about the reason that the operation failed.</p>
--    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-     pub fn error_details(mut self, input: crate::types::ErrorDetails) -> Self {
-         self.error_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains information about the reason that the operation failed.</p>
--    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-     pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
-         self.error_details = input;
-         self
-     }
--    /// <p>Contains information about the reason that the operation failed.</p>
--    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
-     pub fn get_error_details(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
-         &self.error_details
-     }
-@@ -246,8 +234,8 @@
-     }
-     /// Consumes the builder and constructs a [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`job_status`](crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::job_status)
--    /// - [`job_creation_date`](crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder::job_creation_date)
-+    /// - [`job_status`](Self::job_status)
-+    /// - [`job_creation_date`](Self::job_creation_date)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -271,7 +259,7 @@
+@@ -271,7 +272,7 @@
              number_of_services_accessible: self.number_of_services_accessible,
              number_of_services_not_accessed: self.number_of_services_not_accessed,
              access_details: self.access_details,
@@ -69004,26 +67346,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_role_policy/_get_role_policy_output.rs`
-
-```diff
---- reference/src/operation/get_role_policy/_get_role_policy_output.rs
-+++ generated/src/operation/get_role_policy/_get_role_policy_output.rs
-@@ -112,9 +112,9 @@
-     }
-     /// Consumes the builder and constructs a [`GetRolePolicyOutput`](crate::operation::get_role_policy::GetRolePolicyOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`role_name`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::role_name)
--    /// - [`policy_name`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::policy_name)
--    /// - [`policy_document`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::policy_document)
-+    /// - [`role_name`](Self::role_name)
-+    /// - [`policy_name`](Self::policy_name)
-+    /// - [`policy_document`](Self::policy_document)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::get_role_policy::GetRolePolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
-```
-
 ### `src/operation/get_role_policy/builders.rs`
 
 ```diff
@@ -70517,57 +68839,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_saml_provider/_get_saml_provider_output.rs`
-
-```diff
---- reference/src/operation/get_saml_provider/_get_saml_provider_output.rs
-+++ generated/src/operation/get_saml_provider/_get_saml_provider_output.rs
-@@ -38,8 +38,6 @@
-         self.valid_until.as_ref()
-     }
-     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -48,8 +46,6 @@
-         self.assertion_encryption_mode.as_ref()
-     }
-     /// <p>The private key metadata for the SAML provider.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.private_key_list.is_none()`.
-     pub fn private_key_list(&self) -> &[crate::types::SamlPrivateKey] {
-         self.private_key_list.as_deref().unwrap_or_default()
-     }
-@@ -136,11 +132,10 @@
-     pub fn get_valid_until(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.valid_until
-     }
-+    /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -170,11 +165,10 @@
-     pub fn get_assertion_encryption_mode(&self) -> &::std::option::Option<crate::types::AssertionEncryptionModeType> {
-         &self.assertion_encryption_mode
-     }
-+    /// <p>The private key metadata for the SAML provider.</p>
-     /// Appends an item to `private_key_list`.
-     ///
-     /// To override the contents of this collection use [`set_private_key_list`](Self::set_private_key_list).
--    ///
--    /// <p>The private key metadata for the SAML provider.</p>
-     pub fn private_key_list(mut self, input: crate::types::SamlPrivateKey) -> Self {
-         let mut v = self.private_key_list.unwrap_or_default();
-         v.push(input);
-```
-
 ### `src/operation/get_saml_provider/builders.rs`
 
 ```diff
@@ -72045,35 +70316,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -129,11 +130,10 @@
-     pub fn get_job_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.job_creation_date
-     }
-+    /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-     /// Appends an item to `services_last_accessed`.
-     ///
-     /// To override the contents of this collection use [`set_services_last_accessed`](Self::set_services_last_accessed).
--    ///
--    /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-     pub fn services_last_accessed(mut self, input: crate::types::ServiceLastAccessed) -> Self {
-         let mut v = self.services_last_accessed.unwrap_or_default();
-         v.push(input);
-@@ -220,10 +220,10 @@
-     }
-     /// Consumes the builder and constructs a [`GetServiceLastAccessedDetailsOutput`](crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`job_status`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::job_status)
--    /// - [`job_creation_date`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::job_creation_date)
--    /// - [`services_last_accessed`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::services_last_accessed)
--    /// - [`job_completion_date`](crate::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsOutputBuilder::job_completion_date)
-+    /// - [`job_status`](Self::job_status)
-+    /// - [`job_creation_date`](Self::job_creation_date)
-+    /// - [`services_last_accessed`](Self::services_last_accessed)
-+    /// - [`job_completion_date`](Self::job_completion_date)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -256,7 +256,7 @@
+@@ -256,7 +257,7 @@
                      "job_completion_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
                  )
              })?,
@@ -72889,35 +71132,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -127,11 +128,10 @@
-     pub fn get_job_completion_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.job_completion_date
-     }
-+    /// <p>An <code>EntityDetailsList</code> object that contains details about when an IAM entity (user or role) used group or policy permissions in an attempt to access the specified Amazon Web Services service.</p>
-     /// Appends an item to `entity_details_list`.
-     ///
-     /// To override the contents of this collection use [`set_entity_details_list`](Self::set_entity_details_list).
--    ///
--    /// <p>An <code>EntityDetailsList</code> object that contains details about when an IAM entity (user or role) used group or policy permissions in an attempt to access the specified Amazon Web Services service.</p>
-     pub fn entity_details_list(mut self, input: crate::types::EntityDetails) -> Self {
-         let mut v = self.entity_details_list.unwrap_or_default();
-         v.push(input);
-@@ -200,10 +200,10 @@
-     }
-     /// Consumes the builder and constructs a [`GetServiceLastAccessedDetailsWithEntitiesOutput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`job_status`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::job_status)
--    /// - [`job_creation_date`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::job_creation_date)
--    /// - [`job_completion_date`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::job_completion_date)
--    /// - [`entity_details_list`](crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::entity_details_list)
-+    /// - [`job_status`](Self::job_status)
-+    /// - [`job_creation_date`](Self::job_creation_date)
-+    /// - [`job_completion_date`](Self::job_completion_date)
-+    /// - [`entity_details_list`](Self::entity_details_list)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -236,7 +236,7 @@
+@@ -236,7 +237,7 @@
                          "entity_details_list was not specified but it is required when building GetServiceLastAccessedDetailsWithEntitiesOutput",
                      )
                  })?,
@@ -73799,15 +72014,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -80,7 +81,7 @@
-     }
-     /// Consumes the builder and constructs a [`GetServiceLinkedRoleDeletionStatusOutput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`status`](crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder::status)
-+    /// - [`status`](Self::status)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
 ```
 
 ### `src/operation/get_service_linked_role_deletion_status/builders.rs`
@@ -75304,63 +73510,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_user/_get_user_output.rs
 +++ generated/src/operation/get_user/_get_user_output.rs
-@@ -4,18 +4,14 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct GetUserOutput {
--    /// <p>A structure containing details about the IAM user.</p><important>
--    /// <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
--    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
--    /// </important>
-+    /// <p>A structure containing details about the IAM user.</p> <important><p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
-+    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p></important>
-     pub user: ::std::option::Option<crate::types::User>,
-     _request_id: Option<String>,
- }
- impl GetUserOutput {
--    /// <p>A structure containing details about the IAM user.</p><important>
--    /// <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
--    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
--    /// </important>
-+    /// <p>A structure containing details about the IAM user.</p> <important><p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
-+    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p></important>
-     pub fn user(&self) -> ::std::option::Option<&crate::types::User> {
-         self.user.as_ref()
-     }
-@@ -40,27 +36,20 @@
-     _request_id: Option<String>,
- }
- impl GetUserOutputBuilder {
--    /// <p>A structure containing details about the IAM user.</p><important>
--    /// <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
--    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
--    /// </important>
+@@ -44,7 +44,6 @@
+     /// <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
+     /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
+     /// </important>
 -    /// This field is required.
-+    /// <p>A structure containing details about the IAM user.</p> <important><p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
-+    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p></important>
      pub fn user(mut self, input: crate::types::User) -> Self {
          self.user = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>A structure containing details about the IAM user.</p><important>
--    /// <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
--    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
--    /// </important>
-+    /// <p>A structure containing details about the IAM user.</p> <important><p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
-+    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p></important>
-     pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
-         self.user = input;
-         self
-     }
--    /// <p>A structure containing details about the IAM user.</p><important>
--    /// <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
--    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p>
--    /// </important>
-+    /// <p>A structure containing details about the IAM user.</p> <important><p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>
-+    /// <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p></important>
-     pub fn get_user(&self) -> &::std::option::Option<crate::types::User> {
-         &self.user
-     }
 ```
 
 ### `src/operation/get_user/builders.rs`
@@ -76042,26 +74199,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/get_user_policy/_get_user_policy_output.rs`
-
-```diff
---- reference/src/operation/get_user_policy/_get_user_policy_output.rs
-+++ generated/src/operation/get_user_policy/_get_user_policy_output.rs
-@@ -112,9 +112,9 @@
-     }
-     /// Consumes the builder and constructs a [`GetUserPolicyOutput`](crate::operation::get_user_policy::GetUserPolicyOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::user_name)
--    /// - [`policy_name`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::policy_name)
--    /// - [`policy_document`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::policy_document)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`policy_name`](Self::policy_name)
-+    /// - [`policy_document`](Self::policy_document)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
 ```
 
 ### `src/operation/get_user_policy/builders.rs`
@@ -76819,29 +74956,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListAccessKeysOutputBuilder {
-+    /// <p>A list of objects containing metadata about the access keys.</p>
-     /// Appends an item to `access_key_metadata`.
-     ///
-     /// To override the contents of this collection use [`set_access_key_metadata`](Self::set_access_key_metadata).
--    ///
--    /// <p>A list of objects containing metadata about the access keys.</p>
-     pub fn access_key_metadata(mut self, input: crate::types::AccessKeyMetadata) -> Self {
-         let mut v = self.access_key_metadata.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListAccessKeysOutput`](crate::operation::list_access_keys::ListAccessKeysOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`access_key_metadata`](crate::operation::list_access_keys::builders::ListAccessKeysOutputBuilder::access_key_metadata)
-+    /// - [`access_key_metadata`](Self::access_key_metadata)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_access_keys::ListAccessKeysOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -119,7 +118,7 @@
+@@ -119,7 +119,7 @@
                      "access_key_metadata was not specified but it is required when building ListAccessKeysOutput",
                  )
              })?,
@@ -77633,29 +75748,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListAccountAliasesOutputBuilder {
-+    /// <p>A list of aliases associated with the account. Amazon Web Services supports only one alias per account.</p>
-     /// Appends an item to `account_aliases`.
-     ///
-     /// To override the contents of this collection use [`set_account_aliases`](Self::set_account_aliases).
--    ///
--    /// <p>A list of aliases associated with the account. Amazon Web Services supports only one alias per account.</p>
-     pub fn account_aliases(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.account_aliases.unwrap_or_default();
-         v.push(input.into());
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListAccountAliasesOutput`](crate::operation::list_account_aliases::ListAccountAliasesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`account_aliases`](crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::account_aliases)
-+    /// - [`account_aliases`](Self::account_aliases)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_account_aliases::ListAccountAliasesOutput, ::aws_smithy_types::error::operation::BuildError>
-@@ -120,7 +119,7 @@
+@@ -120,7 +120,7 @@
                      "account_aliases was not specified but it is required when building ListAccountAliasesOutput",
                  )
              })?,
@@ -78403,13 +76496,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl ListAttachedGroupPoliciesOutput {
-     /// <p>A list of the attached policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_policies.is_none()`.
-     pub fn attached_policies(&self) -> &[crate::types::AttachedPolicy] {
+@@ -20,7 +20,7 @@
          self.attached_policies.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -78418,20 +76505,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListAttachedGroupPoliciesOutputBuilder {
-+    /// <p>A list of the attached policies.</p>
-     /// Appends an item to `attached_policies`.
-     ///
-     /// To override the contents of this collection use [`set_attached_policies`](Self::set_attached_policies).
--    ///
--    /// <p>A list of the attached policies.</p>
-     pub fn attached_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
-         let mut v = self.attached_policies.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesOutput {
          crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesOutput {
              attached_policies: self.attached_policies,
@@ -79257,13 +77331,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl ListAttachedRolePoliciesOutput {
-     /// <p>A list of the attached policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_policies.is_none()`.
-     pub fn attached_policies(&self) -> &[crate::types::AttachedPolicy] {
+@@ -20,7 +20,7 @@
          self.attached_policies.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -79272,20 +77340,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListAttachedRolePoliciesOutputBuilder {
-+    /// <p>A list of the attached policies.</p>
-     /// Appends an item to `attached_policies`.
-     ///
-     /// To override the contents of this collection use [`set_attached_policies`](Self::set_attached_policies).
--    ///
--    /// <p>A list of the attached policies.</p>
-     pub fn attached_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
-         let mut v = self.attached_policies.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::list_attached_role_policies::ListAttachedRolePoliciesOutput {
          crate::operation::list_attached_role_policies::ListAttachedRolePoliciesOutput {
              attached_policies: self.attached_policies,
@@ -80111,13 +78166,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl ListAttachedUserPoliciesOutput {
-     /// <p>A list of the attached policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_policies.is_none()`.
-     pub fn attached_policies(&self) -> &[crate::types::AttachedPolicy] {
+@@ -20,7 +20,7 @@
          self.attached_policies.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -80126,20 +78175,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListAttachedUserPoliciesOutputBuilder {
-+    /// <p>A list of the attached policies.</p>
-     /// Appends an item to `attached_policies`.
-     ///
-     /// To override the contents of this collection use [`set_attached_policies`](Self::set_attached_policies).
--    ///
--    /// <p>A list of the attached policies.</p>
-     pub fn attached_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
-         let mut v = self.attached_policies.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::list_attached_user_policies::ListAttachedUserPoliciesOutput {
          crate::operation::list_attached_user_policies::ListAttachedUserPoliciesOutput {
              attached_policies: self.attached_policies,
@@ -80961,7 +78997,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -8,13 +9,11 @@
+@@ -8,7 +9,7 @@
      /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
@@ -80970,13 +79006,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      _request_id: Option<String>,
  }
  impl ListDelegationRequestsOutput {
-     /// <p>A list of delegation requests that match the specified criteria.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.delegation_requests.is_none()`.
-     pub fn delegation_requests(&self) -> &[crate::types::DelegationRequest] {
-         self.delegation_requests.as_deref().unwrap_or_default()
-     }
-@@ -23,7 +22,7 @@
+@@ -23,7 +24,7 @@
          self.marker.as_deref()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
@@ -80985,20 +79015,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
  }
-@@ -49,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListDelegationRequestsOutputBuilder {
-+    /// <p>A list of delegation requests that match the specified criteria.</p>
-     /// Appends an item to `delegation_requests`.
-     ///
-     /// To override the contents of this collection use [`set_delegation_requests`](Self::set_delegation_requests).
--    ///
--    /// <p>A list of delegation requests that match the specified criteria.</p>
-     pub fn delegation_requests(mut self, input: crate::types::DelegationRequest) -> Self {
-         let mut v = self.delegation_requests.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +109,7 @@
+@@ -111,7 +112,7 @@
          crate::operation::list_delegation_requests::ListDelegationRequestsOutput {
              delegation_requests: self.delegation_requests,
              marker: self.marker,
@@ -81789,25 +79806,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -18,25 +18,19 @@
- }
- impl ListEntitiesForPolicyOutput {
-     /// <p>A list of IAM groups that the policy is attached to.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_groups.is_none()`.
-     pub fn policy_groups(&self) -> &[crate::types::PolicyGroup] {
-         self.policy_groups.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of IAM users that the policy is attached to.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_users.is_none()`.
-     pub fn policy_users(&self) -> &[crate::types::PolicyUser] {
-         self.policy_users.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of IAM roles that the policy is attached to.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_roles.is_none()`.
-     pub fn policy_roles(&self) -> &[crate::types::PolicyRole] {
+@@ -36,7 +36,7 @@
          self.policy_roles.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -81816,46 +79815,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -68,11 +62,10 @@
-     _request_id: Option<String>,
- }
- impl ListEntitiesForPolicyOutputBuilder {
-+    /// <p>A list of IAM groups that the policy is attached to.</p>
-     /// Appends an item to `policy_groups`.
-     ///
-     /// To override the contents of this collection use [`set_policy_groups`](Self::set_policy_groups).
--    ///
--    /// <p>A list of IAM groups that the policy is attached to.</p>
-     pub fn policy_groups(mut self, input: crate::types::PolicyGroup) -> Self {
-         let mut v = self.policy_groups.unwrap_or_default();
-         v.push(input);
-@@ -88,11 +81,10 @@
-     pub fn get_policy_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>> {
-         &self.policy_groups
-     }
-+    /// <p>A list of IAM users that the policy is attached to.</p>
-     /// Appends an item to `policy_users`.
-     ///
-     /// To override the contents of this collection use [`set_policy_users`](Self::set_policy_users).
--    ///
--    /// <p>A list of IAM users that the policy is attached to.</p>
-     pub fn policy_users(mut self, input: crate::types::PolicyUser) -> Self {
-         let mut v = self.policy_users.unwrap_or_default();
-         v.push(input);
-@@ -108,11 +100,10 @@
-     pub fn get_policy_users(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>> {
-         &self.policy_users
-     }
-+    /// <p>A list of IAM roles that the policy is attached to.</p>
-     /// Appends an item to `policy_roles`.
-     ///
-     /// To override the contents of this collection use [`set_policy_roles`](Self::set_policy_roles).
--    ///
--    /// <p>A list of IAM roles that the policy is attached to.</p>
-     pub fn policy_roles(mut self, input: crate::types::PolicyRole) -> Self {
-         let mut v = self.policy_roles.unwrap_or_default();
-         v.push(input);
-@@ -171,7 +162,7 @@
+@@ -171,7 +171,7 @@
              policy_groups: self.policy_groups,
              policy_users: self.policy_users,
              policy_roles: self.policy_roles,
@@ -82727,31 +80687,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -51,12 +51,11 @@
-     _request_id: Option<String>,
- }
- impl ListGroupPoliciesOutputBuilder {
-+    /// <p>A list of policy names.</p>
-+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-     /// Appends an item to `policy_names`.
-     ///
-     /// To override the contents of this collection use [`set_policy_names`](Self::set_policy_names).
--    ///
--    /// <p>A list of policy names.</p>
--    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-     pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_names.unwrap_or_default();
-         v.push(input.into());
-@@ -113,7 +112,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListGroupPoliciesOutput`](crate::operation::list_group_policies::ListGroupPoliciesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policy_names`](crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::policy_names)
-+    /// - [`policy_names`](Self::policy_names)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_group_policies::ListGroupPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -124,7 +123,7 @@
+@@ -124,7 +124,7 @@
                      "policy_names was not specified but it is required when building ListGroupPoliciesOutput",
                  )
              })?,
@@ -83540,29 +81476,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListGroupsOutputBuilder {
-+    /// <p>A list of groups.</p>
-     /// Appends an item to `groups`.
-     ///
-     /// To override the contents of this collection use [`set_groups`](Self::set_groups).
--    ///
--    /// <p>A list of groups.</p>
-     pub fn groups(mut self, input: crate::types::Group) -> Self {
-         let mut v = self.groups.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListGroupsOutput`](crate::operation::list_groups::ListGroupsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`groups`](crate::operation::list_groups::builders::ListGroupsOutputBuilder::groups)
-+    /// - [`groups`](Self::groups)
-     pub fn build(self) -> ::std::result::Result<crate::operation::list_groups::ListGroupsOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::list_groups::ListGroupsOutput {
-             groups: self.groups.ok_or_else(|| {
-@@ -117,7 +116,7 @@
+@@ -117,7 +117,7 @@
                      "groups was not specified but it is required when building ListGroupsOutput",
                  )
              })?,
@@ -84332,29 +82246,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListGroupsForUserOutputBuilder {
-+    /// <p>A list of groups.</p>
-     /// Appends an item to `groups`.
-     ///
-     /// To override the contents of this collection use [`set_groups`](Self::set_groups).
--    ///
--    /// <p>A list of groups.</p>
-     pub fn groups(mut self, input: crate::types::Group) -> Self {
-         let mut v = self.groups.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListGroupsForUserOutput`](crate::operation::list_groups_for_user::ListGroupsForUserOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`groups`](crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::groups)
-+    /// - [`groups`](Self::groups)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_groups_for_user::ListGroupsForUserOutput, ::aws_smithy_types::error::operation::BuildError>
-@@ -120,7 +119,7 @@
+@@ -120,7 +120,7 @@
                      "groups was not specified but it is required when building ListGroupsForUserOutput",
                  )
              })?,
@@ -85153,29 +83045,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListInstanceProfileTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the IAM instance profile. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the IAM instance profile. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListInstanceProfileTagsOutput`](crate::operation::list_instance_profile_tags::ListInstanceProfileTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -121,7 +121,7 @@
+@@ -121,7 +122,7 @@
                      "tags was not specified but it is required when building ListInstanceProfileTagsOutput",
                  )
              })?,
@@ -85971,29 +83841,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListInstanceProfilesOutputBuilder {
-+    /// <p>A list of instance profiles.</p>
-     /// Appends an item to `instance_profiles`.
-     ///
-     /// To override the contents of this collection use [`set_instance_profiles`](Self::set_instance_profiles).
--    ///
--    /// <p>A list of instance profiles.</p>
-     pub fn instance_profiles(mut self, input: crate::types::InstanceProfile) -> Self {
-         let mut v = self.instance_profiles.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListInstanceProfilesOutput`](crate::operation::list_instance_profiles::ListInstanceProfilesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`instance_profiles`](crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder::instance_profiles)
-+    /// - [`instance_profiles`](Self::instance_profiles)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_instance_profiles::ListInstanceProfilesOutput, ::aws_smithy_types::error::operation::BuildError>
-@@ -120,7 +119,7 @@
+@@ -120,7 +120,7 @@
                      "instance_profiles was not specified but it is required when building ListInstanceProfilesOutput",
                  )
              })?,
@@ -86782,29 +84630,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListInstanceProfilesForRoleOutputBuilder {
-+    /// <p>A list of instance profiles.</p>
-     /// Appends an item to `instance_profiles`.
-     ///
-     /// To override the contents of this collection use [`set_instance_profiles`](Self::set_instance_profiles).
--    ///
--    /// <p>A list of instance profiles.</p>
-     pub fn instance_profiles(mut self, input: crate::types::InstanceProfile) -> Self {
-         let mut v = self.instance_profiles.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListInstanceProfilesForRoleOutput`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`instance_profiles`](crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder::instance_profiles)
-+    /// - [`instance_profiles`](Self::instance_profiles)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -122,7 +121,7 @@
+@@ -122,7 +122,7 @@
                      "instance_profiles was not specified but it is required when building ListInstanceProfilesForRoleOutput",
                  )
              })?,
@@ -87606,29 +85432,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListMfaDeviceTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the virtual MFA device. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the virtual MFA device. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListMfaDeviceTagsOutput`](crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput, ::aws_smithy_types::error::operation::BuildError>
-@@ -119,7 +119,7 @@
+@@ -119,7 +120,7 @@
                      "tags was not specified but it is required when building ListMfaDeviceTagsOutput",
                  )
              })?,
@@ -88431,29 +86235,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListMfaDevicesOutputBuilder {
-+    /// <p>A list of MFA devices.</p>
-     /// Appends an item to `mfa_devices`.
-     ///
-     /// To override the contents of this collection use [`set_mfa_devices`](Self::set_mfa_devices).
--    ///
--    /// <p>A list of MFA devices.</p>
-     pub fn mfa_devices(mut self, input: crate::types::MfaDevice) -> Self {
-         let mut v = self.mfa_devices.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListMfaDevicesOutput`](crate::operation::list_mfa_devices::ListMfaDevicesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`mfa_devices`](crate::operation::list_mfa_devices::builders::ListMfaDevicesOutputBuilder::mfa_devices)
-+    /// - [`mfa_devices`](Self::mfa_devices)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_mfa_devices::ListMfaDevicesOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -119,7 +118,7 @@
+@@ -119,7 +119,7 @@
                      "mfa_devices was not specified but it is required when building ListMfaDevicesOutput",
                  )
              })?,
@@ -89252,29 +87034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListOpenIdConnectProviderTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the OpenID Connect (OIDC) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the OpenID Connect (OIDC) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListOpenIdConnectProviderTagsOutput`](crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -122,7 +122,7 @@
+@@ -122,7 +123,7 @@
                          "tags was not specified but it is required when building ListOpenIdConnectProviderTagsOutput",
                      )
                  })?,
@@ -90061,35 +87821,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs`
-
-```diff
---- reference/src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs
-+++ generated/src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs
-@@ -10,8 +10,6 @@
- }
- impl ListOpenIdConnectProvidersOutput {
-     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.open_id_connect_provider_list.is_none()`.
-     pub fn open_id_connect_provider_list(&self) -> &[crate::types::OpenIdConnectProviderListEntry] {
-         self.open_id_connect_provider_list.as_deref().unwrap_or_default()
-     }
-@@ -36,11 +34,10 @@
-     _request_id: Option<String>,
- }
- impl ListOpenIdConnectProvidersOutputBuilder {
-+    /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
-     /// Appends an item to `open_id_connect_provider_list`.
-     ///
-     /// To override the contents of this collection use [`set_open_id_connect_provider_list`](Self::set_open_id_connect_provider_list).
--    ///
--    /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
-     pub fn open_id_connect_provider_list(mut self, input: crate::types::OpenIdConnectProviderListEntry) -> Self {
-         let mut v = self.open_id_connect_provider_list.unwrap_or_default();
-         v.push(input);
-```
-
 ### `src/operation/list_open_id_connect_providers/builders.rs`
 
 ```diff
@@ -90733,28 +88464,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -15,8 +16,6 @@
-         self.organization_id.as_deref()
-     }
-     /// <p>Specifies the features that are currently available in your organization.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
-     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
-         self.enabled_features.as_deref().unwrap_or_default()
-     }
-@@ -56,11 +55,10 @@
-     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.organization_id
-     }
-+    /// <p>Specifies the features that are currently available in your organization.</p>
-     /// Appends an item to `enabled_features`.
-     ///
-     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
--    ///
--    /// <p>Specifies the features that are currently available in your organization.</p>
-     pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
-         let mut v = self.enabled_features.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/list_organizations_features/builders.rs`
@@ -91443,13 +89152,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl ListPoliciesOutput {
-     /// <p>A list of policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
-     pub fn policies(&self) -> &[crate::types::Policy] {
+@@ -20,7 +20,7 @@
          self.policies.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -91458,20 +89161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListPoliciesOutputBuilder {
-+    /// <p>A list of policies.</p>
-     /// Appends an item to `policies`.
-     ///
-     /// To override the contents of this collection use [`set_policies`](Self::set_policies).
--    ///
--    /// <p>A list of policies.</p>
-     pub fn policies(mut self, input: crate::types::Policy) -> Self {
-         let mut v = self.policies.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::list_policies::ListPoliciesOutput {
          crate::operation::list_policies::ListPoliciesOutput {
              policies: self.policies,
@@ -92269,31 +89959,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListPoliciesGrantingServiceAccessInput {
      /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
      pub marker: ::std::option::Option<::std::string::String>,
-@@ -22,8 +23,6 @@
-     }
-     /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
-     /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_namespaces.is_none()`.
-     pub fn service_namespaces(&self) -> &[::std::string::String] {
-         self.service_namespaces.as_deref().unwrap_or_default()
-     }
-@@ -73,12 +72,11 @@
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-+    /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
-+    /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     /// Appends an item to `service_namespaces`.
-     ///
-     /// To override the contents of this collection use [`set_service_namespaces`](Self::set_service_namespaces).
--    ///
--    /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
--    /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn service_namespaces(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.service_namespaces.unwrap_or_default();
-         v.push(input.into());
-@@ -97,18 +95,11 @@
+@@ -97,18 +98,11 @@
          &self.service_namespaces
      }
      /// Consumes the builder and constructs a [`ListPoliciesGrantingServiceAccessInput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput).
@@ -92349,29 +90015,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListPoliciesGrantingServiceAccessOutputBuilder {
-+    /// <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>
-     /// Appends an item to `policies_granting_service_access`.
-     ///
-     /// To override the contents of this collection use [`set_policies_granting_service_access`](Self::set_policies_granting_service_access).
--    ///
--    /// <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>
-     pub fn policies_granting_service_access(mut self, input: crate::types::ListPoliciesGrantingServiceAccessEntry) -> Self {
-         let mut v = self.policies_granting_service_access.unwrap_or_default();
-         v.push(input);
-@@ -112,7 +112,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListPoliciesGrantingServiceAccessOutput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policies_granting_service_access`](crate::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder::policies_granting_service_access)
-+    /// - [`policies_granting_service_access`](Self::policies_granting_service_access)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -127,7 +127,7 @@
+@@ -127,7 +128,7 @@
                          "policies_granting_service_access was not specified but it is required when building ListPoliciesGrantingServiceAccessOutput",
                      )
                  })?,
@@ -93190,29 +90834,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListPolicyTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the IAM customer managed policy. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the IAM customer managed policy. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListPolicyTagsOutput`](crate::operation::list_policy_tags::ListPolicyTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_policy_tags::builders::ListPolicyTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_policy_tags::ListPolicyTagsOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -118,7 +118,7 @@
+@@ -118,7 +119,7 @@
                      "tags was not specified but it is required when building ListPolicyTagsOutput",
                  )
              })?,
@@ -94003,13 +91625,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -16,13 +16,11 @@
- impl ListPolicyVersionsOutput {
-     /// <p>A list of policy versions.</p>
-     /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.versions.is_none()`.
-     pub fn versions(&self) -> &[crate::types::PolicyVersion] {
+@@ -22,7 +22,7 @@
          self.versions.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -94018,22 +91634,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -52,12 +50,11 @@
-     _request_id: Option<String>,
- }
- impl ListPolicyVersionsOutputBuilder {
-+    /// <p>A list of policy versions.</p>
-+    /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `versions`.
-     ///
-     /// To override the contents of this collection use [`set_versions`](Self::set_versions).
--    ///
--    /// <p>A list of policy versions.</p>
--    /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-     pub fn versions(mut self, input: crate::types::PolicyVersion) -> Self {
-         let mut v = self.versions.unwrap_or_default();
-         v.push(input);
-@@ -116,7 +113,7 @@
+@@ -116,7 +116,7 @@
      pub fn build(self) -> crate::operation::list_policy_versions::ListPolicyVersionsOutput {
          crate::operation::list_policy_versions::ListPolicyVersionsOutput {
              versions: self.versions,
@@ -94833,29 +92434,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListRolePoliciesOutputBuilder {
-+    /// <p>A list of policy names.</p>
-     /// Appends an item to `policy_names`.
-     ///
-     /// To override the contents of this collection use [`set_policy_names`](Self::set_policy_names).
--    ///
--    /// <p>A list of policy names.</p>
-     pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_names.unwrap_or_default();
-         v.push(input.into());
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListRolePoliciesOutput`](crate::operation::list_role_policies::ListRolePoliciesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policy_names`](crate::operation::list_role_policies::builders::ListRolePoliciesOutputBuilder::policy_names)
-+    /// - [`policy_names`](Self::policy_names)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_role_policies::ListRolePoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -119,7 +118,7 @@
+@@ -119,7 +119,7 @@
                      "policy_names was not specified but it is required when building ListRolePoliciesOutput",
                  )
              })?,
@@ -95650,29 +93229,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListRoleTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListRoleTagsOutput`](crate::operation::list_role_tags::ListRoleTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_role_tags::builders::ListRoleTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_role_tags::ListRoleTagsOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -118,7 +118,7 @@
+@@ -118,7 +119,7 @@
                      "tags was not specified but it is required when building ListRoleTagsOutput",
                  )
              })?,
@@ -96457,29 +94014,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListRolesOutputBuilder {
-+    /// <p>A list of roles.</p>
-     /// Appends an item to `roles`.
-     ///
-     /// To override the contents of this collection use [`set_roles`](Self::set_roles).
--    ///
--    /// <p>A list of roles.</p>
-     pub fn roles(mut self, input: crate::types::Role) -> Self {
-         let mut v = self.roles.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`roles`](crate::operation::list_roles::builders::ListRolesOutputBuilder::roles)
-+    /// - [`roles`](Self::roles)
-     pub fn build(self) -> ::std::result::Result<crate::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::list_roles::ListRolesOutput {
-             roles: self.roles.ok_or_else(|| {
-@@ -117,7 +116,7 @@
+@@ -117,7 +117,7 @@
                      "roles was not specified but it is required when building ListRolesOutput",
                  )
              })?,
@@ -97257,29 +94792,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListSamlProviderTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the Security Assertion Markup Language (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListSamlProviderTagsOutput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>
-@@ -119,7 +119,7 @@
+@@ -119,7 +120,7 @@
                      "tags was not specified but it is required when building ListSamlProviderTagsOutput",
                  )
              })?,
@@ -98061,35 +95574,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_saml_providers/_list_saml_providers_output.rs`
-
-```diff
---- reference/src/operation/list_saml_providers/_list_saml_providers_output.rs
-+++ generated/src/operation/list_saml_providers/_list_saml_providers_output.rs
-@@ -10,8 +10,6 @@
- }
- impl ListSamlProvidersOutput {
-     /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.saml_provider_list.is_none()`.
-     pub fn saml_provider_list(&self) -> &[crate::types::SamlProviderListEntry] {
-         self.saml_provider_list.as_deref().unwrap_or_default()
-     }
-@@ -36,11 +34,10 @@
-     _request_id: Option<String>,
- }
- impl ListSamlProvidersOutputBuilder {
-+    /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
-     /// Appends an item to `saml_provider_list`.
-     ///
-     /// To override the contents of this collection use [`set_saml_provider_list`](Self::set_saml_provider_list).
--    ///
--    /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
-     pub fn saml_provider_list(mut self, input: crate::types::SamlProviderListEntry) -> Self {
-         let mut v = self.saml_provider_list.unwrap_or_default();
-         v.push(input);
-```
-
 ### `src/operation/list_saml_providers/builders.rs`
 
 ```diff
@@ -98750,29 +96234,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListServerCertificateTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the IAM server certificate. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the IAM server certificate. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListServerCertificateTagsOutput`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -121,7 +121,7 @@
+@@ -121,7 +122,7 @@
                      "tags was not specified but it is required when building ListServerCertificateTagsOutput",
                  )
              })?,
@@ -99572,29 +97034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListServerCertificatesOutputBuilder {
-+    /// <p>A list of server certificates.</p>
-     /// Appends an item to `server_certificate_metadata_list`.
-     ///
-     /// To override the contents of this collection use [`set_server_certificate_metadata_list`](Self::set_server_certificate_metadata_list).
--    ///
--    /// <p>A list of server certificates.</p>
-     pub fn server_certificate_metadata_list(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
-         let mut v = self.server_certificate_metadata_list.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +110,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListServerCertificatesOutput`](crate::operation::list_server_certificates::ListServerCertificatesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`server_certificate_metadata_list`](crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder::server_certificate_metadata_list)
-+    /// - [`server_certificate_metadata_list`](Self::server_certificate_metadata_list)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -125,7 +124,7 @@
+@@ -125,7 +125,7 @@
                      "server_certificate_metadata_list was not specified but it is required when building ListServerCertificatesOutput",
                  )
              })?,
@@ -100374,7 +97814,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -8,13 +9,11 @@
+@@ -8,7 +9,7 @@
      /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
@@ -100383,13 +97823,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      _request_id: Option<String>,
  }
  impl ListServiceSpecificCredentialsOutput {
-     /// <p>A list of structures that each contain details about a service-specific credential.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_specific_credentials.is_none()`.
-     pub fn service_specific_credentials(&self) -> &[crate::types::ServiceSpecificCredentialMetadata] {
-         self.service_specific_credentials.as_deref().unwrap_or_default()
-     }
-@@ -23,7 +22,7 @@
+@@ -23,7 +24,7 @@
          self.marker.as_deref()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
@@ -100398,20 +97832,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
  }
-@@ -49,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListServiceSpecificCredentialsOutputBuilder {
-+    /// <p>A list of structures that each contain details about a service-specific credential.</p>
-     /// Appends an item to `service_specific_credentials`.
-     ///
-     /// To override the contents of this collection use [`set_service_specific_credentials`](Self::set_service_specific_credentials).
--    ///
--    /// <p>A list of structures that each contain details about a service-specific credential.</p>
-     pub fn service_specific_credentials(mut self, input: crate::types::ServiceSpecificCredentialMetadata) -> Self {
-         let mut v = self.service_specific_credentials.unwrap_or_default();
-         v.push(input);
-@@ -114,7 +112,7 @@
+@@ -114,7 +115,7 @@
          crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput {
              service_specific_credentials: self.service_specific_credentials,
              marker: self.marker,
@@ -101246,29 +98667,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListSigningCertificatesOutputBuilder {
-+    /// <p>A list of the user's signing certificate information.</p>
-     /// Appends an item to `certificates`.
-     ///
-     /// To override the contents of this collection use [`set_certificates`](Self::set_certificates).
--    ///
--    /// <p>A list of the user's signing certificate information.</p>
-     pub fn certificates(mut self, input: crate::types::SigningCertificate) -> Self {
-         let mut v = self.certificates.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListSigningCertificatesOutput`](crate::operation::list_signing_certificates::ListSigningCertificatesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`certificates`](crate::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder::certificates)
-+    /// - [`certificates`](Self::certificates)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -122,7 +121,7 @@
+@@ -122,7 +122,7 @@
                      "certificates was not specified but it is required when building ListSigningCertificatesOutput",
                  )
              })?,
@@ -102056,13 +99455,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl ListSshPublicKeysOutput {
-     /// <p>A list of the SSH public keys assigned to IAM user.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ssh_public_keys.is_none()`.
-     pub fn ssh_public_keys(&self) -> &[crate::types::SshPublicKeyMetadata] {
+@@ -20,7 +20,7 @@
          self.ssh_public_keys.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -102071,20 +99464,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl ListSshPublicKeysOutputBuilder {
-+    /// <p>A list of the SSH public keys assigned to IAM user.</p>
-     /// Appends an item to `ssh_public_keys`.
-     ///
-     /// To override the contents of this collection use [`set_ssh_public_keys`](Self::set_ssh_public_keys).
--    ///
--    /// <p>A list of the SSH public keys assigned to IAM user.</p>
-     pub fn ssh_public_keys(mut self, input: crate::types::SshPublicKeyMetadata) -> Self {
-         let mut v = self.ssh_public_keys.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
          crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
              ssh_public_keys: self.ssh_public_keys,
@@ -102863,29 +100243,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListUserPoliciesOutputBuilder {
-+    /// <p>A list of policy names.</p>
-     /// Appends an item to `policy_names`.
-     ///
-     /// To override the contents of this collection use [`set_policy_names`](Self::set_policy_names).
--    ///
--    /// <p>A list of policy names.</p>
-     pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_names.unwrap_or_default();
-         v.push(input.into());
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListUserPoliciesOutput`](crate::operation::list_user_policies::ListUserPoliciesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policy_names`](crate::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder::policy_names)
-+    /// - [`policy_names`](Self::policy_names)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_user_policies::ListUserPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -119,7 +118,7 @@
+@@ -119,7 +119,7 @@
                      "policy_names was not specified but it is required when building ListUserPoliciesOutput",
                  )
              })?,
@@ -103680,29 +101038,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -48,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListUserTagsOutputBuilder {
-+    /// <p>The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -107,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListUserTagsOutput`](crate::operation::list_user_tags::ListUserTagsOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`tags`](crate::operation::list_user_tags::builders::ListUserTagsOutputBuilder::tags)
-+    /// - [`tags`](Self::tags)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<crate::operation::list_user_tags::ListUserTagsOutput, ::aws_smithy_types::error::operation::BuildError> {
-@@ -118,7 +118,7 @@
+@@ -118,7 +119,7 @@
                      "tags was not specified but it is required when building ListUserTagsOutput",
                  )
              })?,
@@ -104487,29 +101823,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListUsersOutputBuilder {
-+    /// <p>A list of users.</p>
-     /// Appends an item to `users`.
-     ///
-     /// To override the contents of this collection use [`set_users`](Self::set_users).
--    ///
--    /// <p>A list of users.</p>
-     pub fn users(mut self, input: crate::types::User) -> Self {
-         let mut v = self.users.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`users`](crate::operation::list_users::builders::ListUsersOutputBuilder::users)
-+    /// - [`users`](Self::users)
-     pub fn build(self) -> ::std::result::Result<crate::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::list_users::ListUsersOutput {
-             users: self.users.ok_or_else(|| {
-@@ -117,7 +116,7 @@
+@@ -117,7 +117,7 @@
                      "users was not specified but it is required when building ListUsersOutput",
                  )
              })?,
@@ -105279,29 +102593,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -49,11 +49,10 @@
-     _request_id: Option<String>,
- }
- impl ListVirtualMfaDevicesOutputBuilder {
-+    /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-     /// Appends an item to `virtual_mfa_devices`.
-     ///
-     /// To override the contents of this collection use [`set_virtual_mfa_devices`](Self::set_virtual_mfa_devices).
--    ///
--    /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
-     pub fn virtual_mfa_devices(mut self, input: crate::types::VirtualMfaDevice) -> Self {
-         let mut v = self.virtual_mfa_devices.unwrap_or_default();
-         v.push(input);
-@@ -108,7 +107,7 @@
-     }
-     /// Consumes the builder and constructs a [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`virtual_mfa_devices`](crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder::virtual_mfa_devices)
-+    /// - [`virtual_mfa_devices`](Self::virtual_mfa_devices)
-     pub fn build(
-         self,
-     ) -> ::std::result::Result<
-@@ -122,7 +121,7 @@
+@@ -122,7 +122,7 @@
                      "virtual_mfa_devices was not specified but it is required when building ListVirtualMfaDevicesOutput",
                  )
              })?,
@@ -106026,20 +103318,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PutAccountPropertiesInput {
      /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
      /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
-@@ -30,17 +31,16 @@
-     pub(crate) properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
- }
- impl PutAccountPropertiesInputBuilder {
-+    /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
-+    /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
-+    /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
-     /// Adds a key-value pair to `properties`.
-     ///
-     /// To override the contents of this collection use [`set_properties`](Self::set_properties).
--    ///
--    /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
--    /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
--    /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
+@@ -38,9 +39,9 @@
+     /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
+     /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
      pub fn properties(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
 -        let mut hash_map = self.properties.unwrap_or_default();
 -        hash_map.insert(k.into(), v.into());
@@ -106050,7 +103331,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
      /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
-@@ -57,10 +57,7 @@
+@@ -57,10 +58,7 @@
          &self.properties
      }
      /// Consumes the builder and constructs a [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
@@ -106731,89 +104012,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PutGroupPolicyInput {
      /// <p>The name of the group to associate the policy with.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.</p>
-@@ -11,15 +12,7 @@
-     pub policy_name: ::std::option::Option<::std::string::String>,
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_document: ::std::option::Option<::std::string::String>,
- }
- impl PutGroupPolicyInput {
-@@ -35,15 +28,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_document(&self) -> ::std::option::Option<&str> {
-         self.policy_document.as_deref()
-     }
-@@ -102,15 +87,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_document = ::std::option::Option::Some(input.into());
-@@ -118,15 +95,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_document = input;
-         self
-@@ -133,26 +102,16 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+@@ -146,13 +147,11 @@
          &self.policy_document
      }
      /// Consumes the builder and constructs a [`PutGroupPolicyInput`](crate::operation::put_group_policy::PutGroupPolicyInput).
@@ -107610,7 +104809,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_role_permissions_boundary/_put_role_permissions_boundary_input.rs
 +++ generated/src/operation/put_role_permissions_boundary/_put_role_permissions_boundary_input.rs
-@@ -1,13 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -107620,47 +104819,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PutRolePermissionsBoundaryInput {
      /// <p>The name (friendly name, not ARN) of the IAM role for which you want to set the permissions boundary.</p>
      pub role_name: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<::std::string::String>,
- }
- impl PutRolePermissionsBoundaryInput {
-@@ -17,7 +18,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&str> {
-         self.permissions_boundary.as_deref()
-     }
-@@ -54,7 +55,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     /// This field is required.
-     pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input.into());
-@@ -62,7 +63,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.permissions_boundary = input;
-         self
-@@ -69,20 +70,15 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the role.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<::std::string::String> {
+@@ -74,15 +75,10 @@
          &self.permissions_boundary
      }
      /// Consumes the builder and constructs a [`PutRolePermissionsBoundaryInput`](crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput).
@@ -108435,89 +105594,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PutRolePolicyInput {
      /// <p>The name of the role to associate the policy with.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -11,15 +12,7 @@
-     pub policy_name: ::std::option::Option<::std::string::String>,
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_document: ::std::option::Option<::std::string::String>,
- }
- impl PutRolePolicyInput {
-@@ -35,15 +28,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_document(&self) -> ::std::option::Option<&str> {
-         self.policy_document.as_deref()
-     }
-@@ -102,15 +87,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_document = ::std::option::Option::Some(input.into());
-@@ -118,15 +95,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_document = input;
-         self
-@@ -133,26 +102,16 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+@@ -146,13 +147,11 @@
          &self.policy_document
      }
      /// Consumes the builder and constructs a [`PutRolePolicyInput`](crate::operation::put_role_policy::PutRolePolicyInput).
@@ -109327,7 +106404,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_user_permissions_boundary/_put_user_permissions_boundary_input.rs
 +++ generated/src/operation/put_user_permissions_boundary/_put_user_permissions_boundary_input.rs
-@@ -1,13 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -109337,47 +106414,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PutUserPermissionsBoundaryInput {
      /// <p>The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.</p>
      pub user_name: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<::std::string::String>,
- }
- impl PutUserPermissionsBoundaryInput {
-@@ -17,7 +18,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&str> {
-         self.permissions_boundary.as_deref()
-     }
-@@ -54,7 +55,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     /// This field is required.
-     pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input.into());
-@@ -62,7 +63,7 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.permissions_boundary = input;
-         self
-@@ -69,20 +70,15 @@
-     }
-     /// <p>The ARN of the managed policy that is used to set the permissions boundary for the user.</p>
-     /// <p>A permissions boundary policy defines the maximum permissions that identity-based policies can grant to an entity, but does not grant permissions. Permissions boundaries do not define the maximum permissions that a resource-based policy can grant to an entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</p>
--    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<::std::string::String> {
+@@ -74,15 +75,10 @@
          &self.permissions_boundary
      }
      /// Consumes the builder and constructs a [`PutUserPermissionsBoundaryInput`](crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput).
@@ -110139,89 +107176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PutUserPolicyInput {
      /// <p>The name of the user to associate the policy with.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -11,15 +12,7 @@
-     pub policy_name: ::std::option::Option<::std::string::String>,
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_document: ::std::option::Option<::std::string::String>,
- }
- impl PutUserPolicyInput {
-@@ -35,15 +28,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_document(&self) -> ::std::option::Option<&str> {
-         self.policy_document.as_deref()
-     }
-@@ -102,15 +87,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_document = ::std::option::Option::Some(input.into());
-@@ -118,15 +95,7 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_document = input;
-         self
-@@ -133,26 +102,16 @@
-     }
-     /// <p>The policy document.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+@@ -146,13 +147,11 @@
          &self.policy_document
      }
      /// Consumes the builder and constructs a [`PutUserPolicyInput`](crate::operation::put_user_policy::PutUserPolicyInput).
@@ -114102,55 +111057,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs
 +++ generated/src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs
-@@ -1,18 +1,15 @@
+@@ -1,4 +1,5 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct ResetServiceSpecificCredentialOutput {
--    /// <p>A structure with details about the updated service-specific credential, including the new password.</p><important>
--    /// <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p>
--    /// </important>
-+    /// <p>A structure with details about the updated service-specific credential, including the new password.</p> <important><p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p></important>
-     pub service_specific_credential: ::std::option::Option<crate::types::ServiceSpecificCredential>,
-     _request_id: Option<String>,
- }
- impl ResetServiceSpecificCredentialOutput {
--    /// <p>A structure with details about the updated service-specific credential, including the new password.</p><important>
--    /// <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p>
--    /// </important>
-+    /// <p>A structure with details about the updated service-specific credential, including the new password.</p> <important><p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p></important>
-     pub fn service_specific_credential(&self) -> ::std::option::Option<&crate::types::ServiceSpecificCredential> {
-         self.service_specific_credential.as_ref()
-     }
-@@ -37,23 +34,17 @@
-     _request_id: Option<String>,
- }
- impl ResetServiceSpecificCredentialOutputBuilder {
--    /// <p>A structure with details about the updated service-specific credential, including the new password.</p><important>
--    /// <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p>
--    /// </important>
-+    /// <p>A structure with details about the updated service-specific credential, including the new password.</p> <important><p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p></important>
-     pub fn service_specific_credential(mut self, input: crate::types::ServiceSpecificCredential) -> Self {
-         self.service_specific_credential = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A structure with details about the updated service-specific credential, including the new password.</p><important>
--    /// <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p>
--    /// </important>
-+    /// <p>A structure with details about the updated service-specific credential, including the new password.</p> <important><p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p></important>
-     pub fn set_service_specific_credential(mut self, input: ::std::option::Option<crate::types::ServiceSpecificCredential>) -> Self {
-         self.service_specific_credential = input;
-         self
-     }
--    /// <p>A structure with details about the updated service-specific credential, including the new password.</p><important>
--    /// <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p>
--    /// </important>
-+    /// <p>A structure with details about the updated service-specific credential, including the new password.</p> <important><p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p></important>
-     pub fn get_service_specific_credential(&self) -> &::std::option::Option<crate::types::ServiceSpecificCredential> {
-         &self.service_specific_credential
-     }
 ```
 
 ### `src/operation/reset_service_specific_credential/builders.rs`
@@ -117834,7 +114746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/simulate_custom_policy/_simulate_custom_policy_input.rs
 +++ generated/src/operation/simulate_custom_policy/_simulate_custom_policy_input.rs
-@@ -1,31 +1,16 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -117844,487 +114756,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SimulateCustomPolicyInput {
      /// <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p>
      /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
-     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
-@@ -42,15 +27,7 @@
-     pub resource_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub resource_policy: ::std::option::Option<::std::string::String>,
-@@ -63,21 +40,11 @@
-     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-     pub context_entries: ::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>>,
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub resource_handling_option: ::std::option::Option<::std::string::String>,
-     /// <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-     /// <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
-@@ -88,33 +55,13 @@
- impl SimulateCustomPolicyInput {
-     /// <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_input_list.is_none()`.
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_input_list(&self) -> &[::std::string::String] {
-         self.policy_input_list.as_deref().unwrap_or_default()
-     }
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.permissions_boundary_policy_input_list.is_none()`.
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn permissions_boundary_policy_input_list(&self) -> &[::std::string::String] {
-         self.permissions_boundary_policy_input_list.as_deref().unwrap_or_default()
-     }
-@@ -121,14 +68,10 @@
-     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
-     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
-     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ordered_organization_policy_input_list.is_none()`.
-     pub fn ordered_organization_policy_input_list(&self) -> &[crate::types::OrderedOrganizationPolicyType] {
-         self.ordered_organization_policy_input_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.action_names.is_none()`.
-     pub fn action_names(&self) -> &[::std::string::String] {
-         self.action_names.as_deref().unwrap_or_default()
-     }
-@@ -138,22 +81,12 @@
-     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_arns.is_none()`.
-     pub fn resource_arns(&self) -> &[::std::string::String] {
-         self.resource_arns.as_deref().unwrap_or_default()
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn resource_policy(&self) -> ::std::option::Option<&str> {
-@@ -170,27 +103,15 @@
-         self.caller_arn.as_deref()
-     }
-     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_entries.is_none()`.
-     pub fn context_entries(&self) -> &[crate::types::ContextEntry] {
-         self.context_entries.as_deref().unwrap_or_default()
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn resource_handling_option(&self) -> ::std::option::Option<&str> {
-         self.resource_handling_option.as_deref()
-     }
-@@ -229,21 +150,12 @@
-     pub(crate) marker: ::std::option::Option<::std::string::String>,
- }
- impl SimulateCustomPolicyInputBuilder {
-+    /// <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p>
-+    /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// Appends an item to `policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_policy_input_list`](Self::set_policy_input_list).
--    ///
--    /// <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p>
--    /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-     pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_input_list.unwrap_or_default();
-         v.push(input.into());
-@@ -252,15 +164,7 @@
-     }
-     /// <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.policy_input_list = input;
-         self
-@@ -267,33 +171,16 @@
-     }
-     /// <p>A list of policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. Do not include any resource-based policies in this parameter. Any resource-based policy must be submitted with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down" policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a> or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a> API operations. In other words, do not use policies designed to restrict what a user can do while using the temporary credentials.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.policy_input_list
-     }
-+    /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p>
-+    /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// Appends an item to `permissions_boundary_policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_permissions_boundary_policy_input_list`](Self::set_permissions_boundary_policy_input_list).
--    ///
--    /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p>
--    /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-     pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.permissions_boundary_policy_input_list.unwrap_or_default();
-         v.push(input.into());
-@@ -302,15 +189,7 @@
-     }
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.permissions_boundary_policy_input_list = input;
-         self
-@@ -317,25 +196,16 @@
-     }
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that an IAM entity can have. You can input only one permissions boundary when you pass a policy to this operation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string that contains the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.permissions_boundary_policy_input_list
-     }
-+    /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
-+    /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
-+    /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
-     /// Appends an item to `ordered_organization_policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_ordered_organization_policy_input_list`](Self::set_ordered_organization_policy_input_list).
--    ///
--    /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
--    /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
--    /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
-     pub fn ordered_organization_policy_input_list(mut self, input: crate::types::OrderedOrganizationPolicyType) -> Self {
-         let mut v = self.ordered_organization_policy_input_list.unwrap_or_default();
-         v.push(input);
-@@ -358,11 +228,10 @@
-     pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OrderedOrganizationPolicyType>> {
-         &self.ordered_organization_policy_input_list
-     }
-+    /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>
-     /// Appends an item to `action_names`.
-     ///
-     /// To override the contents of this collection use [`set_action_names`](Self::set_action_names).
--    ///
--    /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated against each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*) in an action name.</p>
-     pub fn action_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.action_names.unwrap_or_default();
-         v.push(input.into());
-@@ -378,10 +247,6 @@
-     pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.action_names
-     }
--    /// Appends an item to `resource_arns`.
--    ///
--    /// To override the contents of this collection use [`set_resource_arns`](Self::set_resource_arns).
--    ///
-     /// <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is not provided, then the value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response. You can simulate resources that don't exist in your account.</p>
-     /// <p>The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the <code>ResourcePolicy</code> parameter.</p>
-     /// <p>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of the resources included in the simulation or you receive an invalid input error.</p>
-@@ -388,6 +253,9 @@
-     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-+    /// Appends an item to `resource_arns`.
-+    ///
-+    /// To override the contents of this collection use [`set_resource_arns`](Self::set_resource_arns).
-     pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.resource_arns.unwrap_or_default();
-         v.push(input.into());
-@@ -415,15 +283,7 @@
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn resource_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-@@ -432,15 +292,7 @@
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn set_resource_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-@@ -449,15 +301,7 @@
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn get_resource_policy(&self) -> &::std::option::Option<::std::string::String> {
-@@ -497,11 +341,10 @@
-     pub fn get_caller_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.caller_arn
-     }
-+    /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-     /// Appends an item to `context_entries`.
-     ///
-     /// To override the contents of this collection use [`set_context_entries`](Self::set_context_entries).
--    ///
--    /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-     pub fn context_entries(mut self, input: crate::types::ContextEntry) -> Self {
-         let mut v = self.context_entries.unwrap_or_default();
-         v.push(input);
-@@ -518,61 +361,31 @@
-         &self.context_entries
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.resource_handling_option = ::std::option::Option::Some(input.into());
-         self
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn set_resource_handling_option(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_handling_option = input;
-         self
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn get_resource_handling_option(&self) -> &::std::option::Option<::std::string::String> {
-         &self.resource_handling_option
-     }
-@@ -608,11 +421,8 @@
+@@ -608,11 +609,8 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`SimulateCustomPolicyInput`](crate::operation::simulate_custom_policy::SimulateCustomPolicyInput).
@@ -118338,7 +114770,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              policy_input_list: self.policy_input_list,
              permissions_boundary_policy_input_list: self.permissions_boundary_policy_input_list,
              ordered_organization_policy_input_list: self.ordered_organization_policy_input_list,
-@@ -625,6 +435,6 @@
+@@ -625,6 +623,6 @@
              resource_handling_option: self.resource_handling_option,
              max_items: self.max_items,
              marker: self.marker,
@@ -118362,13 +114794,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl SimulateCustomPolicyOutput {
-     /// <p>The results of the simulation.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.evaluation_results.is_none()`.
-     pub fn evaluation_results(&self) -> &[crate::types::EvaluationResult] {
+@@ -20,7 +20,7 @@
          self.evaluation_results.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -118377,20 +114803,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl SimulateCustomPolicyOutputBuilder {
-+    /// <p>The results of the simulation.</p>
-     /// Appends an item to `evaluation_results`.
-     ///
-     /// To override the contents of this collection use [`set_evaluation_results`](Self::set_evaluation_results).
--    ///
--    /// <p>The results of the simulation.</p>
-     pub fn evaluation_results(mut self, input: crate::types::EvaluationResult) -> Self {
-         let mut v = self.evaluation_results.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::simulate_custom_policy::SimulateCustomPolicyOutput {
          crate::operation::simulate_custom_policy::SimulateCustomPolicyOutput {
              evaluation_results: self.evaluation_results,
@@ -119505,485 +115918,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SimulatePrincipalPolicyInput {
      /// <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.</p>
      /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-@@ -8,27 +9,11 @@
-     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub policy_source_arn: ::std::option::Option<::std::string::String>,
-     /// <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p>
-     /// <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
-@@ -44,15 +29,7 @@
-     pub resource_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub resource_policy: ::std::option::Option<::std::string::String>,
-@@ -66,21 +43,11 @@
-     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-     pub context_entries: ::std::option::Option<::std::vec::Vec<crate::types::ContextEntry>>,
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub resource_handling_option: ::std::option::Option<::std::string::String>,
-     /// <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
-     /// <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
-@@ -96,33 +63,13 @@
-         self.policy_source_arn.as_deref()
-     }
-     /// <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_input_list.is_none()`.
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_input_list(&self) -> &[::std::string::String] {
-         self.policy_input_list.as_deref().unwrap_or_default()
-     }
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.permissions_boundary_policy_input_list.is_none()`.
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn permissions_boundary_policy_input_list(&self) -> &[::std::string::String] {
-         self.permissions_boundary_policy_input_list.as_deref().unwrap_or_default()
-     }
-@@ -129,14 +76,10 @@
-     /// <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p>
-     /// <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
-     /// <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed positions, cause the request to fail with an <code>InvalidInput</code> error. Syntactically valid identifiers that don't match any attached policy are ignored. Resource control policies (RCPs) are not supported in this release; identifiers that target RCPs are also ignored.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_exclusion_list.is_none()`.
-     pub fn policy_exclusion_list(&self) -> &[crate::types::PolicyIdentifier] {
-         self.policy_exclusion_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.action_names.is_none()`.
-     pub fn action_names(&self) -> &[::std::string::String] {
-         self.action_names.as_deref().unwrap_or_default()
-     }
-@@ -145,22 +88,12 @@
-     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_arns.is_none()`.
-     pub fn resource_arns(&self) -> &[::std::string::String] {
-         self.resource_arns.as_deref().unwrap_or_default()
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn resource_policy(&self) -> ::std::option::Option<&str> {
-@@ -178,27 +111,15 @@
-         self.caller_arn.as_deref()
-     }
-     /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_entries.is_none()`.
-     pub fn context_entries(&self) -> &[crate::types::ContextEntry] {
-         self.context_entries.as_deref().unwrap_or_default()
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn resource_handling_option(&self) -> ::std::option::Option<&str> {
-         self.resource_handling_option.as_deref()
-     }
-@@ -259,20 +180,11 @@
-     pub fn get_policy_source_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_source_arn
-     }
-+    /// <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// Appends an item to `policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_policy_input_list`](Self::set_policy_input_list).
--    ///
--    /// <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-     pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.policy_input_list.unwrap_or_default();
-         v.push(input.into());
-@@ -280,47 +192,22 @@
-         self
-     }
-     /// <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.policy_input_list = input;
-         self
-     }
-     /// <p>An optional list of additional policy documents to include in the simulation. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.policy_input_list
-     }
-+    /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
-+    /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// Appends an item to `permissions_boundary_policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_permissions_boundary_policy_input_list`](Self::set_permissions_boundary_policy_input_list).
--    ///
--    /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
--    /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-     pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.permissions_boundary_policy_input_list.unwrap_or_default();
-         v.push(input.into());
-@@ -329,15 +216,7 @@
-     }
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.permissions_boundary_policy_input_list = input;
-         self
-@@ -344,25 +223,16 @@
-     }
-     /// <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the maximum permissions that the entity can have. You can input only one permissions boundary when you pass a policy to this operation. An IAM entity can only have one permissions boundary in effect at a time. For example, if a permissions boundary is attached to an entity and you pass in a different permissions boundary policy using this parameter, then the new permissions boundary policy is used for the simulation. For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> in the <i>IAM User Guide</i>. The policy input is specified as a string containing the complete, valid JSON text of a permissions boundary policy.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.permissions_boundary_policy_input_list
-     }
--    /// Appends an item to `policy_exclusion_list`.
--    ///
--    /// To override the contents of this collection use [`set_policy_exclusion_list`](Self::set_policy_exclusion_list).
--    ///
-     /// <p>A list of policies to exclude from the simulation. Use this parameter to test what the simulation result would be if a policy were removed, without changing which policies are actually attached to the principal identified by <code>PolicySourceArn</code>.</p>
-     /// <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a> that identifies one or more policies to exclude by policy type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
-     /// <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed positions, cause the request to fail with an <code>InvalidInput</code> error. Syntactically valid identifiers that don't match any attached policy are ignored. Resource control policies (RCPs) are not supported in this release; identifiers that target RCPs are also ignored.</p>
-+    /// Appends an item to `policy_exclusion_list`.
-+    ///
-+    /// To override the contents of this collection use [`set_policy_exclusion_list`](Self::set_policy_exclusion_list).
-     pub fn policy_exclusion_list(mut self, input: crate::types::PolicyIdentifier) -> Self {
-         let mut v = self.policy_exclusion_list.unwrap_or_default();
-         v.push(input);
-@@ -382,11 +252,10 @@
-     pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyIdentifier>> {
-         &self.policy_exclusion_list
-     }
-+    /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
-     /// Appends an item to `action_names`.
-     ///
-     /// To override the contents of this collection use [`set_action_names`](Self::set_action_names).
--    ///
--    /// <p>A list of names of API operations to evaluate in the simulation. Each operation is evaluated for each resource. Each operation must include the service identifier, such as <code>iam:CreateUser</code>.</p>
-     pub fn action_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.action_names.unwrap_or_default();
-         v.push(input.into());
-@@ -402,15 +271,14 @@
-     pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.action_names
-     }
--    /// Appends an item to `resource_arns`.
--    ///
--    /// To override the contents of this collection use [`set_resource_arns`](Self::set_resource_arns).
--    ///
-     /// <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is not provided, then the value defaults to <code>*</code> (all resources). Each API in the <code>ActionNames</code> parameter is evaluated for each resource in this list. The simulation determines the access result (allowed or denied) of each combination and reports it in the response. You can simulate resources that don't exist in your account.</p>
-     /// <p>The simulation does not automatically retrieve policies for the specified resources. If you want to include a resource policy in the simulation, then you must include the policy as a string in the <code>ResourcePolicy</code> parameter.</p>
-     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-+    /// Appends an item to `resource_arns`.
-+    ///
-+    /// To override the contents of this collection use [`set_resource_arns`](Self::set_resource_arns).
-     pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.resource_arns.unwrap_or_default();
-         v.push(input.into());
-@@ -436,15 +304,7 @@
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn resource_policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-@@ -453,15 +313,7 @@
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn set_resource_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-@@ -470,15 +322,7 @@
-     }
-     /// <p>A resource-based policy to include in the simulation provided as a string. Each resource in the simulation is treated as if it had this policy attached. You can include only one resource-based policy in a simulation.</p>
-     /// <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul><note>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><note>
-     /// <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
-     /// </note>
-     pub fn get_resource_policy(&self) -> &::std::option::Option<::std::string::String> {
-@@ -521,11 +365,10 @@
-     pub fn get_caller_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.caller_arn
-     }
-+    /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-     /// Appends an item to `context_entries`.
-     ///
-     /// To override the contents of this collection use [`set_context_entries`](Self::set_context_entries).
--    ///
--    /// <p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p>
-     pub fn context_entries(mut self, input: crate::types::ContextEntry) -> Self {
-         let mut v = self.context_entries.unwrap_or_default();
-         v.push(input);
-@@ -542,61 +385,31 @@
-         &self.context_entries
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.resource_handling_option = ::std::option::Option::Some(input.into());
-         self
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn set_resource_handling_option(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_handling_option = input;
-         self
-     }
-     /// <p>Specifies the type of simulation to run. Different API operations that support resource-based policies require different combinations of resources. By specifying the type of simulation to run, you enable the policy simulator to enforce the presence of the required resources to ensure reliable simulation results. If your simulation does not match one of the following scenarios, then you can omit this parameter. The following list shows each of the supported scenario values and the resources that you must define to run the simulation.</p>
--    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p>
--    /// <ul>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore</b></p>
--    /// <p>instance, image, security group, network interface</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-InstanceStore-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS</b></p>
--    /// <p>instance, image, security group, network interface, volume</p></li>
--    /// <li>
--    /// <p><b>EC2-VPC-EBS-Subnet</b></p>
--    /// <p>instance, image, security group, network interface, subnet, volume</p></li>
--    /// </ul>
-+    /// <p>Each of the Amazon EC2 scenarios requires that you specify instance, image, and security group resources. If your scenario includes an EBS volume, then you must specify that volume as a resource. If the Amazon EC2 scenario includes VPC, then you must supply the network interface resource. If it includes an IP subnet, then you must specify the subnet resource. For more information on the Amazon EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported platforms</a> in the <i>Amazon EC2 User Guide</i>.</p><ul><li><p><b>EC2-VPC-InstanceStore</b></p>
-+    /// <p>instance, image, security group, network interface</p></li><li><p><b>EC2-VPC-InstanceStore-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet</p></li><li><p><b>EC2-VPC-EBS</b></p>
-+    /// <p>instance, image, security group, network interface, volume</p></li><li><p><b>EC2-VPC-EBS-Subnet</b></p>
-+    /// <p>instance, image, security group, network interface, subnet, volume</p></li></ul>
-     pub fn get_resource_handling_option(&self) -> &::std::option::Option<::std::string::String> {
-         &self.resource_handling_option
-     }
-@@ -632,13 +445,8 @@
+@@ -632,13 +633,8 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`SimulatePrincipalPolicyInput`](crate::operation::simulate_principal_policy::SimulatePrincipalPolicyInput).
@@ -119999,7 +115934,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              policy_source_arn: self.policy_source_arn,
              policy_input_list: self.policy_input_list,
              permissions_boundary_policy_input_list: self.permissions_boundary_policy_input_list,
-@@ -652,6 +460,6 @@
+@@ -652,6 +648,6 @@
              resource_handling_option: self.resource_handling_option,
              max_items: self.max_items,
              marker: self.marker,
@@ -120023,13 +115958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
      pub marker: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -14,13 +14,11 @@
- }
- impl SimulatePrincipalPolicyOutput {
-     /// <p>The results of the simulation.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.evaluation_results.is_none()`.
-     pub fn evaluation_results(&self) -> &[crate::types::EvaluationResult] {
+@@ -20,7 +20,7 @@
          self.evaluation_results.as_deref().unwrap_or_default()
      }
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -120038,20 +115967,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -50,11 +48,10 @@
-     _request_id: Option<String>,
- }
- impl SimulatePrincipalPolicyOutputBuilder {
-+    /// <p>The results of the simulation.</p>
-     /// Appends an item to `evaluation_results`.
-     ///
-     /// To override the contents of this collection use [`set_evaluation_results`](Self::set_evaluation_results).
--    ///
--    /// <p>The results of the simulation.</p>
-     pub fn evaluation_results(mut self, input: crate::types::EvaluationResult) -> Self {
-         let mut v = self.evaluation_results.unwrap_or_default();
-         v.push(input);
-@@ -111,7 +108,7 @@
+@@ -111,7 +111,7 @@
      pub fn build(self) -> crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput {
          crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput {
              evaluation_results: self.evaluation_results,
@@ -121201,29 +117117,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagInstanceProfileInput {
      /// <p>The name of the IAM instance profile to which you want to add tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.instance_profile_name.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_instance_profile_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.instance_profile_name
-     }
-+    /// <p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,13 +74,10 @@
+@@ -76,13 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagInstanceProfileInput`](crate::operation::tag_instance_profile::TagInstanceProfileInput).
@@ -121998,29 +117892,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagMfaDeviceInput {
      /// <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.serial_number.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_serial_number(&self) -> &::std::option::Option<::std::string::String> {
-         &self.serial_number
-     }
-+    /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the IAM virtual MFA device. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,12 +74,10 @@
+@@ -76,12 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagMfaDeviceInput`](crate::operation::tag_mfa_device::TagMfaDeviceInput).
@@ -122796,29 +118668,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagOpenIdConnectProviderInput {
      /// <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.open_id_connect_provider_arn.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the OIDC identity provider in IAM. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.open_id_connect_provider_arn
-     }
-+    /// <p>The list of tags that you want to attach to the OIDC identity provider in IAM. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the OIDC identity provider in IAM. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,15 +74,10 @@
+@@ -76,15 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagOpenIdConnectProviderInput`](crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput).
@@ -123603,29 +119453,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagPolicyInput {
      /// <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.policy_arn.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_arn
-     }
-+    /// <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,10 +74,10 @@
+@@ -76,10 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagPolicyInput`](crate::operation::tag_policy::TagPolicyInput).
@@ -124381,29 +120209,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagRoleInput {
      /// <p>The name of the IAM role to which you want to add tags.</p>
      /// <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.role_name.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.role_name
-     }
-+    /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,10 +74,10 @@
+@@ -76,10 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagRoleInput`](crate::operation::tag_role::TagRoleInput).
@@ -125155,29 +120961,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagSamlProviderInput {
      /// <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.saml_provider_arn.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.saml_provider_arn
-     }
-+    /// <p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,12 +74,10 @@
+@@ -76,12 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagSamlProviderInput`](crate::operation::tag_saml_provider::TagSamlProviderInput).
@@ -125953,29 +121737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagServerCertificateInput {
      /// <p>The name of the IAM server certificate to which you want to add tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.server_certificate_name.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_server_certificate_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.server_certificate_name
-     }
-+    /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,13 +74,10 @@
+@@ -76,13 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
@@ -126760,29 +122522,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagUserInput {
      /// <p>The name of the IAM user to which you want to add tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.user_name.as_deref()
-     }
-     /// <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.user_name
-     }
-+    /// <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -76,10 +74,10 @@
+@@ -76,10 +77,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagUserInput`](crate::operation::tag_user::TagUserInput).
@@ -127534,29 +123274,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagInstanceProfileInput {
      /// <p>The name of the IAM instance profile from which you want to remove tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.instance_profile_name.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_instance_profile_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.instance_profile_name
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,13 +74,10 @@
+@@ -76,13 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagInstanceProfileInput`](crate::operation::untag_instance_profile::UntagInstanceProfileInput).
@@ -128311,29 +124029,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagMfaDeviceInput {
      /// <p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.serial_number.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_serial_number(&self) -> &::std::option::Option<::std::string::String> {
-         &self.serial_number
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,12 +74,10 @@
+@@ -76,12 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagMfaDeviceInput`](crate::operation::untag_mfa_device::UntagMfaDeviceInput).
@@ -129083,29 +124779,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagOpenIdConnectProviderInput {
      /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.open_id_connect_provider_arn.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.open_id_connect_provider_arn
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,15 +74,10 @@
+@@ -76,15 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagOpenIdConnectProviderInput`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput).
@@ -129864,29 +125538,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagPolicyInput {
      /// <p>The ARN of the IAM customer managed policy from which you want to remove tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.policy_arn.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_arn
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,10 +74,10 @@
+@@ -76,10 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagPolicyInput`](crate::operation::untag_policy::UntagPolicyInput).
@@ -130632,29 +126284,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagRoleInput {
      /// <p>The name of the IAM role from which you want to remove tags.</p>
      /// <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.role_name.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.role_name
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,10 +74,10 @@
+@@ -76,10 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagRoleInput`](crate::operation::untag_role::UntagRoleInput).
@@ -131372,29 +127002,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagSamlProviderInput {
      /// <p>The ARN of the SAML identity provider in IAM from which you want to remove tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.saml_provider_arn.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.saml_provider_arn
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,12 +74,10 @@
+@@ -76,12 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagSamlProviderInput`](crate::operation::untag_saml_provider::UntagSamlProviderInput).
@@ -132144,29 +127752,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagServerCertificateInput {
      /// <p>The name of the IAM server certificate from which you want to remove tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.server_certificate_name.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified IAM server certificate.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_server_certificate_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.server_certificate_name
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified IAM server certificate.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified IAM server certificate.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,15 +74,10 @@
+@@ -76,15 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagServerCertificateInput`](crate::operation::untag_server_certificate::UntagServerCertificateInput).
@@ -132925,29 +128511,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagUserInput {
      /// <p>The name of the IAM user from which you want to remove tags.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -16,8 +17,6 @@
-         self.user_name.as_deref()
-     }
-     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tag_keys.is_none()`.
-     pub fn tag_keys(&self) -> &[::std::string::String] {
-         self.tag_keys.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.user_name
-     }
-+    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
-     /// Appends an item to `tag_keys`.
-     ///
-     /// To override the contents of this collection use [`set_tag_keys`](Self::set_tag_keys).
--    ///
--    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
-     pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.tag_keys.unwrap_or_default();
-         v.push(input.into());
-@@ -76,10 +74,10 @@
+@@ -76,10 +77,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagUserInput`](crate::operation::untag_user::UntagUserInput).
@@ -134425,7 +129989,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
 +++ generated/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
-@@ -1,13 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -134435,49 +129999,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateAccountPasswordPolicyInput {
      /// <p>The minimum number of characters allowed in an IAM user password.</p>
      /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>6</code>.</p>
-     pub minimum_password_length: ::std::option::Option<i32>,
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that passwords do not require at least one symbol character.</p>
-     pub require_symbols: ::std::option::Option<bool>,
-     /// <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).</p>
-@@ -41,7 +42,7 @@
-         self.minimum_password_length
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that passwords do not require at least one symbol character.</p>
-     pub fn require_symbols(&self) -> ::std::option::Option<bool> {
-         self.require_symbols
-@@ -124,7 +125,7 @@
-         &self.minimum_password_length
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that passwords do not require at least one symbol character.</p>
-     pub fn require_symbols(mut self, input: bool) -> Self {
-         self.require_symbols = ::std::option::Option::Some(input);
-@@ -131,7 +132,7 @@
-         self
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that passwords do not require at least one symbol character.</p>
-     pub fn set_require_symbols(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.require_symbols = input;
-@@ -138,7 +139,7 @@
-         self
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     /// <p>If you do not specify a value for this parameter, then the operation uses the default value of <code>false</code>. The result is that passwords do not require at least one symbol character.</p>
-     pub fn get_require_symbols(&self) -> &::std::option::Option<bool> {
-         &self.require_symbols
 @@ -269,13 +270,8 @@
          &self.hard_expiry
      }
@@ -135337,89 +130858,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateAssumeRolePolicyInput {
      /// <p>The name of the role to update with the new policy.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-@@ -8,15 +9,7 @@
-     pub role_name: ::std::option::Option<::std::string::String>,
-     /// <p>The policy that grants an entity permission to assume the role.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub policy_document: ::std::option::Option<::std::string::String>,
- }
- impl UpdateAssumeRolePolicyInput {
-@@ -27,15 +20,7 @@
-     }
-     /// <p>The policy that grants an entity permission to assume the role.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn policy_document(&self) -> ::std::option::Option<&str> {
-         self.policy_document.as_deref()
-     }
-@@ -75,15 +60,7 @@
-     }
-     /// <p>The policy that grants an entity permission to assume the role.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_document = ::std::option::Option::Some(input.into());
-@@ -91,15 +68,7 @@
-     }
-     /// <p>The policy that grants an entity permission to assume the role.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_document = input;
-         self
-@@ -106,28 +75,15 @@
-     }
-     /// <p>The policy that grants an entity permission to assume the role.</p>
-     /// <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+@@ -119,15 +120,10 @@
          &self.policy_document
      }
      /// Consumes the builder and constructs a [`UpdateAssumeRolePolicyInput`](crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyInput).
@@ -137741,7 +133180,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_login_profile/_update_login_profile_input.rs
 +++ generated/src/operation/update_login_profile/_update_login_profile_input.rs
-@@ -1,22 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -137751,41 +133190,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateLoginProfileInput {
      /// <p>The name of the user whose password you want to update.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-     pub user_name: ::std::option::Option<::std::string::String>,
-     /// <p>The new password for the specified IAM user.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-     pub password: ::std::option::Option<::std::string::String>,
-     /// <p>Allows this new password to be used only once by requiring the specified IAM user to set a new password on next sign-in.</p>
-     pub password_reset_required: ::std::option::Option<bool>,
-@@ -28,16 +20,7 @@
-         self.user_name.as_deref()
-     }
-     /// <p>The new password for the specified IAM user.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-     pub fn password(&self) -> ::std::option::Option<&str> {
-         self.password.as_deref()
-     }
-@@ -46,15 +29,6 @@
+@@ -46,15 +47,6 @@
          self.password_reset_required
      }
  }
@@ -137801,7 +133206,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl UpdateLoginProfileInput {
      /// Creates a new builder-style object to manufacture [`UpdateLoginProfileInput`](crate::operation::update_login_profile::UpdateLoginProfileInput).
      pub fn builder() -> crate::operation::update_login_profile::builders::UpdateLoginProfileInputBuilder {
-@@ -63,7 +37,7 @@
+@@ -63,7 +55,7 @@
  }
 
  /// A builder for [`UpdateLoginProfileInput`](crate::operation::update_login_profile::UpdateLoginProfileInput).
@@ -137810,57 +133215,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct UpdateLoginProfileInputBuilder {
      pub(crate) user_name: ::std::option::Option<::std::string::String>,
-@@ -90,46 +64,19 @@
-         &self.user_name
-     }
-     /// <p>The new password for the specified IAM user.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-     pub fn password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.password = ::std::option::Option::Some(input.into());
-         self
-     }
-     /// <p>The new password for the specified IAM user.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-     pub fn set_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.password = input;
-         self
-     }
-     /// <p>The new password for the specified IAM user.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
--    /// <p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul><p>However, the format can be further restricted by the account administrator by setting a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-     pub fn get_password(&self) -> &::std::option::Option<::std::string::String> {
-         &self.password
-     }
-@@ -148,23 +95,11 @@
+@@ -148,23 +140,11 @@
          &self.password_reset_required
      }
      /// Consumes the builder and constructs a [`UpdateLoginProfileInput`](crate::operation::update_login_profile::UpdateLoginProfileInput).
@@ -138673,29 +134028,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateOpenIdConnectProviderThumbprintInput {
      /// <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
      /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-@@ -16,8 +17,6 @@
-         self.open_id_connect_provider_arn.as_deref()
-     }
-     /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.thumbprint_list.is_none()`.
-     pub fn thumbprint_list(&self) -> &[::std::string::String] {
-         self.thumbprint_list.as_deref().unwrap_or_default()
-     }
-@@ -55,11 +54,10 @@
-     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.open_id_connect_provider_arn
-     }
-+    /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-     /// Appends an item to `thumbprint_list`.
-     ///
-     /// To override the contents of this collection use [`set_thumbprint_list`](Self::set_thumbprint_list).
--    ///
--    /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
-     pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.thumbprint_list.unwrap_or_default();
-         v.push(input.into());
-@@ -76,17 +74,10 @@
+@@ -76,17 +77,10 @@
          &self.thumbprint_list
      }
      /// Consumes the builder and constructs a [`UpdateOpenIdConnectProviderThumbprintInput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput).
@@ -145706,99 +141039,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UploadServerCertificateInput {
      /// <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
      /// <p>This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p><note>
-@@ -12,37 +13,13 @@
-     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-     pub server_certificate_name: ::std::option::Option<::std::string::String>,
-     /// <p>The contents of the public key certificate in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub certificate_body: ::std::option::Option<::std::string::String>,
-     /// <p>The contents of the private key in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub private_key: ::std::option::Option<::std::string::String>,
-     /// <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub certificate_chain: ::std::option::Option<::std::string::String>,
-     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-@@ -63,41 +40,17 @@
-         self.server_certificate_name.as_deref()
-     }
-     /// <p>The contents of the public key certificate in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn certificate_body(&self) -> ::std::option::Option<&str> {
-         self.certificate_body.as_deref()
-     }
-     /// <p>The contents of the private key in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn private_key(&self) -> ::std::option::Option<&str> {
-         self.private_key.as_deref()
-     }
-     /// <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn certificate_chain(&self) -> ::std::option::Option<&str> {
-         self.certificate_chain.as_deref()
-     }
-@@ -104,24 +57,10 @@
-     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
+@@ -110,18 +111,6 @@
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -145817,7 +141058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl UploadServerCertificateInput {
      /// Creates a new builder-style object to manufacture [`UploadServerCertificateInput`](crate::operation::upload_server_certificate::UploadServerCertificateInput).
      pub fn builder() -> crate::operation::upload_server_certificate::builders::UploadServerCertificateInputBuilder {
-@@ -130,7 +69,7 @@
+@@ -130,7 +119,7 @@
  }
 
  /// A builder for [`UploadServerCertificateInput`](crate::operation::upload_server_certificate::UploadServerCertificateInput).
@@ -145826,159 +141067,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct UploadServerCertificateInputBuilder {
      pub(crate) path: ::std::option::Option<::std::string::String>,
-@@ -183,15 +122,7 @@
-         &self.server_certificate_name
-     }
-     /// <p>The contents of the public key certificate in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn certificate_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.certificate_body = ::std::option::Option::Some(input.into());
-@@ -198,42 +129,18 @@
-         self
-     }
-     /// <p>The contents of the public key certificate in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.certificate_body = input;
-         self
-     }
-     /// <p>The contents of the public key certificate in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_certificate_body(&self) -> &::std::option::Option<::std::string::String> {
-         &self.certificate_body
-     }
-     /// <p>The contents of the private key in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn private_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.private_key = ::std::option::Option::Some(input.into());
-@@ -240,80 +147,39 @@
-         self
-     }
-     /// <p>The contents of the private key in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_private_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.private_key = input;
-         self
-     }
-     /// <p>The contents of the private key in PEM-encoded format.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_private_key(&self) -> &::std::option::Option<::std::string::String> {
-         &self.private_key
-     }
-     /// <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn certificate_chain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.certificate_chain = ::std::option::Option::Some(input.into());
-         self
-     }
-     /// <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_certificate_chain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.certificate_chain = input;
-         self
-     }
-     /// <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_certificate_chain(&self) -> &::std::option::Option<::std::string::String> {
-         &self.certificate_chain
-     }
--    /// Appends an item to `tags`.
--    ///
--    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
-     /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
-     /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
-     /// </note>
-+    /// Appends an item to `tags`.
-+    ///
-+    /// To override the contents of this collection use [`set_tags`](Self::set_tags).
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -334,13 +200,8 @@
+@@ -334,13 +323,8 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`UploadServerCertificateInput`](crate::operation::upload_server_certificate::UploadServerCertificateInput).
@@ -145994,7 +141083,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              path: self.path,
              server_certificate_name: self.server_certificate_name,
              certificate_body: self.certificate_body,
-@@ -347,18 +208,6 @@
+@@ -347,18 +331,6 @@
              private_key: self.private_key,
              certificate_chain: self.certificate_chain,
              tags: self.tags,
@@ -146014,35 +141103,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/upload_server_certificate/_upload_server_certificate_output.rs`
-
-```diff
---- reference/src/operation/upload_server_certificate/_upload_server_certificate_output.rs
-+++ generated/src/operation/upload_server_certificate/_upload_server_certificate_output.rs
-@@ -16,8 +16,6 @@
-         self.server_certificate_metadata.as_ref()
-     }
-     /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -57,11 +55,10 @@
-     pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<crate::types::ServerCertificateMetadata> {
-         &self.server_certificate_metadata
-     }
-+    /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/operation/upload_server_certificate/builders.rs`
@@ -146987,7 +142047,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/upload_signing_certificate/_upload_signing_certificate_input.rs
 +++ generated/src/operation/upload_signing_certificate/_upload_signing_certificate_input.rs
-@@ -1,21 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -146997,85 +142057,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UploadSigningCertificateInput {
      /// <p>The name of the user the signing certificate is for.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-     pub user_name: ::std::option::Option<::std::string::String>,
-     /// <p>The contents of the signing certificate.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub certificate_body: ::std::option::Option<::std::string::String>,
- }
- impl UploadSigningCertificateInput {
-@@ -25,15 +18,7 @@
-         self.user_name.as_deref()
-     }
-     /// <p>The contents of the signing certificate.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn certificate_body(&self) -> ::std::option::Option<&str> {
-         self.certificate_body.as_deref()
-     }
-@@ -71,15 +56,7 @@
-         &self.user_name
-     }
-     /// <p>The contents of the signing certificate.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn certificate_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.certificate_body = ::std::option::Option::Some(input.into());
-@@ -86,42 +63,21 @@
-         self
-     }
-     /// <p>The contents of the signing certificate.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.certificate_body = input;
-         self
-     }
-     /// <p>The contents of the signing certificate.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_certificate_body(&self) -> &::std::option::Option<::std::string::String> {
+@@ -113,15 +114,10 @@
          &self.certificate_body
      }
      /// Consumes the builder and constructs a [`UploadSigningCertificateInput`](crate::operation::upload_signing_certificate::UploadSigningCertificateInput).
@@ -147916,7 +142898,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/upload_ssh_public_key/_upload_ssh_public_key_input.rs
 +++ generated/src/operation/upload_ssh_public_key/_upload_ssh_public_key_input.rs
-@@ -1,21 +1,14 @@
+@@ -1,7 +1,8 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 +
  #[allow(missing_docs)] // documentation missing in model
@@ -147926,85 +142908,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UploadSshPublicKeyInput {
      /// <p>The name of the IAM user to associate the SSH public key with.</p>
      /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-     pub user_name: ::std::option::Option<::std::string::String>,
-     /// <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub ssh_public_key_body: ::std::option::Option<::std::string::String>,
- }
- impl UploadSshPublicKeyInput {
-@@ -25,15 +18,7 @@
-         self.user_name.as_deref()
-     }
-     /// <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn ssh_public_key_body(&self) -> ::std::option::Option<&str> {
-         self.ssh_public_key_body.as_deref()
-     }
-@@ -72,15 +57,7 @@
-         &self.user_name
-     }
-     /// <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     /// This field is required.
-     pub fn ssh_public_key_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.ssh_public_key_body = ::std::option::Option::Some(input.into());
-@@ -87,40 +64,21 @@
-         self
-     }
-     /// <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn set_ssh_public_key_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.ssh_public_key_body = input;
-         self
-     }
-     /// <p>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.</p>
--    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li>
--    /// <li>
--    /// <p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li>
--    /// <li>
--    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
--    /// </ul>
-+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
-     pub fn get_ssh_public_key_body(&self) -> &::std::option::Option<::std::string::String> {
+@@ -114,13 +115,10 @@
          &self.ssh_public_key_body
      }
      /// Consumes the builder and constructs a [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
@@ -150061,17 +144965,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>This field is null if no principals in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
      pub fn get_last_authenticated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.last_authenticated_time
-@@ -173,8 +173,8 @@
-     }
-     /// Consumes the builder and constructs a [`AccessDetail`](crate::types::AccessDetail).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`service_name`](crate::types::builders::AccessDetailBuilder::service_name)
--    /// - [`service_namespace`](crate::types::builders::AccessDetailBuilder::service_namespace)
-+    /// - [`service_name`](Self::service_name)
-+    /// - [`service_namespace`](Self::service_namespace)
-     pub fn build(self) -> ::std::result::Result<crate::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::AccessDetail {
-             service_name: self.service_name.ok_or_else(|| {
 ```
 
 ### `src/types/_access_key.rs`
@@ -150115,21 +145008,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct AccessKeyBuilder {
      pub(crate) user_name: ::std::option::Option<::std::string::String>,
-@@ -148,10 +137,10 @@
-     }
-     /// Consumes the builder and constructs a [`AccessKey`](crate::types::AccessKey).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::AccessKeyBuilder::user_name)
--    /// - [`access_key_id`](crate::types::builders::AccessKeyBuilder::access_key_id)
--    /// - [`status`](crate::types::builders::AccessKeyBuilder::status)
--    /// - [`secret_access_key`](crate::types::builders::AccessKeyBuilder::secret_access_key)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`access_key_id`](Self::access_key_id)
-+    /// - [`status`](Self::status)
-+    /// - [`secret_access_key`](Self::secret_access_key)
-     pub fn build(self) -> ::std::result::Result<crate::types::AccessKey, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::AccessKey {
-             user_name: self.user_name.ok_or_else(|| {
 @@ -182,14 +171,3 @@
          })
      }
@@ -150147,332 +145025,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/types/_access_key_last_used.rs`
-
-```diff
---- reference/src/types/_access_key_last_used.rs
-+++ generated/src/types/_access_key_last_used.rs
-@@ -5,74 +5,24 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct AccessKeyLastUsed {
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub last_used_date: ::std::option::Option<::aws_smithy_types::DateTime>,
--    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM started tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM started tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub service_name: ::std::string::String,
--    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
--    /// <p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-+    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul><p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-     pub region: ::std::string::String,
- }
- impl AccessKeyLastUsed {
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn last_used_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
-         self.last_used_date.as_ref()
-     }
--    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM started tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM started tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn service_name(&self) -> &str {
-         use std::ops::Deref;
-         self.service_name.deref()
-     }
--    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
--    /// <p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-+    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul><p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-     pub fn region(&self) -> &str {
-         use std::ops::Deref;
-         self.region.deref()
-@@ -94,129 +44,54 @@
-     pub(crate) region: ::std::option::Option<::std::string::String>,
- }
- impl AccessKeyLastUsedBuilder {
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn last_used_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
-         self.last_used_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn set_last_used_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_used_date = input;
-         self
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn get_last_used_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.last_used_date
-     }
--    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM started tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM started tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     /// This field is required.
-     pub fn service_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.service_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM started tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM started tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.service_name = input;
-         self
-     }
--    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM started tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
-+    /// <p>The name of the Amazon Web Services service with which this access key was most recently used. The value of this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM started tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul>
-     pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.service_name
-     }
--    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
--    /// <p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-+    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul><p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-     /// This field is required.
-     pub fn region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.region = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
--    /// <p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-+    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul><p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-     pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region = input;
-         self
-     }
--    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user does not have an access key.</p></li>
--    /// <li>
--    /// <p>An access key exists but has not been used since IAM began tracking this information.</p></li>
--    /// <li>
--    /// <p>There is no sign-in data associated with the user.</p></li>
--    /// </ul>
--    /// <p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-+    /// <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is "N/A" in the following situations:</p><ul><li><p>The user does not have an access key.</p></li><li><p>An access key exists but has not been used since IAM began tracking this information.</p></li><li><p>There is no sign-in data associated with the user.</p></li></ul><p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services General Reference.</p>
-     pub fn get_region(&self) -> &::std::option::Option<::std::string::String> {
-         &self.region
-     }
-     /// Consumes the builder and constructs a [`AccessKeyLastUsed`](crate::types::AccessKeyLastUsed).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`service_name`](crate::types::builders::AccessKeyLastUsedBuilder::service_name)
--    /// - [`region`](crate::types::builders::AccessKeyLastUsedBuilder::region)
-+    /// - [`service_name`](Self::service_name)
-+    /// - [`region`](Self::region)
-     pub fn build(self) -> ::std::result::Result<crate::types::AccessKeyLastUsed, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::AccessKeyLastUsed {
-             last_used_date: self.last_used_date,
-```
-
-### `src/types/_attached_permissions_boundary.rs`
-
-```diff
---- reference/src/types/_attached_permissions_boundary.rs
-+++ generated/src/types/_attached_permissions_boundary.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Contains information about an attached permissions boundary.</p>
- /// <p>An attached permissions boundary is a managed policy that has been attached to a user or role to set the permissions boundary.</p>
--/// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+/// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct AttachedPermissionsBoundary {
-```
-
-### `src/types/_attached_policy.rs`
-
-```diff
---- reference/src/types/_attached_policy.rs
-+++ generated/src/types/_attached_policy.rs
-@@ -8,8 +8,6 @@
- pub struct AttachedPolicy {
-     /// <p>The friendly name of the attached policy.</p>
-     pub policy_name: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub policy_arn: ::std::option::Option<::std::string::String>,
- }
- impl AttachedPolicy {
-@@ -17,8 +15,6 @@
-     pub fn policy_name(&self) -> ::std::option::Option<&str> {
-         self.policy_name.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn policy_arn(&self) -> ::std::option::Option<&str> {
-         self.policy_arn.as_deref()
-     }
-@@ -52,20 +48,14 @@
-     pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_name
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn policy_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_arn
-     }
-```
-
-### `src/types/_context_entry.rs`
-
-```diff
---- reference/src/types/_context_entry.rs
-+++ generated/src/types/_context_entry.rs
-@@ -18,8 +18,6 @@
-         self.context_key_name.as_deref()
-     }
-     /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.context_key_values.is_none()`.
-     pub fn context_key_values(&self) -> &[::std::string::String] {
-         self.context_key_values.as_deref().unwrap_or_default()
-     }
-@@ -58,11 +56,10 @@
-     pub fn get_context_key_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.context_key_name
-     }
-+    /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
-     /// Appends an item to `context_key_values`.
-     ///
-     /// To override the contents of this collection use [`set_context_key_values`](Self::set_context_key_values).
--    ///
--    /// <p>The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a <code>Condition</code> element in an input policy.</p>
-     pub fn context_key_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.context_key_values.unwrap_or_default();
-         v.push(input.into());
-```
-
 ### `src/types/_delegation_permission.rs`
 
 ```diff
 --- reference/src/types/_delegation_permission.rs
 +++ generated/src/types/_delegation_permission.rs
-@@ -4,19 +4,17 @@
+@@ -4,13 +4,13 @@
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct DelegationPermission {
@@ -150488,13 +145046,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn policy_template_arn(&self) -> ::std::option::Option<&str> {
          self.policy_template_arn.as_deref()
      }
-     /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
-     pub fn parameters(&self) -> &[crate::types::PolicyParameter] {
-         self.parameters.as_deref().unwrap_or_default()
-     }
-@@ -36,25 +34,24 @@
+@@ -36,17 +36,17 @@
      pub(crate) parameters: ::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>>,
  }
  impl DelegationPermissionBuilder {
@@ -150515,15 +145067,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_policy_template_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.policy_template_arn
      }
-+    /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
-     /// Appends an item to `parameters`.
-     ///
-     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
--    ///
--    /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
-     pub fn parameters(mut self, input: crate::types::PolicyParameter) -> Self {
-         let mut v = self.parameters.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/types/_delegation_request.rs`
@@ -150531,24 +145074,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delegation_request.rs
 +++ generated/src/types/_delegation_request.rs
-@@ -13,7 +13,6 @@
-     /// <p>A custom message that is added to the delegation request by the partner.</p>
-     /// <p>This element is different from the <code>Description</code> element such that this is a request specific message injected by the partner. The <code>Description</code> is typically a generic explanation of what the delegation request is targeted to do.</p>
-     pub request_message: ::std::option::Option<::std::string::String>,
--    /// <p>Contains information about the permissions being delegated in a delegation request.</p>
-     pub permissions: ::std::option::Option<crate::types::DelegationPermission>,
-     /// <p>JSON content of the associated permission policy of this delegation request.</p>
-     pub permission_policy: ::std::option::Option<::std::string::String>,
-@@ -21,8 +20,6 @@
-     pub role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>ARN of the owner of this delegation request.</p>
-     pub owner_id: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub approver_id: ::std::option::Option<::std::string::String>,
-     /// <p>The state of this delegation request.</p>
-     /// <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for an explanation of how these states are transitioned.</p>
-@@ -45,7 +42,7 @@
+@@ -45,7 +45,7 @@
      /// <p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html">RejectDelegationRequest</a> API documentation.</p>
      pub rejection_reason: ::std::option::Option<::std::string::String>,
      /// <p>A flag indicating whether the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>
@@ -150557,33 +145083,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>Last updated timestamp of the request.</p>
      pub updated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
-@@ -67,7 +64,6 @@
-     pub fn request_message(&self) -> ::std::option::Option<&str> {
-         self.request_message.as_deref()
-     }
--    /// <p>Contains information about the permissions being delegated in a delegation request.</p>
-     pub fn permissions(&self) -> ::std::option::Option<&crate::types::DelegationPermission> {
-         self.permissions.as_ref()
-     }
-@@ -76,8 +72,6 @@
-         self.permission_policy.as_deref()
-     }
-     /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_permission_restriction_arns.is_none()`.
-     pub fn role_permission_restriction_arns(&self) -> &[::std::string::String] {
-         self.role_permission_restriction_arns.as_deref().unwrap_or_default()
-     }
-@@ -85,8 +79,6 @@
-     pub fn owner_id(&self) -> ::std::option::Option<&str> {
-         self.owner_id.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn approver_id(&self) -> ::std::option::Option<&str> {
-         self.approver_id.as_deref()
-     }
-@@ -129,7 +121,7 @@
+@@ -129,7 +129,7 @@
          self.rejection_reason.as_deref()
      }
      /// <p>A flag indicating whether the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>
@@ -150592,59 +145092,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.only_send_by_owner
      }
      /// <p>Last updated timestamp of the request.</p>
-@@ -229,17 +221,14 @@
-     pub fn get_request_message(&self) -> &::std::option::Option<::std::string::String> {
-         &self.request_message
-     }
--    /// <p>Contains information about the permissions being delegated in a delegation request.</p>
-     pub fn permissions(mut self, input: crate::types::DelegationPermission) -> Self {
-         self.permissions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains information about the permissions being delegated in a delegation request.</p>
-     pub fn set_permissions(mut self, input: ::std::option::Option<crate::types::DelegationPermission>) -> Self {
-         self.permissions = input;
-         self
-     }
--    /// <p>Contains information about the permissions being delegated in a delegation request.</p>
-     pub fn get_permissions(&self) -> &::std::option::Option<crate::types::DelegationPermission> {
-         &self.permissions
-     }
-@@ -257,11 +246,10 @@
-     pub fn get_permission_policy(&self) -> &::std::option::Option<::std::string::String> {
-         &self.permission_policy
-     }
-+    /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
-     /// Appends an item to `role_permission_restriction_arns`.
-     ///
-     /// To override the contents of this collection use [`set_role_permission_restriction_arns`](Self::set_role_permission_restriction_arns).
--    ///
--    /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
-     pub fn role_permission_restriction_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.role_permission_restriction_arns.unwrap_or_default();
-         v.push(input.into());
-@@ -291,20 +279,14 @@
-     pub fn get_owner_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.owner_id
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn approver_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.approver_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_approver_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.approver_id = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_approver_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.approver_id
-     }
-@@ -489,7 +471,7 @@
+@@ -489,7 +489,7 @@
              redirect_url: self.redirect_url,
              notes: self.notes,
              rejection_reason: self.rejection_reason,
@@ -150653,35 +145101,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              updated_time: self.updated_time,
          }
      }
-```
-
-### `src/types/_deletion_task_failure_reason_type.rs`
-
-```diff
---- reference/src/types/_deletion_task_failure_reason_type.rs
-+++ generated/src/types/_deletion_task_failure_reason_type.rs
-@@ -16,8 +16,6 @@
-         self.reason.as_deref()
-     }
-     /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_usage_list.is_none()`.
-     pub fn role_usage_list(&self) -> &[crate::types::RoleUsageType] {
-         self.role_usage_list.as_deref().unwrap_or_default()
-     }
-@@ -51,11 +49,10 @@
-     pub fn get_reason(&self) -> &::std::option::Option<::std::string::String> {
-         &self.reason
-     }
-+    /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
-     /// Appends an item to `role_usage_list`.
-     ///
-     /// To override the contents of this collection use [`set_role_usage_list`](Self::set_role_usage_list).
--    ///
--    /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
-     pub fn role_usage_list(mut self, input: crate::types::RoleUsageType) -> Self {
-         let mut v = self.role_usage_list.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/types/_entity_details.rs`
@@ -150760,79 +145179,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_entity_info.rs
 +++ generated/src/types/_entity_info.rs
-@@ -5,8 +5,6 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct EntityInfo {
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::string::String,
-     /// <p>The name of the entity (user or role).</p>
-     pub name: ::std::string::String,
-@@ -18,8 +16,6 @@
-     pub path: ::std::option::Option<::std::string::String>,
- }
- impl EntityInfo {
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> &str {
-         use std::ops::Deref;
-         self.arn.deref()
-@@ -61,21 +57,15 @@
-     pub(crate) path: ::std::option::Option<::std::string::String>,
- }
- impl EntityInfoBuilder {
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     /// This field is required.
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-@@ -140,10 +130,10 @@
-     }
-     /// Consumes the builder and constructs a [`EntityInfo`](crate::types::EntityInfo).
+@@ -142,7 +142,7 @@
      /// This method will fail if any of the following fields are not set:
--    /// - [`arn`](crate::types::builders::EntityInfoBuilder::arn)
--    /// - [`name`](crate::types::builders::EntityInfoBuilder::name)
+     /// - [`arn`](crate::types::builders::EntityInfoBuilder::arn)
+     /// - [`name`](crate::types::builders::EntityInfoBuilder::name)
 -    /// - [`r#type`](crate::types::builders::EntityInfoBuilder::type)
--    /// - [`id`](crate::types::builders::EntityInfoBuilder::id)
-+    /// - [`arn`](Self::arn)
-+    /// - [`name`](Self::name)
-+    /// - [`r#type`](Self::r#type)
-+    /// - [`id`](Self::id)
++    /// - [`r#type`](crate::types::builders::EntityInfoBuilder::r#type)
+     /// - [`id`](crate::types::builders::EntityInfoBuilder::id)
      pub fn build(self) -> ::std::result::Result<crate::types::EntityInfo, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::EntityInfo {
-             arn: self.arn.ok_or_else(|| {
-```
-
-### `src/types/_error_details.rs`
-
-```diff
---- reference/src/types/_error_details.rs
-+++ generated/src/types/_error_details.rs
-@@ -69,8 +69,8 @@
-     }
-     /// Consumes the builder and constructs a [`ErrorDetails`](crate::types::ErrorDetails).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`message`](crate::types::builders::ErrorDetailsBuilder::message)
--    /// - [`code`](crate::types::builders::ErrorDetailsBuilder::code)
-+    /// - [`message`](Self::message)
-+    /// - [`code`](Self::code)
-     pub fn build(self) -> ::std::result::Result<crate::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ErrorDetails {
-             message: self.message.ok_or_else(|| {
 ```
 
 ### `src/types/_evaluation_result.rs`
@@ -150840,92 +145195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_evaluation_result.rs
 +++ generated/src/types/_evaluation_result.rs
-@@ -1,10 +1,8 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>Contains the results of a simulation.</p>
--/// <p>This data type is used by the return parameter of <code> <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a> </code> and <code> <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a> </code>.</p><important>
--/// <p>The simulator now returns a single <code>EvaluationResult</code> per action, regardless of how many resource ARNs are provided. Previously, simulating one action against N resources returned N evaluation results, each containing the same aggregate decision. The top-level fields (<code>EvalDecision</code>, <code>MatchedStatements</code>, <code>MissingContextValues</code>, <code>EvalDecisionDetails</code>) now represent the <i>aggregate</i> decision across all requested resources. The top-level <code>EvalDecision</code> reflects the most restrictive decision across all resources (for example, if any resource produces <code>explicitDeny</code>, the top-level decision is <code>explicitDeny</code>).</p>
--/// <p>To see the decision for each individual resource, use <code>ResourceSpecificResults</code>. If your application parses evaluation results per resource ARN, update your code to read per-resource decisions from <code>ResourceSpecificResults</code> rather than from the top-level result.</p>
--/// </important>
-+/// <p>This data type is used by the return parameter of <code><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html">SimulateCustomPolicy</a></code> and <code><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a></code>.</p> <important><p>The simulator now returns a single <code>EvaluationResult</code> per action, regardless of how many resource ARNs are provided. Previously, simulating one action against N resources returned N evaluation results, each containing the same aggregate decision. The top-level fields (<code>EvalDecision</code>, <code>MatchedStatements</code>, <code>MissingContextValues</code>, <code>EvalDecisionDetails</code>) now represent the <i>aggregate</i> decision across all requested resources. The top-level <code>EvalDecision</code> reflects the most restrictive decision across all resources (for example, if any resource produces <code>explicitDeny</code>, the top-level decision is <code>explicitDeny</code>).</p>
-+/// <p>To see the decision for each individual resource, use <code>ResourceSpecificResults</code>. If your application parses evaluation results per resource ARN, update your code to read per-resource decisions from <code>ResourceSpecificResults</code> rather than from the top-level result.</p></important>
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct EvaluationResult {
-@@ -54,15 +52,11 @@
-     }
-     /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
-     /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.matched_statements.is_none()`.
-     pub fn matched_statements(&self) -> &[crate::types::Statement] {
-         self.matched_statements.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter blank. If you include a list of resources, then any missing context values are instead included under the <code>ResourceSpecificResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
-     /// <p>In the top-level result, this field contains the deduplicated set of missing context values across all requested resources. This field doesn't include context keys referenced by service control policies (SCPs). Only context keys referenced by identity-based and resource-based policies appear here.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.missing_context_values.is_none()`.
-     pub fn missing_context_values(&self) -> &[::std::string::String] {
-         self.missing_context_values.as_deref().unwrap_or_default()
-     }
-@@ -86,8 +80,6 @@
-         self.eval_decision_details.as_ref()
-     }
-     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resource_specific_results.is_none()`.
-     pub fn resource_specific_results(&self) -> &[crate::types::ResourceSpecificResult] {
-         self.resource_specific_results.as_deref().unwrap_or_default()
-     }
-@@ -165,12 +157,11 @@
-     pub fn get_eval_decision(&self) -> &::std::option::Option<crate::types::PolicyEvaluationDecisionType> {
-         &self.eval_decision
-     }
-+    /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
-+    /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
-     /// Appends an item to `matched_statements`.
-     ///
-     /// To override the contents of this collection use [`set_matched_statements`](Self::set_matched_statements).
--    ///
--    /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
--    /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
-     pub fn matched_statements(mut self, input: crate::types::Statement) -> Self {
-         let mut v = self.matched_statements.unwrap_or_default();
-         v.push(input);
-@@ -188,12 +179,11 @@
-     pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Statement>> {
-         &self.matched_statements
-     }
-+    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter blank. If you include a list of resources, then any missing context values are instead included under the <code>ResourceSpecificResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
-+    /// <p>In the top-level result, this field contains the deduplicated set of missing context values across all requested resources. This field doesn't include context keys referenced by service control policies (SCPs). Only context keys referenced by identity-based and resource-based policies appear here.</p>
-     /// Appends an item to `missing_context_values`.
-     ///
-     /// To override the contents of this collection use [`set_missing_context_values`](Self::set_missing_context_values).
--    ///
--    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter blank. If you include a list of resources, then any missing context values are instead included under the <code>ResourceSpecificResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
--    /// <p>In the top-level result, this field contains the deduplicated set of missing context values across all requested resources. This field doesn't include context keys referenced by service control policies (SCPs). Only context keys referenced by identity-based and resource-based policies appear here.</p>
-     pub fn missing_context_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.missing_context_values.unwrap_or_default();
-         v.push(input.into());
-@@ -242,23 +232,22 @@
-     pub fn get_permissions_boundary_decision_detail(&self) -> &::std::option::Option<crate::types::PermissionsBoundaryDecisionDetail> {
-         &self.permissions_boundary_decision_detail
-     }
--    /// Adds a key-value pair to `eval_decision_details`.
--    ///
--    /// To override the contents of this collection use [`set_eval_decision_details`](Self::set_eval_decision_details).
--    ///
-     /// <p>Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.</p>
-     /// <p>In the top-level result, this map reports the most restrictive decision per policy type across all requested resources.</p>
-     /// <p>If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (<code>*</code>), then the parameter is not returned.</p>
-     /// <p>When you make a cross-account request, Amazon Web Services evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies within a single account</a>.</p>
-     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
-+    /// Adds a key-value pair to `eval_decision_details`.
-+    ///
-+    /// To override the contents of this collection use [`set_eval_decision_details`](Self::set_eval_decision_details).
-     pub fn eval_decision_details(
-         mut self,
+@@ -256,9 +256,9 @@
          k: impl ::std::convert::Into<::std::string::String>,
          v: crate::types::PolicyEvaluationDecisionType,
      ) -> Self {
@@ -150938,276 +145208,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
      /// <p>Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.</p>
-@@ -283,11 +272,10 @@
-     ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>> {
-         &self.eval_decision_details
-     }
-+    /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
-     /// Appends an item to `resource_specific_results`.
-     ///
-     /// To override the contents of this collection use [`set_resource_specific_results`](Self::set_resource_specific_results).
--    ///
--    /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
-     pub fn resource_specific_results(mut self, input: crate::types::ResourceSpecificResult) -> Self {
-         let mut v = self.resource_specific_results.unwrap_or_default();
-         v.push(input);
-@@ -305,8 +293,8 @@
-     }
-     /// Consumes the builder and constructs a [`EvaluationResult`](crate::types::EvaluationResult).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`eval_action_name`](crate::types::builders::EvaluationResultBuilder::eval_action_name)
--    /// - [`eval_decision`](crate::types::builders::EvaluationResultBuilder::eval_decision)
-+    /// - [`eval_action_name`](Self::eval_action_name)
-+    /// - [`eval_decision`](Self::eval_decision)
-     pub fn build(self) -> ::std::result::Result<crate::types::EvaluationResult, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::EvaluationResult {
-             eval_action_name: self.eval_action_name.ok_or_else(|| {
-```
-
-### `src/types/_group.rs`
-
-```diff
---- reference/src/types/_group.rs
-+++ generated/src/types/_group.rs
-@@ -1,15 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>Contains information about an IAM group entity.</p>
--/// <p>This data type is used as a response element in the following operations:</p>
--/// <ul>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html">CreateGroup</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html">GetGroup</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html">ListGroups</a></p></li>
--/// </ul>
-+/// <p>This data type is used as a response element in the following operations:</p><ul><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html">CreateGroup</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html">GetGroup</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html">ListGroups</a></p></li></ul>
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct Group {
-@@ -145,11 +137,11 @@
-     }
-     /// Consumes the builder and constructs a [`Group`](crate::types::Group).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`path`](crate::types::builders::GroupBuilder::path)
--    /// - [`group_name`](crate::types::builders::GroupBuilder::group_name)
--    /// - [`group_id`](crate::types::builders::GroupBuilder::group_id)
--    /// - [`arn`](crate::types::builders::GroupBuilder::arn)
--    /// - [`create_date`](crate::types::builders::GroupBuilder::create_date)
-+    /// - [`path`](Self::path)
-+    /// - [`group_name`](Self::group_name)
-+    /// - [`group_id`](Self::group_id)
-+    /// - [`arn`](Self::arn)
-+    /// - [`create_date`](Self::create_date)
-     pub fn build(self) -> ::std::result::Result<crate::types::Group, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::Group {
-             path: self.path.ok_or_else(|| {
-```
-
-### `src/types/_group_detail.rs`
-
-```diff
---- reference/src/types/_group_detail.rs
-+++ generated/src/types/_group_detail.rs
-@@ -11,8 +11,6 @@
-     pub group_name: ::std::option::Option<::std::string::String>,
-     /// <p>The stable and unique string identifying the group. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-     pub group_id: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
-     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the group was created.</p>
-     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-@@ -34,8 +32,6 @@
-     pub fn group_id(&self) -> ::std::option::Option<&str> {
-         self.group_id.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> ::std::option::Option<&str> {
-         self.arn.as_deref()
-     }
-@@ -44,14 +40,10 @@
-         self.create_date.as_ref()
-     }
-     /// <p>A list of the inline policies embedded in the group.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_policy_list.is_none()`.
-     pub fn group_policy_list(&self) -> &[crate::types::PolicyDetail] {
-         self.group_policy_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of the managed policies attached to the group.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
-     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
-         self.attached_managed_policies.as_deref().unwrap_or_default()
-     }
-@@ -118,20 +110,14 @@
-     pub fn get_group_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.group_id
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-@@ -149,11 +135,10 @@
-     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.create_date
-     }
-+    /// <p>A list of the inline policies embedded in the group.</p>
-     /// Appends an item to `group_policy_list`.
-     ///
-     /// To override the contents of this collection use [`set_group_policy_list`](Self::set_group_policy_list).
--    ///
--    /// <p>A list of the inline policies embedded in the group.</p>
-     pub fn group_policy_list(mut self, input: crate::types::PolicyDetail) -> Self {
-         let mut v = self.group_policy_list.unwrap_or_default();
-         v.push(input);
-@@ -169,11 +154,10 @@
-     pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
-         &self.group_policy_list
-     }
-+    /// <p>A list of the managed policies attached to the group.</p>
-     /// Appends an item to `attached_managed_policies`.
-     ///
-     /// To override the contents of this collection use [`set_attached_managed_policies`](Self::set_attached_managed_policies).
--    ///
--    /// <p>A list of the managed policies attached to the group.</p>
-     pub fn attached_managed_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
-         let mut v = self.attached_managed_policies.unwrap_or_default();
-         v.push(input);
-```
-
-### `src/types/_inline_policy.rs`
-
-```diff
---- reference/src/types/_inline_policy.rs
-+++ generated/src/types/_inline_policy.rs
-@@ -68,8 +68,8 @@
-     }
-     /// Consumes the builder and constructs a [`InlinePolicy`](crate::types::InlinePolicy).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policy_name`](crate::types::builders::InlinePolicyBuilder::policy_name)
--    /// - [`policy_document`](crate::types::builders::InlinePolicyBuilder::policy_document)
-+    /// - [`policy_name`](Self::policy_name)
-+    /// - [`policy_document`](Self::policy_document)
-     pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicy, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::InlinePolicy {
-             policy_name: self.policy_name.ok_or_else(|| {
-```
-
-### `src/types/_inline_policy_identifier_type.rs`
-
-```diff
---- reference/src/types/_inline_policy_identifier_type.rs
-+++ generated/src/types/_inline_policy_identifier_type.rs
-@@ -90,9 +90,9 @@
-     }
-     /// Consumes the builder and constructs a [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policy_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::policy_name)
--    /// - [`attachment_type`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_type)
--    /// - [`attachment_name`](crate::types::builders::InlinePolicyIdentifierTypeBuilder::attachment_name)
-+    /// - [`policy_name`](Self::policy_name)
-+    /// - [`attachment_type`](Self::attachment_type)
-+    /// - [`attachment_name`](Self::attachment_name)
-     pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicyIdentifierType, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::InlinePolicyIdentifierType {
-             policy_name: self.policy_name.ok_or_else(|| {
-```
-
-### `src/types/_instance_profile.rs`
-
-```diff
---- reference/src/types/_instance_profile.rs
-+++ generated/src/types/_instance_profile.rs
-@@ -1,17 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>Contains information about an instance profile.</p>
--/// <p>This data type is used as a response element in the following operations:</p>
--/// <ul>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html">CreateInstanceProfile</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html">GetInstanceProfile</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html">ListInstanceProfiles</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html">ListInstanceProfilesForRole</a></p></li>
--/// </ul>
-+/// <p>This data type is used as a response element in the following operations:</p><ul><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html">CreateInstanceProfile</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html">GetInstanceProfile</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html">ListInstanceProfiles</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html">ListInstanceProfilesForRole</a></p></li></ul>
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct InstanceProfile {
-@@ -61,8 +51,6 @@
-         self.roles.deref()
-     }
-     /// <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -162,11 +150,10 @@
-     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.create_date
-     }
-+    /// <p>The role associated with the instance profile.</p>
-     /// Appends an item to `roles`.
-     ///
-     /// To override the contents of this collection use [`set_roles`](Self::set_roles).
--    ///
--    /// <p>The role associated with the instance profile.</p>
-     pub fn roles(mut self, input: crate::types::Role) -> Self {
-         let mut v = self.roles.unwrap_or_default();
-         v.push(input);
-@@ -182,11 +169,10 @@
-     pub fn get_roles(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Role>> {
-         &self.roles
-     }
-+    /// <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -204,12 +190,12 @@
-     }
-     /// Consumes the builder and constructs a [`InstanceProfile`](crate::types::InstanceProfile).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`path`](crate::types::builders::InstanceProfileBuilder::path)
--    /// - [`instance_profile_name`](crate::types::builders::InstanceProfileBuilder::instance_profile_name)
--    /// - [`instance_profile_id`](crate::types::builders::InstanceProfileBuilder::instance_profile_id)
--    /// - [`arn`](crate::types::builders::InstanceProfileBuilder::arn)
--    /// - [`create_date`](crate::types::builders::InstanceProfileBuilder::create_date)
--    /// - [`roles`](crate::types::builders::InstanceProfileBuilder::roles)
-+    /// - [`path`](Self::path)
-+    /// - [`instance_profile_name`](Self::instance_profile_name)
-+    /// - [`instance_profile_id`](Self::instance_profile_id)
-+    /// - [`arn`](Self::arn)
-+    /// - [`create_date`](Self::create_date)
-+    /// - [`roles`](Self::roles)
-     pub fn build(self) -> ::std::result::Result<crate::types::InstanceProfile, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::InstanceProfile {
-             path: self.path.ok_or_else(|| {
 ```
 
 ### `src/types/_list_policies_granting_service_access_entry.rs`
@@ -151215,7 +145215,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_list_policies_granting_service_access_entry.rs
 +++ generated/src/types/_list_policies_granting_service_access_entry.rs
-@@ -6,20 +6,18 @@
+@@ -6,18 +6,18 @@
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ListPoliciesGrantingServiceAccessEntry {
      /// <p>The namespace of the service that was accessed.</p>
@@ -151234,13 +145234,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.service_namespace.as_deref()
      }
 -    /// <p>The&nbsp;<code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
 +    /// <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
+     ///
+     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
      pub fn policies(&self) -> &[crate::types::PolicyGrantingServiceAccess] {
-         self.policies.as_deref().unwrap_or_default()
-     }
-@@ -40,27 +38,26 @@
+@@ -40,19 +40,19 @@
  }
  impl ListPoliciesGrantingServiceAccessEntryBuilder {
      /// <p>The namespace of the service that was accessed.</p>
@@ -151263,16 +145261,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_service_namespace(&self) -> &::std::option::Option<::std::string::String> {
          &self.service_namespace
      }
-+    /// <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
-     /// Appends an item to `policies`.
+@@ -60,7 +60,7 @@
      ///
      /// To override the contents of this collection use [`set_policies`](Self::set_policies).
--    ///
+     ///
 -    /// <p>The&nbsp;<code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
++    /// <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the policy.</p>
      pub fn policies(mut self, input: crate::types::PolicyGrantingServiceAccess) -> Self {
          let mut v = self.policies.unwrap_or_default();
          v.push(input);
-@@ -67,12 +64,12 @@
+@@ -67,12 +67,12 @@
          self.policies = ::std::option::Option::Some(v);
          self
      }
@@ -151312,17 +145310,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.password_reset_required
      }
  }
-@@ -89,8 +89,8 @@
-     }
-     /// Consumes the builder and constructs a [`LoginProfile`](crate::types::LoginProfile).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::LoginProfileBuilder::user_name)
--    /// - [`create_date`](crate::types::builders::LoginProfileBuilder::create_date)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`create_date`](Self::create_date)
-     pub fn build(self) -> ::std::result::Result<crate::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::LoginProfile {
-             user_name: self.user_name.ok_or_else(|| {
 @@ -105,7 +105,7 @@
                      "create_date was not specified but it is required when building LoginProfile",
                  )
@@ -151339,21 +145326,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_managed_policy_detail.rs
 +++ generated/src/types/_managed_policy_detail.rs
-@@ -11,8 +11,6 @@
-     /// <p>The stable and unique string identifying the policy.</p>
-     /// <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-     pub policy_id: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
-     /// <p>The path to the policy.</p>
-     /// <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-@@ -23,10 +21,10 @@
-     /// <p>The number of principal entities (users, groups, and roles) that the policy is attached to.</p>
-     pub attachment_count: ::std::option::Option<i32>,
-     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+@@ -26,7 +26,7 @@
+     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
      pub permissions_boundary_usage_count: ::std::option::Option<i32>,
      /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
 -    pub is_attachable: bool,
@@ -151361,22 +145335,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A friendly description of the policy.</p>
      pub description: ::std::option::Option<::std::string::String>,
      /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was created.</p>
-@@ -47,8 +45,6 @@
-     pub fn policy_id(&self) -> ::std::option::Option<&str> {
-         self.policy_id.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> ::std::option::Option<&str> {
-         self.arn.as_deref()
-     }
-@@ -67,12 +63,12 @@
-         self.attachment_count
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary_usage_count(&self) -> ::std::option::Option<i32> {
+@@ -72,7 +72,7 @@
          self.permissions_boundary_usage_count
      }
      /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
@@ -151385,73 +145344,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_attachable
      }
      /// <p>A friendly description of the policy.</p>
-@@ -89,8 +85,6 @@
-         self.update_date.as_ref()
-     }
-     /// <p>A list containing information about the versions of the policy.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policy_version_list.is_none()`.
-     pub fn policy_version_list(&self) -> &[crate::types::PolicyVersion] {
-         self.policy_version_list.as_deref().unwrap_or_default()
-     }
-@@ -151,20 +145,14 @@
-     pub fn get_policy_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_id
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-@@ -217,19 +205,19 @@
-         &self.attachment_count
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary_usage_count(mut self, input: i32) -> Self {
-         self.permissions_boundary_usage_count = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary_usage_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.permissions_boundary_usage_count = input;
-         self
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary_usage_count(&self) -> &::std::option::Option<i32> {
-         &self.permissions_boundary_usage_count
-     }
-@@ -292,11 +280,10 @@
-     pub fn get_update_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.update_date
-     }
-+    /// <p>A list containing information about the versions of the policy.</p>
-     /// Appends an item to `policy_version_list`.
-     ///
-     /// To override the contents of this collection use [`set_policy_version_list`](Self::set_policy_version_list).
--    ///
--    /// <p>A list containing information about the versions of the policy.</p>
-     pub fn policy_version_list(mut self, input: crate::types::PolicyVersion) -> Self {
-         let mut v = self.policy_version_list.unwrap_or_default();
-         v.push(input);
-@@ -322,7 +309,7 @@
+@@ -322,7 +322,7 @@
              default_version_id: self.default_version_id,
              attachment_count: self.attachment_count,
              permissions_boundary_usage_count: self.permissions_boundary_usage_count,
@@ -151460,97 +145353,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              description: self.description,
              create_date: self.create_date,
              update_date: self.update_date,
-```
-
-### `src/types/_mfa_device.rs`
-
-```diff
---- reference/src/types/_mfa_device.rs
-+++ generated/src/types/_mfa_device.rs
-@@ -91,9 +91,9 @@
-     }
-     /// Consumes the builder and constructs a [`MfaDevice`](crate::types::MfaDevice).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::MfaDeviceBuilder::user_name)
--    /// - [`serial_number`](crate::types::builders::MfaDeviceBuilder::serial_number)
--    /// - [`enable_date`](crate::types::builders::MfaDeviceBuilder::enable_date)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`serial_number`](Self::serial_number)
-+    /// - [`enable_date`](Self::enable_date)
-     pub fn build(self) -> ::std::result::Result<crate::types::MfaDevice, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::MfaDevice {
-             user_name: self.user_name.ok_or_else(|| {
-```
-
-### `src/types/_open_id_connect_provider_list_entry.rs`
-
-```diff
---- reference/src/types/_open_id_connect_provider_list_entry.rs
-+++ generated/src/types/_open_id_connect_provider_list_entry.rs
-@@ -4,13 +4,9 @@
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct OpenIdConnectProviderListEntry {
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
- }
- impl OpenIdConnectProviderListEntry {
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> ::std::option::Option<&str> {
-         self.arn.as_deref()
-     }
-@@ -29,20 +25,14 @@
-     pub(crate) arn: ::std::option::Option<::std::string::String>,
- }
- impl OpenIdConnectProviderListEntryBuilder {
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-```
-
-### `src/types/_ordered_organization_policy_type.rs`
-
-```diff
---- reference/src/types/_ordered_organization_policy_type.rs
-+++ generated/src/types/_ordered_organization_policy_type.rs
-@@ -10,8 +10,6 @@
- }
- impl OrderedOrganizationPolicyType {
-     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_control_policy_input_list.is_none()`.
-     pub fn service_control_policy_input_list(&self) -> &[::std::string::String] {
-         self.service_control_policy_input_list.as_deref().unwrap_or_default()
-     }
-@@ -30,11 +28,10 @@
-     pub(crate) service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
- }
- impl OrderedOrganizationPolicyTypeBuilder {
-+    /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-     /// Appends an item to `service_control_policy_input_list`.
-     ///
-     /// To override the contents of this collection use [`set_service_control_policy_input_list`](Self::set_service_control_policy_input_list).
--    ///
--    /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
-     pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.service_control_policy_input_list.unwrap_or_default();
-         v.push(input.into());
 ```
 
 ### `src/types/_organizations_decision_detail.rs`
@@ -151620,14 +145422,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.immutable
      }
  }
-@@ -172,8 +172,8 @@
-     }
+@@ -173,7 +173,7 @@
      /// Consumes the builder and constructs a [`ParameterDefinition`](crate::types::ParameterDefinition).
      /// This method will fail if any of the following fields are not set:
--    /// - [`name`](crate::types::builders::ParameterDefinitionBuilder::name)
+     /// - [`name`](crate::types::builders::ParameterDefinitionBuilder::name)
 -    /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::type)
-+    /// - [`name`](Self::name)
-+    /// - [`r#type`](Self::r#type)
++    /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::r#type)
      pub fn build(self) -> ::std::result::Result<crate::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::ParameterDefinition {
              name: self.name.ok_or_else(|| {
@@ -151650,13 +145450,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_password_policy.rs
 +++ generated/src/types/_password_policy.rs
-@@ -8,18 +8,18 @@
-     /// <p>Minimum length to require for IAM user passwords.</p>
+@@ -9,17 +9,17 @@
      pub minimum_password_length: ::std::option::Option<i32>,
      /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
+     /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
 -    pub require_symbols: bool,
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
 +    pub require_symbols: ::std::option::Option<bool>,
      /// <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).</p>
 -    pub require_numbers: bool,
@@ -151676,13 +145474,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The number of days that an IAM user password is valid.</p>
      pub max_password_age: ::std::option::Option<i32>,
      /// <p>Specifies the number of previous passwords that IAM users are prevented from reusing.</p>
-@@ -33,28 +33,28 @@
-         self.minimum_password_length
+@@ -34,27 +34,27 @@
      }
      /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
+     /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
 -    pub fn require_symbols(&self) -> bool {
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
 +    pub fn require_symbols(&self) -> ::std::option::Option<bool> {
          self.require_symbols
      }
@@ -151712,29 +145508,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.expire_passwords
      }
      /// <p>The number of days that an IAM user password is valid.</p>
-@@ -108,19 +108,19 @@
-         &self.minimum_password_length
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     pub fn require_symbols(mut self, input: bool) -> Self {
-         self.require_symbols = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     pub fn set_require_symbols(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.require_symbols = input;
-         self
-     }
-     /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
--    /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-+    /// <p>! @ # $ % ^ & * ( ) _ + - = \[ \] { } | '</p>
-     pub fn get_require_symbols(&self) -> &::std::option::Option<bool> {
-         &self.require_symbols
-     }
 @@ -240,12 +240,12 @@
      pub fn build(self) -> crate::types::PasswordPolicy {
          crate::types::PasswordPolicy {
@@ -151791,21 +145564,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_policy.rs
 +++ generated/src/types/_policy.rs
-@@ -11,8 +11,6 @@
-     /// <p>The stable and unique string identifying the policy.</p>
-     /// <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-     pub policy_id: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
-     /// <p>The path to the policy.</p>
-     /// <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-@@ -22,10 +20,10 @@
-     /// <p>The number of entities (users, groups, and roles) that the policy is attached to.</p>
-     pub attachment_count: ::std::option::Option<i32>,
-     /// <p>The number of entities (users and roles) for which the policy is used to set the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+@@ -25,7 +25,7 @@
+     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
      pub permissions_boundary_usage_count: ::std::option::Option<i32>,
      /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
 -    pub is_attachable: bool,
@@ -151813,22 +145573,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A friendly description of the policy.</p>
      /// <p>This element is included in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a> operation. It is not included in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html">ListPolicies</a> operation.</p>
      pub description: ::std::option::Option<::std::string::String>,
-@@ -47,8 +45,6 @@
-     pub fn policy_id(&self) -> ::std::option::Option<&str> {
-         self.policy_id.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> ::std::option::Option<&str> {
-         self.arn.as_deref()
-     }
-@@ -66,12 +62,12 @@
-         self.attachment_count
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used to set the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary_usage_count(&self) -> ::std::option::Option<i32> {
+@@ -71,7 +71,7 @@
          self.permissions_boundary_usage_count
      }
      /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
@@ -151837,73 +145582,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_attachable
      }
      /// <p>A friendly description of the policy.</p>
-@@ -89,8 +85,6 @@
-         self.update_date.as_ref()
-     }
-     /// <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -151,20 +145,14 @@
-     pub fn get_policy_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_id
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-@@ -214,19 +202,19 @@
-         &self.attachment_count
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used to set the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary_usage_count(mut self, input: i32) -> Self {
-         self.permissions_boundary_usage_count = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used to set the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary_usage_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.permissions_boundary_usage_count = input;
-         self
-     }
-     /// <p>The number of entities (users and roles) for which the policy is used to set the permissions boundary.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary_usage_count(&self) -> &::std::option::Option<i32> {
-         &self.permissions_boundary_usage_count
-     }
-@@ -292,11 +280,10 @@
-     pub fn get_update_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.update_date
-     }
-+    /// <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -322,7 +309,7 @@
+@@ -322,7 +322,7 @@
              default_version_id: self.default_version_id,
              attachment_count: self.attachment_count,
              permissions_boundary_usage_count: self.permissions_boundary_usage_count,
@@ -151912,63 +145591,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              description: self.description,
              create_date: self.create_date,
              update_date: self.update_date,
-```
-
-### `src/types/_policy_granting_service_access.rs`
-
-```diff
---- reference/src/types/_policy_granting_service_access.rs
-+++ generated/src/types/_policy_granting_service_access.rs
-@@ -9,8 +9,6 @@
-     pub policy_name: ::std::string::String,
-     /// <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
-     pub policy_type: crate::types::PolicyType,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub policy_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.</p>
-     /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
-@@ -29,8 +27,6 @@
-     pub fn policy_type(&self) -> &crate::types::PolicyType {
-         &self.policy_type
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn policy_arn(&self) -> ::std::option::Option<&str> {
-         self.policy_arn.as_deref()
-     }
-@@ -93,20 +89,14 @@
-     pub fn get_policy_type(&self) -> &::std::option::Option<crate::types::PolicyType> {
-         &self.policy_type
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn policy_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.policy_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.policy_arn
-     }
-@@ -146,8 +136,8 @@
-     }
-     /// Consumes the builder and constructs a [`PolicyGrantingServiceAccess`](crate::types::PolicyGrantingServiceAccess).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`policy_name`](crate::types::builders::PolicyGrantingServiceAccessBuilder::policy_name)
--    /// - [`policy_type`](crate::types::builders::PolicyGrantingServiceAccessBuilder::policy_type)
-+    /// - [`policy_name`](Self::policy_name)
-+    /// - [`policy_type`](Self::policy_type)
-     pub fn build(self) -> ::std::result::Result<crate::types::PolicyGrantingServiceAccess, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::PolicyGrantingServiceAccess {
-             policy_name: self.policy_name.ok_or_else(|| {
 ```
 
 ### `src/types/_policy_identifier.rs`
@@ -152051,35 +145673,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/types/_policy_parameter.rs`
-
-```diff
---- reference/src/types/_policy_parameter.rs
-+++ generated/src/types/_policy_parameter.rs
-@@ -17,8 +17,6 @@
-         self.name.as_deref()
-     }
-     /// <p>The allowed values for the policy parameter.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.values.is_none()`.
-     pub fn values(&self) -> &[::std::string::String] {
-         self.values.as_deref().unwrap_or_default()
-     }
-@@ -57,11 +55,10 @@
-     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.name
-     }
-+    /// <p>The allowed values for the policy parameter.</p>
-     /// Appends an item to `values`.
-     ///
-     /// To override the contents of this collection use [`set_values`](Self::set_values).
--    ///
--    /// <p>The allowed values for the policy parameter.</p>
-     pub fn values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.values.unwrap_or_default();
-         v.push(input.into());
-```
-
 ### `src/types/_policy_usage_type.rs`
 
 ```diff
@@ -152139,13 +145732,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_position.rs
 +++ generated/src/types/_position.rs
-@@ -1,22 +1,22 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>Contains the row and column of a location of a <code>Statement</code> element in a policy document.</p>
--/// <p>This data type is used as a member of the <code> <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Statement.html">Statement</a> </code> type.</p>
-+/// <p>This data type is used as a member of the <code><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Statement.html">Statement</a></code> type.</p>
- #[non_exhaustive]
+@@ -6,17 +6,17 @@
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct Position {
      /// <p>The line containing the specified position in the document.</p>
@@ -152180,93 +145767,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_replacement_value_entry.rs`
-
-```diff
---- reference/src/types/_replacement_value_entry.rs
-+++ generated/src/types/_replacement_value_entry.rs
-@@ -28,11 +28,10 @@
-     pub(crate) values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
- }
- impl ReplacementValueEntryBuilder {
-+    /// <p>The list of replacement values for the template parameter.</p>
-     /// Appends an item to `values`.
-     ///
-     /// To override the contents of this collection use [`set_values`](Self::set_values).
--    ///
--    /// <p>The list of replacement values for the template parameter.</p>
-     pub fn values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.values.unwrap_or_default();
-         v.push(input.into());
-@@ -50,7 +49,7 @@
-     }
-     /// Consumes the builder and constructs a [`ReplacementValueEntry`](crate::types::ReplacementValueEntry).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`values`](crate::types::builders::ReplacementValueEntryBuilder::values)
-+    /// - [`values`](Self::values)
-     pub fn build(self) -> ::std::result::Result<crate::types::ReplacementValueEntry, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ReplacementValueEntry {
-             values: self.values.ok_or_else(|| {
-```
-
 ### `src/types/_resource_specific_result.rs`
 
 ```diff
 --- reference/src/types/_resource_specific_result.rs
 +++ generated/src/types/_resource_specific_result.rs
-@@ -29,14 +29,10 @@
-         &self.eval_resource_decision
-     }
-     /// <p>A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if <i>any</i> statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.matched_statements.is_none()`.
-     pub fn matched_statements(&self) -> &[crate::types::Statement] {
-         self.matched_statements.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.missing_context_values.is_none()`.
-     pub fn missing_context_values(&self) -> &[::std::string::String] {
-         self.missing_context_values.as_deref().unwrap_or_default()
-     }
-@@ -101,11 +97,10 @@
-     pub fn get_eval_resource_decision(&self) -> &::std::option::Option<crate::types::PolicyEvaluationDecisionType> {
-         &self.eval_resource_decision
-     }
-+    /// <p>A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if <i>any</i> statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
-     /// Appends an item to `matched_statements`.
-     ///
-     /// To override the contents of this collection use [`set_matched_statements`](Self::set_matched_statements).
--    ///
--    /// <p>A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if <i>any</i> statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
-     pub fn matched_statements(mut self, input: crate::types::Statement) -> Self {
-         let mut v = self.matched_statements.unwrap_or_default();
-         v.push(input);
-@@ -121,11 +116,10 @@
-     pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Statement>> {
-         &self.matched_statements
-     }
-+    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
-     /// Appends an item to `missing_context_values`.
-     ///
-     /// To override the contents of this collection use [`set_missing_context_values`](Self::set_missing_context_values).
--    ///
--    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
-     pub fn missing_context_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.missing_context_values.unwrap_or_default();
-         v.push(input.into());
-@@ -141,19 +135,18 @@
-     pub fn get_missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.missing_context_values
-     }
-+    /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
-     /// Adds a key-value pair to `eval_decision_details`.
-     ///
-     /// To override the contents of this collection use [`set_eval_decision_details`](Self::set_eval_decision_details).
--    ///
--    /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
-     pub fn eval_decision_details(
-         mut self,
+@@ -151,9 +151,9 @@
          k: impl ::std::convert::Into<::std::string::String>,
          v: crate::types::PolicyEvaluationDecisionType,
      ) -> Self {
@@ -152279,256 +145785,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
      /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
-@@ -186,8 +179,8 @@
-     }
-     /// Consumes the builder and constructs a [`ResourceSpecificResult`](crate::types::ResourceSpecificResult).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`eval_resource_name`](crate::types::builders::ResourceSpecificResultBuilder::eval_resource_name)
--    /// - [`eval_resource_decision`](crate::types::builders::ResourceSpecificResultBuilder::eval_resource_decision)
-+    /// - [`eval_resource_name`](Self::eval_resource_name)
-+    /// - [`eval_resource_decision`](Self::eval_resource_decision)
-     pub fn build(self) -> ::std::result::Result<crate::types::ResourceSpecificResult, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ResourceSpecificResult {
-             eval_resource_name: self.eval_resource_name.ok_or_else(|| {
-```
-
-### `src/types/_role.rs`
-
-```diff
---- reference/src/types/_role.rs
-+++ generated/src/types/_role.rs
-@@ -21,7 +21,7 @@
-     /// <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the CLI, or API to assume the role can specify the duration using the optional <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI parameter.</p>
-     pub max_session_duration: ::std::option::Option<i32>,
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
-     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-@@ -68,13 +68,11 @@
-         self.max_session_duration
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
-         self.permissions_boundary.as_ref()
-     }
-     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -230,27 +228,26 @@
-         &self.max_session_duration
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
-         self.permissions_boundary = input;
-         self
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
-         &self.permissions_boundary
-     }
-+    /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -296,11 +293,11 @@
-     }
-     /// Consumes the builder and constructs a [`Role`](crate::types::Role).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`path`](crate::types::builders::RoleBuilder::path)
--    /// - [`role_name`](crate::types::builders::RoleBuilder::role_name)
--    /// - [`role_id`](crate::types::builders::RoleBuilder::role_id)
--    /// - [`arn`](crate::types::builders::RoleBuilder::arn)
--    /// - [`create_date`](crate::types::builders::RoleBuilder::create_date)
-+    /// - [`path`](Self::path)
-+    /// - [`role_name`](Self::role_name)
-+    /// - [`role_id`](Self::role_id)
-+    /// - [`arn`](Self::arn)
-+    /// - [`create_date`](Self::create_date)
-     pub fn build(self) -> ::std::result::Result<crate::types::Role, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::Role {
-             path: self.path.ok_or_else(|| {
-```
-
-### `src/types/_role_detail.rs`
-
-```diff
---- reference/src/types/_role_detail.rs
-+++ generated/src/types/_role_detail.rs
-@@ -11,8 +11,6 @@
-     pub role_name: ::std::option::Option<::std::string::String>,
-     /// <p>The stable and unique string identifying the role. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-     pub role_id: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
-     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role was created.</p>
-     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-@@ -25,7 +23,7 @@
-     /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
-     pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
-     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-@@ -45,8 +43,6 @@
-     pub fn role_id(&self) -> ::std::option::Option<&str> {
-         self.role_id.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> ::std::option::Option<&str> {
-         self.arn.as_deref()
-     }
-@@ -59,31 +55,23 @@
-         self.assume_role_policy_document.as_deref()
-     }
-     /// <p>A list of instance profiles that contain this role.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.instance_profile_list.is_none()`.
-     pub fn instance_profile_list(&self) -> &[crate::types::InstanceProfile] {
-         self.instance_profile_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_policy_list.is_none()`.
-     pub fn role_policy_list(&self) -> &[crate::types::PolicyDetail] {
-         self.role_policy_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
-     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
-         self.attached_managed_policies.as_deref().unwrap_or_default()
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
-         self.permissions_boundary.as_ref()
-     }
-     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -159,20 +147,14 @@
-     pub fn get_role_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.role_id
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-@@ -204,11 +186,10 @@
-     pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<::std::string::String> {
-         &self.assume_role_policy_document
-     }
-+    /// <p>A list of instance profiles that contain this role.</p>
-     /// Appends an item to `instance_profile_list`.
-     ///
-     /// To override the contents of this collection use [`set_instance_profile_list`](Self::set_instance_profile_list).
--    ///
--    /// <p>A list of instance profiles that contain this role.</p>
-     pub fn instance_profile_list(mut self, input: crate::types::InstanceProfile) -> Self {
-         let mut v = self.instance_profile_list.unwrap_or_default();
-         v.push(input);
-@@ -224,11 +205,10 @@
-     pub fn get_instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> {
-         &self.instance_profile_list
-     }
-+    /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
-     /// Appends an item to `role_policy_list`.
-     ///
-     /// To override the contents of this collection use [`set_role_policy_list`](Self::set_role_policy_list).
--    ///
--    /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
-     pub fn role_policy_list(mut self, input: crate::types::PolicyDetail) -> Self {
-         let mut v = self.role_policy_list.unwrap_or_default();
-         v.push(input);
-@@ -244,11 +224,10 @@
-     pub fn get_role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
-         &self.role_policy_list
-     }
-+    /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
-     /// Appends an item to `attached_managed_policies`.
-     ///
-     /// To override the contents of this collection use [`set_attached_managed_policies`](Self::set_attached_managed_policies).
--    ///
--    /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
-     pub fn attached_managed_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
-         let mut v = self.attached_managed_policies.unwrap_or_default();
-         v.push(input);
-@@ -265,27 +244,26 @@
-         &self.attached_managed_policies
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
-         self.permissions_boundary = input;
-         self
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
-         &self.permissions_boundary
-     }
-+    /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/types/_role_last_used.rs`
@@ -152611,37 +145867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.enabled
      }
      /// <p>The minor version number of this role template version.</p>
-@@ -112,14 +112,10 @@
-         self.assume_role_policy_document_template.as_deref()
-     }
-     /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.inline_policy_templates.is_none()`.
-     pub fn inline_policy_templates(&self) -> &[crate::types::InlinePolicy] {
-         self.inline_policy_templates.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.managed_policy_arns.is_none()`.
-     pub fn managed_policy_arns(&self) -> &[::std::string::String] {
-         self.managed_policy_arns.as_deref().unwrap_or_default()
-     }
-@@ -129,14 +125,10 @@
-         self.permission_boundary_arn.as_deref()
-     }
-     /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters_definition.is_none()`.
-     pub fn parameters_definition(&self) -> &[crate::types::ParameterDefinition] {
-         self.parameters_definition.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_tags_template.is_none()`.
-     pub fn role_tags_template(&self) -> &[crate::types::TagTemplate] {
-         self.role_tags_template.as_deref().unwrap_or_default()
-     }
-@@ -145,7 +137,7 @@
+@@ -145,7 +145,7 @@
          self.max_session_duration
      }
      /// <p>Specifies whether this specific minor version of the role template is enabled.</p>
@@ -152650,59 +145876,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.version_enabled
      }
      /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was created.</p>
-@@ -392,11 +384,10 @@
-     pub fn get_assume_role_policy_document_template(&self) -> &::std::option::Option<::std::string::String> {
-         &self.assume_role_policy_document_template
-     }
-+    /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
-     /// Appends an item to `inline_policy_templates`.
-     ///
-     /// To override the contents of this collection use [`set_inline_policy_templates`](Self::set_inline_policy_templates).
--    ///
--    /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
-     pub fn inline_policy_templates(mut self, input: crate::types::InlinePolicy) -> Self {
-         let mut v = self.inline_policy_templates.unwrap_or_default();
-         v.push(input);
-@@ -412,11 +403,10 @@
-     pub fn get_inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>> {
-         &self.inline_policy_templates
-     }
-+    /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
-     /// Appends an item to `managed_policy_arns`.
-     ///
-     /// To override the contents of this collection use [`set_managed_policy_arns`](Self::set_managed_policy_arns).
--    ///
--    /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
-     pub fn managed_policy_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.managed_policy_arns.unwrap_or_default();
-         v.push(input.into());
-@@ -449,11 +439,10 @@
-     pub fn get_permission_boundary_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.permission_boundary_arn
-     }
-+    /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
-     /// Appends an item to `parameters_definition`.
-     ///
-     /// To override the contents of this collection use [`set_parameters_definition`](Self::set_parameters_definition).
--    ///
--    /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
-     pub fn parameters_definition(mut self, input: crate::types::ParameterDefinition) -> Self {
-         let mut v = self.parameters_definition.unwrap_or_default();
-         v.push(input);
-@@ -469,11 +458,10 @@
-     pub fn get_parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>> {
-         &self.parameters_definition
-     }
-+    /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
-     /// Appends an item to `role_tags_template`.
-     ///
-     /// To override the contents of this collection use [`set_role_tags_template`](Self::set_role_tags_template).
--    ///
--    /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
-     pub fn role_tags_template(mut self, input: crate::types::TagTemplate) -> Self {
-         let mut v = self.role_tags_template.unwrap_or_default();
-         v.push(input);
-@@ -556,7 +544,7 @@
+@@ -556,7 +556,7 @@
              default_minor_version: self.default_minor_version,
              managed_by_type: self.managed_by_type,
              managed_by_value: self.managed_by_value,
@@ -152711,7 +145885,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              minor_version: self.minor_version,
              role_name_pattern: self.role_name_pattern,
              role_path_pattern: self.role_path_pattern,
-@@ -568,7 +556,7 @@
+@@ -568,7 +568,7 @@
              parameters_definition: self.parameters_definition,
              role_tags_template: self.role_tags_template,
              max_session_duration: self.max_session_duration,
@@ -152722,96 +145896,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
 ```
 
-### `src/types/_role_usage_type.rs`
-
-```diff
---- reference/src/types/_role_usage_type.rs
-+++ generated/src/types/_role_usage_type.rs
-@@ -16,8 +16,6 @@
-         self.region.as_deref()
-     }
-     /// <p>The name of the resource that is using the service-linked role.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resources.is_none()`.
-     pub fn resources(&self) -> &[::std::string::String] {
-         self.resources.as_deref().unwrap_or_default()
-     }
-@@ -51,11 +49,10 @@
-     pub fn get_region(&self) -> &::std::option::Option<::std::string::String> {
-         &self.region
-     }
-+    /// <p>The name of the resource that is using the service-linked role.</p>
-     /// Appends an item to `resources`.
-     ///
-     /// To override the contents of this collection use [`set_resources`](Self::set_resources).
--    ///
--    /// <p>The name of the resource that is using the service-linked role.</p>
-     pub fn resources(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.resources.unwrap_or_default();
-         v.push(input.into());
-```
-
-### `src/types/_saml_private_key.rs`
-
-```diff
---- reference/src/types/_saml_private_key.rs
-+++ generated/src/types/_saml_private_key.rs
-@@ -7,7 +7,7 @@
- pub struct SamlPrivateKey {
-     /// <p>The unique identifier for the SAML private key.</p>
-     pub key_id: ::std::option::Option<::std::string::String>,
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time </a> format, when the private key was uploaded.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
-     pub timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
- }
- impl SamlPrivateKey {
-@@ -15,7 +15,7 @@
-     pub fn key_id(&self) -> ::std::option::Option<&str> {
-         self.key_id.as_deref()
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time </a> format, when the private key was uploaded.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
-     pub fn timestamp(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
-         self.timestamp.as_ref()
-     }
-@@ -49,17 +49,17 @@
-     pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.key_id
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time </a> format, when the private key was uploaded.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
-     pub fn timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
-         self.timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time </a> format, when the private key was uploaded.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
-     pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.timestamp = input;
-         self
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time </a> format, when the private key was uploaded.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
-     pub fn get_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.timestamp
-     }
-```
-
 ### `src/types/_server_certificate.rs`
 
 ```diff
 --- reference/src/types/_server_certificate.rs
 +++ generated/src/types/_server_certificate.rs
-@@ -29,8 +29,6 @@
-         self.certificate_chain.as_deref()
-     }
-     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -53,7 +51,6 @@
+@@ -53,7 +53,6 @@
  }
  impl ServerCertificateBuilder {
      /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
@@ -152819,50 +145909,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn server_certificate_metadata(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
          self.server_certificate_metadata = ::std::option::Option::Some(input);
          self
-@@ -96,11 +93,10 @@
-     pub fn get_certificate_chain(&self) -> &::std::option::Option<::std::string::String> {
-         &self.certificate_chain
-     }
-+    /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -118,7 +114,7 @@
-     }
-     /// Consumes the builder and constructs a [`ServerCertificate`](crate::types::ServerCertificate).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`certificate_body`](crate::types::builders::ServerCertificateBuilder::certificate_body)
-+    /// - [`certificate_body`](Self::certificate_body)
-     pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificate, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ServerCertificate {
-             server_certificate_metadata: self.server_certificate_metadata,
-```
-
-### `src/types/_server_certificate_metadata.rs`
-
-```diff
---- reference/src/types/_server_certificate_metadata.rs
-+++ generated/src/types/_server_certificate_metadata.rs
-@@ -157,10 +157,10 @@
-     }
-     /// Consumes the builder and constructs a [`ServerCertificateMetadata`](crate::types::ServerCertificateMetadata).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`path`](crate::types::builders::ServerCertificateMetadataBuilder::path)
--    /// - [`server_certificate_name`](crate::types::builders::ServerCertificateMetadataBuilder::server_certificate_name)
--    /// - [`server_certificate_id`](crate::types::builders::ServerCertificateMetadataBuilder::server_certificate_id)
--    /// - [`arn`](crate::types::builders::ServerCertificateMetadataBuilder::arn)
-+    /// - [`path`](Self::path)
-+    /// - [`server_certificate_name`](Self::server_certificate_name)
-+    /// - [`server_certificate_id`](Self::server_certificate_id)
-+    /// - [`arn`](Self::arn)
-     pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificateMetadata, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ServerCertificateMetadata {
-             path: self.path.ok_or_else(|| {
 ```
 
 ### `src/types/_service_last_accessed.rs`
@@ -152900,16 +145946,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn service_namespace(&self) -> &str {
          use std::ops::Deref;
          self.service_namespace.deref()
-@@ -60,8 +60,6 @@
-     }
-     /// <p>An object that contains details about the most recent attempt to access a tracked action within the service.</p>
-     /// <p>This field is null if there no tracked actions or if the principal did not use the tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the service level and not the action level. For more information, see the <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tracked_actions_last_accessed.is_none()`.
-     pub fn tracked_actions_last_accessed(&self) -> &[crate::types::TrackedActionLastAccessed] {
-         self.tracked_actions_last_accessed.as_deref().unwrap_or_default()
-     }
-@@ -101,25 +99,25 @@
+@@ -101,25 +101,25 @@
      pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.service_name
      }
@@ -152939,7 +145976,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn service_namespace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.service_namespace = ::std::option::Option::Some(input.into());
-@@ -126,13 +124,13 @@
+@@ -126,13 +126,13 @@
          self
      }
      /// <p>The namespace of the service in which access was attempted.</p>
@@ -152955,32 +145992,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_service_namespace(&self) -> &::std::option::Option<::std::string::String> {
          &self.service_namespace
      }
-@@ -187,12 +185,11 @@
-     pub fn get_total_authenticated_entities(&self) -> &::std::option::Option<i32> {
-         &self.total_authenticated_entities
-     }
-+    /// <p>An object that contains details about the most recent attempt to access a tracked action within the service.</p>
-+    /// <p>This field is null if there no tracked actions or if the principal did not use the tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the service level and not the action level. For more information, see the <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
-     /// Appends an item to `tracked_actions_last_accessed`.
-     ///
-     /// To override the contents of this collection use [`set_tracked_actions_last_accessed`](Self::set_tracked_actions_last_accessed).
--    ///
--    /// <p>An object that contains details about the most recent attempt to access a tracked action within the service.</p>
--    /// <p>This field is null if there no tracked actions or if the principal did not use the tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the service level and not the action level. For more information, see the <code>Granularity</code> field in <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html">GenerateServiceLastAccessedDetails</a>.</p>
-     pub fn tracked_actions_last_accessed(mut self, input: crate::types::TrackedActionLastAccessed) -> Self {
-         let mut v = self.tracked_actions_last_accessed.unwrap_or_default();
-         v.push(input);
-@@ -215,8 +212,8 @@
-     }
-     /// Consumes the builder and constructs a [`ServiceLastAccessed`](crate::types::ServiceLastAccessed).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`service_name`](crate::types::builders::ServiceLastAccessedBuilder::service_name)
--    /// - [`service_namespace`](crate::types::builders::ServiceLastAccessedBuilder::service_namespace)
-+    /// - [`service_name`](Self::service_name)
-+    /// - [`service_namespace`](Self::service_namespace)
-     pub fn build(self) -> ::std::result::Result<crate::types::ServiceLastAccessed, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ServiceLastAccessed {
-             service_name: self.service_name.ok_or_else(|| {
 ```
 
 ### `src/types/_service_specific_credential.rs`
@@ -153060,23 +146071,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct ServiceSpecificCredentialBuilder {
      pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-@@ -258,11 +240,11 @@
-     }
-     /// Consumes the builder and constructs a [`ServiceSpecificCredential`](crate::types::ServiceSpecificCredential).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialBuilder::create_date)
--    /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialBuilder::service_name)
--    /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialBuilder::service_specific_credential_id)
--    /// - [`user_name`](crate::types::builders::ServiceSpecificCredentialBuilder::user_name)
--    /// - [`status`](crate::types::builders::ServiceSpecificCredentialBuilder::status)
-+    /// - [`create_date`](Self::create_date)
-+    /// - [`service_name`](Self::service_name)
-+    /// - [`service_specific_credential_id`](Self::service_specific_credential_id)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`status`](Self::status)
-     pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredential, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ServiceSpecificCredential {
-             create_date: self.create_date.ok_or_else(|| {
 @@ -278,8 +260,8 @@
                      "service_name was not specified but it is required when building ServiceSpecificCredential",
                  )
@@ -153136,23 +146130,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
      pub fn service_credential_alias(&self) -> ::std::option::Option<&str> {
-@@ -199,11 +198,11 @@
-     }
-     /// Consumes the builder and constructs a [`ServiceSpecificCredentialMetadata`](crate::types::ServiceSpecificCredentialMetadata).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::user_name)
--    /// - [`status`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::status)
--    /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::create_date)
--    /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_specific_credential_id)
--    /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_name)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`status`](Self::status)
-+    /// - [`create_date`](Self::create_date)
-+    /// - [`service_specific_credential_id`](Self::service_specific_credential_id)
-+    /// - [`service_name`](Self::service_name)
-     pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ServiceSpecificCredentialMetadata {
-             user_name: self.user_name.ok_or_else(|| {
 @@ -218,7 +217,7 @@
                      "status was not specified but it is required when building ServiceSpecificCredentialMetadata",
                  )
@@ -153164,167 +146141,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
-### `src/types/_signing_certificate.rs`
-
-```diff
---- reference/src/types/_signing_certificate.rs
-+++ generated/src/types/_signing_certificate.rs
-@@ -135,10 +135,10 @@
-     }
-     /// Consumes the builder and constructs a [`SigningCertificate`](crate::types::SigningCertificate).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::SigningCertificateBuilder::user_name)
--    /// - [`certificate_id`](crate::types::builders::SigningCertificateBuilder::certificate_id)
--    /// - [`certificate_body`](crate::types::builders::SigningCertificateBuilder::certificate_body)
--    /// - [`status`](crate::types::builders::SigningCertificateBuilder::status)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`certificate_id`](Self::certificate_id)
-+    /// - [`certificate_body`](Self::certificate_body)
-+    /// - [`status`](Self::status)
-     pub fn build(self) -> ::std::result::Result<crate::types::SigningCertificate, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::SigningCertificate {
-             user_name: self.user_name.ok_or_else(|| {
-```
-
-### `src/types/_source_role_template.rs`
-
-```diff
---- reference/src/types/_source_role_template.rs
-+++ generated/src/types/_source_role_template.rs
-@@ -67,8 +67,8 @@
-     }
-     /// Consumes the builder and constructs a [`SourceRoleTemplate`](crate::types::SourceRoleTemplate).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`template_arn`](crate::types::builders::SourceRoleTemplateBuilder::template_arn)
--    /// - [`template_minor_version`](crate::types::builders::SourceRoleTemplateBuilder::template_minor_version)
-+    /// - [`template_arn`](Self::template_arn)
-+    /// - [`template_minor_version`](Self::template_minor_version)
-     pub fn build(self) -> ::std::result::Result<crate::types::SourceRoleTemplate, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::SourceRoleTemplate {
-             template_arn: self.template_arn.ok_or_else(|| {
-```
-
-### `src/types/_ssh_public_key.rs`
-
-```diff
---- reference/src/types/_ssh_public_key.rs
-+++ generated/src/types/_ssh_public_key.rs
-@@ -158,11 +158,11 @@
-     }
-     /// Consumes the builder and constructs a [`SshPublicKey`](crate::types::SshPublicKey).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::SshPublicKeyBuilder::user_name)
--    /// - [`ssh_public_key_id`](crate::types::builders::SshPublicKeyBuilder::ssh_public_key_id)
--    /// - [`fingerprint`](crate::types::builders::SshPublicKeyBuilder::fingerprint)
--    /// - [`ssh_public_key_body`](crate::types::builders::SshPublicKeyBuilder::ssh_public_key_body)
--    /// - [`status`](crate::types::builders::SshPublicKeyBuilder::status)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`ssh_public_key_id`](Self::ssh_public_key_id)
-+    /// - [`fingerprint`](Self::fingerprint)
-+    /// - [`ssh_public_key_body`](Self::ssh_public_key_body)
-+    /// - [`status`](Self::status)
-     pub fn build(self) -> ::std::result::Result<crate::types::SshPublicKey, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::SshPublicKey {
-             user_name: self.user_name.ok_or_else(|| {
-```
-
-### `src/types/_ssh_public_key_metadata.rs`
-
-```diff
---- reference/src/types/_ssh_public_key_metadata.rs
-+++ generated/src/types/_ssh_public_key_metadata.rs
-@@ -113,10 +113,10 @@
-     }
-     /// Consumes the builder and constructs a [`SshPublicKeyMetadata`](crate::types::SshPublicKeyMetadata).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`user_name`](crate::types::builders::SshPublicKeyMetadataBuilder::user_name)
--    /// - [`ssh_public_key_id`](crate::types::builders::SshPublicKeyMetadataBuilder::ssh_public_key_id)
--    /// - [`status`](crate::types::builders::SshPublicKeyMetadataBuilder::status)
--    /// - [`upload_date`](crate::types::builders::SshPublicKeyMetadataBuilder::upload_date)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`ssh_public_key_id`](Self::ssh_public_key_id)
-+    /// - [`status`](Self::status)
-+    /// - [`upload_date`](Self::upload_date)
-     pub fn build(self) -> ::std::result::Result<crate::types::SshPublicKeyMetadata, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::SshPublicKeyMetadata {
-             user_name: self.user_name.ok_or_else(|| {
-```
-
-### `src/types/_statement.rs`
-
-```diff
---- reference/src/types/_statement.rs
-+++ generated/src/types/_statement.rs
-@@ -1,7 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>Contains a reference to a <code>Statement</code> element in a policy document that determines the result of the simulation.</p>
--/// <p>This data type is used by the <code>MatchedStatements</code> member of the <code> <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EvaluationResult.html">EvaluationResult</a> </code> type.</p>
-+/// <p>This data type is used by the <code>MatchedStatements</code> member of the <code><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EvaluationResult.html">EvaluationResult</a></code> type.</p>
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct Statement {
-```
-
-### `src/types/_tag.rs`
-
-```diff
---- reference/src/types/_tag.rs
-+++ generated/src/types/_tag.rs
-@@ -68,8 +68,8 @@
-     }
-     /// Consumes the builder and constructs a [`Tag`](crate::types::Tag).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`key`](crate::types::builders::TagBuilder::key)
--    /// - [`value`](crate::types::builders::TagBuilder::value)
-+    /// - [`key`](Self::key)
-+    /// - [`value`](Self::value)
-     pub fn build(self) -> ::std::result::Result<crate::types::Tag, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::Tag {
-             key: self.key.ok_or_else(|| {
-```
-
-### `src/types/_tag_template.rs`
-
-```diff
---- reference/src/types/_tag_template.rs
-+++ generated/src/types/_tag_template.rs
-@@ -68,8 +68,8 @@
-     }
-     /// Consumes the builder and constructs a [`TagTemplate`](crate::types::TagTemplate).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`key`](crate::types::builders::TagTemplateBuilder::key)
--    /// - [`value`](crate::types::builders::TagTemplateBuilder::value)
-+    /// - [`key`](Self::key)
-+    /// - [`value`](Self::value)
-     pub fn build(self) -> ::std::result::Result<crate::types::TagTemplate, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::TagTemplate {
-             key: self.key.ok_or_else(|| {
-```
-
 ### `src/types/_tracked_action_last_accessed.rs`
 
 ```diff
 --- reference/src/types/_tracked_action_last_accessed.rs
 +++ generated/src/types/_tracked_action_last_accessed.rs
-@@ -7,10 +7,8 @@
- pub struct TrackedActionLastAccessed {
-     /// <p>The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.</p>
-     pub action_name: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+@@ -10,7 +10,7 @@
+     /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+     /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
      pub last_accessed_entity: ::std::option::Option<::std::string::String>,
 -    /// <p>The date and time, in&nbsp;<a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when an authenticated entity most recently attempted to access the tracked service. Amazon Web Services does not report unauthenticated requests.</p>
 +    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when an authenticated entity most recently attempted to access the tracked service. Amazon Web Services does not report unauthenticated requests.</p>
      /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
      pub last_accessed_time: ::std::option::Option<::aws_smithy_types::DateTime>,
      /// <p>The Region from which the authenticated entity (user or role) last attempted to access the tracked action. Amazon Web Services does not report unauthenticated requests.</p>
-@@ -22,12 +20,10 @@
-     pub fn action_name(&self) -> ::std::option::Option<&str> {
-         self.action_name.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+@@ -27,7 +27,7 @@
      pub fn last_accessed_entity(&self) -> ::std::option::Option<&str> {
          self.last_accessed_entity.as_deref()
      }
@@ -153333,24 +146164,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
      pub fn last_accessed_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
          self.last_accessed_time.as_ref()
-@@ -69,36 +65,30 @@
-     pub fn get_action_name(&self) -> &::std::option::Option<::std::string::String> {
-         &self.action_name
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn last_accessed_entity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.last_accessed_entity = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_last_accessed_entity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_accessed_entity = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+@@ -86,19 +86,19 @@
      pub fn get_last_accessed_entity(&self) -> &::std::option::Option<::std::string::String> {
          &self.last_accessed_entity
      }
@@ -153373,325 +146187,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
      pub fn get_last_accessed_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.last_accessed_time
-```
-
-### `src/types/_user.rs`
-
-```diff
---- reference/src/types/_user.rs
-+++ generated/src/types/_user.rs
-@@ -1,15 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>Contains information about an IAM user entity.</p>
--/// <p>This data type is used as a response element in the following operations:</p>
--/// <ul>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html">CreateUser</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a></p></li>
--/// <li>
--/// <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a></p></li>
--/// </ul>
-+/// <p>This data type is used as a response element in the following operations:</p><ul><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html">CreateUser</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a></p></li><li><p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a></p></li></ul>
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct User {
-@@ -24,17 +16,10 @@
-     pub arn: ::std::string::String,
-     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user was created.</p>
-     pub create_date: ::aws_smithy_types::DateTime,
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user never had a password.</p></li>
--    /// <li>
--    /// <p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li>
--    /// </ul>
--    /// <p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p><ul><li><p>The user never had a password.</p></li><li><p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li></ul><p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-     /// <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> operations.</p>
-     pub password_last_used: ::std::option::Option<::aws_smithy_types::DateTime>,
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
-     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-@@ -65,25 +50,16 @@
-     pub fn create_date(&self) -> &::aws_smithy_types::DateTime {
-         &self.create_date
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user never had a password.</p></li>
--    /// <li>
--    /// <p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li>
--    /// </ul>
--    /// <p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p><ul><li><p>The user never had a password.</p></li><li><p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li></ul><p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-     /// <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> operations.</p>
-     pub fn password_last_used(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
-         self.password_last_used.as_ref()
-     }
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
-         self.permissions_boundary.as_ref()
-     }
-     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -187,63 +163,41 @@
-     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.create_date
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user never had a password.</p></li>
--    /// <li>
--    /// <p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li>
--    /// </ul>
--    /// <p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p><ul><li><p>The user never had a password.</p></li><li><p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li></ul><p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-     /// <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> operations.</p>
-     pub fn password_last_used(mut self, input: ::aws_smithy_types::DateTime) -> Self {
-         self.password_last_used = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user never had a password.</p></li>
--    /// <li>
--    /// <p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li>
--    /// </ul>
--    /// <p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p><ul><li><p>The user never had a password.</p></li><li><p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li></ul><p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-     /// <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> operations.</p>
-     pub fn set_password_last_used(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.password_last_used = input;
-         self
-     }
--    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p>
--    /// <ul>
--    /// <li>
--    /// <p>The user never had a password.</p></li>
--    /// <li>
--    /// <p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li>
--    /// </ul>
--    /// <p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential reports</a> topic in the <i>IAM User Guide</i>. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:</p><ul><li><p>The user never had a password.</p></li><li><p>A password exists but has not been used since IAM started tracking this information on October 20, 2014.</p></li></ul><p>A null value does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password but had one in the past, then this field contains the date and time the most recent password was used.</p>
-     /// <p>This value is returned only in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html">ListUsers</a> operations.</p>
-     pub fn get_password_last_used(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.password_last_used
-     }
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
-         self.permissions_boundary = input;
-         self
-     }
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
-         &self.permissions_boundary
-     }
-+    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -261,11 +215,11 @@
-     }
-     /// Consumes the builder and constructs a [`User`](crate::types::User).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`path`](crate::types::builders::UserBuilder::path)
--    /// - [`user_name`](crate::types::builders::UserBuilder::user_name)
--    /// - [`user_id`](crate::types::builders::UserBuilder::user_id)
--    /// - [`arn`](crate::types::builders::UserBuilder::arn)
--    /// - [`create_date`](crate::types::builders::UserBuilder::create_date)
-+    /// - [`path`](Self::path)
-+    /// - [`user_name`](Self::user_name)
-+    /// - [`user_id`](Self::user_id)
-+    /// - [`arn`](Self::arn)
-+    /// - [`create_date`](Self::create_date)
-     pub fn build(self) -> ::std::result::Result<crate::types::User, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::User {
-             path: self.path.ok_or_else(|| {
-```
-
-### `src/types/_user_detail.rs`
-
-```diff
---- reference/src/types/_user_detail.rs
-+++ generated/src/types/_user_detail.rs
-@@ -11,8 +11,6 @@
-     pub user_name: ::std::option::Option<::std::string::String>,
-     /// <p>The stable and unique string identifying the user. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-     pub user_id: ::std::option::Option<::std::string::String>,
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
-     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user was created.</p>
-     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-@@ -23,7 +21,7 @@
-     /// <p>A list of the managed policies attached to the user.</p>
-     pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
-     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
-     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-@@ -41,8 +39,6 @@
-     pub fn user_id(&self) -> ::std::option::Option<&str> {
-         self.user_id.as_deref()
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(&self) -> ::std::option::Option<&str> {
-         self.arn.as_deref()
-     }
-@@ -51,31 +47,23 @@
-         self.create_date.as_ref()
-     }
-     /// <p>A list of the inline policies embedded in the user.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.user_policy_list.is_none()`.
-     pub fn user_policy_list(&self) -> &[crate::types::PolicyDetail] {
-         self.user_policy_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of IAM groups that the user is in.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.group_list.is_none()`.
-     pub fn group_list(&self) -> &[::std::string::String] {
-         self.group_list.as_deref().unwrap_or_default()
-     }
-     /// <p>A list of the managed policies attached to the user.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
-     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
-         self.attached_managed_policies.as_deref().unwrap_or_default()
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
-         self.permissions_boundary.as_ref()
-     }
-     /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
-         self.tags.as_deref().unwrap_or_default()
-     }
-@@ -145,20 +133,14 @@
-     pub fn get_user_id(&self) -> &::std::option::Option<::std::string::String> {
-         &self.user_id
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
--    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
-         &self.arn
-     }
-@@ -176,11 +158,10 @@
-     pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.create_date
-     }
-+    /// <p>A list of the inline policies embedded in the user.</p>
-     /// Appends an item to `user_policy_list`.
-     ///
-     /// To override the contents of this collection use [`set_user_policy_list`](Self::set_user_policy_list).
--    ///
--    /// <p>A list of the inline policies embedded in the user.</p>
-     pub fn user_policy_list(mut self, input: crate::types::PolicyDetail) -> Self {
-         let mut v = self.user_policy_list.unwrap_or_default();
-         v.push(input);
-@@ -196,11 +177,10 @@
-     pub fn get_user_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
-         &self.user_policy_list
-     }
-+    /// <p>A list of IAM groups that the user is in.</p>
-     /// Appends an item to `group_list`.
-     ///
-     /// To override the contents of this collection use [`set_group_list`](Self::set_group_list).
--    ///
--    /// <p>A list of IAM groups that the user is in.</p>
-     pub fn group_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.group_list.unwrap_or_default();
-         v.push(input.into());
-@@ -216,11 +196,10 @@
-     pub fn get_group_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-         &self.group_list
-     }
-+    /// <p>A list of the managed policies attached to the user.</p>
-     /// Appends an item to `attached_managed_policies`.
-     ///
-     /// To override the contents of this collection use [`set_attached_managed_policies`](Self::set_attached_managed_policies).
--    ///
--    /// <p>A list of the managed policies attached to the user.</p>
-     pub fn attached_managed_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
-         let mut v = self.attached_managed_policies.unwrap_or_default();
-         v.push(input);
-@@ -237,27 +216,26 @@
-         &self.attached_managed_policies
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
-         self.permissions_boundary = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
-         self.permissions_boundary = input;
-         self
-     }
-     /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
--    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
-+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-     pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
-         &self.permissions_boundary
-     }
-+    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
 ```
 
 ### `src/types/_virtual_mfa_device.rs`
@@ -153731,13 +146226,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.qr_code_png.as_ref()
      }
      /// <p>The IAM user associated with this virtual MFA device.</p>
-@@ -40,24 +40,10 @@
-         self.enable_date.as_ref()
-     }
-     /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
--    ///
--    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
-     pub fn tags(&self) -> &[crate::types::Tag] {
+@@ -46,18 +46,6 @@
          self.tags.as_deref().unwrap_or_default()
      }
  }
@@ -153756,7 +146245,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl VirtualMfaDevice {
      /// Creates a new builder-style object to manufacture [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
      pub fn builder() -> crate::types::builders::VirtualMfaDeviceBuilder {
-@@ -66,12 +52,12 @@
+@@ -66,12 +54,12 @@
  }
 
  /// A builder for [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
@@ -153772,7 +146261,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) user: ::std::option::Option<crate::types::User>,
      pub(crate) enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-@@ -93,31 +79,31 @@
+@@ -93,31 +81,31 @@
          &self.serial_number
      }
      /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
@@ -153810,29 +146299,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.qr_code_png
      }
      /// <p>The IAM user associated with this virtual MFA device.</p>
-@@ -148,11 +134,10 @@
-     pub fn get_enable_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
-         &self.enable_date
-     }
-+    /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// Appends an item to `tags`.
-     ///
-     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
--    ///
--    /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     pub fn tags(mut self, input: crate::types::Tag) -> Self {
-         let mut v = self.tags.unwrap_or_default();
-         v.push(input);
-@@ -170,7 +155,7 @@
-     }
-     /// Consumes the builder and constructs a [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
-     /// This method will fail if any of the following fields are not set:
--    /// - [`serial_number`](crate::types::builders::VirtualMfaDeviceBuilder::serial_number)
-+    /// - [`serial_number`](Self::serial_number)
-     pub fn build(self) -> ::std::result::Result<crate::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::VirtualMfaDevice {
-             serial_number: self.serial_number.ok_or_else(|| {
-@@ -187,15 +172,3 @@
+@@ -187,15 +175,3 @@
          })
      }
  }
@@ -155370,7 +147837,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_login_profile/builders.rs`
 - `src/operation/create_login_profile.rs`
 - `src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_input.rs`
-- `src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_output.rs`
 - `src/operation/create_open_id_connect_provider/builders.rs`
 - `src/operation/create_open_id_connect_provider.rs`
 - `src/operation/create_policy/_create_policy_input.rs`
@@ -155384,14 +147850,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_role/builders.rs`
 - `src/operation/create_role.rs`
 - `src/operation/create_saml_provider/_create_saml_provider_input.rs`
-- `src/operation/create_saml_provider/_create_saml_provider_output.rs`
 - `src/operation/create_saml_provider/builders.rs`
 - `src/operation/create_saml_provider.rs`
 - `src/operation/create_service_linked_role/_create_service_linked_role_input.rs`
 - `src/operation/create_service_linked_role/builders.rs`
 - `src/operation/create_service_linked_role.rs`
 - `src/operation/create_service_specific_credential/_create_service_specific_credential_input.rs`
-- `src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs`
 - `src/operation/create_service_specific_credential/builders.rs`
 - `src/operation/create_service_specific_credential.rs`
 - `src/operation/create_user/_create_user_input.rs`
@@ -155484,11 +147948,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/detach_user_policy/builders.rs`
 - `src/operation/detach_user_policy.rs`
 - `src/operation/disable_organizations_root_credentials_management/_disable_organizations_root_credentials_management_input.rs`
-- `src/operation/disable_organizations_root_credentials_management/_disable_organizations_root_credentials_management_output.rs`
 - `src/operation/disable_organizations_root_credentials_management/builders.rs`
 - `src/operation/disable_organizations_root_credentials_management.rs`
 - `src/operation/disable_organizations_root_sessions/_disable_organizations_root_sessions_input.rs`
-- `src/operation/disable_organizations_root_sessions/_disable_organizations_root_sessions_output.rs`
 - `src/operation/disable_organizations_root_sessions/builders.rs`
 - `src/operation/disable_organizations_root_sessions.rs`
 - `src/operation/disable_outbound_web_identity_federation/_disable_outbound_web_identity_federation_input.rs`
@@ -155498,11 +147960,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/enable_mfa_device/builders.rs`
 - `src/operation/enable_mfa_device.rs`
 - `src/operation/enable_organizations_root_credentials_management/_enable_organizations_root_credentials_management_input.rs`
-- `src/operation/enable_organizations_root_credentials_management/_enable_organizations_root_credentials_management_output.rs`
 - `src/operation/enable_organizations_root_credentials_management/builders.rs`
 - `src/operation/enable_organizations_root_credentials_management.rs`
 - `src/operation/enable_organizations_root_sessions/_enable_organizations_root_sessions_input.rs`
-- `src/operation/enable_organizations_root_sessions/_enable_organizations_root_sessions_output.rs`
 - `src/operation/enable_organizations_root_sessions/builders.rs`
 - `src/operation/enable_organizations_root_sessions.rs`
 - `src/operation/enable_outbound_web_identity_federation/_enable_outbound_web_identity_federation_input.rs`
@@ -155537,11 +147997,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_account_summary/builders.rs`
 - `src/operation/get_account_summary.rs`
 - `src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_input.rs`
-- `src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_output.rs`
 - `src/operation/get_context_keys_for_custom_policy/builders.rs`
 - `src/operation/get_context_keys_for_custom_policy.rs`
 - `src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_input.rs`
-- `src/operation/get_context_keys_for_principal_policy/_get_context_keys_for_principal_policy_output.rs`
 - `src/operation/get_context_keys_for_principal_policy/builders.rs`
 - `src/operation/get_context_keys_for_principal_policy.rs`
 - `src/operation/get_credential_report/_get_credential_report_input.rs`
@@ -155549,7 +148007,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_credential_report/builders.rs`
 - `src/operation/get_credential_report.rs`
 - `src/operation/get_delegation_request/_get_delegation_request_input.rs`
-- `src/operation/get_delegation_request/_get_delegation_request_output.rs`
 - `src/operation/get_delegation_request/builders.rs`
 - `src/operation/get_delegation_request.rs`
 - `src/operation/get_group/_get_group_input.rs`
@@ -155557,7 +148014,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_group/builders.rs`
 - `src/operation/get_group.rs`
 - `src/operation/get_group_policy/_get_group_policy_input.rs`
-- `src/operation/get_group_policy/_get_group_policy_output.rs`
 - `src/operation/get_group_policy/builders.rs`
 - `src/operation/get_group_policy.rs`
 - `src/operation/get_human_readable_summary/_get_human_readable_summary_input.rs`
@@ -155576,7 +148032,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_mfa_device/builders.rs`
 - `src/operation/get_mfa_device.rs`
 - `src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_input.rs`
-- `src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_output.rs`
 - `src/operation/get_open_id_connect_provider/builders.rs`
 - `src/operation/get_open_id_connect_provider.rs`
 - `src/operation/get_organizations_access_report/_get_organizations_access_report_input.rs`
@@ -155598,7 +148053,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_role/builders.rs`
 - `src/operation/get_role.rs`
 - `src/operation/get_role_policy/_get_role_policy_input.rs`
-- `src/operation/get_role_policy/_get_role_policy_output.rs`
 - `src/operation/get_role_policy/builders.rs`
 - `src/operation/get_role_policy.rs`
 - `src/operation/get_role_template_version/_get_role_template_version_input.rs`
@@ -155606,7 +148060,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_role_template_version/builders.rs`
 - `src/operation/get_role_template_version.rs`
 - `src/operation/get_saml_provider/_get_saml_provider_input.rs`
-- `src/operation/get_saml_provider/_get_saml_provider_output.rs`
 - `src/operation/get_saml_provider/builders.rs`
 - `src/operation/get_saml_provider.rs`
 - `src/operation/get_server_certificate/_get_server_certificate_input.rs`
@@ -155622,7 +148075,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_service_last_accessed_details_with_entities/builders.rs`
 - `src/operation/get_service_last_accessed_details_with_entities.rs`
 - `src/operation/get_service_linked_role_deletion_status/_get_service_linked_role_deletion_status_input.rs`
-- `src/operation/get_service_linked_role_deletion_status/_get_service_linked_role_deletion_status_output.rs`
 - `src/operation/get_service_linked_role_deletion_status/builders.rs`
 - `src/operation/get_service_linked_role_deletion_status.rs`
 - `src/operation/get_ssh_public_key/_get_ssh_public_key_input.rs`
@@ -155633,7 +148085,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_user/builders.rs`
 - `src/operation/get_user.rs`
 - `src/operation/get_user_policy/_get_user_policy_input.rs`
-- `src/operation/get_user_policy/_get_user_policy_output.rs`
 - `src/operation/get_user_policy/builders.rs`
 - `src/operation/get_user_policy.rs`
 - `src/operation/list_access_keys/_list_access_keys_input.rs`
@@ -155701,11 +148152,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/list_open_id_connect_provider_tags/builders.rs`
 - `src/operation/list_open_id_connect_provider_tags.rs`
 - `src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_input.rs`
-- `src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs`
 - `src/operation/list_open_id_connect_providers/builders.rs`
 - `src/operation/list_open_id_connect_providers.rs`
 - `src/operation/list_organizations_features/_list_organizations_features_input.rs`
-- `src/operation/list_organizations_features/_list_organizations_features_output.rs`
 - `src/operation/list_organizations_features/builders.rs`
 - `src/operation/list_organizations_features.rs`
 - `src/operation/list_policies/_list_policies_input.rs`
@@ -155741,7 +148190,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/list_saml_provider_tags/builders.rs`
 - `src/operation/list_saml_provider_tags.rs`
 - `src/operation/list_saml_providers/_list_saml_providers_input.rs`
-- `src/operation/list_saml_providers/_list_saml_providers_output.rs`
 - `src/operation/list_saml_providers/builders.rs`
 - `src/operation/list_saml_providers.rs`
 - `src/operation/list_server_certificate_tags/_list_server_certificate_tags_input.rs`
@@ -155811,7 +148259,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/remove_user_from_group/builders.rs`
 - `src/operation/remove_user_from_group.rs`
 - `src/operation/reset_service_specific_credential/_reset_service_specific_credential_input.rs`
-- `src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs`
 - `src/operation/reset_service_specific_credential/builders.rs`
 - `src/operation/reset_service_specific_credential.rs`
 - `src/operation/resync_mfa_device/_resync_mfa_device_input.rs`
@@ -155928,7 +148375,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/update_user/builders.rs`
 - `src/operation/update_user.rs`
 - `src/operation/upload_server_certificate/_upload_server_certificate_input.rs`
-- `src/operation/upload_server_certificate/_upload_server_certificate_output.rs`
 - `src/operation/upload_server_certificate/builders.rs`
 - `src/operation/upload_server_certificate.rs`
 - `src/operation/upload_signing_certificate/_upload_signing_certificate_input.rs`
@@ -155941,62 +148387,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation.rs`
 - `src/types/_access_detail.rs`
 - `src/types/_access_key.rs`
-- `src/types/_access_key_last_used.rs`
-- `src/types/_attached_permissions_boundary.rs`
-- `src/types/_attached_policy.rs`
-- `src/types/_context_entry.rs`
 - `src/types/_delegation_permission.rs`
 - `src/types/_delegation_request.rs`
-- `src/types/_deletion_task_failure_reason_type.rs`
 - `src/types/_entity_details.rs`
 - `src/types/_entity_info.rs`
-- `src/types/_error_details.rs`
 - `src/types/_evaluation_result.rs`
-- `src/types/_group.rs`
-- `src/types/_group_detail.rs`
-- `src/types/_inline_policy.rs`
-- `src/types/_inline_policy_identifier_type.rs`
-- `src/types/_instance_profile.rs`
 - `src/types/_list_policies_granting_service_access_entry.rs`
 - `src/types/_login_profile.rs`
 - `src/types/_managed_policy_detail.rs`
-- `src/types/_mfa_device.rs`
-- `src/types/_open_id_connect_provider_list_entry.rs`
-- `src/types/_ordered_organization_policy_type.rs`
 - `src/types/_organizations_decision_detail.rs`
 - `src/types/_parameter_definition.rs`
 - `src/types/_password_policy.rs`
 - `src/types/_permissions_boundary_decision_detail.rs`
 - `src/types/_policy.rs`
-- `src/types/_policy_granting_service_access.rs`
 - `src/types/_policy_identifier.rs`
-- `src/types/_policy_parameter.rs`
 - `src/types/_policy_usage_type.rs`
 - `src/types/_policy_version.rs`
 - `src/types/_position.rs`
-- `src/types/_replacement_value_entry.rs`
 - `src/types/_resource_specific_result.rs`
-- `src/types/_role.rs`
-- `src/types/_role_detail.rs`
 - `src/types/_role_last_used.rs`
 - `src/types/_role_template_version.rs`
-- `src/types/_role_usage_type.rs`
-- `src/types/_saml_private_key.rs`
 - `src/types/_server_certificate.rs`
-- `src/types/_server_certificate_metadata.rs`
 - `src/types/_service_last_accessed.rs`
 - `src/types/_service_specific_credential.rs`
 - `src/types/_service_specific_credential_metadata.rs`
-- `src/types/_signing_certificate.rs`
-- `src/types/_source_role_template.rs`
-- `src/types/_ssh_public_key.rs`
-- `src/types/_ssh_public_key_metadata.rs`
-- `src/types/_statement.rs`
-- `src/types/_tag.rs`
-- `src/types/_tag_template.rs`
 - `src/types/_tracked_action_last_accessed.rs`
-- `src/types/_user.rs`
-- `src/types/_user_detail.rs`
 - `src/types/_virtual_mfa_device.rs`
 - `src/types/error/_duplicate_ssh_public_key_exception.rs`
 - `src/types.rs`

@@ -105,8 +105,8 @@ impl VerificationExceptionBuilder {
     }
     /// Consumes the builder and constructs a [`VerificationException`](crate::types::error::VerificationException).
     /// This method will fail if any of the following fields are not set:
-    /// - [`message`](Self::message)
-    /// - [`status`](Self::status)
+    /// - [`message`](crate::types::error::builders::VerificationExceptionBuilder::message)
+    /// - [`status`](crate::types::error::builders::VerificationExceptionBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::error::VerificationException {
             message: self.message.ok_or_else(|| {

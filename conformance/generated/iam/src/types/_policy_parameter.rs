@@ -17,6 +17,8 @@ impl PolicyParameter {
         self.name.as_deref()
     }
     /// <p>The allowed values for the policy parameter.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.values.is_none()`.
     pub fn values(&self) -> &[::std::string::String] {
         self.values.as_deref().unwrap_or_default()
     }
@@ -55,10 +57,11 @@ impl PolicyParameterBuilder {
     pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.name
     }
-    /// <p>The allowed values for the policy parameter.</p>
     /// Appends an item to `values`.
     ///
     /// To override the contents of this collection use [`set_values`](Self::set_values).
+    ///
+    /// <p>The allowed values for the policy parameter.</p>
     pub fn values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.values.unwrap_or_default();
         v.push(input.into());

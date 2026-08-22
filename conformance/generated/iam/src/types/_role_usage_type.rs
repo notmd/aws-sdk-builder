@@ -16,6 +16,8 @@ impl RoleUsageType {
         self.region.as_deref()
     }
     /// <p>The name of the resource that is using the service-linked role.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.resources.is_none()`.
     pub fn resources(&self) -> &[::std::string::String] {
         self.resources.as_deref().unwrap_or_default()
     }
@@ -49,10 +51,11 @@ impl RoleUsageTypeBuilder {
     pub fn get_region(&self) -> &::std::option::Option<::std::string::String> {
         &self.region
     }
-    /// <p>The name of the resource that is using the service-linked role.</p>
     /// Appends an item to `resources`.
     ///
     /// To override the contents of this collection use [`set_resources`](Self::set_resources).
+    ///
+    /// <p>The name of the resource that is using the service-linked role.</p>
     pub fn resources(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.resources.unwrap_or_default();
         v.push(input.into());

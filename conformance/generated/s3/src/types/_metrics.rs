@@ -65,7 +65,7 @@ impl MetricsBuilder {
     }
     /// Consumes the builder and constructs a [`Metrics`](crate::types::Metrics).
     /// This method will fail if any of the following fields are not set:
-    /// - [`status`](Self::status)
+    /// - [`status`](crate::types::builders::MetricsBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::Metrics, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Metrics {
             status: self.status.ok_or_else(|| {

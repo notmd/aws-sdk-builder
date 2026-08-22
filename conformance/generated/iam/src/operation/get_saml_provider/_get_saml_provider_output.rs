@@ -38,6 +38,8 @@ impl GetSamlProviderOutput {
         self.valid_until.as_ref()
     }
     /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -46,6 +48,8 @@ impl GetSamlProviderOutput {
         self.assertion_encryption_mode.as_ref()
     }
     /// <p>The private key metadata for the SAML provider.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.private_key_list.is_none()`.
     pub fn private_key_list(&self) -> &[crate::types::SamlPrivateKey] {
         self.private_key_list.as_deref().unwrap_or_default()
     }
@@ -132,10 +136,11 @@ impl GetSamlProviderOutputBuilder {
     pub fn get_valid_until(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.valid_until
     }
-    /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
@@ -165,10 +170,11 @@ impl GetSamlProviderOutputBuilder {
     pub fn get_assertion_encryption_mode(&self) -> &::std::option::Option<crate::types::AssertionEncryptionModeType> {
         &self.assertion_encryption_mode
     }
-    /// <p>The private key metadata for the SAML provider.</p>
     /// Appends an item to `private_key_list`.
     ///
     /// To override the contents of this collection use [`set_private_key_list`](Self::set_private_key_list).
+    ///
+    /// <p>The private key metadata for the SAML provider.</p>
     pub fn private_key_list(mut self, input: crate::types::SamlPrivateKey) -> Self {
         let mut v = self.private_key_list.unwrap_or_default();
         v.push(input);

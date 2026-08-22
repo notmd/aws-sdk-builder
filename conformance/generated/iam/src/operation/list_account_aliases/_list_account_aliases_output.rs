@@ -49,10 +49,11 @@ pub struct ListAccountAliasesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListAccountAliasesOutputBuilder {
-    /// <p>A list of aliases associated with the account. Amazon Web Services supports only one alias per account.</p>
     /// Appends an item to `account_aliases`.
     ///
     /// To override the contents of this collection use [`set_account_aliases`](Self::set_account_aliases).
+    ///
+    /// <p>A list of aliases associated with the account. Amazon Web Services supports only one alias per account.</p>
     pub fn account_aliases(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.account_aliases.unwrap_or_default();
         v.push(input.into());
@@ -107,7 +108,7 @@ impl ListAccountAliasesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListAccountAliasesOutput`](crate::operation::list_account_aliases::ListAccountAliasesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`account_aliases`](Self::account_aliases)
+    /// - [`account_aliases`](crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::account_aliases)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::list_account_aliases::ListAccountAliasesOutput, ::aws_smithy_types::error::operation::BuildError>

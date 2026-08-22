@@ -61,7 +61,7 @@ impl DeleteServiceLinkedRoleOutputBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteServiceLinkedRoleOutput`](crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`deletion_task_id`](Self::deletion_task_id)
+    /// - [`deletion_task_id`](crate::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleOutputBuilder::deletion_task_id)
     pub fn build(
         self,
     ) -> ::std::result::Result<

@@ -14,6 +14,8 @@ pub struct ListSshPublicKeysOutput {
 }
 impl ListSshPublicKeysOutput {
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.ssh_public_keys.is_none()`.
     pub fn ssh_public_keys(&self) -> &[crate::types::SshPublicKeyMetadata] {
         self.ssh_public_keys.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListSshPublicKeysOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListSshPublicKeysOutputBuilder {
-    /// <p>A list of the SSH public keys assigned to IAM user.</p>
     /// Appends an item to `ssh_public_keys`.
     ///
     /// To override the contents of this collection use [`set_ssh_public_keys`](Self::set_ssh_public_keys).
+    ///
+    /// <p>A list of the SSH public keys assigned to IAM user.</p>
     pub fn ssh_public_keys(mut self, input: crate::types::SshPublicKeyMetadata) -> Self {
         let mut v = self.ssh_public_keys.unwrap_or_default();
         v.push(input);

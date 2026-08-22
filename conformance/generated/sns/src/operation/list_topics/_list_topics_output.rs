@@ -12,6 +12,8 @@ pub struct ListTopicsOutput {
 }
 impl ListTopicsOutput {
     /// <p>A list of topic ARNs.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.topics.is_none()`.
     pub fn topics(&self) -> &[crate::types::Topic] {
         self.topics.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListTopicsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListTopicsOutputBuilder {
-    /// <p>A list of topic ARNs.</p>
     /// Appends an item to `topics`.
     ///
     /// To override the contents of this collection use [`set_topics`](Self::set_topics).
+    ///
+    /// <p>A list of topic ARNs.</p>
     pub fn topics(mut self, input: crate::types::Topic) -> Self {
         let mut v = self.topics.unwrap_or_default();
         v.push(input);

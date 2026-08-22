@@ -60,7 +60,7 @@ impl GetSmsSandboxAccountStatusOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetSmsSandboxAccountStatusOutput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`is_in_sandbox`](Self::is_in_sandbox)
+    /// - [`is_in_sandbox`](crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::is_in_sandbox)
     pub fn build(
         self,
     ) -> ::std::result::Result<

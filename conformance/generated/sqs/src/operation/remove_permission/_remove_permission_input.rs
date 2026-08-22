@@ -7,7 +7,7 @@ pub struct RemovePermissionInput {
     /// <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
     pub queue_url: ::std::option::Option<::std::string::String>,
-    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
+    /// <p>The identification of the permission to remove. This is the label added using the <code> <code>AddPermission</code> </code> action.</p>
     pub label: ::std::option::Option<::std::string::String>,
 }
 impl RemovePermissionInput {
@@ -16,7 +16,7 @@ impl RemovePermissionInput {
     pub fn queue_url(&self) -> ::std::option::Option<&str> {
         self.queue_url.as_deref()
     }
-    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
+    /// <p>The identification of the permission to remove. This is the label added using the <code> <code>AddPermission</code> </code> action.</p>
     pub fn label(&self) -> ::std::option::Option<&str> {
         self.label.as_deref()
     }
@@ -54,18 +54,18 @@ impl RemovePermissionInputBuilder {
     pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
         &self.queue_url
     }
-    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
+    /// <p>The identification of the permission to remove. This is the label added using the <code> <code>AddPermission</code> </code> action.</p>
     /// This field is required.
     pub fn label(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
+    /// <p>The identification of the permission to remove. This is the label added using the <code> <code>AddPermission</code> </code> action.</p>
     pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.label = input;
         self
     }
-    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
+    /// <p>The identification of the permission to remove. This is the label added using the <code> <code>AddPermission</code> </code> action.</p>
     pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
         &self.label
     }

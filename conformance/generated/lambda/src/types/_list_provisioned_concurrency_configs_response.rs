@@ -11,6 +11,8 @@ pub struct ListProvisionedConcurrencyConfigsResponse {
 }
 impl ListProvisionedConcurrencyConfigsResponse {
     /// <p>A list of provisioned concurrency configurations.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.provisioned_concurrency_configs.is_none()`.
     pub fn provisioned_concurrency_configs(&self) -> &[crate::types::ProvisionedConcurrencyConfigListItem] {
         self.provisioned_concurrency_configs.as_deref().unwrap_or_default()
     }
@@ -34,10 +36,11 @@ pub struct ListProvisionedConcurrencyConfigsResponseBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl ListProvisionedConcurrencyConfigsResponseBuilder {
-    /// <p>A list of provisioned concurrency configurations.</p>
     /// Appends an item to `provisioned_concurrency_configs`.
     ///
     /// To override the contents of this collection use [`set_provisioned_concurrency_configs`](Self::set_provisioned_concurrency_configs).
+    ///
+    /// <p>A list of provisioned concurrency configurations.</p>
     pub fn provisioned_concurrency_configs(mut self, input: crate::types::ProvisionedConcurrencyConfigListItem) -> Self {
         let mut v = self.provisioned_concurrency_configs.unwrap_or_default();
         v.push(input);

@@ -80,7 +80,7 @@ impl ValidationExceptionBuilder {
     }
     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
     /// This method will fail if any of the following fields are not set:
-    /// - [`message`](Self::message)
+    /// - [`message`](crate::types::error::builders::ValidationExceptionBuilder::message)
     pub fn build(self) -> ::std::result::Result<crate::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::error::ValidationException {
             message: self.message.ok_or_else(|| {

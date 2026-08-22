@@ -81,7 +81,7 @@ impl GetServiceLinkedRoleDeletionStatusOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetServiceLinkedRoleDeletionStatusOutput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`status`](Self::status)
+    /// - [`status`](crate::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder::status)
     pub fn build(
         self,
     ) -> ::std::result::Result<

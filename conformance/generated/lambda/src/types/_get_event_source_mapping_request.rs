@@ -45,7 +45,7 @@ impl GetEventSourceMappingRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetEventSourceMappingRequest`](crate::types::GetEventSourceMappingRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`uuid`](Self::uuid)
+    /// - [`uuid`](crate::types::builders::GetEventSourceMappingRequestBuilder::uuid)
     pub fn build(self) -> ::std::result::Result<crate::types::GetEventSourceMappingRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetEventSourceMappingRequest {
             uuid: self.uuid.ok_or_else(|| {

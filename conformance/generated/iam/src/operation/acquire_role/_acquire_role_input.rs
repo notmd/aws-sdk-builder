@@ -77,10 +77,11 @@ impl AcquireRoleInputBuilder {
     pub fn get_template_minor_version(&self) -> &::std::option::Option<i32> {
         &self.template_minor_version
     }
-    /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     /// Adds a key-value pair to `replacement_values`.
     ///
     /// To override the contents of this collection use [`set_replacement_values`](Self::set_replacement_values).
+    ///
+    /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     pub fn replacement_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::ReplacementValueEntry) -> Self {
         let mut map = self.replacement_values.unwrap_or_default();
         map.insert(k.into(), v);

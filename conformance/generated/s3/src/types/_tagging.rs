@@ -28,10 +28,11 @@ pub struct TaggingBuilder {
     pub(crate) tag_set: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 }
 impl TaggingBuilder {
-    /// <p>A collection for a set of tags</p>
     /// Appends an item to `tag_set`.
     ///
     /// To override the contents of this collection use [`set_tag_set`](Self::set_tag_set).
+    ///
+    /// <p>A collection for a set of tags</p>
     pub fn tag_set(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tag_set.unwrap_or_default();
         v.push(input);
@@ -49,7 +50,7 @@ impl TaggingBuilder {
     }
     /// Consumes the builder and constructs a [`Tagging`](crate::types::Tagging).
     /// This method will fail if any of the following fields are not set:
-    /// - [`tag_set`](Self::tag_set)
+    /// - [`tag_set`](crate::types::builders::TaggingBuilder::tag_set)
     pub fn build(self) -> ::std::result::Result<crate::types::Tagging, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Tagging {
             tag_set: self.tag_set.ok_or_else(|| {

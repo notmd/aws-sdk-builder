@@ -12,6 +12,8 @@ pub struct ListPhoneNumbersOptedOutOutput {
 }
 impl ListPhoneNumbersOptedOutOutput {
     /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.phone_numbers.is_none()`.
     pub fn phone_numbers(&self) -> &[::std::string::String] {
         self.phone_numbers.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListPhoneNumbersOptedOutOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListPhoneNumbersOptedOutOutputBuilder {
-    /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
     /// Appends an item to `phone_numbers`.
     ///
     /// To override the contents of this collection use [`set_phone_numbers`](Self::set_phone_numbers).
+    ///
+    /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
     pub fn phone_numbers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.phone_numbers.unwrap_or_default();
         v.push(input.into());

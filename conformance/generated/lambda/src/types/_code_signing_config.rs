@@ -154,9 +154,9 @@ impl CodeSigningConfigBuilder {
     }
     /// Consumes the builder and constructs a [`CodeSigningConfig`](crate::types::CodeSigningConfig).
     /// This method will fail if any of the following fields are not set:
-    /// - [`code_signing_config_id`](Self::code_signing_config_id)
-    /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
-    /// - [`last_modified`](Self::last_modified)
+    /// - [`code_signing_config_id`](crate::types::builders::CodeSigningConfigBuilder::code_signing_config_id)
+    /// - [`code_signing_config_arn`](crate::types::builders::CodeSigningConfigBuilder::code_signing_config_arn)
+    /// - [`last_modified`](crate::types::builders::CodeSigningConfigBuilder::last_modified)
     pub fn build(self) -> ::std::result::Result<crate::types::CodeSigningConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CodeSigningConfig {
             code_signing_config_id: self.code_signing_config_id.ok_or_else(|| {

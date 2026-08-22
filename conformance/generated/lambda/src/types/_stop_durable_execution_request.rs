@@ -66,7 +66,7 @@ impl StopDurableExecutionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`StopDurableExecutionRequest`](crate::types::StopDurableExecutionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`durable_execution_arn`](Self::durable_execution_arn)
+    /// - [`durable_execution_arn`](crate::types::builders::StopDurableExecutionRequestBuilder::durable_execution_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::StopDurableExecutionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StopDurableExecutionRequest {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {

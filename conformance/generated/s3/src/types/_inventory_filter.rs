@@ -45,7 +45,7 @@ impl InventoryFilterBuilder {
     }
     /// Consumes the builder and constructs a [`InventoryFilter`](crate::types::InventoryFilter).
     /// This method will fail if any of the following fields are not set:
-    /// - [`prefix`](Self::prefix)
+    /// - [`prefix`](crate::types::builders::InventoryFilterBuilder::prefix)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryFilter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryFilter {
             prefix: self.prefix.ok_or_else(|| {

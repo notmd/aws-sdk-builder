@@ -12,6 +12,8 @@ pub struct ThrottlingException {
 }
 impl ThrottlingException {
     /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.throttling_reasons.is_none()`.
     pub fn throttling_reasons(&self) -> &[crate::types::ThrottlingReason] {
         self.throttling_reasons.as_deref().unwrap_or_default()
     }
@@ -75,10 +77,11 @@ impl ThrottlingExceptionBuilder {
     pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.message
     }
-    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
     /// Appends an item to `throttling_reasons`.
     ///
     /// To override the contents of this collection use [`set_throttling_reasons`](Self::set_throttling_reasons).
+    ///
+    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
     pub fn throttling_reasons(mut self, input: crate::types::ThrottlingReason) -> Self {
         let mut v = self.throttling_reasons.unwrap_or_default();
         v.push(input);

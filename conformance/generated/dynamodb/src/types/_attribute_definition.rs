@@ -6,7 +6,15 @@
 pub struct AttributeDefinition {
     /// <p>A name for the attribute.</p>
     pub attribute_name: ::std::string::String,
-    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
+    /// <p>The data type for the attribute, where:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>S</code> - the attribute is of type String</p></li>
+    /// <li>
+    /// <p><code>N</code> - the attribute is of type Number</p></li>
+    /// <li>
+    /// <p><code>B</code> - the attribute is of type Binary</p></li>
+    /// </ul>
     pub attribute_type: crate::types::ScalarAttributeType,
 }
 impl AttributeDefinition {
@@ -15,7 +23,15 @@ impl AttributeDefinition {
         use std::ops::Deref;
         self.attribute_name.deref()
     }
-    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
+    /// <p>The data type for the attribute, where:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>S</code> - the attribute is of type String</p></li>
+    /// <li>
+    /// <p><code>N</code> - the attribute is of type Number</p></li>
+    /// <li>
+    /// <p><code>B</code> - the attribute is of type Binary</p></li>
+    /// </ul>
     pub fn attribute_type(&self) -> &crate::types::ScalarAttributeType {
         &self.attribute_type
     }
@@ -50,25 +66,49 @@ impl AttributeDefinitionBuilder {
     pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.attribute_name
     }
-    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
+    /// <p>The data type for the attribute, where:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>S</code> - the attribute is of type String</p></li>
+    /// <li>
+    /// <p><code>N</code> - the attribute is of type Number</p></li>
+    /// <li>
+    /// <p><code>B</code> - the attribute is of type Binary</p></li>
+    /// </ul>
     /// This field is required.
     pub fn attribute_type(mut self, input: crate::types::ScalarAttributeType) -> Self {
         self.attribute_type = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
+    /// <p>The data type for the attribute, where:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>S</code> - the attribute is of type String</p></li>
+    /// <li>
+    /// <p><code>N</code> - the attribute is of type Number</p></li>
+    /// <li>
+    /// <p><code>B</code> - the attribute is of type Binary</p></li>
+    /// </ul>
     pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self {
         self.attribute_type = input;
         self
     }
-    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
+    /// <p>The data type for the attribute, where:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>S</code> - the attribute is of type String</p></li>
+    /// <li>
+    /// <p><code>N</code> - the attribute is of type Number</p></li>
+    /// <li>
+    /// <p><code>B</code> - the attribute is of type Binary</p></li>
+    /// </ul>
     pub fn get_attribute_type(&self) -> &::std::option::Option<crate::types::ScalarAttributeType> {
         &self.attribute_type
     }
     /// Consumes the builder and constructs a [`AttributeDefinition`](crate::types::AttributeDefinition).
     /// This method will fail if any of the following fields are not set:
-    /// - [`attribute_name`](Self::attribute_name)
-    /// - [`attribute_type`](Self::attribute_type)
+    /// - [`attribute_name`](crate::types::builders::AttributeDefinitionBuilder::attribute_name)
+    /// - [`attribute_type`](crate::types::builders::AttributeDefinitionBuilder::attribute_type)
     pub fn build(self) -> ::std::result::Result<crate::types::AttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AttributeDefinition {
             attribute_name: self.attribute_name.ok_or_else(|| {

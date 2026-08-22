@@ -6,9 +6,21 @@
 pub struct ReplicaGlobalSecondaryIndexAutoScalingDescription {
     /// <p>The name of the global secondary index.</p>
     pub index_name: ::std::option::Option<::std::string::String>,
-    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+    /// <p>The current state of the replica global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul>
     pub index_status: ::std::option::Option<crate::types::IndexStatus>,
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
 }
 impl ReplicaGlobalSecondaryIndexAutoScalingDescription {
@@ -16,13 +28,25 @@ impl ReplicaGlobalSecondaryIndexAutoScalingDescription {
     pub fn index_name(&self) -> ::std::option::Option<&str> {
         self.index_name.as_deref()
     }
-    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+    /// <p>The current state of the replica global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul>
     pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
         self.index_status.as_ref()
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
         self.provisioned_read_capacity_auto_scaling_settings.as_ref()
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
         self.provisioned_write_capacity_auto_scaling_settings.as_ref()
     }
@@ -58,24 +82,56 @@ impl ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
-    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+    /// <p>The current state of the replica global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul>
     pub fn index_status(mut self, input: crate::types::IndexStatus) -> Self {
         self.index_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+    /// <p>The current state of the replica global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul>
     pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
         self.index_status = input;
         self
     }
-    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+    /// <p>The current state of the replica global secondary index:</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>CREATING</code> - The index is being created.</p></li>
+    /// <li>
+    /// <p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li>
+    /// <li>
+    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
+    /// <li>
+    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
+    /// </ul>
     pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
         &self.index_status
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn provisioned_read_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
         self.provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn set_provisioned_read_capacity_auto_scaling_settings(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
@@ -83,13 +139,16 @@ impl ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
         self.provisioned_read_capacity_auto_scaling_settings = input;
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn get_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
         &self.provisioned_read_capacity_auto_scaling_settings
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn provisioned_write_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
         self.provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn set_provisioned_write_capacity_auto_scaling_settings(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
@@ -97,6 +156,7 @@ impl ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
         self.provisioned_write_capacity_auto_scaling_settings = input;
         self
     }
+    /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
     pub fn get_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
         &self.provisioned_write_capacity_auto_scaling_settings
     }

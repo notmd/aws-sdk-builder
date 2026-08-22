@@ -8,7 +8,9 @@ pub struct WebsiteConfiguration {
     pub error_document: ::std::option::Option<crate::types::ErrorDocument>,
     /// <p>The name of the index document for the website.</p>
     pub index_document: ::std::option::Option<crate::types::IndexDocument>,
-    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important><p>If you specify this property, you can't specify any other property.</p></important>
+    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p><important>
+    /// <p>If you specify this property, you can't specify any other property.</p>
+    /// </important>
     pub redirect_all_requests_to: ::std::option::Option<crate::types::RedirectAllRequestsTo>,
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     pub routing_rules: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>,
@@ -22,11 +24,15 @@ impl WebsiteConfiguration {
     pub fn index_document(&self) -> ::std::option::Option<&crate::types::IndexDocument> {
         self.index_document.as_ref()
     }
-    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important><p>If you specify this property, you can't specify any other property.</p></important>
+    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p><important>
+    /// <p>If you specify this property, you can't specify any other property.</p>
+    /// </important>
     pub fn redirect_all_requests_to(&self) -> ::std::option::Option<&crate::types::RedirectAllRequestsTo> {
         self.redirect_all_requests_to.as_ref()
     }
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.routing_rules.is_none()`.
     pub fn routing_rules(&self) -> &[crate::types::RoutingRule] {
         self.routing_rules.as_deref().unwrap_or_default()
     }
@@ -76,24 +82,31 @@ impl WebsiteConfigurationBuilder {
     pub fn get_index_document(&self) -> &::std::option::Option<crate::types::IndexDocument> {
         &self.index_document
     }
-    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important><p>If you specify this property, you can't specify any other property.</p></important>
+    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p><important>
+    /// <p>If you specify this property, you can't specify any other property.</p>
+    /// </important>
     pub fn redirect_all_requests_to(mut self, input: crate::types::RedirectAllRequestsTo) -> Self {
         self.redirect_all_requests_to = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important><p>If you specify this property, you can't specify any other property.</p></important>
+    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p><important>
+    /// <p>If you specify this property, you can't specify any other property.</p>
+    /// </important>
     pub fn set_redirect_all_requests_to(mut self, input: ::std::option::Option<crate::types::RedirectAllRequestsTo>) -> Self {
         self.redirect_all_requests_to = input;
         self
     }
-    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important><p>If you specify this property, you can't specify any other property.</p></important>
+    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p><important>
+    /// <p>If you specify this property, you can't specify any other property.</p>
+    /// </important>
     pub fn get_redirect_all_requests_to(&self) -> &::std::option::Option<crate::types::RedirectAllRequestsTo> {
         &self.redirect_all_requests_to
     }
-    /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     /// Appends an item to `routing_rules`.
     ///
     /// To override the contents of this collection use [`set_routing_rules`](Self::set_routing_rules).
+    ///
+    /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     pub fn routing_rules(mut self, input: crate::types::RoutingRule) -> Self {
         let mut v = self.routing_rules.unwrap_or_default();
         v.push(input);

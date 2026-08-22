@@ -68,8 +68,8 @@ impl TagsErrorBuilder {
     }
     /// Consumes the builder and constructs a [`TagsError`](crate::types::TagsError).
     /// This method will fail if any of the following fields are not set:
-    /// - [`error_code`](Self::error_code)
-    /// - [`message`](Self::message)
+    /// - [`error_code`](crate::types::builders::TagsErrorBuilder::error_code)
+    /// - [`message`](crate::types::builders::TagsErrorBuilder::message)
     pub fn build(self) -> ::std::result::Result<crate::types::TagsError, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TagsError {
             error_code: self.error_code.ok_or_else(|| {

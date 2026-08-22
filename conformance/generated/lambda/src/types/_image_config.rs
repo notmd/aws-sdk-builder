@@ -13,10 +13,14 @@ pub struct ImageConfig {
 }
 impl ImageConfig {
     /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.entry_point.is_none()`.
     pub fn entry_point(&self) -> &[::std::string::String] {
         self.entry_point.as_deref().unwrap_or_default()
     }
     /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.command.is_none()`.
     pub fn command(&self) -> &[::std::string::String] {
         self.command.as_deref().unwrap_or_default()
     }
@@ -41,10 +45,11 @@ pub struct ImageConfigBuilder {
     pub(crate) working_directory: ::std::option::Option<::std::string::String>,
 }
 impl ImageConfigBuilder {
-    /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
     /// Appends an item to `entry_point`.
     ///
     /// To override the contents of this collection use [`set_entry_point`](Self::set_entry_point).
+    ///
+    /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
     pub fn entry_point(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.entry_point.unwrap_or_default();
         v.push(input.into());
@@ -60,10 +65,11 @@ impl ImageConfigBuilder {
     pub fn get_entry_point(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.entry_point
     }
-    /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
     /// Appends an item to `command`.
     ///
     /// To override the contents of this collection use [`set_command`](Self::set_command).
+    ///
+    /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
     pub fn command(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.command.unwrap_or_default();
         v.push(input.into());

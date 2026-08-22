@@ -12,6 +12,7 @@ pub struct PutBucketReplicationInput {
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
     pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
+    /// <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
     pub replication_configuration: ::std::option::Option<crate::types::ReplicationConfiguration>,
     /// <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
     pub token: ::std::option::Option<::std::string::String>,
@@ -33,6 +34,7 @@ impl PutBucketReplicationInput {
     pub fn checksum_algorithm(&self) -> ::std::option::Option<&crate::types::ChecksumAlgorithm> {
         self.checksum_algorithm.as_ref()
     }
+    /// <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
     pub fn replication_configuration(&self) -> ::std::option::Option<&crate::types::ReplicationConfiguration> {
         self.replication_configuration.as_ref()
     }
@@ -113,14 +115,17 @@ impl PutBucketReplicationInputBuilder {
     pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
         &self.checksum_algorithm
     }
+    /// <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
     pub fn replication_configuration(mut self, input: crate::types::ReplicationConfiguration) -> Self {
         self.replication_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
     pub fn set_replication_configuration(mut self, input: ::std::option::Option<crate::types::ReplicationConfiguration>) -> Self {
         self.replication_configuration = input;
         self
     }
+    /// <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
     pub fn get_replication_configuration(&self) -> &::std::option::Option<crate::types::ReplicationConfiguration> {
         &self.replication_configuration
     }

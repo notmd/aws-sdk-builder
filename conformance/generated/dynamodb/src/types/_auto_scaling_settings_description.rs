@@ -33,6 +33,8 @@ impl AutoScalingSettingsDescription {
         self.auto_scaling_role_arn.as_deref()
     }
     /// <p>Information about the scaling policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.scaling_policies.is_none()`.
     pub fn scaling_policies(&self) -> &[crate::types::AutoScalingPolicyDescription] {
         self.scaling_policies.as_deref().unwrap_or_default()
     }
@@ -111,10 +113,11 @@ impl AutoScalingSettingsDescriptionBuilder {
     pub fn get_auto_scaling_role_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.auto_scaling_role_arn
     }
-    /// <p>Information about the scaling policies.</p>
     /// Appends an item to `scaling_policies`.
     ///
     /// To override the contents of this collection use [`set_scaling_policies`](Self::set_scaling_policies).
+    ///
+    /// <p>Information about the scaling policies.</p>
     pub fn scaling_policies(mut self, input: crate::types::AutoScalingPolicyDescription) -> Self {
         let mut v = self.scaling_policies.unwrap_or_default();
         v.push(input);

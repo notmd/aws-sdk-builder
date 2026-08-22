@@ -15,6 +15,8 @@ pub struct GetWebIdentityTokenInput {
 }
 impl GetWebIdentityTokenInput {
     /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.audience.is_none()`.
     pub fn audience(&self) -> &[::std::string::String] {
         self.audience.as_deref().unwrap_or_default()
     }
@@ -27,6 +29,8 @@ impl GetWebIdentityTokenInput {
         self.signing_algorithm.as_deref()
     }
     /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -48,10 +52,11 @@ pub struct GetWebIdentityTokenInputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 }
 impl GetWebIdentityTokenInputBuilder {
-    /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
     /// Appends an item to `audience`.
     ///
     /// To override the contents of this collection use [`set_audience`](Self::set_audience).
+    ///
+    /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
     pub fn audience(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.audience.unwrap_or_default();
         v.push(input.into());
@@ -96,10 +101,11 @@ impl GetWebIdentityTokenInputBuilder {
     pub fn get_signing_algorithm(&self) -> &::std::option::Option<::std::string::String> {
         &self.signing_algorithm
     }
-    /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

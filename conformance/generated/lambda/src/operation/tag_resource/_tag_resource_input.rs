@@ -49,10 +49,11 @@ impl TagResourceInputBuilder {
     pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
         &self.resource
     }
-    /// <p>A list of tags to apply to the resource.</p>
     /// Adds a key-value pair to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags to apply to the resource.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.tags.unwrap_or_default();
         map.insert(k.into(), v.into());

@@ -15,6 +15,8 @@ impl AnalyticsAndOperator {
         self.prefix.as_deref()
     }
     /// <p>The list of tags to use when evaluating an AND predicate.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl AnalyticsAndOperatorBuilder {
     pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
         &self.prefix
     }
-    /// <p>The list of tags to use when evaluating an AND predicate.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>The list of tags to use when evaluating an AND predicate.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

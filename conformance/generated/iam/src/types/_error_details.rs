@@ -69,8 +69,8 @@ impl ErrorDetailsBuilder {
     }
     /// Consumes the builder and constructs a [`ErrorDetails`](crate::types::ErrorDetails).
     /// This method will fail if any of the following fields are not set:
-    /// - [`message`](Self::message)
-    /// - [`code`](Self::code)
+    /// - [`message`](crate::types::builders::ErrorDetailsBuilder::message)
+    /// - [`code`](crate::types::builders::ErrorDetailsBuilder::code)
     pub fn build(self) -> ::std::result::Result<crate::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ErrorDetails {
             message: self.message.ok_or_else(|| {

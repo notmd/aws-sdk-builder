@@ -70,10 +70,11 @@ impl GetGroupOutputBuilder {
     pub fn get_group(&self) -> &::std::option::Option<crate::types::Group> {
         &self.group
     }
-    /// <p>A list of users in the group.</p>
     /// Appends an item to `users`.
     ///
     /// To override the contents of this collection use [`set_users`](Self::set_users).
+    ///
+    /// <p>A list of users in the group.</p>
     pub fn users(mut self, input: crate::types::User) -> Self {
         let mut v = self.users.unwrap_or_default();
         v.push(input);
@@ -128,7 +129,7 @@ impl GetGroupOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`users`](Self::users)
+    /// - [`users`](crate::operation::get_group::builders::GetGroupOutputBuilder::users)
     pub fn build(self) -> ::std::result::Result<crate::operation::get_group::GetGroupOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_group::GetGroupOutput {
             group: self.group,

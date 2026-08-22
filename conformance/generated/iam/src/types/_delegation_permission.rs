@@ -15,6 +15,8 @@ impl DelegationPermission {
         self.policy_template_arn.as_deref()
     }
     /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.parameters.is_none()`.
     pub fn parameters(&self) -> &[crate::types::PolicyParameter] {
         self.parameters.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl DelegationPermissionBuilder {
     pub fn get_policy_template_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.policy_template_arn
     }
-    /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
     /// Appends an item to `parameters`.
     ///
     /// To override the contents of this collection use [`set_parameters`](Self::set_parameters).
+    ///
+    /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
     pub fn parameters(mut self, input: crate::types::PolicyParameter) -> Self {
         let mut v = self.parameters.unwrap_or_default();
         v.push(input);

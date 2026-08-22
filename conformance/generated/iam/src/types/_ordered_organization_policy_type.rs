@@ -10,6 +10,8 @@ pub struct OrderedOrganizationPolicyType {
 }
 impl OrderedOrganizationPolicyType {
     /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.service_control_policy_input_list.is_none()`.
     pub fn service_control_policy_input_list(&self) -> &[::std::string::String] {
         self.service_control_policy_input_list.as_deref().unwrap_or_default()
     }
@@ -28,10 +30,11 @@ pub struct OrderedOrganizationPolicyTypeBuilder {
     pub(crate) service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl OrderedOrganizationPolicyTypeBuilder {
-    /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
     /// Appends an item to `service_control_policy_input_list`.
     ///
     /// To override the contents of this collection use [`set_service_control_policy_input_list`](Self::set_service_control_policy_input_list).
+    ///
+    /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
     pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.service_control_policy_input_list.unwrap_or_default();
         v.push(input.into());

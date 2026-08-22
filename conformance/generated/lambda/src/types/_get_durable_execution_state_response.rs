@@ -35,10 +35,11 @@ pub struct GetDurableExecutionStateResponseBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 }
 impl GetDurableExecutionStateResponseBuilder {
-    /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
     /// Appends an item to `operations`.
     ///
     /// To override the contents of this collection use [`set_operations`](Self::set_operations).
+    ///
+    /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
     pub fn operations(mut self, input: crate::types::Operation) -> Self {
         let mut v = self.operations.unwrap_or_default();
         v.push(input);
@@ -70,7 +71,7 @@ impl GetDurableExecutionStateResponseBuilder {
     }
     /// Consumes the builder and constructs a [`GetDurableExecutionStateResponse`](crate::types::GetDurableExecutionStateResponse).
     /// This method will fail if any of the following fields are not set:
-    /// - [`operations`](Self::operations)
+    /// - [`operations`](crate::types::builders::GetDurableExecutionStateResponseBuilder::operations)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionStateResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionStateResponse {
             operations: self.operations.ok_or_else(|| {

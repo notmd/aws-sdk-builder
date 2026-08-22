@@ -16,6 +16,8 @@ impl EnableOrganizationsRootSessionsOutput {
         self.organization_id.as_deref()
     }
     /// <p>The features you have enabled for centralized root access.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.enabled_features.is_none()`.
     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
         self.enabled_features.as_deref().unwrap_or_default()
     }
@@ -55,10 +57,11 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
     pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.organization_id
     }
-    /// <p>The features you have enabled for centralized root access.</p>
     /// Appends an item to `enabled_features`.
     ///
     /// To override the contents of this collection use [`set_enabled_features`](Self::set_enabled_features).
+    ///
+    /// <p>The features you have enabled for centralized root access.</p>
     pub fn enabled_features(mut self, input: crate::types::FeatureType) -> Self {
         let mut v = self.enabled_features.unwrap_or_default();
         v.push(input);

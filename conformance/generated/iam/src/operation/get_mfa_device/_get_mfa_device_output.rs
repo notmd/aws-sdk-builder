@@ -10,7 +10,7 @@ pub struct GetMfaDeviceOutput {
     pub serial_number: ::std::string::String,
     /// <p>The date that a specified user's MFA device was first enabled.</p>
     pub enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub certifications: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     _request_id: Option<String>,
 }
@@ -28,7 +28,7 @@ impl GetMfaDeviceOutput {
     pub fn enable_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.enable_date.as_ref()
     }
-    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub fn certifications(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.certifications.as_ref()
     }
@@ -99,10 +99,11 @@ impl GetMfaDeviceOutputBuilder {
     pub fn get_enable_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.enable_date
     }
-    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
     /// Adds a key-value pair to `certifications`.
     ///
     /// To override the contents of this collection use [`set_certifications`](Self::set_certifications).
+    ///
+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub fn certifications(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -113,7 +114,7 @@ impl GetMfaDeviceOutputBuilder {
         self.certifications = ::std::option::Option::Some(map);
         self
     }
-    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub fn set_certifications(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -121,7 +122,7 @@ impl GetMfaDeviceOutputBuilder {
         self.certifications = input;
         self
     }
-    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
+    /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub fn get_certifications(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         &self.certifications
     }
@@ -136,7 +137,7 @@ impl GetMfaDeviceOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetMfaDeviceOutput`](crate::operation::get_mfa_device::GetMfaDeviceOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`serial_number`](Self::serial_number)
+    /// - [`serial_number`](crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder::serial_number)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::get_mfa_device::GetMfaDeviceOutput, ::aws_smithy_types::error::operation::BuildError> {

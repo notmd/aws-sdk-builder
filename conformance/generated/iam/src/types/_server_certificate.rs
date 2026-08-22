@@ -29,6 +29,8 @@ impl ServerCertificate {
         self.certificate_chain.as_deref()
     }
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -93,10 +95,11 @@ impl ServerCertificateBuilder {
     pub fn get_certificate_chain(&self) -> &::std::option::Option<::std::string::String> {
         &self.certificate_chain
     }
-    /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);
@@ -114,7 +117,7 @@ impl ServerCertificateBuilder {
     }
     /// Consumes the builder and constructs a [`ServerCertificate`](crate::types::ServerCertificate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`certificate_body`](Self::certificate_body)
+    /// - [`certificate_body`](crate::types::builders::ServerCertificateBuilder::certificate_body)
     pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerCertificate {
             server_certificate_metadata: self.server_certificate_metadata,

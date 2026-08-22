@@ -68,8 +68,8 @@ impl FederatedUserBuilder {
     }
     /// Consumes the builder and constructs a [`FederatedUser`](crate::types::FederatedUser).
     /// This method will fail if any of the following fields are not set:
-    /// - [`federated_user_id`](Self::federated_user_id)
-    /// - [`arn`](Self::arn)
+    /// - [`federated_user_id`](crate::types::builders::FederatedUserBuilder::federated_user_id)
+    /// - [`arn`](crate::types::builders::FederatedUserBuilder::arn)
     pub fn build(self) -> ::std::result::Result<crate::types::FederatedUser, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::FederatedUser {
             federated_user_id: self.federated_user_id.ok_or_else(|| {

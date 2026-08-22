@@ -39,6 +39,8 @@ impl PhoneNumberInformation {
         self.route_type.as_ref()
     }
     /// <p>The capabilities of each phone number.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.number_capabilities.is_none()`.
     pub fn number_capabilities(&self) -> &[crate::types::NumberCapability] {
         self.number_capabilities.as_deref().unwrap_or_default()
     }
@@ -132,10 +134,11 @@ impl PhoneNumberInformationBuilder {
     pub fn get_route_type(&self) -> &::std::option::Option<crate::types::RouteType> {
         &self.route_type
     }
-    /// <p>The capabilities of each phone number.</p>
     /// Appends an item to `number_capabilities`.
     ///
     /// To override the contents of this collection use [`set_number_capabilities`](Self::set_number_capabilities).
+    ///
+    /// <p>The capabilities of each phone number.</p>
     pub fn number_capabilities(mut self, input: crate::types::NumberCapability) -> Self {
         let mut v = self.number_capabilities.unwrap_or_default();
         v.push(input);

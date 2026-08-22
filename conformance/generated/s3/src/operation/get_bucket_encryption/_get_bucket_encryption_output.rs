@@ -4,11 +4,13 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketEncryptionOutput {
+    /// <p>Specifies the default server-side-encryption configuration.</p>
     pub server_side_encryption_configuration: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketEncryptionOutput {
+    /// <p>Specifies the default server-side-encryption configuration.</p>
     pub fn server_side_encryption_configuration(&self) -> ::std::option::Option<&crate::types::ServerSideEncryptionConfiguration> {
         self.server_side_encryption_configuration.as_ref()
     }
@@ -39,14 +41,17 @@ pub struct GetBucketEncryptionOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetBucketEncryptionOutputBuilder {
+    /// <p>Specifies the default server-side-encryption configuration.</p>
     pub fn server_side_encryption_configuration(mut self, input: crate::types::ServerSideEncryptionConfiguration) -> Self {
         self.server_side_encryption_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the default server-side-encryption configuration.</p>
     pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>) -> Self {
         self.server_side_encryption_configuration = input;
         self
     }
+    /// <p>Specifies the default server-side-encryption configuration.</p>
     pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
         &self.server_side_encryption_configuration
     }

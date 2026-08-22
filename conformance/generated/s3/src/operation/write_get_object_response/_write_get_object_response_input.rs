@@ -10,11 +10,41 @@ pub struct WriteGetObjectResponseInput {
     pub request_token: ::std::option::Option<::std::string::String>,
     /// <p>The object data.</p>
     pub body: ::aws_smithy_types::byte_stream::ByteStream,
-    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
+    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>200 - OK</code></p></li>
+    /// <li>
+    /// <p><code>206 - Partial Content</code></p></li>
+    /// <li>
+    /// <p><code>304 - Not Modified</code></p></li>
+    /// <li>
+    /// <p><code>400 - Bad Request</code></p></li>
+    /// <li>
+    /// <p><code>401 - Unauthorized</code></p></li>
+    /// <li>
+    /// <p><code>403 - Forbidden</code></p></li>
+    /// <li>
+    /// <p><code>404 - Not Found</code></p></li>
+    /// <li>
+    /// <p><code>405 - Method Not Allowed</code></p></li>
+    /// <li>
+    /// <p><code>409 - Conflict</code></p></li>
+    /// <li>
+    /// <p><code>411 - Length Required</code></p></li>
+    /// <li>
+    /// <p><code>412 - Precondition Failed</code></p></li>
+    /// <li>
+    /// <p><code>416 - Range Not Satisfiable</code></p></li>
+    /// <li>
+    /// <p><code>500 - Internal Server Error</code></p></li>
+    /// <li>
+    /// <p><code>503 - Service Unavailable</code></p></li>
+    /// </ul>
     pub status_code: ::std::option::Option<i32>,
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
     pub error_code: ::std::option::Option<::std::string::String>,
-    /// <p>Contains a generic description of the error condition. Returned in the <Message>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
     pub error_message: ::std::option::Option<::std::string::String>,
     /// <p>Indicates that a range of bytes was specified.</p>
     pub accept_ranges: ::std::option::Option<::std::string::String>,
@@ -81,6 +111,9 @@ pub struct WriteGetObjectResponseInput {
     pub parts_count: ::std::option::Option<i32>,
     /// <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
     pub replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     /// <p>Provides information about object restoration operation and expiration time of the restored object copy.</p>
     pub restore: ::std::option::Option<::std::string::String>,
@@ -117,15 +150,45 @@ impl WriteGetObjectResponseInput {
     pub fn body(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
         &self.body
     }
-    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
+    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>200 - OK</code></p></li>
+    /// <li>
+    /// <p><code>206 - Partial Content</code></p></li>
+    /// <li>
+    /// <p><code>304 - Not Modified</code></p></li>
+    /// <li>
+    /// <p><code>400 - Bad Request</code></p></li>
+    /// <li>
+    /// <p><code>401 - Unauthorized</code></p></li>
+    /// <li>
+    /// <p><code>403 - Forbidden</code></p></li>
+    /// <li>
+    /// <p><code>404 - Not Found</code></p></li>
+    /// <li>
+    /// <p><code>405 - Method Not Allowed</code></p></li>
+    /// <li>
+    /// <p><code>409 - Conflict</code></p></li>
+    /// <li>
+    /// <p><code>411 - Length Required</code></p></li>
+    /// <li>
+    /// <p><code>412 - Precondition Failed</code></p></li>
+    /// <li>
+    /// <p><code>416 - Range Not Satisfiable</code></p></li>
+    /// <li>
+    /// <p><code>500 - Internal Server Error</code></p></li>
+    /// <li>
+    /// <p><code>503 - Service Unavailable</code></p></li>
+    /// </ul>
     pub fn status_code(&self) -> ::std::option::Option<i32> {
         self.status_code
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
     pub fn error_code(&self) -> ::std::option::Option<&str> {
         self.error_code.as_deref()
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
     pub fn error_message(&self) -> ::std::option::Option<&str> {
         self.error_message.as_deref()
     }
@@ -254,6 +317,9 @@ impl WriteGetObjectResponseInput {
     pub fn replication_status(&self) -> ::std::option::Option<&crate::types::ReplicationStatus> {
         self.replication_status.as_ref()
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
         self.request_charged.as_ref()
     }
@@ -400,45 +466,135 @@ impl WriteGetObjectResponseInputBuilder {
     pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.body
     }
-    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
+    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>200 - OK</code></p></li>
+    /// <li>
+    /// <p><code>206 - Partial Content</code></p></li>
+    /// <li>
+    /// <p><code>304 - Not Modified</code></p></li>
+    /// <li>
+    /// <p><code>400 - Bad Request</code></p></li>
+    /// <li>
+    /// <p><code>401 - Unauthorized</code></p></li>
+    /// <li>
+    /// <p><code>403 - Forbidden</code></p></li>
+    /// <li>
+    /// <p><code>404 - Not Found</code></p></li>
+    /// <li>
+    /// <p><code>405 - Method Not Allowed</code></p></li>
+    /// <li>
+    /// <p><code>409 - Conflict</code></p></li>
+    /// <li>
+    /// <p><code>411 - Length Required</code></p></li>
+    /// <li>
+    /// <p><code>412 - Precondition Failed</code></p></li>
+    /// <li>
+    /// <p><code>416 - Range Not Satisfiable</code></p></li>
+    /// <li>
+    /// <p><code>500 - Internal Server Error</code></p></li>
+    /// <li>
+    /// <p><code>503 - Service Unavailable</code></p></li>
+    /// </ul>
     pub fn status_code(mut self, input: i32) -> Self {
         self.status_code = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
+    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>200 - OK</code></p></li>
+    /// <li>
+    /// <p><code>206 - Partial Content</code></p></li>
+    /// <li>
+    /// <p><code>304 - Not Modified</code></p></li>
+    /// <li>
+    /// <p><code>400 - Bad Request</code></p></li>
+    /// <li>
+    /// <p><code>401 - Unauthorized</code></p></li>
+    /// <li>
+    /// <p><code>403 - Forbidden</code></p></li>
+    /// <li>
+    /// <p><code>404 - Not Found</code></p></li>
+    /// <li>
+    /// <p><code>405 - Method Not Allowed</code></p></li>
+    /// <li>
+    /// <p><code>409 - Conflict</code></p></li>
+    /// <li>
+    /// <p><code>411 - Length Required</code></p></li>
+    /// <li>
+    /// <p><code>412 - Precondition Failed</code></p></li>
+    /// <li>
+    /// <p><code>416 - Range Not Satisfiable</code></p></li>
+    /// <li>
+    /// <p><code>500 - Internal Server Error</code></p></li>
+    /// <li>
+    /// <p><code>503 - Service Unavailable</code></p></li>
+    /// </ul>
     pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
         self.status_code = input;
         self
     }
-    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
+    /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p>
+    /// <ul>
+    /// <li>
+    /// <p><code>200 - OK</code></p></li>
+    /// <li>
+    /// <p><code>206 - Partial Content</code></p></li>
+    /// <li>
+    /// <p><code>304 - Not Modified</code></p></li>
+    /// <li>
+    /// <p><code>400 - Bad Request</code></p></li>
+    /// <li>
+    /// <p><code>401 - Unauthorized</code></p></li>
+    /// <li>
+    /// <p><code>403 - Forbidden</code></p></li>
+    /// <li>
+    /// <p><code>404 - Not Found</code></p></li>
+    /// <li>
+    /// <p><code>405 - Method Not Allowed</code></p></li>
+    /// <li>
+    /// <p><code>409 - Conflict</code></p></li>
+    /// <li>
+    /// <p><code>411 - Length Required</code></p></li>
+    /// <li>
+    /// <p><code>412 - Precondition Failed</code></p></li>
+    /// <li>
+    /// <p><code>416 - Range Not Satisfiable</code></p></li>
+    /// <li>
+    /// <p><code>500 - Internal Server Error</code></p></li>
+    /// <li>
+    /// <p><code>503 - Service Unavailable</code></p></li>
+    /// </ul>
     pub fn get_status_code(&self) -> &::std::option::Option<i32> {
         &self.status_code
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
     pub fn error_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_code = input;
         self
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
     pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> {
         &self.error_code
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
     pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
     pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_message = input;
         self
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
     pub fn get_error_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.error_message
     }
@@ -793,10 +949,11 @@ impl WriteGetObjectResponseInputBuilder {
     pub fn get_missing_meta(&self) -> &::std::option::Option<i32> {
         &self.missing_meta
     }
-    /// <p>A map of metadata to store with the object in S3.</p>
     /// Adds a key-value pair to `metadata`.
     ///
     /// To override the contents of this collection use [`set_metadata`](Self::set_metadata).
+    ///
+    /// <p>A map of metadata to store with the object in S3.</p>
     pub fn metadata(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut map = self.metadata.unwrap_or_default();
         map.insert(k.into(), v.into());
@@ -882,14 +1039,23 @@ impl WriteGetObjectResponseInputBuilder {
     pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
         &self.replication_status
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
         &self.request_charged
     }

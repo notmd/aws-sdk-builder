@@ -45,7 +45,7 @@ impl DeleteEventSourceMappingRequestBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteEventSourceMappingRequest`](crate::types::DeleteEventSourceMappingRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`uuid`](Self::uuid)
+    /// - [`uuid`](crate::types::builders::DeleteEventSourceMappingRequestBuilder::uuid)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteEventSourceMappingRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteEventSourceMappingRequest {
             uuid: self.uuid.ok_or_else(|| {

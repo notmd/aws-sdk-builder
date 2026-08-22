@@ -22,12 +22,17 @@ pub struct ListObjectAnnotationsOutput {
     pub continuation_token: ::std::option::Option<::std::string::String>,
     /// <p>The continuation token to use to retrieve the next page of results.</p>
     pub next_continuation_token: ::std::option::Option<::std::string::String>,
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl ListObjectAnnotationsOutput {
     /// <p>The list of annotations attached to the object.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.annotations.is_none()`.
     pub fn annotations(&self) -> &[crate::types::AnnotationEntry] {
         self.annotations.as_deref().unwrap_or_default()
     }
@@ -63,6 +68,9 @@ impl ListObjectAnnotationsOutput {
     pub fn next_continuation_token(&self) -> ::std::option::Option<&str> {
         self.next_continuation_token.as_deref()
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
         self.request_charged.as_ref()
     }
@@ -102,10 +110,11 @@ pub struct ListObjectAnnotationsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListObjectAnnotationsOutputBuilder {
-    /// <p>The list of annotations attached to the object.</p>
     /// Appends an item to `annotations`.
     ///
     /// To override the contents of this collection use [`set_annotations`](Self::set_annotations).
+    ///
+    /// <p>The list of annotations attached to the object.</p>
     pub fn annotations(mut self, input: crate::types::AnnotationEntry) -> Self {
         let mut v = self.annotations.unwrap_or_default();
         v.push(input);
@@ -233,14 +242,23 @@ impl ListObjectAnnotationsOutputBuilder {
     pub fn get_next_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_continuation_token
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
         self.request_charged = input;
         self
     }
+    /// <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
         &self.request_charged
     }

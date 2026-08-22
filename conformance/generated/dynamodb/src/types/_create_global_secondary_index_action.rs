@@ -81,10 +81,11 @@ impl CreateGlobalSecondaryIndexActionBuilder {
     pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.index_name
     }
-    /// <p>The key schema for the global secondary index. Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
     /// Appends an item to `key_schema`.
     ///
     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
+    ///
+    /// <p>The key schema for the global secondary index. Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
         let mut v = self.key_schema.unwrap_or_default();
         v.push(input);
@@ -161,8 +162,8 @@ impl CreateGlobalSecondaryIndexActionBuilder {
     }
     /// Consumes the builder and constructs a [`CreateGlobalSecondaryIndexAction`](crate::types::CreateGlobalSecondaryIndexAction).
     /// This method will fail if any of the following fields are not set:
-    /// - [`index_name`](Self::index_name)
-    /// - [`key_schema`](Self::key_schema)
+    /// - [`index_name`](crate::types::builders::CreateGlobalSecondaryIndexActionBuilder::index_name)
+    /// - [`key_schema`](crate::types::builders::CreateGlobalSecondaryIndexActionBuilder::key_schema)
     pub fn build(self) -> ::std::result::Result<crate::types::CreateGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateGlobalSecondaryIndexAction {
             index_name: self.index_name.ok_or_else(|| {

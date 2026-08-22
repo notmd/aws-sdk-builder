@@ -69,8 +69,8 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
     }
     /// Consumes the builder and constructs a [`XksProxyAuthenticationCredentialType`](crate::types::XksProxyAuthenticationCredentialType).
     /// This method will fail if any of the following fields are not set:
-    /// - [`access_key_id`](Self::access_key_id)
-    /// - [`raw_secret_access_key`](Self::raw_secret_access_key)
+    /// - [`access_key_id`](crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder::access_key_id)
+    /// - [`raw_secret_access_key`](crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder::raw_secret_access_key)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::XksProxyAuthenticationCredentialType, ::aws_smithy_types::error::operation::BuildError> {

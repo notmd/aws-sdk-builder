@@ -135,10 +135,10 @@ impl SigningCertificateBuilder {
     }
     /// Consumes the builder and constructs a [`SigningCertificate`](crate::types::SigningCertificate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`certificate_id`](Self::certificate_id)
-    /// - [`certificate_body`](Self::certificate_body)
-    /// - [`status`](Self::status)
+    /// - [`user_name`](crate::types::builders::SigningCertificateBuilder::user_name)
+    /// - [`certificate_id`](crate::types::builders::SigningCertificateBuilder::certificate_id)
+    /// - [`certificate_body`](crate::types::builders::SigningCertificateBuilder::certificate_body)
+    /// - [`status`](crate::types::builders::SigningCertificateBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::SigningCertificate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SigningCertificate {
             user_name: self.user_name.ok_or_else(|| {

@@ -28,6 +28,8 @@ impl VectorIndex {
         self.vector_attribute.as_ref()
     }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.search_schema.is_none()`.
     pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
         self.search_schema.as_deref().unwrap_or_default()
     }
@@ -92,10 +94,11 @@ impl VectorIndexBuilder {
     pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
         &self.vector_attribute
     }
-    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     /// Appends an item to `search_schema`.
     ///
     /// To override the contents of this collection use [`set_search_schema`](Self::set_search_schema).
+    ///
+    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
         let mut v = self.search_schema.unwrap_or_default();
         v.push(input);
@@ -157,9 +160,9 @@ impl VectorIndexBuilder {
     }
     /// Consumes the builder and constructs a [`VectorIndex`](crate::types::VectorIndex).
     /// This method will fail if any of the following fields are not set:
-    /// - [`index_name`](Self::index_name)
-    /// - [`dimensions`](Self::dimensions)
-    /// - [`distance_function`](Self::distance_function)
+    /// - [`index_name`](crate::types::builders::VectorIndexBuilder::index_name)
+    /// - [`dimensions`](crate::types::builders::VectorIndexBuilder::dimensions)
+    /// - [`distance_function`](crate::types::builders::VectorIndexBuilder::distance_function)
     pub fn build(self) -> ::std::result::Result<crate::types::VectorIndex, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VectorIndex {
             index_name: self.index_name.ok_or_else(|| {

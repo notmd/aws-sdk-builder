@@ -107,7 +107,7 @@ impl AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder {
     }
     /// Consumes the builder and constructs a [`AutoScalingTargetTrackingScalingPolicyConfigurationUpdate`](crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate).
     /// This method will fail if any of the following fields are not set:
-    /// - [`target_value`](Self::target_value)
+    /// - [`target_value`](crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationUpdateBuilder::target_value)
     pub fn build(
         self,
     ) -> ::std::result::Result<

@@ -29,10 +29,14 @@ impl ResourceSpecificResult {
         &self.eval_resource_decision
     }
     /// <p>A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if <i>any</i> statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.matched_statements.is_none()`.
     pub fn matched_statements(&self) -> &[crate::types::Statement] {
         self.matched_statements.as_deref().unwrap_or_default()
     }
     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.missing_context_values.is_none()`.
     pub fn missing_context_values(&self) -> &[::std::string::String] {
         self.missing_context_values.as_deref().unwrap_or_default()
     }
@@ -97,10 +101,11 @@ impl ResourceSpecificResultBuilder {
     pub fn get_eval_resource_decision(&self) -> &::std::option::Option<crate::types::PolicyEvaluationDecisionType> {
         &self.eval_resource_decision
     }
-    /// <p>A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if <i>any</i> statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
     /// Appends an item to `matched_statements`.
     ///
     /// To override the contents of this collection use [`set_matched_statements`](Self::set_matched_statements).
+    ///
+    /// <p>A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if <i>any</i> statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
     pub fn matched_statements(mut self, input: crate::types::Statement) -> Self {
         let mut v = self.matched_statements.unwrap_or_default();
         v.push(input);
@@ -116,10 +121,11 @@ impl ResourceSpecificResultBuilder {
     pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Statement>> {
         &self.matched_statements
     }
-    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
     /// Appends an item to `missing_context_values`.
     ///
     /// To override the contents of this collection use [`set_missing_context_values`](Self::set_missing_context_values).
+    ///
+    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
     pub fn missing_context_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.missing_context_values.unwrap_or_default();
         v.push(input.into());
@@ -135,10 +141,11 @@ impl ResourceSpecificResultBuilder {
     pub fn get_missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
         &self.missing_context_values
     }
-    /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
     /// Adds a key-value pair to `eval_decision_details`.
     ///
     /// To override the contents of this collection use [`set_eval_decision_details`](Self::set_eval_decision_details).
+    ///
+    /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
     pub fn eval_decision_details(
         mut self,
         k: impl ::std::convert::Into<::std::string::String>,
@@ -179,8 +186,8 @@ impl ResourceSpecificResultBuilder {
     }
     /// Consumes the builder and constructs a [`ResourceSpecificResult`](crate::types::ResourceSpecificResult).
     /// This method will fail if any of the following fields are not set:
-    /// - [`eval_resource_name`](Self::eval_resource_name)
-    /// - [`eval_resource_decision`](Self::eval_resource_decision)
+    /// - [`eval_resource_name`](crate::types::builders::ResourceSpecificResultBuilder::eval_resource_name)
+    /// - [`eval_resource_decision`](crate::types::builders::ResourceSpecificResultBuilder::eval_resource_decision)
     pub fn build(self) -> ::std::result::Result<crate::types::ResourceSpecificResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ResourceSpecificResult {
             eval_resource_name: self.eval_resource_name.ok_or_else(|| {

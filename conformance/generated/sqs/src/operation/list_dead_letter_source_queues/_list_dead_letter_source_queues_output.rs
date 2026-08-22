@@ -42,10 +42,11 @@ pub struct ListDeadLetterSourceQueuesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListDeadLetterSourceQueuesOutputBuilder {
-    /// <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
     /// Appends an item to `queue_urls`.
     ///
     /// To override the contents of this collection use [`set_queue_urls`](Self::set_queue_urls).
+    ///
+    /// <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
     pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.queue_urls.unwrap_or_default();
         v.push(input.into());
@@ -86,7 +87,7 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListDeadLetterSourceQueuesOutput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`queue_urls`](Self::queue_urls)
+    /// - [`queue_urls`](crate::operation::list_dead_letter_source_queues::builders::ListDeadLetterSourceQueuesOutputBuilder::queue_urls)
     pub fn build(
         self,
     ) -> ::std::result::Result<

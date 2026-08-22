@@ -4,30 +4,30 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetParametersForImportOutput {
-    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
-    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
+    /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
     pub import_token: ::std::option::Option<::std::vec::Vec<u8>>,
-    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
+    /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
     pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
-    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
+    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub parameters_valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
     _request_id: Option<String>,
 }
 impl GetParametersForImportOutput {
-    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub fn key_id(&self) -> ::std::option::Option<&str> {
         self.key_id.as_deref()
     }
-    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
+    /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
     pub fn import_token(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
         self.import_token.as_ref()
     }
-    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
+    /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
     pub fn public_key(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
         self.public_key.as_ref()
     }
-    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
+    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub fn parameters_valid_to(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.parameters_valid_to.as_ref()
     }
@@ -55,59 +55,59 @@ pub struct GetParametersForImportOutputBuilder {
     _request_id: Option<String>,
 }
 impl GetParametersForImportOutputBuilder {
-    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
     }
-    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.key_id
     }
-    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
+    /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
     pub fn import_token(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.import_token = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
+    /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
     pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.import_token = input;
         self
     }
-    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
+    /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
     pub fn get_import_token(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
         &self.import_token
     }
-    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
+    /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
     pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
+    /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
     pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.public_key = input;
         self
     }
-    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
+    /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
     pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
         &self.public_key
     }
-    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
+    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub fn parameters_valid_to(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.parameters_valid_to = ::std::option::Option::Some(input);
         self
     }
-    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
+    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub fn set_parameters_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.parameters_valid_to = input;
         self
     }
-    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
+    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub fn get_parameters_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
         &self.parameters_valid_to
     }

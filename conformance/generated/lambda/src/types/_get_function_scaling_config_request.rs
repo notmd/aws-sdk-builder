@@ -68,8 +68,8 @@ impl GetFunctionScalingConfigRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetFunctionScalingConfigRequest`](crate::types::GetFunctionScalingConfigRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
-    /// - [`qualifier`](Self::qualifier)
+    /// - [`function_name`](crate::types::builders::GetFunctionScalingConfigRequestBuilder::function_name)
+    /// - [`qualifier`](crate::types::builders::GetFunctionScalingConfigRequestBuilder::qualifier)
     pub fn build(self) -> ::std::result::Result<crate::types::GetFunctionScalingConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetFunctionScalingConfigRequest {
             function_name: self.function_name.ok_or_else(|| {

@@ -14,6 +14,8 @@ pub struct DescribeCustomKeyStoresOutput {
 }
 impl DescribeCustomKeyStoresOutput {
     /// <p>Contains metadata about each custom key store.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.custom_key_stores.is_none()`.
     pub fn custom_key_stores(&self) -> &[crate::types::CustomKeyStoresListEntry] {
         self.custom_key_stores.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct DescribeCustomKeyStoresOutputBuilder {
     _request_id: Option<String>,
 }
 impl DescribeCustomKeyStoresOutputBuilder {
-    /// <p>Contains metadata about each custom key store.</p>
     /// Appends an item to `custom_key_stores`.
     ///
     /// To override the contents of this collection use [`set_custom_key_stores`](Self::set_custom_key_stores).
+    ///
+    /// <p>Contains metadata about each custom key store.</p>
     pub fn custom_key_stores(mut self, input: crate::types::CustomKeyStoresListEntry) -> Self {
         let mut v = self.custom_key_stores.unwrap_or_default();
         v.push(input);

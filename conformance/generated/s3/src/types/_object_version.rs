@@ -24,7 +24,7 @@ pub struct ObjectVersion {
     pub last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Specifies the owner of the object.</p>
     pub owner: ::std::option::Option<crate::types::Owner>,
-    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html"> Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub restore_status: ::std::option::Option<crate::types::RestoreStatus>,
 }
 impl ObjectVersion {
@@ -33,6 +33,8 @@ impl ObjectVersion {
         self.e_tag.as_deref()
     }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.checksum_algorithm.is_none()`.
     pub fn checksum_algorithm(&self) -> &[crate::types::ChecksumAlgorithm] {
         self.checksum_algorithm.as_deref().unwrap_or_default()
     }
@@ -68,7 +70,7 @@ impl ObjectVersion {
     pub fn owner(&self) -> ::std::option::Option<&crate::types::Owner> {
         self.owner.as_ref()
     }
-    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html"> Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn restore_status(&self) -> ::std::option::Option<&crate::types::RestoreStatus> {
         self.restore_status.as_ref()
     }
@@ -111,10 +113,11 @@ impl ObjectVersionBuilder {
     pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
         &self.e_tag
     }
-    /// <p>The algorithm that was used to create a checksum of the object.</p>
     /// Appends an item to `checksum_algorithm`.
     ///
     /// To override the contents of this collection use [`set_checksum_algorithm`](Self::set_checksum_algorithm).
+    ///
+    /// <p>The algorithm that was used to create a checksum of the object.</p>
     pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
         let mut v = self.checksum_algorithm.unwrap_or_default();
         v.push(input);
@@ -242,17 +245,17 @@ impl ObjectVersionBuilder {
     pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
         &self.owner
     }
-    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html"> Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn restore_status(mut self, input: crate::types::RestoreStatus) -> Self {
         self.restore_status = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html"> Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_restore_status(mut self, input: ::std::option::Option<crate::types::RestoreStatus>) -> Self {
         self.restore_status = input;
         self
     }
-    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html"> Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn get_restore_status(&self) -> &::std::option::Option<crate::types::RestoreStatus> {
         &self.restore_status
     }

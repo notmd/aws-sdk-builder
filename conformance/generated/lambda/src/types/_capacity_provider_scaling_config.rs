@@ -21,6 +21,8 @@ impl CapacityProviderScalingConfig {
         self.scaling_mode.as_ref()
     }
     /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.scaling_policies.is_none()`.
     pub fn scaling_policies(&self) -> &[crate::types::TargetTrackingScalingPolicy] {
         self.scaling_policies.as_deref().unwrap_or_default()
     }
@@ -69,10 +71,11 @@ impl CapacityProviderScalingConfigBuilder {
     pub fn get_scaling_mode(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingMode> {
         &self.scaling_mode
     }
-    /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
     /// Appends an item to `scaling_policies`.
     ///
     /// To override the contents of this collection use [`set_scaling_policies`](Self::set_scaling_policies).
+    ///
+    /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
     pub fn scaling_policies(mut self, input: crate::types::TargetTrackingScalingPolicy) -> Self {
         let mut v = self.scaling_policies.unwrap_or_default();
         v.push(input);

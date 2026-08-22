@@ -12,6 +12,8 @@ pub struct ListImportsOutput {
 }
 impl ListImportsOutput {
     /// <p>A list of <code>ImportSummary</code> objects.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.import_summary_list.is_none()`.
     pub fn import_summary_list(&self) -> &[crate::types::ImportSummary] {
         self.import_summary_list.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListImportsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListImportsOutputBuilder {
-    /// <p>A list of <code>ImportSummary</code> objects.</p>
     /// Appends an item to `import_summary_list`.
     ///
     /// To override the contents of this collection use [`set_import_summary_list`](Self::set_import_summary_list).
+    ///
+    /// <p>A list of <code>ImportSummary</code> objects.</p>
     pub fn import_summary_list(mut self, input: crate::types::ImportSummary) -> Self {
         let mut v = self.import_summary_list.unwrap_or_default();
         v.push(input);

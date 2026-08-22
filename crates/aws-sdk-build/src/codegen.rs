@@ -2515,89 +2515,73 @@ fn documentation(value: &Value) -> Option<String> {
         .map(normalize_documentation)
 }
 
+fn modeled_member_documentation(selected: &SelectedModel, member: &Value) -> Option<String> {
+    documentation(member).or_else(|| {
+        member_target(member)
+            .and_then(|target| selected.model.shapes.get(target))
+            .and_then(documentation)
+    })
+}
+
 fn normalize_documentation(value: &str) -> String {
-    let collapsed = value.split_whitespace().collect::<Vec<_>>().join(" ");
-    let mut output = String::with_capacity(collapsed.len());
-    let chars = collapsed.chars().collect::<Vec<_>>();
-    for (index, character) in chars.iter().enumerate() {
-        if character.is_whitespace() {
-            let previous_is_opening_tag = output.ends_with('>')
-                && output
-                    .rfind('<')
-                    .is_some_and(|start| !output[start + 1..].starts_with('/'));
-            let next_tag = chars
-                .get(index + 1)
-                .is_some_and(|next| *next == '<')
-                .then(|| {
-                    chars[index + 1..]
-                        .iter()
-                        .position(|next| *next == '>')
-                        .map(|end| {
-                            chars[index + 1..index + 1 + end]
-                                .iter()
-                                .collect::<String>()
-                                .trim_start_matches('<')
-                                .to_owned()
-                        })
-                })
-                .flatten();
-            let next_is_block_or_close = next_tag.as_deref().is_some_and(|tag| {
-                tag.starts_with('/')
-                    || tag.starts_with("note")
-                    || tag.starts_with("ul")
-                    || tag.starts_with("li")
-                    || tag.starts_with("p")
-            });
-            if previous_is_opening_tag || next_is_block_or_close {
-                continue;
-            }
-            if output.ends_with(' ') {
-                continue;
-            }
-            output.push(' ');
-        } else {
-            output.push(*character);
-        }
-    }
-    output
-        .replace("</p><p>", "</p>\n<p>")
-        .replace("<note><p>", "<note>\n<p>")
-        .replace("</p></note>", "</p>\n</note>")
-        .replace('[', "\\[")
-        .replace(']', "\\]")
+    normalize_model_documentation(value)
 }
 
 fn render_doc_lines(output: &mut String, documentation: &str, indent: usize) {
     let padding = " ".repeat(indent);
     for line in documentation.lines() {
-        writeln!(output, "{padding}/// {line}").unwrap();
+        writeln!(output, "{padding}/// {}", line.trim_start()).unwrap();
     }
 }
 
 fn render_deprecated_attribute(output: &mut String, value: &Value, indent: usize) {
-    let Some(note) = value
+    let Some(deprecated) = value
         .get("traits")
         .and_then(Value::as_object)
         .and_then(|traits| traits.get("smithy.api#deprecated"))
-        .and_then(|deprecated| {
-            deprecated.as_str().map(ToOwned::to_owned).or_else(|| {
-                deprecated
-                    .get("message")
-                    .and_then(Value::as_str)
-                    .map(ToOwned::to_owned)
-            })
-        })
     else {
         return;
     };
+
+    let (note, since) = match deprecated {
+        // Some model producers serialize the trait as a string rather than as
+        // the Smithy JSON object form.
+        Value::String(note) => (Some(note.as_str()), None),
+        Value::Object(fields) => (
+            fields.get("message").and_then(Value::as_str),
+            fields.get("since").and_then(Value::as_str),
+        ),
+        // Annotation traits are commonly represented as `{}`; accept the
+        // equivalent boolean form as well.
+        Value::Bool(true) => (None, None),
+        _ => return,
+    };
+
     let padding = " ".repeat(indent);
-    writeln!(output, "{padding}#[deprecated(note = {note:?})]").unwrap();
+    let mut arguments = Vec::new();
+    if note.is_some_and(|note| !note.is_empty()) {
+        arguments.push(format!("note = {:?}", note.unwrap()));
+    }
+    if since.is_some_and(|since| !since.is_empty()) {
+        arguments.push(format!("since = {:?}", since.unwrap()));
+    }
+    if arguments.is_empty() {
+        writeln!(output, "{padding}#[deprecated]").unwrap();
+    } else {
+        writeln!(output, "{padding}#[deprecated({})]", arguments.join(", ")).unwrap();
+    }
 }
 
-fn render_builder_docs(output: &mut String, member: &Value, indent: &str, required: bool) {
-    if let Some(documentation) = documentation(member) {
+fn render_builder_docs(
+    output: &mut String,
+    selected: &SelectedModel,
+    member: &Value,
+    indent: &str,
+    required: bool,
+) {
+    if let Some(documentation) = modeled_member_documentation(selected, member) {
         for line in documentation.lines() {
-            writeln!(output, "{indent}/// {line}").unwrap();
+            writeln!(output, "{indent}/// {}", line.trim_start()).unwrap();
         }
     }
     if required {
@@ -2791,7 +2775,7 @@ fn render_structure_at_indent(
     .unwrap();
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
-        if let Some(member_doc) = documentation(member) {
+        if let Some(member_doc) = modeled_member_documentation(selected, member) {
             render_doc_lines(output, &member_doc, indent + 4);
         } else if is_error {
             writeln!(
@@ -2842,7 +2826,7 @@ fn render_structure_accessors(
             let field = names::rust_identifier(&member_name);
             let target = member_target(member).unwrap_or("smithy.api#String");
             let target_type = type_expr(selected, target, context.clone());
-            if let Some(member_doc) = documentation(member) {
+            if let Some(member_doc) = modeled_member_documentation(selected, member) {
                 render_doc_lines(output, &member_doc, indent + 4);
             } else if is_error {
                 writeln!(
@@ -2877,6 +2861,12 @@ fn render_structure_accessors(
                     writeln!(output, "{padding}        self.{field}.deref()").unwrap();
                     writeln!(output, "{padding}    }}").unwrap();
                 } else {
+                    writeln!(output, "{padding}    ///").unwrap();
+                    writeln!(
+                        output,
+                        "{padding}    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.{field}.is_none()`."
+                    )
+                    .unwrap();
                     writeln!(
                         output,
                         "{padding}    pub fn {field}(&self) -> {return_type} {{"
@@ -3128,7 +3118,7 @@ fn render_type_builder(
             .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         let target_id = member_target(member).unwrap_or("smithy.api#String");
-        if is_error && documentation(member).is_none() {
+        if is_error && modeled_member_documentation(selected, member).is_none() {
             writeln!(
                 output,
                 "{inner}#[allow(missing_docs)] // documentation missing in model"
@@ -3144,12 +3134,12 @@ fn render_type_builder(
                 .unwrap_or("smithy.api#String");
             let element_type = type_expr(selected, element_target, context.clone());
             let argument = builder_argument_type(selected, element_target, &element_type);
-            render_builder_docs(output, member, &inner, false);
             writeln!(
                 output,
-                "{inner}/// Appends an item to `{field_method}`.\n{inner}///\n{inner}/// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method})."
+                "{inner}/// Appends an item to `{field_method}`.\n{inner}///\n{inner}/// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method}).\n{inner}///"
             )
             .unwrap();
+            render_builder_docs(output, selected, member, &inner, false);
             render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
@@ -3172,12 +3162,12 @@ fn render_type_builder(
             let value_type = type_expr(selected, value_target, context.clone());
             let key_argument = builder_argument_type(selected, key_target, &key_type);
             let value_argument = builder_argument_type(selected, value_target, &value_type);
-            render_builder_docs(output, member, &inner, false);
             writeln!(
                 output,
-                "{inner}/// Adds a key-value pair to `{field_method}`.\n{inner}///\n{inner}/// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method})."
+                "{inner}/// Adds a key-value pair to `{field_method}`.\n{inner}///\n{inner}/// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method}).\n{inner}///"
             )
             .unwrap();
+            render_builder_docs(output, selected, member, &inner, false);
             render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
@@ -3190,6 +3180,7 @@ fn render_type_builder(
             let argument = builder_argument_type(selected, target_id, &target);
             render_builder_docs(
                 output,
+                selected,
                 member,
                 &inner,
                 member_is_effectively_required(selected, member, target_id),
@@ -3202,28 +3193,28 @@ fn render_type_builder(
             )
             .unwrap();
         }
-        if is_error && documentation(member).is_none() {
+        if is_error && modeled_member_documentation(selected, member).is_none() {
             writeln!(
                 output,
                 "{inner}#[allow(missing_docs)] // documentation missing in model"
             )
             .unwrap();
         }
-        render_builder_docs(output, member, &inner, false);
+        render_builder_docs(output, selected, member, &inner, false);
         render_deprecated_attribute(output, member, indent + 4);
         writeln!(
             output,
             "{inner}pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{ self.{field} = input; self }}"
         )
         .unwrap();
-        if is_error && documentation(member).is_none() {
+        if is_error && modeled_member_documentation(selected, member).is_none() {
             writeln!(
                 output,
                 "{inner}#[allow(missing_docs)] // documentation missing in model"
             )
             .unwrap();
         }
-        render_builder_docs(output, member, &inner, false);
+        render_builder_docs(output, selected, member, &inner, false);
         render_deprecated_attribute(output, member, indent + 4);
         writeln!(
             output,
@@ -3286,13 +3277,15 @@ fn render_type_builder(
             "{inner}/// This method will fail if any of the following fields are not set:"
         )
         .unwrap();
+        let builder_path = builder_type_path(&context, &rust_name);
         for member_name in &required_members {
             let field_method = names::rust_identifier(member_name);
-            writeln!(
-                output,
-                "{inner}/// - [`{field_method}`](Self::{field_method})"
-            )
-            .unwrap();
+            let field_link = if context.consumer_namespace() {
+                format!("Self::{field_method}")
+            } else {
+                format!("{builder_path}::{field_method}")
+            };
+            writeln!(output, "{inner}/// - [`{field_method}`]({field_link})").unwrap();
         }
         writeln!(
             output,
@@ -3941,7 +3934,7 @@ enum DocumentationToken {
     Whitespace,
 }
 
-fn normalize_client_documentation(value: &str) -> String {
+fn documentation_tokens(value: &str) -> Vec<DocumentationToken> {
     let mut tokens = Vec::new();
     let mut rest = value;
     while !rest.is_empty() {
@@ -3972,6 +3965,212 @@ fn normalize_client_documentation(value: &str) -> String {
             rest = &rest[end..];
         }
     }
+    tokens
+}
+
+fn normalize_model_documentation(value: &str) -> String {
+    let tokens = documentation_tokens(value);
+    let mut output = String::with_capacity(value.len());
+    let mut stack = Vec::<String>::new();
+    let mut previous_tag = None::<(bool, String)>;
+    let mut pending_whitespace = false;
+
+    for token in tokens {
+        match token {
+            DocumentationToken::Whitespace => pending_whitespace = true,
+            DocumentationToken::Tag(tag) => {
+                let closing = tag.trim_start().starts_with("</");
+                let (normalized_tag, name) = normalize_documentation_tag(&tag, closing, &stack);
+
+                if closing {
+                    if documentation_newline_before_close(&name, previous_tag.as_ref()) {
+                        documentation_newline(&mut output);
+                    } else if pending_whitespace
+                        && documentation_space_before_tag(
+                            &name,
+                            true,
+                            &stack,
+                            previous_tag.as_ref(),
+                        )
+                    {
+                        documentation_space(&mut output);
+                    }
+                    output.push_str(&normalized_tag);
+                    if stack.last().is_some_and(|current| current == &name) {
+                        stack.pop();
+                    }
+                    previous_tag = Some((true, name));
+                } else {
+                    if documentation_block_tag(&name) {
+                        documentation_newline(&mut output);
+                    } else if pending_whitespace
+                        && documentation_space_before_tag(
+                            &name,
+                            false,
+                            &stack,
+                            previous_tag.as_ref(),
+                        )
+                    {
+                        documentation_space(&mut output);
+                    }
+                    output.push_str(&normalized_tag);
+                    if !tag.trim_end().ends_with("/>")
+                        && !matches!(name.as_str(), "br" | "hr" | "img" | "meta" | "link")
+                    {
+                        stack.push(name.clone());
+                    }
+                    previous_tag = Some((false, name));
+                }
+                pending_whitespace = false;
+            }
+            DocumentationToken::Text(text) => {
+                let trimmed = text.split_whitespace().collect::<Vec<_>>().join(" ");
+                if trimmed.is_empty() {
+                    continue;
+                }
+                let has_leading_whitespace = text.chars().next().is_some_and(char::is_whitespace);
+                if previous_tag
+                    .as_ref()
+                    .is_some_and(|(closing, name)| !closing && name == "dt")
+                {
+                    documentation_newline(&mut output);
+                } else if (pending_whitespace || has_leading_whitespace)
+                    && documentation_space_before_text(&stack, &previous_tag, &output)
+                {
+                    documentation_space(&mut output);
+                }
+                output.push_str(&escape_documentation_text(&escape_doc_brackets(&trimmed)));
+                pending_whitespace = text.chars().last().is_some_and(char::is_whitespace);
+                previous_tag = None;
+            }
+        }
+    }
+
+    output
+}
+
+fn normalize_documentation_tag(tag: &str, closing: bool, stack: &[String]) -> (String, String) {
+    let name = documentation_tag_name(tag).unwrap_or_default();
+    if name == "a" && !closing && !tag.to_ascii_lowercase().contains("href=") {
+        return ("<code>".to_owned(), "code".to_owned());
+    }
+    if name == "a" && closing && stack.last().is_some_and(|current| current == "code") {
+        return ("</code>".to_owned(), "code".to_owned());
+    }
+    (tag.to_owned(), name)
+}
+
+fn documentation_block_tag(name: &str) -> bool {
+    matches!(
+        name,
+        "address"
+            | "blockquote"
+            | "dd"
+            | "div"
+            | "dl"
+            | "dt"
+            | "fieldset"
+            | "figcaption"
+            | "figure"
+            | "footer"
+            | "form"
+            | "h1"
+            | "h2"
+            | "h3"
+            | "h4"
+            | "h5"
+            | "h6"
+            | "header"
+            | "hr"
+            | "li"
+            | "main"
+            | "nav"
+            | "ol"
+            | "p"
+            | "pre"
+            | "section"
+            | "table"
+            | "tbody"
+            | "td"
+            | "tfoot"
+            | "th"
+            | "thead"
+            | "tr"
+            | "ul"
+    )
+}
+
+fn documentation_custom_tag(name: &str) -> bool {
+    matches!(name, "important" | "note" | "tip" | "warning")
+}
+
+fn documentation_newline_before_close(name: &str, previous_tag: Option<&(bool, String)>) -> bool {
+    if matches!(name, "p" | "li") {
+        return false;
+    }
+    if documentation_custom_tag(name) {
+        return previous_tag
+            .is_some_and(|(closing, previous)| *closing && documentation_block_tag(previous));
+    }
+    documentation_block_tag(name)
+}
+
+fn documentation_space_before_tag(
+    name: &str,
+    closing: bool,
+    stack: &[String],
+    previous_tag: Option<&(bool, String)>,
+) -> bool {
+    if documentation_block_tag(name) || documentation_custom_tag(name) {
+        return false;
+    }
+    if previous_tag.is_some_and(|(is_closing, previous)| {
+        !is_closing && (documentation_block_tag(previous) || documentation_custom_tag(previous))
+    }) {
+        return false;
+    }
+    let _ = (closing, stack);
+    true
+}
+
+fn documentation_space_before_text(
+    stack: &[String],
+    previous_tag: &Option<(bool, String)>,
+    output: &str,
+) -> bool {
+    if output.is_empty() || output.ends_with('\n') {
+        return false;
+    }
+    if stack
+        .last()
+        .is_some_and(|parent| documentation_block_tag(parent) || documentation_custom_tag(parent))
+    {
+        return previous_tag.as_ref().is_some_and(|(closing, _)| *closing);
+    }
+    true
+}
+
+fn documentation_newline(output: &mut String) {
+    while output.ends_with(' ') {
+        output.pop();
+    }
+    if !output.is_empty() && !output.ends_with('\n') {
+        output.push('\n');
+    }
+}
+
+fn documentation_space(output: &mut String) {
+    if !output.is_empty() && !output.ends_with(' ') && !output.ends_with('\n') {
+        output.push(' ');
+    }
+}
+
+fn escape_doc_brackets(value: &str) -> String {
+    value.replace('[', "\\[").replace(']', "\\]")
+}
+
+fn normalize_client_documentation(value: &str) -> String {
+    let tokens = documentation_tokens(value);
 
     let mut output = String::new();
     let mut stack = Vec::<String>::new();

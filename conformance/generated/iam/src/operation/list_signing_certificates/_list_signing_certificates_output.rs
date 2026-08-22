@@ -49,10 +49,11 @@ pub struct ListSigningCertificatesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListSigningCertificatesOutputBuilder {
-    /// <p>A list of the user's signing certificate information.</p>
     /// Appends an item to `certificates`.
     ///
     /// To override the contents of this collection use [`set_certificates`](Self::set_certificates).
+    ///
+    /// <p>A list of the user's signing certificate information.</p>
     pub fn certificates(mut self, input: crate::types::SigningCertificate) -> Self {
         let mut v = self.certificates.unwrap_or_default();
         v.push(input);
@@ -107,7 +108,7 @@ impl ListSigningCertificatesOutputBuilder {
     }
     /// Consumes the builder and constructs a [`ListSigningCertificatesOutput`](crate::operation::list_signing_certificates::ListSigningCertificatesOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`certificates`](Self::certificates)
+    /// - [`certificates`](crate::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder::certificates)
     pub fn build(
         self,
     ) -> ::std::result::Result<

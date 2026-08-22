@@ -11,6 +11,8 @@ pub struct RoleDetail {
     pub role_name: ::std::option::Option<::std::string::String>,
     /// <p>The stable and unique string identifying the role. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub role_id: ::std::option::Option<::std::string::String>,
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role was created.</p>
     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -23,7 +25,7 @@ pub struct RoleDetail {
     /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
     pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>,
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub permissions_boundary: ::std::option::Option<crate::types::AttachedPermissionsBoundary>,
     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -43,6 +45,8 @@ impl RoleDetail {
     pub fn role_id(&self) -> ::std::option::Option<&str> {
         self.role_id.as_deref()
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(&self) -> ::std::option::Option<&str> {
         self.arn.as_deref()
     }
@@ -55,23 +59,31 @@ impl RoleDetail {
         self.assume_role_policy_document.as_deref()
     }
     /// <p>A list of instance profiles that contain this role.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.instance_profile_list.is_none()`.
     pub fn instance_profile_list(&self) -> &[crate::types::InstanceProfile] {
         self.instance_profile_list.as_deref().unwrap_or_default()
     }
     /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.role_policy_list.is_none()`.
     pub fn role_policy_list(&self) -> &[crate::types::PolicyDetail] {
         self.role_policy_list.as_deref().unwrap_or_default()
     }
     /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attached_managed_policies.is_none()`.
     pub fn attached_managed_policies(&self) -> &[crate::types::AttachedPolicy] {
         self.attached_managed_policies.as_deref().unwrap_or_default()
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary(&self) -> ::std::option::Option<&crate::types::AttachedPermissionsBoundary> {
         self.permissions_boundary.as_ref()
     }
     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.tags.is_none()`.
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
     }
@@ -147,14 +159,20 @@ impl RoleDetailBuilder {
     pub fn get_role_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.role_id
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
     }
+    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
+    /// <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
         &self.arn
     }
@@ -186,10 +204,11 @@ impl RoleDetailBuilder {
     pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<::std::string::String> {
         &self.assume_role_policy_document
     }
-    /// <p>A list of instance profiles that contain this role.</p>
     /// Appends an item to `instance_profile_list`.
     ///
     /// To override the contents of this collection use [`set_instance_profile_list`](Self::set_instance_profile_list).
+    ///
+    /// <p>A list of instance profiles that contain this role.</p>
     pub fn instance_profile_list(mut self, input: crate::types::InstanceProfile) -> Self {
         let mut v = self.instance_profile_list.unwrap_or_default();
         v.push(input);
@@ -205,10 +224,11 @@ impl RoleDetailBuilder {
     pub fn get_instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> {
         &self.instance_profile_list
     }
-    /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
     /// Appends an item to `role_policy_list`.
     ///
     /// To override the contents of this collection use [`set_role_policy_list`](Self::set_role_policy_list).
+    ///
+    /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
     pub fn role_policy_list(mut self, input: crate::types::PolicyDetail) -> Self {
         let mut v = self.role_policy_list.unwrap_or_default();
         v.push(input);
@@ -224,10 +244,11 @@ impl RoleDetailBuilder {
     pub fn get_role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
         &self.role_policy_list
     }
-    /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
     /// Appends an item to `attached_managed_policies`.
     ///
     /// To override the contents of this collection use [`set_attached_managed_policies`](Self::set_attached_managed_policies).
+    ///
+    /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
     pub fn attached_managed_policies(mut self, input: crate::types::AttachedPolicy) -> Self {
         let mut v = self.attached_managed_policies.unwrap_or_default();
         v.push(input);
@@ -244,26 +265,27 @@ impl RoleDetailBuilder {
         &self.attached_managed_policies
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
         self.permissions_boundary = ::std::option::Option::Some(input);
         self
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
         self.permissions_boundary = input;
         self
     }
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
         &self.permissions_boundary
     }
-    /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
     /// To override the contents of this collection use [`set_tags`](Self::set_tags).
+    ///
+    /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn tags(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tags.unwrap_or_default();
         v.push(input);

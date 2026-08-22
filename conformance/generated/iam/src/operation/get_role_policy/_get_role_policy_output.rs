@@ -112,9 +112,9 @@ impl GetRolePolicyOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetRolePolicyOutput`](crate::operation::get_role_policy::GetRolePolicyOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`role_name`](Self::role_name)
-    /// - [`policy_name`](Self::policy_name)
-    /// - [`policy_document`](Self::policy_document)
+    /// - [`role_name`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::role_name)
+    /// - [`policy_name`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::policy_name)
+    /// - [`policy_document`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::policy_document)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::get_role_policy::GetRolePolicyOutput, ::aws_smithy_types::error::operation::BuildError> {

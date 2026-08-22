@@ -8,6 +8,7 @@ pub struct UpdateCapacityProviderRequest {
     pub capacity_provider_name: ::std::string::String,
     /// <p>The updated scaling configuration for the capacity provider.</p>
     pub capacity_provider_scaling_config: ::std::option::Option<crate::types::CapacityProviderScalingConfig>,
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub propagate_tags: ::std::option::Option<crate::types::PropagateTags>,
     /// <p>The updated telemetry configuration for the capacity provider.</p>
     pub telemetry_config: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>,
@@ -22,6 +23,7 @@ impl UpdateCapacityProviderRequest {
     pub fn capacity_provider_scaling_config(&self) -> ::std::option::Option<&crate::types::CapacityProviderScalingConfig> {
         self.capacity_provider_scaling_config.as_ref()
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn propagate_tags(&self) -> ::std::option::Option<&crate::types::PropagateTags> {
         self.propagate_tags.as_ref()
     }
@@ -76,14 +78,17 @@ impl UpdateCapacityProviderRequestBuilder {
     pub fn get_capacity_provider_scaling_config(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingConfig> {
         &self.capacity_provider_scaling_config
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn propagate_tags(mut self, input: crate::types::PropagateTags) -> Self {
         self.propagate_tags = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
         self.propagate_tags = input;
         self
     }
+    /// <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
     pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
         &self.propagate_tags
     }
@@ -103,7 +108,7 @@ impl UpdateCapacityProviderRequestBuilder {
     }
     /// Consumes the builder and constructs a [`UpdateCapacityProviderRequest`](crate::types::UpdateCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`capacity_provider_name`](Self::capacity_provider_name)
+    /// - [`capacity_provider_name`](crate::types::builders::UpdateCapacityProviderRequestBuilder::capacity_provider_name)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateCapacityProviderRequest {
             capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {

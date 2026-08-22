@@ -63,10 +63,11 @@ impl GetObjectTaggingOutputBuilder {
     pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
         &self.version_id
     }
-    /// <p>Contains the tag set.</p>
     /// Appends an item to `tag_set`.
     ///
     /// To override the contents of this collection use [`set_tag_set`](Self::set_tag_set).
+    ///
+    /// <p>Contains the tag set.</p>
     pub fn tag_set(mut self, input: crate::types::Tag) -> Self {
         let mut v = self.tag_set.unwrap_or_default();
         v.push(input);
@@ -102,7 +103,7 @@ impl GetObjectTaggingOutputBuilder {
     }
     /// Consumes the builder and constructs a [`GetObjectTaggingOutput`](crate::operation::get_object_tagging::GetObjectTaggingOutput).
     /// This method will fail if any of the following fields are not set:
-    /// - [`tag_set`](Self::tag_set)
+    /// - [`tag_set`](crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::tag_set)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {

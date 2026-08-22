@@ -45,7 +45,7 @@ impl DeleteGlobalTableWitnessGroupMemberActionBuilder {
     }
     /// Consumes the builder and constructs a [`DeleteGlobalTableWitnessGroupMemberAction`](crate::types::DeleteGlobalTableWitnessGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
-    /// - [`region_name`](Self::region_name)
+    /// - [`region_name`](crate::types::builders::DeleteGlobalTableWitnessGroupMemberActionBuilder::region_name)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::DeleteGlobalTableWitnessGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {

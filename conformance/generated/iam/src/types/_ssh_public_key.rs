@@ -158,11 +158,11 @@ impl SshPublicKeyBuilder {
     }
     /// Consumes the builder and constructs a [`SshPublicKey`](crate::types::SshPublicKey).
     /// This method will fail if any of the following fields are not set:
-    /// - [`user_name`](Self::user_name)
-    /// - [`ssh_public_key_id`](Self::ssh_public_key_id)
-    /// - [`fingerprint`](Self::fingerprint)
-    /// - [`ssh_public_key_body`](Self::ssh_public_key_body)
-    /// - [`status`](Self::status)
+    /// - [`user_name`](crate::types::builders::SshPublicKeyBuilder::user_name)
+    /// - [`ssh_public_key_id`](crate::types::builders::SshPublicKeyBuilder::ssh_public_key_id)
+    /// - [`fingerprint`](crate::types::builders::SshPublicKeyBuilder::fingerprint)
+    /// - [`ssh_public_key_body`](crate::types::builders::SshPublicKeyBuilder::ssh_public_key_body)
+    /// - [`status`](crate::types::builders::SshPublicKeyBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::SshPublicKey, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SshPublicKey {
             user_name: self.user_name.ok_or_else(|| {

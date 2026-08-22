@@ -17,6 +17,8 @@ impl ChangeMessageVisibilityBatchInput {
         self.queue_url.as_deref()
     }
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.entries.is_none()`.
     pub fn entries(&self) -> &[crate::types::ChangeMessageVisibilityBatchRequestEntry] {
         self.entries.as_deref().unwrap_or_default()
     }
@@ -54,10 +56,11 @@ impl ChangeMessageVisibilityBatchInputBuilder {
     pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
         &self.queue_url
     }
-    /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
     /// Appends an item to `entries`.
     ///
     /// To override the contents of this collection use [`set_entries`](Self::set_entries).
+    ///
+    /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
     pub fn entries(mut self, input: crate::types::ChangeMessageVisibilityBatchRequestEntry) -> Self {
         let mut v = self.entries.unwrap_or_default();
         v.push(input);

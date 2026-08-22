@@ -15,6 +15,8 @@ pub struct ListTablesOutput {
 impl ListTablesOutput {
     /// <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
     /// <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and obtain the next page of results.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.table_names.is_none()`.
     pub fn table_names(&self) -> &[::std::string::String] {
         self.table_names.as_deref().unwrap_or_default()
     }
@@ -45,11 +47,12 @@ pub struct ListTablesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListTablesOutputBuilder {
-    /// <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
-    /// <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and obtain the next page of results.</p>
     /// Appends an item to `table_names`.
     ///
     /// To override the contents of this collection use [`set_table_names`](Self::set_table_names).
+    ///
+    /// <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
+    /// <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and obtain the next page of results.</p>
     pub fn table_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.table_names.unwrap_or_default();
         v.push(input.into());

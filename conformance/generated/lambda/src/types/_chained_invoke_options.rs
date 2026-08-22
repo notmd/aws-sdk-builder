@@ -66,7 +66,7 @@ impl ChainedInvokeOptionsBuilder {
     }
     /// Consumes the builder and constructs a [`ChainedInvokeOptions`](crate::types::ChainedInvokeOptions).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::ChainedInvokeOptionsBuilder::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ChainedInvokeOptions, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ChainedInvokeOptions {
             function_name: self.function_name.ok_or_else(|| {

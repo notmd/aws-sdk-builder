@@ -28,10 +28,11 @@ pub struct CorsConfigurationBuilder {
     pub(crate) cors_rules: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>,
 }
 impl CorsConfigurationBuilder {
-    /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
     /// Appends an item to `cors_rules`.
     ///
     /// To override the contents of this collection use [`set_cors_rules`](Self::set_cors_rules).
+    ///
+    /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
     pub fn cors_rules(mut self, input: crate::types::CorsRule) -> Self {
         let mut v = self.cors_rules.unwrap_or_default();
         v.push(input);
@@ -49,7 +50,7 @@ impl CorsConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`CorsConfiguration`](crate::types::CorsConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`cors_rules`](Self::cors_rules)
+    /// - [`cors_rules`](crate::types::builders::CorsConfigurationBuilder::cors_rules)
     pub fn build(self) -> ::std::result::Result<crate::types::CorsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CorsConfiguration {
             cors_rules: self.cors_rules.ok_or_else(|| {

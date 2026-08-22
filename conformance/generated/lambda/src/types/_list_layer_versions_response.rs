@@ -15,6 +15,8 @@ impl ListLayerVersionsResponse {
         self.next_marker.as_deref()
     }
     /// <p>A list of versions.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.layer_versions.is_none()`.
     pub fn layer_versions(&self) -> &[crate::types::LayerVersionsListItem] {
         self.layer_versions.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ impl ListLayerVersionsResponseBuilder {
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.next_marker
     }
-    /// <p>A list of versions.</p>
     /// Appends an item to `layer_versions`.
     ///
     /// To override the contents of this collection use [`set_layer_versions`](Self::set_layer_versions).
+    ///
+    /// <p>A list of versions.</p>
     pub fn layer_versions(mut self, input: crate::types::LayerVersionsListItem) -> Self {
         let mut v = self.layer_versions.unwrap_or_default();
         v.push(input);

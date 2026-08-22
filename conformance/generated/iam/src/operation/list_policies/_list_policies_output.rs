@@ -14,6 +14,8 @@ pub struct ListPoliciesOutput {
 }
 impl ListPoliciesOutput {
     /// <p>A list of policies.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.policies.is_none()`.
     pub fn policies(&self) -> &[crate::types::Policy] {
         self.policies.as_deref().unwrap_or_default()
     }
@@ -48,10 +50,11 @@ pub struct ListPoliciesOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListPoliciesOutputBuilder {
-    /// <p>A list of policies.</p>
     /// Appends an item to `policies`.
     ///
     /// To override the contents of this collection use [`set_policies`](Self::set_policies).
+    ///
+    /// <p>A list of policies.</p>
     pub fn policies(mut self, input: crate::types::Policy) -> Self {
         let mut v = self.policies.unwrap_or_default();
         v.push(input);

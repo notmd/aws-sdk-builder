@@ -140,8 +140,8 @@ impl InventoryS3BucketDestinationBuilder {
     }
     /// Consumes the builder and constructs a [`InventoryS3BucketDestination`](crate::types::InventoryS3BucketDestination).
     /// This method will fail if any of the following fields are not set:
-    /// - [`bucket`](Self::bucket)
-    /// - [`format`](Self::format)
+    /// - [`bucket`](crate::types::builders::InventoryS3BucketDestinationBuilder::bucket)
+    /// - [`format`](crate::types::builders::InventoryS3BucketDestinationBuilder::format)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryS3BucketDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryS3BucketDestination {
             account_id: self.account_id,

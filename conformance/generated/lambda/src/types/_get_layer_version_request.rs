@@ -67,8 +67,8 @@ impl GetLayerVersionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetLayerVersionRequest`](crate::types::GetLayerVersionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`layer_name`](Self::layer_name)
-    /// - [`version_number`](Self::version_number)
+    /// - [`layer_name`](crate::types::builders::GetLayerVersionRequestBuilder::layer_name)
+    /// - [`version_number`](crate::types::builders::GetLayerVersionRequestBuilder::version_number)
     pub fn build(self) -> ::std::result::Result<crate::types::GetLayerVersionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetLayerVersionRequest {
             layer_name: self.layer_name.ok_or_else(|| {

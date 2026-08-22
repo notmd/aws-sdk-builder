@@ -87,7 +87,7 @@ impl AnalyticsConfigurationBuilder {
     }
     /// Consumes the builder and constructs a [`AnalyticsConfiguration`](crate::types::AnalyticsConfiguration).
     /// This method will fail if any of the following fields are not set:
-    /// - [`id`](Self::id)
+    /// - [`id`](crate::types::builders::AnalyticsConfigurationBuilder::id)
     pub fn build(self) -> ::std::result::Result<crate::types::AnalyticsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnalyticsConfiguration {
             id: self.id.ok_or_else(|| {

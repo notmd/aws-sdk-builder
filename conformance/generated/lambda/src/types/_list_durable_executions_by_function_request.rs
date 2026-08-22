@@ -38,6 +38,8 @@ impl ListDurableExecutionsByFunctionRequest {
         self.durable_execution_name.as_deref()
     }
     /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.statuses.is_none()`.
     pub fn statuses(&self) -> &[crate::types::ExecutionStatus] {
         self.statuses.as_deref().unwrap_or_default()
     }
@@ -127,10 +129,11 @@ impl ListDurableExecutionsByFunctionRequestBuilder {
     pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> {
         &self.durable_execution_name
     }
-    /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
     /// Appends an item to `statuses`.
     ///
     /// To override the contents of this collection use [`set_statuses`](Self::set_statuses).
+    ///
+    /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
     pub fn statuses(mut self, input: crate::types::ExecutionStatus) -> Self {
         let mut v = self.statuses.unwrap_or_default();
         v.push(input);
@@ -218,7 +221,7 @@ impl ListDurableExecutionsByFunctionRequestBuilder {
     }
     /// Consumes the builder and constructs a [`ListDurableExecutionsByFunctionRequest`](crate::types::ListDurableExecutionsByFunctionRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`function_name`](Self::function_name)
+    /// - [`function_name`](crate::types::builders::ListDurableExecutionsByFunctionRequestBuilder::function_name)
     pub fn build(
         self,
     ) -> ::std::result::Result<crate::types::ListDurableExecutionsByFunctionRequest, ::aws_smithy_types::error::operation::BuildError> {

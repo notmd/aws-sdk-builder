@@ -45,7 +45,7 @@ impl GetLayerVersionByArnRequestBuilder {
     }
     /// Consumes the builder and constructs a [`GetLayerVersionByArnRequest`](crate::types::GetLayerVersionByArnRequest).
     /// This method will fail if any of the following fields are not set:
-    /// - [`arn`](Self::arn)
+    /// - [`arn`](crate::types::builders::GetLayerVersionByArnRequestBuilder::arn)
     pub fn build(self) -> ::std::result::Result<crate::types::GetLayerVersionByArnRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetLayerVersionByArnRequest {
             arn: self.arn.ok_or_else(|| {

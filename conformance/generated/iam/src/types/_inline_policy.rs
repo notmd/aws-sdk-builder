@@ -68,8 +68,8 @@ impl InlinePolicyBuilder {
     }
     /// Consumes the builder and constructs a [`InlinePolicy`](crate::types::InlinePolicy).
     /// This method will fail if any of the following fields are not set:
-    /// - [`policy_name`](Self::policy_name)
-    /// - [`policy_document`](Self::policy_document)
+    /// - [`policy_name`](crate::types::builders::InlinePolicyBuilder::policy_name)
+    /// - [`policy_document`](crate::types::builders::InlinePolicyBuilder::policy_document)
     pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicy, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InlinePolicy {
             policy_name: self.policy_name.ok_or_else(|| {

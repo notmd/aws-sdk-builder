@@ -12,6 +12,8 @@ pub struct ListSubscriptionsOutput {
 }
 impl ListSubscriptionsOutput {
     /// <p>A list of subscriptions.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.subscriptions.is_none()`.
     pub fn subscriptions(&self) -> &[crate::types::Subscription] {
         self.subscriptions.as_deref().unwrap_or_default()
     }
@@ -41,10 +43,11 @@ pub struct ListSubscriptionsOutputBuilder {
     _request_id: Option<String>,
 }
 impl ListSubscriptionsOutputBuilder {
-    /// <p>A list of subscriptions.</p>
     /// Appends an item to `subscriptions`.
     ///
     /// To override the contents of this collection use [`set_subscriptions`](Self::set_subscriptions).
+    ///
+    /// <p>A list of subscriptions.</p>
     pub fn subscriptions(mut self, input: crate::types::Subscription) -> Self {
         let mut v = self.subscriptions.unwrap_or_default();
         v.push(input);

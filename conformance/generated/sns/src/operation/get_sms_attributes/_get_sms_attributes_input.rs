@@ -13,6 +13,8 @@ impl GetSmsAttributesInput {
     /// <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p>
     /// <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
     /// <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attributes.is_none()`.
     pub fn attributes(&self) -> &[::std::string::String] {
         self.attributes.as_deref().unwrap_or_default()
     }
@@ -31,12 +33,13 @@ pub struct GetSmsAttributesInputBuilder {
     pub(crate) attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl GetSmsAttributesInputBuilder {
-    /// <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p>
-    /// <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
-    /// <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
     /// Appends an item to `attributes`.
     ///
     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
+    ///
+    /// <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p>
+    /// <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
+    /// <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
     pub fn attributes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut v = self.attributes.unwrap_or_default();
         v.push(input.into());

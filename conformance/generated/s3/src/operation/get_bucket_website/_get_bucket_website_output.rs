@@ -29,6 +29,8 @@ impl GetBucketWebsiteOutput {
         self.error_document.as_ref()
     }
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.routing_rules.is_none()`.
     pub fn routing_rules(&self) -> &[crate::types::RoutingRule] {
         self.routing_rules.as_deref().unwrap_or_default()
     }
@@ -104,10 +106,11 @@ impl GetBucketWebsiteOutputBuilder {
     pub fn get_error_document(&self) -> &::std::option::Option<crate::types::ErrorDocument> {
         &self.error_document
     }
-    /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     /// Appends an item to `routing_rules`.
     ///
     /// To override the contents of this collection use [`set_routing_rules`](Self::set_routing_rules).
+    ///
+    /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     pub fn routing_rules(mut self, input: crate::types::RoutingRule) -> Self {
         let mut v = self.routing_rules.unwrap_or_default();
         v.push(input);
