@@ -41,7 +41,7 @@ pub(crate) fn generate(
         let mut service_files = vec![
             (
                 "src/lib.rs".to_owned(),
-                render_service_lib(entry.key, &selected),
+                render_service_lib(entry.key, &selected, consumer_namespace),
             ),
             (
                 "src/primitives.rs".to_owned(),
@@ -102,6 +102,12 @@ pub(crate) fn generate(
             let (protocol_module, protocol_shape_files) = render_protocol_serde_files(&selected);
             service_files.push(("src/protocol_serde.rs".to_owned(), protocol_module));
             service_files.extend(protocol_shape_files);
+        }
+        if has_paginated_operations(&selected) {
+            service_files.push((
+                "src/lens.rs".to_owned(),
+                render_lens_file(&selected, consumer_namespace),
+            ));
         }
         let mut operation_names = selected.operations.clone();
         operation_names.sort();
@@ -283,7 +289,11 @@ fn output_request_id_plan(selected: &SelectedModel, context: &Context) -> Reques
     }
 }
 
-fn render_service_lib(service_key: &str, selected: &SelectedModel) -> String {
+fn render_service_lib(
+    service_key: &str,
+    selected: &SelectedModel,
+    consumer_namespace: bool,
+) -> String {
     let mut output = String::new();
     header(&mut output);
     for file in [
@@ -326,6 +336,21 @@ fn render_service_lib(service_key: &str, selected: &SelectedModel) -> String {
         "mod serde_util {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/serde_util.rs\"));\n}}"
     )
     .unwrap();
+    if has_paginated_operations(selected) {
+        if consumer_namespace {
+            writeln!(
+                output,
+                "#[allow(clippy::question_mark)]\nmod lens {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/lens.rs\"));\n}}"
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "mod lens {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/lens.rs\"));\n}}"
+            )
+            .unwrap();
+        }
+    }
     output
 }
 
@@ -1958,6 +1983,330 @@ fn operation_is_paginated(operation: &Value) -> bool {
         .get("traits")
         .and_then(Value::as_object)
         .is_some_and(|traits| traits.contains_key("smithy.api#paginated"))
+}
+
+#[derive(Clone, Debug)]
+struct PaginationInfo {
+    output_token: Vec<String>,
+    items: Option<Vec<String>>,
+}
+
+fn has_paginated_operations(selected: &SelectedModel) -> bool {
+    selected
+        .operations
+        .iter()
+        .any(|operation_name| operation_pagination_info(selected, operation_name).is_some())
+}
+
+/// Read Smithy's paginated trait into the same model-derived paths consumed by
+/// the paginator and lens generators. Smithy permits a path to be represented
+/// by either a string or an array of member names.
+fn operation_pagination_info(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> Option<PaginationInfo> {
+    let operation = operation_shape(selected, operation_name)?;
+    if !operation_is_paginated(operation) {
+        return None;
+    }
+    let trait_value = operation
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#paginated"))?;
+    let input_token = smithy_path(trait_value.get("inputToken")?)?;
+    let output_token = smithy_path(trait_value.get("outputToken")?)?;
+    let items = trait_value.get("items").and_then(smithy_path);
+    let page_size = trait_value.get("pageSize").and_then(smithy_path);
+
+    let input_id = operation.get("input").and_then(target_value)?;
+    let output_id = operation.get("output").and_then(target_value)?;
+    find_member_path(selected, input_id, &input_token)?;
+    find_member_path(selected, output_id, &output_token)?;
+    if let Some(items_path) = &items {
+        find_member_path(selected, output_id, items_path)?;
+    }
+    if let Some(page_size_path) = &page_size {
+        find_member_path(selected, input_id, page_size_path)?;
+    }
+
+    Some(PaginationInfo {
+        output_token,
+        items,
+    })
+}
+
+fn smithy_path(value: &Value) -> Option<Vec<String>> {
+    match value {
+        Value::String(value) => Some(vec![value.clone()]),
+        Value::Array(values) => {
+            let path = values
+                .iter()
+                .map(Value::as_str)
+                .collect::<Option<Vec<_>>>()?;
+            (!path.is_empty()).then(|| path.into_iter().map(ToOwned::to_owned).collect())
+        }
+        _ => None,
+    }
+}
+
+fn find_member_path<'a>(
+    selected: &'a SelectedModel,
+    root_id: &str,
+    path: &[String],
+) -> Option<(String, &'a Value)> {
+    let mut shape_id = root_id;
+    let mut found = None;
+    for member_name in path {
+        let shape = selected.model.shapes.get(shape_id)?;
+        let member = members(shape)
+            .into_iter()
+            .find(|(name, _)| name == member_name)?;
+        let target = member_target(member.1)?;
+        found = Some((target.to_owned(), member.1));
+        shape_id = target;
+    }
+    found
+}
+
+fn render_lens_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let operation_prefix = if consumer_namespace {
+        "super::operation"
+    } else {
+        "crate::operation"
+    };
+    let types_prefix = if consumer_namespace {
+        "super::types"
+    } else {
+        "crate::types"
+    };
+
+    let mut paginated = selected
+        .operations
+        .iter()
+        .filter_map(|operation_name| {
+            operation_pagination_info(selected, operation_name)
+                .map(|info| (operation_name.as_str(), info))
+        })
+        .collect::<Vec<_>>();
+    paginated.sort_by_key(|(operation_name, _)| names::snake_case(operation_name));
+
+    for (operation_name, info) in &paginated {
+        let operation_module = names::snake_case(operation_name);
+        let operation_type = rust_type_name(operation_name);
+        let operation =
+            operation_shape(selected, operation_name).expect("selected operation exists");
+        let output_id = operation
+            .get("output")
+            .and_then(target_value)
+            .expect("paginated operation output exists");
+        let (token_target, _) = find_member_path(selected, output_id, &info.output_token)
+            .expect("paginated output token exists");
+        let token_type = lens_type_expr(selected, &token_target, consumer_namespace);
+        let function_suffix = info
+            .output_token
+            .iter()
+            .map(|name| names::snake_case(name))
+            .collect::<Vec<_>>()
+            .join("_");
+        let function_name = format!("reflens_{operation_module}_output_output_{function_suffix}");
+        writeln!(
+            output,
+            "pub(crate) fn {function_name}(\n    input: &{operation_prefix}::{operation_module}::{operation_type}Output,\n) -> ::std::option::Option<&{token_type}> {{"
+        )
+        .unwrap();
+        render_borrowed_lens_path(&mut output, selected, output_id, &info.output_token);
+        output.push_str("    ::std::option::Option::Some(input)\n}\n\n");
+    }
+
+    for (operation_name, info) in &paginated {
+        let Some(items_path) = info.items.as_ref() else {
+            continue;
+        };
+        let operation_module = names::snake_case(operation_name);
+        let operation_type = operation_module_to_type(&operation_module);
+        let operation =
+            operation_shape(selected, operation_name).expect("selected operation exists");
+        let output_id = operation
+            .get("output")
+            .and_then(target_value)
+            .expect("paginated operation output exists");
+        let (items_target, _) =
+            find_member_path(selected, output_id, items_path).expect("paginated items exists");
+        let item_type = pagination_item_type(selected, &items_target, types_prefix);
+        let function_suffix = items_path
+            .iter()
+            .map(|name| names::snake_case(name))
+            .collect::<Vec<_>>()
+            .join("_");
+        let function_name = format!("lens_{operation_module}_output_output_{function_suffix}");
+        writeln!(
+            output,
+            "pub(crate) fn {function_name}(\n    input: {operation_prefix}::{operation_module}::{operation_type}Output,\n) -> ::std::option::Option<{item_type}> {{"
+        )
+        .unwrap();
+        render_owned_lens_path(&mut output, selected, output_id, items_path);
+        output.push_str("    ::std::option::Option::Some(input)\n}\n\n");
+    }
+    output
+}
+
+fn lens_type_expr(selected: &SelectedModel, target: &str, consumer_namespace: bool) -> String {
+    if target.starts_with("smithy.api#") {
+        return primitive_type_for_namespace(terminal(target), false);
+    }
+    let Some(shape) = selected.model.shapes.get(target) else {
+        return "::std::string::String".to_owned();
+    };
+    match shape.get("type").and_then(Value::as_str) {
+        Some(
+            "string" | "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean"
+            | "blob" | "timestamp" | "document",
+        ) => primitive_type_for_namespace(
+            shape
+                .get("type")
+                .and_then(Value::as_str)
+                .unwrap_or("string"),
+            false,
+        ),
+        Some("list") => shape
+            .get("member")
+            .and_then(member_target)
+            .map(|member| {
+                format!(
+                    "::std::vec::Vec<{}>",
+                    lens_type_expr(selected, member, consumer_namespace)
+                )
+            })
+            .unwrap_or_else(|| "::std::vec::Vec<::std::string::String>".to_owned()),
+        Some("map") => {
+            let key = shape
+                .get("key")
+                .and_then(member_target)
+                .map(|member| lens_type_expr(selected, member, consumer_namespace))
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            let value = shape
+                .get("value")
+                .and_then(member_target)
+                .map(|member| lens_type_expr(selected, member, consumer_namespace))
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            format!("::std::collections::HashMap<{key}, {value}>")
+        }
+        _ => format!(
+            "{}::{}",
+            if consumer_namespace {
+                "super::types"
+            } else {
+                "crate::types"
+            },
+            rust_type_name(terminal(target))
+        ),
+    }
+}
+
+fn operation_module_to_type(operation_module: &str) -> String {
+    rust_type_name(operation_module)
+}
+
+fn render_borrowed_lens_path(
+    output: &mut String,
+    selected: &SelectedModel,
+    root_id: &str,
+    path: &[String],
+) {
+    let mut shape_id = root_id;
+    for name in path {
+        let field = names::rust_identifier(name);
+        let shape = selected
+            .model
+            .shapes
+            .get(shape_id)
+            .expect("pagination lens root shape exists");
+        let member = members(shape)
+            .into_iter()
+            .find(|(member_name, _)| member_name == name)
+            .map(|(_, member)| member)
+            .expect("pagination lens member exists");
+        let target = member_target(member).expect("pagination lens member target exists");
+        if member_is_effectively_required(selected, member, target) {
+            writeln!(output, "    let input = &input.{field};").unwrap();
+        } else {
+            writeln!(
+                output,
+                "    let input = match &input.{field} {{\n        ::std::option::Option::None => return ::std::option::Option::None,\n        ::std::option::Option::Some(t) => t,\n    }};"
+            )
+            .unwrap();
+        }
+        shape_id = target;
+    }
+}
+
+fn render_owned_lens_path(
+    output: &mut String,
+    selected: &SelectedModel,
+    root_id: &str,
+    path: &[String],
+) {
+    let mut shape_id = root_id;
+    for name in path {
+        let field = names::rust_identifier(name);
+        let shape = selected
+            .model
+            .shapes
+            .get(shape_id)
+            .expect("pagination lens root shape exists");
+        let member = members(shape)
+            .into_iter()
+            .find(|(member_name, _)| member_name == name)
+            .map(|(_, member)| member)
+            .expect("pagination lens member exists");
+        let target = member_target(member).expect("pagination lens member target exists");
+        if member_is_effectively_required(selected, member, target) {
+            writeln!(output, "    let input = input.{field};").unwrap();
+        } else {
+            writeln!(output, "    let input = input.{field}?;").unwrap();
+        }
+        shape_id = target;
+    }
+}
+
+fn pagination_item_type(selected: &SelectedModel, target: &str, types_prefix: &str) -> String {
+    let Some(shape) = selected.model.shapes.get(target) else {
+        return format!(
+            "::std::vec::Vec<{types_prefix}::{}>",
+            rust_type_name(terminal(target))
+        );
+    };
+    match shape.get("type").and_then(Value::as_str) {
+        Some("list") => shape
+            .get("member")
+            .and_then(member_target)
+            .map(|member| {
+                format!(
+                    "::std::vec::Vec<{}>",
+                    lens_type_expr(selected, member, types_prefix == "super::types")
+                )
+            })
+            .unwrap_or_else(|| "::std::vec::Vec<::std::string::String>".to_owned()),
+        Some("map") => {
+            let key = shape
+                .get("key")
+                .and_then(member_target)
+                .map(|member| lens_type_expr(selected, member, types_prefix == "super::types"))
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            let value = shape
+                .get("value")
+                .and_then(member_target)
+                .map(|member| lens_type_expr(selected, member, types_prefix == "super::types"))
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            format!("::std::collections::HashMap<{key}, {value}>")
+        }
+        _ => format!(
+            "::std::vec::Vec<{types_prefix}::{}>",
+            rust_type_name(terminal(target))
+        ),
+    }
 }
 
 fn operation_shape_file_name(operation_name: &str, input: bool) -> String {

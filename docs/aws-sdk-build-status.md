@@ -16,8 +16,9 @@ full audit trail.
 - M3: in progress. The Rust generator emits deterministic service/config/client,
   operation, builder, error, shape, enum, and union source; owns shared shapes,
   builders, and modeled errors in Smithy-RS-style modules; resolves Smithy list/map
-  shapes as inline collection expressions; ports forward-compatible enums; and
-  validates generated syntax with `syn`. It is not yet AWS SDK semantic parity.
+  shapes as inline collection expressions; emits model-derived pagination lenses;
+  ports forward-compatible enums; and validates generated syntax with `syn`. It is
+  not yet AWS SDK semantic parity.
 - M4: in progress. Generated services co-locate the initial local HTTP transport in
   `src/client.rs` and declare `aws-runtime` as a downstream dependency. Full protocol
   serialization, runtime orchestration, endpoint resolution, auth/signing, retries,
@@ -27,8 +28,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 2,584 exact, 1,435 mismatches, 2,442 missing,
-  and 123 extra (36.59% arithmetic-average match).
+  current report compares 6,584 files: 2,590 exact, 1,435 mismatches, 2,436 missing,
+  and 123 extra (36.71% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -54,6 +55,33 @@ inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silent
 change conformance inputs.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Model-derived pagination lenses
+
+- State: in progress
+- Changed: crates/aws-sdk-build/src/codegen.rs now indexes
+  `smithy.api#paginated` paths generically, validates input/output/page-size member
+  paths, sorts paginator lens functions by Smithy operation symbol, and emits borrowed
+  token and owned flattened-item accessors in `src/lens.rs`. Member requiredness
+  determines whether nested access uses direct moves or optional traversal. Standalone
+  and consumer namespace paths are rendered separately; the consumer lens module has
+  a narrowly scoped Clippy compatibility allowance. The S3 lens snapshot is now
+  byte-exact with the pinned reference.
+- Evidence: inspected `/tmp/smithy-rs` `PaginatorGenerator.kt` and
+  `NestedAccessorGenerator.kt`. `just conformance` regenerated 8 all-operation
+  snapshots (496 operations), formatted 4,148 generated Rust files, and exited 1 as
+  expected because parity remains incomplete. `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Conformance: overall `2,584/1,435/2,442/123` -> `2,590/1,435/2,436/123`;
+  S3 `937/294/113/0` -> `938/294/112/0` (matched/mismatched/missing/extra).
+  The final lens files for DynamoDB, IAM, KMS, S3, SNS, and SQS are byte-exact.
+- Blocker: the conformance command is still non-zero; paginator modules and the
+  fluent `into_paginator` API, protocol/runtime, endpoint/auth/retry/checksum,
+  presigning, waiter generation, and the missing reference test/package tree remain
+  incomplete.
+- Next action: port the generic Smithy-RS paginator module and fluent builder hook
+  using the same pagination index, then rerun the full comparison.
 
 ### Checkpoint: 2026-08-22 — Smithy-RS shared type ownership
 

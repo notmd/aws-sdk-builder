@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `169` matched · `208` mismatches · `222` missing · `1` extra · `28.17%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `170` matched · `208` mismatches · `221` missing · `1` extra · `28.33%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -3439,7 +3439,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/lib.rs
 +++ generated/src/lib.rs
-@@ -1,240 +1,14 @@
+@@ -1,240 +1,17 @@
 -#![allow(deprecated)]
 -#![allow(unknown_lints)]
 -#![allow(clippy::module_inception)]
@@ -3691,6 +3691,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client.rs"));
 +mod serde_util {
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/serde_util.rs"));
++}
++mod lens {
++    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/lens.rs"));
 +}
 ```
 
@@ -53713,7 +53716,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/error/sealed_unhandled.rs`
 - `src/error_meta.rs`
 - `src/json_errors.rs`
-- `src/lens.rs`
 - `src/operation/describe_custom_key_stores/paginator.rs`
 - `src/operation/list_aliases/paginator.rs`
 - `src/operation/list_grants/paginator.rs`

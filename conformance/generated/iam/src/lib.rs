@@ -12,3 +12,6 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client.rs"));
 mod serde_util {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/serde_util.rs"));
 }
+mod lens {
+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/lens.rs"));
+}

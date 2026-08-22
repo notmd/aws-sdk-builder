@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `570` matched · `478` mismatches · `583` missing · `0` extra · `34.95%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `571` matched · `478` mismatches · `582` missing · `0` extra · `35.01%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -3635,7 +3635,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/lib.rs
 +++ generated/src/lib.rs
-@@ -1,245 +1,14 @@
+@@ -1,245 +1,17 @@
 -#![allow(deprecated)]
 -#![allow(unknown_lints)]
 -#![allow(clippy::module_inception)]
@@ -3892,6 +3892,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client.rs"));
 +mod serde_util {
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/serde_util.rs"));
++}
++mod lens {
++    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/lens.rs"));
 +}
 ```
 
@@ -139080,7 +139083,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/endpoint_lib.rs`
 - `src/error/sealed_unhandled.rs`
 - `src/error_meta.rs`
-- `src/lens.rs`
 - `src/operation/get_account_authorization_details/paginator.rs`
 - `src/operation/get_group/paginator.rs`
 - `src/operation/list_access_keys/paginator.rs`
