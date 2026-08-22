@@ -31,6 +31,8 @@ pub fn de_complete_multipart_upload_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder::default();
+        output = crate::protocol_serde::shape_complete_multipart_upload::de_complete_multipart_upload(_response_body, output)
+            .map_err(crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled)?;
         output = output.set_bucket_key_enabled(
             crate::protocol_serde::shape_complete_multipart_upload_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
                 crate::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
@@ -292,6 +294,231 @@ pub fn ser_complete_multipart_upload_headers(
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-customer-key-MD5", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_complete_multipart_upload(
+    inp: &[u8],
+    mut builder: crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
+) -> std::result::Result<
+    crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("CompleteMultipartUploadResult") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected CompleteMultipartUploadResult but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("ChecksumSHA1") /* ChecksumSHA1 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumSHA1 */ =>  {
+                let var_39 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_sha1(var_39);
+            }
+            ,
+            s if s.matches("ChecksumSHA512") /* ChecksumSHA512 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumSHA512 */ =>  {
+                let var_40 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_sha512(var_40);
+            }
+            ,
+            s if s.matches("ChecksumXXHASH3") /* ChecksumXXHASH3 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumXXHASH3 */ =>  {
+                let var_41 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_xxhash3(var_41);
+            }
+            ,
+            s if s.matches("ChecksumType") /* ChecksumType com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumType */ =>  {
+                let var_42 =
+                    Some(
+                        Result::<crate::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::ChecksumType::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_type(var_42);
+            }
+            ,
+            s if s.matches("ChecksumSHA256") /* ChecksumSHA256 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumSHA256 */ =>  {
+                let var_43 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_sha256(var_43);
+            }
+            ,
+            s if s.matches("ChecksumXXHASH128") /* ChecksumXXHASH128 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumXXHASH128 */ =>  {
+                let var_44 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_xxhash128(var_44);
+            }
+            ,
+            s if s.matches("ChecksumCRC64NVME") /* ChecksumCRC64NVME com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumCRC64NVME */ =>  {
+                let var_45 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_crc64_nvme(var_45);
+            }
+            ,
+            s if s.matches("Bucket") /* Bucket com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$Bucket */ =>  {
+                let var_46 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_bucket(var_46);
+            }
+            ,
+            s if s.matches("ETag") /* ETag com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ETag */ =>  {
+                let var_47 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_e_tag(var_47);
+            }
+            ,
+            s if s.matches("ChecksumCRC32C") /* ChecksumCRC32C com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumCRC32C */ =>  {
+                let var_48 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_crc32_c(var_48);
+            }
+            ,
+            s if s.matches("ChecksumCRC32") /* ChecksumCRC32 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumCRC32 */ =>  {
+                let var_49 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_crc32(var_49);
+            }
+            ,
+            s if s.matches("ChecksumMD5") /* ChecksumMD5 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumMD5 */ =>  {
+                let var_50 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_md5(var_50);
+            }
+            ,
+            s if s.matches("Key") /* Key com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$Key */ =>  {
+                let var_51 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_51);
+            }
+            ,
+            s if s.matches("Location") /* Location com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$Location */ =>  {
+                let var_52 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_location(var_52);
+            }
+            ,
+            s if s.matches("ChecksumXXHASH64") /* ChecksumXXHASH64 com.amazonaws.s3.synthetic#CompleteMultipartUploadOutput$ChecksumXXHASH64 */ =>  {
+                let var_53 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_xxhash64(var_53);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

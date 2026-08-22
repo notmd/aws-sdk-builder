@@ -29,6 +29,8 @@ pub fn de_get_bucket_lifecycle_configuration_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_lifecycle_configuration::de_get_bucket_lifecycle_configuration(_response_body, output)
+            .map_err(crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationError::unhandled)?;
         output = output.set_transition_default_minimum_object_size(
             crate::protocol_serde::shape_get_bucket_lifecycle_configuration_output::de_transition_default_minimum_object_size_header(
                 _response_headers,
@@ -59,6 +61,52 @@ pub fn ser_get_bucket_lifecycle_configuration_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_lifecycle_configuration(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder,
+) -> std::result::Result<
+    crate::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("LifecycleConfiguration") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected LifecycleConfiguration but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Rule") /* Rules com.amazonaws.s3.synthetic#GetBucketLifecycleConfigurationOutput$Rules */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::LifecycleRule>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_4 = builder.rules.take().unwrap_or_default();
+                            list_4.push(
+                                crate::protocol_serde::shape_lifecycle_rule::de_lifecycle_rule(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_4
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_rules(var_3);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

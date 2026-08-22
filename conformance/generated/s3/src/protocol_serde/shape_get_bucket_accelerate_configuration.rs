@@ -29,6 +29,8 @@ pub fn de_get_bucket_accelerate_configuration_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_accelerate_configuration::de_get_bucket_accelerate_configuration(_response_body, output)
+            .map_err(crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
         output = output.set_request_charged(
             crate::protocol_serde::shape_get_bucket_accelerate_configuration_output::de_request_charged_header(_response_headers).map_err(|_| {
                 crate::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled(
@@ -67,6 +69,49 @@ pub fn ser_get_bucket_accelerate_configuration_headers(
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_accelerate_configuration(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder,
+) -> std::result::Result<
+    crate::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("AccelerateConfiguration") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected AccelerateConfiguration but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Status") /* Status com.amazonaws.s3.synthetic#GetBucketAccelerateConfigurationOutput$Status */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<crate::types::BucketAccelerateStatus, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::BucketAccelerateStatus::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_status(var_5);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

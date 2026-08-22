@@ -25,6 +25,8 @@ pub fn de_get_bucket_location_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_location::de_get_bucket_location(_response_body, output)
+            .map_err(crate::operation::get_bucket_location::GetBucketLocationError::unhandled)?;
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
@@ -45,6 +47,39 @@ pub fn ser_get_bucket_location_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_location(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder,
+) -> std::result::Result<crate::operation::get_bucket_location::builders::GetBucketLocationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    match start_el {
+        s if s.matches("LocationConstraint") /* LocationConstraint com.amazonaws.s3.synthetic#GetBucketLocationOutput$LocationConstraint */ =>  {
+            let var_3 =
+                Some(
+                    Result::<crate::types::BucketLocationConstraint, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                        crate::types::BucketLocationConstraint::from(
+                            ::aws_smithy_xml::decode::try_data(&mut decoder)?.as_ref()
+                        )
+                    )
+                    ?
+                )
+            ;
+            builder = builder.set_location_constraint(var_3);
+        }
+        ,
+        _ => return Err(::aws_smithy_xml::decode::XmlDecodeError::custom("expected LocationConstraint tag"))
     }
     Ok(builder)
 }

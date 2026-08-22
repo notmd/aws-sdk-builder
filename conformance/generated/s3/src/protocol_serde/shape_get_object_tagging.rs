@@ -23,6 +23,8 @@ pub fn de_get_object_tagging_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_object_tagging::de_get_object_tagging(_response_body, output)
+            .map_err(crate::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
         output = output.set_version_id(
             crate::protocol_serde::shape_get_object_tagging_output::de_version_id_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_tagging::GetObjectTaggingError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
@@ -30,7 +32,9 @@ pub fn de_get_object_tagging_http_response(
         );
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output.build()
+        crate::serde_util::get_object_tagging_output_output_correct_errors(output)
+            .build()
+            .map_err(crate::operation::get_object_tagging::GetObjectTaggingError::unhandled)?
     })
 }
 
@@ -59,6 +63,42 @@ pub fn ser_get_object_tagging_headers(
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_object_tagging(
+    inp: &[u8],
+    mut builder: crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder,
+) -> std::result::Result<crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("Tagging") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected Tagging but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("TagSet") /* TagSet com.amazonaws.s3.synthetic#GetObjectTaggingOutput$TagSet */ =>  {
+                let var_5 =
+                    Some(
+                        crate::protocol_serde::shape_tag_set::de_tag_set(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_tag_set(var_5);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

@@ -54,6 +54,9 @@ pub fn de_copy_object_http_response(
                 )
             })?,
         );
+        output = output.set_copy_object_result(crate::protocol_serde::shape_copy_object_output::de_copy_object_result_payload(
+            _response_body,
+        )?);
         output = output.set_copy_source_version_id(
             crate::protocol_serde::shape_copy_object_output::de_copy_source_version_id_header(_response_headers).map_err(|_| {
                 crate::operation::copy_object::CopyObjectError::unhandled(

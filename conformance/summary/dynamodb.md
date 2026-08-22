@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `903/903` files compared · `367` matched · `139` mismatches · `397` missing · `0` extra · `40.64%` match (100.00% means fully matched)
+**Progress:** `903/903` files compared · `367` matched · `140` mismatches · `396` missing · `0` extra · `40.64%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -2702,7 +2702,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/lib.rs
 +++ generated/src/lib.rs
-@@ -1,238 +1,9 @@
+@@ -1,238 +1,12 @@
 -#![allow(deprecated)]
 -#![allow(unknown_lints)]
 -#![allow(clippy::module_inception)]
@@ -2948,6 +2948,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/client.rs"));
++mod serde_util {
++    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/serde_util.rs"));
++}
 ```
 
 ### `src/operation/batch_execute_statement/builders.rs`
@@ -52433,6 +52436,347 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
+### `src/serde_util.rs`
+
+```diff
+--- reference/src/serde_util.rs
++++ generated/src/serde_util.rs
+@@ -32,6 +32,31 @@
+     builder
+ }
+
++pub(crate) fn keys_and_attributes_correct_errors(
++    mut builder: crate::types::builders::KeysAndAttributesBuilder,
++) -> crate::types::builders::KeysAndAttributesBuilder {
++    if builder.keys.is_none() {
++        builder.keys = Some(Default::default())
++    }
++    builder
++}
++
++pub(crate) fn put_request_correct_errors(mut builder: crate::types::builders::PutRequestBuilder) -> crate::types::builders::PutRequestBuilder {
++    if builder.item.is_none() {
++        builder.item = Some(Default::default())
++    }
++    builder
++}
++
++pub(crate) fn delete_request_correct_errors(
++    mut builder: crate::types::builders::DeleteRequestBuilder,
++) -> crate::types::builders::DeleteRequestBuilder {
++    if builder.key.is_none() {
++        builder.key = Some(Default::default())
++    }
++    builder
++}
++
+ pub(crate) fn backup_details_correct_errors(
+     mut builder: crate::types::builders::BackupDetailsBuilder,
+ ) -> crate::types::builders::BackupDetailsBuilder {
+@@ -53,51 +78,35 @@
+     builder
+ }
+
+-pub(crate) fn continuous_backups_description_correct_errors(
+-    mut builder: crate::types::builders::ContinuousBackupsDescriptionBuilder,
+-) -> crate::types::builders::ContinuousBackupsDescriptionBuilder {
+-    if builder.continuous_backups_status.is_none() {
+-        builder.continuous_backups_status = "no value was set".parse::<crate::types::ContinuousBackupsStatus>().ok()
+-    }
+-    builder
+-}
+-
+-pub(crate) fn time_to_live_specification_correct_errors(
+-    mut builder: crate::types::builders::TimeToLiveSpecificationBuilder,
+-) -> crate::types::builders::TimeToLiveSpecificationBuilder {
+-    if builder.enabled.is_none() {
+-        builder.enabled = Some(Default::default())
+-    }
++pub(crate) fn attribute_definition_correct_errors(
++    mut builder: crate::types::builders::AttributeDefinitionBuilder,
++) -> crate::types::builders::AttributeDefinitionBuilder {
+     if builder.attribute_name.is_none() {
+         builder.attribute_name = Some(Default::default())
+     }
+-    builder
+-}
+-
+-pub(crate) fn endpoint_correct_errors(mut builder: crate::types::builders::EndpointBuilder) -> crate::types::builders::EndpointBuilder {
+-    if builder.address.is_none() {
+-        builder.address = Some(Default::default())
+-    }
+-    if builder.cache_period_in_minutes.is_none() {
+-        builder.cache_period_in_minutes = Some(Default::default())
++    if builder.attribute_type.is_none() {
++        builder.attribute_type = "no value was set".parse::<crate::types::ScalarAttributeType>().ok()
+     }
+     builder
+ }
+
+-pub(crate) fn keys_and_attributes_correct_errors(
+-    mut builder: crate::types::builders::KeysAndAttributesBuilder,
+-) -> crate::types::builders::KeysAndAttributesBuilder {
+-    if builder.keys.is_none() {
+-        builder.keys = Some(Default::default())
++pub(crate) fn key_schema_element_correct_errors(
++    mut builder: crate::types::builders::KeySchemaElementBuilder,
++) -> crate::types::builders::KeySchemaElementBuilder {
++    if builder.attribute_name.is_none() {
++        builder.attribute_name = Some(Default::default())
++    }
++    if builder.key_type.is_none() {
++        builder.key_type = "no value was set".parse::<crate::types::KeyType>().ok()
+     }
+     builder
+ }
+
+-pub(crate) fn replica_settings_description_correct_errors(
+-    mut builder: crate::types::builders::ReplicaSettingsDescriptionBuilder,
+-) -> crate::types::builders::ReplicaSettingsDescriptionBuilder {
+-    if builder.region_name.is_none() {
+-        builder.region_name = Some(Default::default())
++pub(crate) fn stream_specification_correct_errors(
++    mut builder: crate::types::builders::StreamSpecificationBuilder,
++) -> crate::types::builders::StreamSpecificationBuilder {
++    if builder.stream_enabled.is_none() {
++        builder.stream_enabled = Some(Default::default())
+     }
+     builder
+ }
+@@ -114,11 +123,23 @@
+     builder
+ }
+
+-pub(crate) fn s3_bucket_source_correct_errors(
+-    mut builder: crate::types::builders::S3BucketSourceBuilder,
+-) -> crate::types::builders::S3BucketSourceBuilder {
+-    if builder.s3_bucket.is_none() {
+-        builder.s3_bucket = Some(Default::default())
++pub(crate) fn search_schema_element_correct_errors(
++    mut builder: crate::types::builders::SearchSchemaElementBuilder,
++) -> crate::types::builders::SearchSchemaElementBuilder {
++    if builder.attribute_name.is_none() {
++        builder.attribute_name = Some(Default::default())
++    }
++    if builder.search_schema_element_type.is_none() {
++        builder.search_schema_element_type = "no value was set".parse::<crate::types::SearchSchemaElementType>().ok()
++    }
++    builder
++}
++
++pub(crate) fn vector_attribute_definition_correct_errors(
++    mut builder: crate::types::builders::VectorAttributeDefinitionBuilder,
++) -> crate::types::builders::VectorAttributeDefinitionBuilder {
++    if builder.attribute_name.is_none() {
++        builder.attribute_name = Some(Default::default())
+     }
+     builder
+ }
+@@ -147,81 +168,84 @@
+     builder
+ }
+
+-pub(crate) fn stream_specification_correct_errors(
+-    mut builder: crate::types::builders::StreamSpecificationBuilder,
+-) -> crate::types::builders::StreamSpecificationBuilder {
+-    if builder.stream_enabled.is_none() {
+-        builder.stream_enabled = Some(Default::default())
++pub(crate) fn provisioned_throughput_correct_errors(
++    mut builder: crate::types::builders::ProvisionedThroughputBuilder,
++) -> crate::types::builders::ProvisionedThroughputBuilder {
++    if builder.read_capacity_units.is_none() {
++        builder.read_capacity_units = Some(Default::default())
+     }
++    if builder.write_capacity_units.is_none() {
++        builder.write_capacity_units = Some(Default::default())
++    }
+     builder
+ }
+
+-pub(crate) fn table_creation_parameters_correct_errors(
+-    mut builder: crate::types::builders::TableCreationParametersBuilder,
+-) -> crate::types::builders::TableCreationParametersBuilder {
+-    if builder.table_name.is_none() {
+-        builder.table_name = Some(Default::default())
++pub(crate) fn continuous_backups_description_correct_errors(
++    mut builder: crate::types::builders::ContinuousBackupsDescriptionBuilder,
++) -> crate::types::builders::ContinuousBackupsDescriptionBuilder {
++    if builder.continuous_backups_status.is_none() {
++        builder.continuous_backups_status = "no value was set".parse::<crate::types::ContinuousBackupsStatus>().ok()
+     }
+-    if builder.attribute_definitions.is_none() {
+-        builder.attribute_definitions = Some(Default::default())
++    builder
++}
++
++pub(crate) fn endpoint_correct_errors(mut builder: crate::types::builders::EndpointBuilder) -> crate::types::builders::EndpointBuilder {
++    if builder.address.is_none() {
++        builder.address = Some(Default::default())
+     }
+-    if builder.key_schema.is_none() {
+-        builder.key_schema = Some(Default::default())
++    if builder.cache_period_in_minutes.is_none() {
++        builder.cache_period_in_minutes = Some(Default::default())
+     }
+     builder
+ }
+
+-pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
+-    if builder.key.is_none() {
+-        builder.key = Some(Default::default())
+-    }
+-    if builder.value.is_none() {
+-        builder.value = Some(Default::default())
++pub(crate) fn replica_settings_description_correct_errors(
++    mut builder: crate::types::builders::ReplicaSettingsDescriptionBuilder,
++) -> crate::types::builders::ReplicaSettingsDescriptionBuilder {
++    if builder.region_name.is_none() {
++        builder.region_name = Some(Default::default())
+     }
+     builder
+ }
+
+-pub(crate) fn attribute_definition_correct_errors(
+-    mut builder: crate::types::builders::AttributeDefinitionBuilder,
+-) -> crate::types::builders::AttributeDefinitionBuilder {
+-    if builder.attribute_name.is_none() {
+-        builder.attribute_name = Some(Default::default())
+-    }
+-    if builder.attribute_type.is_none() {
+-        builder.attribute_type = "no value was set".parse::<crate::types::ScalarAttributeType>().ok()
++pub(crate) fn auto_scaling_target_tracking_scaling_policy_configuration_description_correct_errors(
++    mut builder: crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder,
++) -> crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder {
++    if builder.target_value.is_none() {
++        builder.target_value = Some(Default::default())
+     }
+     builder
+ }
+
+-pub(crate) fn key_schema_element_correct_errors(
+-    mut builder: crate::types::builders::KeySchemaElementBuilder,
+-) -> crate::types::builders::KeySchemaElementBuilder {
+-    if builder.attribute_name.is_none() {
+-        builder.attribute_name = Some(Default::default())
+-    }
+-    if builder.key_type.is_none() {
+-        builder.key_type = "no value was set".parse::<crate::types::KeyType>().ok()
++pub(crate) fn replica_global_secondary_index_settings_description_correct_errors(
++    mut builder: crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder,
++) -> crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder {
++    if builder.index_name.is_none() {
++        builder.index_name = Some(Default::default())
+     }
+     builder
+ }
+
+-pub(crate) fn provisioned_throughput_correct_errors(
+-    mut builder: crate::types::builders::ProvisionedThroughputBuilder,
+-) -> crate::types::builders::ProvisionedThroughputBuilder {
+-    if builder.read_capacity_units.is_none() {
+-        builder.read_capacity_units = Some(Default::default())
+-    }
+-    if builder.write_capacity_units.is_none() {
+-        builder.write_capacity_units = Some(Default::default())
++pub(crate) fn s3_bucket_source_correct_errors(
++    mut builder: crate::types::builders::S3BucketSourceBuilder,
++) -> crate::types::builders::S3BucketSourceBuilder {
++    if builder.s3_bucket.is_none() {
++        builder.s3_bucket = Some(Default::default())
+     }
+     builder
+ }
+
+-pub(crate) fn delete_request_correct_errors(
+-    mut builder: crate::types::builders::DeleteRequestBuilder,
+-) -> crate::types::builders::DeleteRequestBuilder {
+-    if builder.key.is_none() {
+-        builder.key = Some(Default::default())
++pub(crate) fn table_creation_parameters_correct_errors(
++    mut builder: crate::types::builders::TableCreationParametersBuilder,
++) -> crate::types::builders::TableCreationParametersBuilder {
++    if builder.table_name.is_none() {
++        builder.table_name = Some(Default::default())
++    }
++    if builder.attribute_definitions.is_none() {
++        builder.attribute_definitions = Some(Default::default())
++    }
++    if builder.key_schema.is_none() {
++        builder.key_schema = Some(Default::default())
+     }
+     builder
+ }
+@@ -244,31 +268,6 @@
+     builder
+ }
+
+-pub(crate) fn put_request_correct_errors(mut builder: crate::types::builders::PutRequestBuilder) -> crate::types::builders::PutRequestBuilder {
+-    if builder.item.is_none() {
+-        builder.item = Some(Default::default())
+-    }
+-    builder
+-}
+-
+-pub(crate) fn replica_global_secondary_index_settings_description_correct_errors(
+-    mut builder: crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder,
+-) -> crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder {
+-    if builder.index_name.is_none() {
+-        builder.index_name = Some(Default::default())
+-    }
+-    builder
+-}
+-
+-pub(crate) fn vector_attribute_definition_correct_errors(
+-    mut builder: crate::types::builders::VectorAttributeDefinitionBuilder,
+-) -> crate::types::builders::VectorAttributeDefinitionBuilder {
+-    if builder.attribute_name.is_none() {
+-        builder.attribute_name = Some(Default::default())
+-    }
+-    builder
+-}
+-
+ pub(crate) fn vector_index_correct_errors(mut builder: crate::types::builders::VectorIndexBuilder) -> crate::types::builders::VectorIndexBuilder {
+     if builder.index_name.is_none() {
+         builder.index_name = Some(Default::default())
+@@ -294,23 +293,24 @@
+     builder
+ }
+
+-pub(crate) fn search_schema_element_correct_errors(
+-    mut builder: crate::types::builders::SearchSchemaElementBuilder,
+-) -> crate::types::builders::SearchSchemaElementBuilder {
+-    if builder.attribute_name.is_none() {
+-        builder.attribute_name = Some(Default::default())
++pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
++    if builder.key.is_none() {
++        builder.key = Some(Default::default())
+     }
+-    if builder.search_schema_element_type.is_none() {
+-        builder.search_schema_element_type = "no value was set".parse::<crate::types::SearchSchemaElementType>().ok()
++    if builder.value.is_none() {
++        builder.value = Some(Default::default())
+     }
+     builder
+ }
+
+-pub(crate) fn auto_scaling_target_tracking_scaling_policy_configuration_description_correct_errors(
+-    mut builder: crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder,
+-) -> crate::types::builders::AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionBuilder {
+-    if builder.target_value.is_none() {
+-        builder.target_value = Some(Default::default())
++pub(crate) fn time_to_live_specification_correct_errors(
++    mut builder: crate::types::builders::TimeToLiveSpecificationBuilder,
++) -> crate::types::builders::TimeToLiveSpecificationBuilder {
++    if builder.enabled.is_none() {
++        builder.enabled = Some(Default::default())
++    }
++    if builder.attribute_name.is_none() {
++        builder.attribute_name = Some(Default::default())
+     }
+     builder
+ }
+```
+
 ### `src/types/_attribute_value.rs`
 
 ```diff
@@ -54478,7 +54822,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_write_requests.rs`
 - `src/protocol_serde.rs`
 - `src/sdk_feature_tracker.rs`
-- `src/serde_util.rs`
 - `src/serialization_settings.rs`
 - `src/types/builders.rs`
 - `src/types/error.rs`
@@ -54640,6 +54983,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/update_time_to_live/builders.rs`
 - `src/operation/update_time_to_live.rs`
 - `src/operation.rs`
+- `src/serde_util.rs`
 - `src/types/_attribute_value.rs`
 - `src/types/_endpoint.rs`
 - `src/types/_import_table_description.rs`

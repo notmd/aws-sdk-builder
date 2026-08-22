@@ -29,6 +29,8 @@ pub fn de_create_multipart_upload_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder::default();
+        output = crate::protocol_serde::shape_create_multipart_upload::de_create_multipart_upload(_response_body, output)
+            .map_err(crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled)?;
         output = output.set_abort_date(
             crate::protocol_serde::shape_create_multipart_upload_output::de_abort_date_header(_response_headers).map_err(|_| {
                 crate::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
@@ -444,6 +446,74 @@ pub fn ser_create_multipart_upload_headers(
                 })?;
                 builder = builder.header(header_name, header_value);
             }
+        }
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_create_multipart_upload(
+    inp: &[u8],
+    mut builder: crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder,
+) -> std::result::Result<
+    crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("InitiateMultipartUploadResult") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected InitiateMultipartUploadResult but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("UploadId") /* UploadId com.amazonaws.s3.synthetic#CreateMultipartUploadOutput$UploadId */ =>  {
+                let var_58 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_upload_id(var_58);
+            }
+            ,
+            s if s.matches("Bucket") /* Bucket com.amazonaws.s3.synthetic#CreateMultipartUploadOutput$Bucket */ =>  {
+                let var_59 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_bucket(var_59);
+            }
+            ,
+            s if s.matches("Key") /* Key com.amazonaws.s3.synthetic#CreateMultipartUploadOutput$Key */ =>  {
+                let var_60 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_60);
+            }
+            ,
+            _ => {}
         }
     }
     Ok(builder)

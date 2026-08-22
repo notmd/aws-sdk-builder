@@ -23,6 +23,8 @@ pub fn de_get_bucket_cors_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_cors::de_get_bucket_cors(_response_body, output)
+            .map_err(crate::operation::get_bucket_cors::GetBucketCorsError::unhandled)?;
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
@@ -43,6 +45,49 @@ pub fn ser_get_bucket_cors_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_cors(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder,
+) -> std::result::Result<crate::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("CORSConfiguration") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected CORSConfiguration but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("CORSRule") /* CORSRules com.amazonaws.s3.synthetic#GetBucketCorsOutput$CORSRules */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::CorsRule>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_4 = builder.cors_rules.take().unwrap_or_default();
+                            list_4.push(
+                                crate::protocol_serde::shape_cors_rule::de_cors_rule(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_4
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_cors_rules(var_3);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

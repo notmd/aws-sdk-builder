@@ -70,6 +70,10 @@ pub(crate) fn generate(
                 "src/client.rs".to_owned(),
                 render_client_file(entry.key, &selected),
             ),
+            (
+                "src/serde_util.rs".to_owned(),
+                render_serde_util_file(&selected),
+            ),
         ];
         if !consumer_namespace {
             service_files.push((
@@ -85,6 +89,11 @@ pub(crate) fn generate(
         }
         if request_id_plan.extended {
             service_files.push(("src/s3_request_id.rs".to_owned(), render_s3_request_id()));
+        }
+        if protocol == crate::model::ProtocolKind::RestXml {
+            let (protocol_module, protocol_shape_files) = render_protocol_serde_files(&selected);
+            service_files.push(("src/protocol_serde.rs".to_owned(), protocol_module));
+            service_files.extend(protocol_shape_files);
         }
         let mut operation_names = selected.operations.clone();
         operation_names.sort();
@@ -115,22 +124,19 @@ pub(crate) fn generate(
                     format!("src/protocol_serde/shape_{module}.rs"),
                     render_protocol_operation_file(&selected, &operation_name, consumer_namespace),
                 ));
-                if let Some(payload_source) =
-                    render_protocol_input_payload_file(&selected, &operation_name)
+                if let Some(payload_source) = render_protocol_input_file(&selected, &operation_name)
                 {
                     service_files.push((
                         format!("src/protocol_serde/shape_{module}_input.rs"),
                         payload_source,
                     ));
                 }
-                if protocol_output_has_headers(&selected, &operation_name) {
+                if let Some(output_source) =
+                    render_protocol_output_file(&selected, &operation_name, consumer_namespace)
+                {
                     service_files.push((
                         format!("src/protocol_serde/shape_{module}_output.rs"),
-                        render_protocol_output_headers(
-                            &selected,
-                            &operation_name,
-                            consumer_namespace,
-                        ),
+                        output_source,
                     ));
                 }
             }
@@ -299,7 +305,269 @@ fn render_service_lib(service_key: &str, selected: &SelectedModel) -> String {
         )
         .unwrap();
     }
+    writeln!(
+        output,
+        "mod serde_util {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/serde_util.rs\"));\n}}"
+    )
+    .unwrap();
     output
+}
+
+fn render_serde_util_file(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let mut type_order = Vec::new();
+    let mut seen_types = BTreeSet::new();
+
+    // Operation output and error corrections are emitted while Smithy walks
+    // operation schemas. This is intentionally separate from modeled shape
+    // corrections, which are discovered by protocol deserialization below.
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        if let Some(output_id) = operation.get("output").and_then(target_value) {
+            if let Some(shape) = selected.model.shapes.get(output_id) {
+                if serde_util_shape_needs_correction(shape) {
+                    let module = names::rust_module_name(operation_name);
+                    let operation_type = rust_type_name(operation_name);
+                    render_serde_util_correction(
+                        &mut output,
+                        selected,
+                        shape,
+                        &format!("{module}_output_output_correct_errors"),
+                        &format!(
+                            "crate::operation::{module}::builders::{operation_type}OutputBuilder"
+                        ),
+                    );
+                }
+            }
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error_id in errors.iter().filter_map(target_value) {
+                let Some(shape) = selected.model.shapes.get(error_id) else {
+                    continue;
+                };
+                if serde_util_shape_needs_correction(shape) {
+                    let name = rust_type_name(terminal(error_id));
+                    render_serde_util_correction(
+                        &mut output,
+                        selected,
+                        shape,
+                        &format!(
+                            "{}_correct_errors",
+                            names::rust_module_name(terminal(error_id))
+                        ),
+                        &format!("crate::types::error::builders::{name}Builder"),
+                    );
+                }
+            }
+        }
+    }
+
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        if let Some(output_shape) = operation
+            .get("output")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(output_shape) {
+                if is_xml_body_member(member) {
+                    if let Some(target) = member_target(member) {
+                        serde_util_walk_shape(selected, target, &mut seen_types, &mut type_order);
+                    }
+                }
+            }
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error_id in errors.iter().filter_map(target_value) {
+                if let Some(shape) = selected.model.shapes.get(error_id) {
+                    for (_, member) in members(shape) {
+                        if let Some(target) = member_target(member) {
+                            serde_util_walk_shape(
+                                selected,
+                                target,
+                                &mut seen_types,
+                                &mut type_order,
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    for shape_id in type_order {
+        let Some(shape) = selected.model.shapes.get(&shape_id) else {
+            continue;
+        };
+        if serde_util_shape_needs_correction(shape) {
+            let name = rust_type_name(terminal(&shape_id));
+            let builder_path = if is_error_shape(shape) {
+                format!("crate::types::error::builders::{name}Builder")
+            } else {
+                format!("crate::types::builders::{name}Builder")
+            };
+            render_serde_util_correction(
+                &mut output,
+                selected,
+                shape,
+                &format!(
+                    "{}_correct_errors",
+                    names::rust_module_name(terminal(&shape_id))
+                ),
+                &builder_path,
+            );
+        }
+    }
+    output
+}
+
+fn serde_util_walk_shape(
+    selected: &SelectedModel,
+    shape_id: &str,
+    seen: &mut BTreeSet<String>,
+    order: &mut Vec<String>,
+) {
+    if !seen.insert(shape_id.to_owned()) {
+        return;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    if matches!(
+        shape.get("type").and_then(Value::as_str),
+        Some("structure" | "union" | "list" | "map")
+    ) {
+        order.push(shape_id.to_owned());
+    }
+    match shape.get("type").and_then(Value::as_str) {
+        Some("structure" | "union") => {
+            for (_, member) in members(shape) {
+                if let Some(target) = member_target(member) {
+                    serde_util_walk_shape(selected, target, seen, order);
+                }
+            }
+        }
+        Some("list") => {
+            if let Some(target) = shape.get("member").and_then(member_target) {
+                serde_util_walk_shape(selected, target, seen, order);
+            }
+        }
+        Some("map") => {
+            for member in [shape.get("key"), shape.get("value")].into_iter().flatten() {
+                if let Some(target) = member_target(member) {
+                    serde_util_walk_shape(selected, target, seen, order);
+                }
+            }
+        }
+        _ => {}
+    }
+}
+
+fn serde_util_shape_needs_correction(shape: &Value) -> bool {
+    shape.get("type").and_then(Value::as_str) == Some("structure")
+        && members(shape)
+            .iter()
+            .any(|(_, member)| member_is_required(member))
+}
+
+fn serde_util_builder_is_fallible(selected: &SelectedModel, shape: &Value) -> bool {
+    members(shape).iter().any(|(_, member)| {
+        let target = member_target(member).unwrap_or("smithy.api#String");
+        member_is_effectively_required(selected, member, target)
+    })
+}
+
+fn render_serde_util_correction(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    function_name: &str,
+    builder_path: &str,
+) {
+    writeln!(
+        output,
+        "pub(crate) fn {function_name}(\n    mut builder: {builder_path},\n) -> {builder_path} {{"
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        if !member_is_required(member) {
+            continue;
+        }
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        let field = names::rust_identifier(&member_name);
+        let kind = protocol_shape_kind(selected, target);
+        writeln!(output, "    if builder.{field}.is_none() {{").unwrap();
+        match kind {
+            "structure" => {
+                let nested_name = rust_type_name(terminal(target));
+                let nested_builder = if selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(is_error_shape)
+                {
+                    format!("crate::types::error::builders::{nested_name}Builder")
+                } else {
+                    format!("crate::types::builders::{nested_name}Builder")
+                };
+                let nested = selected.model.shapes.get(target);
+                let result = if nested.is_some_and(serde_util_shape_needs_correction) {
+                    format!(
+                        "crate::serde_util::{}_correct_errors(builder)",
+                        names::rust_module_name(terminal(target))
+                    )
+                } else {
+                    "builder".to_owned()
+                };
+                let build = if nested
+                    .is_some_and(|shape| serde_util_builder_is_fallible(selected, shape))
+                {
+                    ".build().ok()"
+                } else {
+                    ".build()"
+                };
+                let value = if nested
+                    .is_some_and(|shape| serde_util_builder_is_fallible(selected, shape))
+                {
+                    format!("{result}{build}")
+                } else {
+                    format!("Some({result}{build})")
+                };
+                writeln!(
+                output,
+                "        builder.{field} = {{\n            let builder = {nested_builder}::default();\n            {value}\n        }}"
+            )
+            .unwrap();
+            }
+            "enum" => {
+                writeln!(
+                    output,
+                    "        builder.{field} = \"no value was set\".parse::<crate::types::{}>().ok()",
+                    rust_type_name(terminal(target))
+                )
+                .unwrap();
+            }
+            "timestamp" => {
+                writeln!(
+                    output,
+                    "        builder.{field} = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))"
+                )
+                .unwrap();
+            }
+            _ => {
+                writeln!(output, "        builder.{field} = Some(Default::default())").unwrap();
+            }
+        }
+        output.push_str("    }\n");
+    }
+    output.push_str("    builder\n}\n\n");
 }
 
 fn render_s3_request_id() -> String {
@@ -1880,6 +2148,9 @@ fn is_xml_body_member(member: &Value) -> bool {
     };
     if traits.contains_key("smithy.api#httpHeader")
         || traits.contains_key("smithy.api#httpPrefixHeaders")
+        || traits.contains_key("smithy.api#httpLabel")
+        || traits.contains_key("smithy.api#httpQuery")
+        || traits.contains_key("smithy.api#httpQueryParams")
         || traits.contains_key("smithy.api#httpResponseCode")
     {
         return false;
@@ -2042,20 +2313,49 @@ fn render_protocol_operation_file(
     let mut output = String::new();
     client_operation_header(&mut output);
 
-    render_protocol_http_error(
-        &mut output,
-        selected,
-        operation_name,
-        operation,
-        consumer_namespace,
-    );
-    render_protocol_http_response(
-        &mut output,
-        selected,
-        operation_name,
-        output_shape,
-        consumer_namespace,
-    );
+    let streaming_output = output_shape.is_some_and(|shape| {
+        members(shape).into_iter().any(|(_, member)| {
+            has_trait(member, "smithy.api#httpPayload")
+                && member_target(member).is_some_and(|target| {
+                    selected
+                        .model
+                        .shapes
+                        .get(target)
+                        .is_some_and(shape_is_streaming)
+                })
+        })
+    });
+    if streaming_output {
+        render_protocol_http_response(
+            &mut output,
+            selected,
+            operation_name,
+            output_shape,
+            consumer_namespace,
+        );
+        render_protocol_http_error(
+            &mut output,
+            selected,
+            operation_name,
+            operation,
+            consumer_namespace,
+        );
+    } else {
+        render_protocol_http_error(
+            &mut output,
+            selected,
+            operation_name,
+            operation,
+            consumer_namespace,
+        );
+        render_protocol_http_response(
+            &mut output,
+            selected,
+            operation_name,
+            output_shape,
+            consumer_namespace,
+        );
+    }
     render_protocol_request_headers(
         &mut output,
         selected,
@@ -2063,6 +2363,13 @@ fn render_protocol_operation_file(
         input_shape,
         consumer_namespace,
     );
+    if let Some(serializer) = render_protocol_operation_input_serializer(selected, operation_name) {
+        output.push_str(&serializer);
+    }
+    if let Some(parser) = render_protocol_operation_output_parser(selected, operation_name, &output)
+    {
+        output.push_str(&parser);
+    }
     output
 }
 
@@ -2072,21 +2379,22 @@ fn render_protocol_operation_file(
 /// The wrapper is deliberately derived from the HTTP payload member and its
 /// target shape; the service and operation names only participate in stable
 /// module/function names supplied by the model.
-fn render_protocol_input_payload_file(
-    selected: &SelectedModel,
-    operation_name: &str,
-) -> Option<String> {
+fn render_protocol_input_file(selected: &SelectedModel, operation_name: &str) -> Option<String> {
     let operation = operation_shape(selected, operation_name)?;
     let input_shape = operation
         .get("input")
         .and_then(target_value)
         .and_then(|id| selected.model.shapes.get(id))?;
-    let (member_name, member) = members(input_shape).into_iter().find(|(_, member)| {
+    let payload_member = members(input_shape).into_iter().find(|(_, member)| {
         member
             .get("traits")
             .and_then(|traits| traits.get("smithy.api#httpPayload"))
             .is_some()
-    })?;
+    });
+    if payload_member.is_none() {
+        return render_protocol_operation_input_file(selected, operation_name, input_shape);
+    }
+    let (member_name, member) = payload_member.expect("payload member exists");
     let target = member_target(member)?;
     let field = names::rust_identifier(&member_name);
     let target_shape = selected.model.shapes.get(target);
@@ -2153,6 +2461,1584 @@ fn render_protocol_input_payload_file(
     )
     .unwrap();
     Some(output)
+}
+
+fn render_protocol_operation_input_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+    input_shape: &Value,
+) -> Option<String> {
+    let document_members = members(input_shape)
+        .into_iter()
+        .filter(|(_, member)| {
+            is_xml_document_member(member) && !has_trait(member, "smithy.api#httpPayload")
+        })
+        .collect::<Vec<_>>();
+    if document_members.is_empty() {
+        return None;
+    }
+    let mut document_members = document_members;
+    document_members.sort_by(|left, right| left.0.cmp(&right.0));
+
+    let operation_module = names::rust_module_name(operation_name);
+    let input_module = format!("{operation_module}_input");
+    let function = format!("ser_{input_module}_input_input");
+    let operation_type = rust_type_name(operation_name);
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "pub fn {function}(\n    input: &crate::operation::{operation_module}::{operation_type}Input,\n    writer: ::aws_smithy_xml::encode::ElWriter,\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{"
+    )
+    .unwrap();
+    output.push_str("    #[allow(unused_mut)]\n    let mut scope = writer.finish();\n");
+    let mut state = ProtocolRenderState::default();
+    for (member_name, member) in document_members {
+        protocol_serialize_member(
+            &mut output,
+            selected,
+            &member_name,
+            member,
+            "scope",
+            &format!("input.{}", names::rust_identifier(&member_name)),
+            None,
+            &mut state,
+            true,
+        );
+    }
+    output.push_str("    scope.finish();\n    Ok(())\n}\n");
+    Some(output)
+}
+
+fn render_protocol_operation_input_serializer(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> Option<String> {
+    let operation = operation_shape(selected, operation_name)?;
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    let has_document_members = members(input_shape).iter().any(|(_, member)| {
+        is_xml_document_member(member) && !has_trait(member, "smithy.api#httpPayload")
+    });
+    if !has_document_members {
+        return None;
+    }
+
+    let operation_module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let input_module = format!("{operation_module}_input");
+    let function = format!("ser_{operation_module}_op_input");
+    let input_function = format!("ser_{input_module}_input_input");
+    let (namespace_uri, namespace_prefix) = xml_namespace(selected);
+    let namespace = match namespace_prefix {
+        Some(prefix) => format!(".write_ns({namespace_uri:?}, Some({prefix:?}))"),
+        None => format!(".write_ns({namespace_uri:?}, None)"),
+    };
+    let root = format!("{operation_name}Request");
+    let mut output = String::new();
+    writeln!(
+        output,
+        "\npub fn {function}(\n    input: &crate::operation::{operation_module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    {{\n        let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);\n        #[allow(unused_mut)]\n        let mut root = writer.start_el({root:?}){namespace};\n        crate::protocol_serde::shape_{input_module}::{input_function}(input, root)?\n    }}\n    Ok(::aws_smithy_types::body::SdkBody::from(out))\n}}"
+    )
+    .unwrap();
+    Some(output)
+}
+
+fn protocol_operation_output_document_members<'a>(
+    operation: &'a Value,
+    selected: &'a SelectedModel,
+) -> Option<Vec<(String, &'a Value)>> {
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    let mut all_members = members(output_shape);
+    let capacity = java_hash_map_capacity(all_members.len());
+    all_members.sort_by_key(|(name, _)| java_string_hash(name) & (capacity as u32 - 1));
+    let members = all_members
+        .into_iter()
+        .filter(|(_, member)| {
+            is_xml_document_member(member) && !has_trait(member, "smithy.api#httpPayload")
+        })
+        .collect::<Vec<_>>();
+    (!members.is_empty()).then_some(members)
+}
+
+fn java_hash_map_capacity(length: usize) -> usize {
+    let mut capacity = 16usize;
+    let mut threshold = capacity * 3 / 4;
+    while length > threshold {
+        capacity *= 2;
+        threshold = capacity * 3 / 4;
+    }
+    capacity
+}
+
+fn java_string_hash(value: &str) -> u32 {
+    let hash = value.encode_utf16().fold(0u32, |hash, code_unit| {
+        hash.wrapping_mul(31).wrapping_add(u32::from(code_unit))
+    });
+    hash ^ (hash >> 16)
+}
+
+fn protocol_operation_has_document_output(selected: &SelectedModel, operation_name: &str) -> bool {
+    operation_shape(selected, operation_name)
+        .and_then(|operation| protocol_operation_output_document_members(operation, selected))
+        .is_some()
+}
+
+fn protocol_state_after_source(source: &str) -> ProtocolRenderState {
+    let mut state = ProtocolRenderState::default();
+    let prefixes = [
+        "var_",
+        "attrib_",
+        "inner_",
+        "formatted_",
+        "list_",
+        "list_item_",
+        "key_",
+        "value_",
+    ];
+    for token in
+        source.split(|character: char| !(character.is_ascii_alphanumeric() || character == '_'))
+    {
+        for prefix in prefixes {
+            if let Some(number) = token
+                .strip_prefix(prefix)
+                .and_then(|value| value.parse::<usize>().ok())
+            {
+                state.next_name = state.next_name.max(number);
+            }
+        }
+    }
+    state
+}
+
+fn render_protocol_operation_output_parser(
+    selected: &SelectedModel,
+    operation_name: &str,
+    prefix_source: &str,
+) -> Option<String> {
+    let operation = operation_shape(selected, operation_name)?;
+    let output_shape_id = operation.get("output").and_then(target_value)?;
+    let output_shape = selected.model.shapes.get(output_shape_id)?;
+    let document_members = protocol_operation_output_document_members(operation, selected)?;
+    let module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let builder_path =
+        format!("crate::operation::{module}::builders::{operation_type}OutputBuilder");
+    let parser_result =
+        format!("crate::operation::{module}::builders::{operation_type}OutputBuilder");
+    let mut output = String::new();
+    output.push('\n');
+    writeln!(
+        output,
+        "#[allow(unused_mut)]\npub fn de_{module}(\n    inp: &[u8],\n    mut builder: {builder_path},\n) -> std::result::Result<{parser_result}, ::aws_smithy_xml::decode::XmlDecodeError> {{\n    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;\n\n    #[allow(unused_mut)]\n    let mut decoder = doc.root_element()?;\n    #[allow(unused_variables)]\n    let start_el = decoder.start_el();\n    #[allow(unused_variables)]\n    let depth = 0u32;"
+    )
+    .unwrap();
+
+    let mut state = protocol_state_after_source(prefix_source);
+    let synthetic_namespace = output_shape_id
+        .split('#')
+        .next()
+        .map(|namespace| format!("{namespace}.synthetic"))
+        .unwrap_or_else(|| "synthetic".to_owned());
+    let synthetic_shape_id = format!("{synthetic_namespace}#{operation_type}Output");
+
+    if has_trait(operation, "aws.customizations#s3UnwrappedXmlOutput")
+        && document_members.len() == 1
+    {
+        let (member_name, member) = &document_members[0];
+        let target = member_target(member).unwrap_or_default();
+        let field = names::rust_identifier(&member_name);
+        let xml_name = protocol_member_xml_name(selected, &member_name, member);
+        let var = state.temp();
+        let parse = indent_expression(
+            &protocol_parse_expression(selected, target, "decoder", "depth"),
+            20,
+        );
+        writeln!(
+            output,
+            "    match start_el {{\n        s if s.matches({xml_name:?}) /* {xml_name} {synthetic_shape_id}${member_name} */ =>  {{\n            let {var} =\n                Some(\n                    {parse}\n                    ?\n                )\n            ;\n            builder = builder.set_{field}({var});\n        }}\n        ,\n        _ => return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected {xml_name} tag\"))\n    }}"
+        )
+        .unwrap();
+    } else {
+        let allow_invalid_root = has_trait(output_shape, "smithy.api.internal#allowInvalidXmlRoot");
+        if let Some(root) = xml_name(output_shape).filter(|_| !allow_invalid_root) {
+            writeln!(
+                output,
+                "    if !start_el.matches({root:?}) {{\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(\n            \"encountered invalid XML root: expected {root} but got {{start_el:?}}. This is likely a bug in the SDK.\"\n        )));\n    }}"
+            )
+            .unwrap();
+        }
+        output.push_str(
+            "    while let Some(mut tag) = decoder.next_tag() {\n        match tag.start_el() {\n",
+        );
+        for (member_name, member) in document_members {
+            let target = member_target(member).unwrap_or_default();
+            let field = names::rust_identifier(&member_name);
+            let xml_name = protocol_member_xml_name(selected, &member_name, member);
+            let member_id = format!("{synthetic_shape_id}${member_name}");
+            let outer = state.temp();
+            let kind = protocol_shape_kind(selected, target);
+            let parse = if kind == "list" && has_trait(member, "smithy.api#xmlFlattened") {
+                let list = state.list_accum();
+                let element = selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .and_then(|shape| shape.get("member"))
+                    .expect("flattened list member");
+                let element_target = member_target(element).unwrap_or_default();
+                let element_expr = indent_expression(
+                    &protocol_parse_expression(selected, element_target, "tag", "depth"),
+                    8,
+                );
+                let list_type = format!(
+                    "::std::vec::Vec::<{}>",
+                    protocol_shape_type(selected, element_target)
+                );
+                format!(
+                    "Result::<{list_type}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({{\n    let mut {list} = builder.{field}.take().unwrap_or_default();\n    {list}.push(\n        {element_expr}\n        ?\n    );\n    {list}\n}})"
+                )
+            } else {
+                protocol_parse_expression(selected, target, "tag", "depth")
+            };
+            let parse = indent_expression(&parse, 24);
+            writeln!(
+                output,
+                "            s if s.matches({xml_name:?}) /* {member_name} {member_id} */ =>  {{\n                let {outer} =\n                    Some(\n                        {parse}\n                        ?\n                    )\n                ;\n                builder = builder.set_{field}({outer});\n            }}\n            ,"
+            )
+            .unwrap();
+        }
+        output.push_str("            _ => {}\n        }\n    }\n");
+    }
+    output.push_str("    Ok(builder)\n}\n");
+    Some(output)
+}
+
+#[derive(Clone, Copy, Default)]
+struct ProtocolSerdeRoles {
+    serialize: bool,
+    deserialize: bool,
+    first: Option<ProtocolSerdeRole>,
+}
+
+#[derive(Clone, Copy)]
+enum ProtocolSerdeRole {
+    Serialize,
+    Deserialize,
+}
+
+fn record_protocol_role(
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    shape_id: &str,
+    role: ProtocolSerdeRole,
+) {
+    let entry = roles.entry(shape_id.to_owned()).or_default();
+    if entry.first.is_none() {
+        entry.first = Some(role);
+    }
+    match role {
+        ProtocolSerdeRole::Serialize => entry.serialize = true,
+        ProtocolSerdeRole::Deserialize => entry.deserialize = true,
+    }
+}
+
+/// Render the protocol module and the modeled-shape XML helpers used by it.
+///
+/// Smithy creates protocol functions lazily while walking document bindings.
+/// Keeping the same reachability walk here is important: emitting a helper for
+/// every modeled shape would create a materially different SDK, especially for
+/// services with large models and many shapes that never occur in XML bodies.
+fn render_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(String, String)>) {
+    let roles = protocol_serde_roles(selected);
+    let mut files = Vec::new();
+    let mut module_names = BTreeSet::new();
+
+    for operation_name in &selected.operations {
+        let module = names::rust_module_name(operation_name);
+        module_names.insert(module.clone());
+        if render_protocol_input_file(selected, operation_name).is_some() {
+            module_names.insert(format!("{module}_input"));
+        }
+        if protocol_output_has_headers(selected, operation_name) {
+            module_names.insert(format!("{module}_output"));
+        }
+        if render_protocol_output_payload_file(selected, operation_name).is_some() {
+            module_names.insert(format!("{module}_output"));
+        }
+    }
+
+    for (shape_id, role) in &roles {
+        let module = names::rust_module_name(terminal(shape_id));
+        module_names.insert(module.clone());
+        files.push((
+            format!("src/protocol_serde/shape_{module}.rs"),
+            render_protocol_shape_file(selected, shape_id, *role),
+        ));
+    }
+
+    for error_id in error_shape_ids(selected) {
+        let module = names::rust_module_name(terminal(&error_id));
+        if module_names.insert(module.clone()) {
+            files.push((
+                format!("src/protocol_serde/shape_{module}.rs"),
+                render_protocol_error_file(selected, &error_id),
+            ));
+        }
+    }
+    files.sort_by(|left, right| left.0.cmp(&right.0));
+
+    let mut module = String::new();
+    client_operation_header(&mut module);
+    module.push_str(
+        "pub(crate) fn type_erase_result<O, E>(\n    result: ::std::result::Result<O, E>,\n) -> ::std::result::Result<\n    ::aws_smithy_runtime_api::client::interceptors::context::Output,\n    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,\n>\nwhere\n    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n    E: ::std::error::Error + ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n{\n    result\n        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))\n        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))\n        .map_err(::std::convert::Into::into)\n}\n\n",
+    );
+    module.push_str(
+        "pub fn rest_xml_unset_struct_payload() -> ::std::vec::Vec<u8> {\n    Vec::new()\n}\n\npub fn rest_xml_unset_union_payload() -> ::std::vec::Vec<u8> {\n    Vec::new()\n}\n\n",
+    );
+    module.push_str(
+        "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {\n    if response_body.is_empty() {\n        Ok(::aws_smithy_types::error::ErrorMetadata::builder())\n    } else {\n        crate::rest_xml_unwrapped_errors::parse_error_metadata(response_body)\n    }\n}\n\n",
+    );
+    for name in module_names {
+        writeln!(module, "pub(crate) mod shape_{name};").unwrap();
+        module.push('\n');
+    }
+    (module, files)
+}
+
+fn protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, ProtocolSerdeRoles> {
+    let mut roles = BTreeMap::<String, ProtocolSerdeRoles>::new();
+
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        // Smithy generates operation input serializers before operation output
+        // parsers. A shape can be reached through both roles, and the first
+        // role determines which helper appears first in its shared file.
+        if let Some(input) = operation
+            .get("input")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(input) {
+                let Some(target) = member_target(member) else {
+                    continue;
+                };
+                if is_xml_document_member(member) {
+                    protocol_mark_serializer(selected, target, &mut roles, &mut BTreeSet::new());
+                }
+            }
+        }
+        if let Some(output) = operation
+            .get("output")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(output) {
+                let Some(target) = member_target(member) else {
+                    continue;
+                };
+                if is_xml_body_member(member) {
+                    protocol_mark_deserializer_member(
+                        selected,
+                        target,
+                        member,
+                        &mut roles,
+                        &mut BTreeSet::new(),
+                    );
+                }
+            }
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error in errors.iter().filter_map(target_value) {
+                let Some(shape) = selected.model.shapes.get(error) else {
+                    continue;
+                };
+                for (_, member) in members(shape) {
+                    if let Some(target) = member_target(member) {
+                        protocol_mark_deserializer(
+                            selected,
+                            target,
+                            &mut roles,
+                            &mut BTreeSet::new(),
+                        );
+                    }
+                }
+            }
+        }
+    }
+    roles.retain(|shape_id, role| {
+        selected.model.shapes.contains_key(shape_id)
+            && (role.serialize || role.deserialize)
+            && matches!(
+                selected
+                    .model
+                    .shapes
+                    .get(shape_id)
+                    .and_then(|shape| shape.get("type"))
+                    .and_then(Value::as_str),
+                Some("structure" | "union" | "list" | "map")
+            )
+    });
+    roles
+}
+
+fn protocol_mark_serializer(
+    selected: &SelectedModel,
+    shape_id: &str,
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+) {
+    if !seen.insert(shape_id.to_owned()) {
+        return;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    if shape_is_streaming(shape) {
+        protocol_walk_members(selected, shape, roles, seen, true);
+        return;
+    }
+    if let Some((_, member)) = event_payload_member(shape) {
+        let target = member_target(member).unwrap_or_default();
+        if !matches!(protocol_shape_kind(selected, target), "structure" | "union") {
+            return;
+        }
+    }
+    if shape.get("type").and_then(Value::as_str) == Some("structure") && members(shape).is_empty() {
+        return;
+    }
+    match shape.get("type").and_then(Value::as_str) {
+        Some("structure" | "union") => {
+            if shape.get("type").and_then(Value::as_str) != Some("structure")
+                || !members(shape).is_empty()
+            {
+                record_protocol_role(roles, shape_id, ProtocolSerdeRole::Serialize);
+            }
+        }
+        _ => {}
+    }
+    protocol_walk_members(selected, shape, roles, seen, true);
+}
+
+fn protocol_mark_deserializer(
+    selected: &SelectedModel,
+    shape_id: &str,
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+) {
+    if !seen.insert(shape_id.to_owned()) {
+        return;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    if shape_is_streaming(shape) {
+        protocol_walk_streaming_members(selected, shape, roles, seen);
+        return;
+    }
+    if let Some((_, member)) = event_payload_member(shape) {
+        let target = member_target(member).unwrap_or_default();
+        if !matches!(protocol_shape_kind(selected, target), "structure" | "union") {
+            return;
+        }
+    }
+    if matches!(
+        shape.get("type").and_then(Value::as_str),
+        Some("structure" | "union" | "list" | "map")
+    ) {
+        record_protocol_role(roles, shape_id, ProtocolSerdeRole::Deserialize);
+    }
+    protocol_walk_members(selected, shape, roles, seen, false);
+}
+
+fn protocol_walk_streaming_members(
+    selected: &SelectedModel,
+    shape: &Value,
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+) {
+    for (_, member) in members(shape) {
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        if selected.model.shapes.get(target).is_some_and(|shape| {
+            shape.get("type").and_then(Value::as_str) == Some("structure")
+                && members(shape).is_empty()
+        }) {
+            continue;
+        }
+        protocol_mark_deserializer_member(selected, target, member, roles, seen);
+    }
+}
+
+fn protocol_mark_deserializer_member(
+    selected: &SelectedModel,
+    shape_id: &str,
+    member: &Value,
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+) {
+    if protocol_shape_kind(selected, shape_id) == "list"
+        && has_trait(member, "smithy.api#xmlFlattened")
+    {
+        if let Some(list_shape) = selected.model.shapes.get(shape_id) {
+            if let Some(element) = list_shape.get("member").and_then(member_target) {
+                protocol_mark_deserializer(selected, element, roles, seen);
+            }
+        }
+    } else {
+        protocol_mark_deserializer(selected, shape_id, roles, seen);
+    }
+}
+
+fn protocol_walk_members(
+    selected: &SelectedModel,
+    shape: &Value,
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+    serializer: bool,
+) {
+    match shape.get("type").and_then(Value::as_str) {
+        Some("structure" | "union") => {
+            for (_, member) in members(shape) {
+                let Some(target) = member_target(member) else {
+                    continue;
+                };
+                if serializer {
+                    protocol_mark_serializer(selected, target, roles, seen);
+                } else {
+                    protocol_mark_deserializer_member(selected, target, member, roles, seen);
+                }
+            }
+            return;
+        }
+        Some("list") => {
+            if let Some(member) = shape.get("member") {
+                if let Some(target) = member_target(member) {
+                    if serializer {
+                        protocol_mark_serializer(selected, target, roles, seen);
+                    } else {
+                        protocol_mark_deserializer(selected, target, roles, seen);
+                    }
+                }
+            }
+        }
+        Some("map") => {
+            for key in [shape.get("key"), shape.get("value")].into_iter().flatten() {
+                if let Some(target) = member_target(key) {
+                    if serializer {
+                        protocol_mark_serializer(selected, target, roles, seen);
+                    } else {
+                        protocol_mark_deserializer(selected, target, roles, seen);
+                    }
+                }
+            }
+        }
+        _ => {}
+    }
+}
+
+fn render_protocol_shape_file(
+    selected: &SelectedModel,
+    shape_id: &str,
+    roles: ProtocolSerdeRoles,
+) -> String {
+    let shape = selected
+        .model
+        .shapes
+        .get(shape_id)
+        .expect("protocol shape exists");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let kind = shape
+        .get("type")
+        .and_then(Value::as_str)
+        .unwrap_or_default();
+    let mut state = ProtocolRenderState::default();
+    let render_deserializer = |output: &mut String, state: &mut ProtocolRenderState| match kind {
+        "structure" if event_payload_member(shape).is_some() => {
+            render_protocol_event_payload_deserializer(output, selected, shape)
+        }
+        "structure" => {
+            render_protocol_structure_deserializer(output, selected, shape_id, shape, state)
+        }
+        "union" => render_protocol_union_deserializer(output, selected, shape_id),
+        "list" => render_protocol_list_deserializer(output, selected, shape_id, shape),
+        "map" => render_protocol_map_deserializer(output, selected, shape_id, shape),
+        _ => {}
+    };
+    let render_serializer = |output: &mut String, state: &mut ProtocolRenderState| match kind {
+        "structure" => {
+            render_protocol_structure_serializer(output, selected, shape_id, shape, state)
+        }
+        "union" => render_protocol_union_serializer(output, selected, shape_id, shape),
+        _ => {}
+    };
+    match (roles.first, roles.deserialize, roles.serialize) {
+        (Some(ProtocolSerdeRole::Serialize), true, true) => {
+            render_serializer(&mut output, &mut state);
+            render_deserializer(&mut output, &mut state);
+        }
+        (_, true, true) => {
+            render_deserializer(&mut output, &mut state);
+            render_serializer(&mut output, &mut state);
+        }
+        (_, true, false) => render_deserializer(&mut output, &mut state),
+        (_, false, true) => render_serializer(&mut output, &mut state),
+        (_, false, false) => {}
+    }
+    output
+}
+
+fn event_payload_member(shape: &Value) -> Option<(String, &Value)> {
+    members(shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#eventPayload"))
+}
+
+fn render_protocol_event_payload_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+) {
+    let (member_name, member) = event_payload_member(shape).expect("event payload member");
+    let target = member_target(member).expect("event payload target");
+    let field = names::rust_identifier(&member_name);
+    let target_type = protocol_shape_type(selected, target);
+    let root = selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(xml_name)
+        .unwrap_or_else(|| terminal(target).to_owned());
+    let target_module = names::rust_module_name(terminal(target));
+    writeln!(
+        output,
+        "pub fn de_{field}(inp: &[u8]) -> std::result::Result<{target_type}, ::aws_smithy_xml::decode::XmlDecodeError> {{\n    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;\n    #[allow(unused_mut)]\n    let mut decoder = doc.root_element()?;\n    let start_el = decoder.start_el();\n    if !(start_el.matches({root:?})) {{\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(\"invalid root, expected {root} got {{start_el:?}}\")));\n    }}\n    #[allow(unused_variables)]\n    let depth = 0u32;\n    crate::protocol_serde::shape_{target_module}::de_{target_module}(&mut decoder, depth + 1)\n}}"
+    )
+    .unwrap();
+}
+
+#[derive(Default)]
+struct ProtocolRenderState {
+    next_name: usize,
+}
+
+impl ProtocolRenderState {
+    fn temp(&mut self) -> String {
+        self.next_name += 1;
+        format!("var_{}", self.next_name)
+    }
+
+    fn list_item(&mut self) -> String {
+        self.next_name += 1;
+        format!("list_item_{}", self.next_name)
+    }
+
+    fn key(&mut self) -> String {
+        self.next_name += 1;
+        format!("key_{}", self.next_name)
+    }
+
+    fn value(&mut self) -> String {
+        self.next_name += 1;
+        format!("value_{}", self.next_name)
+    }
+
+    fn list_accum(&mut self) -> String {
+        self.next_name += 1;
+        format!("list_{}", self.next_name)
+    }
+}
+
+fn protocol_shape_kind<'a>(selected: &'a SelectedModel, target: &'a str) -> &'a str {
+    selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| target.strip_prefix("smithy.api#"))
+        .unwrap_or("string")
+}
+
+fn protocol_shape_type(selected: &SelectedModel, target: &str) -> String {
+    type_expr(
+        selected,
+        target,
+        Context::Types {
+            consumer_namespace: false,
+        },
+    )
+}
+
+fn protocol_member_xml_name(selected: &SelectedModel, member_name: &str, member: &Value) -> String {
+    xml_name(member)
+        .or_else(|| {
+            member_target(member)
+                .and_then(|target| selected.model.shapes.get(target))
+                .and_then(xml_name)
+        })
+        .unwrap_or_else(|| member_name.to_owned())
+}
+
+fn protocol_member_namespace(member: &Value) -> String {
+    let Some(namespace) = member
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#xmlNamespace"))
+        .and_then(Value::as_object)
+    else {
+        return String::new();
+    };
+    let Some(uri) = namespace.get("uri").and_then(Value::as_str) else {
+        return String::new();
+    };
+    let prefix = namespace
+        .get("prefix")
+        .and_then(Value::as_str)
+        .map(|prefix| format!("Some({prefix:?})"))
+        .unwrap_or_else(|| "None".to_owned());
+    format!(".write_ns({uri:?}, {prefix})")
+}
+
+fn protocol_member_is_optional(selected: &SelectedModel, member: &Value) -> bool {
+    let target = member_target(member).unwrap_or_default();
+    !member_is_effectively_required(selected, member, target)
+}
+
+fn indent_expression(expression: &str, indentation: usize) -> String {
+    let prefix = " ".repeat(indentation);
+    expression
+        .lines()
+        .enumerate()
+        .map(|(index, line)| {
+            if index == 0 {
+                line.to_owned()
+            } else {
+                format!("{prefix}{line}")
+            }
+        })
+        .collect::<Vec<_>>()
+        .join("\n")
+}
+
+fn shape_is_streaming(shape: &Value) -> bool {
+    has_trait(shape, "smithy.api#streaming")
+}
+
+fn is_xml_document_member(member: &Value) -> bool {
+    let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+        return true;
+    };
+    !traits.keys().any(|trait_id| {
+        matches!(
+            trait_id.as_str(),
+            "smithy.api#httpHeader"
+                | "smithy.api#httpPrefixHeaders"
+                | "smithy.api#httpLabel"
+                | "smithy.api#httpQuery"
+                | "smithy.api#httpQueryParams"
+                | "smithy.api#httpResponseCode"
+        )
+    })
+}
+
+fn protocol_member_is_attribute(member: &Value) -> bool {
+    has_trait(member, "smithy.api#xmlAttribute")
+}
+
+fn protocol_primitive_encode(selected: &SelectedModel, target: &str, expression: &str) -> String {
+    let expression_without_reference = expression.strip_prefix('&').unwrap_or(expression);
+    match protocol_shape_kind(selected, target) {
+        "string" | "enum" => format!("{expression_without_reference}.as_str()"),
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double" => {
+            let value = if expression.starts_with('&') {
+                expression_without_reference.to_owned()
+            } else {
+                format!("*{expression}")
+            };
+            format!("::aws_smithy_types::primitive::Encoder::from({value}).encode()")
+        }
+        "timestamp" => format!(
+            "{expression_without_reference}.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref()"
+        ),
+        _ => format!("{expression_without_reference}.to_string()"),
+    }
+}
+
+fn protocol_serialize_member(
+    output: &mut String,
+    selected: &SelectedModel,
+    member_name: &str,
+    member: &Value,
+    scope: &str,
+    expression: &str,
+    root_name_override: Option<&str>,
+    state: &mut ProtocolRenderState,
+    force_optional: bool,
+) {
+    let Some(target) = member_target(member) else {
+        return;
+    };
+    let kind = protocol_shape_kind(selected, target);
+    let xml_name = root_name_override
+        .map(ToOwned::to_owned)
+        .unwrap_or_else(|| protocol_member_xml_name(selected, member_name, member));
+    let namespace = protocol_member_namespace(member);
+    let optional = force_optional || protocol_member_is_optional(selected, member);
+    let mut body = String::new();
+    let input = if optional {
+        let temp = state.temp();
+        let temp = if kind == "structure"
+            && selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(|shape| members(shape).is_empty())
+        {
+            format!("_{temp}")
+        } else {
+            temp
+        };
+        let optional_expression = if expression.starts_with('&') {
+            expression.to_owned()
+        } else {
+            format!("&{expression}")
+        };
+        writeln!(body, "if let Some({temp}) = {optional_expression} {{").unwrap();
+        temp
+    } else {
+        expression.to_owned()
+    };
+    match kind {
+        "string" | "enum" | "boolean" | "integer" | "long" | "short" | "byte" | "float"
+        | "double" | "timestamp" => {
+            writeln!(
+                body,
+                "    let mut inner_writer = {scope}.start_el({xml_name:?}){namespace}.finish();"
+            )
+            .unwrap();
+            writeln!(
+                body,
+                "    inner_writer.data({});",
+                protocol_primitive_encode(selected, target, &input)
+            )
+            .unwrap();
+        }
+        "list" => {
+            let item = selected
+                .model
+                .shapes
+                .get(target)
+                .and_then(|shape| shape.get("member"))
+                .expect("list member");
+            let list_item = state.list_item();
+            let (item_scope, item_name, item_indent) =
+                if has_trait(member, "smithy.api#xmlFlattened") {
+                    (scope.to_owned(), Some(xml_name.as_str()), "            ")
+                } else {
+                    writeln!(
+                    body,
+                    "    let mut inner_writer = {scope}.start_el({xml_name:?}){namespace}.finish();"
+                )
+                .unwrap();
+                    ("inner_writer".to_owned(), None, "            ")
+                };
+            writeln!(body, "    for {list_item} in {input} {{").unwrap();
+            body.push_str("        {\n");
+            protocol_serialize_list_member(
+                &mut body,
+                selected,
+                "member",
+                item,
+                &item_scope,
+                &list_item,
+                item_name,
+                state,
+                item_indent,
+            );
+            body.push_str("        }\n    }\n");
+        }
+        "map" => {
+            let key = state.key();
+            let value = state.value();
+            let iter_expression = input.clone();
+            writeln!(body, "    for ({key}, {value}) in {iter_expression} {{").unwrap();
+            writeln!(
+                body,
+                "        let mut entry = {scope}.start_el(\"entry\").finish();"
+            )
+            .unwrap();
+            let shape = selected.model.shapes.get(target).expect("map");
+            let key_member = shape.get("key").expect("map key");
+            let value_member = shape.get("value").expect("map value");
+            protocol_serialize_list_member(
+                &mut body, selected, "key", key_member, "entry", &key, None, state, "        ",
+            );
+            protocol_serialize_list_member(
+                &mut body,
+                selected,
+                "value",
+                value_member,
+                "entry",
+                &value,
+                None,
+                state,
+                "        ",
+            );
+            body.push_str("    }\n");
+        }
+        "structure" => {
+            if let Some(shape) = selected.model.shapes.get(target) {
+                if members(shape).is_empty() {
+                    writeln!(
+                        body,
+                        "    {scope}.start_el({xml_name:?}){namespace}.finish();"
+                    )
+                    .unwrap();
+                } else {
+                    writeln!(
+                        body,
+                        "    let inner_writer = {scope}.start_el({xml_name:?}){namespace};"
+                    )
+                    .unwrap();
+                    writeln!(
+                        body,
+                        "    crate::protocol_serde::shape_{}::ser_{}({}, inner_writer)?;",
+                        names::rust_module_name(terminal(target)),
+                        names::rust_module_name(terminal(target)),
+                        input.clone()
+                    )
+                    .unwrap();
+                    body.pop();
+                    body.pop();
+                    body.push('\n');
+                }
+            }
+        }
+        "union" => {
+            writeln!(
+                body,
+                "    let inner_writer = {scope}.start_el({xml_name:?}){namespace};"
+            )
+            .unwrap();
+            writeln!(
+                body,
+                "    crate::protocol_serde::shape_{}::ser_{}({}, inner_writer)?;",
+                names::rust_module_name(terminal(target)),
+                names::rust_module_name(terminal(target)),
+                input.clone()
+            )
+            .unwrap();
+            body.pop();
+            body.pop();
+            body.push('\n');
+        }
+        _ => {}
+    }
+    if !optional {
+        body.insert(0, '{');
+        body.insert(1, '\n');
+        body.push('}');
+        body.push('\n');
+    }
+    if optional {
+        body.push_str("}\n");
+    }
+    output.push_str(&body);
+}
+
+fn protocol_serialize_list_member(
+    output: &mut String,
+    selected: &SelectedModel,
+    member_name: &str,
+    member: &Value,
+    scope: &str,
+    expression: &str,
+    root_name_override: Option<&str>,
+    state: &mut ProtocolRenderState,
+    indent: &str,
+) {
+    let Some(target) = member_target(member) else {
+        return;
+    };
+    let kind = protocol_shape_kind(selected, target);
+    let xml_name = root_name_override
+        .map(ToOwned::to_owned)
+        .unwrap_or_else(|| protocol_member_xml_name(selected, member_name, member));
+    let namespace = protocol_member_namespace(member);
+    match kind {
+        "string" | "enum" | "boolean" | "integer" | "long" | "short" | "byte" | "float"
+        | "double" | "timestamp" => {
+            writeln!(
+                output,
+                "{indent}let mut inner_writer = {scope}.start_el({xml_name:?}){namespace}.finish();"
+            )
+            .unwrap();
+            writeln!(
+                output,
+                "{indent}inner_writer.data({});",
+                protocol_primitive_encode(selected, target, expression)
+            )
+            .unwrap();
+        }
+        "structure" => {
+            let shape = selected.model.shapes.get(target).expect("structure exists");
+            if members(shape).is_empty() {
+                writeln!(
+                    output,
+                    "{indent}{scope}.start_el({xml_name:?}){namespace}.finish();"
+                )
+                .unwrap();
+            } else {
+                writeln!(
+                    output,
+                    "{indent}let inner_writer = {scope}.start_el({xml_name:?}){namespace};"
+                )
+                .unwrap();
+                writeln!(
+                    output,
+                    "{indent}crate::protocol_serde::shape_{}::ser_{}({}, inner_writer)?",
+                    names::rust_module_name(terminal(target)),
+                    names::rust_module_name(terminal(target)),
+                    expression
+                )
+                .unwrap();
+            }
+        }
+        "union" => {
+            writeln!(
+                output,
+                "{indent}let inner_writer = {scope}.start_el({xml_name:?}){namespace};"
+            )
+            .unwrap();
+            writeln!(
+                output,
+                "{indent}crate::protocol_serde::shape_{}::ser_{}({}, inner_writer)?",
+                names::rust_module_name(terminal(target)),
+                names::rust_module_name(terminal(target)),
+                expression
+            )
+            .unwrap();
+        }
+        "list" => {
+            let nested = selected.model.shapes.get(target).expect("list");
+            let item = state.list_item();
+            writeln!(output, "{indent}for {item} in {expression} {{").unwrap();
+            let member = nested.get("member").expect("list member");
+            writeln!(output, "{indent}    {{").unwrap();
+            protocol_serialize_list_member(
+                output,
+                selected,
+                "member",
+                member,
+                scope,
+                &item,
+                Some(&xml_name),
+                state,
+                &format!("{indent}        "),
+            );
+            writeln!(output, "{indent}    }}").unwrap();
+            writeln!(output, "{indent}}}").unwrap();
+        }
+        "map" => {}
+        _ => {}
+    }
+}
+
+fn render_protocol_structure_inner(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    scope: &str,
+    input: &str,
+    state: &mut ProtocolRenderState,
+) {
+    for (member_name, member) in members(shape) {
+        if protocol_member_is_attribute(member) {
+            continue;
+        }
+        protocol_serialize_member(
+            output,
+            selected,
+            &member_name,
+            member,
+            scope,
+            &format!("{input}.{}", names::rust_identifier(&member_name)),
+            None,
+            state,
+            false,
+        );
+    }
+    writeln!(output, "    {scope}.finish();").unwrap();
+}
+
+fn render_protocol_structure_serializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+    state: &mut ProtocolRenderState,
+) {
+    let name = rust_type_name(terminal(shape_id));
+    writeln!(
+        output,
+        "pub fn ser_{}(\n    input: &crate::types::{name},\n    writer: ::aws_smithy_xml::encode::ElWriter,\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{",
+        names::rust_module_name(terminal(shape_id))
+    )
+    .unwrap();
+    let attrs = members(shape)
+        .iter()
+        .any(|(_, member)| protocol_member_is_attribute(member));
+    if attrs {
+        output.push_str("    let mut writer = writer;\n");
+        for (member_name, member) in members(shape) {
+            if !protocol_member_is_attribute(member) {
+                continue;
+            }
+            let target = member_target(member).unwrap_or_default();
+            let field = names::rust_identifier(&member_name);
+            let xml_name = protocol_member_xml_name(selected, &member_name, member);
+            if protocol_member_is_optional(selected, member) {
+                let temp = state.temp();
+                writeln!(output, "    if let Some({temp}) = &input.{field} {{").unwrap();
+                writeln!(
+                    output,
+                    "        writer.write_attribute({xml_name:?}, {});",
+                    protocol_primitive_encode(selected, target, &temp)
+                )
+                .unwrap();
+                output.push_str("    }\n");
+            } else {
+                writeln!(
+                    output,
+                    "    {{\n        writer.write_attribute({xml_name:?}, {});\n    }}",
+                    protocol_primitive_encode(selected, target, &format!("input.{field}"))
+                )
+                .unwrap();
+            }
+        }
+    }
+    output.push_str("    #[allow(unused_mut)]\n    let mut scope = writer.finish();\n");
+    render_protocol_structure_inner(output, selected, shape, "scope", "&input", state);
+    output.push_str("    Ok(())\n}\n\n");
+}
+
+fn render_protocol_union_serializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let name = rust_type_name(terminal(shape_id));
+    writeln!(
+        output,
+        "pub fn ser_{}(\n    input: &crate::types::{name},\n    writer: ::aws_smithy_xml::encode::ElWriter,\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut scope_writer = writer.finish();\n    match input {{",
+        names::rust_module_name(terminal(shape_id))
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        let variant = rust_type_name(&member_name);
+        let target = member_target(member).unwrap_or_default();
+        let target_kind = protocol_shape_kind(selected, target);
+        if target_kind == "structure"
+            && selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(|shape| members(shape).is_empty())
+        {
+            writeln!(
+                output,
+                "        crate::types::{name}::{variant}(_inner) => {{"
+            )
+            .unwrap();
+            writeln!(
+                output,
+                "            scope_writer.start_el({:?}).finish();",
+                protocol_member_xml_name(selected, &member_name, member)
+            )
+            .unwrap();
+        } else if target == "smithy.api#Unit" {
+            writeln!(output, "        crate::types::{name}::{variant} => {{").unwrap();
+            writeln!(
+                output,
+                "            scope_writer.start_el({:?}).finish();",
+                protocol_member_xml_name(selected, &member_name, member)
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "        crate::types::{name}::{variant}(inner) => {{"
+            )
+            .unwrap();
+            protocol_serialize_list_member(
+                output,
+                selected,
+                &member_name,
+                member,
+                "scope_writer",
+                "inner",
+                None,
+                &mut ProtocolRenderState::default(),
+                "            ",
+            );
+        }
+        output.push_str("        }\n");
+    }
+    writeln!(
+        output,
+        "        crate::types::{name}::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant({name:?})),"
+    )
+    .unwrap();
+    output.push_str("    }\n    Ok(())\n}\n\n");
+}
+
+fn protocol_parse_primitive(selected: &SelectedModel, target: &str, tag: &str) -> String {
+    protocol_parse_primitive_data(
+        selected,
+        target,
+        &format!("::aws_smithy_xml::decode::try_data(&mut {tag})?.as_ref()"),
+    )
+}
+
+fn protocol_parse_primitive_data(selected: &SelectedModel, target: &str, data: &str) -> String {
+    let kind = protocol_shape_kind(selected, target);
+    let ty = protocol_shape_type(selected, target);
+    match kind {
+        "enum" => format!(
+            "Result::<{ty}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(\n    crate::types::{}::from(\n        {data}\n    )\n)",
+            rust_type_name(terminal(target))
+        ),
+        "string" => format!(
+            "Result::<{ty}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(\n    {data}\n    .into()\n)"
+        ),
+        "timestamp" => format!(
+            "::aws_smithy_types::DateTime::from_str(\n    {data}\n    , ::aws_smithy_types::date_time::Format::DateTimeWithOffset\n)\n.map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected (timestamp: `{target}`)\"))"
+        ),
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double" => format!(
+            " {{\n    <{ty} as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(\n        {data}\n    )\n    .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected ({kind}: `{target}`)\"))\n}}"
+        ),
+        _ => format!(
+            "Result::<{ty}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(\n    {data}\n    .into()\n)"
+        ),
+    }
+}
+
+fn protocol_parse_expression(
+    selected: &SelectedModel,
+    target: &str,
+    tag: &str,
+    depth: &str,
+) -> String {
+    match protocol_shape_kind(selected, target) {
+        "structure" | "union" | "list" | "map" => format!(
+            "crate::protocol_serde::shape_{}::de_{}(&mut {tag}, {depth} + 1)",
+            names::rust_module_name(terminal(target)),
+            names::rust_module_name(terminal(target))
+        ),
+        _ => protocol_parse_primitive(selected, target, tag),
+    }
+}
+
+fn render_protocol_structure_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+    state: &mut ProtocolRenderState,
+) {
+    let name = rust_type_name(terminal(shape_id));
+    output.push_str("#[allow(clippy::needless_question_mark)]\n");
+    writeln!(
+        output,
+        "pub fn de_{}(\n    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,\n    depth: u32,\n) -> ::std::result::Result<crate::types::{name}, ::aws_smithy_xml::decode::XmlDecodeError> {{",
+        names::rust_module_name(terminal(shape_id))
+    )
+    .unwrap();
+    output.push_str(
+        "    if depth >= 128u32 {\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(\"maximum nesting depth exceeded\"));\n    }\n    #[allow(unused_mut)]\n",
+    );
+    writeln!(
+        output,
+        "    let mut builder = crate::types::{name}::builder();"
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        if !protocol_member_is_attribute(member) {
+            continue;
+        }
+        let target = member_target(member).unwrap_or_default();
+        let field = names::rust_identifier(&member_name);
+        let xml_name = protocol_member_xml_name(selected, &member_name, member);
+        let attrib = state.temp().replace("var_", "attrib_");
+        writeln!(
+                output,
+                "    let {attrib} = {{\n        let s = decoder.start_el().attr({xml_name:?});\n        match s {{\n            None => None,\n            Some(s) => Some({}?),\n        }}\n    }};\n    builder.{field} = {attrib};",
+                indent_expression(
+                    &protocol_parse_primitive_data(selected, target, "s"),
+                    12,
+                )
+        )
+        .unwrap();
+    }
+    let data_members = members(shape)
+        .into_iter()
+        .filter(|(_, member)| !protocol_member_is_attribute(member))
+        .collect::<Vec<_>>();
+    if !data_members.is_empty() {
+        output.push_str(
+            "    while let Some(mut tag) = decoder.next_tag() {\n        match tag.start_el() {\n",
+        );
+        for (member_name, member) in data_members {
+            let target = member_target(member).unwrap_or_default();
+            let field = names::rust_identifier(&member_name);
+            let xml_name = protocol_member_xml_name(selected, &member_name, member);
+            let member_id = shape_id.to_owned() + "$" + member_name.as_str();
+            let outer = state.temp();
+            writeln!(
+                output,
+                "            s if s.matches({xml_name:?}) /* {member_name} {member_id} */ =>  {{"
+            )
+            .unwrap();
+            let kind = protocol_shape_kind(selected, target);
+            let parse = if kind == "list" && has_trait(member, "smithy.api#xmlFlattened") {
+                let list = state.list_accum();
+                let element = selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .and_then(|shape| shape.get("member"))
+                    .expect("flattened list member");
+                let element_target = member_target(element).unwrap_or_default();
+                let element_expr = indent_expression(
+                    &protocol_parse_expression(selected, element_target, "tag", "depth"),
+                    8,
+                );
+                let list_type = selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .and_then(|shape| shape.get("member"))
+                    .and_then(member_target)
+                    .map(|element_target| {
+                        format!(
+                            "::std::vec::Vec::<{}>",
+                            protocol_shape_type(selected, element_target)
+                        )
+                    })
+                    .unwrap_or_else(|| protocol_shape_type(selected, target));
+                format!(
+                    "Result::<{}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({{\n    let mut {list} = builder.{field}.take().unwrap_or_default();\n    {list}.push(\n        {element_expr}\n        ?\n    );\n    {list}\n}})",
+                    list_type
+                )
+            } else {
+                protocol_parse_expression(selected, target, "tag", "depth")
+            };
+            let parse = indent_expression(&parse, 24);
+            writeln!(
+                output,
+                "                let {outer} =\n                    Some(\n                        {parse}\n                        ?\n                    )\n                ;\n                builder = builder.set_{field}({outer});"
+            )
+            .unwrap();
+            output.push_str("            }\n            ,\n");
+        }
+        output.push_str("            _ => {}\n        }\n    }\n");
+    }
+    let required_members = members(shape)
+        .into_iter()
+        .filter(|(_, member)| member_is_required(member))
+        .collect::<Vec<_>>();
+    if required_members.is_empty() {
+        output.push_str("    Ok(builder.build())\n");
+    } else if required_members.iter().all(|(_, member)| {
+        member_target(member)
+            .and_then(|target| selected.model.shapes.get(target))
+            .and_then(|shape| shape.get("type"))
+            .and_then(Value::as_str)
+            == Some("structure")
+    }) {
+        writeln!(
+            output,
+            "    Ok(crate::serde_util::{}_correct_errors(builder).build())",
+            names::rust_module_name(terminal(shape_id))
+        )
+        .unwrap();
+    } else {
+        writeln!(
+            output,
+            "    Ok(crate::serde_util::{}_correct_errors(builder)\n        .build()\n        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom(\"missing field\"))?)",
+            names::rust_module_name(terminal(shape_id))
+        )
+        .unwrap();
+    }
+    output.push_str("}\n\n");
+}
+
+fn render_protocol_union_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+) {
+    let name = rust_type_name(terminal(shape_id));
+    writeln!(
+        output,
+        "pub fn de_{}(\n    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,\n    depth: u32,\n) -> ::std::result::Result<crate::types::{name}, ::aws_smithy_xml::decode::XmlDecodeError> {{",
+        names::rust_module_name(terminal(shape_id))
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "    if depth >= 128u32 {{\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(\"maximum nesting depth exceeded\"));\n    }}\n    let mut base: Option<crate::types::{name}> = None;\n    while let Some(mut tag) = decoder.next_tag() {{\n        match tag.start_el() {{"
+    )
+    .unwrap();
+    let shape = selected.model.shapes.get(shape_id).expect("union");
+    for (member_name, member) in members(shape) {
+        let variant = rust_type_name(&member_name);
+        let target = member_target(member).unwrap_or_default();
+        let xml_name = protocol_member_xml_name(selected, &member_name, member);
+        let member_id = shape_id.to_owned() + "$" + member_name.as_str();
+        writeln!(
+            output,
+            "            s if s.matches({xml_name:?}) /* {member_name} {member_id} */ =>  {{"
+        )
+        .unwrap();
+        if target == "smithy.api#Unit" {
+            writeln!(
+                output,
+                "                base = Some(crate::types::{name}::{variant});"
+            )
+            .unwrap();
+        } else {
+            let expression = indent_expression(
+                &protocol_parse_expression(selected, target, "tag", "depth"),
+                20,
+            );
+            writeln!(
+                output,
+                "                let tmp =\n                    {expression}\n                    ?\n                ;\n                base = Some(crate::types::{name}::{variant}(tmp));"
+            )
+            .unwrap();
+        }
+        output.push_str("            }\n            ,\n");
+    }
+    writeln!(
+        output,
+        "            _unknown => base = Some(crate::types::{name}::Unknown),\n        }}\n    }}\n    base.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected union, got nothing\"))\n}}"
+    )
+    .unwrap();
+    output.push_str("\n\n");
+}
+
+fn render_protocol_list_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let member = shape.get("member").expect("list member");
+    let target = member_target(member).unwrap_or_default();
+    let item_type = protocol_shape_type(selected, target);
+    let xml_name = protocol_member_xml_name(selected, "member", member);
+    writeln!(
+        output,
+        "pub fn de_{}(\n    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,\n    depth: u32,\n) -> ::std::result::Result<::std::vec::Vec<{item_type}>, ::aws_smithy_xml::decode::XmlDecodeError> {{",
+        names::rust_module_name(terminal(shape_id))
+    )
+    .unwrap();
+    output.push_str(
+        "    if depth >= 128u32 {\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(\"maximum nesting depth exceeded\"));\n    }\n    let mut out = std::vec::Vec::new();\n    while let Some(mut tag) = decoder.next_tag() {\n        match tag.start_el() {\n",
+    );
+    let parse = indent_expression(
+        &protocol_parse_expression(selected, target, "tag", "depth"),
+        20,
+    );
+    writeln!(
+        output,
+        "            s if s.matches({xml_name:?}) /* member {shape_id}$member */ =>  {{\n                out.push(\n                    {}\n                    ?\n                );\n            }}\n            ,\n            _ => {{}}\n        }}\n    }}\n    Ok(out)\n}}\n\n",
+        parse
+    )
+    .unwrap();
+}
+
+fn render_protocol_map_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let key = shape.get("key").expect("map key");
+    let value = shape.get("value").expect("map value");
+    let key_target = member_target(key).unwrap_or_default();
+    let value_target = member_target(value).unwrap_or_default();
+    let key_type = protocol_shape_type(selected, key_target);
+    let value_type = protocol_shape_type(selected, value_target);
+    let name = names::rust_module_name(terminal(shape_id));
+    writeln!(
+        output,
+        "pub fn de_{name}(\n    decoder: &mut ::aws_smithy_xml::decode::ScopedDecoder,\n    depth: u32,\n) -> ::std::result::Result<::std::collections::HashMap<{key_type}, {value_type}>, ::aws_smithy_xml::decode::XmlDecodeError> {{\n    if depth >= 128u32 {{\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(\"maximum nesting depth exceeded\"));\n    }}\n    let mut out = ::std::collections::HashMap::new();\n    while let Some(mut tag) = decoder.next_tag() {{\n        match tag.start_el() {{\n            s if s.matches(\"entry\") => {{\n                let mut k = None;\n                let mut v = None;\n                while let Some(mut entry_tag) = tag.next_tag() {{\n                    match entry_tag.start_el() {{\n                        s if s.matches(\"key\") => k = Some({}),\n                        s if s.matches(\"value\") => v = Some({}),\n                        _ => {{}},\n                    }}\n                }}\n                out.insert(k.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom(\"missing key map entry\"))?, v.ok_or_else(|| ::aws_smithy_xml::decode::XmlDecodeError::custom(\"missing value map entry\"))?);\n            }}\n            _ => {{}},\n        }}\n    }}\n    Ok(out)\n}}\n\n",
+        protocol_parse_expression(selected, key_target, "entry_tag", "depth"),
+        protocol_parse_expression(selected, value_target, "entry_tag", "depth"),
+    )
+    .unwrap();
+}
+
+fn render_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> String {
+    let shape = selected.model.shapes.get(shape_id).expect("error shape");
+    let name = rust_type_name(terminal(shape_id));
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "#[allow(unused_mut)]\npub fn de_{}_xml_err(\n    inp: &[u8],\n    mut builder: crate::types::error::builders::{name}Builder,\n) -> std::result::Result<crate::types::error::builders::{name}Builder, ::aws_smithy_xml::decode::XmlDecodeError> {{\n    if inp.is_empty() {{\n        return Ok(builder);\n    }}\n    let mut document = ::aws_smithy_xml::decode::Document::try_from(inp)?;\n    #[allow(unused_mut)]\n    let mut error_decoder = crate::rest_xml_unwrapped_errors::error_scope(&mut document)?;\n    #[allow(unused_variables)]\n    let depth = 0u32;\n    while let Some(mut tag) = error_decoder.next_tag() {{\n        match tag.start_el() {{",
+        names::rust_module_name(terminal(shape_id))
+    )
+    .unwrap();
+    let mut state = ProtocolRenderState::default();
+    for (member_name, member) in members(shape) {
+        let target = member_target(member).unwrap_or_default();
+        let field = names::rust_identifier(&member_name);
+        let xml_name = protocol_member_xml_name(selected, &member_name, member);
+        let var = state.temp();
+        let comment = shape_id.to_owned() + "$" + member_name.as_str();
+        let parse = indent_expression(&protocol_parse_primitive(selected, target, "tag"), 24);
+        writeln!(
+            output,
+            "            s if s.matches({xml_name:?}) /* {member_name} {comment} */ =>  {{\n                let {var} =\n                    Some(\n                        {}\n                        ?\n                    )\n                ;\n                builder = builder.set_{field}({var});\n            }}\n            ,",
+            parse
+        )
+        .unwrap();
+    }
+    if serde_util_shape_needs_correction(shape) {
+        let correction = format!(
+            "crate::serde_util::{}_correct_errors(builder)",
+            names::rust_module_name(terminal(shape_id))
+        );
+        if serde_util_builder_is_fallible(selected, shape) {
+            writeln!(
+                output,
+                "            _ => {{}}\n        }}\n    }}\n    Ok({correction}.build().map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom(\"missing field\"))?)\n}}"
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "            _ => {{}}\n        }}\n    }}\n    Ok({correction}.build())\n}}"
+            )
+            .unwrap();
+        }
+    } else {
+        output.push_str("            _ => {}\n        }\n    }\n    Ok(builder)\n}\n");
+    }
+    output
 }
 
 fn xml_namespace(selected: &SelectedModel) -> (String, Option<String>) {
@@ -2294,11 +4180,31 @@ fn render_protocol_http_response(
         protocol_operation_type_path(&module, &rust_operation, "Output", consumer_namespace);
     let error_path =
         protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
-    writeln!(
-        output,
-        "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{"
-    )
-    .unwrap();
+    let streaming_payload = output_shape.and_then(|shape| {
+        members(shape).into_iter().find(|(_, member)| {
+            has_trait(member, "smithy.api#httpPayload")
+                && member_target(member).is_some_and(|target| {
+                    selected
+                        .model
+                        .shapes
+                        .get(target)
+                        .is_some_and(shape_is_streaming)
+                })
+        })
+    });
+    if streaming_payload.is_some() {
+        writeln!(
+            output,
+            "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    response: &mut ::aws_smithy_runtime_api::http::Response,\n) -> std::result::Result<{output_path}, {error_path}> {{\n    let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();\n    std::mem::swap(&mut _response_body, response.body_mut());\n    let _response_body = &mut _response_body;\n\n    let _response_status = response.status().as_u16();\n    let _response_headers = response.headers();"
+        )
+        .unwrap();
+    } else {
+        writeln!(
+            output,
+            "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{"
+        )
+        .unwrap();
+    }
     output.push_str("    Ok({\n        #[allow(unused_mut)]\n");
     let builder_path = if consumer_namespace {
         format!("super::super::super::{module}::builders::{rust_operation}OutputBuilder")
@@ -2310,8 +4216,54 @@ fn render_protocol_http_response(
         "        let mut output = {builder_path}::default();"
     )
     .unwrap();
+    if streaming_payload.is_none()
+        && protocol_operation_has_document_output(selected, operation_name)
+    {
+        let helper_path = if consumer_namespace {
+            format!("super::super::super::protocol_serde::shape_{module}")
+        } else {
+            format!("crate::protocol_serde::shape_{module}")
+        };
+        writeln!(
+            output,
+            "        output = {helper_path}::de_{module}(_response_body, output)\n            .map_err({error_path}::unhandled)?;"
+        )
+        .unwrap();
+    }
     if let Some(shape) = output_shape {
         for (name, member) in sorted_members(shape) {
+            if has_trait(member, "smithy.api#httpPayload") {
+                let field = names::rust_identifier(&name);
+                let helper_module = format!("shape_{module}_output");
+                let helper_path = if consumer_namespace {
+                    format!("super::super::super::protocol_serde::{helper_module}")
+                } else {
+                    format!("crate::protocol_serde::{helper_module}")
+                };
+                let target_kind = member_target(member)
+                    .map(|target| protocol_shape_kind(selected, target))
+                    .unwrap_or_default();
+                if target_kind == "union" && streaming_payload.is_some() {
+                    writeln!(
+                        output,
+                        "        output = output.set_{field}(Some({helper_path}::de_{field}_payload(\n            _response_body,\n        )?));"
+                    )
+                    .unwrap();
+                } else if streaming_payload.is_some() {
+                    writeln!(
+                        output,
+                        "        output = output.set_{field}(Some({helper_path}::de_{field}_payload(_response_body)?));"
+                    )
+                    .unwrap();
+                } else {
+                    writeln!(
+                        output,
+                        "        output = output.set_{field}({helper_path}::de_{field}_payload(_response_body)?);"
+                    )
+                    .unwrap();
+                }
+                continue;
+            }
             if let Some(prefix) = member
                 .get("traits")
                 .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
@@ -2371,7 +4323,36 @@ fn render_protocol_http_response(
             "        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));\n",
         );
     }
-    output.push_str("        output.build()\n    })\n}\n\n");
+    let streaming_event = streaming_payload.is_some_and(|(_, member)| {
+        member_target(member)
+            .map(|target| protocol_shape_kind(selected, target) == "union")
+            .unwrap_or(false)
+    });
+    if streaming_event {
+        writeln!(
+            output,
+            "        output\n            .build()\n            .map_err({error_path}::unhandled)?\n    }})\n}}\n\n"
+        )
+        .unwrap();
+    } else if let Some(shape) =
+        output_shape.filter(|shape| serde_util_shape_needs_correction(shape))
+    {
+        let correction = format!(
+            "crate::serde_util::{}_correct_errors(output)",
+            format!("{}_output_output", module)
+        );
+        if serde_util_builder_is_fallible(selected, shape) {
+            writeln!(
+                output,
+                "        {correction}.build().map_err({error_path}::unhandled)?\n    }})\n}}\n\n"
+            )
+            .unwrap();
+        } else {
+            writeln!(output, "        {correction}.build()\n    }})\n}}\n\n").unwrap();
+        }
+    } else {
+        output.push_str("        output.build()\n    })\n}\n\n");
+    }
 }
 
 fn render_protocol_request_headers(
@@ -2381,6 +4362,15 @@ fn render_protocol_request_headers(
     input_shape: Option<&Value>,
     consumer_namespace: bool,
 ) {
+    let has_headers = input_shape.is_some_and(|shape| {
+        members(shape).iter().any(|(_, member)| {
+            has_trait(member, "smithy.api#httpHeader")
+                || has_trait(member, "smithy.api#httpPrefixHeaders")
+        })
+    });
+    if !has_headers {
+        return;
+    }
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
     let input_path =
@@ -2447,6 +4437,43 @@ fn render_protocol_request_header(
     )
     .unwrap();
     let formatted = index + 1;
+    if kind == "list" {
+        let Some(list_shape) = shape else {
+            return;
+        };
+        let Some(member_shape) = list_shape.get("member") else {
+            return;
+        };
+        let Some(member_target) = member_target(member_shape) else {
+            return;
+        };
+        let member_kind = selected
+            .model
+            .shapes
+            .get(member_target)
+            .and_then(|shape| shape.get("type"))
+            .and_then(Value::as_str)
+            .or_else(|| member_target.strip_prefix("smithy.api#"))
+            .unwrap_or("string");
+        if !matches!(member_kind, "string" | "enum") {
+            return;
+        }
+        let item = index + 1;
+        let item_formatted = index + 2;
+        let redacted = value_should_redact(selected, member, &mut BTreeSet::new());
+        let display_expression = if redacted {
+            "&\"*** Sensitive Data Redacted ***\"".to_owned()
+        } else {
+            "&header_value".to_owned()
+        };
+        writeln!(
+            output,
+            "        // Empty vec in header is serialized as an empty string\n        if inner_{index}.is_empty() {{\n            builder = builder.header({header:?}, \"\");\n        }} else {{\n            for inner_{item} in inner_{index} {{\n                let formatted_{item_formatted} = ::aws_smithy_http::header::quote_header_value(inner_{item}.as_str());\n                let header_value = formatted_{item_formatted};\n                let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {{\n                    ::aws_smithy_types::error::operation::BuildError::invalid_field(\n                        {field:?},\n                        format!(\"`{{}}` cannot be used as a header value: {{}}\", {display_expression}, err),\n                    )\n                }})?;\n                builder = builder.header({header:?}, header_value);\n            }}\n        }}"
+        )
+        .unwrap();
+        output.push_str("    }\n");
+        return;
+    }
     if matches!(kind, "string" | "enum") {
         writeln!(
             output,
@@ -2603,6 +4630,85 @@ fn protocol_output_has_headers(selected: &SelectedModel, operation_name: &str) -
         })
 }
 
+fn render_protocol_output_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+    consumer_namespace: bool,
+) -> Option<String> {
+    let has_headers = protocol_output_has_headers(selected, operation_name);
+    let payload = render_protocol_output_payload_file(selected, operation_name);
+    if !has_headers {
+        return payload;
+    }
+    let mut output = render_protocol_output_headers(selected, operation_name, consumer_namespace);
+    let Some(payload) = payload else {
+        return Some(output);
+    };
+    let operation = operation_shape(selected, operation_name)?;
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    let (payload_name, _) = members(output_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))?;
+    let payload = payload
+        .strip_prefix(
+            "// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.\n",
+        )
+        .unwrap_or(&payload);
+    let parser_marker = format!("\npub fn de_{}(", names::rust_identifier(&payload_name));
+    let (payload, parser) = payload
+        .find(&parser_marker)
+        .map(|position| (&payload[..position], &payload[position + 1..]))
+        .unwrap_or((payload, ""));
+    let mut insertion = None;
+    for (name, member) in sorted_members(output_shape) {
+        if name <= payload_name {
+            continue;
+        }
+        let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+            continue;
+        };
+        let suffix = if traits.contains_key("smithy.api#httpPrefixHeaders") {
+            "_prefix_header"
+        } else if traits.contains_key("smithy.api#httpHeader") {
+            "_header"
+        } else {
+            continue;
+        };
+        let marker = format!(
+            "pub(crate) fn de_{}{suffix}(",
+            names::rust_identifier(&name)
+        );
+        if let Some(position) = output.find(&marker) {
+            insertion = Some(position);
+            break;
+        }
+    }
+    if insertion.is_none() {
+        for (name, member) in sorted_members(output_shape) {
+            if !has_trait(member, "smithy.api#httpPrefixHeaders") {
+                continue;
+            }
+            let marker = format!("pub fn de_{}_inner", names::rust_identifier(&name));
+            if let Some(position) = output.find(&marker) {
+                insertion = Some(position);
+                break;
+            }
+        }
+    }
+    if let Some(position) = insertion {
+        output.insert_str(position, &format!("{payload}\n"));
+    } else {
+        output.push_str(payload);
+    }
+    if !parser.is_empty() {
+        output.push_str(parser);
+    }
+    Some(output)
+}
+
 fn render_protocol_output_headers(
     selected: &SelectedModel,
     operation_name: &str,
@@ -2654,6 +4760,83 @@ fn render_protocol_output_headers(
         render_protocol_response_prefix_inner(&mut output, selected, &name, &target);
     }
     output
+}
+
+fn render_protocol_output_payload_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> Option<String> {
+    let operation = operation_shape(selected, operation_name)?;
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    let (field_name, member) = members(output_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))?;
+    let target = member_target(member)?;
+    let field = names::rust_identifier(&field_name);
+    let error = format!(
+        "crate::operation::{}::{}Error",
+        names::rust_module_name(operation_name),
+        rust_type_name(operation_name)
+    );
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let target_shape = selected.model.shapes.get(target);
+    if target_shape
+        .and_then(|shape| shape.get("traits"))
+        .and_then(Value::as_object)
+        .is_some_and(|traits| traits.contains_key("smithy.api#streaming"))
+        && target_shape
+            .and_then(|shape| shape.get("type"))
+            .and_then(Value::as_str)
+            == Some("union")
+    {
+        writeln!(
+            output,
+            "pub fn de_{field}_payload(\n    body: &mut ::aws_smithy_types::body::SdkBody,\n) -> std::result::Result<crate::event_receiver::EventReceiver<crate::types::{}, crate::types::error::{}Error>, {error}> {{\n    let unmarshaller = crate::event_stream_serde::{}Unmarshaller::new();\n    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());\n    let receiver = crate::event_receiver::EventReceiver::new(::aws_smithy_http::event_stream::Receiver::new(unmarshaller, body));\n    Ok(receiver)\n}}",
+            rust_type_name(terminal(target)),
+            rust_type_name(terminal(target)),
+            rust_type_name(terminal(target)),
+        )
+        .unwrap();
+        return Some(output);
+    }
+    let kind = protocol_shape_kind(selected, target);
+    if matches!(kind, "string" | "enum") {
+        writeln!(
+            output,
+            "pub(crate) fn de_{field}_payload(\n    body: &[u8],\n) -> std::result::Result<::std::option::Option<::std::string::String>, {error}> {{\n    (!body.is_empty())\n        .then(|| {{\n            let body_str = std::str::from_utf8(body).map_err({error}::unhandled)?;\n            Ok(body_str.to_string())\n        }})\n        .transpose()\n}}"
+        )
+        .unwrap();
+        return Some(output);
+    }
+    if terminal(target) == "StreamingBlob" {
+        writeln!(
+            output,
+            "pub fn de_{field}_payload(\n    body: &mut ::aws_smithy_types::body::SdkBody,\n) -> std::result::Result<::aws_smithy_types::byte_stream::ByteStream, {error}> {{\n    // replace the body with an empty body\n    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());\n    Ok(::aws_smithy_types::byte_stream::ByteStream::new(body))\n}}",
+        )
+        .unwrap();
+        return Some(output);
+    }
+    let ty = protocol_shape_type(selected, target);
+    writeln!(
+        output,
+        "pub(crate) fn de_{field}_payload(\n    body: &[u8],\n) -> std::result::Result<::std::option::Option<{ty}>, {error}> {{\n    (!body.is_empty())\n        .then(|| {{\n            crate::protocol_serde::shape_{}_output::de_{field}(body)\n                .map_err({error}::unhandled)\n        }})\n        .transpose()\n}}\n",
+        names::rust_module_name(operation_name)
+    )
+    .unwrap();
+    let root = protocol_member_xml_name(selected, &field_name, member);
+    writeln!(
+        output,
+        "pub fn de_{field}(inp: &[u8]) -> std::result::Result<{ty}, ::aws_smithy_xml::decode::XmlDecodeError> {{\n    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;\n    #[allow(unused_mut)]\n    let mut decoder = doc.root_element()?;\n    let start_el = decoder.start_el();\n    if !(start_el.matches({root:?})) {{\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(\"invalid root, expected {root} got {{start_el:?}}\")));\n    }}\n    #[allow(unused_variables)]\n    let depth = 0u32;\n    crate::protocol_serde::shape_{}::de_{}(&mut decoder, depth + 1)\n}}",
+        names::rust_module_name(terminal(target)),
+        names::rust_module_name(terminal(target)),
+    )
+    .unwrap();
+    let _ = kind;
+    Some(output)
 }
 
 fn response_header_uses_variable(selected: &SelectedModel, target: &str) -> bool {

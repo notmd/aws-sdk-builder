@@ -23,6 +23,8 @@ pub fn de_delete_objects_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder::default();
+        output = crate::protocol_serde::shape_delete_objects::de_delete_objects(_response_body, output)
+            .map_err(crate::operation::delete_objects::DeleteObjectsError::unhandled)?;
         output = output.set_request_charged(
             crate::protocol_serde::shape_delete_objects_output::de_request_charged_header(_response_headers).map_err(|_| {
                 crate::operation::delete_objects::DeleteObjectsError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
@@ -93,6 +95,66 @@ pub fn ser_delete_objects_headers(
             )
         })?;
         builder = builder.header("x-amz-sdk-checksum-algorithm", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_delete_objects(
+    inp: &[u8],
+    mut builder: crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder,
+) -> std::result::Result<crate::operation::delete_objects::builders::DeleteObjectsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("DeleteResult") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected DeleteResult but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Error") /* Errors com.amazonaws.s3.synthetic#DeleteObjectsOutput$Errors */ =>  {
+                let var_11 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::Error>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_12 = builder.errors.take().unwrap_or_default();
+                            list_12.push(
+                                crate::protocol_serde::shape_error::de_error(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_12
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_errors(var_11);
+            }
+            ,
+            s if s.matches("Deleted") /* Deleted com.amazonaws.s3.synthetic#DeleteObjectsOutput$Deleted */ =>  {
+                let var_13 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::DeletedObject>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_14 = builder.deleted.take().unwrap_or_default();
+                            list_14.push(
+                                crate::protocol_serde::shape_deleted_object::de_deleted_object(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_14
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_deleted(var_13);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

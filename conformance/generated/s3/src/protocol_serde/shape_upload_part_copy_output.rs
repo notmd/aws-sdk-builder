@@ -15,6 +15,17 @@ pub(crate) fn de_bucket_key_enabled_header(
     }
 }
 
+pub(crate) fn de_copy_part_result_payload(
+    body: &[u8],
+) -> std::result::Result<::std::option::Option<crate::types::CopyPartResult>, crate::operation::upload_part_copy::UploadPartCopyError> {
+    (!body.is_empty())
+        .then(|| {
+            crate::protocol_serde::shape_upload_part_copy_output::de_copy_part_result(body)
+                .map_err(crate::operation::upload_part_copy::UploadPartCopyError::unhandled)
+        })
+        .transpose()
+}
+
 pub(crate) fn de_copy_source_version_id_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
 ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
@@ -55,4 +66,19 @@ pub(crate) fn de_server_side_encryption_header(
 ) -> ::std::result::Result<::std::option::Option<crate::types::ServerSideEncryption>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-server-side-encryption");
     ::aws_smithy_http::header::one_or_none(headers)
+}
+
+pub fn de_copy_part_result(inp: &[u8]) -> std::result::Result<crate::types::CopyPartResult, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    let start_el = decoder.start_el();
+    if !(start_el.matches("CopyPartResult")) {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "invalid root, expected CopyPartResult got {start_el:?}"
+        )));
+    }
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    crate::protocol_serde::shape_copy_part_result::de_copy_part_result(&mut decoder, depth + 1)
 }

@@ -29,6 +29,9 @@ pub fn de_get_bucket_analytics_configuration_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationOutputBuilder::default();
+        output = output.set_analytics_configuration(
+            crate::protocol_serde::shape_get_bucket_analytics_configuration_output::de_analytics_configuration_payload(_response_body)?,
+        );
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

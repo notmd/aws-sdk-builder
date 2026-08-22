@@ -287,6 +287,26 @@ impl Model {
 /// packaged Smithy model alone. The predicates intentionally inspect shape
 /// relationships and traits instead of service or operation names.
 fn apply_model_customizations(shapes: &mut Map<String, Value>) {
+    // The S3 service decorator in smithy-rs permits these responses to use
+    // wire roots that do not match their modeled output shape names.
+    for shape_id in [
+        "com.amazonaws.s3#CreateSessionOutput",
+        "com.amazonaws.s3#GetObjectAttributesOutput",
+        "com.amazonaws.s3#ListDirectoryBucketsOutput",
+    ] {
+        if let Some(shape) = shapes.get_mut(shape_id).and_then(Value::as_object_mut) {
+            shape
+                .entry("traits".to_owned())
+                .or_insert_with(|| Value::Object(Map::new()))
+                .as_object_mut()
+                .expect("shape traits must be an object")
+                .insert(
+                    "smithy.api.internal#allowInvalidXmlRoot".to_owned(),
+                    Value::Object(Map::new()),
+                );
+        }
+    }
+
     // The Smithy Rust client transform adds an optional `Message` member to
     // every modeled error that does not already have a case-insensitive
     // `message`/`Message` member. This keeps error accessors and protocol

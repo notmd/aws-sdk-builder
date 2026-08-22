@@ -142,6 +142,8 @@ pub fn de_put_object_annotation_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder::default();
+        output = crate::protocol_serde::shape_put_object_annotation::de_put_object_annotation(_response_body, output)
+            .map_err(crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled)?;
         output = output.set_checksum_crc32(
             crate::protocol_serde::shape_put_object_annotation_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
                 crate::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
@@ -419,6 +421,54 @@ pub fn ser_put_object_annotation_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_put_object_annotation(
+    inp: &[u8],
+    mut builder: crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder,
+) -> std::result::Result<crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Key") /* Key com.amazonaws.s3.synthetic#PutObjectAnnotationOutput$Key */ =>  {
+                let var_31 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_31);
+            }
+            ,
+            s if s.matches("AnnotationName") /* AnnotationName com.amazonaws.s3.synthetic#PutObjectAnnotationOutput$AnnotationName */ =>  {
+                let var_32 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_annotation_name(var_32);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

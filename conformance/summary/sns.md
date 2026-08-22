@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `156` matched · `115` mismatches · `178` missing · `0` extra · `34.74%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `156` matched · `116` mismatches · `177` missing · `0` extra · `34.74%` match (100.00% means fully matched)
 
 ### `src/client/check_if_phone_number_is_opted_out.rs`
 
@@ -2532,7 +2532,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/lib.rs
 +++ generated/src/lib.rs
-@@ -1,213 +1,9 @@
+@@ -1,213 +1,12 @@
 -#![allow(deprecated)]
 -#![allow(unknown_lints)]
 -#![allow(clippy::module_inception)]
@@ -2753,6 +2753,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/sns/src/client.rs"));
++mod serde_util {
++    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/serde_util.rs"));
++}
 ```
 
 ### `src/operation/add_permission/builders.rs`
@@ -35449,6 +35452,69 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
+### `src/serde_util.rs`
+
+```diff
+--- reference/src/serde_util.rs
++++ generated/src/serde_util.rs
+@@ -26,6 +26,24 @@
+     builder
+ }
+
++pub(crate) fn validation_exception_correct_errors(
++    mut builder: crate::types::error::builders::ValidationExceptionBuilder,
++) -> crate::types::error::builders::ValidationExceptionBuilder {
++    if builder.message.is_none() {
++        builder.message = Some(Default::default())
++    }
++    builder
++}
++
++pub(crate) fn validation_exception_correct_errors(
++    mut builder: crate::types::error::builders::ValidationExceptionBuilder,
++) -> crate::types::error::builders::ValidationExceptionBuilder {
++    if builder.message.is_none() {
++        builder.message = Some(Default::default())
++    }
++    builder
++}
++
+ pub(crate) fn verification_exception_correct_errors(
+     mut builder: crate::types::error::builders::VerificationExceptionBuilder,
+ ) -> crate::types::error::builders::VerificationExceptionBuilder {
+@@ -38,6 +56,16 @@
+     builder
+ }
+
++pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
++    if builder.key.is_none() {
++        builder.key = Some(Default::default())
++    }
++    if builder.value.is_none() {
++        builder.value = Some(Default::default())
++    }
++    builder
++}
++
+ pub(crate) fn batch_result_error_entry_correct_errors(
+     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
+ ) -> crate::types::builders::BatchResultErrorEntryBuilder {
+@@ -52,13 +80,3 @@
+     }
+     builder
+ }
+-
+-pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
+-    if builder.key.is_none() {
+-        builder.key = Some(Default::default())
+-    }
+-    if builder.value.is_none() {
+-        builder.value = Some(Default::default())
+-    }
+-    builder
+-}
+```
+
 ### `src/types/_batch_result_error_entry.rs`
 
 ```diff
@@ -36108,7 +36174,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
 - `src/sdk_feature_tracker.rs`
-- `src/serde_util.rs`
 - `src/serialization_settings.rs`
 - `src/types/builders.rs`
 - `src/types/error.rs`
@@ -36218,6 +36283,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/verify_sms_sandbox_phone_number/builders.rs`
 - `src/operation/verify_sms_sandbox_phone_number.rs`
 - `src/operation.rs`
+- `src/serde_util.rs`
 - `src/types/_batch_result_error_entry.rs`
 - `src/types/_message_attribute_value.rs`
 - `src/types/_route_type.rs`

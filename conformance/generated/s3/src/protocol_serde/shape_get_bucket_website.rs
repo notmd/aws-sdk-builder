@@ -23,6 +23,8 @@ pub fn de_get_bucket_website_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_website::de_get_bucket_website(_response_body, output)
+            .map_err(crate::operation::get_bucket_website::GetBucketWebsiteError::unhandled)?;
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
@@ -43,6 +45,72 @@ pub fn ser_get_bucket_website_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_website(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder,
+) -> std::result::Result<crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("WebsiteConfiguration") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected WebsiteConfiguration but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("IndexDocument") /* IndexDocument com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$IndexDocument */ =>  {
+                let var_3 =
+                    Some(
+                        crate::protocol_serde::shape_index_document::de_index_document(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_index_document(var_3);
+            }
+            ,
+            s if s.matches("RedirectAllRequestsTo") /* RedirectAllRequestsTo com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$RedirectAllRequestsTo */ =>  {
+                let var_4 =
+                    Some(
+                        crate::protocol_serde::shape_redirect_all_requests_to::de_redirect_all_requests_to(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_redirect_all_requests_to(var_4);
+            }
+            ,
+            s if s.matches("RoutingRules") /* RoutingRules com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$RoutingRules */ =>  {
+                let var_5 =
+                    Some(
+                        crate::protocol_serde::shape_routing_rules::de_routing_rules(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_routing_rules(var_5);
+            }
+            ,
+            s if s.matches("ErrorDocument") /* ErrorDocument com.amazonaws.s3.synthetic#GetBucketWebsiteOutput$ErrorDocument */ =>  {
+                let var_6 =
+                    Some(
+                        crate::protocol_serde::shape_error_document::de_error_document(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_error_document(var_6);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

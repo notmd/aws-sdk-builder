@@ -30,6 +30,8 @@ pub fn de_get_bucket_notification_configuration_http_response(
         #[allow(unused_mut)]
         let mut output =
             crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_notification_configuration::de_get_bucket_notification_configuration(_response_body, output)
+            .map_err(crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationError::unhandled)?;
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
@@ -50,6 +52,91 @@ pub fn ser_get_bucket_notification_configuration_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_notification_configuration(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder,
+) -> std::result::Result<
+    crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("CloudFunctionConfiguration") /* LambdaFunctionConfigurations com.amazonaws.s3.synthetic#GetBucketNotificationConfigurationOutput$LambdaFunctionConfigurations */ =>  {
+                let var_3 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::LambdaFunctionConfiguration>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_4 = builder.lambda_function_configurations.take().unwrap_or_default();
+                            list_4.push(
+                                crate::protocol_serde::shape_lambda_function_configuration::de_lambda_function_configuration(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_4
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_lambda_function_configurations(var_3);
+            }
+            ,
+            s if s.matches("TopicConfiguration") /* TopicConfigurations com.amazonaws.s3.synthetic#GetBucketNotificationConfigurationOutput$TopicConfigurations */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::TopicConfiguration>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_6 = builder.topic_configurations.take().unwrap_or_default();
+                            list_6.push(
+                                crate::protocol_serde::shape_topic_configuration::de_topic_configuration(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_6
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_topic_configurations(var_5);
+            }
+            ,
+            s if s.matches("QueueConfiguration") /* QueueConfigurations com.amazonaws.s3.synthetic#GetBucketNotificationConfigurationOutput$QueueConfigurations */ =>  {
+                let var_7 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::QueueConfiguration>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_8 = builder.queue_configurations.take().unwrap_or_default();
+                            list_8.push(
+                                crate::protocol_serde::shape_queue_configuration::de_queue_configuration(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_8
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_queue_configurations(var_7);
+            }
+            ,
+            s if s.matches("EventBridgeConfiguration") /* EventBridgeConfiguration com.amazonaws.s3.synthetic#GetBucketNotificationConfigurationOutput$EventBridgeConfiguration */ =>  {
+                let var_9 =
+                    Some(
+                        crate::protocol_serde::shape_event_bridge_configuration::de_event_bridge_configuration(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_event_bridge_configuration(var_9);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

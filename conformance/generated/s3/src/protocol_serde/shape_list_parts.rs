@@ -23,6 +23,8 @@ pub fn de_list_parts_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_parts::builders::ListPartsOutputBuilder::default();
+        output = crate::protocol_serde::shape_list_parts::de_list_parts(_response_body, output)
+            .map_err(crate::operation::list_parts::ListPartsError::unhandled)?;
         output = output.set_abort_date(
             crate::protocol_serde::shape_list_parts_output::de_abort_date_header(_response_headers)
                 .map_err(|_| crate::operation::list_parts::ListPartsError::unhandled("Failed to parse AbortDate from header `x-amz-abort-date"))?,
@@ -101,6 +103,206 @@ pub fn ser_list_parts_headers(
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-customer-key-MD5", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_list_parts(
+    inp: &[u8],
+    mut builder: crate::operation::list_parts::builders::ListPartsOutputBuilder,
+) -> std::result::Result<crate::operation::list_parts::builders::ListPartsOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("ListPartsResult") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected ListPartsResult but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Owner") /* Owner com.amazonaws.s3.synthetic#ListPartsOutput$Owner */ =>  {
+                let var_11 =
+                    Some(
+                        crate::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_owner(var_11);
+            }
+            ,
+            s if s.matches("NextPartNumberMarker") /* NextPartNumberMarker com.amazonaws.s3.synthetic#ListPartsOutput$NextPartNumberMarker */ =>  {
+                let var_12 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_part_number_marker(var_12);
+            }
+            ,
+            s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3.synthetic#ListPartsOutput$StorageClass */ =>  {
+                let var_13 =
+                    Some(
+                        Result::<crate::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::StorageClass::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_storage_class(var_13);
+            }
+            ,
+            s if s.matches("ChecksumAlgorithm") /* ChecksumAlgorithm com.amazonaws.s3.synthetic#ListPartsOutput$ChecksumAlgorithm */ =>  {
+                let var_14 =
+                    Some(
+                        Result::<crate::types::ChecksumAlgorithm, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::ChecksumAlgorithm::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_algorithm(var_14);
+            }
+            ,
+            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.s3.synthetic#ListPartsOutput$IsTruncated */ =>  {
+                let var_15 =
+                    Some(
+                         {
+                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.s3#IsTruncated`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_is_truncated(var_15);
+            }
+            ,
+            s if s.matches("MaxParts") /* MaxParts com.amazonaws.s3.synthetic#ListPartsOutput$MaxParts */ =>  {
+                let var_16 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.s3#MaxParts`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_max_parts(var_16);
+            }
+            ,
+            s if s.matches("ChecksumType") /* ChecksumType com.amazonaws.s3.synthetic#ListPartsOutput$ChecksumType */ =>  {
+                let var_17 =
+                    Some(
+                        Result::<crate::types::ChecksumType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::ChecksumType::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum_type(var_17);
+            }
+            ,
+            s if s.matches("UploadId") /* UploadId com.amazonaws.s3.synthetic#ListPartsOutput$UploadId */ =>  {
+                let var_18 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_upload_id(var_18);
+            }
+            ,
+            s if s.matches("PartNumberMarker") /* PartNumberMarker com.amazonaws.s3.synthetic#ListPartsOutput$PartNumberMarker */ =>  {
+                let var_19 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_part_number_marker(var_19);
+            }
+            ,
+            s if s.matches("Bucket") /* Bucket com.amazonaws.s3.synthetic#ListPartsOutput$Bucket */ =>  {
+                let var_20 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_bucket(var_20);
+            }
+            ,
+            s if s.matches("Part") /* Parts com.amazonaws.s3.synthetic#ListPartsOutput$Parts */ =>  {
+                let var_21 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::Part>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_22 = builder.parts.take().unwrap_or_default();
+                            list_22.push(
+                                crate::protocol_serde::shape_part::de_part(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_22
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_parts(var_21);
+            }
+            ,
+            s if s.matches("Initiator") /* Initiator com.amazonaws.s3.synthetic#ListPartsOutput$Initiator */ =>  {
+                let var_23 =
+                    Some(
+                        crate::protocol_serde::shape_initiator::de_initiator(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_initiator(var_23);
+            }
+            ,
+            s if s.matches("Key") /* Key com.amazonaws.s3.synthetic#ListPartsOutput$Key */ =>  {
+                let var_24 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_24);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

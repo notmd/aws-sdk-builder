@@ -30,6 +30,11 @@ pub fn de_get_bucket_metadata_table_configuration_http_response(
         #[allow(unused_mut)]
         let mut output =
             crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder::default();
+        output = output.set_get_bucket_metadata_table_configuration_result(
+            crate::protocol_serde::shape_get_bucket_metadata_table_configuration_output::de_get_bucket_metadata_table_configuration_result_payload(
+                _response_body,
+            )?,
+        );
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

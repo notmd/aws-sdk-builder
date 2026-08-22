@@ -30,6 +30,9 @@ pub fn de_upload_part_copy_http_response(
                 )
             })?,
         );
+        output = output.set_copy_part_result(crate::protocol_serde::shape_upload_part_copy_output::de_copy_part_result_payload(
+            _response_body,
+        )?);
         output = output.set_copy_source_version_id(
             crate::protocol_serde::shape_upload_part_copy_output::de_copy_source_version_id_header(_response_headers).map_err(|_| {
                 crate::operation::upload_part_copy::UploadPartCopyError::unhandled(

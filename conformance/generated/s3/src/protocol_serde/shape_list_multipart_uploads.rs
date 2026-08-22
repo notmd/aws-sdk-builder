@@ -29,6 +29,8 @@ pub fn de_list_multipart_uploads_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder::default();
+        output = crate::protocol_serde::shape_list_multipart_uploads::de_list_multipart_uploads(_response_body, output)
+            .map_err(crate::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled)?;
         output = output.set_request_charged(
             crate::protocol_serde::shape_list_multipart_uploads_output::de_request_charged_header(_response_headers).map_err(|_| {
                 crate::operation::list_multipart_uploads::ListMultipartUploadsError::unhandled(
@@ -67,6 +69,204 @@ pub fn ser_list_multipart_uploads_headers(
             )
         })?;
         builder = builder.header("x-amz-request-payer", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_list_multipart_uploads(
+    inp: &[u8],
+    mut builder: crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder,
+) -> std::result::Result<
+    crate::operation::list_multipart_uploads::builders::ListMultipartUploadsOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("ListMultipartUploadsResult") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected ListMultipartUploadsResult but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("CommonPrefixes") /* CommonPrefixes com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$CommonPrefixes */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::CommonPrefix>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_6 = builder.common_prefixes.take().unwrap_or_default();
+                            list_6.push(
+                                crate::protocol_serde::shape_common_prefix::de_common_prefix(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_6
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_common_prefixes(var_5);
+            }
+            ,
+            s if s.matches("UploadIdMarker") /* UploadIdMarker com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$UploadIdMarker */ =>  {
+                let var_7 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_upload_id_marker(var_7);
+            }
+            ,
+            s if s.matches("NextKeyMarker") /* NextKeyMarker com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$NextKeyMarker */ =>  {
+                let var_8 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_key_marker(var_8);
+            }
+            ,
+            s if s.matches("Delimiter") /* Delimiter com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$Delimiter */ =>  {
+                let var_9 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_delimiter(var_9);
+            }
+            ,
+            s if s.matches("Upload") /* Uploads com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$Uploads */ =>  {
+                let var_10 =
+                    Some(
+                        Result::<::std::vec::Vec::<crate::types::MultipartUpload>, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({
+                            let mut list_11 = builder.uploads.take().unwrap_or_default();
+                            list_11.push(
+                                crate::protocol_serde::shape_multipart_upload::de_multipart_upload(&mut tag, depth + 1)
+                                ?
+                            );
+                            list_11
+                        })
+                        ?
+                    )
+                ;
+                builder = builder.set_uploads(var_10);
+            }
+            ,
+            s if s.matches("MaxUploads") /* MaxUploads com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$MaxUploads */ =>  {
+                let var_12 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.s3#MaxUploads`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_max_uploads(var_12);
+            }
+            ,
+            s if s.matches("EncodingType") /* EncodingType com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$EncodingType */ =>  {
+                let var_13 =
+                    Some(
+                        Result::<crate::types::EncodingType, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::EncodingType::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_encoding_type(var_13);
+            }
+            ,
+            s if s.matches("IsTruncated") /* IsTruncated com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$IsTruncated */ =>  {
+                let var_14 =
+                    Some(
+                         {
+                            <bool as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (boolean: `com.amazonaws.s3#IsTruncated`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_is_truncated(var_14);
+            }
+            ,
+            s if s.matches("Prefix") /* Prefix com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$Prefix */ =>  {
+                let var_15 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_prefix(var_15);
+            }
+            ,
+            s if s.matches("NextUploadIdMarker") /* NextUploadIdMarker com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$NextUploadIdMarker */ =>  {
+                let var_16 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_upload_id_marker(var_16);
+            }
+            ,
+            s if s.matches("Bucket") /* Bucket com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$Bucket */ =>  {
+                let var_17 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_bucket(var_17);
+            }
+            ,
+            s if s.matches("KeyMarker") /* KeyMarker com.amazonaws.s3.synthetic#ListMultipartUploadsOutput$KeyMarker */ =>  {
+                let var_18 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key_marker(var_18);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

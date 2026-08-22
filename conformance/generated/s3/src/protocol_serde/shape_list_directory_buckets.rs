@@ -29,15 +29,57 @@ pub fn de_list_directory_buckets_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder::default();
+        output = crate::protocol_serde::shape_list_directory_buckets::de_list_directory_buckets(_response_body, output)
+            .map_err(crate::operation::list_directory_buckets::ListDirectoryBucketsError::unhandled)?;
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
 }
 
-pub fn ser_list_directory_buckets_headers(
-    input: &crate::operation::list_directory_buckets::ListDirectoryBucketsInput,
-    mut builder: ::http_1x::request::Builder,
-) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {
+#[allow(unused_mut)]
+pub fn de_list_directory_buckets(
+    inp: &[u8],
+    mut builder: crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder,
+) -> std::result::Result<
+    crate::operation::list_directory_buckets::builders::ListDirectoryBucketsOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("ContinuationToken") /* ContinuationToken com.amazonaws.s3.synthetic#ListDirectoryBucketsOutput$ContinuationToken */ =>  {
+                let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_continuation_token(var_1);
+            }
+            ,
+            s if s.matches("Buckets") /* Buckets com.amazonaws.s3.synthetic#ListDirectoryBucketsOutput$Buckets */ =>  {
+                let var_2 =
+                    Some(
+                        crate::protocol_serde::shape_buckets::de_buckets(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_buckets(var_2);
+            }
+            ,
+            _ => {}
+        }
+    }
     Ok(builder)
 }

@@ -23,6 +23,7 @@ pub fn de_get_bucket_policy_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_policy::builders::GetBucketPolicyOutputBuilder::default();
+        output = output.set_policy(crate::protocol_serde::shape_get_bucket_policy_output::de_policy_payload(_response_body)?);
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

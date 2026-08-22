@@ -52,6 +52,8 @@ pub fn de_get_object_attributes_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_object_attributes::de_get_object_attributes(_response_body, output)
+            .map_err(crate::operation::get_object_attributes::GetObjectAttributesError::unhandled)?;
         output = output.set_delete_marker(
             crate::protocol_serde::shape_get_object_attributes_output::de_delete_marker_header(_response_headers).map_err(|_| {
                 crate::operation::get_object_attributes::GetObjectAttributesError::unhandled(
@@ -169,15 +171,106 @@ pub fn ser_get_object_attributes_headers(
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
     }
     if let ::std::option::Option::Some(inner_15) = &input.object_attributes {
-        let formatted_16 = inner_15.to_string();
-        let header_value = formatted_16;
-        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
-            ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "object_attributes",
-                format!("`{}` cannot be used as a header value: {}", &header_value, err),
-            )
-        })?;
-        builder = builder.header("x-amz-object-attributes", header_value);
+        // Empty vec in header is serialized as an empty string
+        if inner_15.is_empty() {
+            builder = builder.header("x-amz-object-attributes", "");
+        } else {
+            for inner_16 in inner_15 {
+                let formatted_17 = ::aws_smithy_http::header::quote_header_value(inner_16.as_str());
+                let header_value = formatted_17;
+                let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+                    ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                        "object_attributes",
+                        format!("`{}` cannot be used as a header value: {}", &header_value, err),
+                    )
+                })?;
+                builder = builder.header("x-amz-object-attributes", header_value);
+            }
+        }
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_object_attributes(
+    inp: &[u8],
+    mut builder: crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
+) -> std::result::Result<crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("ETag") /* ETag com.amazonaws.s3.synthetic#GetObjectAttributesOutput$ETag */ =>  {
+                let var_18 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_e_tag(var_18);
+            }
+            ,
+            s if s.matches("Checksum") /* Checksum com.amazonaws.s3.synthetic#GetObjectAttributesOutput$Checksum */ =>  {
+                let var_19 =
+                    Some(
+                        crate::protocol_serde::shape_checksum::de_checksum(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_checksum(var_19);
+            }
+            ,
+            s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3.synthetic#GetObjectAttributesOutput$StorageClass */ =>  {
+                let var_20 =
+                    Some(
+                        Result::<crate::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            crate::types::StorageClass::from(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_storage_class(var_20);
+            }
+            ,
+            s if s.matches("ObjectSize") /* ObjectSize com.amazonaws.s3.synthetic#GetObjectAttributesOutput$ObjectSize */ =>  {
+                let var_21 =
+                    Some(
+                         {
+                            <i64 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (long: `com.amazonaws.s3#ObjectSize`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_object_size(var_21);
+            }
+            ,
+            s if s.matches("ObjectParts") /* ObjectParts com.amazonaws.s3.synthetic#GetObjectAttributesOutput$ObjectParts */ =>  {
+                let var_22 =
+                    Some(
+                        crate::protocol_serde::shape_get_object_attributes_parts::de_get_object_attributes_parts(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_object_parts(var_22);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

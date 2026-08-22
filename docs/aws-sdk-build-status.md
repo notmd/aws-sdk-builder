@@ -26,8 +26,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 2,331 exact, 1,456 mismatches, 2,674 missing,
-  and 123 extra (33.84% arithmetic-average match).
+  current report compares 6,584 files: 2,555 exact, 1,446 mismatches, 2,460 missing,
+  and 123 extra (35.93% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -45,6 +45,27 @@ pinned `smithy-rs` commit
 a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Rest XML parser and correction parity
+
+- State: in progress
+- Changed: Rest XML operation output parsers, nested structure/union/list/map
+  helpers, flattened-list handling, modeled S3 invalid-root exceptions, Java
+  `HashMap` member ordering, request/header serialization helpers, and Smithy-style
+  `serde_util` correction generation are now emitted. Serializer/deserializer role
+  discovery follows the operation walk instead of a global serializer prepass.
+- Evidence: inspected the pinned Smithy reference at `/tmp/smithy-rs`, including
+  `RestXmlParserGenerator.kt`, `ProtocolFunctions.kt`, `OperationGenerator.kt`, and
+  S3's `S3Decorator.kt`. `just conformance` regenerated 8 all-operation snapshots
+  (496 operations), formatted 4,124 Rust files, compared 6,584 files, and exited 1
+  because parity remains incomplete. `cargo check -p aws-sdk-build` passes.
+- Conformance: overall `2,551/1,451/2,460/123` -> `2,555/1,446/2,460/123`; S3
+  `930/310/116/0` -> `933/295/116/0` (matched/mismatched/missing/extra).
+- Blocker: remaining helper ordering, modeled correction ordering, and the broader
+  protocol/runtime parity queue remain open; the full conformance command still
+  exits 1.
+- Next action: align the remaining Smithy lazy helper and correction discovery order,
+  then rerun conformance and retain the higher-coverage checkpoint.
 
 ### Checkpoint: 2026-08-22 — Fallible operation-input builders
 

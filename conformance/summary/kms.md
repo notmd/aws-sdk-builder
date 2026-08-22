@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `166` matched · `208` mismatches · `225` missing · `1` extra · `27.67%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `167` matched · `208` mismatches · `224` missing · `1` extra · `27.83%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -3439,7 +3439,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/lib.rs
 +++ generated/src/lib.rs
-@@ -1,240 +1,9 @@
+@@ -1,240 +1,12 @@
 -#![allow(deprecated)]
 -#![allow(unknown_lints)]
 -#![allow(clippy::module_inception)]
@@ -3687,6 +3687,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client.rs"));
++mod serde_util {
++    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/serde_util.rs"));
++}
 ```
 
 ### `src/operation/cancel_key_deletion/builders.rs`
@@ -54317,7 +54320,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_xks_proxy_vpc_endpoint_service_not_found_exception.rs`
 - `src/protocol_serde.rs`
 - `src/sdk_feature_tracker.rs`
-- `src/serde_util.rs`
 - `src/serialization_settings.rs`
 - `src/types/builders.rs`
 - `src/types/error/_custom_key_store_has_cmks_exception.rs`

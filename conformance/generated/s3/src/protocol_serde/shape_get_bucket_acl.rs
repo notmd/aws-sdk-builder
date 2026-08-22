@@ -23,6 +23,8 @@ pub fn de_get_bucket_acl_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::get_bucket_acl::builders::GetBucketAclOutputBuilder::default();
+        output = crate::protocol_serde::shape_get_bucket_acl::de_get_bucket_acl(_response_body, output)
+            .map_err(crate::operation::get_bucket_acl::GetBucketAclError::unhandled)?;
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
@@ -43,6 +45,52 @@ pub fn ser_get_bucket_acl_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_get_bucket_acl(
+    inp: &[u8],
+    mut builder: crate::operation::get_bucket_acl::builders::GetBucketAclOutputBuilder,
+) -> std::result::Result<crate::operation::get_bucket_acl::builders::GetBucketAclOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    if !start_el.matches("AccessControlPolicy") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected AccessControlPolicy but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Owner") /* Owner com.amazonaws.s3.synthetic#GetBucketAclOutput$Owner */ =>  {
+                let var_3 =
+                    Some(
+                        crate::protocol_serde::shape_owner::de_owner(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_owner(var_3);
+            }
+            ,
+            s if s.matches("AccessControlList") /* Grants com.amazonaws.s3.synthetic#GetBucketAclOutput$Grants */ =>  {
+                let var_4 =
+                    Some(
+                        crate::protocol_serde::shape_grants::de_grants(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_grants(var_4);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

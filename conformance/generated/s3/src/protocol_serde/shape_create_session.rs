@@ -46,6 +46,8 @@ pub fn de_create_session_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::create_session::builders::CreateSessionOutputBuilder::default();
+        output = crate::protocol_serde::shape_create_session::de_create_session(_response_body, output)
+            .map_err(crate::operation::create_session::CreateSessionError::unhandled)?;
         output = output.set_bucket_key_enabled(
             crate::protocol_serde::shape_create_session_output::de_bucket_key_enabled_header(_response_headers).map_err(|_| {
                 crate::operation::create_session::CreateSessionError::unhandled(
@@ -76,7 +78,7 @@ pub fn de_create_session_http_response(
         );
         output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        output.build()
+        crate::serde_util::create_session_output_output_correct_errors(output).build()
     })
 }
 
@@ -139,6 +141,37 @@ pub fn ser_create_session_headers(
             )
         })?;
         builder = builder.header("x-amz-server-side-encryption-bucket-key-enabled", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_create_session(
+    inp: &[u8],
+    mut builder: crate::operation::create_session::builders::CreateSessionOutputBuilder,
+) -> std::result::Result<crate::operation::create_session::builders::CreateSessionOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("Credentials") /* Credentials com.amazonaws.s3.synthetic#CreateSessionOutput$Credentials */ =>  {
+                let var_11 =
+                    Some(
+                        crate::protocol_serde::shape_session_credentials::de_session_credentials(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_credentials(var_11);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

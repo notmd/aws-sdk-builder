@@ -82,6 +82,8 @@ pub fn de_list_object_annotations_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder::default();
+        output = crate::protocol_serde::shape_list_object_annotations::de_list_object_annotations(_response_body, output)
+            .map_err(crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled)?;
         output = output.set_object_version_id(
             crate::protocol_serde::shape_list_object_annotations_output::de_object_version_id_header(_response_headers).map_err(|_| {
                 crate::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(
@@ -127,6 +129,135 @@ pub fn ser_list_object_annotations_headers(
             )
         })?;
         builder = builder.header("x-amz-expected-bucket-owner", header_value);
+    }
+    Ok(builder)
+}
+
+#[allow(unused_mut)]
+pub fn de_list_object_annotations(
+    inp: &[u8],
+    mut builder: crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder,
+) -> std::result::Result<
+    crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder,
+    ::aws_smithy_xml::decode::XmlDecodeError,
+> {
+    let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
+
+    #[allow(unused_mut)]
+    let mut decoder = doc.root_element()?;
+    #[allow(unused_variables)]
+    let start_el = decoder.start_el();
+    #[allow(unused_variables)]
+    let depth = 0u32;
+    while let Some(mut tag) = decoder.next_tag() {
+        match tag.start_el() {
+            s if s.matches("NextContinuationToken") /* NextContinuationToken com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$NextContinuationToken */ =>  {
+                let var_5 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_next_continuation_token(var_5);
+            }
+            ,
+            s if s.matches("Annotations") /* Annotations com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$Annotations */ =>  {
+                let var_6 =
+                    Some(
+                        crate::protocol_serde::shape_annotation_list::de_annotation_list(&mut tag, depth + 1)
+                        ?
+                    )
+                ;
+                builder = builder.set_annotations(var_6);
+            }
+            ,
+            s if s.matches("ContinuationToken") /* ContinuationToken com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$ContinuationToken */ =>  {
+                let var_7 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_continuation_token(var_7);
+            }
+            ,
+            s if s.matches("Bucket") /* Bucket com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$Bucket */ =>  {
+                let var_8 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_bucket(var_8);
+            }
+            ,
+            s if s.matches("AnnotationCount") /* AnnotationCount com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$AnnotationCount */ =>  {
+                let var_9 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.s3#AnnotationCount`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_annotation_count(var_9);
+            }
+            ,
+            s if s.matches("AnnotationPrefix") /* AnnotationPrefix com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$AnnotationPrefix */ =>  {
+                let var_10 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_annotation_prefix(var_10);
+            }
+            ,
+            s if s.matches("MaxAnnotationResults") /* MaxAnnotationResults com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$MaxAnnotationResults */ =>  {
+                let var_11 =
+                    Some(
+                         {
+                            <i32 as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(
+                                ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            )
+                            .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom("expected (integer: `com.amazonaws.s3#MaxAnnotationResults`)"))
+                        }
+                        ?
+                    )
+                ;
+                builder = builder.set_max_annotation_results(var_11);
+            }
+            ,
+            s if s.matches("Key") /* Key com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$Key */ =>  {
+                let var_12 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_key(var_12);
+            }
+            ,
+            _ => {}
+        }
     }
     Ok(builder)
 }

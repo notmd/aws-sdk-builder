@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `99` matched · `70` mismatches · `130` missing · `0` extra · `33.11%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `99` matched · `71` mismatches · `129` missing · `0` extra · `33.11%` match (100.00% means fully matched)
 
 ### `src/client/cancel_message_move_task.rs`
 
@@ -2519,7 +2519,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/lib.rs
 +++ generated/src/lib.rs
-@@ -1,233 +1,9 @@
+@@ -1,233 +1,12 @@
 -#![allow(deprecated)]
 -#![allow(unknown_lints)]
 -#![allow(clippy::module_inception)]
@@ -2760,6 +2760,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation.rs"));
 +include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/client.rs"));
++mod serde_util {
++    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/serde_util.rs"));
++}
 ```
 
 ### `src/operation/add_permission/builders.rs`
@@ -22577,6 +22580,72 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
+### `src/serde_util.rs`
+
+```diff
+--- reference/src/serde_util.rs
++++ generated/src/serde_util.rs
+@@ -44,6 +44,15 @@
+     builder
+ }
+
++pub(crate) fn change_message_visibility_batch_result_entry_correct_errors(
++    mut builder: crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder,
++) -> crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder {
++    if builder.id.is_none() {
++        builder.id = Some(Default::default())
++    }
++    builder
++}
++
+ pub(crate) fn batch_result_error_entry_correct_errors(
+     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
+ ) -> crate::types::builders::BatchResultErrorEntryBuilder {
+@@ -59,9 +68,9 @@
+     builder
+ }
+
+-pub(crate) fn change_message_visibility_batch_result_entry_correct_errors(
+-    mut builder: crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder,
+-) -> crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder {
++pub(crate) fn delete_message_batch_result_entry_correct_errors(
++    mut builder: crate::types::builders::DeleteMessageBatchResultEntryBuilder,
++) -> crate::types::builders::DeleteMessageBatchResultEntryBuilder {
+     if builder.id.is_none() {
+         builder.id = Some(Default::default())
+     }
+@@ -68,11 +77,11 @@
+     builder
+ }
+
+-pub(crate) fn delete_message_batch_result_entry_correct_errors(
+-    mut builder: crate::types::builders::DeleteMessageBatchResultEntryBuilder,
+-) -> crate::types::builders::DeleteMessageBatchResultEntryBuilder {
+-    if builder.id.is_none() {
+-        builder.id = Some(Default::default())
++pub(crate) fn message_attribute_value_correct_errors(
++    mut builder: crate::types::builders::MessageAttributeValueBuilder,
++) -> crate::types::builders::MessageAttributeValueBuilder {
++    if builder.data_type.is_none() {
++        builder.data_type = Some(Default::default())
+     }
+     builder
+ }
+@@ -91,12 +100,3 @@
+     }
+     builder
+ }
+-
+-pub(crate) fn message_attribute_value_correct_errors(
+-    mut builder: crate::types::builders::MessageAttributeValueBuilder,
+-) -> crate::types::builders::MessageAttributeValueBuilder {
+-    if builder.data_type.is_none() {
+-        builder.data_type = Some(Default::default())
+-    }
+-    builder
+-}
+```
+
 ### `src/types/_batch_result_error_entry.rs`
 
 ```diff
@@ -23148,7 +23217,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_untag_queue_input.rs`
 - `src/protocol_serde.rs`
 - `src/sdk_feature_tracker.rs`
-- `src/serde_util.rs`
 - `src/serialization_settings.rs`
 - `src/types/builders.rs`
 - `src/types/error.rs`
@@ -23221,6 +23289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/untag_queue/builders.rs`
 - `src/operation/untag_queue.rs`
 - `src/operation.rs`
+- `src/serde_util.rs`
 - `src/types/_batch_result_error_entry.rs`
 - `src/types/_list_message_move_tasks_result_entry.rs`
 - `src/types/_message_attribute_value.rs`

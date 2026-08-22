@@ -7,3 +7,6 @@ include!(concat!(env!("OUT_DIR"), "/generated/sts/src/meta.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sts/src/operation.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sts/src/client.rs"));
+mod serde_util {
+    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/serde_util.rs"));
+}

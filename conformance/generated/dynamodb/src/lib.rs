@@ -7,3 +7,6 @@ include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/meta.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/client.rs"));
+mod serde_util {
+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/serde_util.rs"));
+}

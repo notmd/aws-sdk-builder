@@ -6,6 +6,14 @@ pub(crate) fn de_accept_ranges_header(
     ::aws_smithy_http::header::one_or_none(headers)
 }
 
+pub fn de_body_payload(
+    body: &mut ::aws_smithy_types::body::SdkBody,
+) -> std::result::Result<::aws_smithy_types::byte_stream::ByteStream, crate::operation::get_object::GetObjectError> {
+    // replace the body with an empty body
+    let body = std::mem::replace(body, ::aws_smithy_types::body::SdkBody::taken());
+    Ok(::aws_smithy_types::byte_stream::ByteStream::new(body))
+}
+
 pub(crate) fn de_bucket_key_enabled_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
 ) -> ::std::result::Result<::std::option::Option<bool>, ::aws_smithy_http::header::ParseError> {
