@@ -256,6 +256,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_code_location.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_code_location_error.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_configuration.rs"));
+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_event_invoke_config.rs"));
     pub type FunctionName = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_response_type.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_scaling_config.rs"));

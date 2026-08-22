@@ -326,22 +326,19 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
         };
-        if let Some(output_id) = operation.get("output").and_then(target_value) {
-            if let Some(shape) = selected.model.shapes.get(output_id) {
-                if serde_util_shape_needs_correction(shape) {
-                    let module = names::rust_module_name(operation_name);
-                    let operation_type = rust_type_name(operation_name);
-                    render_serde_util_correction(
-                        &mut output,
-                        selected,
-                        shape,
-                        &format!("{module}_output_output_correct_errors"),
-                        &format!(
-                            "crate::operation::{module}::builders::{operation_type}OutputBuilder"
-                        ),
-                    );
-                }
-            }
+        if let Some(output_id) = operation.get("output").and_then(target_value)
+            && let Some(shape) = selected.model.shapes.get(output_id)
+            && serde_util_shape_needs_correction(shape)
+        {
+            let module = names::rust_module_name(operation_name);
+            let operation_type = rust_type_name(operation_name);
+            render_serde_util_correction(
+                &mut output,
+                selected,
+                shape,
+                &format!("{module}_output_output_correct_errors"),
+                &format!("crate::operation::{module}::builders::{operation_type}OutputBuilder"),
+            );
         }
         if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
             for error_id in errors.iter().filter_map(target_value) {
@@ -375,10 +372,10 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
             .and_then(|id| selected.model.shapes.get(id))
         {
             for (_, member) in members(output_shape) {
-                if is_xml_body_member(member) {
-                    if let Some(target) = member_target(member) {
-                        serde_util_walk_shape(selected, target, &mut seen_types, &mut type_order);
-                    }
+                if is_xml_body_member(member)
+                    && let Some(target) = member_target(member)
+                {
+                    serde_util_walk_shape(selected, target, &mut seen_types, &mut type_order);
                 }
             }
         }
@@ -1341,10 +1338,27 @@ fn operation_shape_ids(selected: &SelectedModel) -> std::collections::BTreeSet<S
                     value => vec![value],
                 })
                 .filter_map(target_value)
+                .filter(|id| {
+                    selected
+                        .model
+                        .shapes
+                        .get(*id)
+                        .is_some_and(is_synthetic_operation_shape)
+                })
                 .map(ToOwned::to_owned)
                 .collect::<Vec<_>>()
         })
         .collect()
+}
+
+fn is_synthetic_operation_shape(shape: &Value) -> bool {
+    shape
+        .get("traits")
+        .and_then(Value::as_object)
+        .is_some_and(|traits| {
+            traits.contains_key("smithy.api.internal#syntheticInput")
+                || traits.contains_key("smithy.api.internal#syntheticOutput")
+        })
 }
 
 fn is_error_shape(shape: &Value) -> bool {
@@ -2643,7 +2657,13 @@ fn render_protocol_operation_output_parser(
     let synthetic_namespace = output_shape_id
         .split('#')
         .next()
-        .map(|namespace| format!("{namespace}.synthetic"))
+        .map(|namespace| {
+            if namespace.ends_with(".synthetic") {
+                namespace.to_owned()
+            } else {
+                format!("{namespace}.synthetic")
+            }
+        })
         .unwrap_or_else(|| "synthetic".to_owned());
     let synthetic_shape_id = format!("{synthetic_namespace}#{operation_type}Output");
 
@@ -2652,8 +2672,8 @@ fn render_protocol_operation_output_parser(
     {
         let (member_name, member) = &document_members[0];
         let target = member_target(member).unwrap_or_default();
-        let field = names::rust_identifier(&member_name);
-        let xml_name = protocol_member_xml_name(selected, &member_name, member);
+        let field = names::rust_identifier(member_name);
+        let xml_name = protocol_member_xml_name(selected, member_name, member);
         let var = state.temp();
         let parse = indent_expression(
             &protocol_parse_expression(selected, target, "decoder", "depth"),
@@ -2913,15 +2933,11 @@ fn protocol_mark_serializer(
     if shape.get("type").and_then(Value::as_str) == Some("structure") && members(shape).is_empty() {
         return;
     }
-    match shape.get("type").and_then(Value::as_str) {
-        Some("structure" | "union") => {
-            if shape.get("type").and_then(Value::as_str) != Some("structure")
-                || !members(shape).is_empty()
-            {
-                record_protocol_role(roles, shape_id, ProtocolSerdeRole::Serialize);
-            }
-        }
-        _ => {}
+    if let Some("structure" | "union") = shape.get("type").and_then(Value::as_str)
+        && (shape.get("type").and_then(Value::as_str) != Some("structure")
+            || !members(shape).is_empty())
+    {
+        record_protocol_role(roles, shape_id, ProtocolSerdeRole::Serialize);
     }
     protocol_walk_members(selected, shape, roles, seen, true);
 }
@@ -2987,10 +3003,10 @@ fn protocol_mark_deserializer_member(
     if protocol_shape_kind(selected, shape_id) == "list"
         && has_trait(member, "smithy.api#xmlFlattened")
     {
-        if let Some(list_shape) = selected.model.shapes.get(shape_id) {
-            if let Some(element) = list_shape.get("member").and_then(member_target) {
-                protocol_mark_deserializer(selected, element, roles, seen);
-            }
+        if let Some(list_shape) = selected.model.shapes.get(shape_id)
+            && let Some(element) = list_shape.get("member").and_then(member_target)
+        {
+            protocol_mark_deserializer(selected, element, roles, seen);
         }
     } else {
         protocol_mark_deserializer(selected, shape_id, roles, seen);
@@ -3016,16 +3032,15 @@ fn protocol_walk_members(
                     protocol_mark_deserializer_member(selected, target, member, roles, seen);
                 }
             }
-            return;
         }
         Some("list") => {
-            if let Some(member) = shape.get("member") {
-                if let Some(target) = member_target(member) {
-                    if serializer {
-                        protocol_mark_serializer(selected, target, roles, seen);
-                    } else {
-                        protocol_mark_deserializer(selected, target, roles, seen);
-                    }
+            if let Some(member) = shape.get("member")
+                && let Some(target) = member_target(member)
+            {
+                if serializer {
+                    protocol_mark_serializer(selected, target, roles, seen);
+                } else {
+                    protocol_mark_deserializer(selected, target, roles, seen);
                 }
             }
         }
@@ -3273,6 +3288,7 @@ fn protocol_primitive_encode(selected: &SelectedModel, target: &str, expression:
     }
 }
 
+#[allow(clippy::too_many_arguments)]
 fn protocol_serialize_member(
     output: &mut String,
     selected: &SelectedModel,
@@ -3455,6 +3471,7 @@ fn protocol_serialize_member(
     output.push_str(&body);
 }
 
+#[allow(clippy::too_many_arguments)]
 fn protocol_serialize_list_member(
     output: &mut String,
     selected: &SelectedModel,
@@ -4337,10 +4354,8 @@ fn render_protocol_http_response(
     } else if let Some(shape) =
         output_shape.filter(|shape| serde_util_shape_needs_correction(shape))
     {
-        let correction = format!(
-            "crate::serde_util::{}_correct_errors(output)",
-            format!("{}_output_output", module)
-        );
+        let correction =
+            format!("crate::serde_util::{module}_output_output_correct_errors(output)");
         if serde_util_builder_is_fallible(selected, shape) {
             writeln!(
                 output,

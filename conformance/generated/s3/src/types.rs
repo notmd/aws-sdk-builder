@@ -305,6 +305,7 @@ pub mod types {
     pub type NonEmptyKmsKeyArnString = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_noncurrent_version_expiration.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_noncurrent_version_transition.rs"));
+    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_notification_configuration.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_notification_configuration_filter.rs"));
     pub type NotificationId = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object.rs"));

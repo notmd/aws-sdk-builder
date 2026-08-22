@@ -152,6 +152,12 @@ impl Model {
             );
         }
         apply_model_customizations(&mut shapes);
+        normalize_operation_shapes(
+            &mut shapes,
+            &selected_ids,
+            self.entry.service_shape_id,
+            self.entry.filename,
+        )?;
         let mut root = self.root.clone();
         root["shapes"] = Value::Object(shapes);
         let selected_shape_map = root_shape_map(&root);
@@ -281,6 +287,169 @@ impl Model {
         }
         Ok(operations)
     }
+}
+
+/// Port Smithy Rust's OperationNormalizer: every selected operation gets a
+/// private, operation-specific input and output structure while the original
+/// modeled structures remain in the model for reuse by other shapes.
+///
+/// Keeping this transform in the model layer is important. Renderers can then
+/// treat operation I/O uniformly, without accidentally classifying a shared
+/// modeled structure as an operation-only shape.
+fn normalize_operation_shapes(
+    shapes: &mut Map<String, Value>,
+    operation_ids: &[String],
+    service_id: &str,
+    model: &str,
+) -> Result<(), BuildError> {
+    let mut synthetic_shapes = Vec::with_capacity(operation_ids.len() * 2);
+    let mut rewritten_operations = Vec::with_capacity(operation_ids.len());
+
+    for operation_id in operation_ids {
+        let Some(operation) = shapes.get(operation_id).cloned() else {
+            continue;
+        };
+        let namespace = operation_id
+            .split_once('#')
+            .map(|(namespace, _)| namespace)
+            .unwrap_or_default();
+        let operation_name = terminal_name(operation_id);
+        let input_id = format!("{namespace}.synthetic#{operation_name}Input");
+        let output_id = format!("{namespace}.synthetic#{operation_name}Output");
+
+        let input_original = operation
+            .get("input")
+            .and_then(member_target)
+            .filter(|id| *id != "smithy.api#Unit");
+        let output_original = operation
+            .get("output")
+            .and_then(member_target)
+            .filter(|id| *id != "smithy.api#Unit");
+        let input_shape = synthetic_operation_shape(
+            shapes,
+            input_original,
+            &input_id,
+            "smithy.api.internal#syntheticInput",
+            true,
+            operation_id,
+            model,
+        )?;
+        let output_shape = synthetic_operation_shape(
+            shapes,
+            output_original,
+            &output_id,
+            "smithy.api.internal#syntheticOutput",
+            false,
+            operation_id,
+            model,
+        )?;
+        synthetic_shapes.push((input_id.clone(), input_shape));
+        synthetic_shapes.push((output_id.clone(), output_shape));
+
+        let mut rewritten = operation;
+        let object = rewritten
+            .as_object_mut()
+            .expect("operation shapes must be JSON objects");
+        object.insert("input".to_owned(), operation_value(input_id));
+        object.insert("output".to_owned(), operation_value(output_id));
+        rewritten_operations.push((operation_id.clone(), rewritten));
+    }
+
+    for (id, shape) in synthetic_shapes {
+        if shapes.contains_key(&id) {
+            return Err(BuildError::InvalidModel {
+                model: model.to_owned(),
+                message: format!("synthetic operation shape {id} conflicts with an existing shape"),
+            });
+        }
+        shapes.insert(id, shape);
+    }
+    for (id, operation) in rewritten_operations {
+        shapes.insert(id, operation);
+    }
+    prune_to_directed_closure(shapes, service_id, operation_ids);
+    Ok(())
+}
+
+fn prune_to_directed_closure(
+    shapes: &mut Map<String, Value>,
+    service_id: &str,
+    operation_ids: &[String],
+) {
+    let mut queue = VecDeque::from_iter(
+        std::iter::once(service_id.to_owned()).chain(operation_ids.iter().cloned()),
+    );
+    let mut retained = BTreeSet::new();
+    let all_shapes = shapes
+        .iter()
+        .map(|(id, value)| (id.clone(), value.clone()))
+        .collect::<BTreeMap<_, _>>();
+    while let Some(id) = queue.pop_front() {
+        if !retained.insert(id.clone()) {
+            continue;
+        }
+        let Some(shape) = shapes.get(&id) else {
+            continue;
+        };
+        let mut references = BTreeSet::new();
+        collect_shape_references(shape, &all_shapes, &mut references);
+        queue.extend(references);
+    }
+    let retained = retained
+        .into_iter()
+        .filter_map(|id| shapes.remove(&id).map(|shape| (id, shape)))
+        .collect::<Map<_, _>>();
+    *shapes = retained;
+}
+
+fn synthetic_operation_shape(
+    shapes: &Map<String, Value>,
+    original_id: Option<&str>,
+    synthetic_id: &str,
+    synthetic_trait: &str,
+    is_input: bool,
+    operation_id: &str,
+    model: &str,
+) -> Result<Value, BuildError> {
+    let mut shape =
+        match original_id {
+            Some(original_id) => shapes.get(original_id).cloned().ok_or_else(|| {
+                BuildError::MissingShapeReference {
+                    model: model.to_owned(),
+                    referenced_from: operation_id.to_owned(),
+                    shape: original_id.to_owned(),
+                }
+            })?,
+            None => serde_json::json!({"type": "structure"}),
+        };
+    let object = shape
+        .as_object_mut()
+        .ok_or_else(|| BuildError::InvalidModel {
+            model: model.to_owned(),
+            message: format!(
+                "operation {operation_id} references a non-object {synthetic_id} shape"
+            ),
+        })?;
+    if object.get("type").and_then(Value::as_str) != Some("structure") {
+        return Err(BuildError::InvalidModel {
+            model: model.to_owned(),
+            message: format!(
+                "operation {operation_id} references non-structure shape {synthetic_id}"
+            ),
+        });
+    }
+    let traits = object
+        .entry("traits".to_owned())
+        .or_insert_with(|| Value::Object(Map::new()))
+        .as_object_mut()
+        .expect("shape traits must be an object");
+    traits.insert(synthetic_trait.to_owned(), Value::Object(Map::new()));
+    if is_input {
+        traits
+            .entry("smithy.api#input".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()));
+    }
+    Ok(shape)
 }
 
 /// Applies model-driven AWS customizations that cannot be expressed in the
@@ -614,6 +783,47 @@ mod tests {
                 .model
                 .shapes
                 .contains_key("com.amazonaws.s3#NotificationConfiguration")
+        );
+    }
+
+    #[test]
+    fn operation_normalization_preserves_shared_s3_shapes() {
+        let entry = crate::registry::lookup("s3").unwrap();
+        let model = Model::load(entry).unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let operation = selected
+            .model
+            .shapes
+            .get("com.amazonaws.s3#GetBucketNotificationConfiguration")
+            .and_then(Value::as_object)
+            .unwrap();
+        let output_id = operation.get("output").and_then(member_target).unwrap();
+        assert_eq!(
+            output_id,
+            "com.amazonaws.s3.synthetic#GetBucketNotificationConfigurationOutput"
+        );
+        assert!(
+            selected
+                .model
+                .shapes
+                .get(output_id)
+                .and_then(|shape| shape.get("traits"))
+                .and_then(Value::as_object)
+                .is_some_and(|traits| {
+                    traits.contains_key("smithy.api.internal#syntheticOutput")
+                })
+        );
+        assert!(
+            selected
+                .model
+                .shapes
+                .contains_key("com.amazonaws.s3#NotificationConfiguration")
+        );
+        assert!(
+            !selected
+                .model
+                .shapes
+                .contains_key("com.amazonaws.s3#GetBucketNotificationConfigurationOutput")
         );
     }
 

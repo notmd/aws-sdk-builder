@@ -54,6 +54,36 @@ change conformance inputs.
 
 ## Evidence
 
+### Checkpoint: 2026-08-22 — Generic operation normalization and shared-shape closure
+
+- State: in progress
+- Changed: crates/aws-sdk-build/src/model.rs now ports Smithy-RS operation
+  normalization: selected operations point to synthetic
+  namespace.synthetic#OperationInput/Output structures, smithy.api#Unit becomes
+  an empty structure, original modeled structures are retained only when reachable
+  from the rewritten service graph, and conflicting/non-structure synthetic shapes
+  fail with a packaged-model diagnostic. crates/aws-sdk-build/src/codegen.rs
+  recognizes synthetic I/O traits when deciding which shapes get standalone files
+  and preserves the normalized namespace in Rest XML parser metadata. Added a
+  regression test for shared S3 NotificationConfiguration.
+- Evidence: inspected /tmp/smithy-rs at 56ee88c5c6edd967967656f1e29f46b229105e79,
+  including OperationNormalizer.kt. just conformance regenerated 8 all-operation
+  snapshots (496 operations), formatted 4,126 generated Rust files, and exited 1
+  as expected because parity remains incomplete. Final report compares 6,584 files:
+  2,564 matched, 1,439 mismatched, 2,458 missing, 123 extra, 0 read errors.
+  cargo fmt --all -- --check, cargo test --workspace,
+  cargo clippy --workspace --all-targets -- -D warnings, and git diff --check pass.
+- Conformance: overall 2,555/1,446/2,460/123 -> 2,564/1,439/2,458/123;
+  S3 933/295/116/0 -> 934/295/115/0 (matched/mismatched/missing/extra).
+  The newly generated src/types/_notification_configuration.rs is byte-exact
+  with the pinned S3 reference.
+- Blocker: the conformance command is still non-zero; shared types.rs module
+  ownership/builders/error exports, endpoint/runtime/auth/checksum/pagination/
+  waiter generation, and the reference test/package tree remain incomplete.
+- Next action: port Smithy writer-style shared type module ownership so generated
+  src/types.rs, src/types/builders.rs, and src/types/error.rs match the reference
+  tree, then rerun the all-operation S3-focused conformance comparison.
+
 ### Checkpoint: 2026-08-22 — External Smithy API reverse-engineering
 
 - State: in progress
