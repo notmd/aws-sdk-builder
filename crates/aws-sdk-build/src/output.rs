@@ -5,21 +5,15 @@ use std::{
 
 use crate::{CompileReport, error::BuildError};
 
-pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, BuildError> {
+pub(crate) fn install(
+    stage: &Path,
+    out_dir: &Path,
+    consumer_crate_name: String,
+    operations: Vec<String>,
+) -> Result<CompileReport, BuildError> {
     let generated = stage.join("generated");
-    let manifest = stage.join("aws_sdk_build_manifest.json");
     validate_tree(&generated)?;
     validate_rust_file(&stage.join("aws_sdk.rs"))?;
-    let staged_manifest = fs::read(&manifest).map_err(|source| BuildError::SourceRead {
-        path: manifest.clone(),
-        source,
-    })?;
-    serde_json::from_slice::<serde_json::Value>(&staged_manifest).map_err(|source| {
-        BuildError::InvalidGeneratedRust {
-            path: manifest.clone(),
-            message: source.to_string(),
-        }
-    })?;
 
     fs::create_dir_all(out_dir).map_err(|source| BuildError::Install {
         path: out_dir.to_owned(),
@@ -27,7 +21,7 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
     })?;
     let final_root = out_dir.join("generated");
     let final_include = out_dir.join("aws_sdk.rs");
-    let final_manifest = out_dir.join("aws_sdk_build_manifest.json");
+    let legacy_manifest = out_dir.join("aws_sdk_build_manifest.json");
     let install_root = out_dir.join(format!(".aws-sdk-build-install-{}", std::process::id()));
     if install_root.exists() {
         fs::remove_dir_all(&install_root).map_err(|source| BuildError::Install {
@@ -41,7 +35,6 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
     })?;
     copy_tree(&generated, &install_root.join("generated"))?;
     copy_file(&stage.join("aws_sdk.rs"), &install_root.join("aws_sdk.rs"))?;
-    copy_file(&manifest, &install_root.join("aws_sdk_build_manifest.json"))?;
 
     let backup = out_dir.join(format!(".aws-sdk-build-backup-{}", std::process::id()));
     if backup.exists() {
@@ -54,7 +47,7 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
         path: backup.clone(),
         source,
     })?;
-    let finals: [&Path; 3] = [&final_root, &final_include, &final_manifest];
+    let finals: [&Path; 2] = [&final_root, &final_include];
     for (index, path) in finals.iter().enumerate() {
         if path.exists()
             && let Err(source) = fs::rename(path, backup.join(index.to_string()))
@@ -68,10 +61,20 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
             });
         }
     }
+    if legacy_manifest.exists()
+        && let Err(source) = fs::rename(&legacy_manifest, backup.join("legacy_manifest"))
+    {
+        restore(&backup, &finals);
+        let _ = fs::remove_dir_all(&install_root);
+        let _ = fs::remove_dir_all(&backup);
+        return Err(BuildError::Install {
+            path: legacy_manifest,
+            source,
+        });
+    }
     let staged = [
         install_root.join("generated"),
         install_root.join("aws_sdk.rs"),
-        install_root.join("aws_sdk_build_manifest.json"),
     ];
     for (index, (source, destination)) in staged.iter().zip(finals.iter()).enumerate() {
         if let Err(source_error) = fs::rename(source, destination) {
@@ -79,6 +82,7 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
                 remove_path(installed);
             }
             restore(&backup, &finals);
+            restore_legacy_manifest(&backup, &legacy_manifest);
             let _ = fs::remove_dir_all(&install_root);
             let _ = fs::remove_dir_all(&backup);
             return Err(BuildError::Install {
@@ -90,24 +94,8 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
     let _ = fs::remove_dir_all(&install_root);
     let _ = fs::remove_dir_all(&backup);
 
-    let manifest_value: serde_json::Value = serde_json::from_slice(&staged_manifest)
-        .map_err(|source| BuildError::ManifestSerialize { source })?;
-    let consumer_crate_name = manifest_value["consumer_crate_name"]
-        .as_str()
-        .unwrap_or_default()
-        .to_owned();
-    let operations = manifest_value["selected_operations"]
-        .as_array()
-        .map(|items| {
-            items
-                .iter()
-                .filter_map(|item| item.as_str().map(ToOwned::to_owned))
-                .collect()
-        })
-        .unwrap_or_default();
     Ok(CompileReport {
         generated_root: final_root,
-        manifest: final_manifest,
         consumer_crate_name,
         operations,
     })
@@ -249,6 +237,13 @@ fn restore(backup: &Path, finals: &[&Path]) {
     }
 }
 
+fn restore_legacy_manifest(backup: &Path, path: &Path) {
+    let saved = backup.join("legacy_manifest");
+    if saved.exists() {
+        let _ = fs::rename(saved, path);
+    }
+}
+
 fn remove_path(path: &Path) {
     if path.is_dir() {
         let _ = fs::remove_dir_all(path);
@@ -267,16 +262,49 @@ mod tests {
         let stage = tempdir().unwrap();
         let output = tempdir().unwrap();
         let include = output.path().join("aws_sdk.rs");
-        let manifest = output.path().join("aws_sdk_build_manifest.json");
         let generated = output.path().join("generated");
         fs::create_dir_all(&generated).unwrap();
         fs::write(&include, "old include\n").unwrap();
-        fs::write(&manifest, "old manifest\n").unwrap();
         fs::write(generated.join("old.rs"), "old source\n").unwrap();
 
-        assert!(install(stage.path(), output.path()).is_err());
+        assert!(
+            install(
+                stage.path(),
+                output.path(),
+                "consumer".to_owned(),
+                Vec::new()
+            )
+            .is_err()
+        );
         assert_eq!(fs::read(include).unwrap(), b"old include\n");
-        assert_eq!(fs::read(manifest).unwrap(), b"old manifest\n");
         assert_eq!(fs::read(generated.join("old.rs")).unwrap(), b"old source\n");
+    }
+
+    #[test]
+    fn install_removes_legacy_manifest_and_returns_rust_metadata() {
+        let stage = tempdir().unwrap();
+        let output = tempdir().unwrap();
+        let generated = stage.path().join("generated");
+        fs::create_dir_all(&generated).unwrap();
+        fs::write(stage.path().join("aws_sdk.rs"), "pub mod s3 {}\n").unwrap();
+        fs::write(generated.join("lib.rs"), "pub struct Client;\n").unwrap();
+        fs::write(
+            output.path().join("aws_sdk_build_manifest.json"),
+            "legacy manifest\n",
+        )
+        .unwrap();
+
+        let report = install(
+            stage.path(),
+            output.path(),
+            "consumer".to_owned(),
+            vec!["s3::ListBuckets".to_owned()],
+        )
+        .unwrap();
+
+        assert!(!output.path().join("aws_sdk_build_manifest.json").exists());
+        assert_eq!(report.consumer_crate_name, "consumer");
+        assert_eq!(report.operations, ["s3::ListBuckets"]);
+        assert!(report.generated_root.join("lib.rs").is_file());
     }
 }

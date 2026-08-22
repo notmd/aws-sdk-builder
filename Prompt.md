@@ -17,7 +17,7 @@ The Rust-only implementation is operational but far from exact AWS SDK parity:
 - `aws-sdk-build` exposes `configure().add(...).compile()` and the
   `include_sdk!()` facade. It packages 38 Smithy JSON service models and supports
   selected-operation and all-operation generation.
-- The generator emits deterministic Rust source, manifests, service/client/config,
+- The generator emits deterministic Rust source, service/client/config,
   operation/builders/errors, model shapes, an initial local HTTP runtime, and atomic
   output installation. The generator version is
   `aws-sdk-build-rust-native-0.2.0`.
@@ -389,7 +389,7 @@ src/
     retries.rs            # retry classifiers and modeled retry traits
     decorators.rs        # AWS-wide decorators
     services/             # S3, DynamoDB, EC2, Glacier, Route 53, STS, etc.
-  output.rs              # module facade, atomic install, manifest
+  output.rs              # module facade and atomic install
 ```
 
 The implementation must cover the generated API surface used by the reference SDK:
@@ -445,14 +445,14 @@ inputs.
 1. Read `OUT_DIR` and `CARGO_PKG_NAME` from the build-script environment.
 2. Resolve the service selection against packaged models.
 3. Generate into a private temporary directory on the same filesystem as `OUT_DIR`.
-4. Write `aws_sdk.rs`, one internal Rust source tree per service, and a JSON manifest.
-5. Validate the generated Rust syntax and output manifest.
+4. Write only `aws_sdk.rs` and one internal Rust source tree per service.
+5. Validate the generated Rust syntax.
 6. Atomically replace only the generator-owned output paths after every validation passes.
 
-The output manifest must record generator version, consumer crate name, snapshot SHA,
-selected service keys, selected operations, generated source files, and runtime crate
-requirements. It must not contain absolute paths or timestamps that destroy
-reproducibility.
+The generated `OUT_DIR` output must contain only `aws_sdk.rs` and generated Rust source.
+Do not write `aws_sdk_build_manifest.json` or any other generated metadata file. The
+`CompileReport` may carry diagnostics such as the consumer crate name and selected
+operations in memory, but those values must not be persisted as generated files.
 
 The consumer’s handwritten integration is:
 
@@ -465,9 +465,9 @@ consumer needs to inspect generated output directly, that expansion is the stabl
 fallback, but normal source should use the macro.
 
 If generated code needs Rust runtime crates, expose the exact required dependency
-contract in the generated manifest and the example consumer. The build script cannot
-silently edit `Cargo.toml`; either use a documented normal dependency surface or ship
-the required runtime source in the build crate and include it. Whichever strategy is
+contract in the example consumer and documentation. The build script cannot silently
+edit `Cargo.toml`; either use a documented normal dependency surface or ship the
+required runtime source in the build crate and include it. Whichever strategy is
 chosen, test a clean consumer from a fresh checkout with no Smithy installation.
 
 ## Conformance infrastructure
@@ -710,7 +710,7 @@ and update the status/audit markdown before moving on.
   protocols, endpoint/auth, retries, streaming, and the service decorators required
   by P0 are not complete.
 - [ ] M5 — Complete the consumer facade. `aws_sdk.rs`, nested service modules, stable
-  public paths, output manifests, atomic installation, and the consumer example exist;
+  public paths, atomic installation, and the consumer example exist;
   the generated API and runtime are not yet reference-equivalent.
 - [ ] M6 — Complete conformance. References are pinned, every operation for the
   current P0 set is generated, and deterministic `diffy` Markdown reports are checked

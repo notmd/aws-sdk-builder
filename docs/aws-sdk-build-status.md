@@ -21,7 +21,7 @@ full audit trail.
   `src/client.rs` and declare `aws-runtime` as a downstream dependency. Full protocol
   serialization, runtime orchestration, endpoint resolution, auth/signing, retries,
   checksums, streaming, pagination, and service decorators remain incomplete.
-- M5: in progress. `aws_sdk.rs`, consumer-prefixed service modules, output manifests,
+- M5: in progress. `aws_sdk.rs`, consumer-prefixed service modules, Rust-only output,
   syntax validation, and atomic installation are implemented. The `my_aws_sdk`
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
@@ -52,8 +52,8 @@ a new reusable abstraction.
 - Changed: `crates/aws-sdk-build/src/codegen.rs` emits generic model-driven RestXml
   payload input wrappers for streaming blobs, raw string/blob payloads, and
   structure/union XML payloads, deriving payload roots and namespaces from model
-  traits. `aws-sdk-build` no longer invokes `rustfmt`; `aws-sdk-conformance` formats
-  generated `.rs` files immediately before comparison.
+  traits. `aws-sdk-build` no longer invokes `rustfmt` or writes a generated manifest;
+  `aws-sdk-conformance` formats generated `.rs` files immediately before comparison.
 - Formatting reference: pinned Smithy-RS `ClientCodegenVisitor.kt` finalizes generated
   crates with `cargo fmt -- --config max_width=150`. The checkout has no
   client-generator `.rustfmt.toml`; its unrelated HTTP-server configs use

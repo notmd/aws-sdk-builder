@@ -6,13 +6,7 @@ use std::{
     path::Path,
 };
 
-use crate::{
-    config::ServiceSelection,
-    error::BuildError,
-    model::SelectedModel,
-    names,
-    registry::{self, GENERATOR_VERSION},
-};
+use crate::{config::ServiceSelection, error::BuildError, model::SelectedModel, names, registry};
 
 pub(crate) struct Generated {
     pub(crate) operations: Vec<String>,
@@ -20,7 +14,6 @@ pub(crate) struct Generated {
 
 pub(crate) fn generate(
     stage: &Path,
-    consumer_crate_name: &str,
     consumer_namespace: bool,
     selections: &[ServiceSelection],
 ) -> Result<Generated, BuildError> {
@@ -38,16 +31,12 @@ pub(crate) fn generate(
          }\n\n",
     );
     let mut all_operations = Vec::new();
-    let mut selected_services = Vec::new();
-    let mut service_protocols = BTreeMap::new();
-    let mut files = Vec::new();
     for selection in selections {
         let entry = registry::lookup(&selection.key)?;
         let model = crate::model::Model::load(entry)?;
         let selected = model.select(&selection.operations, selection.all_operations)?;
         let protocol = selected.model.protocol()?;
         let request_id_plan = request_id_plan(&selected);
-        service_protocols.insert(entry.key.to_owned(), protocol.trait_id());
         let service_dir = generated.join(entry.key);
         let mut service_files = vec![
             (
@@ -192,7 +181,6 @@ pub(crate) fn generate(
                     source,
                 }
             })?;
-            files.push(format!("generated/{}/{}", entry.key, relative_path));
         }
         if consumer_namespace {
             writeln!(
@@ -215,7 +203,6 @@ pub(crate) fn generate(
         )
         .unwrap();
         facade.push_str("}\n\n");
-        selected_services.push(selection.key.clone());
         all_operations.extend(selected.operations.iter().cloned());
     }
     let include_path = stage.join("aws_sdk.rs");
@@ -225,34 +212,7 @@ pub(crate) fn generate(
             source,
         }
     })?;
-    files.push("aws_sdk.rs".to_owned());
-    files.sort();
     all_operations.sort();
-    let manifest = serde_json::json!({
-        "generator_version": GENERATOR_VERSION,
-        "consumer_crate_name": consumer_crate_name,
-        "snapshot_sha": registry::AWS_SDK_RUST_SNAPSHOT,
-        "smithy_reference_sha": registry::SMITHY_RS_SNAPSHOT,
-        "selected_service_keys": selected_services,
-        "service_protocols": service_protocols,
-        "selected_operations": all_operations,
-        "generated_source_files": files,
-        "runtime_crate_requirements": [
-            "aws-runtime",
-            "aws-types",
-            "aws-smithy-runtime-api",
-            "aws-smithy-types"
-        ],
-        "runtime_source_files": ["src/client.rs", "src/s3_request_id.rs"],
-    });
-    let manifest_path = stage.join("aws_sdk_build_manifest.json");
-    let manifest_text = serde_json::to_string_pretty(&manifest)
-        .map_err(|source| BuildError::ManifestSerialize { source })?
-        + "\n";
-    fs::write(&manifest_path, manifest_text).map_err(|source| BuildError::OutputWrite {
-        path: manifest_path,
-        source,
-    })?;
     Ok(Generated {
         operations: all_operations,
     })
@@ -5718,7 +5678,7 @@ mod tests {
             all_operations: false,
         }];
 
-        generate(stage.path(), "generated_consumer", true, &selections).unwrap();
+        generate(stage.path(), true, &selections).unwrap();
 
         let generated = stage.path().join("generated/s3/src");
         assert!(generated.join("lib.rs").is_file());
@@ -5756,10 +5716,7 @@ mod tests {
                 .unwrap()
                 .contains("pub type BucketName = ::std::string::String;")
         );
-        let manifest =
-            fs::read_to_string(stage.path().join("aws_sdk_build_manifest.json")).unwrap();
-        assert!(manifest.contains("\"aws-runtime\""));
-        assert!(manifest.contains("runtime_source_files"));
+        assert!(!stage.path().join("aws_sdk_build_manifest.json").exists());
         assert!(!stage.path().join("generated/aws_sdk_s3.rs").exists());
     }
 }

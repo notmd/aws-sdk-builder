@@ -42,6 +42,4 @@ pub enum BuildError {
     InvalidGeneratedRust { path: PathBuf, message: String },
     #[error("failed to install generated output {path}: {source}")]
     Install { path: PathBuf, source: io::Error },
-    #[error("failed to serialize generated manifest: {source}")]
-    ManifestSerialize { source: serde_json::Error },
 }

@@ -57,7 +57,7 @@ it does not know that a descriptor came from S3, DynamoDB, or STS.
 | Service generation | `ServiceGenerator` | Config, service errors, runtime plugins, client re-exports |
 | Extensibility | `ClientCodegenDecorator` and ordered composition | Model transforms and generation hooks with deterministic order |
 | AWS behavior | `AwsCodegenDecorator` and conditional decorators | Auth, endpoint, retry, checksum, presign, paginator, docs, service fixes |
-| Finalization | `RustCrate.finalize` | Write `lib.rs`, manifests, dependencies, format, validate, install |
+| Finalization | `RustCrate.finalize` | Write source, dependencies, format, validate, install |
 
 ## 1. Model loading and indexing
 
@@ -133,7 +133,8 @@ trait ModelTransform {
 }
 ```
 
-Record the transform names and resulting model fingerprint in the output manifest.
+Keep transform names and the resulting model fingerprint available in diagnostics or
+in-memory compile metadata; do not add generated metadata files to the consumer output.
 
 The current Rust port also applies a compact declarative transform over the selected
 JSON shape map before rendering. It recognizes the Smithy relationship used for S3’s
@@ -212,7 +213,7 @@ paths. The crate writer owns:
 - runtime dependency, Cargo feature, and inline dependency tracking;
 - documentation requirements for public modules;
 - duplicate-module detection;
-- final `lib.rs`, manifest, and source-tree assembly.
+- final `lib.rs` and source-tree assembly.
 
 Generation should be referentially stable: rendering the same shape twice targets the
 same writer and either composes intentionally or fails with a duplicate-definition
@@ -354,7 +355,7 @@ Useful hook categories are:
 
 Use deterministic decorator order with a stable numeric order and explicit composition
 rules. A decorator must be inspectable: record its name, predicate, order, and model
-conditions in debug output or the generation manifest.
+conditions in debug output or in-memory generation metadata.
 
 The AWS reference uses a global decorator set plus conditional decorators. For example,
 S3 has a conditional decorator that can transform the model, select a Rest XML protocol
@@ -382,8 +383,9 @@ typed input
   -> typed output or modeled/unhandled error
 ```
 
-Keep the generated crate’s runtime contract explicit. The generated manifest must list
-runtime crates, versions/features, and any inline source. Runtime concerns such as
+Keep the generated crate’s runtime contract explicit in the consumer documentation and
+compile-time dependency surface. Do not write a generated manifest file listing runtime
+crates, versions/features, or inline source. Runtime concerns such as
 retry, timeout, body streaming, checksums, event streams, and presigning belong in
 shared runtime abstractions plus generated plans/plugins, not copied into every
 operation.
@@ -394,11 +396,11 @@ Finalization is a separate phase after all shape/service/operation writers have 
 
 1. materialize inline dependencies;
 2. generate module declarations and re-exports;
-3. generate `Cargo.toml`/manifest metadata and feature dependencies;
+3. record dependency and feature requirements in the consumer contract;
 4. flush writers in canonical path order;
 5. run the configured Rust formatter;
 6. parse/validate every Rust file;
-7. validate public symbol paths and manifest references;
+7. validate public symbol paths and dependency references;
 8. compare against the reference tree;
 9. atomically install the generated tree only after all validation succeeds.
 
