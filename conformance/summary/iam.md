@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `603` matched · `486` mismatches · `542` missing · `0` extra · `36.97%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `604` matched · `485` mismatches · `542` missing · `0` extra · `37.03%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -21314,19 +21314,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_organizations_root_credentials_management.rs
 +++ generated/src/operation/disable_organizations_root_credentials_management.rs
-@@ -23,8 +23,9 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
-             err.map_service_error(|err| {
--                                err.downcast::<crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError>().expect("correct error type")
--                            })
-+                err.downcast::<crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError>()
-+                    .expect("correct error type")
-+            })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-@@ -113,9 +114,9 @@
+@@ -113,9 +113,9 @@
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -21339,7 +21327,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,6 +135,9 @@
+@@ -134,6 +134,9 @@
          let mut rcb =
              ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOrganizationsRootCredentialsManagement")
                  .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -21349,7 +21337,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
                  ))
                  .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -145,9 +149,17 @@
+@@ -145,9 +148,17 @@
                  .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                      crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError,
                  >::new())
@@ -21370,7 +21358,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -154,6 +166,44 @@
+@@ -154,6 +165,44 @@
  }
 
  #[derive(Debug)]
@@ -21415,7 +21403,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  struct DisableOrganizationsRootCredentialsManagementResponseDeserializer;
  impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DisableOrganizationsRootCredentialsManagementResponseDeserializer {
      fn deserialize_nonstreaming_with_config(
-@@ -211,11 +261,9 @@
+@@ -211,11 +260,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21428,20 +21416,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -245,10 +293,10 @@
+@@ -245,10 +292,10 @@
              .ok_or("failed to downcast to DisableOrganizationsRootCredentialsManagementInput")?;
 
          let params = crate::config::endpoint::Params::builder()
+-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
 +            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
++            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
 -            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -391,6 +439,13 @@
+@@ -391,6 +438,13 @@
          })
      }
  }
@@ -32951,7 +32939,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_service_last_accessed_details_with_entities_input::ser_get_service_last_accessed_details_with_entities_op_input(& input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -50617,7 +50605,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_client_id_from_open_id_connect_provider_input::ser_remove_client_id_from_open_id_connect_provider_op_input(& input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -69122,86 +69110,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              update_date: self.update_date,
 ```
 
-### `src/types/_policy_identifier.rs`
-
-```diff
---- reference/src/types/_policy_identifier.rs
-+++ generated/src/types/_policy_identifier.rs
-@@ -1,68 +1,9 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
--/// <p>Identifies one or more policies as a union type. Specify exactly one of <code>PolicyType</code>, <code>PolicyArn</code>, or <code>InlinePolicyIdentifier</code> to identify policies by their type, by Amazon Resource Name (ARN), or by the name of an inline policy and the entity it is attached to.</p>
--#[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(Clone, PartialEq, Debug)]
- pub enum PolicyIdentifier {
--    /// <p>An inline policy identifier consisting of a policy name and the entity it is attached to. Wildcard characters (<code>*</code> and <code>?</code>) in the entity name can match multiple entities.</p>
--    InlinePolicyIdentifier(crate::types::InlinePolicyIdentifierType),
--    /// <p>The Amazon Resource Name (ARN) of an Amazon Web Services managed policy or a customer managed policy that is attached to an IAM user, group, or role. Wildcard characters are supported in the resource name portion of the ARN to match multiple managed policies: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
--    /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
--    PolicyArn(::std::string::String),
--    /// <p>The policy type to identify. All policies of the specified type are matched.</p>
--    PolicyType(crate::types::PolicyIdentifierPolicyType),
--    /// The `Unknown` variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.
--    /// An unknown enum variant
--    ///
--    /// _Note: If you encounter this error, consider upgrading your SDK to the latest version._
--    /// The `Unknown` variant represents cases where the server sent a value that wasn't recognized
--    /// by the client. This can happen when the server adds new functionality, but the client has not been updated.
--    /// To investigate this, consider turning on debug logging to print the raw HTTP response.
--    #[non_exhaustive]
-+    InlinePolicyIdentifier,
-+    PolicyArn,
-+    PolicyType,
-     Unknown,
- }
--impl PolicyIdentifier {
--    /// Tries to convert the enum instance into [`InlinePolicyIdentifier`](crate::types::PolicyIdentifier::InlinePolicyIdentifier), extracting the inner [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
--    /// Returns `Err(&Self)` if it can't be converted.
--    pub fn as_inline_policy_identifier(&self) -> ::std::result::Result<&crate::types::InlinePolicyIdentifierType, &Self> {
--        if let PolicyIdentifier::InlinePolicyIdentifier(val) = &self {
--            ::std::result::Result::Ok(val)
--        } else {
--            ::std::result::Result::Err(self)
--        }
--    }
--    /// Returns true if this is a [`InlinePolicyIdentifier`](crate::types::PolicyIdentifier::InlinePolicyIdentifier).
--    pub fn is_inline_policy_identifier(&self) -> bool {
--        self.as_inline_policy_identifier().is_ok()
--    }
--    /// Tries to convert the enum instance into [`PolicyArn`](crate::types::PolicyIdentifier::PolicyArn), extracting the inner [`String`](::std::string::String).
--    /// Returns `Err(&Self)` if it can't be converted.
--    pub fn as_policy_arn(&self) -> ::std::result::Result<&::std::string::String, &Self> {
--        if let PolicyIdentifier::PolicyArn(val) = &self {
--            ::std::result::Result::Ok(val)
--        } else {
--            ::std::result::Result::Err(self)
--        }
--    }
--    /// Returns true if this is a [`PolicyArn`](crate::types::PolicyIdentifier::PolicyArn).
--    pub fn is_policy_arn(&self) -> bool {
--        self.as_policy_arn().is_ok()
--    }
--    /// Tries to convert the enum instance into [`PolicyType`](crate::types::PolicyIdentifier::PolicyType), extracting the inner [`PolicyIdentifierPolicyType`](crate::types::PolicyIdentifierPolicyType).
--    /// Returns `Err(&Self)` if it can't be converted.
--    pub fn as_policy_type(&self) -> ::std::result::Result<&crate::types::PolicyIdentifierPolicyType, &Self> {
--        if let PolicyIdentifier::PolicyType(val) = &self {
--            ::std::result::Result::Ok(val)
--        } else {
--            ::std::result::Result::Err(self)
--        }
--    }
--    /// Returns true if this is a [`PolicyType`](crate::types::PolicyIdentifier::PolicyType).
--    pub fn is_policy_type(&self) -> bool {
--        self.as_policy_type().is_ok()
--    }
--    /// Returns true if the enum instance is the `Unknown` variant.
--    pub fn is_unknown(&self) -> bool {
--        matches!(self, Self::Unknown)
--    }
--}
-```
-
 ### `src/types/_policy_usage_type.rs`
 
 ```diff
@@ -70869,7 +70777,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_password_policy.rs`
 - `src/types/_permissions_boundary_decision_detail.rs`
 - `src/types/_policy.rs`
-- `src/types/_policy_identifier.rs`
 - `src/types/_policy_usage_type.rs`
 - `src/types/_policy_version.rs`
 - `src/types/_position.rs`

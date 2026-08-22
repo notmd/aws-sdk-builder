@@ -1885,7 +1885,7 @@ fn render_types_with_context(
             Some("structure") => {
                 render_structure(output, selected, shape, terminal(&id), context.clone())
             }
-            Some("union") => render_union(output, shape, terminal(&id)),
+            Some("union") => render_union(output, selected, shape, terminal(&id), &context),
             Some("enum") => render_enum(output, shape, terminal(&id), &context, consumer_namespace),
             Some("list") => {
                 let member = shape
@@ -2461,7 +2461,7 @@ fn standalone_request_body(
         let payload = if matches!(target_kind, Some("string" | "blob")) {
             format!("{helper}(input.{field})?")
         } else {
-            format!("{helper}(&input.{field})?")
+            format!("{helper}(& input.{field})?")
         };
         let content_type = target_shape
             .and_then(shape_media_type)
@@ -2488,7 +2488,7 @@ fn standalone_request_body(
         };
         return (
             format!(
-                "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_{helper_module}::ser_{module}_op_input(&input)?)"
+                "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_{helper_module}::ser_{module}_op_input(& input)?)"
             ),
             Some("application/xml".to_owned()),
         );
@@ -2525,7 +2525,7 @@ fn render_standalone_operation_orchestration(
         .unwrap_or_default();
     writeln!(
         output,
-        "    pub(crate) async fn orchestrate(\n        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        input: {input_path},\n    ) -> ::std::result::Result<\n        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >| {{\n            err.map_service_error(|err| {{\n                err.downcast::<{error_path}>()\n                    .expect(\"correct error type\")\n            }})\n        }};\n        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)\n            .await\n            .map_err(map_err)?;\n        let output = context.finalize().map_err(map_err)?;\n        ::std::result::Result::Ok(\n            output\n                .downcast::<{output_path}>()\n                .expect(\"correct output type\"),\n        )\n    }}\n\n    pub(crate) async fn orchestrate_with_stop_point(\n        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        input: {input_path},\n        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,\n    ) -> ::std::result::Result<\n        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);\n        use ::tracing::Instrument;\n        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point({service_id:?}, {operation_name:?}, input, runtime_plugins, stop_point)\n            // Create a parent span for the entire operation. Includes a random, internal-only,\n            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.\n            .instrument(::tracing::debug_span!(\n                \"{service_id}.{operation_name}\",\n                \"rpc.service\" = {service_id:?},\n                \"rpc.method\" = {operation_name:?},\n                \"sdk_invocation_id\" = ::fastrand::u32(1_000_000..10_000_000),\n                \"rpc.system\" = \"aws-api\",\n            ))\n            .await\n    }}\n\n    pub(crate) fn operation_runtime_plugins(\n        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        client_config: &crate::config::Config,\n        config_override: ::std::option::Option<crate::config::Builder>,\n    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {{\n        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());\n\n        if let ::std::option::Option::Some(config_override) = config_override {{\n            for plugin in config_override.runtime_plugins.iter().cloned() {{\n                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);\n            }}\n            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(\n                config_override,\n                client_config.config.clone(),\n                &client_config.runtime_components,\n            ));\n        }}\n        runtime_plugins\n    }}"
+        "    pub(crate) async fn orchestrate(\n        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        input: {input_path},\n    ) -> ::std::result::Result<\n        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >| {{\n            err.map_service_error(|err| {{\n                                err.downcast::<{error_path}>().expect(\"correct error type\")\n                            }})\n        }};\n        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)\n            .await\n            .map_err(map_err)?;\n        let output = context.finalize().map_err(map_err)?;\n        ::std::result::Result::Ok(output.downcast::<{output_path}>().expect(\"correct output type\"))\n    }}\n\n    pub(crate) async fn orchestrate_with_stop_point(\n        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        input: {input_path},\n        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,\n    ) -> ::std::result::Result<\n        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);\n        use ::tracing::Instrument;\n        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point({service_id:?}, {operation_name:?}, input, runtime_plugins, stop_point)\n            // Create a parent span for the entire operation. Includes a random, internal-only,\n            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.\n            .instrument(::tracing::debug_span!(\n                \"{service_id}.{operation_name}\",\n                \"rpc.service\" = {service_id:?},\n                \"rpc.method\" = {operation_name:?},\n                \"sdk_invocation_id\" = ::fastrand::u32(1_000_000..10_000_000),\n                \"rpc.system\" = \"aws-api\",\n            ))\n            .await\n    }}\n\n    pub(crate) fn operation_runtime_plugins(\n        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        client_config: &crate::config::Config,\n        config_override: ::std::option::Option<crate::config::Builder>,\n    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {{\n        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());\n\n        if let ::std::option::Option::Some(config_override) = config_override {{\n            for plugin in config_override.runtime_plugins.iter().cloned() {{\n                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);\n            }}\n            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(\n                config_override,\n                client_config.config.clone(),\n                &client_config.runtime_components,\n            ));\n        }}\n        runtime_plugins\n    }}"
     )
     .unwrap();
     if !idempotency_plugin.is_empty() {
@@ -10185,17 +10185,73 @@ fn render_sensitive_debug_impl_for_builder(
     writeln!(output, "{padding}}}").unwrap();
 }
 
-fn render_union(output: &mut String, shape: &Value, name: &str) {
-    writeln!(
-        output,
-        "    #[derive(Clone, PartialEq, Debug)]\n    pub enum {} {{",
-        rust_type_name(name)
-    )
-    .unwrap();
-    for (member_name, _) in sorted_members(shape) {
-        writeln!(output, "        {},", rust_type_name(&member_name)).unwrap();
+fn render_union(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: &Context,
+) {
+    let rust_name = rust_type_name(name);
+    if let Some(documentation) = documentation(shape) {
+        render_doc_lines(output, &documentation, 4);
     }
-    output.push_str("        Unknown,\n    }\n\n");
+    render_deprecated_attribute(output, shape, 4);
+    output.push_str(
+        "    #[non_exhaustive]\n    #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]\n",
+    );
+    writeln!(output, "    pub enum {rust_name} {{").unwrap();
+    let ordered_members = sorted_members(shape);
+    for (member_name, member) in &ordered_members {
+        if let Some(documentation) = modeled_member_documentation(selected, member) {
+            render_doc_lines(output, &documentation, 8);
+        }
+        render_deprecated_attribute(output, member, 8);
+        let variant = rust_type_name(member_name);
+        let target = member_target(member).unwrap_or("smithy.api#Unit");
+        if target == "smithy.api#Unit" {
+            writeln!(output, "        {variant},").unwrap();
+        } else {
+            let target_type = type_expr(selected, target, context.clone());
+            writeln!(output, "        {variant}({target_type}),").unwrap();
+        }
+    }
+    output.push_str(
+        "        /// The __BT__Unknown__BT__ variant represents cases where new union variant was received. Consider upgrading the SDK to the latest available version.\n        /// An unknown enum variant\n        ///\n        /// _Note: If you encounter this error, consider upgrading your SDK to the latest version._\n        /// The __BT__Unknown__BT__ variant represents cases where the server sent a value that wasn't recognized\n        /// by the client. This can happen when the server adds new functionality, but the client has not been updated.\n        /// To investigate this, consider turning on debug logging to print the raw HTTP response.\n        #[non_exhaustive]\n        Unknown,\n    }\n",
+    );
+    writeln!(output, "impl {rust_name} {{").unwrap();
+    let union_path = if context.consumer_namespace() {
+        format!("self::{rust_name}")
+    } else {
+        format!("crate::types::{rust_name}")
+    };
+    for (member_name, member) in &ordered_members {
+        let variant = rust_type_name(member_name);
+        let function = names::rust_identifier(&names::snake_case(member_name));
+        let target = member_target(member).unwrap_or("smithy.api#Unit");
+        let target_name = client_documentation_type(selected, target);
+        let target_type = type_expr(selected, target, context.clone());
+        if ordered_members.len() == 1 {
+            output.push_str("    #[allow(irrefutable_let_patterns)]\n");
+        }
+        if target == "smithy.api#Unit" {
+            writeln!(
+                output,
+                "    /// Tries to convert the enum instance into [__BT__{variant}__BT__]({union_path}::{variant}), extracting the inner __BT__()__BT__.\n    /// Returns __BT__Err(&Self)__BT__ if it can't be converted.\n    pub fn as_{function}(&self) -> ::std::result::Result<(), &Self> {{\n        if let {rust_name}::{variant} = &self {{\n            ::std::result::Result::Ok(())\n        }} else {{\n            ::std::result::Result::Err(self)\n        }}\n    }}\n    /// Returns true if this is a [__BT__{variant}__BT__]({union_path}::{variant}).\n    pub fn is_{function}(&self) -> bool {{\n        self.as_{function}().is_ok()\n    }}"
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "    /// Tries to convert the enum instance into [__BT__{variant}__BT__]({union_path}::{variant}), extracting the inner [__BT__{target_name}__BT__]({target_type}).\n    /// Returns __BT__Err(&Self)__BT__ if it can't be converted.\n    pub fn as_{function}(&self) -> ::std::result::Result<&{target_type}, &Self> {{\n        if let {rust_name}::{variant}(val) = &self {{\n            ::std::result::Result::Ok(val)\n        }} else {{\n            ::std::result::Result::Err(self)\n        }}\n    }}\n    /// Returns true if this is a [__BT__{variant}__BT__]({union_path}::{variant}).\n    pub fn is_{function}(&self) -> bool {{\n        self.as_{function}().is_ok()\n    }}"
+            )
+            .unwrap();
+        }
+    }
+    output.push_str(
+        "    /// Returns true if the enum instance is the __BT__Unknown__BT__ variant.\n    pub fn is_unknown(&self) -> bool {\n        matches!(self, Self::Unknown)\n    }\n}\n\n",
+    );
+    *output = output.replace("__BT__", "\x60");
 }
 
 fn render_enum(

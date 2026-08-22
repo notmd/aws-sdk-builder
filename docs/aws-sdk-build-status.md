@@ -28,7 +28,7 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,462 files: 2,931 exact, 1,562 mismatches, 1,968 missing,
+  current report compares 6,462 files: 2,940 exact, 1,553 mismatches, 1,968 missing,
   and 1 extra (41.30% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
@@ -55,6 +55,27 @@ inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silent
 change conformance inputs.
 
 ## Evidence
+
+### Checkpoint: 2026-08-23 — Generic long-operation and union rendering
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now renders long-operation
+  orchestration with Smithy-RS-compatible downcast layout and payload-reference
+  spacing, and renders modeled unions generically with payload-carrying variants,
+  documentation/deprecation attributes, forward-compatible `Unknown`, and
+  `as_*`/`is_*` helpers. No service- or operation-specific branches were added.
+- Evidence: inspected the Smithy-RS reference implementation in `/tmp/smithy-rs`.
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. `just conformance`
+  regenerated the all-operation snapshots and exits 1 as expected because semantic
+  parity remains incomplete.
+- Conformance: overall `2,931/1,562/1,968/1` -> `2,940/1,553/1,968/1`;
+  S3 `1,040/203/101/0` -> `1,047/196/101/0` (matched/mismatched/missing/extra).
+- Blocker: operation builder architecture, Rest XML helper ordering and temporary
+  naming, remaining sensitive/debug/documentation/streaming type differences, and
+  shared client/runtime source remain incomplete.
+- Next action: continue with the generic Rest XML protocol-helper parity slice,
+  preserving Smithy-RS shape-dependent lazy writer ordering.
 
 ### Checkpoint: 2026-08-23 — Declarative Smithy HTTP protocol-test overlay
 

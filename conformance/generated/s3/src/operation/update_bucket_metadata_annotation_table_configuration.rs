@@ -23,19 +23,14 @@ impl UpdateBucketMetadataAnnotationTableConfiguration {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError>()
-                    .expect("correct error type")
-            })
+                                err.downcast::<crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError>().expect("correct error type")
+                            })
         };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(
-            output
-                .downcast::<crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput>()
-                .expect("correct output type"),
-        )
+        ::std::result::Result::Ok(output.downcast::<crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput>().expect("correct output type"))
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
@@ -336,7 +331,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for UpdateBucket
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_bucket_metadata_annotation_table_configuration_input::ser_annotation_table_configuration_http_payload(&input.annotation_table_configuration)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_bucket_metadata_annotation_table_configuration_input::ser_annotation_table_configuration_http_payload(& input.annotation_table_configuration)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

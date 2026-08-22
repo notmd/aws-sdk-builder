@@ -23,9 +23,8 @@ impl DisableOrganizationsRootCredentialsManagement {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError>()
-                    .expect("correct error type")
-            })
+                                err.downcast::<crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError>().expect("correct error type")
+                            })
         };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
