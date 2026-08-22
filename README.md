@@ -62,7 +62,7 @@ and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
 
   Read Prompt.md and docs/aws-sdk-build-status.md first. Continue from the current
   repository state. Keep codegen generic and driven by packaged Smithy JSON models.
-  Use the pinned AWS SDK Rust and smithy-rs implementations as references. Refactor current codegen to follow smithy codegen design patterns. See `smith-codegen-design.md`
+  Use the pinned AWS SDK Rust and smithy-rs implementations as references. Refactor current codegen to follow smithy codegen design patterns. See `docs/smithy-codegen-design.md` and `docs/smithy-rs-reverse-engineering.md`.
 
   After every codegen change:
   1. Regenerate all-operation snapshots.

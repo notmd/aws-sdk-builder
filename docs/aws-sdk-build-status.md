@@ -44,7 +44,53 @@ pinned `smithy-rs` commit
 `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should be updated when the port adopts
 a new reusable abstraction.
 
+Concrete reverse-engineering notes now live in
+[`docs/smithy-rs-reverse-engineering.md`](smithy-rs-reverse-engineering.md). They record
+current upstream visitor order, normalization invariants, lazy writer/dependency
+behavior, protocol helper ownership, decorator composition, runtime boundaries, and
+known Rust-port migration targets. The notes distinguish the parity pin from the
+inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silently
+change conformance inputs.
+
 ## Evidence
+
+### Checkpoint: 2026-08-22 — External Smithy API reverse-engineering
+
+- State: in progress
+- Changed: expanded `docs/smithy-rs-reverse-engineering.md` with behavior from external
+  Smithy Java APIs: model blackboard/index caching, assembler validation and trait
+  discovery, immutable model transforms, HTTP binding inference, nullability modes,
+  operation/service/pagination indexes, symbol/writer dependency semantics, ordered
+  endpoint rules, AWS trait defaults, protocol-test fixtures, and waiter defaults.
+- Evidence: inspected Smithy Java source mirror `/tmp/smithy` at commit
+  `0f7323128b0606a1b94b1ac482c94d3800a22708`, Maven artifact POMs at version `1.73.0`,
+  and Smithy Rust consumers of those APIs. Runtime crates intentionally excluded from
+  this dependency audit.
+- Conformance: not rerun; documentation-only checkpoint, generated source unchanged.
+- Blocker: Rust port still lacks typed model/index abstractions matching these contracts.
+- Next action: implement model index and HTTP binding layers, then rerun all-operation
+  conformance before adding protocol-specific exceptions.
+
+### Checkpoint: 2026-08-22 — Smithy Rust reverse-engineering notes
+
+- State: in progress
+- Changed: added `docs/smithy-rs-reverse-engineering.md` with exact upstream client
+  visitor ordering, baseline transforms, synthetic input/output invariants, directed
+  closure, symbol/module ownership, lazy `RustCrate` dependency behavior, protocol
+  helper placement, Rest XML root validation, decorator ordering, runtime boundaries,
+  current Rust-port mapping, and mismatch-debugging workflow. Linked notes from the
+  README and status document.
+- Evidence: inspected `/tmp/smithy-rs` release `1.1.7` at commit
+  `56ee88c5c6edd967967656f1e29f46b229105e79`, including `ClientCodegenVisitor.kt`,
+  `OperationNormalizer.kt`, `CodegenDelegator.kt`, `ProtocolFunctions.kt`,
+  `OperationGenerator.kt`, `CoreCodegenDecorator.kt`, `AwsCodegenDecorator.kt`, and
+  S3's `S3Decorator.kt`. This is an inspection mirror; parity remains pinned to
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: not rerun; documentation-only checkpoint, generated source unchanged.
+- Blocker: codegen parity remains incomplete; notes identify migration targets but do not
+  change generator behavior.
+- Next action: use source map and mismatch loop to port next reusable Smithy rule, then
+  run full conformance and record before/after counts.
 
 ### Checkpoint: 2026-08-22 — Rest XML parser and correction parity
 
