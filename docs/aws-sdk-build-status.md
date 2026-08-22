@@ -30,8 +30,8 @@ Updated 2026-08-22. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 1,586 exact matches (23.08% arithmetic average),
-  with 2,162 mismatches, 2,713 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 1,642 exact matches (23.60% arithmetic average),
+  with 2,106 mismatches, 2,713 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -105,6 +105,25 @@ updated when the port adopts a new reusable abstraction.
   module wiring, and the remaining protocol/runtime layers are not yet emitted.
 - Next action: add the shared XML document binding layer and rerun conformance,
   keeping this checkpoint only if exact coverage continues to increase.
+
+### Checkpoint: 2026-08-22 — HTTP header error-field symbols
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now passes the Smithy Rust
+  member symbol, such as `expected_bucket_owner`, to `BuildError::invalid_field`
+  in generated HTTP request-header serializers. The rule is generic and uses the
+  same Rust member-name conversion as the shape and builder generators.
+- Reference: Smithy-RS `HttpBindingGenerator.kt` calls
+  `symbolProvider.toMemberName(memberShape)` for this diagnostic field.
+- Evidence: `just conformance` regenerated all 8 all-operation snapshots (496
+  operations) and compared 6,584 files. Exact matches increased from 1,586 to
+  1,642 overall and from 477 to 533 for S3; mismatches fell from 2,162 to 2,106.
+  The comparison still exits 1 because parity is incomplete.
+- Blocker: XML document payload serializers/deserializers, modeled error XML,
+  prefix headers, and the remaining protocol/runtime source tree are not yet
+  emitted.
+- Next action: emit generic RestXml payload helper files and nested shape
+  serializers/deserializers from model XML traits.
 
 ### Checkpoint: 2026-08-22 — Smithy HTML documentation and builder parity
 

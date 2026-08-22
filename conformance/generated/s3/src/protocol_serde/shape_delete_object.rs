@@ -53,7 +53,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Mfa",
+                "mfa",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -64,7 +64,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestPayer",
+                "request_payer",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -76,7 +76,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "BypassGovernanceRetention",
+                "bypass_governance_retention",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -87,7 +87,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -98,7 +98,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "IfMatch",
+                "if_match",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -109,7 +109,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_12;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "IfMatchLastModifiedTime",
+                "if_match_last_modified_time",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -121,7 +121,7 @@ pub fn ser_delete_object_headers(
         let header_value = formatted_14;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "IfMatchSize",
+                "if_match_size",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

@@ -133,7 +133,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentLength",
+                "content_length",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -144,7 +144,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentMd5",
+                "content_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -155,7 +155,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumAlgorithm",
+                "checksum_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -166,7 +166,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumCrc32",
+                "checksum_crc32",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -177,7 +177,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumCrc32C",
+                "checksum_crc32_c",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -188,7 +188,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_12;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumCrc64Nvme",
+                "checksum_crc64_nvme",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -199,7 +199,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_14;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumSha1",
+                "checksum_sha1",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -210,7 +210,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_16;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumSha256",
+                "checksum_sha256",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -221,7 +221,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_18;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumSha512",
+                "checksum_sha512",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -232,7 +232,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_20;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumMd5",
+                "checksum_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -243,7 +243,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_22;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumXxhash64",
+                "checksum_xxhash64",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -254,7 +254,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_24;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumXxhash3",
+                "checksum_xxhash3",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -265,7 +265,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_26;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumXxhash128",
+                "checksum_xxhash128",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -276,7 +276,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_28;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerAlgorithm",
+                "sse_customer_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -287,7 +287,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_30;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKey",
+                "sse_customer_key",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -298,7 +298,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_32;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKeyMd5",
+                "sse_customer_key_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -309,7 +309,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_34;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestPayer",
+                "request_payer",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -320,7 +320,7 @@ pub fn ser_upload_part_headers(
         let header_value = formatted_36;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

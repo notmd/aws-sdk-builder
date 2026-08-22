@@ -44,7 +44,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestRoute",
+                "request_route",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -55,7 +55,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestToken",
+                "request_token",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -67,7 +67,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "StatusCode",
+                "status_code",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -78,7 +78,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ErrorCode",
+                "error_code",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -89,7 +89,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ErrorMessage",
+                "error_message",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -100,7 +100,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_12;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "AcceptRanges",
+                "accept_ranges",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -111,7 +111,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_14;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "CacheControl",
+                "cache_control",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -122,7 +122,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_16;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentDisposition",
+                "content_disposition",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -133,7 +133,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_18;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentEncoding",
+                "content_encoding",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -144,7 +144,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_20;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentLanguage",
+                "content_language",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -156,7 +156,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_22;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentLength",
+                "content_length",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -167,7 +167,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_24;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentRange",
+                "content_range",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -178,7 +178,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_26;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentType",
+                "content_type",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -189,7 +189,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_28;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumCrc32",
+                "checksum_crc32",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -200,7 +200,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_30;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumCrc32C",
+                "checksum_crc32_c",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -211,7 +211,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_32;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumCrc64Nvme",
+                "checksum_crc64_nvme",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -222,7 +222,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_34;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumSha1",
+                "checksum_sha1",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -233,7 +233,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_36;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumSha256",
+                "checksum_sha256",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -244,7 +244,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_38;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumSha512",
+                "checksum_sha512",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -255,7 +255,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_40;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumMd5",
+                "checksum_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -266,7 +266,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_42;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumXxhash64",
+                "checksum_xxhash64",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -277,7 +277,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_44;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumXxhash3",
+                "checksum_xxhash3",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -288,7 +288,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_46;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumXxhash128",
+                "checksum_xxhash128",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -300,7 +300,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_48;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "DeleteMarker",
+                "delete_marker",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -311,7 +311,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_50;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ETag",
+                "e_tag",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -322,7 +322,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_52;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Expires",
+                "expires",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -333,7 +333,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_54;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Expiration",
+                "expiration",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -344,7 +344,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_56;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "LastModified",
+                "last_modified",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -356,7 +356,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_58;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "MissingMeta",
+                "missing_meta",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -367,7 +367,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_60;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ObjectLockMode",
+                "object_lock_mode",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -378,7 +378,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_62;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ObjectLockLegalHoldStatus",
+                "object_lock_legal_hold_status",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -389,7 +389,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_64;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ObjectLockRetainUntilDate",
+                "object_lock_retain_until_date",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -401,7 +401,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_66;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "PartsCount",
+                "parts_count",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -412,7 +412,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_68;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ReplicationStatus",
+                "replication_status",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -423,7 +423,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_70;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestCharged",
+                "request_charged",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -434,7 +434,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_72;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Restore",
+                "restore",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -445,7 +445,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_74;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ServerSideEncryption",
+                "server_side_encryption",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -456,7 +456,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_76;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerAlgorithm",
+                "sse_customer_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -467,7 +467,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_78;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SsekmsKeyId",
+                "ssekms_key_id",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -478,7 +478,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_80;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKeyMd5",
+                "sse_customer_key_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -489,7 +489,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_82;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "StorageClass",
+                "storage_class",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -501,7 +501,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_84;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "TagCount",
+                "tag_count",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -512,7 +512,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_86;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "VersionId",
+                "version_id",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -524,7 +524,7 @@ pub fn ser_write_get_object_response_headers(
         let header_value = formatted_88;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "BucketKeyEnabled",
+                "bucket_key_enabled",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

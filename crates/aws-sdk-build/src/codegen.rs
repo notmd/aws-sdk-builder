@@ -2346,7 +2346,6 @@ fn render_protocol_request_header(
     index: usize,
 ) {
     let field = names::rust_identifier(name);
-    let type_name = rust_type_name(name);
     let shape = selected.model.shapes.get(target);
     let kind = shape
         .and_then(|shape| shape.get("type"))
@@ -2395,7 +2394,7 @@ fn render_protocol_request_header(
     };
     writeln!(
         output,
-        "        let header_value = formatted_{formatted};\n        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {{\n            ::aws_smithy_types::error::operation::BuildError::invalid_field(\n                {type_name:?},\n                format!(\"`{{}}` cannot be used as a header value: {{}}\", {display_expression}, err),\n            )\n        }})?;\n        builder = builder.header({header:?}, header_value);\n    }}"
+        "        let header_value = formatted_{formatted};\n        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {{\n            ::aws_smithy_types::error::operation::BuildError::invalid_field(\n                {field:?},\n                format!(\"`{{}}` cannot be used as a header value: {{}}\", {display_expression}, err),\n            )\n        }})?;\n        builder = builder.header({header:?}, header_value);\n    }}"
     )
     .unwrap();
 }

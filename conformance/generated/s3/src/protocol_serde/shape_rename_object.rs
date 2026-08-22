@@ -62,7 +62,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RenameSource",
+                "rename_source",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -73,7 +73,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "DestinationIfMatch",
+                "destination_if_match",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -84,7 +84,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "DestinationIfNoneMatch",
+                "destination_if_none_match",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -95,7 +95,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "DestinationIfModifiedSince",
+                "destination_if_modified_since",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -106,7 +106,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "DestinationIfUnmodifiedSince",
+                "destination_if_unmodified_since",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -117,7 +117,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_12;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SourceIfMatch",
+                "source_if_match",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -128,7 +128,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_14;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SourceIfNoneMatch",
+                "source_if_none_match",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -139,7 +139,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_16;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SourceIfModifiedSince",
+                "source_if_modified_since",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -150,7 +150,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_18;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SourceIfUnmodifiedSince",
+                "source_if_unmodified_since",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -161,7 +161,7 @@ pub fn ser_rename_object_headers(
         let header_value = formatted_20;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ClientToken",
+                "client_token",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

@@ -45,7 +45,7 @@ pub fn ser_delete_bucket_metadata_table_configuration_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

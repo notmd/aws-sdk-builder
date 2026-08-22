@@ -121,7 +121,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Acl",
+                "acl",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -132,7 +132,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "CacheControl",
+                "cache_control",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -143,7 +143,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentDisposition",
+                "content_disposition",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -154,7 +154,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentEncoding",
+                "content_encoding",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -165,7 +165,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentLanguage",
+                "content_language",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -176,7 +176,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_12;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentType",
+                "content_type",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -187,7 +187,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_14;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Expires",
+                "expires",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -198,7 +198,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_16;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantFullControl",
+                "grant_full_control",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -209,7 +209,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_18;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantRead",
+                "grant_read",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -220,7 +220,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_20;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantReadAcp",
+                "grant_read_acp",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -231,7 +231,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_22;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantWriteAcp",
+                "grant_write_acp",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -242,7 +242,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_24;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ServerSideEncryption",
+                "server_side_encryption",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -253,7 +253,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_26;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "StorageClass",
+                "storage_class",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -264,7 +264,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_28;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "WebsiteRedirectLocation",
+                "website_redirect_location",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -275,7 +275,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_30;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerAlgorithm",
+                "sse_customer_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -286,7 +286,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_32;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKey",
+                "sse_customer_key",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -297,7 +297,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_34;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKeyMd5",
+                "sse_customer_key_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -308,7 +308,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_36;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SsekmsKeyId",
+                "ssekms_key_id",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -319,7 +319,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_38;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SsekmsEncryptionContext",
+                "ssekms_encryption_context",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -331,7 +331,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_40;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "BucketKeyEnabled",
+                "bucket_key_enabled",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -342,7 +342,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_42;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestPayer",
+                "request_payer",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -353,7 +353,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_44;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Tagging",
+                "tagging",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -364,7 +364,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_46;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ObjectLockMode",
+                "object_lock_mode",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -375,7 +375,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_48;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ObjectLockRetainUntilDate",
+                "object_lock_retain_until_date",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -386,7 +386,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_50;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ObjectLockLegalHoldStatus",
+                "object_lock_legal_hold_status",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -397,7 +397,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_52;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -408,7 +408,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_54;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumAlgorithm",
+                "checksum_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -419,7 +419,7 @@ pub fn ser_create_multipart_upload_headers(
         let header_value = formatted_56;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumType",
+                "checksum_type",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

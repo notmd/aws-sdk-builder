@@ -44,7 +44,7 @@ pub fn ser_select_object_content_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerAlgorithm",
+                "sse_customer_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -55,7 +55,7 @@ pub fn ser_select_object_content_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKey",
+                "sse_customer_key",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -66,7 +66,7 @@ pub fn ser_select_object_content_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SseCustomerKeyMd5",
+                "sse_customer_key_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -77,7 +77,7 @@ pub fn ser_select_object_content_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

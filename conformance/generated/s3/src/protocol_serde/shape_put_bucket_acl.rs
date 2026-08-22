@@ -38,7 +38,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Acl",
+                "acl",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -49,7 +49,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentMd5",
+                "content_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -60,7 +60,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumAlgorithm",
+                "checksum_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -71,7 +71,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantFullControl",
+                "grant_full_control",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -82,7 +82,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantRead",
+                "grant_read",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -93,7 +93,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_12;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantReadAcp",
+                "grant_read_acp",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -104,7 +104,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_14;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantWrite",
+                "grant_write",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -115,7 +115,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_16;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "GrantWriteAcp",
+                "grant_write_acp",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -126,7 +126,7 @@ pub fn ser_put_bucket_acl_headers(
         let header_value = formatted_18;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

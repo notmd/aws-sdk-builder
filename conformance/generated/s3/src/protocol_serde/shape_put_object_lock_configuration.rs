@@ -53,7 +53,7 @@ pub fn ser_put_object_lock_configuration_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "RequestPayer",
+                "request_payer",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -64,7 +64,7 @@ pub fn ser_put_object_lock_configuration_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "Token",
+                "token",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -75,7 +75,7 @@ pub fn ser_put_object_lock_configuration_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ContentMd5",
+                "content_md5",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -86,7 +86,7 @@ pub fn ser_put_object_lock_configuration_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ChecksumAlgorithm",
+                "checksum_algorithm",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -97,7 +97,7 @@ pub fn ser_put_object_lock_configuration_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ExpectedBucketOwner",
+                "expected_bucket_owner",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;

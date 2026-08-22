@@ -89,7 +89,7 @@ pub fn ser_create_session_headers(
         let header_value = formatted_2;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SessionMode",
+                "session_mode",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -100,7 +100,7 @@ pub fn ser_create_session_headers(
         let header_value = formatted_4;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "ServerSideEncryption",
+                "server_side_encryption",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
@@ -111,7 +111,7 @@ pub fn ser_create_session_headers(
         let header_value = formatted_6;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SsekmsKeyId",
+                "ssekms_key_id",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -122,7 +122,7 @@ pub fn ser_create_session_headers(
         let header_value = formatted_8;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "SsekmsEncryptionContext",
+                "ssekms_encryption_context",
                 format!("`{}` cannot be used as a header value: {}", &"*** Sensitive Data Redacted ***", err),
             )
         })?;
@@ -134,7 +134,7 @@ pub fn ser_create_session_headers(
         let header_value = formatted_10;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
-                "BucketKeyEnabled",
+                "bucket_key_enabled",
                 format!("`{}` cannot be used as a header value: {}", &header_value, err),
             )
         })?;
