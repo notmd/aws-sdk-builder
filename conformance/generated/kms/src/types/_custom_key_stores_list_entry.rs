@@ -2,7 +2,7 @@
 
 /// <p>Contains information about each custom key store in the custom key store list.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct CustomKeyStoresListEntry {
     /// <p>A unique identifier for the custom key store.</p>
     pub custom_key_store_id: ::std::option::Option<::std::string::String>,
@@ -203,6 +203,21 @@ impl CustomKeyStoresListEntry {
         self.xks_proxy_configuration.as_ref()
     }
 }
+impl ::std::fmt::Debug for CustomKeyStoresListEntry {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("CustomKeyStoresListEntry");
+        formatter.field("custom_key_store_id", &self.custom_key_store_id);
+        formatter.field("custom_key_store_name", &self.custom_key_store_name);
+        formatter.field("cloud_hsm_cluster_id", &self.cloud_hsm_cluster_id);
+        formatter.field("trust_anchor_certificate", &self.trust_anchor_certificate);
+        formatter.field("connection_state", &self.connection_state);
+        formatter.field("connection_error_code", &self.connection_error_code);
+        formatter.field("creation_date", &self.creation_date);
+        formatter.field("custom_key_store_type", &self.custom_key_store_type);
+        formatter.field("xks_proxy_configuration", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl CustomKeyStoresListEntry {
     /// Creates a new builder-style object to manufacture [`CustomKeyStoresListEntry`](crate::types::CustomKeyStoresListEntry).
     pub fn builder() -> crate::types::builders::CustomKeyStoresListEntryBuilder {
@@ -211,7 +226,7 @@ impl CustomKeyStoresListEntry {
 }
 
 /// A builder for [`CustomKeyStoresListEntry`](crate::types::CustomKeyStoresListEntry).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct CustomKeyStoresListEntryBuilder {
     pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
@@ -577,5 +592,20 @@ impl CustomKeyStoresListEntryBuilder {
             custom_key_store_type: self.custom_key_store_type,
             xks_proxy_configuration: self.xks_proxy_configuration,
         }
+    }
+}
+impl ::std::fmt::Debug for CustomKeyStoresListEntryBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("CustomKeyStoresListEntryBuilder");
+        formatter.field("custom_key_store_id", &self.custom_key_store_id);
+        formatter.field("custom_key_store_name", &self.custom_key_store_name);
+        formatter.field("cloud_hsm_cluster_id", &self.cloud_hsm_cluster_id);
+        formatter.field("trust_anchor_certificate", &self.trust_anchor_certificate);
+        formatter.field("connection_state", &self.connection_state);
+        formatter.field("connection_error_code", &self.connection_error_code);
+        formatter.field("creation_date", &self.creation_date);
+        formatter.field("custom_key_store_type", &self.custom_key_store_type);
+        formatter.field("xks_proxy_configuration", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

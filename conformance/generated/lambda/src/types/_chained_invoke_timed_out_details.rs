@@ -2,7 +2,7 @@
 
 /// <p>Details about a chained invocation that timed out.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ChainedInvokeTimedOutDetails {
     /// <p>Details about the chained invocation timeout.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl ChainedInvokeTimedOutDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ChainedInvokeTimedOutDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeTimedOutDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ChainedInvokeTimedOutDetails {
     /// Creates a new builder-style object to manufacture [`ChainedInvokeTimedOutDetails`](crate::types::ChainedInvokeTimedOutDetails).
     pub fn builder() -> crate::types::builders::ChainedInvokeTimedOutDetailsBuilder {
@@ -21,7 +28,7 @@ impl ChainedInvokeTimedOutDetails {
 }
 
 /// A builder for [`ChainedInvokeTimedOutDetails`](crate::types::ChainedInvokeTimedOutDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ChainedInvokeTimedOutDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -45,5 +52,12 @@ impl ChainedInvokeTimedOutDetailsBuilder {
     /// Consumes the builder and constructs a [`ChainedInvokeTimedOutDetails`](crate::types::ChainedInvokeTimedOutDetails).
     pub fn build(self) -> crate::types::ChainedInvokeTimedOutDetails {
         crate::types::ChainedInvokeTimedOutDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for ChainedInvokeTimedOutDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeTimedOutDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

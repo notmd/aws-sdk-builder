@@ -2,7 +2,7 @@
 
 /// <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ChainedInvokeStartedDetails {
     /// <p>The name or ARN of the Lambda function being invoked.</p>
     pub function_name: ::std::string::String,
@@ -38,6 +38,17 @@ impl ChainedInvokeStartedDetails {
         self.durable_execution_arn.as_deref()
     }
 }
+impl ::std::fmt::Debug for ChainedInvokeStartedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeStartedDetails");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("tenant_id", &self.tenant_id);
+        formatter.field("input", &"*** Sensitive Data Redacted ***");
+        formatter.field("executed_version", &self.executed_version);
+        formatter.field("durable_execution_arn", &self.durable_execution_arn);
+        formatter.finish()
+    }
+}
 impl ChainedInvokeStartedDetails {
     /// Creates a new builder-style object to manufacture [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
     pub fn builder() -> crate::types::builders::ChainedInvokeStartedDetailsBuilder {
@@ -46,7 +57,7 @@ impl ChainedInvokeStartedDetails {
 }
 
 /// A builder for [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ChainedInvokeStartedDetailsBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -143,5 +154,16 @@ impl ChainedInvokeStartedDetailsBuilder {
             executed_version: self.executed_version,
             durable_execution_arn: self.durable_execution_arn,
         })
+    }
+}
+impl ::std::fmt::Debug for ChainedInvokeStartedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeStartedDetailsBuilder");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("tenant_id", &self.tenant_id);
+        formatter.field("input", &"*** Sensitive Data Redacted ***");
+        formatter.field("executed_version", &self.executed_version);
+        formatter.field("durable_execution_arn", &self.durable_execution_arn);
+        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>Contains the response to a successful <code>AssumeRoleWithWebIdentity</code> request, including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct AssumeRoleWithWebIdentityOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
@@ -58,6 +58,20 @@ impl AssumeRoleWithWebIdentityOutput {
         self.source_identity.as_deref()
     }
 }
+impl ::std::fmt::Debug for AssumeRoleWithWebIdentityOutput {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("AssumeRoleWithWebIdentityOutput");
+        formatter.field("credentials", &"*** Sensitive Data Redacted ***");
+        formatter.field("subject_from_web_identity_token", &self.subject_from_web_identity_token);
+        formatter.field("assumed_role_user", &self.assumed_role_user);
+        formatter.field("packed_policy_size", &self.packed_policy_size);
+        formatter.field("provider", &self.provider);
+        formatter.field("audience", &self.audience);
+        formatter.field("source_identity", &self.source_identity);
+        formatter.field("_request_id", &self._request_id);
+        formatter.finish()
+    }
+}
 impl ::aws_types::request_id::RequestId for AssumeRoleWithWebIdentityOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -71,7 +85,7 @@ impl AssumeRoleWithWebIdentityOutput {
 }
 
 /// A builder for [`AssumeRoleWithWebIdentityOutput`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct AssumeRoleWithWebIdentityOutputBuilder {
     pub(crate) credentials: ::std::option::Option<crate::types::Credentials>,
@@ -215,5 +229,19 @@ impl AssumeRoleWithWebIdentityOutputBuilder {
             source_identity: self.source_identity,
             _request_id: self._request_id,
         }
+    }
+}
+impl ::std::fmt::Debug for AssumeRoleWithWebIdentityOutputBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("AssumeRoleWithWebIdentityOutputBuilder");
+        formatter.field("credentials", &"*** Sensitive Data Redacted ***");
+        formatter.field("subject_from_web_identity_token", &self.subject_from_web_identity_token);
+        formatter.field("assumed_role_user", &self.assumed_role_user);
+        formatter.field("packed_policy_size", &self.packed_policy_size);
+        formatter.field("provider", &self.provider);
+        formatter.field("audience", &self.audience);
+        formatter.field("source_identity", &self.source_identity);
+        formatter.field("_request_id", &self._request_id);
+        formatter.finish()
     }
 }

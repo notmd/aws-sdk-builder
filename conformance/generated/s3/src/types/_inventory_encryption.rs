@@ -2,7 +2,7 @@
 
 /// <p>Contains the type of server-side encryption used to encrypt the S3 Inventory results.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InventoryEncryption {
     /// <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
     pub sses3: ::std::option::Option<crate::types::Sses3>,
@@ -19,6 +19,14 @@ impl InventoryEncryption {
         self.ssekms.as_ref()
     }
 }
+impl ::std::fmt::Debug for InventoryEncryption {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryEncryption");
+        formatter.field("sses3", &self.sses3);
+        formatter.field("ssekms", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl InventoryEncryption {
     /// Creates a new builder-style object to manufacture [`InventoryEncryption`](crate::types::InventoryEncryption).
     pub fn builder() -> crate::types::builders::InventoryEncryptionBuilder {
@@ -27,7 +35,7 @@ impl InventoryEncryption {
 }
 
 /// A builder for [`InventoryEncryption`](crate::types::InventoryEncryption).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InventoryEncryptionBuilder {
     pub(crate) sses3: ::std::option::Option<crate::types::Sses3>,
@@ -68,5 +76,13 @@ impl InventoryEncryptionBuilder {
             sses3: self.sses3,
             ssekms: self.ssekms,
         }
+    }
+}
+impl ::std::fmt::Debug for InventoryEncryptionBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryEncryptionBuilder");
+        formatter.field("sses3", &self.sses3);
+        formatter.field("ssekms", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

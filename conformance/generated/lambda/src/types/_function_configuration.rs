@@ -2,7 +2,7 @@
 
 /// <p>Details about a function's configuration.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct FunctionConfiguration {
     /// <p>The name of the function.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
@@ -279,6 +279,52 @@ impl FunctionConfiguration {
         self.durable_config.as_ref()
     }
 }
+impl ::std::fmt::Debug for FunctionConfiguration {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FunctionConfiguration");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("function_arn", &self.function_arn);
+        formatter.field("runtime", &self.runtime);
+        formatter.field("role", &self.role);
+        formatter.field("handler", &self.handler);
+        formatter.field("code_size", &self.code_size);
+        formatter.field("description", &self.description);
+        formatter.field("timeout", &self.timeout);
+        formatter.field("memory_size", &self.memory_size);
+        formatter.field("last_modified", &self.last_modified);
+        formatter.field("code_sha256", &self.code_sha256);
+        formatter.field("version", &self.version);
+        formatter.field("vpc_config", &self.vpc_config);
+        formatter.field("dead_letter_config", &self.dead_letter_config);
+        formatter.field("environment", &"*** Sensitive Data Redacted ***");
+        formatter.field("kms_key_arn", &self.kms_key_arn);
+        formatter.field("tracing_config", &self.tracing_config);
+        formatter.field("master_arn", &self.master_arn);
+        formatter.field("revision_id", &self.revision_id);
+        formatter.field("layers", &self.layers);
+        formatter.field("state", &self.state);
+        formatter.field("state_reason", &self.state_reason);
+        formatter.field("state_reason_code", &self.state_reason_code);
+        formatter.field("last_update_status", &self.last_update_status);
+        formatter.field("last_update_status_reason", &self.last_update_status_reason);
+        formatter.field("last_update_status_reason_code", &self.last_update_status_reason_code);
+        formatter.field("file_system_configs", &self.file_system_configs);
+        formatter.field("signing_profile_version_arn", &self.signing_profile_version_arn);
+        formatter.field("signing_job_arn", &self.signing_job_arn);
+        formatter.field("package_type", &self.package_type);
+        formatter.field("image_config_response", &"*** Sensitive Data Redacted ***");
+        formatter.field("architectures", &self.architectures);
+        formatter.field("ephemeral_storage", &self.ephemeral_storage);
+        formatter.field("snap_start", &self.snap_start);
+        formatter.field("runtime_version_config", &"*** Sensitive Data Redacted ***");
+        formatter.field("logging_config", &self.logging_config);
+        formatter.field("tenancy_config", &self.tenancy_config);
+        formatter.field("capacity_provider_config", &self.capacity_provider_config);
+        formatter.field("config_sha256", &self.config_sha256);
+        formatter.field("durable_config", &self.durable_config);
+        formatter.finish()
+    }
+}
 impl FunctionConfiguration {
     /// Creates a new builder-style object to manufacture [`FunctionConfiguration`](crate::types::FunctionConfiguration).
     pub fn builder() -> crate::types::builders::FunctionConfigurationBuilder {
@@ -287,7 +333,7 @@ impl FunctionConfiguration {
 }
 
 /// A builder for [`FunctionConfiguration`](crate::types::FunctionConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct FunctionConfigurationBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -993,5 +1039,51 @@ impl FunctionConfigurationBuilder {
             config_sha256: self.config_sha256,
             durable_config: self.durable_config,
         }
+    }
+}
+impl ::std::fmt::Debug for FunctionConfigurationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FunctionConfigurationBuilder");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("function_arn", &self.function_arn);
+        formatter.field("runtime", &self.runtime);
+        formatter.field("role", &self.role);
+        formatter.field("handler", &self.handler);
+        formatter.field("code_size", &self.code_size);
+        formatter.field("description", &self.description);
+        formatter.field("timeout", &self.timeout);
+        formatter.field("memory_size", &self.memory_size);
+        formatter.field("last_modified", &self.last_modified);
+        formatter.field("code_sha256", &self.code_sha256);
+        formatter.field("version", &self.version);
+        formatter.field("vpc_config", &self.vpc_config);
+        formatter.field("dead_letter_config", &self.dead_letter_config);
+        formatter.field("environment", &"*** Sensitive Data Redacted ***");
+        formatter.field("kms_key_arn", &self.kms_key_arn);
+        formatter.field("tracing_config", &self.tracing_config);
+        formatter.field("master_arn", &self.master_arn);
+        formatter.field("revision_id", &self.revision_id);
+        formatter.field("layers", &self.layers);
+        formatter.field("state", &self.state);
+        formatter.field("state_reason", &self.state_reason);
+        formatter.field("state_reason_code", &self.state_reason_code);
+        formatter.field("last_update_status", &self.last_update_status);
+        formatter.field("last_update_status_reason", &self.last_update_status_reason);
+        formatter.field("last_update_status_reason_code", &self.last_update_status_reason_code);
+        formatter.field("file_system_configs", &self.file_system_configs);
+        formatter.field("signing_profile_version_arn", &self.signing_profile_version_arn);
+        formatter.field("signing_job_arn", &self.signing_job_arn);
+        formatter.field("package_type", &self.package_type);
+        formatter.field("image_config_response", &"*** Sensitive Data Redacted ***");
+        formatter.field("architectures", &self.architectures);
+        formatter.field("ephemeral_storage", &self.ephemeral_storage);
+        formatter.field("snap_start", &self.snap_start);
+        formatter.field("runtime_version_config", &"*** Sensitive Data Redacted ***");
+        formatter.field("logging_config", &self.logging_config);
+        formatter.field("tenancy_config", &self.tenancy_config);
+        formatter.field("capacity_provider_config", &self.capacity_provider_config);
+        formatter.field("config_sha256", &self.config_sha256);
+        formatter.field("durable_config", &self.durable_config);
+        formatter.finish()
     }
 }

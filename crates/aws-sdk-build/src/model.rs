@@ -10,12 +10,14 @@ pub(crate) struct Model {
     pub(crate) entry: ModelEntry,
     pub(crate) root: Value,
     pub(crate) shapes: BTreeMap<String, Value>,
+    pub(crate) protocol_tests: Vec<Value>,
 }
 
 #[derive(Debug, Clone)]
 pub(crate) struct SelectedModel {
     pub(crate) model: Model,
     pub(crate) operations: Vec<String>,
+    pub(crate) protocol_tests: Vec<Value>,
 }
 
 /// Protocols understood by the generated client layer.
@@ -75,10 +77,22 @@ impl Model {
             .iter()
             .map(|(id, shape)| (id.clone(), shape.clone()))
             .collect();
+        let protocol_tests = entry
+            .protocol_tests
+            .map(serde_json::from_slice::<Value>)
+            .transpose()
+            .map_err(|source| BuildError::ModelParse {
+                model: format!("{} protocol tests", entry.filename),
+                source,
+            })?
+            .and_then(|value| value.get("tests").cloned())
+            .and_then(|value| value.as_array().cloned())
+            .unwrap_or_default();
         Ok(Self {
             entry,
             root,
             shapes,
+            protocol_tests,
         })
     }
 
@@ -158,6 +172,37 @@ impl Model {
             self.entry.service_shape_id,
             self.entry.filename,
         )?;
+        let selected_protocol_tests = self
+            .protocol_tests
+            .iter()
+            .filter(|test| {
+                test.get("operation")
+                    .and_then(Value::as_str)
+                    .is_none_or(|operation| {
+                        selected_ids
+                            .iter()
+                            .any(|selected| terminal_name(selected) == operation)
+                    })
+                    || test
+                        .get("shape")
+                        .and_then(Value::as_str)
+                        .is_some_and(|shape| {
+                            selected_ids.iter().any(|operation_id| {
+                                shapes
+                                    .get(operation_id)
+                                    .and_then(|operation| operation.get("errors"))
+                                    .and_then(Value::as_array)
+                                    .is_some_and(|errors| {
+                                        errors
+                                            .iter()
+                                            .filter_map(member_target)
+                                            .any(|error| error == shape)
+                                    })
+                            })
+                        })
+            })
+            .cloned()
+            .collect();
         let mut root = self.root.clone();
         root["shapes"] = Value::Object(shapes);
         let selected_shape_map = root_shape_map(&root);
@@ -170,8 +215,10 @@ impl Model {
                 entry: self.entry,
                 root,
                 shapes: selected_shape_map,
+                protocol_tests: self.protocol_tests.clone(),
             },
             operations,
+            protocol_tests: selected_protocol_tests,
         })
     }
 
@@ -433,6 +480,25 @@ fn synthetic_operation_shape(
 /// packaged Smithy model alone. The predicates intentionally inspect shape
 /// relationships and traits instead of service or operation names.
 fn apply_model_customizations(shapes: &mut Map<String, Value>) {
+    // Smithy-RS's AWS decorator marks CopyObject as incompatible with stalled
+    // stream protection because its response can legitimately pause while the
+    // service performs the copy.
+    if let Some(shape) = shapes
+        .get_mut("com.amazonaws.s3#CopyObject")
+        .and_then(Value::as_object_mut)
+    {
+        shape
+            .entry("traits".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()))
+            .as_object_mut()
+            .expect("operation traits must be an object")
+            .insert(
+                "software.amazon.smithy.rust.codegen.client.smithy.traits#incompatibleWithStalledStreamProtectionTrait"
+                    .to_owned(),
+                Value::Object(Map::new()),
+            );
+    }
+
     // The AWS Smithy-RS decorator marks this response so the paginator uses
     // `is_truncated` instead of the final numeric marker to detect exhaustion.
     // Keep the customization in the model transform, where the upstream

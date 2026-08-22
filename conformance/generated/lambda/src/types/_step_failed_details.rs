@@ -2,7 +2,7 @@
 
 /// <p>Details about a step that failed.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct StepFailedDetails {
     /// <p>Details about the step failure.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -19,6 +19,14 @@ impl StepFailedDetails {
         self.retry_details.as_ref()
     }
 }
+impl ::std::fmt::Debug for StepFailedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("StepFailedDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("retry_details", &self.retry_details);
+        formatter.finish()
+    }
+}
 impl StepFailedDetails {
     /// Creates a new builder-style object to manufacture [`StepFailedDetails`](crate::types::StepFailedDetails).
     pub fn builder() -> crate::types::builders::StepFailedDetailsBuilder {
@@ -27,7 +35,7 @@ impl StepFailedDetails {
 }
 
 /// A builder for [`StepFailedDetails`](crate::types::StepFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct StepFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -70,5 +78,13 @@ impl StepFailedDetailsBuilder {
             error: self.error,
             retry_details: self.retry_details,
         }
+    }
+}
+impl ::std::fmt::Debug for StepFailedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("StepFailedDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("retry_details", &self.retry_details);
+        formatter.finish()
     }
 }

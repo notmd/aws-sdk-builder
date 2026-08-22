@@ -28,8 +28,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,462 files: 2,880 exact, 1,613 mismatches, 1,968 missing,
-  and 1 extra (40.47% arithmetic-average match).
+  current report compares 6,462 files: 2,931 exact, 1,562 mismatches, 1,968 missing,
+  and 1 extra (41.30% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -55,6 +55,31 @@ inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silent
 change conformance inputs.
 
 ## Evidence
+
+### Checkpoint: 2026-08-23 — Declarative Smithy HTTP protocol-test overlay
+
+- State: in progress
+- Changed: added `crates/aws-sdk-build/models/protocol-tests/s3.json`, attached
+  it through the generic model registry, and added generic request/response
+  protocol-test rendering in `crates/aws-sdk-build/src/codegen.rs`. Request tests
+  cover fluent input construction, endpoint/region setup, query/header/body
+  assertions, and URI checks. Response tests cover output and modeled-error
+  deserialization, nested builders, timestamps, enums, and XML bodies. Error-shape
+  tests are inherited by every selected operation that references the shape.
+- Evidence: inspected the pinned Smithy-RS `ClientProtocolTestGenerator` and
+  `ProtocolTestGenerator` under `/tmp/smithy-rs`. `cargo check -p aws-sdk-build`
+  passes. `just conformance` regenerated 8 all-operation snapshots, formatted
+  4,494 generated Rust files, and exited 1 as expected because parity remains
+  incomplete. All ten previously missing S3 operation-root protocol-test blocks
+  are exact after formatting. `cargo test --workspace`, `cargo clippy
+  --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`, and
+  `git diff --check` pass.
+- Conformance: overall `2,921/1,572/1,968/1` -> `2,931/1,562/1,968/1`; S3
+  `1,030/213/101/0` -> `1,040/203/101/0` (matched/mismatched/missing/extra).
+- Blocker: three long-operation S3 roots still differ in Smithy-RS source layout;
+  broader endpoint/auth/retry/checksum, protocol/runtime, presigning, waiter, and
+  remaining source-tree parity gaps remain open.
+- Next action: commit this verified checkpoint.
 
 ### Checkpoint: 2026-08-23 — Generic waiter rendering
 

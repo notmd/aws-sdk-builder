@@ -2,7 +2,7 @@
 
 /// <p>Information about an operation within a durable execution.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct Operation {
     /// <p>The unique identifier for this operation.</p>
     pub id: ::std::string::String,
@@ -92,6 +92,26 @@ impl Operation {
         self.chained_invoke_details.as_ref()
     }
 }
+impl ::std::fmt::Debug for Operation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("Operation");
+        formatter.field("id", &self.id);
+        formatter.field("parent_id", &self.parent_id);
+        formatter.field("name", &self.name);
+        formatter.field("type", &self.r#type);
+        formatter.field("sub_type", &self.sub_type);
+        formatter.field("start_timestamp", &self.start_timestamp);
+        formatter.field("end_timestamp", &self.end_timestamp);
+        formatter.field("status", &self.status);
+        formatter.field("execution_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("context_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("step_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("wait_details", &self.wait_details);
+        formatter.field("callback_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("chained_invoke_details", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl Operation {
     /// Creates a new builder-style object to manufacture [`Operation`](crate::types::Operation).
     pub fn builder() -> crate::types::builders::OperationBuilder {
@@ -100,7 +120,7 @@ impl Operation {
 }
 
 /// A builder for [`Operation`](crate::types::Operation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct OperationBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -362,5 +382,25 @@ impl OperationBuilder {
             callback_details: self.callback_details,
             chained_invoke_details: self.chained_invoke_details,
         })
+    }
+}
+impl ::std::fmt::Debug for OperationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("OperationBuilder");
+        formatter.field("id", &self.id);
+        formatter.field("parent_id", &self.parent_id);
+        formatter.field("name", &self.name);
+        formatter.field("type", &self.r#type);
+        formatter.field("sub_type", &self.sub_type);
+        formatter.field("start_timestamp", &self.start_timestamp);
+        formatter.field("end_timestamp", &self.end_timestamp);
+        formatter.field("status", &self.status);
+        formatter.field("execution_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("context_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("step_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("wait_details", &self.wait_details);
+        formatter.field("callback_details", &"*** Sensitive Data Redacted ***");
+        formatter.field("chained_invoke_details", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

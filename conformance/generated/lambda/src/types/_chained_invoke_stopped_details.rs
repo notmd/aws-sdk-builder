@@ -2,7 +2,7 @@
 
 /// <p>Details about a chained invocation that was stopped.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ChainedInvokeStoppedDetails {
     /// <p>Details about why the chained invocation stopped.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl ChainedInvokeStoppedDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ChainedInvokeStoppedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeStoppedDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ChainedInvokeStoppedDetails {
     /// Creates a new builder-style object to manufacture [`ChainedInvokeStoppedDetails`](crate::types::ChainedInvokeStoppedDetails).
     pub fn builder() -> crate::types::builders::ChainedInvokeStoppedDetailsBuilder {
@@ -21,7 +28,7 @@ impl ChainedInvokeStoppedDetails {
 }
 
 /// A builder for [`ChainedInvokeStoppedDetails`](crate::types::ChainedInvokeStoppedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ChainedInvokeStoppedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -45,5 +52,12 @@ impl ChainedInvokeStoppedDetailsBuilder {
     /// Consumes the builder and constructs a [`ChainedInvokeStoppedDetails`](crate::types::ChainedInvokeStoppedDetails).
     pub fn build(self) -> crate::types::ChainedInvokeStoppedDetails {
         crate::types::ChainedInvokeStoppedDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for ChainedInvokeStoppedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeStoppedDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where S3 Inventory results are published.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InventoryS3BucketDestination {
     /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
     /// <p>Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.</p>
@@ -42,6 +42,17 @@ impl InventoryS3BucketDestination {
         self.encryption.as_ref()
     }
 }
+impl ::std::fmt::Debug for InventoryS3BucketDestination {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryS3BucketDestination");
+        formatter.field("account_id", &self.account_id);
+        formatter.field("bucket", &self.bucket);
+        formatter.field("format", &self.format);
+        formatter.field("prefix", &self.prefix);
+        formatter.field("encryption", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl InventoryS3BucketDestination {
     /// Creates a new builder-style object to manufacture [`InventoryS3BucketDestination`](crate::types::InventoryS3BucketDestination).
     pub fn builder() -> crate::types::builders::InventoryS3BucketDestinationBuilder {
@@ -50,7 +61,7 @@ impl InventoryS3BucketDestination {
 }
 
 /// A builder for [`InventoryS3BucketDestination`](crate::types::InventoryS3BucketDestination).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InventoryS3BucketDestinationBuilder {
     pub(crate) account_id: ::std::option::Option<::std::string::String>,
@@ -160,5 +171,16 @@ impl InventoryS3BucketDestinationBuilder {
             prefix: self.prefix,
             encryption: self.encryption,
         })
+    }
+}
+impl ::std::fmt::Debug for InventoryS3BucketDestinationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryS3BucketDestinationBuilder");
+        formatter.field("account_id", &self.account_id);
+        formatter.field("bucket", &self.bucket);
+        formatter.field("format", &self.format);
+        formatter.field("prefix", &self.prefix);
+        formatter.field("encryption", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

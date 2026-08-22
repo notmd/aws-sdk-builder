@@ -13,6 +13,7 @@ pub struct ModelEntry {
     pub crate_name: &'static str,
     pub module_name: &'static str,
     pub bytes: &'static [u8],
+    pub protocol_tests: Option<&'static [u8]>,
 }
 
 macro_rules! entry {
@@ -24,6 +25,25 @@ macro_rules! entry {
             crate_name: $crate_name,
             module_name: $module,
             bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
+            protocol_tests: None,
+        }
+    };
+}
+
+macro_rules! entry_with_protocol_tests {
+    ($key:literal, $shape:literal, $file:literal, $crate_name:literal, $module:literal, $tests:literal) => {
+        ModelEntry {
+            key: $key,
+            service_shape_id: $shape,
+            filename: $file,
+            crate_name: $crate_name,
+            module_name: $module,
+            bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
+            protocol_tests: Some(include_bytes!(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "/models/",
+                $tests
+            ))),
         }
     };
 }
@@ -225,12 +245,13 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-route53",
         "aws_sdk_route53"
     ),
-    entry!(
+    entry_with_protocol_tests!(
         "s3",
         "com.amazonaws.s3#AmazonS3",
         "s3.json",
         "aws-sdk-s3",
-        "aws_sdk_s3"
+        "aws_sdk_s3",
+        "protocol-tests/s3.json"
     ),
     entry!(
         "secrets-manager",

@@ -2,7 +2,7 @@
 
 /// <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that timed out.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ExecutionTimedOutDetails {
     /// <p>Details about the execution timeout.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl ExecutionTimedOutDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ExecutionTimedOutDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionTimedOutDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ExecutionTimedOutDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionTimedOutDetails`](crate::types::ExecutionTimedOutDetails).
     pub fn builder() -> crate::types::builders::ExecutionTimedOutDetailsBuilder {
@@ -21,7 +28,7 @@ impl ExecutionTimedOutDetails {
 }
 
 /// A builder for [`ExecutionTimedOutDetails`](crate::types::ExecutionTimedOutDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ExecutionTimedOutDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -44,5 +51,12 @@ impl ExecutionTimedOutDetailsBuilder {
     /// Consumes the builder and constructs a [`ExecutionTimedOutDetails`](crate::types::ExecutionTimedOutDetails).
     pub fn build(self) -> crate::types::ExecutionTimedOutDetails {
         crate::types::ExecutionTimedOutDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for ExecutionTimedOutDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionTimedOutDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

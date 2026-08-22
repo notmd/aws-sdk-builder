@@ -97,7 +97,7 @@ impl ::std::fmt::Debug for GetDurableExecutionOutput {
         formatter.field("function_arn", &self.function_arn);
         formatter.field("input_payload", &"*** Sensitive Data Redacted ***");
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &self.error);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
         formatter.field("start_timestamp", &self.start_timestamp);
         formatter.field("status", &self.status);
         formatter.field("end_timestamp", &self.end_timestamp);
@@ -399,7 +399,7 @@ impl ::std::fmt::Debug for GetDurableExecutionOutputBuilder {
         formatter.field("function_arn", &self.function_arn);
         formatter.field("input_payload", &"*** Sensitive Data Redacted ***");
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &self.error);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
         formatter.field("start_timestamp", &self.start_timestamp);
         formatter.field("status", &self.status);
         formatter.field("end_timestamp", &self.end_timestamp);

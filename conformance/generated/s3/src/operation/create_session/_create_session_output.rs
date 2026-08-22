@@ -49,7 +49,7 @@ impl ::std::fmt::Debug for CreateSessionOutput {
         formatter.field("ssekms_key_id", &"*** Sensitive Data Redacted ***");
         formatter.field("ssekms_encryption_context", &"*** Sensitive Data Redacted ***");
         formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
-        formatter.field("credentials", &self.credentials);
+        formatter.field("credentials", &"*** Sensitive Data Redacted ***");
         formatter.field("_extended_request_id", &self._extended_request_id);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()
@@ -200,7 +200,7 @@ impl ::std::fmt::Debug for CreateSessionOutputBuilder {
         formatter.field("ssekms_key_id", &"*** Sensitive Data Redacted ***");
         formatter.field("ssekms_encryption_context", &"*** Sensitive Data Redacted ***");
         formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
-        formatter.field("credentials", &self.credentials);
+        formatter.field("credentials", &"*** Sensitive Data Redacted ***");
         formatter.field("_extended_request_id", &self._extended_request_id);
         formatter.field("_request_id", &self._request_id);
         formatter.finish()

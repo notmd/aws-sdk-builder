@@ -2,7 +2,7 @@
 
 /// <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that stopped.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ExecutionStoppedDetails {
     /// <p>Details about why the execution stopped.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl ExecutionStoppedDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ExecutionStoppedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionStoppedDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ExecutionStoppedDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
     pub fn builder() -> crate::types::builders::ExecutionStoppedDetailsBuilder {
@@ -21,7 +28,7 @@ impl ExecutionStoppedDetails {
 }
 
 /// A builder for [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ExecutionStoppedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -45,5 +52,12 @@ impl ExecutionStoppedDetailsBuilder {
     /// Consumes the builder and constructs a [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
     pub fn build(self) -> crate::types::ExecutionStoppedDetails {
         crate::types::ExecutionStoppedDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for ExecutionStoppedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionStoppedDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

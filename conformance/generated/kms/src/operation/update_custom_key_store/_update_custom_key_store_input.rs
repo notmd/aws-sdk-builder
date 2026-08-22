@@ -121,7 +121,7 @@ impl ::std::fmt::Debug for UpdateCustomKeyStoreInput {
         formatter.field("xks_proxy_uri_path", &self.xks_proxy_uri_path);
         formatter.field("xks_proxy_vpc_endpoint_service_name", &self.xks_proxy_vpc_endpoint_service_name);
         formatter.field("xks_proxy_vpc_endpoint_service_owner", &self.xks_proxy_vpc_endpoint_service_owner);
-        formatter.field("xks_proxy_authentication_credential", &self.xks_proxy_authentication_credential);
+        formatter.field("xks_proxy_authentication_credential", &"*** Sensitive Data Redacted ***");
         formatter.field("xks_proxy_connectivity", &self.xks_proxy_connectivity);
         formatter.finish()
     }
@@ -389,7 +389,7 @@ impl ::std::fmt::Debug for UpdateCustomKeyStoreInputBuilder {
         formatter.field("xks_proxy_uri_path", &self.xks_proxy_uri_path);
         formatter.field("xks_proxy_vpc_endpoint_service_name", &self.xks_proxy_vpc_endpoint_service_name);
         formatter.field("xks_proxy_vpc_endpoint_service_owner", &self.xks_proxy_vpc_endpoint_service_owner);
-        formatter.field("xks_proxy_authentication_credential", &self.xks_proxy_authentication_credential);
+        formatter.field("xks_proxy_authentication_credential", &"*** Sensitive Data Redacted ***");
         formatter.field("xks_proxy_connectivity", &self.xks_proxy_connectivity);
         formatter.finish()
     }

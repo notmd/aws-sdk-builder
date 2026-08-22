@@ -2,7 +2,7 @@
 
 /// <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct S3Location {
     /// <p>The name of the bucket where the restore results will be placed.</p>
     pub bucket_name: ::std::string::String,
@@ -61,6 +61,20 @@ impl S3Location {
         self.storage_class.as_ref()
     }
 }
+impl ::std::fmt::Debug for S3Location {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("S3Location");
+        formatter.field("bucket_name", &self.bucket_name);
+        formatter.field("prefix", &self.prefix);
+        formatter.field("encryption", &"*** Sensitive Data Redacted ***");
+        formatter.field("canned_acl", &self.canned_acl);
+        formatter.field("access_control_list", &self.access_control_list);
+        formatter.field("tagging", &self.tagging);
+        formatter.field("user_metadata", &self.user_metadata);
+        formatter.field("storage_class", &self.storage_class);
+        formatter.finish()
+    }
+}
 impl S3Location {
     /// Creates a new builder-style object to manufacture [`S3Location`](crate::types::S3Location).
     pub fn builder() -> crate::types::builders::S3LocationBuilder {
@@ -69,7 +83,7 @@ impl S3Location {
 }
 
 /// A builder for [`S3Location`](crate::types::S3Location).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct S3LocationBuilder {
     pub(crate) bucket_name: ::std::option::Option<::std::string::String>,
@@ -233,5 +247,19 @@ impl S3LocationBuilder {
             user_metadata: self.user_metadata,
             storage_class: self.storage_class,
         })
+    }
+}
+impl ::std::fmt::Debug for S3LocationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("S3LocationBuilder");
+        formatter.field("bucket_name", &self.bucket_name);
+        formatter.field("prefix", &self.prefix);
+        formatter.field("encryption", &"*** Sensitive Data Redacted ***");
+        formatter.field("canned_acl", &self.canned_acl);
+        formatter.field("access_control_list", &self.access_control_list);
+        formatter.field("tagging", &self.tagging);
+        formatter.field("user_metadata", &self.user_metadata);
+        formatter.field("storage_class", &self.storage_class);
+        formatter.finish()
     }
 }

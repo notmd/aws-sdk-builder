@@ -2,7 +2,7 @@
 
 /// <p>A list of Lambda functions.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ListFunctionsOutput {
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
@@ -22,6 +22,15 @@ impl ListFunctionsOutput {
         self.functions.as_deref().unwrap_or_default()
     }
 }
+impl ::std::fmt::Debug for ListFunctionsOutput {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ListFunctionsOutput");
+        formatter.field("next_marker", &self.next_marker);
+        formatter.field("functions", &"*** Sensitive Data Redacted ***");
+        formatter.field("_request_id", &self._request_id);
+        formatter.finish()
+    }
+}
 impl ::aws_types::request_id::RequestId for ListFunctionsOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -35,7 +44,7 @@ impl ListFunctionsOutput {
 }
 
 /// A builder for [`ListFunctionsOutput`](crate::operation::list_functions::ListFunctionsOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ListFunctionsOutputBuilder {
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
@@ -93,5 +102,14 @@ impl ListFunctionsOutputBuilder {
             functions: self.functions,
             _request_id: self._request_id,
         }
+    }
+}
+impl ::std::fmt::Debug for ListFunctionsOutputBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ListFunctionsOutputBuilder");
+        formatter.field("next_marker", &self.next_marker);
+        formatter.field("functions", &"*** Sensitive Data Redacted ***");
+        formatter.field("_request_id", &self._request_id);
+        formatter.finish()
     }
 }

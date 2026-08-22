@@ -2,7 +2,7 @@
 
 /// <p>Details about a context that failed.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ContextFailedDetails {
     /// <p>Details about the context failure.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl ContextFailedDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ContextFailedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ContextFailedDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ContextFailedDetails {
     /// Creates a new builder-style object to manufacture [`ContextFailedDetails`](crate::types::ContextFailedDetails).
     pub fn builder() -> crate::types::builders::ContextFailedDetailsBuilder {
@@ -21,7 +28,7 @@ impl ContextFailedDetails {
 }
 
 /// A builder for [`ContextFailedDetails`](crate::types::ContextFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ContextFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -45,5 +52,12 @@ impl ContextFailedDetailsBuilder {
     /// Consumes the builder and constructs a [`ContextFailedDetails`](crate::types::ContextFailedDetails).
     pub fn build(self) -> crate::types::ContextFailedDetails {
         crate::types::ContextFailedDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for ContextFailedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ContextFailedDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

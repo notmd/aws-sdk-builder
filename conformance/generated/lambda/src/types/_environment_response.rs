@@ -23,7 +23,7 @@ impl ::std::fmt::Debug for EnvironmentResponse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("EnvironmentResponse");
         formatter.field("variables", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &self.error);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -88,7 +88,7 @@ impl ::std::fmt::Debug for EnvironmentResponseBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("EnvironmentResponseBuilder");
         formatter.field("variables", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &self.error);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

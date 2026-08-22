@@ -2,7 +2,7 @@
 
 /// <p>Details about a durable execution that started.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ExecutionStartedDetails {
     /// <p>The input payload provided for the durable execution.</p>
     pub input: ::std::option::Option<crate::types::EventInput>,
@@ -19,6 +19,14 @@ impl ExecutionStartedDetails {
         self.execution_timeout
     }
 }
+impl ::std::fmt::Debug for ExecutionStartedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionStartedDetails");
+        formatter.field("input", &"*** Sensitive Data Redacted ***");
+        formatter.field("execution_timeout", &self.execution_timeout);
+        formatter.finish()
+    }
+}
 impl ExecutionStartedDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
     pub fn builder() -> crate::types::builders::ExecutionStartedDetailsBuilder {
@@ -27,7 +35,7 @@ impl ExecutionStartedDetails {
 }
 
 /// A builder for [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ExecutionStartedDetailsBuilder {
     pub(crate) input: ::std::option::Option<crate::types::EventInput>,
@@ -77,5 +85,13 @@ impl ExecutionStartedDetailsBuilder {
                 )
             })?,
         })
+    }
+}
+impl ::std::fmt::Debug for ExecutionStartedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionStartedDetailsBuilder");
+        formatter.field("input", &"*** Sensitive Data Redacted ***");
+        formatter.field("execution_timeout", &self.execution_timeout);
+        formatter.finish()
     }
 }

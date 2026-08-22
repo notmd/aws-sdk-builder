@@ -2,7 +2,7 @@
 
 /// <p>Specifies the S3 Inventory configuration for an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html">GET Bucket inventory</a> in the <i>Amazon S3 API Reference</i>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InventoryConfiguration {
     /// <p>Contains information about where to publish the inventory results.</p>
     pub destination: ::std::option::Option<crate::types::InventoryDestination>,
@@ -56,6 +56,19 @@ impl InventoryConfiguration {
         self.schedule.as_ref()
     }
 }
+impl ::std::fmt::Debug for InventoryConfiguration {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryConfiguration");
+        formatter.field("destination", &"*** Sensitive Data Redacted ***");
+        formatter.field("is_enabled", &self.is_enabled);
+        formatter.field("filter", &self.filter);
+        formatter.field("id", &self.id);
+        formatter.field("included_object_versions", &self.included_object_versions);
+        formatter.field("optional_fields", &self.optional_fields);
+        formatter.field("schedule", &self.schedule);
+        formatter.finish()
+    }
+}
 impl InventoryConfiguration {
     /// Creates a new builder-style object to manufacture [`InventoryConfiguration`](crate::types::InventoryConfiguration).
     pub fn builder() -> crate::types::builders::InventoryConfigurationBuilder {
@@ -64,7 +77,7 @@ impl InventoryConfiguration {
 }
 
 /// A builder for [`InventoryConfiguration`](crate::types::InventoryConfiguration).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InventoryConfigurationBuilder {
     pub(crate) destination: ::std::option::Option<crate::types::InventoryDestination>,
@@ -221,5 +234,18 @@ impl InventoryConfigurationBuilder {
             optional_fields: self.optional_fields,
             schedule: self.schedule,
         })
+    }
+}
+impl ::std::fmt::Debug for InventoryConfigurationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryConfigurationBuilder");
+        formatter.field("destination", &"*** Sensitive Data Redacted ***");
+        formatter.field("is_enabled", &self.is_enabled);
+        formatter.field("filter", &self.filter);
+        formatter.field("id", &self.id);
+        formatter.field("included_object_versions", &self.included_object_versions);
+        formatter.field("optional_fields", &self.optional_fields);
+        formatter.field("schedule", &self.schedule);
+        formatter.finish()
     }
 }

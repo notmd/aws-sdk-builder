@@ -2,7 +2,7 @@
 
 /// <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ChainedInvokeFailedDetails {
     /// <p>Details about the chained invocation failure.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl ChainedInvokeFailedDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ChainedInvokeFailedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeFailedDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ChainedInvokeFailedDetails {
     /// Creates a new builder-style object to manufacture [`ChainedInvokeFailedDetails`](crate::types::ChainedInvokeFailedDetails).
     pub fn builder() -> crate::types::builders::ChainedInvokeFailedDetailsBuilder {
@@ -21,7 +28,7 @@ impl ChainedInvokeFailedDetails {
 }
 
 /// A builder for [`ChainedInvokeFailedDetails`](crate::types::ChainedInvokeFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ChainedInvokeFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -45,5 +52,12 @@ impl ChainedInvokeFailedDetailsBuilder {
     /// Consumes the builder and constructs a [`ChainedInvokeFailedDetails`](crate::types::ChainedInvokeFailedDetails).
     pub fn build(self) -> crate::types::ChainedInvokeFailedDetails {
         crate::types::ChainedInvokeFailedDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for ChainedInvokeFailedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeFailedDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

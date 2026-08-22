@@ -2,7 +2,7 @@
 
 /// <p>Details about a function invocation that completed.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InvocationCompletedDetails {
     /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub start_timestamp: ::aws_smithy_types::DateTime,
@@ -32,6 +32,16 @@ impl InvocationCompletedDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for InvocationCompletedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvocationCompletedDetails");
+        formatter.field("start_timestamp", &self.start_timestamp);
+        formatter.field("end_timestamp", &self.end_timestamp);
+        formatter.field("request_id", &self.request_id);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl InvocationCompletedDetails {
     /// Creates a new builder-style object to manufacture [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
     pub fn builder() -> crate::types::builders::InvocationCompletedDetailsBuilder {
@@ -40,7 +50,7 @@ impl InvocationCompletedDetails {
 }
 
 /// A builder for [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InvocationCompletedDetailsBuilder {
     pub(crate) start_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -135,5 +145,15 @@ impl InvocationCompletedDetailsBuilder {
             })?,
             error: self.error,
         })
+    }
+}
+impl ::std::fmt::Debug for InvocationCompletedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvocationCompletedDetailsBuilder");
+        formatter.field("start_timestamp", &self.start_timestamp);
+        formatter.field("end_timestamp", &self.end_timestamp);
+        formatter.field("request_id", &self.request_id);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

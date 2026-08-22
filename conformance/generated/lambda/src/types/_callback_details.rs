@@ -30,7 +30,7 @@ impl ::std::fmt::Debug for CallbackDetails {
         let mut formatter = f.debug_struct("CallbackDetails");
         formatter.field("callback_id", &self.callback_id);
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &self.error);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }
@@ -106,7 +106,7 @@ impl ::std::fmt::Debug for CallbackDetailsBuilder {
         let mut formatter = f.debug_struct("CallbackDetailsBuilder");
         formatter.field("callback_id", &self.callback_id);
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &self.error);
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
         formatter.finish()
     }
 }

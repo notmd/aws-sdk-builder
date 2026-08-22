@@ -2,7 +2,7 @@
 
 /// <p>Details about a chained invocation that succeeded.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ChainedInvokeSucceededDetails {
     /// <p>The response payload from the successful operation.</p>
     pub result: ::std::option::Option<crate::types::EventResult>,
@@ -13,6 +13,13 @@ impl ChainedInvokeSucceededDetails {
         self.result.as_ref()
     }
 }
+impl ::std::fmt::Debug for ChainedInvokeSucceededDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeSucceededDetails");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ChainedInvokeSucceededDetails {
     /// Creates a new builder-style object to manufacture [`ChainedInvokeSucceededDetails`](crate::types::ChainedInvokeSucceededDetails).
     pub fn builder() -> crate::types::builders::ChainedInvokeSucceededDetailsBuilder {
@@ -21,7 +28,7 @@ impl ChainedInvokeSucceededDetails {
 }
 
 /// A builder for [`ChainedInvokeSucceededDetails`](crate::types::ChainedInvokeSucceededDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ChainedInvokeSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -45,5 +52,12 @@ impl ChainedInvokeSucceededDetailsBuilder {
     /// Consumes the builder and constructs a [`ChainedInvokeSucceededDetails`](crate::types::ChainedInvokeSucceededDetails).
     pub fn build(self) -> crate::types::ChainedInvokeSucceededDetails {
         crate::types::ChainedInvokeSucceededDetails { result: self.result }
+    }
+}
+impl ::std::fmt::Debug for ChainedInvokeSucceededDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeSucceededDetailsBuilder");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

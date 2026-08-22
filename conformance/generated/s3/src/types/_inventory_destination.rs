@@ -2,7 +2,7 @@
 
 /// <p>Specifies the S3 Inventory configuration for an Amazon S3 bucket.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InventoryDestination {
     /// <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>
     pub s3_bucket_destination: ::std::option::Option<crate::types::InventoryS3BucketDestination>,
@@ -13,6 +13,13 @@ impl InventoryDestination {
         self.s3_bucket_destination.as_ref()
     }
 }
+impl ::std::fmt::Debug for InventoryDestination {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryDestination");
+        formatter.field("s3_bucket_destination", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl InventoryDestination {
     /// Creates a new builder-style object to manufacture [`InventoryDestination`](crate::types::InventoryDestination).
     pub fn builder() -> crate::types::builders::InventoryDestinationBuilder {
@@ -21,7 +28,7 @@ impl InventoryDestination {
 }
 
 /// A builder for [`InventoryDestination`](crate::types::InventoryDestination).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InventoryDestinationBuilder {
     pub(crate) s3_bucket_destination: ::std::option::Option<crate::types::InventoryS3BucketDestination>,
@@ -47,5 +54,12 @@ impl InventoryDestinationBuilder {
         crate::types::InventoryDestination {
             s3_bucket_destination: self.s3_bucket_destination,
         }
+    }
+}
+impl ::std::fmt::Debug for InventoryDestinationBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InventoryDestinationBuilder");
+        formatter.field("s3_bucket_destination", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>Contains the response to a successful <code>GetSessionToken</code> request, including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct GetSessionTokenOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
     /// <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p>
@@ -18,6 +18,14 @@ impl GetSessionTokenOutput {
         self.credentials.as_ref()
     }
 }
+impl ::std::fmt::Debug for GetSessionTokenOutput {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("GetSessionTokenOutput");
+        formatter.field("credentials", &"*** Sensitive Data Redacted ***");
+        formatter.field("_request_id", &self._request_id);
+        formatter.finish()
+    }
+}
 impl ::aws_types::request_id::RequestId for GetSessionTokenOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -31,7 +39,7 @@ impl GetSessionTokenOutput {
 }
 
 /// A builder for [`GetSessionTokenOutput`](crate::operation::get_session_token::GetSessionTokenOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct GetSessionTokenOutputBuilder {
     pub(crate) credentials: ::std::option::Option<crate::types::Credentials>,
@@ -73,5 +81,13 @@ impl GetSessionTokenOutputBuilder {
             credentials: self.credentials,
             _request_id: self._request_id,
         }
+    }
+}
+impl ::std::fmt::Debug for GetSessionTokenOutputBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("GetSessionTokenOutputBuilder");
+        formatter.field("credentials", &"*** Sensitive Data Redacted ***");
+        formatter.field("_request_id", &self._request_id);
+        formatter.finish()
     }
 }

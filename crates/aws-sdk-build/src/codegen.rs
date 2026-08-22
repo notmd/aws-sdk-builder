@@ -1990,6 +1990,9 @@ fn render_operation_file(
     operation_name: &str,
     consumer_namespace: bool,
 ) -> String {
+    if !consumer_namespace {
+        return render_standalone_operation_file(selected, operation_name);
+    }
     let module = names::snake_case(operation_name);
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let rust_operation = rust_type_name(operation_name);
@@ -2036,6 +2039,1771 @@ fn render_operation_file(
     )
     .unwrap();
     output
+}
+
+/// Render the operation root used by an all-operation SDK snapshot.
+///
+/// The consumer fixture intentionally uses the repository's small transport
+/// runtime, while standalone snapshots follow the Smithy-RS operation-root
+/// boundary. Every value in this renderer comes from Smithy HTTP, endpoint,
+/// protocol, and auth traits; the renderer has no service or operation-name
+/// branches.
+fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &str) -> String {
+    let module = names::snake_case(operation_name);
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let operation_type = rust_type_name(operation_name);
+    let service_id = service_sdk_id(selected);
+    let input_path = format!("crate::operation::{module}::{operation_type}Input");
+    let output_path = format!("crate::operation::{module}::{operation_type}Output");
+    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let idempotency_member = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .and_then(|shape| {
+            members(shape).into_iter().find_map(|(name, member)| {
+                has_trait(member, "smithy.api#idempotencyToken").then_some(name)
+            })
+        })
+        .map(|name| names::rust_identifier(&name));
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "/// Orchestration and serialization glue logic for `{operation_type}`.\n#[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]\n#[non_exhaustive]\npub struct {operation_type};\nimpl {operation_type} {{\n    /// Creates a new `{operation_type}`\n    pub fn new() -> Self {{\n        Self\n    }}"
+    )
+    .unwrap();
+    render_standalone_operation_orchestration(
+        &mut output,
+        operation_name,
+        &service_id,
+        &input_path,
+        &output_path,
+        &error_path,
+        idempotency_member.as_deref(),
+    );
+    output.push_str("}\n");
+    render_standalone_runtime_plugin(
+        &mut output,
+        selected,
+        operation_name,
+        operation,
+        &module,
+        &operation_type,
+        &error_path,
+    );
+    render_standalone_telemetry_interceptor(&mut output, selected, operation_name, &operation_type);
+    render_standalone_response_deserializer(
+        &mut output,
+        selected,
+        operation_name,
+        operation,
+        &module,
+        &error_path,
+    );
+    render_standalone_request_serializer(
+        &mut output,
+        selected,
+        operation_name,
+        operation,
+        &module,
+        &operation_type,
+        &error_path,
+    );
+    render_standalone_endpoint_interceptor(&mut output, selected, operation_name, &operation_type);
+    render_standalone_protocol_tests(
+        &mut output,
+        selected,
+        operation_name,
+        operation,
+        &module,
+        &operation_type,
+    );
+    render_standalone_operation_error(&mut output, selected, operation_name, operation);
+    writeln!(
+        output,
+        "\npub use crate::operation::{module}::_{module}_input::{operation_type}Input;\n\npub use crate::operation::{module}::_{module}_output::{operation_type}Output;\n\nmod _{module}_input;\n\nmod _{module}_output;\n\n/// Builders\npub mod builders;"
+    )
+    .unwrap();
+    if operation_pagination_info(selected, operation_name).is_some() {
+        output.push_str("\n\n/// Paginator for this operation\npub mod paginator;");
+    }
+    output
+}
+
+fn service_sdk_id(selected: &SelectedModel) -> String {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(|traits| traits.get("aws.api#service"))
+        .and_then(|service| service.get("sdkId"))
+        .and_then(Value::as_str)
+        .unwrap_or_else(|| terminal(selected.model.entry.service_shape_id))
+        .to_owned()
+}
+
+fn operation_http_trait(operation: &Value) -> Option<&Value> {
+    operation
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#http"))
+}
+
+fn operation_http_method(operation: &Value) -> &str {
+    operation_http_trait(operation)
+        .and_then(|http| http.get("method"))
+        .and_then(Value::as_str)
+        .unwrap_or("POST")
+}
+
+fn operation_success_code(operation: &Value) -> u64 {
+    operation_http_trait(operation)
+        .and_then(|http| http.get("code"))
+        .and_then(Value::as_u64)
+        .unwrap_or(200)
+}
+
+fn operation_http_uri(operation: &Value) -> &str {
+    operation_http_trait(operation)
+        .and_then(|http| http.get("uri"))
+        .and_then(Value::as_str)
+        .unwrap_or("/")
+}
+
+fn operation_http_checksum_trait(operation: &Value) -> Option<&Value> {
+    operation
+        .get("traits")
+        .and_then(|traits| traits.get("aws.protocols#httpChecksum"))
+}
+
+fn operation_http_checksum_member<'a>(
+    input_shape: Option<&'a Value>,
+    checksum: &Value,
+    trait_member: &str,
+) -> Option<&'a Value> {
+    let name = checksum.get(trait_member).and_then(Value::as_str)?;
+    members(input_shape?)
+        .into_iter()
+        .find_map(|(member_name, member)| (member_name == name).then_some(member))
+}
+
+fn operation_has_unsigned_payload(operation: &Value) -> bool {
+    has_trait(operation, "aws.auth#unsignedPayload")
+}
+
+fn operation_requires_aws_chunked(
+    selected: &SelectedModel,
+    operation: &Value,
+    input_shape: Option<&Value>,
+) -> bool {
+    let Some(checksum) = operation_http_checksum_trait(operation) else {
+        return false;
+    };
+    let Some(request_algorithm_member) =
+        operation_http_checksum_member(input_shape, checksum, "requestAlgorithmMember")
+    else {
+        return false;
+    };
+    if request_algorithm_member
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#httpHeader"))
+        .and_then(Value::as_str)
+        .is_none()
+    {
+        return false;
+    }
+    input_shape.is_some_and(|shape| {
+        members(shape).into_iter().any(|(_, member)| {
+            has_trait(member, "smithy.api#httpPayload")
+                && member_target(member).is_some_and(|target| {
+                    is_streaming_target(target)
+                        || selected
+                            .model
+                            .shapes
+                            .get(target)
+                            .is_some_and(shape_is_streaming)
+                })
+        })
+    })
+}
+
+fn operation_has_event_stream(selected: &SelectedModel, operation: &Value) -> bool {
+    ["input", "output"].into_iter().any(|io| {
+        operation
+            .get(io)
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+            .is_some_and(|shape| {
+                members(shape).into_iter().any(|(_, member)| {
+                    has_trait(member, "smithy.api#httpPayload")
+                        && member_target(member).is_some_and(|target| {
+                            selected.model.shapes.get(target).is_some_and(|shape| {
+                                shape_is_streaming(shape)
+                                    && shape.get("type").and_then(Value::as_str) != Some("blob")
+                            })
+                        })
+                })
+            })
+    })
+}
+
+fn operation_uses_stalled_stream_protection(selected: &SelectedModel, operation: &Value) -> bool {
+    if operation_has_event_stream(selected, operation) {
+        return false;
+    }
+    !has_trait(
+        operation,
+        "software.amazon.smithy.rust.codegen.client.smithy.traits#incompatibleWithStalledStreamProtectionTrait",
+    )
+}
+
+fn service_supports_s3_express(selected: &SelectedModel) -> bool {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
+        .is_some_and(|rules| value_contains_string(rules, "sigv4-s3express"))
+}
+
+fn value_contains_string(value: &Value, expected: &str) -> bool {
+    match value {
+        Value::String(value) => value == expected,
+        Value::Array(values) => values
+            .iter()
+            .any(|value| value_contains_string(value, expected)),
+        Value::Object(values) => values
+            .values()
+            .any(|value| value_contains_string(value, expected)),
+        _ => false,
+    }
+}
+
+fn operation_has_s3_expires_output(selected: &SelectedModel, operation: &Value) -> bool {
+    operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .is_some_and(|shape| {
+            members(shape).into_iter().any(|(name, member)| {
+                name.ends_with("String")
+                    && member
+                        .get("traits")
+                        .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                        .and_then(Value::as_str)
+                        .is_some_and(|header| header.eq_ignore_ascii_case("ExpiresString"))
+            })
+        })
+}
+
+#[derive(Clone, Debug)]
+struct StandaloneUriLabel {
+    format_name: String,
+    field: String,
+    variable: String,
+    greedy: bool,
+}
+
+fn service_endpoint_parameter_names(selected: &SelectedModel) -> BTreeSet<String> {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
+        .and_then(|rules| rules.get("parameters"))
+        .and_then(Value::as_object)
+        .map(|parameters| parameters.keys().cloned().collect())
+        .unwrap_or_default()
+}
+
+fn standalone_uri_labels(
+    selected: &SelectedModel,
+    input_shape: Option<&Value>,
+    path: &str,
+) -> (String, Vec<StandaloneUriLabel>) {
+    let endpoint_parameters = service_endpoint_parameter_names(selected);
+    let mut labels = Vec::new();
+    let mut rendered_path = String::new();
+    for (index, segment) in path.split('/').enumerate() {
+        let (is_label, label_name, greedy) = if segment.starts_with('{') && segment.ends_with('}') {
+            let value = &segment[1..segment.len() - 1];
+            (
+                true,
+                value.strip_suffix('+').unwrap_or(value),
+                value.ends_with('+'),
+            )
+        } else {
+            (false, "", false)
+        };
+        let member = if is_label {
+            input_shape.and_then(|shape| {
+                members(shape).into_iter().find(|(name, member)| {
+                    names::rust_identifier(name) == names::rust_identifier(label_name)
+                        && has_trait(member, "smithy.api#httpLabel")
+                })
+            })
+        } else {
+            None
+        };
+        let omit = index == 1
+            && member.as_ref().is_some_and(|(_, member)| {
+                member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.rules#contextParam"))
+                    .and_then(|context| context.get("name"))
+                    .and_then(Value::as_str)
+                    .is_some_and(|name| endpoint_parameters.contains(name))
+            });
+        if index > 0 && !omit {
+            rendered_path.push('/');
+        }
+        if !is_label {
+            rendered_path.push_str(segment);
+        } else if !omit {
+            let (name, _) =
+                member.unwrap_or_else(|| panic!("HTTP label `{label_name}` has no input member"));
+            let field = names::rust_identifier(&name);
+            labels.push(StandaloneUriLabel {
+                format_name: label_name.to_owned(),
+                field: field.clone(),
+                variable: field,
+                greedy,
+            });
+            rendered_path.push('{');
+            rendered_path.push_str(label_name);
+            rendered_path.push('}');
+        }
+    }
+    if rendered_path.is_empty() {
+        rendered_path.push('/');
+    }
+    (rendered_path, labels)
+}
+
+fn standalone_uri_label_body(path: &str, labels: &[StandaloneUriLabel]) -> String {
+    let mut body = String::new();
+    for (index, label) in labels.iter().enumerate() {
+        writeln!(
+            body,
+            "                let input_{} = &_input.{};\n                let input_{} = input_{}.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field(\"{}\", \"cannot be empty or unset\"))?;\n                let {} = ::aws_smithy_http::label::fmt_string(input_{}, ::aws_smithy_http::label::EncodingStrategy::{});\n                if {}.is_empty() {{\n                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(\n                        \"{}\",\n                        \"cannot be empty or unset\",\n                    ));\n                }}",
+            index + 1,
+            label.field,
+            index + 1,
+            index + 1,
+            label.field,
+            label.variable,
+            index + 1,
+            if label.greedy { "Greedy" } else { "Default" },
+            label.variable,
+            label.field,
+        )
+        .unwrap();
+    }
+    let arguments = labels
+        .iter()
+        .map(|label| format!("{} = {}", label.format_name, label.variable))
+        .collect::<Vec<_>>();
+    if arguments.is_empty() {
+        writeln!(
+            body,
+            "                ::std::write!(output, {path:?}).expect(\"formatting should succeed\");"
+        )
+        .unwrap();
+    } else {
+        writeln!(
+            body,
+            "                ::std::write!(output, {path:?}, {}).expect(\"formatting should succeed\");",
+            arguments.join(", ")
+        )
+        .unwrap();
+    }
+    body
+}
+
+fn standalone_request_body(
+    selected: &SelectedModel,
+    operation_name: &str,
+    input_shape: Option<&Value>,
+) -> (String, Option<String>) {
+    let module = names::rust_module_name(operation_name);
+    let Some(input_shape) = input_shape else {
+        return (
+            "::aws_smithy_types::body::SdkBody::from(\"\")".to_owned(),
+            None,
+        );
+    };
+    if let Some((name, member)) = members(input_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+    {
+        let field = names::rust_identifier(&name);
+        let target = member_target(member).unwrap_or_default();
+        let target_shape = selected.model.shapes.get(target);
+        let helper =
+            format!("crate::protocol_serde::shape_{module}_input::ser_{field}_http_payload");
+        if terminal(target) == "StreamingBlob" {
+            return (
+                format!("{helper}(input.{field})?.into_inner()"),
+                Some(
+                    target_shape
+                        .and_then(shape_media_type)
+                        .unwrap_or("application/octet-stream")
+                        .to_owned(),
+                ),
+            );
+        }
+        let target_kind = target_shape
+            .and_then(|shape| shape.get("type"))
+            .and_then(Value::as_str);
+        let payload = if matches!(target_kind, Some("string" | "blob")) {
+            format!("{helper}(input.{field})?")
+        } else {
+            format!("{helper}(&input.{field})?")
+        };
+        let content_type = target_shape
+            .and_then(shape_media_type)
+            .or(match target_kind {
+                Some("string") => Some("text/plain"),
+                Some("blob") => Some("application/octet-stream"),
+                _ => Some("application/xml"),
+            })
+            .map(str::to_owned);
+        return (
+            format!("::aws_smithy_types::body::SdkBody::from({payload})"),
+            content_type,
+        );
+    }
+    if members(input_shape).iter().any(|(_, member)| {
+        is_xml_document_member(member) && !has_trait(member, "smithy.api#httpPayload")
+    }) {
+        let helper_module = if operation_shape(selected, operation_name)
+            .is_some_and(|operation| operation_has_event_stream(selected, operation))
+        {
+            module.clone()
+        } else {
+            format!("{module}_input")
+        };
+        return (
+            format!(
+                "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_{helper_module}::ser_{module}_op_input(&input)?)"
+            ),
+            Some("application/xml".to_owned()),
+        );
+    }
+    let _ = selected;
+    (
+        "::aws_smithy_types::body::SdkBody::from(\"\")".to_owned(),
+        None,
+    )
+}
+
+fn shape_media_type(shape: &Value) -> Option<&str> {
+    shape
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#mediaType"))
+        .and_then(Value::as_str)
+}
+
+fn render_standalone_operation_orchestration(
+    output: &mut String,
+    operation_name: &str,
+    service_id: &str,
+    input_path: &str,
+    output_path: &str,
+    error_path: &str,
+    idempotency_member: Option<&str>,
+) {
+    let idempotency_plugin = idempotency_member
+        .map(|field| {
+            format!(
+                "        runtime_plugins = runtime_plugins.with_operation_plugin(crate::client_idempotency_token::IdempotencyTokenRuntimePlugin::new(\n            |token_provider, input| {{\n                let input: &mut {input_path} = input.downcast_mut().expect(\"correct type\");\n                if input.{field}.is_none() {{\n                    input.{field} = ::std::option::Option::Some(token_provider.make_idempotency_token());\n                }}\n            }},\n        ));\n"
+            )
+        })
+        .unwrap_or_default();
+    writeln!(
+        output,
+        "    pub(crate) async fn orchestrate(\n        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        input: {input_path},\n    ) -> ::std::result::Result<\n        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >| {{\n            err.map_service_error(|err| {{\n                err.downcast::<{error_path}>()\n                    .expect(\"correct error type\")\n            }})\n        }};\n        let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)\n            .await\n            .map_err(map_err)?;\n        let output = context.finalize().map_err(map_err)?;\n        ::std::result::Result::Ok(\n            output\n                .downcast::<{output_path}>()\n                .expect(\"correct output type\"),\n        )\n    }}\n\n    pub(crate) async fn orchestrate_with_stop_point(\n        runtime_plugins: &::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        input: {input_path},\n        stop_point: ::aws_smithy_runtime::client::orchestrator::StopPoint,\n    ) -> ::std::result::Result<\n        ::aws_smithy_runtime_api::client::interceptors::context::InterceptorContext,\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let input = ::aws_smithy_runtime_api::client::interceptors::context::Input::erase(input);\n        use ::tracing::Instrument;\n        ::aws_smithy_runtime::client::orchestrator::invoke_with_stop_point({service_id:?}, {operation_name:?}, input, runtime_plugins, stop_point)\n            // Create a parent span for the entire operation. Includes a random, internal-only,\n            // seven-digit ID for the operation orchestration so that it can be correlated in the logs.\n            .instrument(::tracing::debug_span!(\n                \"{service_id}.{operation_name}\",\n                \"rpc.service\" = {service_id:?},\n                \"rpc.method\" = {operation_name:?},\n                \"sdk_invocation_id\" = ::fastrand::u32(1_000_000..10_000_000),\n                \"rpc.system\" = \"aws-api\",\n            ))\n            .await\n    }}\n\n    pub(crate) fn operation_runtime_plugins(\n        client_runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n        client_config: &crate::config::Config,\n        config_override: ::std::option::Option<crate::config::Builder>,\n    ) -> ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins {{\n        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());\n\n        if let ::std::option::Option::Some(config_override) = config_override {{\n            for plugin in config_override.runtime_plugins.iter().cloned() {{\n                runtime_plugins = runtime_plugins.with_operation_plugin(plugin);\n            }}\n            runtime_plugins = runtime_plugins.with_operation_plugin(crate::config::ConfigOverrideRuntimePlugin::new(\n                config_override,\n                client_config.config.clone(),\n                &client_config.runtime_components,\n            ));\n        }}\n        runtime_plugins\n    }}"
+    )
+    .unwrap();
+    if !idempotency_plugin.is_empty() {
+        let marker = "        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());\n\n        if let ::std::option::Option::Some(config_override) = config_override {";
+        let replacement = format!(
+            "        let mut runtime_plugins = client_runtime_plugins.with_operation_plugin(Self::new());\n{}        if let ::std::option::Option::Some(config_override) = config_override {{",
+            idempotency_plugin
+        );
+        *output = output.replace(marker, &replacement);
+    }
+}
+
+fn render_standalone_runtime_plugin(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    module: &str,
+    operation_type: &str,
+    error_path: &str,
+) {
+    let service_id = service_sdk_id(selected);
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let stalled_stream_protection = operation_uses_stalled_stream_protection(selected, operation);
+    let sensitive_output =
+        output_shape.is_some_and(|shape| structure_has_sensitive_member(selected, shape));
+    let checksum = operation_http_checksum_trait(operation);
+    let request_checksum_required = checksum
+        .and_then(|checksum| checksum.get("requestChecksumRequired"))
+        .and_then(Value::as_bool)
+        .unwrap_or(false);
+    let request_checksum_member_name = checksum
+        .and_then(|checksum| checksum.get("requestAlgorithmMember"))
+        .and_then(Value::as_str);
+    let request_checksum_member = checksum.and_then(|checksum| {
+        operation_http_checksum_member(input_shape, checksum, "requestAlgorithmMember")
+    });
+    let request_checksum_header = request_checksum_member.and_then(|member| {
+        member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#httpHeader"))
+            .and_then(Value::as_str)
+    });
+    let response_checksum_member_name = checksum
+        .and_then(|checksum| checksum.get("requestValidationModeMember"))
+        .and_then(Value::as_str);
+    let response_checksum_member = checksum.and_then(|checksum| {
+        operation_http_checksum_member(input_shape, checksum, "requestValidationModeMember")
+    });
+    let response_checksum_type = response_checksum_member
+        .and_then(member_target)
+        .map(|target| format!("crate::types::{}", rust_type_name(terminal(target))));
+    let unsigned_payload = operation_has_unsigned_payload(operation);
+
+    let mut config_extras = String::new();
+    if request_checksum_required && service_supports_s3_express(selected) {
+        config_extras.push_str(
+            "        cfg.store_put(crate::s3_express::checksum::provide_default_checksum_algorithm());\n",
+        );
+    }
+
+    let mut additional_interceptors = String::new();
+    if operation_has_s3_expires_output(selected, operation) {
+        additional_interceptors.push_str(
+            "            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(\n                crate::s3_expires_interceptor::S3ExpiresInterceptor,\n            ))\n",
+        );
+    }
+    if let (Some(request_checksum_member_name), Some(request_checksum_header)) =
+        (request_checksum_member_name, request_checksum_header)
+    {
+        let input_type = format!("crate::operation::{module}::{operation_type}Input");
+        let field = names::rust_identifier(request_checksum_member_name);
+        let required = request_checksum_required.to_string();
+        let header = request_checksum_header;
+        let request_interceptor = r#".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_request_checksum::RequestChecksumInterceptor::new(
+                                |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
+                                    let input: &__INPUT_TYPE__ = input.downcast_ref().expect("correct type");
+                                    let checksum_algorithm = input.__FIELD__();
+                                    let checksum_algorithm = checksum_algorithm.map(|algorithm| algorithm.as_str());
+                                    (checksum_algorithm.map(|s| s.to_string()), __REQUIRED__)
+                                },
+                                |request: &mut ::aws_smithy_runtime_api::http::Request, cfg: &::aws_smithy_types::config_bag::ConfigBag| {
+                                    // We check if the user has set any of the checksum values manually
+                                    let mut user_set_checksum_value = false;
+                                    let headers_to_check = request.headers().iter().filter_map(|(name, _val)| {
+                                        if name.starts_with("x-amz-checksum-") {
+                                            Some(name)
+                                        } else {
+                                            None
+                                        }
+                                    });
+                                    for algo_header in headers_to_check {
+                                        if request.headers().get(algo_header).is_some() {
+                                            user_set_checksum_value = true;
+                                        }
+                                    }
+
+                                    // We check if the user set the checksum algo manually
+                                    let user_set_checksum_algo = request.headers()
+                                        .get("__HEADER__")
+                                        .is_some();
+
+                                    // This value is set by the user on the SdkConfig to indicate their preference
+                                    let request_checksum_calculation = cfg
+                                        .load::<::aws_smithy_types::checksum_config::RequestChecksumCalculation>()
+                                        .unwrap_or(&::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenSupported);
+
+                                    // From the httpChecksum trait
+                                    let http_checksum_required = __REQUIRED__;
+
+                                    let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
+
+                                    // If the request is presigned we do not set a default.
+                                    // If the RequestChecksumCalculation is WhenSupported and the user has not set a checksum value or algo
+                                    // we set the default. If it is WhenRequired and a checksum is required by the trait and the user has not
+                                    // set a checksum value or algo we also set the default. In all other cases we do nothing.
+                                    match (
+                                        request_checksum_calculation,
+                                        http_checksum_required,
+                                        user_set_checksum_value,
+                                        user_set_checksum_algo,
+                                        is_presigned_req,
+                                    ) {
+                                        (_, _, _, _, true) => {}
+                                        (::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenSupported, _, false, false, _)
+                                        | (::aws_smithy_types::checksum_config::RequestChecksumCalculation::WhenRequired, true, false, false, _) => {
+                                            request.headers_mut().insert("__HEADER__", "CRC32");
+                                        }
+                                        _ => {},
+                                    }
+
+                                    // We return a bool indicating if the user did set the checksum value, if they did
+                                    // we can short circuit and exit the interceptor early.
+                                    Ok(user_set_checksum_value)
+                                }
+                                )))
+"#
+        .replace("__INPUT_TYPE__", &input_type)
+        .replace("__FIELD__", &field)
+        .replace("__REQUIRED__", &required)
+        .replace("__HEADER__", header);
+        additional_interceptors.push_str(&request_interceptor);
+    }
+    if let (Some(validation_member_name), Some(validation_type)) = (
+        response_checksum_member_name,
+        response_checksum_type.as_deref(),
+    ) {
+        let field = names::rust_identifier(validation_member_name);
+        let algorithms = checksum
+            .and_then(|checksum| checksum.get("responseAlgorithms"))
+            .and_then(Value::as_array)
+            .map(|algorithms| {
+                algorithms
+                    .iter()
+                    .filter_map(Value::as_str)
+                    .map(|algorithm| format!("{algorithm:?}").to_ascii_lowercase())
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            })
+            .unwrap_or_default();
+        if !algorithms.is_empty() {
+            let input_type = format!("crate::operation::{module}::{operation_type}Input");
+            let response_interceptor = r#".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::http_response_checksum::ResponseChecksumInterceptor::new(
+                                [__ALGORITHMS__].as_slice(),
+                                |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
+
+                                    let input: &__INPUT_TYPE__ = input.downcast_ref().expect("correct type");
+                                    matches!(input.__FIELD__(), ::std::option::Option::Some(__VALIDATION_TYPE__::Enabled))
+                                },
+                                |input: &mut ::aws_smithy_runtime_api::client::interceptors::context::Input, cfg: &::aws_smithy_types::config_bag::ConfigBag|  {
+                                    let input = input
+                                        .downcast_mut::<__INPUT_TYPE__>()
+                                        .ok_or("failed to downcast to __INPUT_TYPE__")?;
+
+                                    let request_validation_enabled =
+                                        matches!(input.__FIELD__(), Some(__VALIDATION_TYPE__::Enabled));
+
+                                    if !request_validation_enabled {
+                                        // This value is set by the user on the SdkConfig to indicate their preference
+                                        let response_checksum_validation = cfg
+                                            .load::<::aws_smithy_types::checksum_config::ResponseChecksumValidation>()
+                                            .unwrap_or(&::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported);
+
+                                        let is_presigned_req = cfg.load::<crate::presigning::PresigningMarker>().is_some();
+
+                                        // For presigned requests we do not enable the checksum-mode header.
+                                        if is_presigned_req {
+                                            return ::std::result::Result::Ok(())
+                                        }
+
+                                        // If validation setting is WhenSupported (or unknown) we enable response checksum
+                                        // validation. If it is WhenRequired we do not enable (since there is no way to
+                                        // indicate that a response checksum is required).
+                                        #[allow(clippy::wildcard_in_or_patterns)]
+                                        match response_checksum_validation {
+                                            ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenRequired => {}
+                                            ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported | _ => {
+                                                input.__FIELD__ = Some(__VALIDATION_TYPE__::Enabled);
+                                            }
+                                        }
+                                    }
+
+                                    ::std::result::Result::Ok(())
+                                }
+                            )))
+"#
+            .replace("__ALGORITHMS__", &algorithms)
+            .replace("__INPUT_TYPE__", &input_type)
+            .replace("__FIELD__", &field)
+            .replace("__VALIDATION_TYPE__", validation_type);
+            additional_interceptors.push_str(&response_interceptor);
+        }
+    }
+    if operation_requires_aws_chunked(selected, operation, input_shape) {
+        additional_interceptors.push_str(
+            ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(crate::aws_chunked::AwsChunkedContentEncodingInterceptor))\n",
+        );
+    }
+    writeln!(
+        output,
+        "impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for {operation_type} {{\n    fn config(&self) -> ::std::option::Option<::aws_smithy_types::config_bag::FrozenLayer> {{\n        let mut cfg = ::aws_smithy_types::config_bag::Layer::new({operation_name:?});\n\n        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedRequestSerializer::new(\n            {operation_type}RequestSerializer,\n        ));\n        cfg.store_put(::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer::new(\n            {operation_type}ResponseDeserializer,\n        ));\n\n        cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(\n            crate::config::auth::Params::builder()\n                .operation_name({operation_name:?})\n                .build()\n                .expect(\"required fields set\"),\n        ));\n"
+    )
+    .unwrap();
+    if sensitive_output {
+        output.push_str("        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);\n");
+    }
+    writeln!(
+        output,
+        "        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new({operation_name:?}, {service_id:?}));\n{config_extras}        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();\n        signing_options.double_uri_encode = {unsigned_payload};\n        signing_options.content_sha256_header = true;\n        signing_options.normalize_uri_path = false;\n        signing_options.payload_override = {payload_override};\n\n        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {{\n            signing_options,\n            ..::std::default::Default::default()\n        }});\n\n        ::std::option::Option::Some(cfg.freeze())\n    }}\n\n    fn runtime_components(\n        &self,\n        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,\n    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {{\n        #[allow(unused_mut)]\n                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new({operation_name:?})\n                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}TelemetryInputCaptureInterceptor))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}EndpointParamsInterceptor))\n{additional_interceptors}                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::builder().transient_errors({{\n                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();\n                                            transient_errors.push(\"InternalError\");\n                                            ::std::borrow::Cow::Owned(transient_errors)\n                                            }}).build());\n\n        ::std::borrow::Cow::Owned(rcb)\n    }}\n}}",
+        unsigned_payload = unsigned_payload,
+        payload_override = if unsigned_payload {
+            "Some(::aws_sigv4::http_request::SignableBody::UnsignedPayload)"
+        } else {
+            "None"
+        },
+    )
+    .unwrap();
+    if !stalled_stream_protection {
+        *output = output.replace(
+            ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n",
+            "",
+        );
+    }
+}
+
+fn render_standalone_telemetry_interceptor(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation_type: &str,
+) {
+    let input_shape = operation_shape(selected, operation_name)
+        .and_then(|operation| operation.get("input"))
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    writeln!(
+        output,
+        "\n#[derive(Debug)]\nstruct {operation_type}TelemetryInputCaptureInterceptor;\n\n#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]\nimpl ::aws_smithy_runtime_api::client::interceptors::Intercept for {operation_type}TelemetryInputCaptureInterceptor {{\n    fn name(&self) -> &'static str {{\n        \"{operation_type}TelemetryInputCaptureInterceptor\"\n    }}\n\n    fn read_before_execution(\n        &self,\n        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<\n            '_ ,\n            ::aws_smithy_runtime_api::client::interceptors::context::Input,\n            ::aws_smithy_runtime_api::client::interceptors::context::Output,\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n        >,\n        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {{\n        // Nothing to do unless the customer opted in by naming members to record.\n        let ::std::option::Option::Some(requested) = cfg\n            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()\n            .filter(|r| !r.is_empty())\n        else {{\n            return ::std::result::Result::Ok(());\n        }};\n\n        let ::std::option::Option::Some(input) = context.input().downcast_ref::<{operation_type}Input>() else {{\n            // A mismatched input is not this interceptor's concern; skip quietly.\n            return ::std::result::Result::Ok(());\n        }};\n\n        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();"
+    )
+    .unwrap();
+    if let Some(shape) = input_shape {
+        for (name, member) in members(shape) {
+            let Some(target) = member_target(member) else {
+                continue;
+            };
+            if !is_string_type(target, selected.model.shapes.get(target))
+                || has_trait(member, "smithy.api#sensitive")
+                || selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(|shape| has_trait(shape, "smithy.api#sensitive"))
+            {
+                continue;
+            }
+            let field = names::rust_identifier(&name);
+            writeln!(
+                output,
+                "        if requested.should_capture({name:?}) {{\n            if let ::std::option::Option::Some(value) = input.{field}.as_deref() {{\n                captured.insert({name:?}, value);\n            }}\n        }}"
+            )
+            .unwrap();
+        }
+    }
+    output.push_str("\n        cfg.interceptor_state().store_put(captured);\n        ::std::result::Result::Ok(())\n    }\n}\n");
+}
+
+fn render_standalone_response_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    module: &str,
+    error_path: &str,
+) {
+    let code = operation_success_code(operation);
+    let streaming_output = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .is_some_and(|shape| {
+            members(shape).into_iter().any(|(_, member)| {
+                has_trait(member, "smithy.api#httpPayload")
+                    && member_target(member).is_some_and(|target| {
+                        selected
+                            .model
+                            .shapes
+                            .get(target)
+                            .is_some_and(shape_is_streaming)
+                    })
+            })
+        });
+    if streaming_output {
+        render_standalone_streaming_response_deserializer(output, module, operation_name, code);
+        return;
+    }
+    let force_error = request_id_plan(selected).extended;
+    writeln!(
+        output,
+        "#[derive(Debug)]\nstruct {operation_name}ResponseDeserializer;\nimpl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for {operation_name}ResponseDeserializer {{\n    fn deserialize_nonstreaming_with_config(\n        &self,\n        response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        _cfg: &::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {{\n        let (success, status) = (response.status().is_success(), response.status().as_u16());\n        let headers = response.headers();\n        let body = response.body().bytes().expect(\"body loaded\");\n        #[allow(unused_mut)]\n        let mut force_error = false;"
+    )
+    .unwrap();
+    if force_error {
+        output.push_str("        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));\n        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {\n            force_error = true;\n        }");
+    }
+    output.push_str("        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));\n");
+    writeln!(
+        output,
+        "        let parse_result = if !success && status != {code} || force_error {{\n            crate::protocol_serde::shape_{module}::de_{module}_http_error(status, headers, body)\n        }} else {{\n            crate::protocol_serde::shape_{module}::de_{module}_http_response(status, headers, body)\n        }};\n        crate::protocol_serde::type_erase_result(parse_result)\n    }}\n}}"
+    )
+    .unwrap();
+    let _ = error_path;
+}
+
+fn render_standalone_streaming_response_deserializer(
+    output: &mut String,
+    module: &str,
+    operation_name: &str,
+    code: u64,
+) {
+    writeln!(
+        output,
+        "#[derive(Debug)]
+struct {operation_name}ResponseDeserializer;
+impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for {operation_name}ResponseDeserializer {{
+    fn deserialize_streaming(
+        &self,
+        response: &mut ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+    ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {{
+        #[allow(unused_mut)]
+        let mut force_error = false;
+        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
+        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+
+        // If this is an error, defer to the non-streaming parser
+        if (!response.status().is_success() && response.status().as_u16() != {code}) || force_error {{
+            return ::std::option::Option::None;
+        }}
+        ::std::option::Option::Some(crate::protocol_serde::type_erase_result(
+            crate::protocol_serde::shape_{module}::de_{module}_http_response(response),
+        ))
+    }}
+
+    fn deserialize_nonstreaming_with_config(
+        &self,
+        response: &::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+        _cfg: &::aws_smithy_types::config_bag::ConfigBag,
+    ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {{
+        // For streaming operations, we only hit this case if its an error
+        let body = response.body().bytes().expect(\"body loaded\");
+        crate::protocol_serde::type_erase_result(crate::protocol_serde::shape_{module}::de_{module}_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
+    }}
+}}"
+    )
+    .unwrap();
+}
+
+fn render_standalone_request_serializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    module: &str,
+    operation_type: &str,
+    error_path: &str,
+) {
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let input_path = format!("crate::operation::{module}::{operation_type}Input");
+    let uri = operation_http_uri(operation);
+    let (path, query) = uri.split_once('?').unwrap_or((uri, ""));
+    let (rendered_path, uri_labels) = standalone_uri_labels(selected, input_shape, path);
+    let query_parts = query
+        .split('&')
+        .filter(|part| !part.is_empty())
+        .collect::<Vec<_>>();
+    let has_dynamic_query = input_shape.is_some_and(|shape| {
+        members(shape)
+            .iter()
+            .any(|(_, member)| has_trait(member, "smithy.api#httpQuery"))
+    });
+    let has_query = !query_parts.is_empty() || has_dynamic_query;
+    let has_headers = input_shape.is_some_and(|shape| {
+        members(shape).iter().any(|(_, member)| {
+            has_trait(member, "smithy.api#httpHeader")
+                || has_trait(member, "smithy.api#httpPrefixHeaders")
+        })
+    });
+    writeln!(
+        output,
+        "#[derive(Debug)]\nstruct {operation_name}RequestSerializer;\nimpl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for {operation_name}RequestSerializer {{\n    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]\n    fn serialize_input(\n        &self,\n        input: ::aws_smithy_runtime_api::client::interceptors::context::Input,\n        _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {{\n        let input = input.downcast::<{input_path}>().expect(\"correct type\");\n        let _header_serialization_settings = _cfg\n            .load::<crate::serialization_settings::HeaderSerializationSettings>()\n            .cloned()\n            .unwrap_or_default();\n        let mut request_builder = {{"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "            #[allow(clippy::uninlined_format_args)]\n            fn uri_base(\n                _input: &{input_path},\n                output: &mut ::std::string::String,\n            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {{\n                use ::std::fmt::Write as _;\n                ::std::write!(output, {path:?}).expect(\"formatting should succeed\");\n                ::std::result::Result::Ok(())\n            }}"
+    )
+    .unwrap();
+    let raw_uri_write = format!(
+        "                ::std::write!(output, {path:?}).expect(\"formatting should succeed\");"
+    );
+    let rendered_uri_write = standalone_uri_label_body(&rendered_path, &uri_labels);
+    *output = output.replace(&raw_uri_write, rendered_uri_write.trim_end_matches('\n'));
+    if has_query {
+        writeln!(
+            output,
+            "            fn uri_query(\n                _input: &{input_path},\n                mut output: &mut ::std::string::String,\n            ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::BuildError> {{\n                let mut query = ::aws_smithy_http::query::Writer::new(output);"
+        )
+        .unwrap();
+        for part in query_parts {
+            if let Some((name, value)) = part.split_once('=') {
+                writeln!(
+                    output,
+                    "                query.push_kv({name:?}, {value:?});"
+                )
+                .unwrap();
+            } else {
+                writeln!(output, "                query.push_v({part:?});").unwrap();
+            }
+        }
+        let mut index = uri_labels.len() + 1;
+        if let Some(shape) = input_shape {
+            for (name, member) in members(shape) {
+                let Some(query_name) = member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpQuery"))
+                    .and_then(Value::as_str)
+                else {
+                    continue;
+                };
+                let field = names::rust_identifier(&name);
+                let target = member_target(member).unwrap_or("smithy.api#String");
+                let kind = protocol_shape_kind(selected, target);
+                if member_is_required(member) {
+                    writeln!(
+                        output,
+                        "                let inner_{index} = &_input.{field};"
+                    )
+                    .unwrap();
+                    writeln!(output, "                let inner_{index} = inner_{index}").unwrap();
+                    writeln!(output, "                    .as_ref()").unwrap();
+                    writeln!(output, "                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field({field:?}, \"cannot be empty or unset\"))?;").unwrap();
+                    if kind == "string" {
+                        writeln!(output, "                if inner_{index}.is_empty() {{").unwrap();
+                        writeln!(output, "                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(").unwrap();
+                        writeln!(output, "                        {field:?},").unwrap();
+                        output.push_str("                        \"cannot be empty or unset\",\n                    ));\n                }\n");
+                    }
+                    if kind == "enum" {
+                        writeln!(output, "                query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}.as_str()));").unwrap();
+                    } else if kind == "string" {
+                        writeln!(output, "                query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}));").unwrap();
+                    } else if kind == "timestamp" {
+                        writeln!(output, "                query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_timestamp(inner_{index}, ::aws_smithy_types::date_time::Format::HttpDate)?);").unwrap();
+                    } else {
+                        writeln!(output, "                query.push_kv({query_name:?}, ::aws_smithy_types::primitive::Encoder::from(*inner_{index}).encode());").unwrap();
+                    }
+                } else {
+                    writeln!(output, "                if let ::std::option::Option::Some(inner_{index}) = &_input.{field} {{").unwrap();
+                    output.push_str("                    {\n");
+                    if kind == "enum" {
+                        writeln!(output, "                        query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}.as_str()));").unwrap();
+                    } else if kind == "string" {
+                        writeln!(output, "                        query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string(inner_{index}));").unwrap();
+                    } else if kind == "timestamp" {
+                        writeln!(output, "                        query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_timestamp(inner_{index}, ::aws_smithy_types::date_time::Format::HttpDate)?);").unwrap();
+                    } else {
+                        writeln!(output, "                        query.push_kv({query_name:?}, ::aws_smithy_types::primitive::Encoder::from(*inner_{index}).encode());").unwrap();
+                    }
+                    output.push_str("                    }\n");
+                    output.push_str("                }\n");
+                }
+                index += 1;
+            }
+        }
+        output.push_str("                ::std::result::Result::Ok(())\n            }");
+    }
+    writeln!(
+        output,
+        "\n            #[allow(clippy::unnecessary_wraps)]\n            fn update_http_builder(\n                input: &{input_path},\n                builder: ::http_1x::request::Builder,\n            ) -> ::std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {{\n                let mut uri = ::std::string::String::new();\n                uri_base(input, &mut uri)?;"
+    )
+    .unwrap();
+    if has_query {
+        output.push_str("                uri_query(input, &mut uri)?;\n");
+    }
+    if has_headers {
+        writeln!(output, "                let builder = crate::protocol_serde::shape_{module}::ser_{module}_headers(input, builder)?;").unwrap();
+    }
+    writeln!(
+        output,
+        "                ::std::result::Result::Ok(builder.method({:?}).uri(uri))\n            }}\n            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder\n        }};\n        let body = ::aws_smithy_types::body::SdkBody::from(\"\");\n\n        ::std::result::Result::Ok(request_builder.body(body).expect(\"valid request\").try_into().unwrap())\n    }}\n}}",
+        operation_http_method(operation)
+    )
+    .unwrap();
+    let (body_expression, content_type) =
+        standalone_request_body(selected, operation_name, input_shape);
+    if let Some(ref content_type) = content_type {
+        let builder_marker = "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder".to_owned();
+        let builder_replacement = format!(
+            "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, {content_type:?});\n            builder"
+        );
+        *output = output.replace(&builder_marker, &builder_replacement);
+    }
+    let body_marker = "        let body = ::aws_smithy_types::body::SdkBody::from(\"\");\n\n";
+    let mut body_replacement = format!("        let body = {body_expression};\n");
+    body_replacement.push_str("        if let Some(content_length) = body.content_length() {\n            let content_length = content_length.to_string();\n            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);\n        }\n");
+    if content_type.is_some() {
+        *output = output.replacen(body_marker, &body_replacement, 1);
+    }
+    *output = output.replace(
+        "\n            #[allow(clippy::unnecessary_wraps)]",
+        "            #[allow(clippy::unnecessary_wraps)]",
+    );
+    let _ = error_path;
+}
+
+fn render_standalone_endpoint_interceptor(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation_type: &str,
+) {
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let service = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id);
+    let service_traits = service
+        .and_then(|shape| shape.get("traits"))
+        .and_then(Value::as_object);
+    let endpoint_params = service_traits
+        .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
+        .and_then(|rules| rules.get("parameters"))
+        .and_then(Value::as_object);
+    let client_params = service_traits
+        .and_then(|traits| traits.get("smithy.rules#clientContextParams"))
+        .and_then(Value::as_object);
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    if output.ends_with('\n') {
+        output.pop();
+    }
+    writeln!(
+        output,
+        "\n#[derive(Debug)]\nstruct {operation_type}EndpointParamsInterceptor;\n\n#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]\nimpl ::aws_smithy_runtime_api::client::interceptors::Intercept for {operation_type}EndpointParamsInterceptor {{\n    fn name(&self) -> &'static str {{\n        \"{operation_type}EndpointParamsInterceptor\"\n    }}\n\n    fn read_before_execution(\n        &self,\n        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<\n            '_ ,\n            ::aws_smithy_runtime_api::client::interceptors::context::Input,\n            ::aws_smithy_runtime_api::client::interceptors::context::Output,\n            ::aws_smithy_runtime_api::client::interceptors::context::Error,\n        >,\n        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {{\n        let _input = context\n            .input()\n            .downcast_ref::<{operation_type}Input>()\n            .ok_or(\"failed to downcast to {operation_type}Input\")?;\n\n        let params = crate::config::endpoint::Params::builder()"
+    )
+    .unwrap();
+    if let Some(endpoint_prefix) = render_standalone_endpoint_prefix(operation, input_shape) {
+        let params_marker = "        let params = crate::config::endpoint::Params::builder()";
+        *output = output.replace(params_marker, &format!("{endpoint_prefix}{params_marker}"));
+    }
+    let builtin_order = ["Region", "UseFIPS", "UseDualStack", "Endpoint"];
+    for name in builtin_order {
+        if endpoint_params.is_some_and(|params| params.contains_key(name)) {
+            let setter = names::snake_case(name);
+            let expression = match name {
+                "Region" => {
+                    "cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned())"
+                }
+                "UseFIPS" => "cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0)",
+                "UseDualStack" => {
+                    "cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0)"
+                }
+                "Endpoint" => {
+                    "cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone())"
+                }
+                _ => unreachable!(),
+            };
+            writeln!(output, "            .set_{setter}({expression})").unwrap();
+        }
+    }
+    if let Some(client_params) = client_params {
+        for name in client_params.keys() {
+            let setter = names::snake_case(name);
+            writeln!(
+                output,
+                "            .set_{setter}(cfg.load::<crate::config::{}>().map(|ty| ty.0))",
+                rust_type_name(name)
+            )
+            .unwrap();
+        }
+    }
+    if let Some(static_params) = operation
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.rules#staticContextParams"))
+        .and_then(Value::as_object)
+    {
+        for (name, value) in static_params {
+            let setter = names::snake_case(name);
+            let literal = endpoint_param_literal(value.get("value"));
+            writeln!(output, "            .set_{setter}({literal})").unwrap();
+        }
+    }
+    if let Some(input_shape) = input_shape {
+        for (name, member) in members(input_shape) {
+            let Some(context_param) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.rules#contextParam"))
+                .and_then(|value| value.get("name"))
+                .and_then(Value::as_str)
+            else {
+                continue;
+            };
+            let field = names::rust_identifier(&name);
+            let setter = names::snake_case(context_param);
+            let value = if member_is_required(member) {
+                format!(
+                    "Some(\n                _input\n                    .{field}\n                    .clone()\n                    .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())\n                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field({field:?}, \"A required field was not set\"))?\n            )"
+                )
+            } else {
+                format!("_input.{field}.clone()")
+            };
+            writeln!(output, "            .set_{setter}({value})").unwrap();
+        }
+    }
+    output.push_str(
+        "            .build()\n            .map_err(|err| {\n                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint params could not be built\", err)\n            })?;\n        cfg.interceptor_state()\n            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));\n        ::std::result::Result::Ok(())\n    }\n}\n\n// The get_* functions below are generated from JMESPath expressions in the\n// operationContextParams trait. They target the operation's input shape.\n",
+    );
+}
+
+fn render_standalone_endpoint_prefix(
+    operation: &Value,
+    input_shape: Option<&Value>,
+) -> Option<String> {
+    let host_prefix = operation
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#endpoint"))
+        .and_then(|endpoint| endpoint.get("hostPrefix"))
+        .and_then(Value::as_str)?;
+    let mut labels = Vec::new();
+    let mut remainder = host_prefix;
+    while let Some(start) = remainder.find('{') {
+        let after_start = &remainder[start + 1..];
+        let end = after_start.find('}')?;
+        let label = &after_start[..end];
+        if label.is_empty() || label.contains('{') {
+            return None;
+        }
+        let member = input_shape
+            .and_then(|shape| members(shape).into_iter().find(|(name, _)| name == label))?;
+        let field = names::rust_identifier(&member.0);
+        labels.push((label.to_owned(), field));
+        remainder = &after_start[end + 1..];
+    }
+
+    let mut output = String::new();
+    output.push_str("        let endpoint_prefix = {\n");
+    for (_, field) in &labels {
+        writeln!(
+            output,
+            "            let {field} = _input.{field}.as_deref().unwrap_or_default();"
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "            if {field}.is_empty() {{\n                return Err(::aws_smithy_runtime_api::client::endpoint::error::InvalidEndpointError::failed_to_construct_uri(\"{field} was unset or empty but must be set as part of the endpoint prefix\").into());\n            }}"
+        )
+        .unwrap();
+    }
+    let arguments = labels
+        .iter()
+        .map(|(label, field)| format!("{label} = {field}"))
+        .collect::<Vec<_>>()
+        .join(", ");
+    if arguments.is_empty() {
+        writeln!(
+            output,
+            "            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new({host_prefix:?})"
+        )
+        .unwrap();
+    } else {
+        output.push_str("            #[allow(clippy::uninlined_format_args)]\n");
+        writeln!(
+            output,
+            "            ::aws_smithy_runtime_api::client::endpoint::EndpointPrefix::new(format!({host_prefix:?}, {arguments}))"
+        )
+        .unwrap();
+    }
+    output.push_str(
+        "        }.map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint prefix could not be built\", err))?;\n        cfg.interceptor_state().store_put(endpoint_prefix);\n\n",
+    );
+    Some(output)
+}
+
+/// Render Smithy HTTP protocol tests supplied by a declarative model overlay.
+/// The renderer consumes the generic request/response test shape and does not
+/// identify a service or operation by name.
+fn render_standalone_protocol_tests(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    module: &str,
+    operation_type: &str,
+) {
+    let protocol = selected
+        .model
+        .protocol()
+        .expect("selected model protocol is valid")
+        .trait_id();
+    let mut tests = selected
+        .protocol_tests
+        .iter()
+        .filter(|test| {
+            test.get("protocol").and_then(Value::as_str) == Some(protocol)
+                && (test.get("operation").and_then(Value::as_str) == Some(operation_name)
+                    || test
+                        .get("shape")
+                        .and_then(Value::as_str)
+                        .is_some_and(|shape| {
+                            operation
+                                .get("errors")
+                                .and_then(Value::as_array)
+                                .is_some_and(|errors| {
+                                    errors
+                                        .iter()
+                                        .filter_map(target_value)
+                                        .any(|error| error == shape)
+                                })
+                        }))
+        })
+        .collect::<Vec<_>>();
+    tests.sort_by_key(|test| test.get("kind").and_then(Value::as_str) != Some("request"));
+    if tests.is_empty() {
+        return;
+    }
+
+    writeln!(
+        output,
+        "\n#[allow(unreachable_code, unused_variables)]\n#[cfg(test)]\nmod {module}_test {{"
+    )
+    .unwrap();
+    for test in tests {
+        match test.get("kind").and_then(Value::as_str) {
+            Some("request") => {
+                render_protocol_request_test(output, selected, operation_name, operation, test)
+            }
+            Some("response") => render_protocol_response_test(
+                output,
+                selected,
+                operation_name,
+                operation,
+                module,
+                operation_type,
+                test,
+            ),
+            _ => {}
+        }
+    }
+    output.push_str("}\n");
+}
+
+fn render_protocol_test_docs(output: &mut String, test: &Value) {
+    if let Some(documentation) = test.get("documentation").and_then(Value::as_str) {
+        output.push('\n');
+        for line in documentation.split('\n') {
+            writeln!(output, "    /// {line}").unwrap();
+        }
+    }
+    writeln!(
+        output,
+        "    /// Test ID: {}",
+        test.get("id").and_then(Value::as_str).unwrap_or_default()
+    )
+    .unwrap();
+    output.push_str("    #[::tokio::test]\n    #[::tracing_test::traced_test]\n");
+}
+
+fn render_protocol_request_test(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    test: &Value,
+) {
+    let id = test.get("id").and_then(Value::as_str).unwrap_or_default();
+    render_protocol_test_docs(output, test);
+    writeln!(
+        output,
+        "    async fn {}_request() {{",
+        names::snake_case(id)
+    )
+    .unwrap();
+    output.push_str("        let (http_client, request_receiver) = ::aws_smithy_http_client::test_util::capture_request(None);\n");
+    let endpoint = test
+        .get("host")
+        .and_then(Value::as_str)
+        .map(|host| format!("https://{host}"))
+        .unwrap_or_else(|| "https://example.com".to_owned());
+    writeln!(
+        output,
+        "        let config_builder = crate::config::Config::builder()\n            .with_test_defaults()\n            // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177):\n            //  Until the incorrect separation is addressed, we need to rely on this workaround.\n            .allow_no_auth()\n            .endpoint_url({endpoint:?});"
+    )
+    .unwrap();
+    if test
+        .get("setRegion")
+        .and_then(Value::as_bool)
+        .unwrap_or(false)
+    {
+        output.push_str("        let config_builder = config_builder.region(::aws_types::region::Region::new(\"us-east-1\"));\n");
+    } else {
+        output.push('\n');
+    }
+    output.push_str("        let mut config_builder = config_builder;\n        config_builder.set_region(Some(crate::config::Region::new(\"us-east-1\")));\n\n        let config = config_builder.http_client(http_client).build();\n        let client = crate::Client::from_conf(config);\n        let result = client\n");
+    let input = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    writeln!(
+        output,
+        "            .{}()",
+        names::snake_case(operation_name)
+    )
+    .unwrap();
+    if let (Some(input), Some(params)) = (input, test.get("params").and_then(Value::as_object)) {
+        for (name, value) in params {
+            let Some((_, member)) = members(input)
+                .into_iter()
+                .find(|(member_name, _)| member_name == name)
+            else {
+                continue;
+            };
+            let Some(target) = member_target(member) else {
+                continue;
+            };
+            let expression = render_protocol_value(selected, target, value);
+            writeln!(
+                output,
+                "            .set_{}(::std::option::Option::Some({expression}))",
+                names::rust_identifier(name)
+            )
+            .unwrap();
+        }
+    }
+    output.push_str("            .send()\n            .await;\n        let _ = dbg!(result);\n        let http_request = request_receiver.expect_request();\n");
+    render_protocol_query_checks(output, test);
+    render_protocol_header_checks(output, test);
+    if let Some(body) = test.get("body").and_then(Value::as_str) {
+        render_protocol_body_check(
+            output,
+            body,
+            test.get("bodyMediaType").and_then(Value::as_str),
+        );
+    }
+    let method = test
+        .get("method")
+        .and_then(Value::as_str)
+        .or_else(|| {
+            operation_http_trait(operation)
+                .and_then(|http| http.get("method"))
+                .and_then(Value::as_str)
+        })
+        .unwrap_or("POST");
+    let uri = test
+        .get("uri")
+        .and_then(Value::as_str)
+        .or_else(|| {
+            operation_http_trait(operation)
+                .and_then(|http| http.get("uri"))
+                .and_then(Value::as_str)
+        })
+        .unwrap_or("/");
+    output.push_str("        let uri: ::http_1x::Uri = http_request.uri().parse().expect(\"invalid URI sent\");\n");
+    writeln!(output, "        ::pretty_assertions::assert_eq!(http_request.method(), {method:?}, \"method was incorrect\");").unwrap();
+    writeln!(
+        output,
+        "        ::pretty_assertions::assert_eq!(uri.path(), {uri:?}, \"path was incorrect\");"
+    )
+    .unwrap();
+    if let Some(host) = test.get("resolvedHost").and_then(Value::as_str) {
+        writeln!(output, "        ::pretty_assertions::assert_eq!(uri.host().expect(\"host should be set\"), {host:?});").unwrap();
+    }
+    output.push_str("    }\n");
+}
+
+fn render_protocol_query_checks(output: &mut String, test: &Value) {
+    if let Some(params) = test.get("queryParams").and_then(Value::as_array) {
+        let values = params
+            .iter()
+            .filter_map(Value::as_str)
+            .map(|value| format!("{value:?}"))
+            .collect::<Vec<_>>()
+            .join(", ");
+        writeln!(output, "        let expected_query_params = &[{values}];").unwrap();
+        output.push_str("        ::aws_smithy_protocol_test::assert_ok(::aws_smithy_protocol_test::validate_query_string(&http_request, expected_query_params));\n");
+    }
+}
+
+fn render_protocol_header_checks(output: &mut String, test: &Value) {
+    let Some(headers) = test.get("headers").and_then(Value::as_object) else {
+        return;
+    };
+    if headers.is_empty() {
+        return;
+    }
+    let values = headers
+        .iter()
+        .map(|(name, value)| format!("({name:?}, {:?})", value.as_str().unwrap_or_default()))
+        .collect::<Vec<_>>()
+        .join(", ");
+    writeln!(output, "        let expected_headers = [{values}];").unwrap();
+    output.push_str("        ::aws_smithy_protocol_test::assert_ok(::aws_smithy_protocol_test::validate_headers(http_request.headers(), expected_headers));\n");
+}
+
+fn render_protocol_body_check(output: &mut String, body: &str, media_type: Option<&str>) {
+    output.push_str(
+        "        let body = http_request.body().bytes().expect(\"body should be strict\");\n",
+    );
+    if body.is_empty() {
+        output.push_str("        // No body.\n        ::pretty_assertions::assert_eq!(&body, &::bytes::Bytes::new());\n");
+    } else {
+        writeln!(output, "        ::aws_smithy_protocol_test::assert_ok(\n        ::aws_smithy_protocol_test::validate_body(body, {body:?}, ::aws_smithy_protocol_test::MediaType::from({:?}))\n        );", media_type.unwrap_or("unknown")).unwrap();
+    }
+}
+
+fn render_protocol_response_test(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    module: &str,
+    operation_type: &str,
+    test: &Value,
+) {
+    let id = test.get("id").and_then(Value::as_str).unwrap_or_default();
+    render_protocol_test_docs(output, test);
+    writeln!(
+        output,
+        "    async fn {}_response() {{",
+        names::snake_case(id)
+    )
+    .unwrap();
+    let target = test
+        .get("shape")
+        .and_then(Value::as_str)
+        .or_else(|| operation.get("output").and_then(target_value))
+        .unwrap_or("smithy.api#Unit");
+    let shape = selected.model.shapes.get(target);
+    let expected = if test.get("shape").is_some() {
+        format!(
+            "crate::types::error::{}::builder()",
+            rust_type_name(terminal(target))
+        )
+    } else {
+        format!("crate::operation::{module}::{operation_type}Output::builder()")
+    };
+    writeln!(output, "        let expected_output = {expected}").unwrap();
+    if let Some(params) = test.get("params").and_then(Value::as_object)
+        && let Some(shape) = shape
+    {
+        for (name, value) in params {
+            let Some((_, member)) = members(shape)
+                .into_iter()
+                .find(|(member_name, _)| member_name == name)
+            else {
+                continue;
+            };
+            let Some(member_target) = member_target(member) else {
+                continue;
+            };
+            let expression = render_protocol_value(selected, member_target, value);
+            writeln!(
+                output,
+                "            .set_{}(::std::option::Option::Some({expression}))",
+                names::rust_identifier(name)
+            )
+            .unwrap();
+        }
+    }
+    if let Some(shape) = shape {
+        if serde_util_builder_is_fallible(selected, shape) {
+            output.push_str("            .build().unwrap();\n");
+        } else {
+            output.push_str("            .build();\n");
+        }
+    } else {
+        output.push_str("            .build();\n");
+    }
+    output.push_str("        let mut http_response = ::aws_smithy_runtime_api::http::Response::try_from(::http_1x::response::Builder::new()\n");
+    if let Some(headers) = test.get("headers").and_then(Value::as_object) {
+        let mut entries = headers.iter().collect::<Vec<_>>();
+        entries.sort_by_key(|(name, _)| *name);
+        for (name, value) in entries {
+            writeln!(
+                output,
+                "        .header({name:?}, {:?})",
+                value.as_str().unwrap_or_default()
+            )
+            .unwrap();
+        }
+    }
+    writeln!(
+        output,
+        "        .status({})",
+        test.get("code").and_then(Value::as_u64).unwrap_or(200)
+    )
+    .unwrap();
+    let body = test.get("body").and_then(Value::as_str).unwrap_or("");
+    writeln!(output, "                    .body(::aws_smithy_types::body::SdkBody::from({body:?}))\n                    .unwrap()\n                    ).unwrap();").unwrap();
+    output.push_str("        use ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin;\n        use ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse;\n\n");
+    writeln!(
+        output,
+        "        let op = crate::operation::{module}::{operation_type}::new();"
+    )
+    .unwrap();
+    output.push_str("        let config = op.config().expect(\"the operation has config\");\n        let de = config\n            .load::<::aws_smithy_runtime_api::client::ser_de::SharedResponseDeserializer>()\n            .expect(\"the config must have a deserializer\");\n\n        // Build a config bag with the protocol for schema-based deserialization\n        #[allow(unused_mut)]\n        let mut test_cfg = ::aws_smithy_types::config_bag::ConfigBag::base();\n\n        let parsed = de.deserialize_streaming(&mut http_response);\n        let parsed = parsed.unwrap_or_else(|| {\n            let http_response = http_response.map(|body| {\n                ::aws_smithy_types::body::SdkBody::from(::bytes::Bytes::copy_from_slice(&::aws_smithy_protocol_test::decode_body_data(\n                    body.bytes().unwrap(),\n                    ::aws_smithy_protocol_test::MediaType::from(\"application/xml\"),\n                )))\n            });\n            de.deserialize_nonstreaming_with_config(&http_response, &test_cfg)\n        });\n");
+    if test.get("shape").is_some() {
+        let error_name = rust_type_name(operation_name);
+        let variant = rust_type_name(terminal(target));
+        writeln!(output, "        let parsed = parsed.expect_err(\"should be error response\");\n        let parsed: &crate::operation::{module}::{error_name}Error = parsed.as_operation_error().expect(\"operation error\").downcast_ref().unwrap();\n        if let crate::operation::{module}::{error_name}Error::{variant}(parsed) = parsed {{").unwrap();
+        render_protocol_comparisons(output, selected, shape, "parsed", "expected_output");
+        output.push_str("        } else {\n            panic!(\"wrong variant: Got: {:?}. Expected: {:?}\", parsed, expected_output);\n        }\n");
+    } else {
+        writeln!(output, "        let parsed = parsed\n            .expect(\"should be successful response\")\n            .downcast::<crate::operation::{module}::{operation_type}Output>()\n            .unwrap();").unwrap();
+        render_protocol_comparisons(output, selected, shape, "parsed", "expected_output");
+    }
+    output.push_str("    }\n");
+}
+
+fn render_protocol_comparisons(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: Option<&Value>,
+    actual: &str,
+    expected: &str,
+) {
+    let Some(shape) = shape else {
+        return;
+    };
+    for (name, member) in members(shape) {
+        let field = names::rust_identifier(&name);
+        let target = member_target(member).unwrap_or("smithy.api#String");
+        let kind = protocol_shape_kind(selected, target);
+        if matches!(kind, "float" | "double") {
+            writeln!(output, "            assert!({actual}.{field}.float_equals(&{expected}.{field}), \"Unexpected value for `{field}` {{:?}} vs. {{:?}}\", {expected}.{field}, {actual}.{field});").unwrap();
+        } else {
+            writeln!(output, "        ::pretty_assertions::assert_eq!({actual}.{field}, {expected}.{field}, \"Unexpected value for `{field}`\");").unwrap();
+        }
+    }
+}
+
+fn render_protocol_value(selected: &SelectedModel, target: &str, value: &Value) -> String {
+    match protocol_shape_kind(selected, target) {
+        "structure" => {
+            let Some(shape) = selected.model.shapes.get(target) else {
+                return "Default::default()".to_owned();
+            };
+            let mut expression = format!(
+                "crate::types::{}::builder()",
+                rust_type_name(terminal(target))
+            );
+            if let Some(values) = value.as_object() {
+                for (name, value) in values {
+                    let Some((_, member)) = members(shape)
+                        .into_iter()
+                        .find(|(member_name, _)| member_name == name)
+                    else {
+                        continue;
+                    };
+                    let Some(member_target) = member_target(member) else {
+                        continue;
+                    };
+                    expression.push_str(&format!(
+                        ".set_{}(::std::option::Option::Some({}))",
+                        names::rust_identifier(name),
+                        render_protocol_value(selected, member_target, value)
+                    ));
+                }
+            }
+            if serde_util_builder_is_fallible(selected, shape) {
+                expression.push_str(".build().unwrap()");
+            } else {
+                expression.push_str(".build()");
+            }
+            expression
+        }
+        "list" => {
+            let element_target = selected
+                .model
+                .shapes
+                .get(target)
+                .and_then(|shape| shape.get("member"))
+                .and_then(member_target)
+                .unwrap_or("smithy.api#String");
+            let values = value
+                .as_array()
+                .map(|values| {
+                    values
+                        .iter()
+                        .map(|value| render_protocol_value(selected, element_target, value))
+                        .collect::<Vec<_>>()
+                        .join(", ")
+                })
+                .unwrap_or_default();
+            format!("vec![{values}]")
+        }
+        "enum" => format!(
+            "{}.parse::<crate::types::{}>().expect(\"static value validated to member\")",
+            protocol_string_literal(value),
+            rust_type_name(terminal(target))
+        ),
+        "timestamp" => protocol_timestamp_literal(value),
+        "boolean" => value
+            .as_bool()
+            .map(|value| value.to_string())
+            .unwrap_or_else(|| "false".to_owned()),
+        "byte" | "short" | "integer" | "long" | "bigInteger" | "bigDecimal" => value.to_string(),
+        _ => format!("{}.to_owned()", protocol_string_literal(value)),
+    }
+}
+
+fn protocol_string_literal(value: &Value) -> String {
+    value
+        .as_str()
+        .map(|value| format!("{value:?}"))
+        .unwrap_or_else(|| "\"\"".to_owned())
+}
+
+fn protocol_timestamp_literal(value: &Value) -> String {
+    let value = value.to_string();
+    let (seconds, fraction) = value.split_once('.').unwrap_or((value.as_str(), "0"));
+    let fraction = fraction.trim_end_matches('0');
+    let fraction = if fraction.is_empty() {
+        "0_f64".to_owned()
+    } else {
+        format!("0.{fraction}_f64")
+    };
+    format!("::aws_smithy_types::DateTime::from_fractional_secs({seconds}, {fraction})")
+}
+
+fn endpoint_param_literal(value: Option<&Value>) -> String {
+    match value {
+        Some(Value::Bool(value)) => format!("Some({value})"),
+        Some(Value::String(value)) => format!("Some({value:?}.to_string())"),
+        Some(Value::Array(values)) => {
+            let values = values
+                .iter()
+                .filter_map(Value::as_str)
+                .map(|value| format!("{value:?}.to_string()"))
+                .collect::<Vec<_>>()
+                .join(", ");
+            format!("Some(vec![{values}])")
+        }
+        _ => "None".to_owned(),
+    }
+}
+
+fn render_standalone_operation_error(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+) {
+    let operation_type = rust_type_name(operation_name);
+    let error_path = format!(
+        "crate::operation::{}::{}Error",
+        names::snake_case(operation_name),
+        operation_type
+    );
+    let errors = operation
+        .get("errors")
+        .and_then(Value::as_array)
+        .map(|errors| errors.iter().filter_map(target_value).collect::<Vec<_>>())
+        .unwrap_or_default();
+    writeln!(output, "\n/// Error type for the `{operation_type}Error` operation.\n#[non_exhaustive]\n#[derive(::std::fmt::Debug)]\npub enum {operation_type}Error {{").unwrap();
+    for error in &errors {
+        let error_name = rust_type_name(terminal(error));
+        if let Some(shape) = selected.model.shapes.get(*error)
+            && let Some(documentation) = documentation(shape)
+        {
+            render_doc_lines(output, &documentation, 4);
+        }
+        writeln!(
+            output,
+            "    {error_name}(crate::types::error::{error_name}),"
+        )
+        .unwrap();
+    }
+    output.push_str(
+        "    /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).\n    #[deprecated(note = \"Matching `Unhandled` directly is not forwards compatible. Instead, match using a \\\n    variable wildcard pattern and check `.code()`: \\\n     \\\n    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\\\"SpecificExceptionCode\\\") => { /* handle the error */ }` \\\n     \\\n    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ERROR_TYPE) for what information is available in the error metadata.\")]\n    Unhandled(crate::error::sealed_unhandled::Unhandled),\n}\n"
+    );
+    let replacement = format!("ProvideErrorMetadata-for-{operation_type}Error");
+    let current = output.len();
+    let tail = &output[current.saturating_sub(600)..];
+    let _ = tail;
+    // The placeholder is kept local to this generated operation and never
+    // enters the model or a service-specific customization layer.
+    let mut text = output.to_string();
+    text = text.replace("check `.code()`: \\\n", "check `.code()`: \n");
+    text = text.replace("/* handle the error */` \\\n", "/* handle the error */`\n");
+    text = text.replace(
+        "available in the error metadata.",
+        "available for the error.",
+    );
+    text = text.replace("unhandled error ({{code}})", "unhandled error ({code})");
+    text = text.replace("ProvideErrorMetadata-for-ERROR_TYPE", &replacement);
+    *output = text;
+    writeln!(
+        output,
+        "impl {operation_type}Error {{\n    /// Creates the `{operation_type}Error::Unhandled` variant from any error type.\n    pub fn unhandled(\n        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,\n    ) -> Self {{\n        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n            source: err.into(),\n            meta: ::std::default::Default::default(),\n        }})\n    }}\n\n    /// Creates the `{operation_type}Error::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).\n    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {{\n        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n            source: err.clone().into(),\n            meta: err,\n        }})\n    }}\n    ///\n    /// Returns error metadata, which includes the error code, message,\n    /// request ID, and potentially additional information.\n    ///\n    pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {{\n        match self {{\n            {unhandled_meta}\n        }}\n    }}\n}}",
+        unhandled_meta = if errors.is_empty() {
+            "Self::Unhandled(e) => &e.meta,".to_owned()
+        } else {
+            errors
+                .iter()
+                .map(|error| format!("Self::{}(e) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(e),", rust_type_name(terminal(error))))
+                .chain(std::iter::once("Self::Unhandled(e) => &e.meta,".to_owned()))
+                .collect::<Vec<_>>()
+                .join("\n            ")
+        }
+    )
+    .unwrap();
+    if !errors.is_empty() && output.ends_with("}\n") {
+        output.truncate(output.len() - "}\n".len());
+        for error in &errors {
+            let error_name = rust_type_name(terminal(error));
+            let method = names::snake_case(&error_name);
+            writeln!(
+                output,
+                "    /// Returns `true` if the error kind is `{operation_type}Error::{error_name}`.\n    pub fn is_{method}(&self) -> bool {{\n        matches!(self, Self::{error_name}(_))\n    }}"
+            )
+            .unwrap();
+        }
+        output.push_str("}\n");
+    }
+    writeln!(output, "impl ::std::error::Error for {operation_type}Error {{\n    fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => ::std::option::Option::Some(_inner),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
+    writeln!(output, "impl ::std::fmt::Display for {operation_type}Error {{\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => {\n                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {\n                    write!(f, \"unhandled error ({{code}})\")\n                } else {\n                    f.write_str(\"unhandled error\")\n                }\n            }".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => _inner.fmt(f),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => {\n                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {\n                    write!(f, \"unhandled error ({{code}})\")\n                } else {\n                    f.write_str(\"unhandled error\")\n                }\n            }".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
+    writeln!(output, "impl ::aws_smithy_types::retry::ProvideErrorKind for {operation_type}Error {{\n    fn code(&self) -> ::std::option::Option<&str> {{\n        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)\n    }}\n    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {{\n        ::std::option::Option::None\n    }}\n}}\nimpl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for {operation_type}Error {{\n    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => &_inner.meta,".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => &_inner.meta,".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
+    writeln!(output, "impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for {operation_type}Error {{\n    fn create_unhandled_error(\n        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,\n        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,\n    ) -> Self {{\n        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n            source,\n            meta: meta.unwrap_or_default(),\n        }})\n    }}\n}}\nimpl crate::s3_request_id::RequestIdExt for {error_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{\n        self.meta().extended_request_id()\n    }}\n}}\nimpl ::aws_types::request_id::RequestId for {error_path} {{\n    fn request_id(&self) -> Option<&str> {{\n        self.meta().request_id()\n    }}\n}}",).unwrap();
+    let continuation = ['\\', '\n'].iter().collect::<String>();
+    let mut text = std::mem::take(output);
+    text = text.replace(
+        &format!("check `.code()`: {continuation}"),
+        "check `.code()`:\n",
+    );
+    text = text.replace("check `.code()`: \n", "check `.code()`:\n");
+    text = text.replace(&format!("` {continuation}"), "`\n");
+    text = text.replace(
+        "available in the error metadata.",
+        "available for the error.",
+    );
+    text = text.replace("unhandled error ({{code}})", "unhandled error ({code})");
+    text = text.replace("ProvideErrorMetadata-for-ERROR_TYPE", &replacement);
+    *output = text;
 }
 
 fn operation_shape<'a>(selected: &'a SelectedModel, operation_name: &str) -> Option<&'a Value> {
@@ -7520,6 +9288,9 @@ fn shape_should_redact(
                     .get("value")
                     .is_some_and(|value| value_should_redact(selected, value, seen))
         }
+        Some("structure") => members(shape)
+            .iter()
+            .any(|(_, member)| value_should_redact(selected, member, seen)),
         _ => false,
     }
 }

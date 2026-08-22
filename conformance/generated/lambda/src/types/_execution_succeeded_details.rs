@@ -2,7 +2,7 @@
 
 /// <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that succeeded.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ExecutionSucceededDetails {
     /// <p>The response payload from the successful operation.</p>
     pub result: ::std::option::Option<crate::types::EventResult>,
@@ -13,6 +13,13 @@ impl ExecutionSucceededDetails {
         self.result.as_ref()
     }
 }
+impl ::std::fmt::Debug for ExecutionSucceededDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionSucceededDetails");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ExecutionSucceededDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionSucceededDetails`](crate::types::ExecutionSucceededDetails).
     pub fn builder() -> crate::types::builders::ExecutionSucceededDetailsBuilder {
@@ -21,7 +28,7 @@ impl ExecutionSucceededDetails {
 }
 
 /// A builder for [`ExecutionSucceededDetails`](crate::types::ExecutionSucceededDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ExecutionSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -45,5 +52,12 @@ impl ExecutionSucceededDetailsBuilder {
     /// Consumes the builder and constructs a [`ExecutionSucceededDetails`](crate::types::ExecutionSucceededDetails).
     pub fn build(self) -> crate::types::ExecutionSucceededDetails {
         crate::types::ExecutionSucceededDetails { result: self.result }
+    }
+}
+impl ::std::fmt::Debug for ExecutionSucceededDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionSucceededDetailsBuilder");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

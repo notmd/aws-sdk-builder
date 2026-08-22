@@ -9,7 +9,7 @@
 /// </ul>
 /// </note>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ServerSideEncryptionRule {
     /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
     pub apply_server_side_encryption_by_default: ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
@@ -50,6 +50,15 @@ impl ServerSideEncryptionRule {
         self.blocked_encryption_types.as_ref()
     }
 }
+impl ::std::fmt::Debug for ServerSideEncryptionRule {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ServerSideEncryptionRule");
+        formatter.field("apply_server_side_encryption_by_default", &"*** Sensitive Data Redacted ***");
+        formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
+        formatter.field("blocked_encryption_types", &self.blocked_encryption_types);
+        formatter.finish()
+    }
+}
 impl ServerSideEncryptionRule {
     /// Creates a new builder-style object to manufacture [`ServerSideEncryptionRule`](crate::types::ServerSideEncryptionRule).
     pub fn builder() -> crate::types::builders::ServerSideEncryptionRuleBuilder {
@@ -58,7 +67,7 @@ impl ServerSideEncryptionRule {
 }
 
 /// A builder for [`ServerSideEncryptionRule`](crate::types::ServerSideEncryptionRule).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ServerSideEncryptionRuleBuilder {
     pub(crate) apply_server_side_encryption_by_default: ::std::option::Option<crate::types::ServerSideEncryptionByDefault>,
@@ -142,5 +151,14 @@ impl ServerSideEncryptionRuleBuilder {
             bucket_key_enabled: self.bucket_key_enabled,
             blocked_encryption_types: self.blocked_encryption_types,
         }
+    }
+}
+impl ::std::fmt::Debug for ServerSideEncryptionRuleBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ServerSideEncryptionRuleBuilder");
+        formatter.field("apply_server_side_encryption_by_default", &"*** Sensitive Data Redacted ***");
+        formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
+        formatter.field("blocked_encryption_types", &self.blocked_encryption_types);
+        formatter.finish()
     }
 }

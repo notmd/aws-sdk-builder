@@ -2,7 +2,7 @@
 
 /// <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct CallbackFailedDetails {
     /// <p>An error object that contains details about the failure.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,6 +13,13 @@ impl CallbackFailedDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for CallbackFailedDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("CallbackFailedDetails");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl CallbackFailedDetails {
     /// Creates a new builder-style object to manufacture [`CallbackFailedDetails`](crate::types::CallbackFailedDetails).
     pub fn builder() -> crate::types::builders::CallbackFailedDetailsBuilder {
@@ -21,7 +28,7 @@ impl CallbackFailedDetails {
 }
 
 /// A builder for [`CallbackFailedDetails`](crate::types::CallbackFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct CallbackFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -45,5 +52,12 @@ impl CallbackFailedDetailsBuilder {
     /// Consumes the builder and constructs a [`CallbackFailedDetails`](crate::types::CallbackFailedDetails).
     pub fn build(self) -> crate::types::CallbackFailedDetails {
         crate::types::CallbackFailedDetails { error: self.error }
+    }
+}
+impl ::std::fmt::Debug for CallbackFailedDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("CallbackFailedDetailsBuilder");
+        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }
