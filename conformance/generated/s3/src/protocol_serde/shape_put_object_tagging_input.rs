@@ -6,7 +6,7 @@ pub fn ser_tagging_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_object_tagging::ser_tagging_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_object_tagging_input::ser_tagging_payload(payload)?)
 }
 
 pub fn ser_tagging_payload(

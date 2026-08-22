@@ -6,7 +6,7 @@ pub fn ser_ownership_controls_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_bucket_ownership_controls::ser_ownership_controls_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_bucket_ownership_controls_input::ser_ownership_controls_payload(payload)?)
 }
 
 pub fn ser_ownership_controls_payload(

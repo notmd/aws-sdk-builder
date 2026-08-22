@@ -6,7 +6,7 @@ pub fn ser_legal_hold_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_object_legal_hold::ser_legal_hold_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_object_legal_hold_input::ser_legal_hold_payload(payload)?)
 }
 
 pub fn ser_legal_hold_payload(

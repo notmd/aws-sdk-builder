@@ -6,7 +6,7 @@ pub fn ser_website_configuration_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_bucket_website::ser_website_configuration_payload(
+    Ok(crate::protocol_serde::shape_put_bucket_website_input::ser_website_configuration_payload(
         payload,
     )?)
 }

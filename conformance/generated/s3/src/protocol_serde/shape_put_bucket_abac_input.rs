@@ -6,7 +6,7 @@ pub fn ser_abac_status_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_bucket_abac::ser_abac_status_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_bucket_abac_input::ser_abac_status_payload(payload)?)
 }
 
 pub fn ser_abac_status_payload(

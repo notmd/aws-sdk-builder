@@ -2137,11 +2137,11 @@ fn render_protocol_input_payload_file(
         Some(prefix) => format!(".write_ns({namespace_uri:?}, Some({prefix:?}))"),
         None => format!(".write_ns({namespace_uri:?}, None)"),
     };
+    let module = format!("{}_input", names::rust_module_name(operation_name));
 
     writeln!(
         output,
         "pub fn ser_{field}_http_payload(\n    payload: &::std::option::Option<crate::types::{target_name}>,\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload.as_ref() {{\n        Some(t) => t,\n        None => return Ok(crate::protocol_serde::{unset_payload}()),\n    }};\n    Ok(crate::protocol_serde::shape_{module}::ser_{field}_payload(\n        payload,\n    )?)\n}}\n\npub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    {{\n        let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);\n        #[allow(unused_mut)]\n        let mut root = writer.start_el({root:?}){namespace};\n        crate::protocol_serde::shape_{target_module}::ser_{target_function}(input, root)?\n    }}\n    Ok(out.into_bytes())\n}}",
-        module = names::rust_module_name(operation_name),
     )
     .unwrap();
     Some(output)
@@ -5710,5 +5710,30 @@ mod tests {
         );
         assert!(!stage.path().join("aws_sdk_build_manifest.json").exists());
         assert!(!stage.path().join("generated/aws_sdk_s3.rs").exists());
+    }
+
+    #[test]
+    fn rest_xml_payload_wrapper_calls_operation_input_serializer() {
+        let stage = tempfile::tempdir().unwrap();
+        let selections = [ServiceSelection {
+            key: "s3".to_owned(),
+            operations: vec!["PutBucketWebsite".to_owned()],
+            all_operations: false,
+        }];
+
+        generate(stage.path(), true, &selections).unwrap();
+
+        let payload = fs::read_to_string(
+            stage
+                .path()
+                .join("generated/s3/src/protocol_serde/shape_put_bucket_website_input.rs"),
+        )
+        .unwrap();
+        assert!(payload.contains(
+            "crate::protocol_serde::shape_put_bucket_website_input::ser_website_configuration_payload"
+        ));
+        assert!(payload.contains(
+            "crate::protocol_serde::shape_website_configuration::ser_website_configuration"
+        ));
     }
 }

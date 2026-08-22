@@ -6,7 +6,7 @@ pub fn ser_intelligent_tiering_configuration_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_bucket_intelligent_tiering_configuration::ser_intelligent_tiering_configuration_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_bucket_intelligent_tiering_configuration_input::ser_intelligent_tiering_configuration_payload(payload)?)
 }
 
 pub fn ser_intelligent_tiering_configuration_payload(

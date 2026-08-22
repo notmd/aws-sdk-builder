@@ -6,7 +6,7 @@ pub fn ser_retention_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_object_retention::ser_retention_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_object_retention_input::ser_retention_payload(payload)?)
 }
 
 pub fn ser_retention_payload(

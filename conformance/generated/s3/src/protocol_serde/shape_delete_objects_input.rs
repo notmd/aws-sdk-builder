@@ -6,7 +6,7 @@ pub fn ser_delete_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_delete_objects::ser_delete_payload(payload)?)
+    Ok(crate::protocol_serde::shape_delete_objects_input::ser_delete_payload(payload)?)
 }
 
 pub fn ser_delete_payload(

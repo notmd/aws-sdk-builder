@@ -26,8 +26,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 1,651 exact, 2,136 mismatches, 2,674 missing,
-  and 123 extra (23.68% arithmetic-average match).
+  current report compares 6,584 files: 1,685 exact, 2,102 mismatches, 2,674 missing,
+  and 123 extra (24.00% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -46,30 +46,26 @@ a new reusable abstraction.
 
 ## Evidence
 
-### Checkpoint: 2026-08-22 — RestXml payload wrappers and conformance formatting
+### Checkpoint: 2026-08-22 — RestXml payload wrapper module alignment
 
 - State: in progress
-- Changed: `crates/aws-sdk-build/src/codegen.rs` emits generic model-driven RestXml
-  payload input wrappers for streaming blobs, raw string/blob payloads, and
-  structure/union XML payloads, deriving payload roots and namespaces from model
-  traits. `aws-sdk-build` no longer invokes `rustfmt` or writes a generated manifest;
-  `aws-sdk-conformance` formats generated `.rs` files immediately before comparison.
-- Formatting reference: pinned Smithy-RS `ClientCodegenVisitor.kt` finalizes generated
-  crates with `cargo fmt -- --config max_width=150`. The checkout has no
-  client-generator `.rustfmt.toml`; its unrelated HTTP-server configs use
-  `max_width = 120`. Conformance uses
-  `rustfmt --edition 2021 --config max_width=150,skip_children=true` per snapshot
-  file because snapshots have no temporary Cargo manifest.
-- Evidence: `just conformance` regenerated 8 all-operation snapshots (496 operations),
-  formatted 3,910 Rust files, compared 6,584 files, and exited 1 because parity
-  remains incomplete. Exact coverage is 1,651 overall and 542 for S3; the S3 report
-  has 479 mismatches, 323 missing, and 0 extra files.
-- Blocker: the payload helper self-call for structure-valued wrappers still needs to
-  target `shape_<operation>_input`, while nested serializers target the model shape
-  module. Modeled errors, remaining protocol/runtime behavior, endpoint/auth/retry/
-  checksum support, pagination, and the missing source tree also remain incomplete.
-- Next action: fix the generic payload-wrapper module path and rerun conformance,
-  keeping the checkpoint only if exact coverage increases.
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now derives the structured RestXml
+  payload wrapper’s self-call from `shape_<operation>_input`; nested model serializers
+  continue to target `shape_<model>`. Added a focused regression test and regenerated
+  34 affected S3 protocol snapshots plus deterministic conformance reports.
+- Evidence: inspected the pinned smithy-rs checkout at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated 8
+  all-operation snapshots (496 operations), formatted 3,910 Rust files, compared
+  6,584 files, and exited 1 because parity remains incomplete. `cargo test
+  --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Conformance: overall `1,651/2,136/2,674/123` -> `1,685/2,102/2,674/123`
+  (matched/mismatched/missing/extra); S3 `542/479/323/0` -> `576/445/323/0`.
+- Blocker: modeled errors, remaining protocol/runtime behavior, endpoint/auth/retry/
+  checksum support, pagination, and the missing reference source tree remain
+  incomplete; the full conformance command still exits 1.
+- Next action: inspect the next largest S3 mismatch category in
+  `conformance/summary/s3.md` and port one reusable model/protocol rule.
 
 ## Passing checks
 

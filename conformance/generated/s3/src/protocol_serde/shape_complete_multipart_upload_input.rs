@@ -6,9 +6,7 @@ pub fn ser_multipart_upload_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_complete_multipart_upload::ser_multipart_upload_payload(
-        payload,
-    )?)
+    Ok(crate::protocol_serde::shape_complete_multipart_upload_input::ser_multipart_upload_payload(payload)?)
 }
 
 pub fn ser_multipart_upload_payload(

@@ -6,7 +6,7 @@ pub fn ser_object_lock_configuration_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_put_object_lock_configuration::ser_object_lock_configuration_payload(payload)?)
+    Ok(crate::protocol_serde::shape_put_object_lock_configuration_input::ser_object_lock_configuration_payload(payload)?)
 }
 
 pub fn ser_object_lock_configuration_payload(

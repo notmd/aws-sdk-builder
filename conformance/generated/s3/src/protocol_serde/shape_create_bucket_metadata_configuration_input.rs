@@ -6,7 +6,7 @@ pub fn ser_metadata_configuration_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(crate::protocol_serde::shape_create_bucket_metadata_configuration::ser_metadata_configuration_payload(payload)?)
+    Ok(crate::protocol_serde::shape_create_bucket_metadata_configuration_input::ser_metadata_configuration_payload(payload)?)
 }
 
 pub fn ser_metadata_configuration_payload(

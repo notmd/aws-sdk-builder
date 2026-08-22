@@ -6,9 +6,7 @@ pub fn ser_object_encryption_http_payload(
         Some(t) => t,
         None => return Ok(crate::protocol_serde::rest_xml_unset_union_payload()),
     };
-    Ok(crate::protocol_serde::shape_update_object_encryption::ser_object_encryption_payload(
-        payload,
-    )?)
+    Ok(crate::protocol_serde::shape_update_object_encryption_input::ser_object_encryption_payload(payload)?)
 }
 
 pub fn ser_object_encryption_payload(
