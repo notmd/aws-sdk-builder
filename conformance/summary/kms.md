@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `220` matched · `166` mismatches · `213` missing · `1` extra · `36.67%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `222` matched · `166` mismatches · `211` missing · `1` extra · `37.00%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -11490,8 +11490,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/client/customize/internal.rs`
-- `src/client/customize.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
 - `src/config/http.rs`

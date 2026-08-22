@@ -4,7 +4,7 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
-### Checkpoint: 2026-08-23 — Generic fluent builders and presigning
+### Checkpoint: 2026-08-23 — Shared customization and presigning support
 
 - State: in progress
 - Changed: `crates/aws-sdk-build/src/codegen.rs` now emits standalone Smithy-RS-style
@@ -13,20 +13,26 @@ full audit trail.
   model-derived documentation, streaming-aware derives, and presigning methods. The
   presigning predicate is derived from HTTP path/query bindings and streaming traits;
   it has no service- or operation-name switch. The service library header regression
-  from the experiment was also corrected.
+  from the experiment was also corrected. The generic Smithy-RS client customization
+  layer is now materialized as `client/customize.rs` plus `client/customize/internal.rs`
+  for every selected service; S3’s presigning and payload-signing extensions are
+  derived from the same model predicate.
 - Evidence: inspected the pinned Smithy-RS `FluentBuilderGenerator.kt` and
   `AwsPresigningDecorator.kt` under `/tmp/smithy-rs`. `just conformance` regenerated
   8 all-operation snapshots and formatted 4,494 generated Rust files.
-- Conformance: overall `2,948/1,545/1,968/1` -> `3,444/1,049/1,968/1` and S3
-  `1,055/188/101/0` -> `1,157/86/101/0` (matched/mismatched/missing/extra). Four
-  of the five model-selected S3 presignable builders are exact; the remaining
-  `HeadObject` builder has an unrelated documentation-tag whitespace mismatch.
-- Blocker: the reference still contains 101 missing S3 files, primarily shared
+- Conformance: overall `3,444/1,049/1,968/1` -> `3,460/1,049/1,952/1` and S3
+  `1,157/86/101/0` -> `1,159/86/99/0` (matched/mismatched/missing/extra). All
+  eight generic customization pairs are exact; the S3 customization extension is
+  also exact. Four of the five model-selected S3 presignable builders are exact;
+  the remaining `HeadObject` builder has an unrelated documentation-tag whitespace
+  mismatch.
+- Blocker: the reference still contains 99 missing S3 files, primarily shared
   runtime/config/presigning modules and tests; remaining mismatches include shared
   client/config/protocol/type source and a small set of builder documentation/layout
   differences.
-- Next action: port the generic shared client customization and presigning support
-  files needed by the newly generated presigning builders, then rerun conformance.
+- Next action: port the shared presigning runtime files (`presigning.rs` and
+  `presigning_interceptors.rs`) using Smithy-RS’s AWS presigning decorator, then rerun
+  conformance.
 
 ## Current implementation
 

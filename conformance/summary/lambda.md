@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `487` matched · `219` mismatches · `378` missing · `0` extra · `44.93%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `489` matched · `219` mismatches · `376` missing · `0` extra · `45.11%` match (100.00% means fully matched)
 
 ### `src/client/create_function.rs`
 
@@ -17144,8 +17144,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/client/customize/internal.rs`
-- `src/client/customize.rs`
 - `src/client_idempotency_token.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`

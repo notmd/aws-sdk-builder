@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `127` matched · `48` mismatches · `124` missing · `0` extra · `42.47%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `129` matched · `48` mismatches · `122` missing · `0` extra · `43.14%` match (100.00% means fully matched)
 
 ### `src/client/cancel_message_move_task.rs`
 
@@ -5388,8 +5388,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `LICENSE`
 - `README.md`
 - `src/aws_query_compatible_errors.rs`
-- `src/client/customize/internal.rs`
-- `src/client/customize.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
 - `src/config/http.rs`

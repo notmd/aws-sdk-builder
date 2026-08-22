@@ -80,6 +80,14 @@ pub(crate) fn generate(
                 render_client_file(entry.key, &selected),
             ),
             (
+                "src/client/customize.rs".to_owned(),
+                render_client_customize_file(&selected),
+            ),
+            (
+                "src/client/customize/internal.rs".to_owned(),
+                render_client_customize_internal_file(&selected),
+            ),
+            (
                 "src/serde_util.rs".to_owned(),
                 render_serde_util_file(&selected),
             ),
@@ -10826,6 +10834,60 @@ fn render_client_file(service_key: &str, selected: &SelectedModel) -> String {
     let mut output = String::new();
     output.push_str(&render_aws_runtime());
     render_client(&mut output, service_key, selected);
+    output
+}
+
+fn has_presignable_operations(selected: &SelectedModel) -> bool {
+    selected.operations.iter().any(|operation_name| {
+        operation_shape(selected, operation_name)
+            .is_some_and(|operation| operation_is_presignable(selected, operation))
+    })
+}
+
+fn render_client_customize_internal_file(selected: &SelectedModel) -> String {
+    let mut output = include_str!("../assets/client_customize_internal.rs").to_owned();
+    if has_presignable_operations(selected) {
+        output.push_str(
+            "\npub trait CustomizablePresigned<E>: ::std::marker::Send + ::std::marker::Sync {\n    fn presign(\n        self,\n        config_override: crate::config::Builder,\n        presigning_config: crate::presigning::PresigningConfig,\n    ) -> BoxFuture<SendResult<crate::presigning::PresignedRequest, E>>;\n}\n",
+        );
+    }
+    output
+}
+
+fn render_client_customize_file(selected: &SelectedModel) -> String {
+    let mut output = include_str!("../assets/client_customize.rs").to_owned();
+    if has_presignable_operations(selected) {
+        let mut payload_signing_overrides = String::new();
+        let mut operation_names = selected.operations.clone();
+        operation_names.sort();
+        for operation_name in operation_names {
+            let Some(operation) = operation_shape(selected, &operation_name) else {
+                continue;
+            };
+            if !operation_is_presignable(selected, operation)
+                || operation_http_method(operation) != "PUT"
+            {
+                continue;
+            }
+            let module = names::snake_case(&operation_name);
+            let operation_type = rust_type_name(&operation_name);
+            writeln!(
+                payload_signing_overrides,
+                "impl<E, B> CustomizableOperation<crate::operation::{module}::{operation_type}Output, E, B> {{\n    /// Disable payload signing for this request.\n    ///\n    /// **WARNING:** This is an advanced feature that removes\n    /// the cost of signing a request payload by removing a data\n    /// integrity check. Not all services/operations support\n    /// this feature.\n    pub fn disable_payload_signing(self) -> Self {{\n        self.runtime_plugin(::aws_runtime::auth::PayloadSigningOverrideRuntimePlugin::unsigned())\n    }}\n}}\n"
+            )
+            .unwrap();
+        }
+        output = output.replacen(
+            "/// `CustomizableOperation`",
+            &format!("{payload_signing_overrides}/// `CustomizableOperation`"),
+            1,
+        );
+        let presigned_method = "\n\n    /// Sends the request and returns the response.\n    #[allow(unused_mut)]\n    pub async fn presigned(\n        mut self,\n        presigning_config: crate::presigning::PresigningConfig,\n    ) -> ::std::result::Result<crate::presigning::PresignedRequest, crate::error::SdkError<E>>\n    where\n        E: std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,\n        B: crate::client::customize::internal::CustomizablePresigned<E>,\n    {\n        self.execute(move |sender, conf| sender.presign(conf, presigning_config)).await\n    }";
+        output = output.replace(
+            "\n}\n\npub(crate) mod internal;",
+            &format!("{presigned_method}\n}}\n\npub(crate) mod internal;"),
+        );
+    }
     output
 }
 
