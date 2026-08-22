@@ -2842,7 +2842,7 @@ fn render_standalone_runtime_plugin(
         .and_then(|id| selected.model.shapes.get(id));
     let stalled_stream_protection = operation_uses_stalled_stream_protection(selected, operation);
     let sensitive_output =
-        output_shape.is_some_and(|shape| structure_has_sensitive_member(selected, shape));
+        output_shape.is_some_and(|shape| operation_output_is_sensitive(selected, shape));
     let checksum = operation_http_checksum_trait(operation);
     let request_checksum_required = checksum
         .and_then(|checksum| checksum.get("requestChecksumRequired"))
@@ -5690,7 +5690,7 @@ fn render_operation_builder_file(
         .get("input")
         .and_then(target_value)
         .and_then(|input_id| selected.model.shapes.get(input_id))
-        .is_some_and(structure_has_streaming_member);
+        .is_some_and(|shape| structure_has_streaming_member(selected, shape));
     let builder_derives = if input_has_streaming_member {
         "Debug, Default"
     } else {
@@ -5808,7 +5808,7 @@ fn render_standalone_fluent_operation_builder_file(
         render_doc_lines(&mut output, &documentation, 0);
     }
     render_deprecated_attribute(&mut output, operation, 0);
-    if input_shape.is_some_and(structure_has_streaming_member) {
+    if input_shape.is_some_and(|shape| structure_has_streaming_member(selected, shape)) {
         output.push_str("#[derive(::std::fmt::Debug)]\n");
     } else {
         output.push_str("#[derive(::std::clone::Clone, ::std::fmt::Debug)]\n");
@@ -5906,11 +5906,13 @@ fn operation_is_presignable(selected: &SelectedModel, operation: &Value) -> bool
     match method {
         "DELETE" => query.starts_with("x-id=") && !has_query("uploadId"),
         "GET" => {
-            query.starts_with("x-id=") && output_shape.is_some_and(structure_has_streaming_member)
+            query.starts_with("x-id=")
+                && output_shape.is_some_and(|shape| structure_has_streaming_member(selected, shape))
         }
         "HEAD" => query.is_empty(),
         "PUT" => {
-            query.starts_with("x-id=") && input_shape.is_some_and(structure_has_streaming_member)
+            query.starts_with("x-id=")
+                && input_shape.is_some_and(|shape| structure_has_streaming_member(selected, shape))
         }
         _ => false,
     }
@@ -9826,7 +9828,7 @@ fn structure_member_type(
     context: &Context,
 ) -> String {
     let value_type = type_expr(selected, target, context.clone());
-    if is_streaming_target(target) {
+    if is_streaming_target(target) || is_streaming_output_target(selected, target, context) {
         value_type
     } else if operation_input(context) || !member_is_effectively_required(selected, member, target)
     {
@@ -9852,6 +9854,25 @@ fn member_is_effectively_required(selected: &SelectedModel, member: &Value, targ
             .and_then(|shape| shape.get("type"))
             .and_then(Value::as_str)
             != Some("structure")
+}
+
+fn is_streaming_output_target(selected: &SelectedModel, target: &str, context: &Context) -> bool {
+    !operation_input(context) && is_streaming_shape_target(selected, target)
+}
+
+fn is_streaming_shape_target(selected: &SelectedModel, target: &str) -> bool {
+    is_streaming_target(target)
+        || selected
+            .model
+            .shapes
+            .get(target)
+            .is_some_and(shape_is_streaming)
+}
+
+fn is_event_stream_target(selected: &SelectedModel, target: &str) -> bool {
+    selected.model.shapes.get(target).is_some_and(|shape| {
+        shape.get("type").and_then(Value::as_str) == Some("union") && shape_is_streaming(shape)
+    })
 }
 
 fn has_trait(value: &Value, trait_id: &str) -> bool {
@@ -9907,10 +9928,61 @@ fn structure_has_sensitive_member(selected: &SelectedModel, shape: &Value) -> bo
             .any(|(_, member)| value_should_redact(selected, member, &mut BTreeSet::new()))
 }
 
-fn structure_has_streaming_member(shape: &Value) -> bool {
+fn operation_output_is_sensitive(selected: &SelectedModel, shape: &Value) -> bool {
+    has_trait(shape, "smithy.api#sensitive")
+        || members(shape)
+            .iter()
+            .any(|(_, member)| value_has_sensitive_target(selected, member, &mut BTreeSet::new()))
+}
+
+fn value_has_sensitive_target(
+    selected: &SelectedModel,
+    value: &Value,
+    seen: &mut BTreeSet<String>,
+) -> bool {
+    has_trait(value, "smithy.api#sensitive")
+        || member_target(value)
+            .is_some_and(|target| shape_has_sensitive_target(selected, target, seen))
+}
+
+fn shape_has_sensitive_target(
+    selected: &SelectedModel,
+    target: &str,
+    seen: &mut BTreeSet<String>,
+) -> bool {
+    if !seen.insert(target.to_owned()) {
+        return false;
+    }
+    let Some(shape) = selected.model.shapes.get(target) else {
+        return false;
+    };
+    if has_trait(shape, "smithy.api#sensitive") {
+        return true;
+    }
+    match shape.get("type").and_then(Value::as_str) {
+        Some("structure" | "union") => members(shape)
+            .iter()
+            .any(|(_, member)| value_has_sensitive_target(selected, member, seen)),
+        Some("list") => shape
+            .get("member")
+            .is_some_and(|member| value_has_sensitive_target(selected, member, seen)),
+        Some("map") => {
+            shape
+                .get("key")
+                .is_some_and(|key| value_has_sensitive_target(selected, key, seen))
+                || shape
+                    .get("value")
+                    .is_some_and(|value| value_has_sensitive_target(selected, value, seen))
+        }
+        _ => false,
+    }
+}
+
+fn structure_has_streaming_member(selected: &SelectedModel, shape: &Value) -> bool {
     members(shape).iter().any(|(_, member)| {
         has_trait(member, "smithy.api#streaming")
-            || member_target(member).is_some_and(is_streaming_target)
+            || member_target(member)
+                .is_some_and(|target| is_streaming_shape_target(selected, target))
     })
 }
 
@@ -9928,7 +10000,9 @@ fn builder_member_is_required(
     target: &str,
     context: &Context,
 ) -> bool {
-    !operation_input(context) && member_is_effectively_required(selected, member, target)
+    !operation_input(context)
+        && (is_event_stream_target(selected, target)
+            || member_is_effectively_required(selected, member, target))
 }
 
 fn builder_argument_type(selected: &SelectedModel, target: &str, value_type: &str) -> String {
@@ -10030,7 +10104,7 @@ fn render_structure_at_indent(
     writeln!(output, "{padding}#[non_exhaustive]").unwrap();
     let derives = "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug";
     let mut excluded_derives = Vec::new();
-    if structure_has_streaming_member(shape) {
+    if structure_has_streaming_member(selected, shape) {
         excluded_derives.extend(["::std::clone::Clone", "::std::cmp::PartialEq"]);
     }
     if structure_has_sensitive_member(selected, shape) {
@@ -10124,6 +10198,7 @@ fn render_structure_accessors(
             }
             render_deprecated_attribute(output, member, indent + 4);
             let required = is_streaming_target(target)
+                || is_streaming_output_target(selected, target, &context)
                 || (!operation_input(&context)
                     && member_is_effectively_required(selected, member, target));
             let target_shape = selected.model.shapes.get(target);
@@ -10415,7 +10490,7 @@ fn render_type_builder(
     let builder_derives =
         "::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug";
     let mut excluded_derives = Vec::new();
-    if structure_has_streaming_member(shape) {
+    if structure_has_streaming_member(selected, shape) {
         excluded_derives.extend(["::std::clone::Clone", "::std::cmp::PartialEq"]);
     }
     if structure_has_sensitive_member(selected, shape) {
@@ -11315,7 +11390,7 @@ fn render_client_operation_file(
                     let field = names::rust_identifier(&name);
                     let target_id = member_target(member).unwrap_or("smithy.api#String");
                     let target = client_documentation_type(selected, target_id);
-                    let field_type = if is_streaming_target(target_id)
+                    let field_type = if is_streaming_shape_target(selected, target_id)
                         || member_is_effectively_required(selected, member, target_id)
                     {
                         target
@@ -11415,6 +11490,10 @@ fn client_documentation_type(selected: &SelectedModel, target: &str) -> String {
             let Some(shape) = selected.model.shapes.get(target) else {
                 return rust_type_name(terminal(target));
             };
+            if is_event_stream_target(selected, target) {
+                let name = rust_type_name(terminal(target));
+                return format!("EventReceiver<{name}, {name}Error>");
+            }
             match shape.get("type").and_then(Value::as_str) {
                 Some("list") => {
                     let element = shape
@@ -12113,6 +12192,39 @@ impl Context {
 }
 
 fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String {
+    if !operation_input(&context) && is_event_stream_target(selected, target) {
+        let name = rust_type_name(terminal(target));
+        let (value_path, error_path) = match &context {
+            Context::Types {
+                consumer_namespace: true,
+            } => (
+                format!("self::{name}"),
+                format!("super::error::{name}Error"),
+            ),
+            Context::Error {
+                consumer_namespace: true,
+            } => (
+                format!("super::super::types::{name}"),
+                format!("super::{name}Error"),
+            ),
+            Context::Operation {
+                consumer_namespace: true,
+                ..
+            }
+            | Context::Builder {
+                consumer_namespace: true,
+                ..
+            } => (
+                format!("super::super::super::types::{name}"),
+                format!("super::super::super::types::error::{name}Error"),
+            ),
+            _ => (
+                format!("crate::types::{name}"),
+                format!("crate::types::error::{name}Error"),
+            ),
+        };
+        return format!("crate::event_receiver::EventReceiver<{value_path}, {error_path}>");
+    }
     if terminal(target) == "StreamingBlob" {
         return match context {
             Context::Types { consumer_namespace } => {

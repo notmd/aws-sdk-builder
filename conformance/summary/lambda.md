@@ -191,18 +191,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/client/invoke_with_response_stream.rs
 +++ generated/src/client/invoke_with_response_stream.rs
-@@ -11,9 +11,9 @@
+@@ -11,7 +11,7 @@
      ///   - [`tenant_id(impl Into<String>)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::tenant_id) / [`set_tenant_id(Option<String>)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::set_tenant_id):<br>required: **false**<br><p>The identifier of the tenant in a multi-tenant Lambda function.</p><br>
      ///   - [`invocation_type(ResponseStreamingInvocationType)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::invocation_type) / [`set_invocation_type(Option<ResponseStreamingInvocationType>)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::set_invocation_type):<br>required: **false**<br><p>Use one of the following options:</p> <ul>  <li>   <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>  <li>   <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li> </ul><br>
      /// - On success, responds with [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput) with field(s):
 -    ///   - [`status_code(i32)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::status_code): <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
 +    ///   - [`status_code(Option<i32>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::status_code): <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
      ///   - [`executed_version(Option<String>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::executed_version): <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
--    ///   - [`event_stream(EventReceiver<InvokeWithResponseStreamResponseEvent, InvokeWithResponseStreamResponseEventError>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::event_stream): <p>The stream of response payloads.</p>
-+    ///   - [`event_stream(Option<InvokeWithResponseStreamResponseEvent>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::event_stream): <p>The stream of response payloads.</p>
+     ///   - [`event_stream(EventReceiver<InvokeWithResponseStreamResponseEvent, InvokeWithResponseStreamResponseEventError>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::event_stream): <p>The stream of response payloads.</p>
      ///   - [`response_stream_content_type(Option<String>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::response_stream_content_type): <p>The type of data the stream is returning.</p>
-     /// - On failure, responds with [`SdkError<InvokeWithResponseStreamError>`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError)
-     pub fn invoke_with_response_stream(&self) -> crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder {
 ```
 
 ### `src/client/publish_layer_version.rs`
@@ -3337,13 +3334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/checkpoint_durable_execution.rs
 +++ generated/src/operation/checkpoint_durable_execution.rs
-@@ -110,15 +110,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "CheckpointDurableExecution",
+@@ -116,9 +116,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -3356,7 +3347,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -150,9 +149,17 @@
+@@ -150,9 +150,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionError,
              >::new())
@@ -3377,7 +3368,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -285,11 +292,11 @@
+@@ -285,11 +293,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3391,7 +3382,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -324,8 +331,8 @@
+@@ -324,8 +332,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -3401,7 +3392,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -497,6 +504,11 @@
+@@ -497,6 +505,11 @@
          })
      }
  }
@@ -3792,11 +3783,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_function.rs
 +++ generated/src/operation/create_function.rs
-@@ -102,12 +102,11 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+@@ -105,9 +105,9 @@
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateFunction", "Lambda"));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
 -        signing_options.double_uri_encode = true;
@@ -3808,7 +3796,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +138,15 @@
+@@ -139,9 +139,15 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::create_function::CreateFunctionError,
              >::new())
@@ -3827,7 +3815,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -273,10 +278,10 @@
+@@ -273,10 +279,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3840,7 +3828,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -310,8 +315,8 @@
+@@ -310,8 +316,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -3850,7 +3838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -515,6 +520,11 @@
+@@ -515,6 +521,11 @@
          })
      }
  }
@@ -5223,13 +5211,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_durable_execution_history.rs
 +++ generated/src/operation/get_durable_execution_history.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "GetDurableExecutionHistory",
+@@ -108,9 +108,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -5242,7 +5224,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -142,9 +141,17 @@
+@@ -142,9 +142,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError,
              >::new())
@@ -5263,17 +5245,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -333,8 +340,8 @@
+@@ -333,8 +341,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
++            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -516,6 +523,11 @@
+@@ -516,6 +524,11 @@
          })
      }
  }
@@ -5292,13 +5274,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_durable_execution_state.rs
 +++ generated/src/operation/get_durable_execution_state.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "GetDurableExecutionState",
+@@ -108,9 +108,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -5311,7 +5287,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -142,9 +141,17 @@
+@@ -142,9 +142,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::get_durable_execution_state::GetDurableExecutionStateError,
              >::new())
@@ -5332,17 +5308,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -339,8 +346,8 @@
+@@ -339,8 +347,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
++            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -512,6 +519,11 @@
+@@ -512,6 +520,11 @@
          })
      }
  }
@@ -5457,11 +5433,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function.rs
 +++ generated/src/operation/get_function.rs
-@@ -102,12 +102,11 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+@@ -105,9 +105,9 @@
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetFunction", "Lambda"));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
 -        signing_options.double_uri_encode = true;
@@ -5473,7 +5446,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +138,15 @@
+@@ -139,9 +139,15 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::get_function::GetFunctionError,
              >::new())
@@ -5492,17 +5465,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -310,8 +315,8 @@
+@@ -310,8 +316,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
++            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -453,6 +458,11 @@
+@@ -453,6 +459,11 @@
          })
      }
  }
@@ -5714,13 +5687,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_function_configuration.rs
 +++ generated/src/operation/get_function_configuration.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "GetFunctionConfiguration",
+@@ -108,9 +108,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -5733,7 +5700,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -142,9 +141,17 @@
+@@ -142,9 +142,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::get_function_configuration::GetFunctionConfigurationError,
              >::new())
@@ -5754,17 +5721,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -314,8 +321,8 @@
+@@ -314,8 +322,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+-            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
++            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -457,6 +464,11 @@
+@@ -457,6 +465,11 @@
          })
      }
  }
@@ -6992,16 +6959,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_async/_invoke_async_input.rs
 +++ generated/src/operation/invoke_async/_invoke_async_input.rs
-@@ -1,8 +1,7 @@
+@@ -1,6 +1,5 @@
  // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
  #[allow(missing_docs)] // documentation missing in model
 -#[deprecated]
  #[non_exhaustive]
--#[derive(::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+ #[derive(::std::fmt::Debug)]
  pub struct InvokeAsyncInput {
-     /// <p>The name or ARN of the Lambda function.</p>
-     /// <p class="title"><b>Name formats</b></p>
 @@ -17,7 +16,7 @@
      /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub function_name: ::std::option::Option<::std::string::String>,
@@ -7022,12 +6986,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
  }
  impl InvokeAsyncInput {
-@@ -47,11 +46,11 @@
- }
-
- /// A builder for [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).
--#[derive(::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+@@ -51,7 +50,7 @@
  #[non_exhaustive]
  pub struct InvokeAsyncInputBuilder {
      pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -7109,15 +7068,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_async/builders.rs
 +++ generated/src/operation/invoke_async/builders.rs
-@@ -31,7 +31,7 @@
- /// <p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not propagated to the function, even if X-Ray active tracing is turned on.</p>
- /// </note>
- #[deprecated]
--#[derive(::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::fmt::Debug)]
- pub struct InvokeAsyncFluentBuilder {
-     handle: ::std::sync::Arc<crate::client::Handle>,
-     inner: crate::operation::invoke_async::builders::InvokeAsyncInputBuilder,
 @@ -161,17 +161,17 @@
          self.inner.get_function_name()
      }
@@ -7285,12 +7235,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs
 +++ generated/src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs
-@@ -1,17 +1,14 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- #[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
--#[derive(::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+@@ -4,7 +4,7 @@
+ #[derive(::std::fmt::Debug)]
  pub struct InvokeWithResponseStreamOutput {
      /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
 -    pub status_code: i32,
@@ -7298,15 +7244,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
      pub executed_version: ::std::option::Option<::std::string::String>,
      /// <p>The stream of response payloads.</p>
--    pub event_stream: crate::event_receiver::EventReceiver<
--        crate::types::InvokeWithResponseStreamResponseEvent,
--        crate::types::error::InvokeWithResponseStreamResponseEventError,
--    >,
-+    pub event_stream: ::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent>,
-     /// <p>The type of data the stream is returning.</p>
-     pub response_stream_content_type: ::std::option::Option<::std::string::String>,
-     _request_id: Option<String>,
-@@ -18,7 +15,7 @@
+@@ -18,7 +18,7 @@
  }
  impl InvokeWithResponseStreamOutput {
      /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
@@ -7315,115 +7253,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.status_code
      }
      /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-@@ -26,13 +23,8 @@
-         self.executed_version.as_deref()
-     }
-     /// <p>The stream of response payloads.</p>
--    pub fn event_stream(
--        &self,
--    ) -> &crate::event_receiver::EventReceiver<
--        crate::types::InvokeWithResponseStreamResponseEvent,
--        crate::types::error::InvokeWithResponseStreamResponseEventError,
--    > {
--        &self.event_stream
-+    pub fn event_stream(&self) -> ::std::option::Option<&crate::types::InvokeWithResponseStreamResponseEvent> {
-+        self.event_stream.as_ref()
-     }
-     /// <p>The type of data the stream is returning.</p>
-     pub fn response_stream_content_type(&self) -> ::std::option::Option<&str> {
-@@ -52,17 +44,12 @@
- }
-
- /// A builder for [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput).
--#[derive(::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct InvokeWithResponseStreamOutputBuilder {
-     pub(crate) status_code: ::std::option::Option<i32>,
-     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
--    pub(crate) event_stream: ::std::option::Option<
--        crate::event_receiver::EventReceiver<
--            crate::types::InvokeWithResponseStreamResponseEvent,
--            crate::types::error::InvokeWithResponseStreamResponseEventError,
--        >,
--    >,
-+    pub(crate) event_stream: ::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent>,
-     pub(crate) response_stream_content_type: ::std::option::Option<::std::string::String>,
-     _request_id: Option<String>,
- }
-@@ -96,38 +83,17 @@
-         &self.executed_version
-     }
-     /// <p>The stream of response payloads.</p>
--    pub fn event_stream(
--        mut self,
--        input: crate::event_receiver::EventReceiver<
--            crate::types::InvokeWithResponseStreamResponseEvent,
--            crate::types::error::InvokeWithResponseStreamResponseEventError,
--        >,
--    ) -> Self {
-+    pub fn event_stream(mut self, input: crate::types::InvokeWithResponseStreamResponseEvent) -> Self {
-         self.event_stream = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The stream of response payloads.</p>
--    pub fn set_event_stream(
--        mut self,
--        input: ::std::option::Option<
--            crate::event_receiver::EventReceiver<
--                crate::types::InvokeWithResponseStreamResponseEvent,
--                crate::types::error::InvokeWithResponseStreamResponseEventError,
--            >,
--        >,
--    ) -> Self {
-+    pub fn set_event_stream(mut self, input: ::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent>) -> Self {
-         self.event_stream = input;
-         self
-     }
-     /// <p>The stream of response payloads.</p>
--    pub fn get_event_stream(
--        &self,
--    ) -> &::std::option::Option<
--        crate::event_receiver::EventReceiver<
--            crate::types::InvokeWithResponseStreamResponseEvent,
--            crate::types::error::InvokeWithResponseStreamResponseEventError,
--        >,
--    > {
-+    pub fn get_event_stream(&self) -> &::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent> {
-         &self.event_stream
-     }
-     /// <p>The type of data the stream is returning.</p>
-@@ -154,25 +120,13 @@
-         self
-     }
-     /// Consumes the builder and constructs a [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput).
--    /// This method will fail if any of the following fields are not set:
--    /// - [`event_stream`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamOutputBuilder::event_stream)
--    pub fn build(
--        self,
--    ) -> ::std::result::Result<
--        crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput,
--        ::aws_smithy_types::error::operation::BuildError,
--    > {
--        ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
+@@ -163,7 +163,7 @@
+         ::aws_smithy_types::error::operation::BuildError,
+     > {
+         ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
 -            status_code: self.status_code.unwrap_or_default(),
-+    pub fn build(self) -> crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
-+        crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
 +            status_code: self.status_code,
              executed_version: self.executed_version,
--            event_stream: self.event_stream.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "event_stream",
--                    "event_stream was not specified but it is required when building InvokeWithResponseStreamOutput",
--                )
--            })?,
-+            event_stream: self.event_stream,
-             response_stream_content_type: self.response_stream_content_type,
-             _request_id: self._request_id,
--        })
-+        }
-     }
- }
+             event_stream: self.event_stream.ok_or_else(|| {
+                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/invoke_with_response_stream/builders.rs`
@@ -7461,13 +7299,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_with_response_stream.rs
 +++ generated/src/operation/invoke_with_response_stream.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "InvokeWithResponseStream",
+@@ -108,9 +108,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -7480,7 +7312,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +138,17 @@
+@@ -139,9 +139,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::invoke_with_response_stream::InvokeWithResponseStreamError,
              >::new())
@@ -7501,7 +7333,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -214,6 +221,7 @@
+@@ -214,6 +222,7 @@
      ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
          #[allow(unused_mut)]
          let mut force_error = false;
@@ -7509,7 +7341,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-@@ -346,8 +354,8 @@
+@@ -346,8 +355,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -7519,7 +7351,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -819,6 +827,11 @@
+@@ -819,6 +828,11 @@
          })
      }
  }
@@ -8193,11 +8025,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_functions.rs
 +++ generated/src/operation/list_functions.rs
-@@ -102,12 +102,11 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+@@ -105,9 +105,9 @@
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListFunctions", "Lambda"));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
 -        signing_options.double_uri_encode = true;
@@ -8209,7 +8038,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +138,15 @@
+@@ -139,9 +139,15 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::list_functions::ListFunctionsError,
              >::new())
@@ -8228,17 +8057,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -314,8 +319,8 @@
+@@ -314,8 +320,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
++            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
+             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -447,6 +452,11 @@
+@@ -447,6 +453,11 @@
          })
      }
  }
@@ -8584,13 +8413,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_versions_by_function.rs
 +++ generated/src/operation/list_versions_by_function.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "ListVersionsByFunction",
+@@ -108,9 +108,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -8603,7 +8426,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +125,34 @@
+@@ -126,25 +126,34 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -8657,7 +8480,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -319,8 +327,8 @@
+@@ -319,8 +328,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -8667,7 +8490,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -462,6 +470,11 @@
+@@ -462,6 +471,11 @@
          })
      }
  }
@@ -8981,11 +8804,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/publish_version.rs
 +++ generated/src/operation/publish_version.rs
-@@ -102,12 +102,11 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+@@ -105,9 +105,9 @@
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PublishVersion", "Lambda"));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
 -        signing_options.double_uri_encode = true;
@@ -8997,7 +8817,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +138,15 @@
+@@ -139,9 +139,15 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::publish_version::PublishVersionError,
              >::new())
@@ -9016,7 +8836,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -275,10 +280,10 @@
+@@ -275,10 +281,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9029,7 +8849,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -312,8 +317,8 @@
+@@ -312,8 +318,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -9039,7 +8859,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -503,6 +508,11 @@
+@@ -503,6 +509,11 @@
          })
      }
  }
@@ -10828,13 +10648,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_function_code.rs
 +++ generated/src/operation/update_function_code.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "UpdateFunctionCode",
+@@ -108,9 +108,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -10847,7 +10661,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +125,17 @@
+@@ -126,25 +126,17 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -10884,7 +10698,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -292,11 +283,12 @@
+@@ -292,11 +284,12 @@
                  ::std::result::Result::Ok(builder.method("PUT").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10900,7 +10714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -330,8 +322,8 @@
+@@ -330,8 +323,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -10910,7 +10724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -539,6 +531,11 @@
+@@ -539,6 +532,11 @@
          })
      }
  }
@@ -10963,13 +10777,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_function_configuration.rs
 +++ generated/src/operation/update_function_configuration.rs
-@@ -108,15 +108,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "UpdateFunctionConfiguration",
+@@ -114,9 +114,9 @@
              "Lambda",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -10982,7 +10790,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +147,17 @@
+@@ -148,9 +148,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::update_function_configuration::UpdateFunctionConfigurationError,
              >::new())
@@ -11003,7 +10811,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -294,11 +301,11 @@
+@@ -294,11 +302,11 @@
                  ::std::result::Result::Ok(builder.method("PUT").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11017,7 +10825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -333,8 +340,8 @@
+@@ -333,8 +341,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -11027,7 +10835,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -532,6 +539,11 @@
+@@ -532,6 +540,11 @@
          })
      }
  }

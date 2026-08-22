@@ -5219,13 +5219,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_origination_numbers.rs
 +++ generated/src/operation/list_origination_numbers.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "ListOriginationNumbers",
+@@ -108,9 +108,9 @@
              "SNS",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -5238,7 +5232,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +125,34 @@
+@@ -126,25 +126,34 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -5292,7 +5286,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -251,12 +259,11 @@
+@@ -251,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5307,7 +5301,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -291,8 +298,8 @@
+@@ -291,8 +299,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -5317,7 +5311,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -444,6 +451,11 @@
+@@ -444,6 +452,11 @@
          })
      }
  }
@@ -5682,13 +5676,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "ListSMSSandboxPhoneNumbers",
+@@ -108,9 +108,9 @@
              "SNS",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -5701,7 +5689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -128,13 +127,13 @@
+@@ -128,13 +128,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSMSSandboxPhoneNumbers")
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -5717,7 +5705,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-@@ -142,9 +141,17 @@
+@@ -142,9 +142,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
              >::new())
@@ -5738,7 +5726,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -151,12 +158,12 @@
+@@ -151,12 +159,12 @@
  }
 
  #[derive(Debug)]
@@ -5754,7 +5742,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +258,11 @@
+@@ -251,12 +259,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5769,7 +5757,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -266,12 +272,12 @@
+@@ -266,12 +273,12 @@
      }
  }
  #[derive(Debug)]
@@ -5785,7 +5773,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,8 +297,8 @@
+@@ -291,8 +298,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -5795,7 +5783,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -444,6 +450,11 @@
+@@ -444,6 +451,11 @@
          })
      }
  }

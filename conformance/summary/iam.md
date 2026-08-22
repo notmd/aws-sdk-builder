@@ -4876,11 +4876,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_access_key.rs
 +++ generated/src/operation/create_access_key.rs
-@@ -102,12 +102,11 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+@@ -105,9 +105,9 @@
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateAccessKey", "IAM"));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
 -        signing_options.double_uri_encode = true;
@@ -4892,7 +4889,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +138,15 @@
+@@ -139,9 +139,15 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::create_access_key::CreateAccessKeyError,
              >::new())
@@ -4911,7 +4908,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -248,13 +253,12 @@
+@@ -248,13 +254,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4929,7 +4926,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,10 +291,10 @@
+@@ -287,10 +292,10 @@
              .ok_or("failed to downcast to CreateAccessKeyInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -4942,7 +4939,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -421,6 +425,11 @@
+@@ -421,6 +426,11 @@
          })
      }
  }
@@ -6303,13 +6300,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_service_specific_credential.rs
 +++ generated/src/operation/create_service_specific_credential.rs
-@@ -108,15 +108,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "CreateServiceSpecificCredential",
+@@ -114,9 +114,9 @@
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -6322,7 +6313,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +147,17 @@
+@@ -148,9 +148,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
              >::new())
@@ -6343,7 +6334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -264,12 +271,11 @@
+@@ -264,12 +272,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6358,7 +6349,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -303,10 +309,10 @@
+@@ -303,10 +310,10 @@
              .ok_or("failed to downcast to CreateServiceSpecificCredentialInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -6371,7 +6362,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -437,6 +443,11 @@
+@@ -437,6 +444,11 @@
          })
      }
  }
@@ -6608,13 +6599,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "CreateVirtualMFADevice",
+@@ -108,9 +108,9 @@
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -6627,7 +6612,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +125,34 @@
+@@ -126,25 +126,34 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -6681,7 +6666,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -151,12 +159,12 @@
+@@ -151,12 +160,12 @@
  }
 
  #[derive(Debug)]
@@ -6697,7 +6682,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -256,12 +264,11 @@
+@@ -256,12 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6712,7 +6697,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -271,12 +278,12 @@
+@@ -271,12 +279,12 @@
      }
  }
  #[derive(Debug)]
@@ -6728,7 +6713,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -295,10 +302,10 @@
+@@ -295,10 +303,10 @@
              .ok_or("failed to downcast to CreateVirtualMfaDeviceInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -6741,7 +6726,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -449,6 +456,11 @@
+@@ -449,6 +457,11 @@
          })
      }
  }
@@ -21122,13 +21107,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "ListVirtualMFADevices",
+@@ -108,9 +108,9 @@
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -21141,7 +21120,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +125,34 @@
+@@ -126,25 +126,34 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -21195,7 +21174,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -151,12 +159,12 @@
+@@ -151,12 +160,12 @@
  }
 
  #[derive(Debug)]
@@ -21211,7 +21190,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +259,11 @@
+@@ -251,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21226,7 +21205,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -266,12 +273,12 @@
+@@ -266,12 +274,12 @@
      }
  }
  #[derive(Debug)]
@@ -21242,7 +21221,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -290,10 +297,10 @@
+@@ -290,10 +298,10 @@
              .ok_or("failed to downcast to ListVirtualMfaDevicesInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -21255,7 +21234,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -394,6 +401,11 @@
+@@ -394,6 +402,11 @@
          })
      }
  }
@@ -22342,13 +22321,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/reset_service_specific_credential.rs
 +++ generated/src/operation/reset_service_specific_credential.rs
-@@ -108,15 +108,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "ResetServiceSpecificCredential",
+@@ -114,9 +114,9 @@
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -22361,7 +22334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +147,17 @@
+@@ -148,9 +148,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
              >::new())
@@ -22382,7 +22355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -262,12 +269,11 @@
+@@ -262,12 +270,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22397,7 +22370,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -301,10 +307,10 @@
+@@ -301,10 +308,10 @@
              .ok_or("failed to downcast to ResetServiceSpecificCredentialInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -22410,7 +22383,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +421,11 @@
+@@ -415,6 +422,11 @@
          })
      }
  }

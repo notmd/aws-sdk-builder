@@ -4,6 +4,25 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Distinguish streaming unions from streaming blobs
+
+- State: in progress
+- Changed: streaming output detection is now model-driven: streaming blobs remain
+  `ByteStream`, while streaming unions use `EventReceiver` and required output
+  builders. Streaming blob inputs retain their required `ByteStream` fields. The
+  sensitivity propagation from the preceding checkpoint remains recursive through
+  structures, unions, lists, and maps.
+- Evidence: inspected Smithy-RS `StreamingTraitSymbolProvider.kt`,
+  `HttpBindingGenerator.kt`, and `ResponseDeserializerGenerator.kt` under the
+  pinned `/tmp/smithy-rs` checkout. `just conformance` regenerated 8 snapshots and
+  formatted 4,575 generated Rust files; it exits 1 because broader parity remains
+  incomplete.
+- Conformance: overall `3,603/971/1,887/1` -> `3,607/967/1,887/1`; S3
+  `1,188/69/87/0` -> `1,192/65/87/0` (matched/mismatched/missing/extra).
+- Remaining gap: shared Rest XML protocol helper ordering and runtime/source-tree
+  parity still differ from Smithy-RS; the serializer-first experiment was reverted
+  because Smithy-RS uses mixed lazy dependency ordering across shape families.
+
 ### Checkpoint: 2026-08-23 — Match Smithy-RS sensitivity propagation
 
 - State: in progress
@@ -149,8 +168,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,462 files: 3,533 exact, 1,041 mismatches, 1,887 missing,
-  and 1 extra (51.14% arithmetic-average match).
+  current report compares 6,462 files: 3,607 exact, 967 mismatches, 1,887 missing,
+  and 1 extra (52.05% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.

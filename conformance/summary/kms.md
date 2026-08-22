@@ -4999,13 +4999,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/describe_custom_key_stores.rs
 +++ generated/src/operation/describe_custom_key_stores.rs
-@@ -102,15 +102,14 @@
-                 .expect("required fields set"),
-         ));
-
--        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
-             "DescribeCustomKeyStores",
+@@ -108,9 +108,9 @@
              "KMS",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -5018,7 +5012,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -142,9 +141,17 @@
+@@ -142,9 +142,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
              >::new())
@@ -5039,7 +5033,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -261,16 +268,11 @@
+@@ -261,16 +269,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5058,7 +5052,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -305,8 +307,8 @@
+@@ -305,8 +308,8 @@
 
          let params = crate::config::endpoint::Params::builder()
              .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
@@ -5068,7 +5062,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
              .build()
              .map_err(|err| {
-@@ -438,6 +440,11 @@
+@@ -438,6 +441,11 @@
          })
      }
  }
