@@ -10651,10 +10651,11 @@ fn render_type_builder(
             let builder_path = builder_type_path(&context, &rust_name);
             for member_name in &required_members {
                 let field_method = names::rust_identifier(member_name);
+                let doc_field_method = names::rustdoc_identifier(&field_method);
                 let field_link = if context.consumer_namespace() {
-                    format!("Self::{field_method}")
+                    format!("Self::{doc_field_method}")
                 } else {
-                    format!("{builder_path}::{field_method}")
+                    format!("{builder_path}::{doc_field_method}")
                 };
                 writeln!(output, "{inner}/// - [`{field_method}`]({field_link})").unwrap();
             }

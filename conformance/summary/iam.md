@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `759` matched · `339` mismatches · `533` missing · `0` extra · `46.54%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `760` matched · `338` mismatches · `533` missing · `0` extra · `46.60%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -30128,22 +30128,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.last_authenticated
 ```
 
-### `src/types/_entity_info.rs`
-
-```diff
---- reference/src/types/_entity_info.rs
-+++ generated/src/types/_entity_info.rs
-@@ -142,7 +142,7 @@
-     /// This method will fail if any of the following fields are not set:
-     /// - [`arn`](crate::types::builders::EntityInfoBuilder::arn)
-     /// - [`name`](crate::types::builders::EntityInfoBuilder::name)
--    /// - [`r#type`](crate::types::builders::EntityInfoBuilder::type)
-+    /// - [`r#type`](crate::types::builders::EntityInfoBuilder::r#type)
-     /// - [`id`](crate::types::builders::EntityInfoBuilder::id)
-     pub fn build(self) -> ::std::result::Result<crate::types::EntityInfo, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::EntityInfo {
-```
-
 ### `src/types/_list_policies_granting_service_access_entry.rs`
 
 ```diff
@@ -30356,15 +30340,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.immutable
      }
  }
-@@ -173,7 +173,7 @@
-     /// Consumes the builder and constructs a [`ParameterDefinition`](crate::types::ParameterDefinition).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`name`](crate::types::builders::ParameterDefinitionBuilder::name)
--    /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::type)
-+    /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::r#type)
-     pub fn build(self) -> ::std::result::Result<crate::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::ParameterDefinition {
-             name: self.name.ok_or_else(|| {
 @@ -190,9 +190,9 @@
              })?,
              sub_type: self.sub_type,
@@ -31953,7 +31928,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_delegation_permission.rs`
 - `src/types/_delegation_request.rs`
 - `src/types/_entity_details.rs`
-- `src/types/_entity_info.rs`
 - `src/types/_list_policies_granting_service_access_entry.rs`
 - `src/types/_login_profile.rs`
 - `src/types/_managed_policy_detail.rs`

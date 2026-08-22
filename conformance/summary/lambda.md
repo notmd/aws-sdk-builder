@@ -15822,15 +15822,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct OperationBuilder {
      pub(crate) id: ::std::option::Option<::std::string::String>,
-@@ -322,7 +342,7 @@
-     /// Consumes the builder and constructs a [`Operation`](crate::types::Operation).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`id`](crate::types::builders::OperationBuilder::id)
--    /// - [`r#type`](crate::types::builders::OperationBuilder::type)
-+    /// - [`r#type`](crate::types::builders::OperationBuilder::r#type)
-     /// - [`start_timestamp`](crate::types::builders::OperationBuilder::start_timestamp)
-     /// - [`status`](crate::types::builders::OperationBuilder::status)
-     pub fn build(self) -> ::std::result::Result<crate::types::Operation, ::aws_smithy_types::error::operation::BuildError> {
 @@ -364,3 +384,23 @@
          })
      }
@@ -15876,15 +15867,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          formatter.field("context_options", &self.context_options);
          formatter.field("step_options", &self.step_options);
          formatter.field("wait_options", &self.wait_options);
-@@ -319,7 +319,7 @@
-     /// Consumes the builder and constructs a [`OperationUpdate`](crate::types::OperationUpdate).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`id`](crate::types::builders::OperationUpdateBuilder::id)
--    /// - [`r#type`](crate::types::builders::OperationUpdateBuilder::type)
-+    /// - [`r#type`](crate::types::builders::OperationUpdateBuilder::r#type)
-     /// - [`action`](crate::types::builders::OperationUpdateBuilder::action)
-     pub fn build(self) -> ::std::result::Result<crate::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::types::OperationUpdate {
 @@ -360,11 +360,11 @@
          formatter.field("id", &self.id);
          formatter.field("parent_id", &self.parent_id);

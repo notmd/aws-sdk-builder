@@ -173,7 +173,7 @@ impl ParameterDefinitionBuilder {
     /// Consumes the builder and constructs a [`ParameterDefinition`](crate::types::ParameterDefinition).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::ParameterDefinitionBuilder::name)
-    /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::r#type)
+    /// - [`r#type`](crate::types::builders::ParameterDefinitionBuilder::type)
     pub fn build(self) -> ::std::result::Result<crate::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ParameterDefinition {
             name: self.name.ok_or_else(|| {

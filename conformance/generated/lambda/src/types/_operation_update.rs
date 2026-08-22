@@ -319,7 +319,7 @@ impl OperationUpdateBuilder {
     /// Consumes the builder and constructs a [`OperationUpdate`](crate::types::OperationUpdate).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::OperationUpdateBuilder::id)
-    /// - [`r#type`](crate::types::builders::OperationUpdateBuilder::r#type)
+    /// - [`r#type`](crate::types::builders::OperationUpdateBuilder::type)
     /// - [`action`](crate::types::builders::OperationUpdateBuilder::action)
     pub fn build(self) -> ::std::result::Result<crate::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OperationUpdate {

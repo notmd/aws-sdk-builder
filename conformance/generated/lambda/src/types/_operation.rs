@@ -342,7 +342,7 @@ impl OperationBuilder {
     /// Consumes the builder and constructs a [`Operation`](crate::types::Operation).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::OperationBuilder::id)
-    /// - [`r#type`](crate::types::builders::OperationBuilder::r#type)
+    /// - [`r#type`](crate::types::builders::OperationBuilder::type)
     /// - [`start_timestamp`](crate::types::builders::OperationBuilder::start_timestamp)
     /// - [`status`](crate::types::builders::OperationBuilder::status)
     pub fn build(self) -> ::std::result::Result<crate::types::Operation, ::aws_smithy_types::error::operation::BuildError> {

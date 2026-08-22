@@ -4,6 +4,25 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Normalize raw identifiers in Rustdoc links
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/names.rs` now exposes the generic Rustdoc
+  identifier spelling rule used by Smithy-RS, removing `r#` only from intra-doc link
+  paths while preserving the public method label. The required-field builder links in
+  `codegen.rs` use that rule. Regenerated IAM, Lambda, and S3 snapshots and reports.
+- Evidence: inspected Smithy-RS `BuilderGenerator.kt` and `RustWriter.kt` under
+  `/tmp/smithy-rs`; the latter documents Rustdoc's raw-identifier link behavior.
+  `just conformance` regenerated 8 snapshots and formatted 4,575 generated Rust
+  files; it exits 1 because parity remains incomplete. Workspace tests, Clippy with
+  `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: overall `3,537/1,037/1,887/1` -> `3,539/1,035/1,887/1`;
+  S3 `1,174/83/87/0` -> `1,175/82/87/0` (matched/mismatched/missing/extra).
+- Blocker: shared client/config/protocol/runtime source and reference package/test
+  trees remain incomplete; no new blocker introduced by this checkpoint.
+- Next action: reconcile the generic sensitivity/debug-derive predicate with the
+  Smithy-RS `Shape.shouldRedact` behavior, starting from remaining S3 type diffs.
+
 ### Checkpoint: 2026-08-23 — Preserve source operation order for type discovery
 
 - State: in progress

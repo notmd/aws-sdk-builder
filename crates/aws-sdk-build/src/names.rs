@@ -35,6 +35,11 @@ pub fn rust_identifier(value: &str) -> String {
     }
 }
 
+/// Returns the spelling that Rustdoc accepts in an intra-doc link path.
+pub fn rustdoc_identifier(value: &str) -> &str {
+    value.strip_prefix("r#").unwrap_or(value)
+}
+
 pub fn rust_module_name(value: &str) -> String {
     let name = snake_case(value);
     if is_rust_keyword(&name) {
@@ -88,11 +93,13 @@ fn is_rust_keyword(value: &str) -> bool {
 
 #[cfg(test)]
 mod tests {
-    use super::{rust_identifier, rust_module_name};
+    use super::{rust_identifier, rust_module_name, rustdoc_identifier};
 
     #[test]
     fn rust_keywords_use_context_appropriate_names() {
         assert_eq!(rust_identifier("Type"), "r#type");
         assert_eq!(rust_module_name("Type"), "type_");
+        assert_eq!(rustdoc_identifier("r#type"), "type");
+        assert_eq!(rustdoc_identifier("value"), "value");
     }
 }
