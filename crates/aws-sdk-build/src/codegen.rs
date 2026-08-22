@@ -127,6 +127,14 @@ pub(crate) fn generate(
                     format!("src/protocol_serde/shape_{module}.rs"),
                     render_protocol_operation_file(&selected, &operation_name, consumer_namespace),
                 ));
+                if let Some(payload_source) =
+                    render_protocol_input_payload_file(&selected, &operation_name)
+                {
+                    service_files.push((
+                        format!("src/protocol_serde/shape_{module}_input.rs"),
+                        payload_source,
+                    ));
+                }
                 if protocol_output_has_headers(&selected, &operation_name) {
                     service_files.push((
                         format!("src/protocol_serde/shape_{module}_output.rs"),
@@ -2122,6 +2130,118 @@ fn render_protocol_operation_file(
         consumer_namespace,
     );
     output
+}
+
+/// Render the protocol-owned request payload wrapper for a RestXml operation.
+///
+/// Smithy keeps this code in a separate `shape_<operation>_input.rs` module.
+/// The wrapper is deliberately derived from the HTTP payload member and its
+/// target shape; the service and operation names only participate in stable
+/// module/function names supplied by the model.
+fn render_protocol_input_payload_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> Option<String> {
+    let operation = operation_shape(selected, operation_name)?;
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    let (member_name, member) = members(input_shape).into_iter().find(|(_, member)| {
+        member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#httpPayload"))
+            .is_some()
+    })?;
+    let target = member_target(member)?;
+    let field = names::rust_identifier(&member_name);
+    let target_shape = selected.model.shapes.get(target);
+    let target_kind = target_shape
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| target.strip_prefix("smithy.api#"))
+        .unwrap_or_default();
+    let mut output = String::new();
+    client_operation_header(&mut output);
+
+    if terminal(target) == "StreamingBlob" {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: ::aws_smithy_types::byte_stream::ByteStream,\n) -> ::std::result::Result<::aws_smithy_types::byte_stream::ByteStream, ::aws_smithy_types::error::operation::BuildError> {{\n    Ok(payload)\n}}"
+        )
+        .unwrap();
+        return Some(output);
+    }
+
+    if target_kind == "string" {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: ::std::option::Option<::std::string::String>,\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload {{\n        Some(t) => t,\n        None => return Ok(Vec::new()),\n    }};\n    Ok(payload.into_bytes())\n}}"
+        )
+        .unwrap();
+        return Some(output);
+    }
+
+    if target_kind == "blob" {
+        writeln!(
+            output,
+            "pub fn ser_{field}_http_payload(\n    payload: ::std::option::Option<::aws_smithy_types::Blob>,\n) -> ::std::result::Result<::bytes::Bytes, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload {{\n        Some(t) => t,\n        None => return Ok(::bytes::Bytes::new()),\n    }};\n    Ok(::aws_smithy_types::Blob::from(payload).into_bytes())\n}}"
+        )
+        .unwrap();
+        return Some(output);
+    }
+
+    if !matches!(target_kind, "structure" | "union") {
+        return None;
+    }
+
+    let target_name = rust_type_name(terminal(target));
+    let target_module = names::rust_module_name(terminal(target));
+    let target_function = names::rust_identifier(terminal(target));
+    let root = xml_name(member)
+        .or_else(|| target_shape.and_then(xml_name))
+        .unwrap_or_else(|| terminal(target).to_owned());
+    let unset_payload = if target_kind == "union" {
+        "rest_xml_unset_union_payload"
+    } else {
+        "rest_xml_unset_struct_payload"
+    };
+    let (namespace_uri, namespace_prefix) = xml_namespace(selected);
+    let namespace = match namespace_prefix {
+        Some(prefix) => format!(".write_ns({namespace_uri:?}, Some({prefix:?}))"),
+        None => format!(".write_ns({namespace_uri:?}, None)"),
+    };
+
+    writeln!(
+        output,
+        "pub fn ser_{field}_http_payload(\n    payload: &::std::option::Option<crate::types::{target_name}>,\n) -> ::std::result::Result<::std::vec::Vec<u8>, ::aws_smithy_types::error::operation::BuildError> {{\n    let payload = match payload.as_ref() {{\n        Some(t) => t,\n        None => return Ok(crate::protocol_serde::{unset_payload}()),\n    }};\n    Ok(crate::protocol_serde::shape_{module}::ser_{field}_payload(\n        payload,\n    )?)\n}}\n\npub fn ser_{field}_payload(\n    input: &crate::types::{target_name},\n) -> std::result::Result<std::vec::Vec<u8>, ::aws_smithy_types::error::operation::SerializationError> {{\n    let mut out = String::new();\n    {{\n        let mut writer = ::aws_smithy_xml::encode::XmlWriter::new(&mut out);\n        #[allow(unused_mut)]\n        let mut root = writer.start_el({root:?}){namespace};\n        crate::protocol_serde::shape_{target_module}::ser_{target_function}(input, root)?\n    }}\n    Ok(out.into_bytes())\n}}",
+        module = names::rust_module_name(operation_name),
+    )
+    .unwrap();
+    Some(output)
+}
+
+fn xml_namespace(selected: &SelectedModel) -> (String, Option<String>) {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|service| service.get("traits"))
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#xmlNamespace"))
+        .and_then(Value::as_object)
+        .and_then(|namespace| {
+            namespace.get("uri").and_then(Value::as_str).map(|uri| {
+                (
+                    uri.to_owned(),
+                    namespace
+                        .get("prefix")
+                        .and_then(Value::as_str)
+                        .map(ToOwned::to_owned),
+                )
+            })
+        })
+        .unwrap_or_else(|| (String::new(), None))
 }
 
 fn render_protocol_http_error(

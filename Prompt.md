@@ -66,6 +66,10 @@ continue from the current files, status log, generated snapshots, and latest rep
 Constraints:
 - Keep codegen generic and driven by the packaged Smithy JSON model data. Do not add
   service-by-service or operation-name hardcoded branches to the generic generator.
+- Make the generator emit valid Rust without invoking `rustfmt`/`cargo fmt` or adding
+  custom layout logic. Let the conformance crate apply
+  `rustfmt --edition 2021 --config max_width=150,skip_children=true` before source
+  comparison, then keep whitespace significant after formatting.
 - Use the pinned AWS SDK Rust source and
   https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk
   as behavioral/reference implementations; port behavior to Rust rather than invoking
@@ -362,7 +366,8 @@ model registry
   -> Rust name and module resolution
   -> generic client/runtime code generation
   -> AWS decorators and service customizations
-  -> deterministic formatter and output installer
+  -> valid Rust source emitter
+  -> conformance formatter/comparator and output installer
 ```
 
 Suggested crate modules are guidance, not permission to duplicate logic:
@@ -403,8 +408,35 @@ The implementation must cover the generated API surface used by the reference SD
 - generated documentation and stable Rust visibility where parity tests cover them.
 
 Prefer structured Rust writers or `proc_macro2`/`syn`-validated token generation over
-unescaped string concatenation. Every generated file must have stable line endings,
-stable ordering, and a generator version header.
+unescaped string concatenation. Every generated file must be valid Rust with stable
+line endings, stable ordering, and a generator version header.
+
+### Formatting ownership
+
+The code generator emits valid Rust source but does not format it. It must never invoke
+`rustfmt` or `cargo fmt`, and it must not grow hand-written pretty-printing, line
+wrapping, indentation, or width-fitting logic to imitate formatted snapshots. Keep
+rendering logic structural and model-driven; let the conformance harness own source
+formatting immediately before comparison.
+
+The pinned Smithy-RS client generator is the reference for this boundary:
+`ClientCodegenVisitor.kt` finalizes a generated crate and runs
+`cargo fmt -- --config max_width=150`. It does not use a client-generator
+`.rustfmt.toml`; the two `rustfmt.toml` files in the pinned checkout belong to
+unrelated HTTP-server runtime crates and use `max_width = 120`. Because our checked-in
+snapshots are individual Rust files without a temporary Cargo manifest, conformance
+must apply the equivalent configuration directly to each generated file:
+
+```text
+rustfmt --edition 2021 --config max_width=150,skip_children=true <generated-file>
+```
+
+Run that normalization in the conformance crate before source comparison, rather than
+inside `aws-sdk-build`. `skip_children=true` prevents per-file formatting from
+following nested `mod` declarations that are compared as separate snapshot files.
+Formatting is normalization, not permission to ignore whitespace: after formatting,
+whitespace, imports, docs, ordering, and generated files remain exact-comparison
+inputs.
 
 ## Generated output and dependencies
 
@@ -466,17 +498,21 @@ cases, including S3 `AbortMultipartUpload`.
 
 ### Exact comparison
 
-Compare the generated source with the pinned AWS SDK source file-by-file and fail on
-the first unexpected difference. The only permitted normalization is:
+Before comparing, the conformance harness must format generated Rust files with the
+pinned Smithy-equivalent configuration described above. Then compare the normalized
+generated source with the pinned AWS SDK source file-by-file and fail on the first
+unexpected difference. The only permitted normalization beyond that conformance-owned
+formatting is:
 
 - standalone reference crate root/module anchors versus the consumer-prefixed path;
 - the outer `aws_sdk_<service>` wrapper required by `aws_sdk.rs`;
 - the generated header’s generator identity, if the comparator explicitly checks the
   header separately.
 
-Do not ignore whitespace, imports in general, docs, ordering, or generated files. A
-second AST/token comparison using `syn` should verify public item names, signatures,
-attributes, visibility, and nested module paths independent of formatting.
+Do not strip or otherwise ignore whitespace after formatting, imports in general, docs,
+ordering, or generated files. A second AST/token comparison using `syn` should verify
+public item names, signatures, attributes, visibility, and nested module paths
+independent of formatting.
 
 ### Markdown diff reports with `diffy`
 
@@ -543,6 +579,10 @@ cargo test --workspace
 cargo clippy --workspace --all-targets -- -D warnings
 git diff --check
 ```
+
+Here `cargo fmt --all` formats the repository's handwritten Rust only. It must not be
+implemented by, or substituted for, formatting inside the code generator; generated
+snapshot formatting belongs to `just conformance`.
 
 `just conformance` is expected to return 1 while differences remain, but its report is
 mandatory evidence and must not be discarded. Compare the new report with the previous
