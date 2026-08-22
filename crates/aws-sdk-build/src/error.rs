@@ -40,8 +40,6 @@ pub enum BuildError {
     OutputWrite { path: PathBuf, source: io::Error },
     #[error("generated Rust source {path} is invalid: {message}")]
     InvalidGeneratedRust { path: PathBuf, message: String },
-    #[error("failed to format generated Rust source {path}: {message}")]
-    Rustfmt { path: PathBuf, message: String },
     #[error("failed to install generated output {path}: {source}")]
     Install { path: PathBuf, source: io::Error },
     #[error("failed to serialize generated manifest: {source}")]

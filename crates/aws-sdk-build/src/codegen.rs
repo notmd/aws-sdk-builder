@@ -4,7 +4,6 @@ use std::{
     fmt::Write,
     fs,
     path::Path,
-    process::Command,
 };
 
 use crate::{
@@ -193,7 +192,6 @@ pub(crate) fn generate(
                     source,
                 }
             })?;
-            format_rust_file(&source_path)?;
             files.push(format!("generated/{}/{}", entry.key, relative_path));
         }
         if consumer_namespace {
@@ -227,7 +225,6 @@ pub(crate) fn generate(
             source,
         }
     })?;
-    format_rust_file(&include_path)?;
     files.push("aws_sdk.rs".to_owned());
     files.sort();
     all_operations.sort();
@@ -275,37 +272,6 @@ fn client_operation_header(output: &mut String) {
 
 fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
-}
-
-/// Smithy Rust's client generator runs `cargo fmt -- --config max_width=150`
-/// after writing a crate. Snapshot generation does not create a Cargo
-/// manifest, so format each generated Rust file directly with the same
-/// rustfmt configuration.
-fn format_rust_file(path: &Path) -> Result<(), BuildError> {
-    let output = Command::new("rustfmt")
-        .args([
-            "--edition",
-            "2021",
-            "--config",
-            "max_width=150,skip_children=true",
-        ])
-        .arg(path)
-        .output()
-        .map_err(|error| BuildError::Rustfmt {
-            path: path.to_owned(),
-            message: error.to_string(),
-        })?;
-    if output.status.success() {
-        return Ok(());
-    }
-    let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
-    if message.trim().is_empty() {
-        message = format!("rustfmt exited with {}", output.status);
-    }
-    Err(BuildError::Rustfmt {
-        path: path.to_owned(),
-        message,
-    })
 }
 
 #[derive(Clone, Copy, Debug, Default)]

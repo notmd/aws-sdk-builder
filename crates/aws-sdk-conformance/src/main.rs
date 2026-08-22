@@ -2,7 +2,7 @@ use std::{
     collections::BTreeSet,
     env, fs,
     path::{Path, PathBuf},
-    process::ExitCode,
+    process::{Command, ExitCode},
 };
 
 #[allow(dead_code)]
@@ -47,6 +47,11 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         services.len(),
         operation_count
     );
+    let formatted_files = format_generated_sources(&generated)?;
+    eprintln!(
+        "formatted {} generated Rust snapshot file(s) with rustfmt",
+        formatted_files
+    );
     let report = compare_directories(reference, generated, snapshot)?;
     write_reports(output, &report)?;
     eprintln!(
@@ -56,6 +61,53 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         report.total_files()
     );
     Ok(report.has_differences())
+}
+
+fn format_generated_sources(root: &Path) -> Result<usize, String> {
+    let mut files = Vec::new();
+    collect_rust_files(root, &mut files)?;
+    files.sort();
+
+    for path in &files {
+        let output = Command::new("rustfmt")
+            .args([
+                "--edition",
+                "2021",
+                "--config",
+                "max_width=150,skip_children=true",
+            ])
+            .arg(path)
+            .output()
+            .map_err(|error| format!("failed to run rustfmt for {}: {error}", path.display()))?;
+        if output.status.success() {
+            continue;
+        }
+        let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
+        if message.trim().is_empty() {
+            message = format!("rustfmt exited with {}", output.status);
+        }
+        return Err(format!("rustfmt failed for {}: {message}", path.display()));
+    }
+
+    Ok(files.len())
+}
+
+fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), String> {
+    for entry in fs::read_dir(root).map_err(|error| format!("{}: {error}", root.display()))? {
+        let entry = entry.map_err(|error| format!("{}: {error}", root.display()))?;
+        let path = entry.path();
+        let file_type = entry
+            .file_type()
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        if file_type.is_dir() {
+            collect_rust_files(&path, files)?;
+        } else if file_type.is_file()
+            && path.extension().and_then(|extension| extension.to_str()) == Some("rs")
+        {
+            files.push(path);
+        }
+    }
+    Ok(())
 }
 
 fn service_names(reference: &Path) -> Result<Vec<String>, String> {
