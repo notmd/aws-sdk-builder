@@ -51,6 +51,7 @@ impl ExecuteTransactionInputBuilder {
         self.transact_statements = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of PartiQL statements representing the transaction to run.</p>
     pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>) -> Self {
         self.transact_statements = input;
         self
@@ -64,6 +65,7 @@ impl ExecuteTransactionInputBuilder {
         self.client_request_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
     pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_request_token = input;
         self
@@ -77,6 +79,7 @@ impl ExecuteTransactionInputBuilder {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
         self.return_consumed_capacity = input;
         self

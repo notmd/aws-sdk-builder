@@ -39,6 +39,7 @@ impl FunctionScalingConfigBuilder {
         self.min_execution_environments = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The minimum number of execution environments to maintain for the function.</p>
     pub fn set_min_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self {
         self.min_execution_environments = input;
         self
@@ -52,6 +53,7 @@ impl FunctionScalingConfigBuilder {
         self.max_execution_environments = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of execution environments that can be provisioned for the function.</p>
     pub fn set_max_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_execution_environments = input;
         self

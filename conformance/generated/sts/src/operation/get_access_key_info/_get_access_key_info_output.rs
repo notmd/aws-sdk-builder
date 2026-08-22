@@ -39,6 +39,7 @@ impl GetAccessKeyInfoOutputBuilder {
         self.account = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The number used to identify the Amazon Web Services account.</p>
     pub fn set_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.account = input;
         self

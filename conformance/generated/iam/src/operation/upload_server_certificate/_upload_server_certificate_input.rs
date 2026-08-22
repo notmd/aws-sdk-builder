@@ -88,6 +88,10 @@ impl UploadServerCertificateInputBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
+    /// <p>This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including most punctuation characters, digits, and upper and lowercased letters.</p><note>
+    /// <p>If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the <code>path</code> parameter. The path must begin with <code>/cloudfront</code> and must include a trailing slash (for example, <code>/cloudfront/test/</code>).</p>
+    /// </note>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.path = input;
         self
@@ -106,6 +110,8 @@ impl UploadServerCertificateInputBuilder {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_name = input;
         self
@@ -122,6 +128,8 @@ impl UploadServerCertificateInputBuilder {
         self.certificate_body = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The contents of the public key certificate in PEM-encoded format.</p>
+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
     pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_body = input;
         self
@@ -138,6 +146,8 @@ impl UploadServerCertificateInputBuilder {
         self.private_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The contents of the private key in PEM-encoded format.</p>
+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
     pub fn set_private_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.private_key = input;
         self
@@ -153,6 +163,8 @@ impl UploadServerCertificateInputBuilder {
         self.certificate_chain = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.</p>
+    /// <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this parameter is a string of characters consisting of the following:</p><ul><li><p>Any printable ASCII character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p></li><li><p>The printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>)</p></li><li><p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li></ul>
     pub fn set_certificate_chain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_chain = input;
         self
@@ -174,6 +186,9 @@ impl UploadServerCertificateInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of tags that you want to attach to the new IAM server certificate resource. Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p><note>
+    /// <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.</p>
+    /// </note>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

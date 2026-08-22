@@ -46,6 +46,7 @@ impl ListContributorInsightsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -59,6 +60,7 @@ impl ListContributorInsightsInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A token to for the desired page, if there is one.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self
@@ -72,6 +74,7 @@ impl ListContributorInsightsInputBuilder {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of results to return per page.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_results = input;
         self

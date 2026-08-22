@@ -32,6 +32,7 @@ impl GetFunctionConcurrencyResponseBuilder {
         self.reserved_concurrent_executions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of simultaneous executions that are reserved for the function.</p>
     pub fn set_reserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.reserved_concurrent_executions = input;
         self

@@ -46,6 +46,7 @@ impl GetKeyPolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A key policy document in JSON format.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy = input;
         self
@@ -59,6 +60,7 @@ impl GetKeyPolicyOutputBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the key policy. The only valid value is <code>default</code>.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self

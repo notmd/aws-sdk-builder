@@ -41,6 +41,7 @@ impl EndpointBuilder {
         self.address = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>IP address of the endpoint.</p>
     pub fn set_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.address = input;
         self
@@ -55,6 +56,7 @@ impl EndpointBuilder {
         self.cache_period_in_minutes = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Endpoint cache time to live (TTL) value.</p>
     pub fn set_cache_period_in_minutes(mut self, input: ::std::option::Option<i64>) -> Self {
         self.cache_period_in_minutes = input;
         self

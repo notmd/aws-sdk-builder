@@ -40,6 +40,7 @@ impl GetBucketAbacInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the general purpose bucket.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -53,6 +54,7 @@ impl GetBucketAbacInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Web Services account ID of the general purpose bucket's owner.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

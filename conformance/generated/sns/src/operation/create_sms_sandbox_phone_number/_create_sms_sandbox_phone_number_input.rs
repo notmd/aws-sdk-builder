@@ -40,6 +40,7 @@ impl CreateSmsSandboxPhoneNumberInputBuilder {
         self.phone_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number to the list of verified phone numbers that you can send SMS messages to.</p>
     pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.phone_number = input;
         self
@@ -53,6 +54,7 @@ impl CreateSmsSandboxPhoneNumberInputBuilder {
         self.language_code = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The language to use for sending the OTP. The default value is <code>en-US</code>.</p>
     pub fn set_language_code(mut self, input: ::std::option::Option<crate::types::LanguageCodeString>) -> Self {
         self.language_code = input;
         self

@@ -33,6 +33,7 @@ impl InventoryScheduleBuilder {
         self.frequency = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies how frequently inventory results are produced.</p>
     pub fn set_frequency(mut self, input: ::std::option::Option<crate::types::InventoryFrequency>) -> Self {
         self.frequency = input;
         self

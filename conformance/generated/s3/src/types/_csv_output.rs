@@ -60,6 +60,7 @@ impl CsvOutputBuilder {
         self.quote_fields = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether to use quotation marks around output fields.</p><ul><li><p><code>ALWAYS</code>: Always use quotation marks for output fields.</p></li><li><p><code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p></li></ul>
     pub fn set_quote_fields(mut self, input: ::std::option::Option<crate::types::QuoteFields>) -> Self {
         self.quote_fields = input;
         self
@@ -73,6 +74,7 @@ impl CsvOutputBuilder {
         self.quote_escape_character = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The single character used for escaping the quote character inside an already escaped value.</p>
     pub fn set_quote_escape_character(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quote_escape_character = input;
         self
@@ -86,6 +88,7 @@ impl CsvOutputBuilder {
         self.record_delimiter = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
     pub fn set_record_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.record_delimiter = input;
         self
@@ -99,6 +102,7 @@ impl CsvOutputBuilder {
         self.field_delimiter = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
     pub fn set_field_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.field_delimiter = input;
         self
@@ -112,6 +116,7 @@ impl CsvOutputBuilder {
         self.quote_character = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks, as follows: <code>" a , b "</code>.</p>
     pub fn set_quote_character(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.quote_character = input;
         self

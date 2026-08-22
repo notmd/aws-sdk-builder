@@ -80,6 +80,7 @@ impl TooManyRequestsExceptionBuilder {
         self.retry_after_seconds = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The number of seconds the caller should wait before retrying.</p>
     pub fn set_retry_after_seconds(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.retry_after_seconds = input;
         self

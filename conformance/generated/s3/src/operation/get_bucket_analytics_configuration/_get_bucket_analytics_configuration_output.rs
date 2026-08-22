@@ -46,6 +46,7 @@ impl GetBucketAnalyticsConfigurationOutputBuilder {
         self.analytics_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The configuration and any analyses for the analytics filter.</p>
     pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
         self.analytics_configuration = input;
         self

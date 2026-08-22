@@ -40,6 +40,8 @@ impl CompletedMultipartUploadBuilder {
         self.parts = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Array of CompletedPart data types.</p>
+    /// <p>If you do not supply a valid <code>Part</code> with your request, the service sends back an HTTP 400 response.</p>
     pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CompletedPart>>) -> Self {
         self.parts = input;
         self

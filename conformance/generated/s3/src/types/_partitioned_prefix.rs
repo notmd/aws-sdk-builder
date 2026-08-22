@@ -40,6 +40,9 @@ impl PartitionedPrefixBuilder {
         self.partition_date_source = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the partition date source for the partitioned prefix. <code>PartitionDateSource</code> can be <code>EventTime</code> or <code>DeliveryTime</code>.</p>
+    /// <p>For <code>DeliveryTime</code>, the time in the log file names corresponds to the delivery time for the log files.</p>
+    /// <p>For <code>EventTime</code>, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.</p>
     pub fn set_partition_date_source(mut self, input: ::std::option::Option<crate::types::PartitionDateSource>) -> Self {
         self.partition_date_source = input;
         self

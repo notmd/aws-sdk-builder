@@ -40,6 +40,7 @@ impl SendDurableExecutionCallbackFailureInputBuilder {
         self.callback_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the callback operation.</p>
     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.callback_id = input;
         self
@@ -53,6 +54,7 @@ impl SendDurableExecutionCallbackFailureInputBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Error details describing why the callback operation failed.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self

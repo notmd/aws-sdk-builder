@@ -43,6 +43,8 @@ impl ChangeMessageVisibilityBatchInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
+    /// <p>Queue URLs and names are case-sensitive.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self
@@ -62,6 +64,7 @@ impl ChangeMessageVisibilityBatchInputBuilder {
         self.entries = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
     pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
         self.entries = input;
         self

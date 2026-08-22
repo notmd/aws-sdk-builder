@@ -76,6 +76,7 @@ impl ParameterDefinitionBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the parameter.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -90,6 +91,7 @@ impl ParameterDefinitionBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::ParameterTypeType>) -> Self {
         self.r#type = input;
         self
@@ -103,6 +105,7 @@ impl ParameterDefinitionBuilder {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An optional subtype that further constrains the values that are allowed for the parameter.</p>
     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sub_type = input;
         self
@@ -116,6 +119,7 @@ impl ParameterDefinitionBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A description of the parameter.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self
@@ -129,6 +133,7 @@ impl ParameterDefinitionBuilder {
         self.is_required = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether you must supply a value for the parameter when you create a role from the template.</p>
     pub fn set_is_required(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_required = input;
         self
@@ -142,6 +147,7 @@ impl ParameterDefinitionBuilder {
         self.default_value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The value that the service uses for the parameter when you do not supply one.</p>
     pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.default_value = input;
         self
@@ -155,6 +161,7 @@ impl ParameterDefinitionBuilder {
         self.immutable = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether you can change the parameter value after you create the role.</p>
     pub fn set_immutable(mut self, input: ::std::option::Option<bool>) -> Self {
         self.immutable = input;
         self

@@ -39,6 +39,7 @@ impl UpdateSamlProviderOutputBuilder {
         self.saml_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
     pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.saml_provider_arn = input;
         self

@@ -51,6 +51,9 @@ impl DeleteBuilder {
         self.objects = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The object to delete.</p><note>
+    /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
+    /// </note>
     pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>>) -> Self {
         self.objects = input;
         self
@@ -66,6 +69,7 @@ impl DeleteBuilder {
         self.quiet = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Element to enable quiet mode for the request. When you add this element, you must set its value to <code>true</code>.</p>
     pub fn set_quiet(mut self, input: ::std::option::Option<bool>) -> Self {
         self.quiet = input;
         self

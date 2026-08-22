@@ -57,6 +57,7 @@ impl BucketBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -70,6 +71,7 @@ impl BucketBuilder {
         self.creation_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.</p>
     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
@@ -83,6 +85,7 @@ impl BucketBuilder {
         self.bucket_region = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>BucketRegion</code> indicates the Amazon Web Services region where the bucket is located. If the request contains at least one valid parameter, it is included in the response.</p>
     pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_region = input;
         self
@@ -98,6 +101,9 @@ impl BucketBuilder {
         self.bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
+    /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
+    /// </note>
     pub fn set_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_arn = input;
         self

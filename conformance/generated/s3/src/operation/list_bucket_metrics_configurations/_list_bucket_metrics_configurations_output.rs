@@ -67,6 +67,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -80,6 +81,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -93,6 +95,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The marker used to continue a metrics configuration listing that has been truncated. Use the <code>NextContinuationToken</code> from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
     pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_continuation_token = input;
         self
@@ -111,6 +114,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self.metrics_configuration_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of metrics configurations for a bucket.</p>
     pub fn set_metrics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>) -> Self {
         self.metrics_configuration_list = input;
         self

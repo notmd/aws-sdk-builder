@@ -41,6 +41,7 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the function version.</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_arn = input;
         self
@@ -55,6 +56,7 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
         self.state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of the function version.</p>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
         self.state = input;
         self

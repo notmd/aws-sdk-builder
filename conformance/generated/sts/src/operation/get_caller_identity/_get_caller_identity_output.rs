@@ -53,6 +53,7 @@ impl GetCallerIdentityOutputBuilder {
         self.user_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the <b>aws:userid</b> column in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable">Principal table</a> found on the <b>Policy Variables</b> reference page in the <i>IAM User Guide</i>.</p>
     pub fn set_user_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_id = input;
         self
@@ -66,6 +67,7 @@ impl GetCallerIdentityOutputBuilder {
         self.account = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Web Services account ID number of the account that owns or contains the calling entity.</p>
     pub fn set_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.account = input;
         self
@@ -79,6 +81,7 @@ impl GetCallerIdentityOutputBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Web Services ARN associated with the calling entity.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self

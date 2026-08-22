@@ -39,6 +39,7 @@ impl FailureExceptionBuilder {
         self.exception_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Exception name.</p>
     pub fn set_exception_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exception_name = input;
         self
@@ -52,6 +53,7 @@ impl FailureExceptionBuilder {
         self.exception_description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Description of the failure.</p>
     pub fn set_exception_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exception_description = input;
         self

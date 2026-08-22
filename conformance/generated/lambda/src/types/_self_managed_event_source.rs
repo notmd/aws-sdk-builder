@@ -39,6 +39,7 @@ impl SelfManagedEventSourceBuilder {
         self.endpoints = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
     pub fn set_endpoints(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,

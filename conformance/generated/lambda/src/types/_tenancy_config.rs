@@ -33,6 +33,7 @@ impl TenancyConfigBuilder {
         self.tenant_isolation_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
     pub fn set_tenant_isolation_mode(mut self, input: ::std::option::Option<crate::types::TenantIsolationMode>) -> Self {
         self.tenant_isolation_mode = input;
         self

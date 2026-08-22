@@ -41,6 +41,7 @@ impl StopDurableExecutionRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
@@ -54,6 +55,7 @@ impl StopDurableExecutionRequestBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Optional error details explaining why the execution is being stopped.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self

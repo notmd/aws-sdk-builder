@@ -57,6 +57,7 @@ impl ResourceNotFoundExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource which is being requested does not exist.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

@@ -40,6 +40,7 @@ impl DeleteResourcePolicyInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy from. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_arn = input;
         self
@@ -53,6 +54,7 @@ impl DeleteResourcePolicyInputBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

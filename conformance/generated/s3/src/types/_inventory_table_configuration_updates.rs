@@ -40,6 +40,7 @@ impl InventoryTableConfigurationUpdatesBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
     pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self {
         self.configuration_state = input;
         self
@@ -53,6 +54,7 @@ impl InventoryTableConfigurationUpdatesBuilder {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encryption configuration for the inventory table.</p>
     pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self {
         self.encryption_configuration = input;
         self

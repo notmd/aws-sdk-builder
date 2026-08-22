@@ -39,6 +39,7 @@ impl ListLayerVersionsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A pagination token returned when the response doesn't contain all versions.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -57,6 +58,7 @@ impl ListLayerVersionsResponseBuilder {
         self.layer_versions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of versions.</p>
     pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>) -> Self {
         self.layer_versions = input;
         self

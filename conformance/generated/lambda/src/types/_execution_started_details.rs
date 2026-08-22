@@ -39,6 +39,7 @@ impl ExecutionStartedDetailsBuilder {
         self.input = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The input payload provided for the durable execution.</p>
     pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
         self.input = input;
         self
@@ -53,6 +54,7 @@ impl ExecutionStartedDetailsBuilder {
         self.execution_timeout = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
     pub fn set_execution_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
         self.execution_timeout = input;
         self

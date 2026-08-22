@@ -44,6 +44,7 @@ impl ListSamlProvidersOutputBuilder {
         self.saml_provider_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
     pub fn set_saml_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SamlProviderListEntry>>) -> Self {
         self.saml_provider_list = input;
         self

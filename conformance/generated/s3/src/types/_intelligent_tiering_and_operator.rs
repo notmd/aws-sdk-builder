@@ -39,6 +39,7 @@ impl IntelligentTieringAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An object key name prefix that identifies the subset of objects to which the configuration applies.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -57,6 +58,7 @@ impl IntelligentTieringAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>All of these tags must exist in the object's tag set in order for the configuration to apply.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

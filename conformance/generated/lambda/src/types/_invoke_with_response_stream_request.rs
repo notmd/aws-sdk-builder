@@ -78,6 +78,7 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -91,6 +92,7 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.log_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub fn set_log_type(mut self, input: ::std::option::Option<crate::types::LogType>) -> Self {
         self.log_type = input;
         self
@@ -104,6 +106,7 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.client_context = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
     pub fn set_client_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_context = input;
         self
@@ -117,6 +120,7 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The alias name.</p>
     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.qualifier = input;
         self
@@ -131,6 +135,8 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The JSON that you want to provide to your Lambda function as input.</p>
+    /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
     pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.payload = input;
         self
@@ -145,6 +151,7 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.tenant_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
     pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.tenant_id = input;
         self
@@ -158,6 +165,7 @@ impl InvokeWithResponseStreamRequestBuilder {
         self.invocation_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Use one of the following options:</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li></ul>
     pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::ResponseStreamingInvocationType>) -> Self {
         self.invocation_type = input;
         self

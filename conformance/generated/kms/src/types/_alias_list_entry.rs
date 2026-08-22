@@ -60,6 +60,7 @@ impl AliasListEntryBuilder {
         self.alias_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>String that contains the alias. This value begins with <code>alias/</code>.</p>
     pub fn set_alias_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.alias_name = input;
         self
@@ -73,6 +74,7 @@ impl AliasListEntryBuilder {
         self.alias_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>String that contains the key ARN.</p>
     pub fn set_alias_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.alias_arn = input;
         self
@@ -86,6 +88,7 @@ impl AliasListEntryBuilder {
         self.target_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>String that contains the key identifier of the KMS key associated with the alias.</p>
     pub fn set_target_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_key_id = input;
         self
@@ -99,6 +102,7 @@ impl AliasListEntryBuilder {
         self.creation_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Date and time that the alias was most recently created in the account and Region. Formatted as Unix time.</p>
     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.creation_date = input;
         self
@@ -112,6 +116,7 @@ impl AliasListEntryBuilder {
         self.last_updated_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Date and time that the alias was most recently associated with a KMS key in the account and Region. Formatted as Unix time.</p>
     pub fn set_last_updated_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_updated_date = input;
         self

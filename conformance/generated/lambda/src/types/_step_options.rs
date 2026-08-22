@@ -32,6 +32,7 @@ impl StepOptionsBuilder {
         self.next_attempt_delay_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The delay in seconds before the next retry attempt.</p>
     pub fn set_next_attempt_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.next_attempt_delay_seconds = input;
         self

@@ -32,6 +32,7 @@ impl GetCodeSigningConfigResponseBuilder {
         self.code_signing_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The code signing configuration</p>
     pub fn set_code_signing_config(mut self, input: ::std::option::Option<crate::types::CodeSigningConfig>) -> Self {
         self.code_signing_config = input;
         self

@@ -51,6 +51,8 @@ impl UpdateServiceSpecificCredentialInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -67,6 +69,8 @@ impl UpdateServiceSpecificCredentialInputBuilder {
         self.service_specific_credential_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the service-specific credential.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_specific_credential_id = input;
         self
@@ -82,6 +86,7 @@ impl UpdateServiceSpecificCredentialInputBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status to be assigned to the service-specific credential.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
         self.status = input;
         self

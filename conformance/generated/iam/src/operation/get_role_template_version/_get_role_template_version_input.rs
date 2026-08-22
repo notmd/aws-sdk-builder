@@ -43,6 +43,8 @@ impl GetRoleTemplateVersionInputBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the role template whose version you want to retrieve.</p>
+    /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_arn = input;
         self
@@ -57,6 +59,7 @@ impl GetRoleTemplateVersionInputBuilder {
         self.minor_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The minor version of the role template to retrieve. If you do not specify a minor version, the service returns the template's default minor version.</p>
     pub fn set_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
         self.minor_version = input;
         self

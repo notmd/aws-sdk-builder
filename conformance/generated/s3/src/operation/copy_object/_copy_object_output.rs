@@ -138,6 +138,7 @@ impl CopyObjectOutputBuilder {
         self.copy_object_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Container for all response elements.</p>
     pub fn set_copy_object_result(mut self, input: ::std::option::Option<crate::types::CopyObjectResult>) -> Self {
         self.copy_object_result = input;
         self
@@ -153,6 +154,9 @@ impl CopyObjectOutputBuilder {
         self.expiration = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If the object expiration is configured, the response includes this header.</p><note>
+    /// <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
+    /// </note>
     pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expiration = input;
         self
@@ -170,6 +174,9 @@ impl CopyObjectOutputBuilder {
         self.copy_source_version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Version ID of the source object that was copied.</p><note>
+    /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
+    /// </note>
     pub fn set_copy_source_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.copy_source_version_id = input;
         self
@@ -187,6 +194,9 @@ impl CopyObjectOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Version ID of the newly created copy.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self
@@ -204,6 +214,9 @@ impl CopyObjectOutputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+    /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+    /// </note>
     pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
@@ -221,6 +234,9 @@ impl CopyObjectOutputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_algorithm = input;
         self
@@ -238,6 +254,9 @@ impl CopyObjectOutputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key_md5 = input;
         self
@@ -253,6 +272,7 @@ impl CopyObjectOutputBuilder {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
     pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssekms_key_id = input;
         self
@@ -266,6 +286,7 @@ impl CopyObjectOutputBuilder {
         self.ssekms_encryption_context = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this header is a Base64 encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
     pub fn set_ssekms_encryption_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssekms_encryption_context = input;
         self
@@ -279,6 +300,7 @@ impl CopyObjectOutputBuilder {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.bucket_key_enabled = input;
         self

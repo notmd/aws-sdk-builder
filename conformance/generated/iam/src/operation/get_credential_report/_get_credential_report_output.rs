@@ -53,6 +53,7 @@ impl GetCredentialReportOutputBuilder {
         self.content = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the credential report. The report is Base64-encoded.</p>
     pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.content = input;
         self
@@ -66,6 +67,7 @@ impl GetCredentialReportOutputBuilder {
         self.report_format = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The format (MIME type) of the credential report.</p>
     pub fn set_report_format(mut self, input: ::std::option::Option<crate::types::ReportFormatType>) -> Self {
         self.report_format = input;
         self
@@ -79,6 +81,7 @@ impl GetCredentialReportOutputBuilder {
         self.generated_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
     pub fn set_generated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.generated_time = input;
         self

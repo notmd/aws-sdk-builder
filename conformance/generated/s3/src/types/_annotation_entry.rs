@@ -69,6 +69,7 @@ impl AnnotationEntryBuilder {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the annotation.</p>
     pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_name = input;
         self
@@ -83,6 +84,7 @@ impl AnnotationEntryBuilder {
         self.last_modified = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time the annotation was last modified.</p>
     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified = input;
         self
@@ -96,6 +98,7 @@ impl AnnotationEntryBuilder {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The entity tag of the annotation.</p>
     pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.e_tag = input;
         self
@@ -114,6 +117,7 @@ impl AnnotationEntryBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The checksum algorithm used for the annotation.</p>
     pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self {
         self.checksum_algorithm = input;
         self
@@ -128,6 +132,7 @@ impl AnnotationEntryBuilder {
         self.size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The size of the annotation payload, in bytes.</p>
     pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
         self.size = input;
         self
@@ -141,6 +146,7 @@ impl AnnotationEntryBuilder {
         self.replication_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The replication status of the annotation.</p>
     pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
         self.replication_status = input;
         self

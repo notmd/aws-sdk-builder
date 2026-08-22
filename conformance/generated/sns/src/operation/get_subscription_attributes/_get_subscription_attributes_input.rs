@@ -33,6 +33,7 @@ impl GetSubscriptionAttributesInputBuilder {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the subscription whose properties you want to get.</p>
     pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.subscription_arn = input;
         self

@@ -61,6 +61,7 @@ impl JournalTableConfigurationResultBuilder {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_status = input;
         self
@@ -86,6 +87,7 @@ impl JournalTableConfigurationResultBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the journal table.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -99,6 +101,7 @@ impl JournalTableConfigurationResultBuilder {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) for the journal table.</p>
     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_arn = input;
         self
@@ -112,6 +115,7 @@ impl JournalTableConfigurationResultBuilder {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The journal table record expiration settings for the journal table.</p>
     pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
         self.record_expiration = input;
         self

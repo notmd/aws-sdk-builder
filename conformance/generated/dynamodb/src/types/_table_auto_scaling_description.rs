@@ -46,6 +46,7 @@ impl TableAutoScalingDescriptionBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -59,6 +60,7 @@ impl TableAutoScalingDescriptionBuilder {
         self.table_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
         self.table_status = input;
         self
@@ -77,6 +79,7 @@ impl TableAutoScalingDescriptionBuilder {
         self.replicas = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Represents replicas of the global table.</p>
     pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>) -> Self {
         self.replicas = input;
         self

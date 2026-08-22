@@ -39,6 +39,7 @@ impl ListOriginationNumbersInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self
@@ -52,6 +53,7 @@ impl ListOriginationNumbersInputBuilder {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of origination numbers to return.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_results = input;
         self

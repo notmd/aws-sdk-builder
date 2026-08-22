@@ -62,6 +62,7 @@ impl GetDurableExecutionHistoryRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
@@ -75,6 +76,7 @@ impl GetDurableExecutionHistoryRequestBuilder {
         self.include_execution_data = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether to include execution data such as step results and callback payloads in the history events. Set to <code>true</code> to include data, or <code>false</code> to exclude it for a more compact response. The default is <code>true</code>.</p>
     pub fn set_include_execution_data(mut self, input: ::std::option::Option<bool>) -> Self {
         self.include_execution_data = input;
         self
@@ -88,6 +90,7 @@ impl GetDurableExecutionHistoryRequestBuilder {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of history events to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_items = input;
         self
@@ -101,6 +104,7 @@ impl GetDurableExecutionHistoryRequestBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of results. Each pagination token expires after 24 hours.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -114,6 +118,7 @@ impl GetDurableExecutionHistoryRequestBuilder {
         self.reverse_order = ::std::option::Option::Some(input);
         self
     }
+    /// <p>When set to <code>true</code>, returns the history events in reverse chronological order (newest first). By default, events are returned in chronological order (oldest first).</p>
     pub fn set_reverse_order(mut self, input: ::std::option::Option<bool>) -> Self {
         self.reverse_order = input;
         self

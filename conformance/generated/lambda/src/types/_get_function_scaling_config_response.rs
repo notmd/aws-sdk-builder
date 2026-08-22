@@ -46,6 +46,7 @@ impl GetFunctionScalingConfigResponseBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the function.</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_arn = input;
         self
@@ -59,6 +60,7 @@ impl GetFunctionScalingConfigResponseBuilder {
         self.applied_function_scaling_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
     pub fn set_applied_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
         self.applied_function_scaling_config = input;
         self
@@ -72,6 +74,7 @@ impl GetFunctionScalingConfigResponseBuilder {
         self.requested_function_scaling_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The scaling configuration that was requested for the function.</p>
     pub fn set_requested_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
         self.requested_function_scaling_config = input;
         self

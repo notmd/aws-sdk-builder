@@ -32,6 +32,7 @@ impl CallbackSucceededDetailsBuilder {
         self.result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The response payload from the successful operation.</p>
     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
         self.result = input;
         self

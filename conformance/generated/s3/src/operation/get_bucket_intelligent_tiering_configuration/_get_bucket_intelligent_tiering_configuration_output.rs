@@ -47,6 +47,7 @@ impl GetBucketIntelligentTieringConfigurationOutputBuilder {
         self.intelligent_tiering_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Container for S3 Intelligent-Tiering configuration.</p>
     pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<crate::types::IntelligentTieringConfiguration>) -> Self {
         self.intelligent_tiering_configuration = input;
         self

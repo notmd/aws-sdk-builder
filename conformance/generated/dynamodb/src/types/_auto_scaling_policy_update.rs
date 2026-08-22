@@ -42,6 +42,7 @@ impl AutoScalingPolicyUpdateBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the scaling policy.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self
@@ -58,6 +59,7 @@ impl AutoScalingPolicyUpdateBuilder {
         self.target_tracking_scaling_policy_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents a target tracking scaling policy configuration.</p>
     pub fn set_target_tracking_scaling_policy_configuration(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,

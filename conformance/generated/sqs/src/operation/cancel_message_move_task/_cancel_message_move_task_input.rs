@@ -33,6 +33,7 @@ impl CancelMessageMoveTaskInputBuilder {
         self.task_handle = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier associated with a message movement task.</p>
     pub fn set_task_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.task_handle = input;
         self

@@ -42,6 +42,7 @@ impl BatchExecuteStatementInputBuilder {
         self.statements = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of PartiQL statements representing the batch to run.</p>
     pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>) -> Self {
         self.statements = input;
         self

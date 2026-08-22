@@ -53,6 +53,7 @@ impl GetHumanReadableSummaryOutputBuilder {
         self.summary_content = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
     pub fn set_summary_content(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.summary_content = input;
         self
@@ -66,6 +67,7 @@ impl GetHumanReadableSummaryOutputBuilder {
         self.locale = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The locale that this response was generated for. This maps to the input locale.</p>
     pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.locale = input;
         self
@@ -79,6 +81,7 @@ impl GetHumanReadableSummaryOutputBuilder {
         self.summary_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
     pub fn set_summary_state(mut self, input: ::std::option::Option<crate::types::SummaryStateType>) -> Self {
         self.summary_state = input;
         self

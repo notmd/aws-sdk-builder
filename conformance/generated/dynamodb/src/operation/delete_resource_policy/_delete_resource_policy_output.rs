@@ -42,6 +42,8 @@ impl DeleteResourcePolicyOutputBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
+    /// <p>This value will be empty if you make a request against a resource without a policy.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

@@ -56,6 +56,7 @@ impl BatchResultErrorEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The <code>Id</code> of an entry in a batch request</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -70,6 +71,7 @@ impl BatchResultErrorEntryBuilder {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An error code representing why the action failed on this entry.</p>
     pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code = input;
         self
@@ -83,6 +85,7 @@ impl BatchResultErrorEntryBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A message explaining why the action failed on this entry.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self
@@ -97,6 +100,7 @@ impl BatchResultErrorEntryBuilder {
         self.sender_fault = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the error happened due to the caller of the batch API action.</p>
     pub fn set_sender_fault(mut self, input: ::std::option::Option<bool>) -> Self {
         self.sender_fault = input;
         self

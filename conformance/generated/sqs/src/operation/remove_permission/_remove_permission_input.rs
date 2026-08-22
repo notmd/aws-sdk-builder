@@ -43,6 +43,8 @@ impl RemovePermissionInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
+    /// <p>Queue URLs and names are case-sensitive.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self
@@ -58,6 +60,7 @@ impl RemovePermissionInputBuilder {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
     pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.label = input;
         self

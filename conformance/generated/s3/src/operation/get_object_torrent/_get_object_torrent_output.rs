@@ -51,6 +51,7 @@ impl GetObjectTorrentOutputBuilder {
         self.body = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
     pub fn set_body(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.body = input;
         self

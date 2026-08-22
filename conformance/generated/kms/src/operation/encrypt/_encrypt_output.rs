@@ -53,6 +53,7 @@ impl EncryptOutputBuilder {
         self.ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.ciphertext_blob = input;
         self
@@ -66,6 +67,7 @@ impl EncryptOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to encrypt the plaintext.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -79,6 +81,7 @@ impl EncryptOutputBuilder {
         self.encryption_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encryption algorithm that was used to encrypt the plaintext.</p>
     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
         self.encryption_algorithm = input;
         self

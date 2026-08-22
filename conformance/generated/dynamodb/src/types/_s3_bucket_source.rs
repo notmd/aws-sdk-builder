@@ -47,6 +47,7 @@ impl S3BucketSourceBuilder {
         self.s3_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.</p>
     pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_bucket_owner = input;
         self
@@ -61,6 +62,7 @@ impl S3BucketSourceBuilder {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The S3 bucket that is being imported from.</p>
     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_bucket = input;
         self
@@ -74,6 +76,7 @@ impl S3BucketSourceBuilder {
         self.s3_key_prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The key prefix shared by all S3 Objects that are being imported.</p>
     pub fn set_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_key_prefix = input;
         self

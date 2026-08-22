@@ -44,6 +44,7 @@ impl ListTagsOutputBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The function's tags.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self

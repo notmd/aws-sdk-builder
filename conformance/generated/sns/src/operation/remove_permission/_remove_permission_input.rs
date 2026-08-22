@@ -40,6 +40,7 @@ impl RemovePermissionInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the topic whose access control policy you wish to modify.</p>
     pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.topic_arn = input;
         self
@@ -54,6 +55,7 @@ impl RemovePermissionInputBuilder {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique label of the statement you want to remove.</p>
     pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.label = input;
         self

@@ -85,6 +85,7 @@ impl ThrottlingExceptionBuilder {
         self.throttling_reasons = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
     pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
         self.throttling_reasons = input;
         self

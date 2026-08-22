@@ -39,6 +39,7 @@ impl CreateGlobalTableOutputBuilder {
         self.global_table_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the details of the global table.</p>
     pub fn set_global_table_description(mut self, input: ::std::option::Option<crate::types::GlobalTableDescription>) -> Self {
         self.global_table_description = input;
         self

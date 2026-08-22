@@ -48,6 +48,7 @@ impl AnalyticsConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID that identifies the analytics configuration.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -61,6 +62,7 @@ impl AnalyticsConfigurationBuilder {
         self.filter = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.</p>
     pub fn set_filter(mut self, input: ::std::option::Option<crate::types::AnalyticsFilter>) -> Self {
         self.filter = input;
         self
@@ -74,6 +76,7 @@ impl AnalyticsConfigurationBuilder {
         self.storage_class_analysis = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.</p>
     pub fn set_storage_class_analysis(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysis>) -> Self {
         self.storage_class_analysis = input;
         self

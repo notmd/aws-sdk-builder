@@ -39,6 +39,7 @@ impl CreateBackupOutputBuilder {
         self.backup_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the details of the backup created for the table.</p>
     pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
         self.backup_details = input;
         self

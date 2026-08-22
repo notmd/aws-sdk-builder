@@ -112,6 +112,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.annotations = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of annotations attached to the object.</p>
     pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>) -> Self {
         self.annotations = input;
         self
@@ -125,6 +126,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The bucket name.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -138,6 +140,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The object key.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -151,6 +154,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version ID of the object.</p>
     pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.object_version_id = input;
         self
@@ -164,6 +168,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.annotation_prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The prefix used to filter the response.</p>
     pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_prefix = input;
         self
@@ -177,6 +182,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.max_annotation_results = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of annotations returned in the response.</p>
     pub fn set_max_annotation_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_annotation_results = input;
         self
@@ -190,6 +196,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.annotation_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of annotations returned.</p>
     pub fn set_annotation_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.annotation_count = input;
         self
@@ -203,6 +210,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The continuation token used in this request.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -216,6 +224,7 @@ impl ListObjectAnnotationsOutputBuilder {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The continuation token to use to retrieve the next page of results.</p>
     pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_continuation_token = input;
         self

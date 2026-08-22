@@ -39,6 +39,7 @@ impl DescribeTimeToLiveOutputBuilder {
         self.time_to_live_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p></p>
     pub fn set_time_to_live_description(mut self, input: ::std::option::Option<crate::types::TimeToLiveDescription>) -> Self {
         self.time_to_live_description = input;
         self

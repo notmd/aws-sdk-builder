@@ -46,6 +46,7 @@ impl DescribeKinesisStreamingDestinationOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table being described.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -64,6 +65,7 @@ impl DescribeKinesisStreamingDestinationOutputBuilder {
         self.kinesis_data_stream_destinations = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of replica structures for the table being described.</p>
     pub fn set_kinesis_data_stream_destinations(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>>,

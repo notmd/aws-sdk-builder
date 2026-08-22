@@ -114,6 +114,7 @@ impl OperationUpdateBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for this operation.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -127,6 +128,7 @@ impl OperationUpdateBuilder {
         self.parent_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
     pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.parent_id = input;
         self
@@ -140,6 +142,7 @@ impl OperationUpdateBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The customer-provided name for this operation.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -154,6 +157,7 @@ impl OperationUpdateBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of operation to update.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
         self.r#type = input;
         self
@@ -167,6 +171,7 @@ impl OperationUpdateBuilder {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subtype of the operation, providing additional categorization.</p>
     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sub_type = input;
         self
@@ -181,6 +186,7 @@ impl OperationUpdateBuilder {
         self.action = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The action to take on the operation.</p>
     pub fn set_action(mut self, input: ::std::option::Option<crate::types::OperationAction>) -> Self {
         self.action = input;
         self
@@ -194,6 +200,7 @@ impl OperationUpdateBuilder {
         self.payload = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
     pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.payload = input;
         self
@@ -207,6 +214,7 @@ impl OperationUpdateBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The error information for failed operations.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self
@@ -220,6 +228,7 @@ impl OperationUpdateBuilder {
         self.context_options = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Options for context operations.</p>
     pub fn set_context_options(mut self, input: ::std::option::Option<crate::types::ContextOptions>) -> Self {
         self.context_options = input;
         self
@@ -233,6 +242,7 @@ impl OperationUpdateBuilder {
         self.step_options = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Options for step operations.</p>
     pub fn set_step_options(mut self, input: ::std::option::Option<crate::types::StepOptions>) -> Self {
         self.step_options = input;
         self
@@ -246,6 +256,7 @@ impl OperationUpdateBuilder {
         self.wait_options = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Options for wait operations.</p>
     pub fn set_wait_options(mut self, input: ::std::option::Option<crate::types::WaitOptions>) -> Self {
         self.wait_options = input;
         self

@@ -41,6 +41,7 @@ impl BucketInfoBuilder {
         self.data_redundancy = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of Zone (Availability Zone or Local Zone) that's used for redundancy for the bucket.</p>
     pub fn set_data_redundancy(mut self, input: ::std::option::Option<crate::types::DataRedundancy>) -> Self {
         self.data_redundancy = input;
         self
@@ -54,6 +55,7 @@ impl BucketInfoBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of bucket.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::BucketType>) -> Self {
         self.r#type = input;
         self

@@ -53,6 +53,7 @@ impl ListEventSourceMappingsRequestBuilder {
         self.event_source_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> – The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc">cross-account event source mappings</a>).</p></li><li><p><b>Amazon MQ</b> – The ARN of the broker.</p></li><li><p><b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p></li></ul>
     pub fn set_event_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.event_source_arn = input;
         self
@@ -66,6 +67,7 @@ impl ListEventSourceMappingsRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -79,6 +81,7 @@ impl ListEventSourceMappingsRequestBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A pagination token returned by a previous call.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -92,6 +95,7 @@ impl ListEventSourceMappingsRequestBuilder {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of 100 items in each response, even if you set the number higher.</p>
     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_items = input;
         self

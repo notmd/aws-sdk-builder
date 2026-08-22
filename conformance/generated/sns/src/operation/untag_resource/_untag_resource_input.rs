@@ -40,6 +40,7 @@ impl UntagResourceInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the topic from which to remove tags.</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_arn = input;
         self
@@ -58,6 +59,7 @@ impl UntagResourceInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of tag keys to remove from the specified topic.</p>
     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self

@@ -75,6 +75,7 @@ impl SendMessageBatchResultEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier for the message in this batch.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -89,6 +90,7 @@ impl SendMessageBatchResultEntryBuilder {
         self.message_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier for the message.</p>
     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_id = input;
         self
@@ -103,6 +105,7 @@ impl SendMessageBatchResultEntryBuilder {
         self.md5_of_message_body = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
     pub fn set_md5_of_message_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.md5_of_message_body = input;
         self
@@ -116,6 +119,7 @@ impl SendMessageBatchResultEntryBuilder {
         self.md5_of_message_attributes = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
     pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.md5_of_message_attributes = input;
         self
@@ -129,6 +133,7 @@ impl SendMessageBatchResultEntryBuilder {
         self.md5_of_message_system_attributes = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
     pub fn set_md5_of_message_system_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.md5_of_message_system_attributes = input;
         self
@@ -144,6 +149,9 @@ impl SendMessageBatchResultEntryBuilder {
         self.sequence_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+    /// <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
+    /// <p>The length of <code>SequenceNumber</code> is 128 bits. As <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
     pub fn set_sequence_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sequence_number = input;
         self

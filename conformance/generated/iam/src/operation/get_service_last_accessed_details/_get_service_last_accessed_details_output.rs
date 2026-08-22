@@ -92,6 +92,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.job_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the job.</p>
     pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self {
         self.job_status = input;
         self
@@ -105,6 +106,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.job_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of job. Service jobs return information about when each service was last accessed. Action jobs also include information about when tracked actions within the service were last accessed.</p>
     pub fn set_job_type(mut self, input: ::std::option::Option<crate::types::AccessAdvisorUsageGranularityType>) -> Self {
         self.job_type = input;
         self
@@ -119,6 +121,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.job_creation_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
     pub fn set_job_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.job_creation_date = input;
         self
@@ -137,6 +140,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.services_last_accessed = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
     pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceLastAccessed>>) -> Self {
         self.services_last_accessed = input;
         self
@@ -152,6 +156,8 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.job_completion_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
+    /// <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>
     pub fn set_job_completion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.job_completion_date = input;
         self
@@ -166,6 +172,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -179,6 +186,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -192,6 +200,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An object that contains details about the reason the operation failed.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error = input;
         self

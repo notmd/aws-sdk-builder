@@ -37,6 +37,7 @@ impl FilterCriteriaBuilder {
         self.filters = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of filters.</p>
     pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
         self.filters = input;
         self

@@ -32,6 +32,7 @@ impl ObjectLockRuleBuilder {
         self.default_retention = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. Bucket settings require both a mode and a period. The period can be either <code>Days</code> or <code>Years</code> but you must select one. You cannot specify <code>Days</code> and <code>Years</code> at the same time.</p>
     pub fn set_default_retention(mut self, input: ::std::option::Option<crate::types::DefaultRetention>) -> Self {
         self.default_retention = input;
         self

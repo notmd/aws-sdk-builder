@@ -39,6 +39,7 @@ impl GetPolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the policy.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<crate::types::Policy>) -> Self {
         self.policy = input;
         self

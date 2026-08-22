@@ -33,6 +33,7 @@ impl DescribeExportInputBuilder {
         self.export_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) associated with the export.</p>
     pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.export_arn = input;
         self

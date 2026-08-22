@@ -38,6 +38,7 @@ impl OrderedOrganizationPolicyTypeBuilder {
         self.service_control_policy_input_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document is specified as a string containing the complete, valid JSON text of an SCP.</p>
     pub fn set_service_control_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.service_control_policy_input_list = input;
         self

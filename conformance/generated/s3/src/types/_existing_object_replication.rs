@@ -35,6 +35,7 @@ impl ExistingObjectReplicationBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether Amazon S3 replicates existing source bucket objects.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExistingObjectReplicationStatus>) -> Self {
         self.status = input;
         self

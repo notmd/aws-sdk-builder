@@ -40,6 +40,7 @@ impl ReplicationTimeBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the replication time is enabled.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicationTimeStatus>) -> Self {
         self.status = input;
         self
@@ -53,6 +54,7 @@ impl ReplicationTimeBuilder {
         self.time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container specifying the time by which replication should be complete for all objects and operations on objects.</p>
     pub fn set_time(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self {
         self.time = input;
         self

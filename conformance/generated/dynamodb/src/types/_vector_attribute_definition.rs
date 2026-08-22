@@ -34,6 +34,7 @@ impl VectorAttributeDefinitionBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the vector attribute.</p>
     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self

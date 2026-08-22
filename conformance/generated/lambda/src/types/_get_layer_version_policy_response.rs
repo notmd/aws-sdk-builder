@@ -39,6 +39,7 @@ impl GetLayerVersionPolicyResponseBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The policy document.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy = input;
         self
@@ -52,6 +53,7 @@ impl GetLayerVersionPolicyResponseBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique identifier for the current revision of the policy.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

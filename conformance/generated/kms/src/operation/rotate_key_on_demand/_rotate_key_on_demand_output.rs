@@ -39,6 +39,7 @@ impl RotateKeyOnDemandOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Identifies the symmetric encryption KMS key that you initiated on-demand rotation on.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self

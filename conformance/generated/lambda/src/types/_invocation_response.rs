@@ -67,6 +67,7 @@ impl InvocationResponseBuilder {
         self.status_code = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
     pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
         self.status_code = input;
         self
@@ -80,6 +81,7 @@ impl InvocationResponseBuilder {
         self.function_error = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
     pub fn set_function_error(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_error = input;
         self
@@ -93,6 +95,7 @@ impl InvocationResponseBuilder {
         self.log_result = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
     pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_result = input;
         self
@@ -106,6 +109,7 @@ impl InvocationResponseBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The response from the function, or an error object.</p>
     pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.payload = input;
         self
@@ -119,6 +123,7 @@ impl InvocationResponseBuilder {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.executed_version = input;
         self
@@ -132,6 +137,7 @@ impl InvocationResponseBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self

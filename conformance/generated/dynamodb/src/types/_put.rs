@@ -75,6 +75,7 @@ impl PutBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -92,6 +93,7 @@ impl PutBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -105,6 +107,7 @@ impl PutBuilder {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.condition_expression = input;
         self
@@ -127,6 +130,7 @@ impl PutBuilder {
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn set_expression_attribute_names(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -150,6 +154,7 @@ impl PutBuilder {
         self.expression_attribute_values = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more values that can be substituted in an expression.</p>
     pub fn set_expression_attribute_values(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -168,6 +173,7 @@ impl PutBuilder {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Put</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
     pub fn set_return_values_on_condition_check_failure(
         mut self,
         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,

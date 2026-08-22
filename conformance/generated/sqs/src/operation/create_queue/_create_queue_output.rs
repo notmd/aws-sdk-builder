@@ -39,6 +39,7 @@ impl CreateQueueOutputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the created Amazon SQS queue.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self

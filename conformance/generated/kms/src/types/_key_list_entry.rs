@@ -39,6 +39,7 @@ impl KeyListEntryBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Unique identifier of the key.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -52,6 +53,7 @@ impl KeyListEntryBuilder {
         self.key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>ARN of the key.</p>
     pub fn set_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_arn = input;
         self

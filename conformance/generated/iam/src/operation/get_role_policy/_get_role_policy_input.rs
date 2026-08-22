@@ -45,6 +45,8 @@ impl GetRolePolicyInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the role associated with the policy.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_name = input;
         self
@@ -61,6 +63,8 @@ impl GetRolePolicyInputBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the policy document to get.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self

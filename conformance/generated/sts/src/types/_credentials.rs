@@ -57,6 +57,7 @@ impl CredentialsBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The access key ID that identifies the temporary security credentials.</p>
     pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self
@@ -71,6 +72,7 @@ impl CredentialsBuilder {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The secret access key that can be used to sign requests.</p>
     pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.secret_access_key = input;
         self
@@ -85,6 +87,7 @@ impl CredentialsBuilder {
         self.session_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The token that users must pass to the service API to use the temporary credentials.</p>
     pub fn set_session_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.session_token = input;
         self
@@ -99,6 +102,7 @@ impl CredentialsBuilder {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date on which the current credentials expire.</p>
     pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration = input;
         self

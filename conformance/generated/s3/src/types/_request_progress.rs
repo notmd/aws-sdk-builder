@@ -32,6 +32,7 @@ impl RequestProgressBuilder {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.</p>
     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.enabled = input;
         self

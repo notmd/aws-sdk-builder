@@ -67,6 +67,7 @@ impl AccessKeyBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user that the access key is associated with.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -81,6 +82,7 @@ impl AccessKeyBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID for this access key.</p>
     pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self
@@ -95,6 +97,7 @@ impl AccessKeyBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the access key. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
         self.status = input;
         self
@@ -109,6 +112,7 @@ impl AccessKeyBuilder {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The secret key used to sign requests.</p>
     pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.secret_access_key = input;
         self
@@ -122,6 +126,7 @@ impl AccessKeyBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date when the access key was created.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self

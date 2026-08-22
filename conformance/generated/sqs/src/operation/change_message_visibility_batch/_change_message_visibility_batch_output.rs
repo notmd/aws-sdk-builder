@@ -53,6 +53,7 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
         self.successful = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code><a>ChangeMessageVisibilityBatchResultEntry</a></code> items.</p>
     pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
         self.successful = input;
         self
@@ -71,6 +72,7 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
         self.failed = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
     pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
         self.failed = input;
         self

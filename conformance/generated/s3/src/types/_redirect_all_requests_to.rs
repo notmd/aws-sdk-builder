@@ -41,6 +41,7 @@ impl RedirectAllRequestsToBuilder {
         self.host_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the host where requests are redirected.</p>
     pub fn set_host_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.host_name = input;
         self
@@ -54,6 +55,7 @@ impl RedirectAllRequestsToBuilder {
         self.protocol = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
     pub fn set_protocol(mut self, input: ::std::option::Option<crate::types::Protocol>) -> Self {
         self.protocol = input;
         self

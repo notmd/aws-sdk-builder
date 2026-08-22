@@ -39,6 +39,7 @@ impl ListTablesInputBuilder {
         self.exclusive_start_table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
     pub fn set_exclusive_start_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exclusive_start_table_name = input;
         self
@@ -52,6 +53,7 @@ impl ListTablesInputBuilder {
         self.limit = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A maximum number of table names to return. If this parameter is not specified, the limit is 100.</p>
     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
         self.limit = input;
         self

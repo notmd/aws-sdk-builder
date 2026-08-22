@@ -40,6 +40,7 @@ impl UpdateContinuousBackupsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -53,6 +54,7 @@ impl UpdateContinuousBackupsInputBuilder {
         self.point_in_time_recovery_specification = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the settings used to enable point in time recovery.</p>
     pub fn set_point_in_time_recovery_specification(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>) -> Self {
         self.point_in_time_recovery_specification = input;
         self

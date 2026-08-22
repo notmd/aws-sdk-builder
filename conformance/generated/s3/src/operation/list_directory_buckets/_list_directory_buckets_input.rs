@@ -39,6 +39,7 @@ impl ListDirectoryBucketsInputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on buckets in this account with a token. <code>ContinuationToken</code> is obfuscated and is not a real bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -52,6 +53,7 @@ impl ListDirectoryBucketsInputBuilder {
         self.max_directory_buckets = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
     pub fn set_max_directory_buckets(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_directory_buckets = input;
         self

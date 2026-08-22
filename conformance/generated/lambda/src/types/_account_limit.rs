@@ -60,6 +60,7 @@ impl AccountLimitBuilder {
         self.total_code_size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
     pub fn set_total_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
         self.total_code_size = input;
         self
@@ -73,6 +74,7 @@ impl AccountLimitBuilder {
         self.code_size_unzipped = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
     pub fn set_code_size_unzipped(mut self, input: ::std::option::Option<i64>) -> Self {
         self.code_size_unzipped = input;
         self
@@ -86,6 +88,7 @@ impl AccountLimitBuilder {
         self.code_size_zipped = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.</p>
     pub fn set_code_size_zipped(mut self, input: ::std::option::Option<i64>) -> Self {
         self.code_size_zipped = input;
         self
@@ -99,6 +102,7 @@ impl AccountLimitBuilder {
         self.concurrent_executions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of simultaneous function executions.</p>
     pub fn set_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.concurrent_executions = input;
         self
@@ -112,6 +116,7 @@ impl AccountLimitBuilder {
         self.unreserved_concurrent_executions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
     pub fn set_unreserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.unreserved_concurrent_executions = input;
         self

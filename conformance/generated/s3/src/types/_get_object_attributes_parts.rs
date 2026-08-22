@@ -67,6 +67,7 @@ impl GetObjectAttributesPartsBuilder {
         self.total_parts_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of parts.</p>
     pub fn set_total_parts_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.total_parts_count = input;
         self
@@ -80,6 +81,7 @@ impl GetObjectAttributesPartsBuilder {
         self.part_number_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The marker for the current part.</p>
     pub fn set_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.part_number_marker = input;
         self
@@ -93,6 +95,7 @@ impl GetObjectAttributesPartsBuilder {
         self.next_part_number_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the <code>PartNumberMarker</code> request parameter in a subsequent request.</p>
     pub fn set_next_part_number_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_part_number_marker = input;
         self
@@ -106,6 +109,7 @@ impl GetObjectAttributesPartsBuilder {
         self.max_parts = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of parts allowed in the response.</p>
     pub fn set_max_parts(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_parts = input;
         self
@@ -119,6 +123,7 @@ impl GetObjectAttributesPartsBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the returned list of parts is truncated. A value of <code>true</code> indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the <code>MaxParts</code> element.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -137,6 +142,7 @@ impl GetObjectAttributesPartsBuilder {
         self.parts = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A container for elements related to a particular part. A response can contain zero or more <code>Parts</code> elements.</p><note><ul><li><p><b>General purpose buckets</b> - For <code>GetObjectAttributes</code>, if an additional checksum (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or <code>x-amz-checksum-sha256</code>) isn't applied to the object specified in the request, the response doesn't return the <code>Part</code> element.</p></li><li><p><b>Directory buckets</b> - For <code>GetObjectAttributes</code>, regardless of whether an additional checksum is applied to the object specified in the request, the response returns the <code>Part</code> element.</p></li></ul></note>
     pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectPart>>) -> Self {
         self.parts = input;
         self

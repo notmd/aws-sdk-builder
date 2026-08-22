@@ -40,6 +40,7 @@ impl GetMfaDeviceInputBuilder {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
     pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.serial_number = input;
         self
@@ -53,6 +54,7 @@ impl GetMfaDeviceInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The friendly name identifying the user.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self

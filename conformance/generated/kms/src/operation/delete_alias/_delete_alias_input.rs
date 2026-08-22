@@ -33,6 +33,7 @@ impl DeleteAliasInputBuilder {
         self.alias_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>.</p>
     pub fn set_alias_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.alias_name = input;
         self

@@ -41,6 +41,7 @@ impl GetDurableExecutionRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
@@ -54,6 +55,7 @@ impl GetDurableExecutionRequestBuilder {
         self.include_execution_data = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
     pub fn set_include_execution_data(mut self, input: ::std::option::Option<bool>) -> Self {
         self.include_execution_data = input;
         self

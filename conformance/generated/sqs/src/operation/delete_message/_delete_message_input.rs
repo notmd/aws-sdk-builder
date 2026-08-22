@@ -43,6 +43,8 @@ impl DeleteMessageInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
+    /// <p>Queue URLs and names are case-sensitive.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self
@@ -58,6 +60,7 @@ impl DeleteMessageInputBuilder {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The receipt handle associated with the message to delete.</p>
     pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.receipt_handle = input;
         self

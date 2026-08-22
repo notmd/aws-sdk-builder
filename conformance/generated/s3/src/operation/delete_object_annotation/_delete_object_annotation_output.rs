@@ -51,6 +51,7 @@ impl DeleteObjectAnnotationOutputBuilder {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version ID of the object that the annotation was deleted from.</p>
     pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.object_version_id = input;
         self

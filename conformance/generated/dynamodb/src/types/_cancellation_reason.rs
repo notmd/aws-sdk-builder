@@ -51,6 +51,7 @@ impl CancellationReasonBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Item in the request which caused the transaction to get cancelled.</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -67,6 +68,7 @@ impl CancellationReasonBuilder {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Status code for the result of the cancelled transaction.</p>
     pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code = input;
         self
@@ -80,6 +82,7 @@ impl CancellationReasonBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Cancellation reason message description.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

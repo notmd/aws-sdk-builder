@@ -46,6 +46,7 @@ impl GetAccountSettingsOutputBuilder {
         self.account_limit = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Limits that are related to concurrency and code storage.</p>
     pub fn set_account_limit(mut self, input: ::std::option::Option<crate::types::AccountLimit>) -> Self {
         self.account_limit = input;
         self
@@ -59,6 +60,7 @@ impl GetAccountSettingsOutputBuilder {
         self.account_usage = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of functions and amount of storage in use.</p>
     pub fn set_account_usage(mut self, input: ::std::option::Option<crate::types::AccountUsage>) -> Self {
         self.account_usage = input;
         self

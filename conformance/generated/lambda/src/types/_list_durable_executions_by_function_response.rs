@@ -44,6 +44,7 @@ impl ListDurableExecutionsByFunctionResponseBuilder {
         self.durable_executions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>List of durable execution summaries matching the filter criteria.</p>
     pub fn set_durable_executions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Execution>>) -> Self {
         self.durable_executions = input;
         self
@@ -57,6 +58,7 @@ impl ListDurableExecutionsByFunctionResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

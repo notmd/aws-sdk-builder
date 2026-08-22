@@ -33,6 +33,7 @@ impl AssociateDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the delegation request to associate.</p>
     pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self

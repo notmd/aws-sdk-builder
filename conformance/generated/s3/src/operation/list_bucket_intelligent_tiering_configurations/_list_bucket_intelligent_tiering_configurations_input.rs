@@ -48,6 +48,7 @@ impl ListBucketIntelligentTieringConfigurationsInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -61,6 +62,7 @@ impl ListBucketIntelligentTieringConfigurationsInputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -74,6 +76,7 @@ impl ListBucketIntelligentTieringConfigurationsInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

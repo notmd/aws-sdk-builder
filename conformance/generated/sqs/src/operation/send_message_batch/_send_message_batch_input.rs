@@ -43,6 +43,8 @@ impl SendMessageBatchInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
+    /// <p>Queue URLs and names are case-sensitive.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self
@@ -62,6 +64,7 @@ impl SendMessageBatchInputBuilder {
         self.entries = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
     pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>) -> Self {
         self.entries = input;
         self

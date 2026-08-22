@@ -56,6 +56,7 @@ impl GetDurableExecutionStateRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
@@ -70,6 +71,7 @@ impl GetDurableExecutionStateRequestBuilder {
         self.checkpoint_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
     pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checkpoint_token = input;
         self
@@ -83,6 +85,7 @@ impl GetDurableExecutionStateRequestBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of operations. Each pagination token expires after 24 hours.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -96,6 +99,7 @@ impl GetDurableExecutionStateRequestBuilder {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of operations to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_items = input;
         self

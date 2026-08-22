@@ -53,6 +53,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
         self.point_in_time_recovery_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
     pub fn set_point_in_time_recovery_status(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>) -> Self {
         self.point_in_time_recovery_status = input;
         self
@@ -66,6 +67,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
         self.recovery_period_in_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional.</p>
     pub fn set_recovery_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.recovery_period_in_days = input;
         self
@@ -79,6 +81,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
         self.earliest_restorable_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days.</p>
     pub fn set_earliest_restorable_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.earliest_restorable_date_time = input;
         self
@@ -92,6 +95,7 @@ impl PointInTimeRecoveryDescriptionBuilder {
         self.latest_restorable_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p><code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.</p>
     pub fn set_latest_restorable_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.latest_restorable_date_time = input;
         self

@@ -130,6 +130,7 @@ impl ListObjectsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -143,6 +144,7 @@ impl ListObjectsOutputBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -158,6 +160,9 @@ impl ListObjectsOutputBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When the response is truncated (the <code>IsTruncated</code> element value in the response is <code>true</code>), you can use the key name in this field as the <code>marker</code> parameter in the subsequent request to get the next set of objects. Amazon S3 lists objects in alphabetical order.</p><note>
+    /// <p>This element is returned only if you have the <code>delimiter</code> request parameter specified. If the response does not include the <code>NextMarker</code> element and it is truncated, you can use the value of the last <code>Key</code> element in the response as the <code>marker</code> parameter in the subsequent request to get the next set of object keys.</p>
+    /// </note>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -178,6 +183,7 @@ impl ListObjectsOutputBuilder {
         self.contents = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Metadata about each object returned.</p>
     pub fn set_contents(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Object>>) -> Self {
         self.contents = input;
         self
@@ -191,6 +197,7 @@ impl ListObjectsOutputBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The bucket name.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -204,6 +211,7 @@ impl ListObjectsOutputBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Keys that begin with the indicated prefix.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -217,6 +225,7 @@ impl ListObjectsOutputBuilder {
         self.delimiter = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the <code>CommonPrefixes</code> collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the <code>MaxKeys</code> value.</p>
     pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delimiter = input;
         self
@@ -230,6 +239,7 @@ impl ListObjectsOutputBuilder {
         self.max_keys = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of keys returned in the response body.</p>
     pub fn set_max_keys(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_keys = input;
         self
@@ -252,6 +262,11 @@ impl ListObjectsOutputBuilder {
         self.common_prefixes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>All of the keys (up to 1,000) rolled up in a common prefix count as a single return when calculating the number of returns.</p>
+    /// <p>A response can contain <code>CommonPrefixes</code> only if you specify a delimiter.</p>
+    /// <p><code>CommonPrefixes</code> contains all (if there are any) keys between <code>Prefix</code> and the next occurrence of the string specified by the delimiter.</p>
+    /// <p><code>CommonPrefixes</code> lists keys that act like subdirectories in the directory specified by <code>Prefix</code>.</p>
+    /// <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>), as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
     pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>) -> Self {
         self.common_prefixes = input;
         self
@@ -271,6 +286,9 @@ impl ListObjectsOutputBuilder {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode character. However, the XML 1.0 parser can't parse certain characters, such as characters with an ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response. For more information about characters to avoid in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</p><note>
+    /// <p>When using the URL encoding type, non-ASCII characters that are used in an object's key name will be percent-encoded according to UTF-8 code values. For example, the object <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</p>
+    /// </note>
     pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
         self.encoding_type = input;
         self

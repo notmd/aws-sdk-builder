@@ -47,6 +47,7 @@ impl GetServiceLinkedRoleDeletionStatusOutputBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the deletion.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::DeletionTaskStatusType>) -> Self {
         self.status = input;
         self
@@ -60,6 +61,7 @@ impl GetServiceLinkedRoleDeletionStatusOutputBuilder {
         self.reason = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An object that contains details about the reason the deletion failed.</p>
     pub fn set_reason(mut self, input: ::std::option::Option<crate::types::DeletionTaskFailureReasonType>) -> Self {
         self.reason = input;
         self

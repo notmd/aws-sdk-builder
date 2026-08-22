@@ -32,6 +32,7 @@ impl AnalyticsExportDestinationBuilder {
         self.s3_bucket_destination = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A destination signifying output to an S3 bucket.</p>
     pub fn set_s3_bucket_destination(mut self, input: ::std::option::Option<crate::types::AnalyticsS3BucketDestination>) -> Self {
         self.s3_bucket_destination = input;
         self

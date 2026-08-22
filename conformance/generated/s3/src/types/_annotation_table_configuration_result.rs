@@ -66,6 +66,7 @@ impl AnnotationTableConfigurationResultBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current configuration state of the annotation table.</p>
     pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
         self.configuration_state = input;
         self
@@ -79,6 +80,7 @@ impl AnnotationTableConfigurationResultBuilder {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
     pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_status = input;
         self
@@ -103,6 +105,7 @@ impl AnnotationTableConfigurationResultBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the annotation table.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -116,6 +119,7 @@ impl AnnotationTableConfigurationResultBuilder {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the annotation table.</p>
     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_arn = input;
         self
@@ -129,6 +133,7 @@ impl AnnotationTableConfigurationResultBuilder {
         self.role = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the IAM role associated with the annotation table.</p>
     pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role = input;
         self

@@ -41,6 +41,7 @@ impl AttributeDefinitionBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A name for the attribute.</p>
     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
@@ -55,6 +56,7 @@ impl AttributeDefinitionBuilder {
         self.attribute_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
     pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self {
         self.attribute_type = input;
         self

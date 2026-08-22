@@ -34,6 +34,7 @@ impl DeleteEventSourceMappingRequestBuilder {
         self.uuid = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the event source mapping.</p>
     pub fn set_uuid(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.uuid = input;
         self

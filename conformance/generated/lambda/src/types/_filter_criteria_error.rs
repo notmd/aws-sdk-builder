@@ -39,6 +39,7 @@ impl FilterCriteriaErrorBuilder {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The KMS exception that resulted from filter criteria encryption or decryption.</p>
     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_code = input;
         self
@@ -52,6 +53,7 @@ impl FilterCriteriaErrorBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The error message.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

@@ -39,6 +39,7 @@ impl ListFunctionsByCodeSigningConfigResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -57,6 +58,7 @@ impl ListFunctionsByCodeSigningConfigResponseBuilder {
         self.function_arns = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The function ARNs.</p>
     pub fn set_function_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.function_arns = input;
         self

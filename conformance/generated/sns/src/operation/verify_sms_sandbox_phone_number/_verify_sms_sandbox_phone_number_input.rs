@@ -40,6 +40,7 @@ impl VerifySmsSandboxPhoneNumberInputBuilder {
         self.phone_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The destination phone number to verify.</p>
     pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.phone_number = input;
         self
@@ -54,6 +55,7 @@ impl VerifySmsSandboxPhoneNumberInputBuilder {
         self.one_time_password = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
     pub fn set_one_time_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.one_time_password = input;
         self

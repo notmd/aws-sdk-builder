@@ -40,6 +40,7 @@ impl UpdateGlobalTableInputBuilder {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The global table name.</p>
     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.global_table_name = input;
         self
@@ -58,6 +59,7 @@ impl UpdateGlobalTableInputBuilder {
         self.replica_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of Regions that should be added or removed from the global table.</p>
     pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>>) -> Self {
         self.replica_updates = input;
         self

@@ -51,6 +51,7 @@ impl ListImportsOutputBuilder {
         self.import_summary_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code>ImportSummary</code> objects.</p>
     pub fn set_import_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportSummary>>) -> Self {
         self.import_summary_list = input;
         self
@@ -64,6 +65,7 @@ impl ListImportsOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

@@ -167,6 +167,7 @@ impl DelegationRequestBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the delegation request.</p>
     pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
@@ -180,6 +181,7 @@ impl DelegationRequestBuilder {
         self.owner_account_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Amazon Web Services account ID of the owner of the delegation request.</p>
     pub fn set_owner_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.owner_account_id = input;
         self
@@ -193,6 +195,7 @@ impl DelegationRequestBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Description of the delegation request. This is a message that is provided by the Amazon Web Services partner that filed the delegation request.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self
@@ -207,6 +210,8 @@ impl DelegationRequestBuilder {
         self.request_message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A custom message that is added to the delegation request by the partner.</p>
+    /// <p>This element is different from the <code>Description</code> element such that this is a request specific message injected by the partner. The <code>Description</code> is typically a generic explanation of what the delegation request is targeted to do.</p>
     pub fn set_request_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.request_message = input;
         self
@@ -232,6 +237,7 @@ impl DelegationRequestBuilder {
         self.permission_policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>JSON content of the associated permission policy of this delegation request.</p>
     pub fn set_permission_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.permission_policy = input;
         self
@@ -250,6 +256,7 @@ impl DelegationRequestBuilder {
         self.role_permission_restriction_arns = ::std::option::Option::Some(v);
         self
     }
+    /// <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will include the list of permissions boundary policies associated with the role creation. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a> for more details about IAM permission boundaries.</p>
     pub fn set_role_permission_restriction_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.role_permission_restriction_arns = input;
         self
@@ -263,6 +270,7 @@ impl DelegationRequestBuilder {
         self.owner_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>ARN of the owner of this delegation request.</p>
     pub fn set_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.owner_id = input;
         self
@@ -288,6 +296,8 @@ impl DelegationRequestBuilder {
         self.state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The state of this delegation request.</p>
+    /// <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for an explanation of how these states are transitioned.</p>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::StateType>) -> Self {
         self.state = input;
         self
@@ -303,6 +313,8 @@ impl DelegationRequestBuilder {
         self.expiration_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The expiry time of this delegation request</p>
+    /// <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for details on the life time of a delegation request at each state.</p>
     pub fn set_expiration_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration_time = input;
         self
@@ -317,6 +329,7 @@ impl DelegationRequestBuilder {
         self.requestor_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Identity of the requestor of this delegation request. This will be an Amazon Web Services account ID.</p>
     pub fn set_requestor_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.requestor_id = input;
         self
@@ -330,6 +343,7 @@ impl DelegationRequestBuilder {
         self.requestor_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A friendly name of the requestor.</p>
     pub fn set_requestor_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.requestor_name = input;
         self
@@ -343,6 +357,7 @@ impl DelegationRequestBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Creation date (timestamp) of this delegation request.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
@@ -356,6 +371,7 @@ impl DelegationRequestBuilder {
         self.session_duration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The life-time of the requested session credential.</p>
     pub fn set_session_duration(mut self, input: ::std::option::Option<i32>) -> Self {
         self.session_duration = input;
         self
@@ -369,6 +385,7 @@ impl DelegationRequestBuilder {
         self.redirect_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A URL to be redirected to once the delegation request is approved. Partners provide this URL when creating the delegation request.</p>
     pub fn set_redirect_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.redirect_url = input;
         self
@@ -382,6 +399,7 @@ impl DelegationRequestBuilder {
         self.notes = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Notes added to this delegation request, if this request was updated via the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateDelegationRequest.html">UpdateDelegationRequest</a> API.</p>
     pub fn set_notes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.notes = input;
         self
@@ -395,6 +413,7 @@ impl DelegationRequestBuilder {
         self.rejection_reason = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html">RejectDelegationRequest</a> API documentation.</p>
     pub fn set_rejection_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.rejection_reason = input;
         self
@@ -408,6 +427,7 @@ impl DelegationRequestBuilder {
         self.only_send_by_owner = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag indicating whether the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>
     pub fn set_only_send_by_owner(mut self, input: ::std::option::Option<bool>) -> Self {
         self.only_send_by_owner = input;
         self
@@ -421,6 +441,7 @@ impl DelegationRequestBuilder {
         self.updated_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Last updated timestamp of the request.</p>
     pub fn set_updated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.updated_time = input;
         self

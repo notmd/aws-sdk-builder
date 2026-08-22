@@ -39,6 +39,7 @@ impl OwnerBuilder {
         self.display_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p></p>
     pub fn set_display_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.display_name = input;
         self
@@ -52,6 +53,7 @@ impl OwnerBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Container for the ID of the owner.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self

@@ -77,6 +77,7 @@ impl BackupDetailsBuilder {
         self.backup_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>ARN associated with the backup.</p>
     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.backup_arn = input;
         self
@@ -91,6 +92,7 @@ impl BackupDetailsBuilder {
         self.backup_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the requested backup.</p>
     pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.backup_name = input;
         self
@@ -104,6 +106,7 @@ impl BackupDetailsBuilder {
         self.backup_size_bytes = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Size of the backup in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn set_backup_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
         self.backup_size_bytes = input;
         self
@@ -118,6 +121,7 @@ impl BackupDetailsBuilder {
         self.backup_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
     pub fn set_backup_status(mut self, input: ::std::option::Option<crate::types::BackupStatus>) -> Self {
         self.backup_status = input;
         self
@@ -132,6 +136,7 @@ impl BackupDetailsBuilder {
         self.backup_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
     pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupType>) -> Self {
         self.backup_type = input;
         self
@@ -146,6 +151,7 @@ impl BackupDetailsBuilder {
         self.backup_creation_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Time at which the backup was created. This is the request time of the backup.</p>
     pub fn set_backup_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.backup_creation_date_time = input;
         self
@@ -159,6 +165,7 @@ impl BackupDetailsBuilder {
         self.backup_expiry_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>
     pub fn set_backup_expiry_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.backup_expiry_date_time = input;
         self

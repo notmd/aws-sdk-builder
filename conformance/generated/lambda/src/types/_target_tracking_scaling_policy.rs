@@ -40,6 +40,7 @@ impl TargetTrackingScalingPolicyBuilder {
         self.predefined_metric_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The predefined metric type to track for scaling decisions.</p>
     pub fn set_predefined_metric_type(mut self, input: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>) -> Self {
         self.predefined_metric_type = input;
         self
@@ -54,6 +55,7 @@ impl TargetTrackingScalingPolicyBuilder {
         self.target_value = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
     pub fn set_target_value(mut self, input: ::std::option::Option<f64>) -> Self {
         self.target_value = input;
         self

@@ -39,6 +39,7 @@ impl GlobalTableWitnessDescriptionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self
@@ -52,6 +53,7 @@ impl GlobalTableWitnessDescriptionBuilder {
         self.witness_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current status of the witness Region in the MRSC global table.</p>
     pub fn set_witness_status(mut self, input: ::std::option::Option<crate::types::WitnessStatus>) -> Self {
         self.witness_status = input;
         self

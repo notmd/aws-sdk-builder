@@ -44,6 +44,7 @@ impl EnvironmentResponseBuilder {
         self.variables = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
     pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.variables = input;
         self
@@ -57,6 +58,7 @@ impl EnvironmentResponseBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Error messages for environment variables that couldn't be applied.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EnvironmentError>) -> Self {
         self.error = input;
         self

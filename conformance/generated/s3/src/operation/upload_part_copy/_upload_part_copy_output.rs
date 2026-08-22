@@ -111,6 +111,9 @@ impl UploadPartCopyOutputBuilder {
         self.copy_source_version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p><note>
+    /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
+    /// </note>
     pub fn set_copy_source_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.copy_source_version_id = input;
         self
@@ -126,6 +129,7 @@ impl UploadPartCopyOutputBuilder {
         self.copy_part_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Container for all response elements.</p>
     pub fn set_copy_part_result(mut self, input: ::std::option::Option<crate::types::CopyPartResult>) -> Self {
         self.copy_part_result = input;
         self
@@ -141,6 +145,9 @@ impl UploadPartCopyOutputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+    /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+    /// </note>
     pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
@@ -158,6 +165,9 @@ impl UploadPartCopyOutputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_algorithm = input;
         self
@@ -175,6 +185,9 @@ impl UploadPartCopyOutputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key_md5 = input;
         self
@@ -190,6 +203,7 @@ impl UploadPartCopyOutputBuilder {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
     pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssekms_key_id = input;
         self
@@ -203,6 +217,7 @@ impl UploadPartCopyOutputBuilder {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.bucket_key_enabled = input;
         self

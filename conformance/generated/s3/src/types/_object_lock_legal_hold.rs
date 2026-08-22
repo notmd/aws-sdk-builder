@@ -32,6 +32,7 @@ impl ObjectLockLegalHoldBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the specified object has a legal hold in place.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
         self.status = input;
         self

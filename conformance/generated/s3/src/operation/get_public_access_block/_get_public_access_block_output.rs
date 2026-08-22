@@ -46,6 +46,7 @@ impl GetPublicAccessBlockOutputBuilder {
         self.public_access_block_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3 bucket.</p>
     pub fn set_public_access_block_configuration(mut self, input: ::std::option::Option<crate::types::PublicAccessBlockConfiguration>) -> Self {
         self.public_access_block_configuration = input;
         self

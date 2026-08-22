@@ -53,6 +53,7 @@ impl UpdateCapacityProviderRequestBuilder {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the capacity provider to update.</p>
     pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_name = input;
         self
@@ -66,6 +67,7 @@ impl UpdateCapacityProviderRequestBuilder {
         self.capacity_provider_scaling_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The updated scaling configuration for the capacity provider.</p>
     pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingConfig>) -> Self {
         self.capacity_provider_scaling_config = input;
         self
@@ -90,6 +92,7 @@ impl UpdateCapacityProviderRequestBuilder {
         self.telemetry_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The updated telemetry configuration for the capacity provider.</p>
     pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
         self.telemetry_config = input;
         self

@@ -37,6 +37,7 @@ impl ItemResponseBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Map of attribute data consisting of the data type and attribute value.</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,

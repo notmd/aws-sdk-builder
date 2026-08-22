@@ -32,6 +32,7 @@ impl AbortIncompleteMultipartUploadBuilder {
         self.days_after_initiation = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.</p>
     pub fn set_days_after_initiation(mut self, input: ::std::option::Option<i32>) -> Self {
         self.days_after_initiation = input;
         self

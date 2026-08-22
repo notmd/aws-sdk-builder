@@ -33,6 +33,7 @@ impl SendDurableExecutionCallbackHeartbeatInputBuilder {
         self.callback_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the callback operation.</p>
     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.callback_id = input;
         self

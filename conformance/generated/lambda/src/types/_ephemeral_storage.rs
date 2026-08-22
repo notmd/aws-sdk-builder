@@ -33,6 +33,7 @@ impl EphemeralStorageBuilder {
         self.size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The size of the function's <code>/tmp</code> directory.</p>
     pub fn set_size(mut self, input: ::std::option::Option<i32>) -> Self {
         self.size = input;
         self

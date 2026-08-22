@@ -63,6 +63,7 @@ impl QueueConfigurationBuilder {
         self.queue_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.</p>
     pub fn set_queue_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_arn = input;
         self
@@ -81,6 +82,7 @@ impl QueueConfigurationBuilder {
         self.events = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A collection of bucket events for which to send notifications</p>
     pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
         self.events = input;
         self

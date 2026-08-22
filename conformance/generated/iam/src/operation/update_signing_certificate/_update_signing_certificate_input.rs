@@ -51,6 +51,8 @@ impl UpdateSigningCertificateInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user the signing certificate belongs to.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -67,6 +69,8 @@ impl UpdateSigningCertificateInputBuilder {
         self.certificate_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID of the signing certificate you want to update.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     pub fn set_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_id = input;
         self
@@ -82,6 +86,7 @@ impl UpdateSigningCertificateInputBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status you want to assign to the certificate. <code>Active</code> means that the certificate can be used for programmatic calls to Amazon Web Services <code>Inactive</code> means that the certificate cannot be used.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
         self.status = input;
         self

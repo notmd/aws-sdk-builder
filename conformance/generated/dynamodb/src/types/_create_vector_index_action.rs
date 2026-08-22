@@ -69,6 +69,7 @@ impl CreateVectorIndexActionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the vector index. Must be unique within the table.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -82,6 +83,7 @@ impl CreateVectorIndexActionBuilder {
         self.vector_attribute = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
     pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
         self.vector_attribute = input;
         self
@@ -100,6 +102,7 @@ impl CreateVectorIndexActionBuilder {
         self.search_schema = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
     pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
         self.search_schema = input;
         self
@@ -113,6 +116,7 @@ impl CreateVectorIndexActionBuilder {
         self.projection = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
         self.projection = input;
         self
@@ -127,6 +131,7 @@ impl CreateVectorIndexActionBuilder {
         self.dimensions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of dimensions in each vector.</p>
     pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self {
         self.dimensions = input;
         self
@@ -141,6 +146,7 @@ impl CreateVectorIndexActionBuilder {
         self.distance_function = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
     pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
         self.distance_function = input;
         self

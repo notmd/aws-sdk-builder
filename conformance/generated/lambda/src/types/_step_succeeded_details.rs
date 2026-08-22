@@ -39,6 +39,7 @@ impl StepSucceededDetailsBuilder {
         self.result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The response payload from the successful operation.</p>
     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
         self.result = input;
         self
@@ -52,6 +53,7 @@ impl StepSucceededDetailsBuilder {
         self.retry_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Information about retry attempts for this step operation.</p>
     pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
         self.retry_details = input;
         self

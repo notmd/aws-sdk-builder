@@ -33,6 +33,7 @@ impl GetEndpointAttributesInputBuilder {
         self.endpoint_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>EndpointArn</code> for <code>GetEndpointAttributes</code> input.</p>
     pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.endpoint_arn = input;
         self

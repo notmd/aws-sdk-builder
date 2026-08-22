@@ -40,6 +40,7 @@ impl MetricsBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the replication metrics are enabled.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::MetricsStatus>) -> Self {
         self.status = input;
         self
@@ -53,6 +54,7 @@ impl MetricsBuilder {
         self.event_threshold = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.</p>
     pub fn set_event_threshold(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self {
         self.event_threshold = input;
         self

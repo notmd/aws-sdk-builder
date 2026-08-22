@@ -40,6 +40,7 @@ impl TagResourceInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_arn = input;
         self
@@ -58,6 +59,7 @@ impl TagResourceInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

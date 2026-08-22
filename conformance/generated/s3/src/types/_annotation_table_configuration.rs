@@ -45,6 +45,7 @@ impl AnnotationTableConfigurationBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The state of the annotation table. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
     pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
         self.configuration_state = input;
         self
@@ -69,6 +70,7 @@ impl AnnotationTableConfigurationBuilder {
         self.role = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the IAM role used to manage the annotation table.</p>
     pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role = input;
         self

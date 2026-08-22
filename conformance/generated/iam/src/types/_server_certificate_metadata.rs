@@ -73,6 +73,7 @@ impl ServerCertificateMetadataBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The path to the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.path = input;
         self
@@ -87,6 +88,7 @@ impl ServerCertificateMetadataBuilder {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name that identifies the server certificate.</p>
     pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_name = input;
         self
@@ -101,6 +103,7 @@ impl ServerCertificateMetadataBuilder {
         self.server_certificate_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The stable and unique string identifying the server certificate. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_server_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_id = input;
         self
@@ -115,6 +118,7 @@ impl ServerCertificateMetadataBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
@@ -128,6 +132,7 @@ impl ServerCertificateMetadataBuilder {
         self.upload_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date when the server certificate was uploaded.</p>
     pub fn set_upload_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.upload_date = input;
         self
@@ -141,6 +146,7 @@ impl ServerCertificateMetadataBuilder {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date on which the certificate is set to expire.</p>
     pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration = input;
         self

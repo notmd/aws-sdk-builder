@@ -39,6 +39,7 @@ impl AttachedPolicyBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The friendly name of the attached policy.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self

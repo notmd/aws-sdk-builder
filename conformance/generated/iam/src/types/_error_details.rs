@@ -43,6 +43,7 @@ impl ErrorDetailsBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Detailed information about the reason that the operation failed.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self
@@ -57,6 +58,7 @@ impl ErrorDetailsBuilder {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The error code associated with the operation failure.</p>
     pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code = input;
         self

@@ -44,6 +44,7 @@ impl ListProvisionedConcurrencyConfigsResponseBuilder {
         self.provisioned_concurrency_configs = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of provisioned concurrency configurations.</p>
     pub fn set_provisioned_concurrency_configs(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>,
@@ -60,6 +61,7 @@ impl ListProvisionedConcurrencyConfigsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

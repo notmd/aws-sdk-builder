@@ -39,6 +39,7 @@ impl CreateVirtualMfaDeviceOutputBuilder {
         self.virtual_mfa_device = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the new virtual MFA device.</p>
     pub fn set_virtual_mfa_device(mut self, input: ::std::option::Option<crate::types::VirtualMfaDevice>) -> Self {
         self.virtual_mfa_device = input;
         self

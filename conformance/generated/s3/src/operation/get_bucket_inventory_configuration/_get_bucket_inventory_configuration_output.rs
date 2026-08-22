@@ -46,6 +46,7 @@ impl GetBucketInventoryConfigurationOutputBuilder {
         self.inventory_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the inventory configuration.</p>
     pub fn set_inventory_configuration(mut self, input: ::std::option::Option<crate::types::InventoryConfiguration>) -> Self {
         self.inventory_configuration = input;
         self

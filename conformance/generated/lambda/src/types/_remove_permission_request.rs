@@ -56,6 +56,7 @@ impl RemovePermissionRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -70,6 +71,7 @@ impl RemovePermissionRequestBuilder {
         self.statement_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Statement ID of the permission to remove.</p>
     pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.statement_id = input;
         self
@@ -83,6 +85,7 @@ impl RemovePermissionRequestBuilder {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.qualifier = input;
         self
@@ -96,6 +99,7 @@ impl RemovePermissionRequestBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

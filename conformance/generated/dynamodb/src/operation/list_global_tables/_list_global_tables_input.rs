@@ -48,6 +48,7 @@ impl ListGlobalTablesInputBuilder {
         self.exclusive_start_global_table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The first global table name that this operation will evaluate.</p>
     pub fn set_exclusive_start_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.exclusive_start_global_table_name = input;
         self
@@ -62,6 +63,8 @@ impl ListGlobalTablesInputBuilder {
         self.limit = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>
+    /// <p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
         self.limit = input;
         self
@@ -76,6 +79,7 @@ impl ListGlobalTablesInputBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Lists the global tables in a specific Region.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self

@@ -32,6 +32,7 @@ impl OutputLocationBuilder {
         self.s3 = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes an S3 location that will receive the results of the restore request.</p>
     pub fn set_s3(mut self, input: ::std::option::Option<crate::types::S3Location>) -> Self {
         self.s3 = input;
         self

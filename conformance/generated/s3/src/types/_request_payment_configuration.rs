@@ -33,6 +33,7 @@ impl RequestPaymentConfigurationBuilder {
         self.payer = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies who pays for the download and request fees.</p>
     pub fn set_payer(mut self, input: ::std::option::Option<crate::types::Payer>) -> Self {
         self.payer = input;
         self

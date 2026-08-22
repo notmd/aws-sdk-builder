@@ -48,6 +48,7 @@ impl ListFunctionsByCodeSigningConfigRequestBuilder {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
     pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code_signing_config_arn = input;
         self
@@ -61,6 +62,7 @@ impl ListFunctionsByCodeSigningConfigRequestBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -74,6 +76,7 @@ impl ListFunctionsByCodeSigningConfigRequestBuilder {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of items to return.</p>
     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_items = input;
         self

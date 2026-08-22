@@ -39,6 +39,7 @@ impl CreateCustomKeyStoreOutputBuilder {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique identifier for the new custom key store.</p>
     pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.custom_key_store_id = input;
         self

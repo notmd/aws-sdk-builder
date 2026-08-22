@@ -39,6 +39,7 @@ impl DestinationConfigBuilder {
         self.on_success = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The destination configuration for successful invocations. Not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code>.</p>
     pub fn set_on_success(mut self, input: ::std::option::Option<crate::types::OnSuccess>) -> Self {
         self.on_success = input;
         self
@@ -52,6 +53,7 @@ impl DestinationConfigBuilder {
         self.on_failure = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The destination configuration for failed invocations.</p>
     pub fn set_on_failure(mut self, input: ::std::option::Option<crate::types::OnFailure>) -> Self {
         self.on_failure = input;
         self

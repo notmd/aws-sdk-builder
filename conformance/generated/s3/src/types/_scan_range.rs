@@ -39,6 +39,7 @@ impl ScanRangeBuilder {
         self.start = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only <code>start</code> is supplied, it means scan from that point to the end of the file. For example, <code><scanrange><start>50</start></scanrange></code> means scan from byte 50 until the end of the file.</p>
     pub fn set_start(mut self, input: ::std::option::Option<i64>) -> Self {
         self.start = input;
         self
@@ -52,6 +53,7 @@ impl ScanRangeBuilder {
         self.end = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, <code><scanrange><end>50</end></scanrange></code> means scan the last 50 bytes.</p>
     pub fn set_end(mut self, input: ::std::option::Option<i64>) -> Self {
         self.end = input;
         self

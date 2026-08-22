@@ -39,6 +39,7 @@ impl CreateUserOutputBuilder {
         self.user = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure with details about the new IAM user.</p>
     pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
         self.user = input;
         self

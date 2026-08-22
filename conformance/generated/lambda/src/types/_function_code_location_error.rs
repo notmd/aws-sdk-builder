@@ -39,6 +39,7 @@ impl FunctionCodeLocationErrorBuilder {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The error code that identifies why Lambda failed to retrieve the deployment package.</p>
     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_code = input;
         self
@@ -52,6 +53,7 @@ impl FunctionCodeLocationErrorBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The human-readable message that describes why Lambda failed to retrieve the deployment package.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

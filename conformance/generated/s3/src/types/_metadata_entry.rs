@@ -39,6 +39,7 @@ impl MetadataEntryBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the object.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -52,6 +53,7 @@ impl MetadataEntryBuilder {
         self.value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Value of the object.</p>
     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.value = input;
         self

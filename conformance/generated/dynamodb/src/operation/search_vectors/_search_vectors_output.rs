@@ -46,6 +46,7 @@ impl SearchVectorsOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::VectorCapacity>) -> Self {
         self.consumed_capacity = input;
         self
@@ -64,6 +65,7 @@ impl SearchVectorsOutputBuilder {
         self.search_results = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>) -> Self {
         self.search_results = input;
         self

@@ -46,6 +46,7 @@ impl UploadServerCertificateOutputBuilder {
         self.server_certificate_metadata = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.</p>
     pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<crate::types::ServerCertificateMetadata>) -> Self {
         self.server_certificate_metadata = input;
         self
@@ -64,6 +65,7 @@ impl UploadServerCertificateOutputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

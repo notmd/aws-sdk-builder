@@ -230,6 +230,7 @@ impl EventBuilder {
         self.event_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of event that occurred.</p>
     pub fn set_event_type(mut self, input: ::std::option::Option<crate::types::EventType>) -> Self {
         self.event_type = input;
         self
@@ -243,6 +244,7 @@ impl EventBuilder {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subtype of the event, providing additional categorization.</p>
     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sub_type = input;
         self
@@ -256,6 +258,7 @@ impl EventBuilder {
         self.event_id = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The unique identifier for this event. Event IDs increment sequentially.</p>
     pub fn set_event_id(mut self, input: ::std::option::Option<i32>) -> Self {
         self.event_id = input;
         self
@@ -269,6 +272,7 @@ impl EventBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for this operation.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -282,6 +286,7 @@ impl EventBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The customer-provided name for this operation.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -295,6 +300,7 @@ impl EventBuilder {
         self.event_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when this event occurred, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_event_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.event_timestamp = input;
         self
@@ -308,6 +314,7 @@ impl EventBuilder {
         self.parent_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
     pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.parent_id = input;
         self
@@ -321,6 +328,7 @@ impl EventBuilder {
         self.execution_started_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about an execution that started.</p>
     pub fn set_execution_started_details(mut self, input: ::std::option::Option<crate::types::ExecutionStartedDetails>) -> Self {
         self.execution_started_details = input;
         self
@@ -334,6 +342,7 @@ impl EventBuilder {
         self.execution_succeeded_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about an execution that succeeded.</p>
     pub fn set_execution_succeeded_details(mut self, input: ::std::option::Option<crate::types::ExecutionSucceededDetails>) -> Self {
         self.execution_succeeded_details = input;
         self
@@ -347,6 +356,7 @@ impl EventBuilder {
         self.execution_failed_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about an execution that failed.</p>
     pub fn set_execution_failed_details(mut self, input: ::std::option::Option<crate::types::ExecutionFailedDetails>) -> Self {
         self.execution_failed_details = input;
         self
@@ -360,6 +370,7 @@ impl EventBuilder {
         self.execution_timed_out_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about an execution that timed out.</p>
     pub fn set_execution_timed_out_details(mut self, input: ::std::option::Option<crate::types::ExecutionTimedOutDetails>) -> Self {
         self.execution_timed_out_details = input;
         self
@@ -373,6 +384,7 @@ impl EventBuilder {
         self.execution_stopped_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about an execution that was stopped.</p>
     pub fn set_execution_stopped_details(mut self, input: ::std::option::Option<crate::types::ExecutionStoppedDetails>) -> Self {
         self.execution_stopped_details = input;
         self
@@ -386,6 +398,7 @@ impl EventBuilder {
         self.context_started_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a context that started.</p>
     pub fn set_context_started_details(mut self, input: ::std::option::Option<crate::types::ContextStartedDetails>) -> Self {
         self.context_started_details = input;
         self
@@ -399,6 +412,7 @@ impl EventBuilder {
         self.context_succeeded_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a context that succeeded.</p>
     pub fn set_context_succeeded_details(mut self, input: ::std::option::Option<crate::types::ContextSucceededDetails>) -> Self {
         self.context_succeeded_details = input;
         self
@@ -412,6 +426,7 @@ impl EventBuilder {
         self.context_failed_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a context that failed.</p>
     pub fn set_context_failed_details(mut self, input: ::std::option::Option<crate::types::ContextFailedDetails>) -> Self {
         self.context_failed_details = input;
         self
@@ -425,6 +440,7 @@ impl EventBuilder {
         self.wait_started_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a wait operation that started.</p>
     pub fn set_wait_started_details(mut self, input: ::std::option::Option<crate::types::WaitStartedDetails>) -> Self {
         self.wait_started_details = input;
         self
@@ -438,6 +454,7 @@ impl EventBuilder {
         self.wait_succeeded_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a wait operation that succeeded.</p>
     pub fn set_wait_succeeded_details(mut self, input: ::std::option::Option<crate::types::WaitSucceededDetails>) -> Self {
         self.wait_succeeded_details = input;
         self
@@ -451,6 +468,7 @@ impl EventBuilder {
         self.wait_cancelled_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a wait operation that was cancelled.</p>
     pub fn set_wait_cancelled_details(mut self, input: ::std::option::Option<crate::types::WaitCancelledDetails>) -> Self {
         self.wait_cancelled_details = input;
         self
@@ -464,6 +482,7 @@ impl EventBuilder {
         self.step_started_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a step that started.</p>
     pub fn set_step_started_details(mut self, input: ::std::option::Option<crate::types::StepStartedDetails>) -> Self {
         self.step_started_details = input;
         self
@@ -477,6 +496,7 @@ impl EventBuilder {
         self.step_succeeded_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a step that succeeded.</p>
     pub fn set_step_succeeded_details(mut self, input: ::std::option::Option<crate::types::StepSucceededDetails>) -> Self {
         self.step_succeeded_details = input;
         self
@@ -490,6 +510,7 @@ impl EventBuilder {
         self.step_failed_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a step that failed.</p>
     pub fn set_step_failed_details(mut self, input: ::std::option::Option<crate::types::StepFailedDetails>) -> Self {
         self.step_failed_details = input;
         self
@@ -514,6 +535,7 @@ impl EventBuilder {
         self.chained_invoke_succeeded_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a chained invocation that succeeded.</p>
     pub fn set_chained_invoke_succeeded_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeSucceededDetails>) -> Self {
         self.chained_invoke_succeeded_details = input;
         self
@@ -538,6 +560,7 @@ impl EventBuilder {
         self.chained_invoke_timed_out_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a chained invocation that timed out.</p>
     pub fn set_chained_invoke_timed_out_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeTimedOutDetails>) -> Self {
         self.chained_invoke_timed_out_details = input;
         self
@@ -551,6 +574,7 @@ impl EventBuilder {
         self.chained_invoke_stopped_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a chained invocation that was stopped.</p>
     pub fn set_chained_invoke_stopped_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeStoppedDetails>) -> Self {
         self.chained_invoke_stopped_details = input;
         self
@@ -608,6 +632,7 @@ impl EventBuilder {
         self.invocation_completed_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about a function invocation that completed.</p>
     pub fn set_invocation_completed_details(mut self, input: ::std::option::Option<crate::types::InvocationCompletedDetails>) -> Self {
         self.invocation_completed_details = input;
         self

@@ -39,6 +39,7 @@ impl DescribeExportOutputBuilder {
         self.export_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the properties of the export.</p>
     pub fn set_export_description(mut self, input: ::std::option::Option<crate::types::ExportDescription>) -> Self {
         self.export_description = input;
         self

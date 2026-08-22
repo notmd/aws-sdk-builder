@@ -58,6 +58,10 @@ impl ChangeMessageVisibilityBatchRequestEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier for this particular receipt handle used to communicate the result.</p><note>
+    /// <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
+    /// <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+    /// </note>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -75,6 +79,7 @@ impl ChangeMessageVisibilityBatchRequestEntryBuilder {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A receipt handle.</p>
     pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.receipt_handle = input;
         self
@@ -88,6 +93,7 @@ impl ChangeMessageVisibilityBatchRequestEntryBuilder {
         self.visibility_timeout = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The new value (in seconds) for the message's visibility timeout.</p>
     pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
         self.visibility_timeout = input;
         self

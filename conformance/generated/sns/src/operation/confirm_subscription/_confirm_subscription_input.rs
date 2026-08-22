@@ -47,6 +47,7 @@ impl ConfirmSubscriptionInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the topic for which you wish to confirm a subscription.</p>
     pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.topic_arn = input;
         self
@@ -61,6 +62,7 @@ impl ConfirmSubscriptionInputBuilder {
         self.token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
     pub fn set_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.token = input;
         self
@@ -74,6 +76,7 @@ impl ConfirmSubscriptionInputBuilder {
         self.authenticate_on_unsubscribe = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires Amazon Web Services authentication.</p>
     pub fn set_authenticate_on_unsubscribe(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.authenticate_on_unsubscribe = input;
         self

@@ -41,6 +41,7 @@ impl KafkaSchemaRegistryAccessConfigBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of authentication Lambda uses to access your schema registry.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>) -> Self {
         self.r#type = input;
         self
@@ -54,6 +55,7 @@ impl KafkaSchemaRegistryAccessConfigBuilder {
         self.uri = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.</p>
     pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.uri = input;
         self

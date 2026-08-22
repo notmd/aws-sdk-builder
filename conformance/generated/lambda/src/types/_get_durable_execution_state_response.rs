@@ -45,6 +45,7 @@ impl GetDurableExecutionStateResponseBuilder {
         self.operations = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
     pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
         self.operations = input;
         self
@@ -58,6 +59,7 @@ impl GetDurableExecutionStateResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

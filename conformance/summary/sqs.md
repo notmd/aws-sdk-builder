@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `55` matched · `114` mismatches · `130` missing · `0` extra · `18.39%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `58` matched · `111` mismatches · `130` missing · `0` extra · `19.40%` match (100.00% means fully matched)
 
 ### `src/client/cancel_message_move_task.rs`
 
@@ -2794,24 +2794,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn actions(&self) -> &[::std::string::String] {
          self.actions.as_deref().unwrap_or_default()
      }
-@@ -65,8 +61,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue to which permissions are added.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -82,7 +76,6 @@
-         self.label = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
-     pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.label = input;
-         self
-@@ -91,11 +84,10 @@
+@@ -91,11 +87,10 @@
      pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
          &self.label
      }
@@ -2824,42 +2807,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn aws_account_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.aws_account_ids.unwrap_or_default();
          v.push(input.into());
-@@ -102,7 +94,6 @@
-         self.aws_account_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Amazon Web Services account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a> who are to receive permission. For information about locating the Amazon Web Services account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_aws_account_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.aws_account_ids = input;
-         self
-@@ -111,13 +102,12 @@
+@@ -111,13 +106,12 @@
      pub fn get_aws_account_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.aws_account_ids
      }
--    /// Appends an item to `actions`.
++    /// <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
++    /// <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
+     /// Appends an item to `actions`.
+     ///
+     /// To override the contents of this collection use [`set_actions`](Self::set_actions).
 -    ///
--    /// To override the contents of this collection use [`set_actions`](Self::set_actions).
--    ///
-     /// <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
-     /// <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     /// <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
-+    /// Appends an item to `actions`.
-+    ///
-+    /// To override the contents of this collection use [`set_actions`](Self::set_actions).
-     pub fn actions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-         let mut v = self.actions.unwrap_or_default();
-         v.push(input.into());
-@@ -124,9 +114,6 @@
-         self.actions = ::std::option::Option::Some(v);
-         self
-     }
 -    /// <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
 -    /// <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 -    /// <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
-     pub fn set_actions(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.actions = input;
-         self
-@@ -138,14 +125,12 @@
+     pub fn actions(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+         let mut v = self.actions.unwrap_or_default();
+         v.push(input.into());
+@@ -138,14 +132,12 @@
          &self.actions
      }
      /// Consumes the builder and constructs a [`AddPermissionInput`](crate::operation::add_permission::AddPermissionInput).
@@ -3705,15 +3670,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CancelMessageMoveTaskInput {
      /// <p>An identifier associated with a message movement task.</p>
      pub task_handle: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.task_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier associated with a message movement task.</p>
-     pub fn set_task_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.task_handle = input;
-         self
-@@ -42,12 +42,9 @@
+@@ -42,12 +43,9 @@
          &self.task_handle
      }
      /// Consumes the builder and constructs a [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
@@ -3755,15 +3712,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.approximate_number_of_messages_moved
      }
  }
-@@ -38,7 +39,6 @@
-         self.approximate_number_of_messages_moved = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The approximate number of messages already moved to the destination queue.</p>
-     pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.approximate_number_of_messages_moved = input;
-         self
-@@ -59,7 +59,7 @@
+@@ -59,7 +60,7 @@
      /// Consumes the builder and constructs a [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
      pub fn build(self) -> crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
          crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
@@ -4532,16 +4481,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn receipt_handle(&self) -> ::std::option::Option<&str> {
          self.receipt_handle.as_deref()
      }
-@@ -49,8 +50,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -60,18 +59,17 @@
+@@ -60,18 +61,18 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -4553,6 +4493,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The receipt handle associated with the message, whose visibility timeout is changed. This parameter is returned by the <code> <code>ReceiveMessage</code> </code> action.</p>
++    /// <p>The receipt handle associated with the message, whose visibility timeout is changed. This parameter is returned by the <code><a>ReceiveMessage</a></code> action.</p>
      pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.receipt_handle = input;
          self
@@ -4562,15 +4503,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> {
          &self.receipt_handle
      }
-@@ -81,7 +79,6 @@
-         self.visibility_timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
-     pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.visibility_timeout = input;
-         self
-@@ -91,16 +88,11 @@
+@@ -91,16 +92,11 @@
          &self.visibility_timeout
      }
      /// Consumes the builder and constructs a [`ChangeMessageVisibilityInput`](crate::operation::change_message_visibility::ChangeMessageVisibilityInput).
@@ -5417,16 +5350,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entries(&self) -> &[crate::types::ChangeMessageVisibilityBatchRequestEntry] {
          self.entries.as_deref().unwrap_or_default()
      }
-@@ -45,8 +43,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -56,11 +52,10 @@
+@@ -56,11 +54,10 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -5439,15 +5363,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entries(mut self, input: crate::types::ChangeMessageVisibilityBatchRequestEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
-@@ -67,7 +62,6 @@
-         self.entries = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
-     pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
-         self.entries = input;
-         self
-@@ -77,15 +71,10 @@
+@@ -77,15 +74,10 @@
          &self.entries
      }
      /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchInput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput).
@@ -5514,11 +5430,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn successful(mut self, input: crate::types::ChangeMessageVisibilityBatchResultEntry) -> Self {
          let mut v = self.successful.unwrap_or_default();
          v.push(input);
-@@ -54,20 +53,18 @@
+@@ -54,20 +53,19 @@
          self.successful = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
++    /// <p>A list of <code><a>ChangeMessageVisibilityBatchResultEntry</a></code> items.</p>
      pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
          self.successful = input;
          self
@@ -5537,11 +5454,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn failed(mut self, input: crate::types::BatchResultErrorEntry) -> Self {
          let mut v = self.failed.unwrap_or_default();
          v.push(input);
-@@ -74,12 +71,11 @@
+@@ -74,12 +72,12 @@
          self.failed = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
++    /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
      pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
          self.failed = input;
          self
@@ -5551,7 +5469,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
          &self.failed
      }
-@@ -94,8 +90,8 @@
+@@ -94,8 +92,8 @@
      }
      /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchOutput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput).
      /// This method will fail if any of the following fields are not set:
@@ -6661,7 +6579,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>To be able to tag a queue on creation, you must have the <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
      /// <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      /// </note>
-@@ -279,250 +59,35 @@
+@@ -279,249 +59,41 @@
      pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
  impl CreateQueueInputBuilder {
@@ -6691,6 +6609,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A FIFO queue name must end with the <code>.fifo</code> suffix.</p></li>
 -    /// </ul>
 -    /// <p>Queue URLs and names are case-sensitive.</p>
++    /// <p>The name of the new queue. The following limits apply to this name:</p><ul><li><p>A queue name can have up to 80 characters.</p></li><li><p>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p></li><li><p>A FIFO queue name must end with the <code>.fifo</code> suffix.</p></li></ul><p>Queue URLs and names are case-sensitive.</p>
      pub fn set_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.queue_name = input;
          self
@@ -6824,7 +6743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attributes with their corresponding values.</p>
+     /// <p>A map of attributes with their corresponding values.</p>
 -    /// <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateQueue</code> action uses:</p>
 -    /// <ul>
 -    /// <li>
@@ -6867,7 +6786,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li>
 -    /// </ul></li>
 -    /// </ul><note>
--    /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
++    /// <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateQueue</code> action uses:</p><ul><li><p><code>DelaySeconds</code> – The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 seconds (15 minutes). Default: 0.</p></li><li><p><code>MaximumMessageSize</code> – The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).</p></li><li><p><code>MessageRetentionPeriod</code> – The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer from 60 seconds (1 minute) to 1,209,600 seconds (14 days). Default: 345,600 (4 days). When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p></li><li><p><code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the <i>IAM User Guide</i>.</p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for which a <code><a>ReceiveMessage</a></code> action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.</p></li><li><p><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds. Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues:</a></p><ul><li><p><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:</p><ul><li><p><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p></li><li><p><code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves the message to the dead-letter-queue.</p></li></ul></li><li><p><code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p><ul><li><p><code>redrivePermission</code> – The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:</p><ul><li><p><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can specify this queue as the dead-letter queue.</p></li><li><p><code>denyAll</code> – No source queues can specify this queue as the dead-letter queue.</p></li><li><p><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify this queue as the dead-letter queue.</p></li></ul></li><li><p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li></ul></li></ul><note>
+     /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
 -    /// </note>
 -    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
 -    /// <ul>
@@ -6919,11 +6839,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li>
 -    /// </ul>
 -    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
--    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// </note><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the Amazon Web Services managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i></code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li><li><p><code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to encrypt or decrypt messages before calling KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a></p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p><ul><li><p><code>FifoQueue</code> – Designates a queue as FIFO. Valid values are <code>true</code> and <code>false</code>. If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue. You can provide this attribute only during queue creation. You can't change it for an existing queue. When you set this attribute, you must also provide the <code>MessageGroupId</code> for your messages explicitly.</p>
++    /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a> in the <i>Amazon SQS Developer Guide</i>.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication. Valid values are <code>true</code> and <code>false</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following:</p><ul><li><p>Every message must have a unique <code>MessageDeduplicationId</code>.</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li></ul></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p><ul><li><p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li><li><p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li></ul><p>To enable high throughput for FIFO queues, do the following:</p><ul><li><p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li><li><p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li></ul><p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_attributes(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
-@@ -531,163 +96,34 @@
+@@ -531,143 +103,30 @@
          self
      }
      /// <p>A map of attributes with their corresponding values.</p>
@@ -7061,7 +6982,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.tags = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+     /// <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 -    /// <p>When you use queue tags, keep the following guidelines in mind:</p>
 -    /// <ul>
 -    /// <li>
@@ -7074,11 +6995,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li>
 -    /// </ul>
 -    /// <p>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a> in the <i>Amazon SQS Developer Guide</i>.</p><note>
--    /// <p>To be able to tag a queue on creation, you must have the <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
--    /// <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    /// </note>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.tags = input;
++    /// <p>When you use queue tags, keep the following guidelines in mind:</p><ul><li><p>Adding more than 50 tags to a queue isn't recommended.</p></li><li><p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p></li><li><p>Tags are case-sensitive.</p></li><li><p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li></ul><p>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a> in the <i>Amazon SQS Developer Guide</i>.</p><note>
+     /// <p>To be able to tag a queue on creation, you must have the <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
+     /// <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+     /// </note>
+@@ -676,18 +135,7 @@
          self
      }
      /// <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -7098,7 +7019,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>To be able to tag a queue on creation, you must have the <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
      /// <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      /// </note>
-@@ -695,11 +131,11 @@
+@@ -695,11 +143,11 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`CreateQueueInput`](crate::operation::create_queue::CreateQueueInput).
@@ -7113,21 +7034,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/create_queue/_create_queue_output.rs`
-
-```diff
---- reference/src/operation/create_queue/_create_queue_output.rs
-+++ generated/src/operation/create_queue/_create_queue_output.rs
-@@ -39,7 +39,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the created Amazon SQS queue.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
 ```
 
 ### `src/operation/create_queue/builders.rs`
@@ -8319,24 +8225,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteMessageInput {
      /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
      /// <p>Queue URLs and names are case-sensitive.</p>
-@@ -43,8 +43,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -60,7 +58,6 @@
-         self.receipt_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The receipt handle associated with the message to delete.</p>
-     pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.receipt_handle = input;
-         self
-@@ -70,12 +67,10 @@
+@@ -70,12 +70,10 @@
          &self.receipt_handle
      }
      /// Consumes the builder and constructs a [`DeleteMessageInput`](crate::operation::delete_message::DeleteMessageInput).
@@ -9142,16 +9031,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entries(&self) -> &[crate::types::DeleteMessageBatchRequestEntry] {
          self.entries.as_deref().unwrap_or_default()
      }
-@@ -45,8 +43,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -56,11 +52,10 @@
+@@ -56,11 +54,10 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -9164,15 +9044,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entries(mut self, input: crate::types::DeleteMessageBatchRequestEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
-@@ -67,7 +62,6 @@
-         self.entries = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Lists the receipt handles for the messages to be deleted.</p>
-     pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self {
-         self.entries = input;
-         self
-@@ -77,13 +71,10 @@
+@@ -77,13 +74,10 @@
          &self.entries
      }
      /// Consumes the builder and constructs a [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
@@ -9237,11 +9109,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn successful(mut self, input: crate::types::DeleteMessageBatchResultEntry) -> Self {
          let mut v = self.successful.unwrap_or_default();
          v.push(input);
-@@ -54,20 +53,18 @@
+@@ -54,20 +53,19 @@
          self.successful = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>DeleteMessageBatchResultEntry</code> </code> items.</p>
++    /// <p>A list of <code><a>DeleteMessageBatchResultEntry</a></code> items.</p>
      pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>) -> Self {
          self.successful = input;
          self
@@ -9260,11 +9133,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn failed(mut self, input: crate::types::BatchResultErrorEntry) -> Self {
          let mut v = self.failed.unwrap_or_default();
          v.push(input);
-@@ -74,12 +71,11 @@
+@@ -74,12 +72,12 @@
          self.failed = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
++    /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
      pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
          self.failed = input;
          self
@@ -9274,7 +9148,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
          &self.failed
      }
-@@ -94,8 +90,8 @@
+@@ -94,8 +92,8 @@
      }
      /// Consumes the builder and constructs a [`DeleteMessageBatchOutput`](crate::operation::delete_message_batch::DeleteMessageBatchOutput).
      /// This method will fail if any of the following fields are not set:
@@ -10113,16 +9987,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteQueueInput {
      /// <p>The URL of the Amazon SQS queue to delete.</p>
      /// <p>Queue URLs and names are case-sensitive.</p>
-@@ -36,8 +36,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue to delete.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -48,7 +46,7 @@
+@@ -48,7 +48,7 @@
          &self.queue_url
      }
      /// Consumes the builder and constructs a [`DeleteQueueInput`](crate::operation::delete_queue::DeleteQueueInput).
@@ -11082,16 +10947,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_names(&self) -> &[crate::types::QueueAttributeName] {
          self.attribute_names.as_deref().unwrap_or_default()
      }
-@@ -239,8 +59,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -250,108 +68,18 @@
+@@ -250,108 +70,18 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -11206,13 +11062,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_names(mut self, input: crate::types::QueueAttributeName) -> Self {
          let mut v = self.attribute_names.unwrap_or_default();
          v.push(input);
-@@ -358,104 +86,6 @@
-         self.attribute_names = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of attributes for which to retrieve information.</p>
--    /// <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values for this parameter, the request returns empty results.</p><note>
--    /// <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
+@@ -361,100 +91,11 @@
+     /// <p>A list of attributes for which to retrieve information.</p>
+     /// <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values for this parameter, the request returns empty results.</p><note>
+     /// <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
 -    /// </note>
 -    /// <p>The following attributes are supported:</p><important>
 -    /// <p>The <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>, and <code>ApproximateNumberOfMessages</code> metrics may not achieve consistency until at least 1 minute after the producers stop sending messages. This period is required for the queue metadata to reach eventual consistency.</p>
@@ -11272,7 +11125,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li>
 -    /// </ul></li>
 -    /// </ul><note>
--    /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
++    /// </note><p>The following attributes are supported:</p> <important><p>The <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>, and <code>ApproximateNumberOfMessages</code> metrics may not achieve consistency until at least 1 minute after the producers stop sending messages. This period is required for the queue metadata to reach eventual consistency.</p></important><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateNumberOfMessages</code> – Returns the approximate number of messages available for retrieval from the queue.</p></li><li><p><code>ApproximateNumberOfMessagesDelayed</code> – Returns the approximate number of messages in the queue that are delayed and not available for reading immediately. This can happen when the queue is configured as a delay queue or when a message has been sent with a delay parameter.</p></li><li><p><code>ApproximateNumberOfMessagesNotVisible</code> – Returns the approximate number of messages that are in flight. Messages are considered to be <i>in flight</i> if they have been sent to a client but have not yet been deleted or have not yet reached the end of their visibility window.</p></li><li><p><code>CreatedTimestamp</code> – Returns the time when the queue was created in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</p></li><li><p><code>DelaySeconds</code> – Returns the default delay on the queue in seconds.</p></li><li><p><code>LastModifiedTimestamp</code> – Returns the time when the queue was last changed in seconds (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a>).</p></li><li><p><code>MaximumMessageSize</code> – Returns the limit of how many bytes a message can contain before Amazon SQS rejects it.</p></li><li><p><code>MessageRetentionPeriod</code> – Returns the length of time, in seconds, for which Amazon SQS retains a message. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p></li><li><p><code>Policy</code> – Returns the policy of the queue.</p></li><li><p><code>QueueArn</code> – Returns the Amazon resource name (ARN) of the queue.</p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code> – Returns the length of time, in seconds, for which the <code>ReceiveMessage</code> action waits for a message to arrive.</p></li><li><p><code>VisibilityTimeout</code> – Returns the visibility timeout for the queue. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues:</a></p><ul><li><p><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:</p><ul><li><p><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p></li><li><p><code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves the message to the dead-letter-queue.</p></li></ul></li><li><p><code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p><ul><li><p><code>redrivePermission</code> – The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:</p><ul><li><p><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can specify this queue as the dead-letter queue.</p></li><li><p><code>denyAll</code> – No source queues can specify this queue as the dead-letter queue.</p></li><li><p><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify this queue as the dead-letter queue.</p></li></ul></li><li><p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li></ul></li></ul><note>
+     /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
 -    /// </note>
 -    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
 -    /// <ul>
@@ -11287,7 +11141,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <ul>
 -    /// <li>
 -    /// <p><code>FifoQueue</code> – Returns information about whether the queue is FIFO. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a> in the <i>Amazon SQS Developer Guide</i>.</p><note>
--    /// <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
++    /// </note><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – Returns the ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>.</p></li><li><p><code>KmsDataKeyReusePeriodSeconds</code> – Returns the length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>.</p></li><li><p><code>SqsManagedSseEnabled</code> – Returns information about whether the queue is using SSE-SQS encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p><ul><li><p><code>FifoQueue</code> – Returns information about whether the queue is FIFO. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a> in the <i>Amazon SQS Developer Guide</i>.</p><note>
+     /// <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p><code>ContentBasedDeduplication</code> – Returns whether content-based deduplication is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p></li>
@@ -11307,11 +11162,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li>
 -    /// </ul>
 -    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
--    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// </note></li><li><p><code>ContentBasedDeduplication</code> – Returns whether content-based deduplication is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p><ul><li><p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li><li><p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li></ul><p>To enable high throughput for FIFO queues, do the following:</p><ul><li><p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li><li><p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li></ul><p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self {
          self.attribute_names = input;
-         self
-@@ -463,112 +93,20 @@
+@@ -463,112 +104,20 @@
      /// <p>A list of attributes for which to retrieve information.</p>
      /// <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values for this parameter, the request returns empty results.</p><note>
      /// <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
@@ -11437,7 +11292,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_queue_attributes/_get_queue_attributes_output.rs
 +++ generated/src/operation/get_queue_attributes/_get_queue_attributes_output.rs
-@@ -34,18 +34,16 @@
+@@ -34,15 +34,14 @@
      _request_id: Option<String>,
  }
  impl GetQueueAttributesOutputBuilder {
@@ -11456,10 +11311,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attributes to their respective values.</p>
-     pub fn set_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
+     /// <p>A map of attributes to their respective values.</p>
 ```
 
 ### `src/operation/get_queue_attributes/builders.rs`
@@ -12519,23 +12371,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetQueueUrlInput {
      /// <p>(Required) The name of the queue for which you want to fetch the URL. The name can be up to 80 characters long and can include alphanumeric characters, hyphens (-), and underscores (_). Queue URLs and names are case-sensitive.</p>
      pub queue_name: ::std::option::Option<::std::string::String>,
-@@ -40,7 +40,6 @@
-         self.queue_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>(Required) The name of the queue for which you want to fetch the URL. The name can be up to 80 characters long and can include alphanumeric characters, hyphens (-), and underscores (_). Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_name = input;
-         self
-@@ -54,7 +53,6 @@
-         self.queue_owner_aws_account_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
-     pub fn set_queue_owner_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_owner_aws_account_id = input;
-         self
-@@ -64,10 +62,10 @@
+@@ -64,10 +64,10 @@
          &self.queue_owner_aws_account_id
      }
      /// Consumes the builder and constructs a [`GetQueueUrlInput`](crate::operation::get_queue_url::GetQueueUrlInput).
@@ -12549,21 +12385,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/get_queue_url/_get_queue_url_output.rs`
-
-```diff
---- reference/src/operation/get_queue_url/_get_queue_url_output.rs
-+++ generated/src/operation/get_queue_url/_get_queue_url_output.rs
-@@ -39,7 +39,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the queue.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
 ```
 
 ### `src/operation/get_queue_url/builders.rs`
@@ -13315,32 +13136,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListDeadLetterSourceQueuesInput {
      /// <p>The URL of a dead-letter queue.</p>
      /// <p>Queue URLs and names are case-sensitive.</p>
-@@ -50,8 +50,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of a dead-letter queue.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -66,7 +64,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Pagination token to request the next set of results.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -80,7 +77,6 @@
-         self.max_results = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of results to include in the response. Value range is 1 to 1000. You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
-     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_results = input;
-         self
-@@ -90,16 +86,11 @@
+@@ -90,16 +90,11 @@
          &self.max_results
      }
      /// Consumes the builder and constructs a [`ListDeadLetterSourceQueuesInput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput).
@@ -13380,23 +13176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.queue_urls.unwrap_or_default();
          v.push(input.into());
-@@ -53,7 +52,6 @@
-         self.queue_urls = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
-     pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.queue_urls = input;
-         self
-@@ -67,7 +65,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -87,7 +84,7 @@
+@@ -87,7 +86,7 @@
      }
      /// Consumes the builder and constructs a [`ListDeadLetterSourceQueuesOutput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput).
      /// This method will fail if any of the following fields are not set:
@@ -14202,23 +13982,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListMessageMoveTasksInput {
      /// <p>The ARN of the queue whose message movement tasks are to be listed.</p>
      pub source_arn: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.source_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the queue whose message movement tasks are to be listed.</p>
-     pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_arn = input;
-         self
-@@ -53,7 +53,6 @@
-         self.max_results = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of results to include in the response. The default is 1, which provides the most recent message movement task. The upper limit is 10.</p>
-     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_results = input;
-         self
-@@ -63,13 +62,10 @@
+@@ -63,13 +64,10 @@
          &self.max_results
      }
      /// Consumes the builder and constructs a [`ListMessageMoveTasksInput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksInput).
@@ -14270,14 +14034,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn results(mut self, input: crate::types::ListMessageMoveTasksResultEntry) -> Self {
          let mut v = self.results.unwrap_or_default();
          v.push(input);
-@@ -46,7 +44,6 @@
-         self.results = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of message movement tasks and their attributes.</p>
-     pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>) -> Self {
-         self.results = input;
-         self
 ```
 
 ### `src/operation/list_message_move_tasks/builders.rs`
@@ -15060,15 +14816,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListQueueTagsInput {
      /// <p>The URL of the queue.</p>
      pub queue_url: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the queue.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -42,9 +42,7 @@
+@@ -42,9 +43,7 @@
          &self.queue_url
      }
      /// Consumes the builder and constructs a [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
@@ -15093,7 +14841,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -33,18 +34,16 @@
+@@ -33,15 +34,14 @@
      _request_id: Option<String>,
  }
  impl ListQueueTagsOutputBuilder {
@@ -15112,10 +14860,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.tags = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The list of all tags added to the specified queue.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.tags = input;
-         self
+     /// <p>The list of all tags added to the specified queue.</p>
 ```
 
 ### `src/operation/list_queue_tags/builders.rs`
@@ -15847,32 +15592,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListQueuesInput {
      /// <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
      /// <p>Queue URLs and names are case-sensitive.</p>
-@@ -49,8 +49,6 @@
-         self.queue_name_prefix = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_name_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_name_prefix = input;
-         self
-@@ -65,7 +63,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Pagination token to request the next set of results.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -79,7 +76,6 @@
-         self.max_results = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of results to include in the response. Value range is 1 to 1000. You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
-     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_results = input;
-         self
-@@ -89,11 +85,11 @@
+@@ -89,11 +89,11 @@
          &self.max_results
      }
      /// Consumes the builder and constructs a [`ListQueuesInput`](crate::operation::list_queues::ListQueuesInput).
@@ -15916,22 +15636,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.queue_urls.unwrap_or_default();
          v.push(input.into());
-@@ -54,7 +51,6 @@
-         self.queue_urls = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in the request.</p>
-     pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.queue_urls = input;
-         self
-@@ -68,7 +64,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
 ```
 
 ### `src/operation/list_queues/builders.rs`
@@ -16702,16 +16406,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PurgeQueueInput {
      /// <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes messages.</p>
      /// <p>Queue URLs and names are case-sensitive.</p>
-@@ -36,8 +36,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes messages.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -48,7 +46,7 @@
+@@ -48,7 +48,7 @@
          &self.queue_url
      }
      /// Consumes the builder and constructs a [`PurgeQueueInput`](crate::operation::purge_queue::PurgeQueueInput).
@@ -17745,16 +17440,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn receive_request_attempt_id(&self) -> ::std::option::Option<&str> {
          self.receive_request_attempt_id.as_deref()
-@@ -305,8 +95,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue from which messages are received.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -316,42 +104,10 @@
+@@ -316,42 +106,10 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -17798,7 +17484,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
      pub fn attribute_names(mut self, input: crate::types::QueueAttributeName) -> Self {
          let mut v = self.attribute_names.unwrap_or_default();
-@@ -359,112 +115,20 @@
+@@ -359,112 +117,21 @@
          self.attribute_names = ::std::option::Option::Some(v);
          self
      }
@@ -17834,6 +17520,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
 -    /// </ul>
++    /// <important><p>This parameter has been discontinued but will be supported for backward compatibility. To provide attribute names, you are encouraged to use <code>MessageSystemAttributeNames</code>.</p></important><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
      #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
      pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self {
          self.attribute_names = input;
@@ -17913,7 +17600,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message_system_attribute_names(mut self, input: crate::types::MessageSystemAttributeName) -> Self {
          let mut v = self.message_system_attribute_names.unwrap_or_default();
          v.push(input);
-@@ -471,35 +135,6 @@
+@@ -471,35 +138,7 @@
          self.message_system_attribute_names = ::std::option::Option::Some(v);
          self
      }
@@ -17946,10 +17633,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
 -    /// </ul>
++    /// <p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
      pub fn set_message_system_attribute_names(
          mut self,
          input: ::std::option::Option<::std::vec::Vec<crate::types::MessageSystemAttributeName>>,
-@@ -507,56 +142,14 @@
+@@ -507,56 +146,14 @@
          self.message_system_attribute_names = input;
          self
      }
@@ -18008,7 +17696,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message_attribute_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.message_attribute_names.unwrap_or_default();
          v.push(input.into());
-@@ -563,38 +156,11 @@
+@@ -563,38 +160,12 @@
          self.message_attribute_names = ::std::option::Option::Some(v);
          self
      }
@@ -18026,6 +17714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The name can be up to 256 characters long.</p></li>
 -    /// </ul>
 -    /// <p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying <code>All</code> or <code>.*</code> in your request. You can also use all message attributes starting with a prefix, for example <code>bar.*</code>.</p>
++    /// <p>The name of the message attribute, where <i>N</i> is the index.</p><ul><li><p>The name can contain alphanumeric characters and the underscore (<code>_</code>), hyphen (<code>-</code>), and period (<code>.</code>).</p></li><li><p>The name is case-sensitive and must be unique among all attribute names for the message.</p></li><li><p>The name must not start with AWS-reserved prefixes such as <code>AWS.</code> or <code>Amazon.</code> (or any casing variants).</p></li><li><p>The name must not start or end with a period (<code>.</code>), and it should not have periods in succession (<code>..</code>).</p></li><li><p>The name can be up to 256 characters long.</p></li></ul><p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying <code>All</code> or <code>.*</code> in your request. You can also use all message attributes starting with a prefix, for example <code>bar.*</code>.</p>
      pub fn set_message_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
          self.message_attribute_names = input;
          self
@@ -18048,15 +17737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_message_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.message_attribute_names
      }
-@@ -603,7 +169,6 @@
-         self.max_number_of_messages = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>
-     pub fn set_max_number_of_messages(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_number_of_messages = input;
-         self
-@@ -613,154 +178,55 @@
+@@ -613,95 +184,39 @@
          &self.max_number_of_messages
      }
      /// <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request. If not specified, the default visibility timeout for the queue is used, which is 30 seconds.</p>
@@ -18077,7 +17758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.visibility_timeout = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request. If not specified, the default visibility timeout for the queue is used, which is 30 seconds.</p>
+     /// <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request. If not specified, the default visibility timeout for the queue is used, which is 30 seconds.</p>
 -    /// <p>Understanding <code>VisibilityTimeout</code>:</p>
 -    /// <ul>
 -    /// <li>
@@ -18090,6 +17771,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A message that isn't deleted or a message whose visibility isn't extended before the visibility timeout expires counts as a failed receive. Depending on the configuration of the queue, the message might be sent to the dead-letter queue.</p></li>
 -    /// </ul>
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// <p>Understanding <code>VisibilityTimeout</code>:</p><ul><li><p>When a message is received from a queue, it becomes temporarily invisible to other consumers for the duration of the visibility timeout. This prevents multiple consumers from processing the same message simultaneously. If the message is not deleted or its visibility timeout is not extended before the timeout expires, it becomes visible again and can be retrieved by other consumers.</p></li><li><p>Setting an appropriate visibility timeout is crucial. If it's too short, the message might become visible again before processing is complete, leading to duplicate processing. If it's too long, it delays the reprocessing of messages if the initial processing fails.</p></li><li><p>You can adjust the visibility timeout using the <code>--visibility-timeout</code> parameter in the <code>receive-message</code> command to match the processing time required by your application.</p></li><li><p>A message that isn't deleted or a message whose visibility isn't extended before the visibility timeout expires counts as a failed receive. Depending on the configuration of the queue, the message might be sent to the dead-letter queue.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
          self.visibility_timeout = input;
          self
@@ -18122,6 +17804,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call does not return a message list. If you are using the Java SDK, it returns a <code>ReceiveMessageResponse</code> object, which has a empty list instead of a Null object.</p><important>
 -    /// <p>To avoid HTTP errors, ensure that the HTTP response timeout for <code>ReceiveMessage</code> requests is longer than the <code>WaitTimeSeconds</code> parameter. For example, with the Java SDK, you can set HTTP transport settings using the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html"> NettyNioAsyncHttpClient</a> for asynchronous clients, or the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html"> ApacheHttpClient</a> for synchronous clients.</p>
 -    /// </important>
++    /// <p>The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the call does not return a message list. If you are using the Java SDK, it returns a <code>ReceiveMessageResponse</code> object, which has a empty list instead of a Null object.</p> <important><p>To avoid HTTP errors, ensure that the HTTP response timeout for <code>ReceiveMessage</code> requests is longer than the <code>WaitTimeSeconds</code> parameter. For example, with the Java SDK, you can set HTTP transport settings using the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html">NettyNioAsyncHttpClient</a> for asynchronous clients, or the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html">ApacheHttpClient</a> for synchronous clients.</p></important>
      pub fn set_wait_time_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
          self.wait_time_seconds = input;
          self
@@ -18158,9 +17841,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn receive_request_attempt_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.receive_request_attempt_id = ::std::option::Option::Some(input.into());
+@@ -708,25 +223,8 @@
          self
      }
--    /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+     /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
 -    /// <p>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking issue occurs after a <code>ReceiveMessage</code> action, and instead of a response you receive a generic error, it is possible to retry the same action with an identical <code>ReceiveRequestAttemptId</code> to retrieve the same set of messages, even if their visibility timeout has not yet expired.</p>
 -    /// <ul>
 -    /// <li>
@@ -18180,9 +17864,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>, no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order.</p></li>
 -    /// </ul>
 -    /// <p>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
--    /// <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// <p>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking issue occurs after a <code>ReceiveMessage</code> action, and instead of a response you receive a generic error, it is possible to retry the same action with an identical <code>ReceiveRequestAttemptId</code> to retrieve the same set of messages, even if their visibility timeout has not yet expired.</p><ul><li><p>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code> action.</p></li><li><p>When you set <code>FifoQueue</code>, a caller of the <code>ReceiveMessage</code> action can provide a <code>ReceiveRequestAttemptId</code> explicitly.</p></li><li><p>It is possible to retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code> if none of the messages have been modified (deleted or had their visibility changes).</p></li><li><p>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code> return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p> <important><p>If a caller of the <code>ReceiveMessage</code> action still processes messages when the visibility timeout expires and messages become visible, another worker consuming from the same queue can receive the same messages and therefore process duplicates. Also, if a consumer whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error.</p>
++    /// <p>To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.</p></important></li><li><p>While messages with a particular <code>MessageGroupId</code> are invisible, no more messages belonging to the same <code>MessageGroupId</code> are returned until the visibility timeout expires. You can still receive messages with another <code>MessageGroupId</code> from your FIFO queue as long as they are visible.</p></li><li><p>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>, no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order.</p></li></ul><p>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~</code>).</p>
+     /// <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_receive_request_attempt_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.receive_request_attempt_id = input;
+@@ -733,34 +231,15 @@
          self
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -18221,7 +17908,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              queue_url: self.queue_url,
              attribute_names: self.attribute_names,
              message_system_attribute_names: self.message_system_attribute_names,
-@@ -769,6 +235,6 @@
+@@ -769,6 +248,6 @@
              visibility_timeout: self.visibility_timeout,
              wait_time_seconds: self.wait_time_seconds,
              receive_request_attempt_id: self.receive_request_attempt_id,
@@ -18258,14 +17945,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn messages(mut self, input: crate::types::Message) -> Self {
          let mut v = self.messages.unwrap_or_default();
          v.push(input);
-@@ -47,7 +44,6 @@
-         self.messages = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of messages.</p>
-     pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
-         self.messages = input;
-         self
 ```
 
 ### `src/operation/receive_message/builders.rs`
@@ -19610,16 +19289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn label(&self) -> ::std::option::Option<&str> {
          self.label.as_deref()
      }
-@@ -43,8 +43,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -54,28 +52,25 @@
+@@ -54,28 +54,26 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -19631,6 +19301,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The identification of the permission to remove. This is the label added using the <code> <code>AddPermission</code> </code> action.</p>
++    /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
      pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.label = input;
          self
@@ -20565,16 +20236,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn message_group_id(&self) -> ::std::option::Option<&str> {
          self.message_group_id.as_deref()
-@@ -184,8 +114,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue to which a message is sent.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -195,30 +123,21 @@
+@@ -195,30 +125,24 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -20592,9 +20254,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// <p>The message to send. The minimum size is one character. The maximum size is 1 MiB or 1,048,576 bytes</p><important>
 -    /// <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
--    /// <p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p>
++    /// <p>The message to send. The minimum size is one character. The maximum size is 1 MiB or 1,048,576 bytes</p> <important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
+     /// <p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p>
 -    /// <p>If a message contains characters outside the allowed set, Amazon SQS rejects the message and returns an InvalidMessageContents error. Ensure that your message body includes only valid characters to avoid this exception.</p>
 -    /// </important>
++    /// <p>If a message contains characters outside the allowed set, Amazon SQS rejects the message and returns an InvalidMessageContents error. Ensure that your message body includes only valid characters to avoid this exception.</p></important>
      pub fn set_message_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.message_body = input;
          self
@@ -20609,17 +20273,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_message_body(&self) -> &::std::option::Option<::std::string::String> {
          &self.message_body
      }
-@@ -229,9 +148,6 @@
-         self.delay_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue applies.</p><note>
--    /// <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
--    /// </note>
-     pub fn set_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.delay_seconds = input;
-         self
-@@ -242,18 +158,16 @@
+@@ -242,15 +166,14 @@
      pub fn get_delay_seconds(&self) -> &::std::option::Option<i32> {
          &self.delay_seconds
      }
@@ -20638,11 +20292,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.message_attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_message_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
-@@ -267,36 +181,20 @@
+     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+@@ -267,36 +190,21 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
          &self.message_attributes
      }
@@ -20680,10 +20331,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The size of a message system attribute doesn't count towards the total size of a message.</p></li>
 -    /// </ul>
 -    /// </important>
++    /// <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p> <important><ul><li><p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>. Its type must be <code>String</code> and its value must be a correctly formatted X-Ray trace header string.</p></li><li><p>The size of a message system attribute doesn't count towards the total size of a message.</p></li></ul></important>
      pub fn set_message_system_attributes(
          mut self,
          input: ::std::option::Option<
-@@ -306,14 +204,7 @@
+@@ -306,14 +214,7 @@
          self.message_system_attributes = input;
          self
      }
@@ -20699,7 +20351,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_message_system_attributes(
          &self,
      ) -> &::std::option::Option<
-@@ -322,141 +213,52 @@
+@@ -322,30 +223,11 @@
          &self.message_system_attributes
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -20732,9 +20384,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.message_deduplication_id = ::std::option::Option::Some(input.into());
+@@ -352,30 +234,11 @@
          self
      }
--    /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+     /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
 -    /// <p>The token used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html"> Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 -    /// <ul>
 -    /// <li>
@@ -20754,14 +20407,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li>
 -    /// </ul><note>
--    /// <p>The <code>MessageDeduplicationId</code> is available to the consumer of the message (this can be useful for troubleshooting delivery issues).</p>
--    /// <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SQS can't detect duplicate messages.</p>
--    /// <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
++    /// <p>The token used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p><ul><li><p>Every message must have a unique <code>MessageDeduplicationId</code>,</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li></ul><note>
+     /// <p>The <code>MessageDeduplicationId</code> is available to the consumer of the message (this can be useful for troubleshooting delivery issues).</p>
+     /// <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SQS can't detect duplicate messages.</p>
+     /// <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
 -    /// </note>
 -    /// <p>The maximum length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
--    /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// </note><p>The maximum length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~</code>).</p>
+     /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.message_deduplication_id = input;
+@@ -382,81 +245,41 @@
          self
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -20816,13 +20472,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <ul>
 -    /// <li>
 -    /// <p><b>FIFO queues:</b> <code>MessageGroupId</code> acts as the tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use <code>MessageGroupId</code> values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.</p>
--    /// <p>If you do not provide a <code>MessageGroupId</code> when sending a message to a FIFO queue, the action fails.</p>
++    /// <p><code>MessageGroupId</code> is an attribute used in Amazon SQS FIFO (First-In-First-Out) and standard queues. In FIFO queues, <code>MessageGroupId</code> organizes messages into distinct groups. Messages within the same message group are always processed one at a time, in strict order, ensuring that no two messages from the same group are processed simultaneously. In standard queues, using <code>MessageGroupId</code> enables fair queues. It is used to identify the tenant a message belongs to, helping maintain consistent message dwell time across all tenants during noisy neighbor events. Unlike FIFO queues, messages with the same <code>MessageGroupId</code> can be processed in parallel, maintaining the high throughput of standard queues.</p><ul><li><p><b>FIFO queues:</b> <code>MessageGroupId</code> acts as the tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use <code>MessageGroupId</code> values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.</p>
+     /// <p>If you do not provide a <code>MessageGroupId</code> when sending a message to a FIFO queue, the action fails.</p>
 -    /// <p><code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code> values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.</p></li>
 -    /// <li>
 -    /// <p><b>Standard queues:</b>Use <code>MessageGroupId</code> in standard queues to enable fair queues. The <code>MessageGroupId</code> identifies the tenant a message belongs to. A tenant can be any entity that shares a queue with others, such as your customer, a client application, or a request type. When one tenant sends a disproportionately large volume of messages or has messages that require longer processing time, fair queues ensure other tenants' messages maintain low dwell time. This preserves quality of service for all tenants while maintaining the scalability and throughput of standard queues. We recommend that you include a <code>MessageGroupId</code> in all messages when using fair queues.</p></li>
 -    /// </ul>
 -    /// <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
--    /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// <p><code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code> values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.</p></li><li><p><b>Standard queues:</b>Use <code>MessageGroupId</code> in standard queues to enable fair queues. The <code>MessageGroupId</code> identifies the tenant a message belongs to. A tenant can be any entity that shares a queue with others, such as your customer, a client application, or a request type. When one tenant sends a disproportionately large volume of messages or has messages that require longer processing time, fair queues ensure other tenants' messages maintain low dwell time. This preserves quality of service for all tenants while maintaining the scalability and throughput of standard queues. We recommend that you include a <code>MessageGroupId</code> in all messages when using fair queues.</p></li></ul><p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+     /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.message_group_id = input;
          self
@@ -20851,7 +20509,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              queue_url: self.queue_url,
              message_body: self.message_body,
              delay_seconds: self.delay_seconds,
-@@ -464,6 +266,6 @@
+@@ -464,6 +287,6 @@
              message_system_attributes: self.message_system_attributes,
              message_deduplication_id: self.message_deduplication_id,
              message_group_id: self.message_group_id,
@@ -20859,55 +20517,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/send_message/_send_message_output.rs`
-
-```diff
---- reference/src/operation/send_message/_send_message_output.rs
-+++ generated/src/operation/send_message/_send_message_output.rs
-@@ -71,7 +71,6 @@
-         self.md5_of_message_body = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-     pub fn set_md5_of_message_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_body = input;
-         self
-@@ -85,7 +84,6 @@
-         self.md5_of_message_attributes = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-     pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_attributes = input;
-         self
-@@ -99,7 +97,6 @@
-         self.md5_of_message_system_attributes = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
-     pub fn set_md5_of_message_system_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_system_attributes = input;
-         self
-@@ -113,7 +110,6 @@
-         self.message_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An attribute containing the <code>MessageId</code> of the message sent to the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message_id = input;
-         self
-@@ -129,9 +125,6 @@
-         self.sequence_number = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
--    /// <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
--    /// <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
-     pub fn set_sequence_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.sequence_number = input;
-         self
 ```
 
 ### `src/operation/send_message/builders.rs`
@@ -22047,16 +21656,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entries(&self) -> &[crate::types::SendMessageBatchRequestEntry] {
          self.entries.as_deref().unwrap_or_default()
      }
-@@ -45,8 +43,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -56,11 +52,10 @@
+@@ -56,11 +54,10 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -22069,11 +21669,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entries(mut self, input: crate::types::SendMessageBatchRequestEntry) -> Self {
          let mut v = self.entries.unwrap_or_default();
          v.push(input);
-@@ -67,22 +62,19 @@
+@@ -67,22 +64,20 @@
          self.entries = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>SendMessageBatchRequestEntry</code> </code> items.</p>
++    /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
      pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>) -> Self {
          self.entries = input;
          self
@@ -22144,11 +21745,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn successful(mut self, input: crate::types::SendMessageBatchResultEntry) -> Self {
          let mut v = self.successful.unwrap_or_default();
          v.push(input);
-@@ -54,20 +53,18 @@
+@@ -54,20 +53,19 @@
          self.successful = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>SendMessageBatchResultEntry</code> </code> items.</p>
++    /// <p>A list of <code><a>SendMessageBatchResultEntry</a></code> items.</p>
      pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>>) -> Self {
          self.successful = input;
          self
@@ -22167,11 +21769,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn failed(mut self, input: crate::types::BatchResultErrorEntry) -> Self {
          let mut v = self.failed.unwrap_or_default();
          v.push(input);
-@@ -74,12 +71,11 @@
+@@ -74,12 +72,12 @@
          self.failed = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items with error details about each message that can't be enqueued.</p>
++    /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items with error details about each message that can't be enqueued.</p>
      pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
          self.failed = input;
          self
@@ -22181,7 +21784,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
          &self.failed
      }
-@@ -94,8 +90,8 @@
+@@ -94,8 +92,8 @@
      }
      /// Consumes the builder and constructs a [`SendMessageBatchOutput`](crate::operation::send_message_batch::SendMessageBatchOutput).
      /// This method will fail if any of the following fields are not set:
@@ -23329,23 +22932,121 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>> {
          self.attributes.as_ref()
-@@ -227,8 +51,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the Amazon SQS queue whose attributes are set.</p>
--    /// <p>Queue URLs and names are case-sensitive.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -238,202 +60,20 @@
+@@ -238,201 +62,24 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
--    /// Adds a key-value pair to `attributes`.
++    /// <p>A map of attributes to set.</p>
++    /// <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetQueueAttributes</code> action uses:</p><ul><li><p><code>DelaySeconds</code> – The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 (15 minutes). Default: 0.</p></li><li><p><code>MaximumMessageSize</code> – The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).</p></li><li><p><code>MessageRetentionPeriod</code> – The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days). When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p></li><li><p><code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the <i>Identity and Access Management User Guide</i>.</p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for which a <code><a>ReceiveMessage</a></code> action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.</p></li><li><p><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds. Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues:</a></p><ul><li><p><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:</p><ul><li><p><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p></li><li><p><code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves the message to the dead-letter-queue.</p></li></ul></li><li><p><code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p><ul><li><p><code>redrivePermission</code> – The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:</p><ul><li><p><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can specify this queue as the dead-letter queue.</p></li><li><p><code>denyAll</code> – No source queues can specify this queue as the dead-letter queue.</p></li><li><p><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify this queue as the dead-letter queue.</p></li></ul></li><li><p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li></ul></li></ul><note>
++    /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
++    /// </note><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i></code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li><li><p><code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to encrypt or decrypt messages before calling KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>.</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p><ul><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following:</p><ul><li><p>Every message must have a unique <code>MessageDeduplicationId</code>.</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li></ul></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p><ul><li><p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li><li><p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li></ul><p>To enable high throughput for FIFO queues, do the following:</p><ul><li><p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li><li><p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li></ul><p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
++    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+     /// Adds a key-value pair to `attributes`.
+     ///
+     /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
 -    ///
--    /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
--    ///
+-    /// <p>A map of attributes to set.</p>
+-    /// <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetQueueAttributes</code> action uses:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>DelaySeconds</code> – The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 (15 minutes). Default: 0.</p></li>
+-    /// <li>
+-    /// <p><code>MaximumMessageSize</code> – The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).</p></li>
+-    /// <li>
+-    /// <p><code>MessageRetentionPeriod</code> – The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days). When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p></li>
+-    /// <li>
+-    /// <p><code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the <i>Identity and Access Management User Guide</i>.</p></li>
+-    /// <li>
+-    /// <p><code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for which a <code> <code>ReceiveMessage</code> </code> action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.</p></li>
+-    /// <li>
+-    /// <p><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds. Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li>
+-    /// </ul>
+-    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues:</a></p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p></li>
+-    /// <li>
+-    /// <p><code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves the message to the dead-letter-queue.</p></li>
+-    /// </ul></li>
+-    /// <li>
+-    /// <p><code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>redrivePermission</code> – The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can specify this queue as the dead-letter queue.</p></li>
+-    /// <li>
+-    /// <p><code>denyAll</code> – No source queues can specify this queue as the dead-letter queue.</p></li>
+-    /// <li>
+-    /// <p><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify this queue as the dead-letter queue.</p></li>
+-    /// </ul></li>
+-    /// <li>
+-    /// <p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li>
+-    /// </ul></li>
+-    /// </ul><note>
+-    /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
+-    /// </note>
+-    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i> </code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li>
+-    /// <li>
+-    /// <p><code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to encrypt or decrypt messages before calling KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>.</p></li>
+-    /// <li>
+-    /// <p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li>
+-    /// </ul>
+-    /// <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>.</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
+-    /// <li>
+-    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
+-    /// <li>
+-    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
+-    /// <li>
+-    /// <p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
+-    /// </ul></li>
+-    /// <li>
+-    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li>
+-    /// <li>
+-    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li>
+-    /// </ul></li>
+-    /// </ul>
+-    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li>
+-    /// <li>
+-    /// <p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li>
+-    /// </ul>
+-    /// <p>To enable high throughput for FIFO queues, do the following:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li>
+-    /// <li>
+-    /// <p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li>
+-    /// </ul>
+-    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+-    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+     pub fn attributes(mut self, k: crate::types::QueueAttributeName, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+-        let mut hash_map = self.attributes.unwrap_or_default();
+-        hash_map.insert(k, v.into());
+-        self.attributes = ::std::option::Option::Some(hash_map);
++        let mut map = self.attributes.unwrap_or_default();
++        map.insert(k, v.into());
++        self.attributes = ::std::option::Option::Some(map);
+         self
+     }
      /// <p>A map of attributes to set.</p>
 -    /// <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetQueueAttributes</code> action uses:</p>
 -    /// <ul>
@@ -23441,115 +23142,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
 +    /// </note><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i></code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li><li><p><code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to encrypt or decrypt messages before calling KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>.</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p><ul><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following:</p><ul><li><p>Every message must have a unique <code>MessageDeduplicationId</code>.</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li></ul></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p><ul><li><p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li><li><p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li></ul><p>To enable high throughput for FIFO queues, do the following:</p><ul><li><p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li><li><p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li></ul><p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
      /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-+    /// Adds a key-value pair to `attributes`.
-+    ///
-+    /// To override the contents of this collection use [`set_attributes`](Self::set_attributes).
-     pub fn attributes(mut self, k: crate::types::QueueAttributeName, v: impl ::std::convert::Into<::std::string::String>) -> Self {
--        let mut hash_map = self.attributes.unwrap_or_default();
--        hash_map.insert(k, v.into());
--        self.attributes = ::std::option::Option::Some(hash_map);
-+        let mut map = self.attributes.unwrap_or_default();
-+        map.insert(k, v.into());
-+        self.attributes = ::std::option::Option::Some(map);
-         self
-     }
--    /// <p>A map of attributes to set.</p>
--    /// <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetQueueAttributes</code> action uses:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>DelaySeconds</code> – The length of time, in seconds, for which the delivery of all messages in the queue is delayed. Valid values: An integer from 0 to 900 (15 minutes). Default: 0.</p></li>
--    /// <li>
--    /// <p><code>MaximumMessageSize</code> – The limit of how many bytes a message can contain before Amazon SQS rejects it. Valid values: An integer from 1,024 bytes (1 KiB) up to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).</p></li>
--    /// <li>
--    /// <p><code>MessageRetentionPeriod</code> – The length of time, in seconds, for which Amazon SQS retains a message. Valid values: An integer representing seconds, from 60 (1 minute) to 1,209,600 (14 days). Default: 345,600 (4 days). When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes and will impact existing messages in the queue potentially causing them to be expired and deleted if the <code>MessageRetentionPeriod</code> is reduced below the age of existing messages.</p></li>
--    /// <li>
--    /// <p><code>Policy</code> – The queue's policy. A valid Amazon Web Services policy. For more information about policy structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html">Overview of Amazon Web Services IAM Policies</a> in the <i>Identity and Access Management User Guide</i>.</p></li>
--    /// <li>
--    /// <p><code>ReceiveMessageWaitTimeSeconds</code> – The length of time, in seconds, for which a <code> <code>ReceiveMessage</code> </code> action waits for a message to arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.</p></li>
--    /// <li>
--    /// <p><code>VisibilityTimeout</code> – The visibility timeout for the queue, in seconds. Valid values: An integer from 0 to 43,200 (12 hours). Default: 30. For more information about the visibility timeout, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</p></li>
--    /// </ul>
--    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues:</a></p>
--    /// <ul>
--    /// <li>
--    /// <p><code>RedrivePolicy</code> – The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>deadLetterTargetArn</code> – The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of <code>maxReceiveCount</code> is exceeded.</p></li>
--    /// <li>
--    /// <p><code>maxReceiveCount</code> – The number of times a message is delivered to the source queue before being moved to the dead-letter queue. Default: 10. When the <code>ReceiveCount</code> for a message exceeds the <code>maxReceiveCount</code> for a queue, Amazon SQS moves the message to the dead-letter-queue.</p></li>
--    /// </ul></li>
--    /// <li>
--    /// <p><code>RedriveAllowPolicy</code> – The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>redrivePermission</code> – The permission type that defines which source queues can specify the current queue as the dead-letter queue. Valid values are:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>allowAll</code> – (Default) Any source queues in this Amazon Web Services account in the same Region can specify this queue as the dead-letter queue.</p></li>
--    /// <li>
--    /// <p><code>denyAll</code> – No source queues can specify this queue as the dead-letter queue.</p></li>
--    /// <li>
--    /// <p><code>byQueue</code> – Only queues specified by the <code>sourceQueueArns</code> parameter can specify this queue as the dead-letter queue.</p></li>
--    /// </ul></li>
--    /// <li>
--    /// <p><code>sourceQueueArns</code> – The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the <code>redrivePermission</code> parameter is set to <code>byQueue</code>. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the <code>redrivePermission</code> parameter to <code>allowAll</code>.</p></li>
--    /// </ul></li>
--    /// </ul><note>
--    /// <p>The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.</p>
--    /// </note>
--    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">server-side-encryption</a>:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>KmsMasterKeyId</code> – The ID of an Amazon Web Services managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">Key Terms</a>. While the alias of the AWS-managed CMK for Amazon SQS is always <code>alias/aws/sqs</code>, the alias of a custom CMK can, for example, be <code>alias/<i>MyAlias</i> </code>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p></li>
--    /// <li>
--    /// <p><code>KmsDataKeyReusePeriodSeconds</code> – The length of time, in seconds, for which Amazon SQS can reuse a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data key</a> to encrypt or decrypt messages before calling KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). A shorter time period provides better security but results in more calls to KMS which might incur charges after Free Tier. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">How Does the Data Key Reuse Period Work?</a>.</p></li>
--    /// <li>
--    /// <p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li>
--    /// </ul>
--    /// <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO (first-in-first-out) queues</a>:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>. Note the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Every message must have a unique <code>MessageDeduplicationId</code>.</p>
--    /// <ul>
--    /// <li>
--    /// <p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li>
--    /// <li>
--    /// <p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li>
--    /// <li>
--    /// <p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li>
--    /// <li>
--    /// <p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li>
--    /// </ul></li>
--    /// <li>
--    /// <p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li>
--    /// <li>
--    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li>
--    /// </ul></li>
--    /// </ul>
--    /// <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li>
--    /// <li>
--    /// <p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li>
--    /// </ul>
--    /// <p>To enable high throughput for FIFO queues, do the following:</p>
--    /// <ul>
--    /// <li>
--    /// <p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li>
--    /// <li>
--    /// <p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li>
--    /// </ul>
--    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
--    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_attributes(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
-@@ -442,109 +82,18 @@
+@@ -442,109 +89,18 @@
          self
      }
      /// <p>A map of attributes to set.</p>
@@ -24745,31 +24340,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct StartMessageMoveTaskInput {
      /// <p>The ARN of the queue that contains the messages to be moved to another queue. Currently, only ARNs of dead-letter queues (DLQs) whose sources are other Amazon SQS queues are accepted. DLQs whose sources are non-SQS queues, such as Lambda or Amazon SNS topics, are not currently supported.</p>
      pub source_arn: ::std::option::Option<::std::string::String>,
-@@ -46,7 +47,6 @@
-         self.source_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the queue that contains the messages to be moved to another queue. Currently, only ARNs of dead-letter queues (DLQs) whose sources are other Amazon SQS queues are accepted. DLQs whose sources are non-SQS queues, such as Lambda or Amazon SNS topics, are not currently supported.</p>
-     pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_arn = input;
-         self
-@@ -60,7 +60,6 @@
-         self.destination_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the queue that receives the moved messages. You can use this field to specify the destination queue where you would like to redrive messages. If this field is left blank, the messages will be redriven back to their respective original source queues.</p>
-     pub fn set_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.destination_arn = input;
-         self
-@@ -74,7 +73,6 @@
-         self.max_number_of_messages_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of messages to be moved per second (the message movement rate). You can use this field to define a fixed message movement rate. The maximum value for messages per second is 500. If this field is left blank, the system will optimize the rate based on the queue message backlog size, which may vary throughout the duration of the message movement task.</p>
-     pub fn set_max_number_of_messages_per_second(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_number_of_messages_per_second = input;
-         self
-@@ -84,14 +82,11 @@
+@@ -84,14 +85,11 @@
          &self.max_number_of_messages_per_second
      }
      /// Consumes the builder and constructs a [`StartMessageMoveTaskInput`](crate::operation::start_message_move_task::StartMessageMoveTaskInput).
@@ -24800,14 +24371,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.task_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier associated with a message movement task. You can use this identifier to cancel a specified message movement task using the <code>CancelMessageMoveTask</code> action.</p>
-     pub fn set_task_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.task_handle = input;
-         self
 ```
 
 ### `src/operation/start_message_move_task/builders.rs`
@@ -25592,15 +25155,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagQueueInput {
      /// <p>The URL of the queue.</p>
      pub queue_url: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the queue.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -48,18 +48,16 @@
+@@ -48,15 +49,14 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -25619,11 +25174,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.tags = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The list of tags to be added to the specified queue.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.tags = input;
-         self
-@@ -69,10 +67,10 @@
+     /// <p>The list of tags to be added to the specified queue.</p>
+@@ -69,10 +69,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagQueueInput`](crate::operation::tag_queue::TagQueueInput).
@@ -26390,15 +25942,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(&self) -> &[::std::string::String] {
          self.tag_keys.as_deref().unwrap_or_default()
      }
-@@ -41,7 +40,6 @@
-         self.queue_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URL of the queue.</p>
-     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.queue_url = input;
-         self
-@@ -50,11 +48,10 @@
+@@ -50,11 +49,10 @@
      pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
          &self.queue_url
      }
@@ -26411,15 +25955,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.tag_keys.unwrap_or_default();
          v.push(input.into());
-@@ -61,7 +58,6 @@
-         self.tag_keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The list of tags to be removed from the specified queue.</p>
-     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.tag_keys = input;
-         self
-@@ -71,10 +67,10 @@
+@@ -71,10 +69,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
@@ -27325,39 +26861,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_batch_result_error_entry.rs
 +++ generated/src/types/_batch_result_error_entry.rs
-@@ -56,7 +56,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The <code>Id</code> of an entry in a batch request.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -71,7 +70,6 @@
-         self.sender_fault = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies whether the error happened due to the caller of the batch API action.</p>
-     pub fn set_sender_fault(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.sender_fault = input;
-         self
-@@ -86,7 +84,6 @@
-         self.code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An error code representing why the action failed on this entry.</p>
-     pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.code = input;
-         self
-@@ -100,7 +97,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A message explaining why the action failed on this entry.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -111,8 +107,9 @@
+@@ -111,8 +111,9 @@
      }
      /// Consumes the builder and constructs a [`BatchResultErrorEntry`](crate::types::BatchResultErrorEntry).
      /// This method will fail if any of the following fields are not set:
@@ -27369,7 +26873,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::BatchResultErrorEntry {
              id: self.id.ok_or_else(|| {
-@@ -121,7 +118,12 @@
+@@ -121,7 +122,12 @@
                      "id was not specified but it is required when building BatchResultErrorEntry",
                  )
              })?,
@@ -27398,34 +26902,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ChangeMessageVisibilityBatchRequestEntry {
-@@ -58,10 +58,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier for this particular receipt handle used to communicate the result.</p><note>
--    /// <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
--    /// <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
--    /// </note>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -79,7 +75,6 @@
-         self.receipt_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A receipt handle.</p>
-     pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.receipt_handle = input;
-         self
-@@ -93,7 +88,6 @@
-         self.visibility_timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The new value (in seconds) for the message's visibility timeout.</p>
-     pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.visibility_timeout = input;
-         self
-@@ -104,8 +98,8 @@
+@@ -104,8 +104,8 @@
      }
      /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchRequestEntry`](crate::types::ChangeMessageVisibilityBatchRequestEntry).
      /// This method will fail if any of the following fields are not set:
@@ -27451,15 +26928,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ChangeMessageVisibilityBatchResultEntry {
-@@ -34,7 +34,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Represents a message whose visibility timeout has been changed successfully.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchResultEntry`](crate::types::ChangeMessageVisibilityBatchResultEntry).
      /// This method will fail if any of the following fields are not set:
@@ -27475,26 +26944,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_message_batch_request_entry.rs
 +++ generated/src/types/_delete_message_batch_request_entry.rs
-@@ -51,10 +51,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier for this particular receipt handle. This is used to communicate the result.</p><note>
--    /// <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
--    /// <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
--    /// </note>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -72,7 +68,6 @@
-         self.receipt_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A receipt handle.</p>
-     pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.receipt_handle = input;
-         self
-@@ -83,8 +78,8 @@
+@@ -83,8 +83,8 @@
      }
      /// Consumes the builder and constructs a [`DeleteMessageBatchRequestEntry`](crate::types::DeleteMessageBatchRequestEntry).
      /// This method will fail if any of the following fields are not set:
@@ -27520,15 +26970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct DeleteMessageBatchResultEntry {
-@@ -34,7 +34,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Represents a successfully deleted message.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteMessageBatchResultEntry`](crate::types::DeleteMessageBatchResultEntry).
      /// This method will fail if any of the following fields are not set:
@@ -27578,79 +27020,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.started_timestamp
      }
  }
-@@ -88,7 +88,6 @@
-         self.task_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier associated with a message movement task. When this field is returned in the response of the <code>ListMessageMoveTasks</code> action, it is only populated for tasks that are in RUNNING status.</p>
-     pub fn set_task_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.task_handle = input;
-         self
-@@ -102,7 +101,6 @@
-         self.status = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The status of the message movement task. Possible values are: RUNNING, COMPLETED, CANCELLING, CANCELLED, and FAILED.</p>
-     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.status = input;
-         self
-@@ -116,7 +114,6 @@
-         self.source_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the queue that contains the messages to be moved to another queue.</p>
-     pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_arn = input;
-         self
-@@ -130,7 +127,6 @@
-         self.destination_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the destination queue if it has been specified in the <code>StartMessageMoveTask</code> request. If a <code>DestinationArn</code> has not been specified in the <code>StartMessageMoveTask</code> request, this field value will be NULL.</p>
-     pub fn set_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.destination_arn = input;
-         self
-@@ -144,7 +140,6 @@
-         self.max_number_of_messages_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of messages to be moved per second (the message movement rate), if it has been specified in the <code>StartMessageMoveTask</code> request. If a <code>MaxNumberOfMessagesPerSecond</code> has not been specified in the <code>StartMessageMoveTask</code> request, this field value will be NULL.</p>
-     pub fn set_max_number_of_messages_per_second(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_number_of_messages_per_second = input;
-         self
-@@ -158,7 +153,6 @@
-         self.approximate_number_of_messages_moved = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The approximate number of messages already moved to the destination queue.</p>
-     pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.approximate_number_of_messages_moved = input;
-         self
-@@ -172,7 +166,6 @@
-         self.approximate_number_of_messages_to_move = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of messages to be moved from the source queue. This number is obtained at the time of starting the message movement task and is only included after the message movement task is selected to start.</p>
-     pub fn set_approximate_number_of_messages_to_move(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.approximate_number_of_messages_to_move = input;
-         self
-@@ -186,7 +179,6 @@
-         self.failure_reason = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The task failure reason (only included if the task status is FAILED).</p>
-     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.failure_reason = input;
-         self
-@@ -200,7 +192,6 @@
-         self.started_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The timestamp of starting the message movement task.</p>
-     pub fn set_started_timestamp(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.started_timestamp = input;
-         self
-@@ -217,10 +208,10 @@
+@@ -217,10 +217,10 @@
              source_arn: self.source_arn,
              destination_arn: self.destination_arn,
              max_number_of_messages_per_second: self.max_number_of_messages_per_second,
@@ -27722,39 +27092,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>> {
          self.attributes.as_ref()
      }
-@@ -110,7 +76,6 @@
-         self.message_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all Amazon Web Services accounts for an extended period of time.</p>
-     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message_id = input;
-         self
-@@ -124,7 +89,6 @@
-         self.receipt_handle = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.</p>
-     pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.receipt_handle = input;
-         self
-@@ -138,7 +102,6 @@
-         self.md5_of_body = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message body string.</p>
-     pub fn set_md5_of_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_body = input;
-         self
-@@ -152,7 +115,6 @@
-         self.body = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The message's contents (not URL-encoded).</p>
-     pub fn set_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.body = input;
-         self
-@@ -161,52 +123,16 @@
+@@ -161,52 +127,17 @@
      pub fn get_body(&self) -> &::std::option::Option<::std::string::String> {
          &self.body
      }
@@ -27808,10 +27146,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SequenceNumber</code></p></li>
 -    /// </ul>
 -    /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
++    /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
      pub fn set_attributes(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>>,
-@@ -214,24 +140,7 @@
+@@ -214,24 +145,7 @@
          self.attributes = input;
          self
      }
@@ -27837,15 +27176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_attributes(
          &self,
      ) -> &::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>> {
-@@ -242,7 +151,6 @@
-         self.md5_of_message_attributes = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-     pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_attributes = input;
-         self
-@@ -251,18 +159,16 @@
+@@ -251,15 +165,14 @@
      pub fn get_md5_of_message_attributes(&self) -> &::std::option::Option<::std::string::String> {
          &self.md5_of_message_attributes
      }
@@ -27864,10 +27195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.message_attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_message_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
+     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 ```
 
 ### `src/types/_message_attribute_value.rs`
@@ -27931,15 +27259,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) data_type: ::std::option::Option<::std::string::String>,
  }
  impl MessageAttributeValueBuilder {
-@@ -68,7 +64,6 @@
-         self.string_value = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
-     pub fn set_string_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.string_value = input;
-         self
-@@ -78,24 +73,22 @@
+@@ -78,24 +74,23 @@
          &self.string_value
      }
      /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
@@ -27948,7 +27268,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.binary_value = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
+     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
 -    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.binary_value = input;
@@ -27968,15 +27288,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn string_list_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.string_list_values.unwrap_or_default();
          v.push(input.into());
-@@ -102,7 +95,6 @@
-         self.string_list_values = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Not implemented. Reserved for future use.</p>
-     pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.string_list_values = input;
-         self
-@@ -111,24 +103,22 @@
+@@ -111,12 +106,11 @@
      pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.string_list_values
      }
@@ -27991,9 +27303,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let mut v = self.binary_list_values.unwrap_or_default();
          v.push(input);
          self.binary_list_values = ::std::option::Option::Some(v);
+@@ -123,12 +117,12 @@
          self
      }
--    /// <p>Not implemented. Reserved for future use.</p>
+     /// <p>Not implemented. Reserved for future use.</p>
 -    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>>) -> Self {
 +    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>) -> Self {
          self.binary_list_values = input;
@@ -28005,16 +27318,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.binary_list_values
      }
      /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
-@@ -138,8 +128,6 @@
-         self.data_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
--    /// <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_data_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.data_type = input;
-         self
-@@ -151,7 +139,7 @@
+@@ -151,7 +145,7 @@
      }
      /// Consumes the builder and constructs a [`MessageAttributeValue`](crate::types::MessageAttributeValue).
      /// This method will fail if any of the following fields are not set:
@@ -28086,15 +27390,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) data_type: ::std::option::Option<::std::string::String>,
  }
  impl MessageSystemAttributeValueBuilder {
-@@ -68,7 +64,6 @@
-         self.string_value = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
-     pub fn set_string_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.string_value = input;
-         self
-@@ -78,24 +73,22 @@
+@@ -78,24 +74,23 @@
          &self.string_value
      }
      /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
@@ -28103,7 +27399,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.binary_value = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
+     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
 -    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.binary_value = input;
@@ -28123,15 +27419,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn string_list_values(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.string_list_values.unwrap_or_default();
          v.push(input.into());
-@@ -102,7 +95,6 @@
-         self.string_list_values = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Not implemented. Reserved for future use.</p>
-     pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.string_list_values = input;
-         self
-@@ -111,24 +103,22 @@
+@@ -111,12 +106,11 @@
      pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.string_list_values
      }
@@ -28146,9 +27434,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let mut v = self.binary_list_values.unwrap_or_default();
          v.push(input);
          self.binary_list_values = ::std::option::Option::Some(v);
+@@ -123,12 +117,12 @@
          self
      }
--    /// <p>Not implemented. Reserved for future use.</p>
+     /// <p>Not implemented. Reserved for future use.</p>
 -    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>>) -> Self {
 +    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>) -> Self {
          self.binary_list_values = input;
@@ -28160,16 +27449,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.binary_list_values
      }
      /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
-@@ -138,8 +128,6 @@
-         self.data_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
--    /// <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_data_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.data_type = input;
-         self
-@@ -151,7 +139,7 @@
+@@ -151,7 +145,7 @@
      }
      /// Consumes the builder and constructs a [`MessageSystemAttributeValue`](crate::types::MessageSystemAttributeValue).
      /// This method will fail if any of the following fields are not set:
@@ -28310,36 +27590,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn message_group_id(&self) -> ::std::option::Option<&str> {
          self.message_group_id.as_deref()
-@@ -184,10 +118,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier for a message in this batch used to communicate the result.</p><note>
--    /// <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
--    /// <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
--    /// </note>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -205,7 +135,6 @@
-         self.message_body = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The body of the message.</p>
-     pub fn set_message_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message_body = input;
-         self
-@@ -221,9 +150,6 @@
-         self.delay_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.</p><note>
--    /// <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
--    /// </note>
-     pub fn set_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.delay_seconds = input;
-         self
-@@ -234,18 +160,16 @@
+@@ -234,15 +168,14 @@
      pub fn get_delay_seconds(&self) -> &::std::option::Option<i32> {
          &self.delay_seconds
      }
@@ -28358,11 +27609,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.message_attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-     pub fn set_message_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
-@@ -259,36 +183,20 @@
+     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+@@ -259,36 +192,21 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
          &self.message_attributes
      }
@@ -28400,10 +27648,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The size of a message system attribute doesn't count towards the total size of a message.</p></li>
 -    /// </ul>
 -    /// </important>
++    /// <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p> <important><ul><li><p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>. Its type must be <code>String</code> and its value must be a correctly formatted X-Ray trace header string.</p></li><li><p>The size of a message system attribute doesn't count towards the total size of a message.</p></li></ul></important>
      pub fn set_message_system_attributes(
          mut self,
          input: ::std::option::Option<
-@@ -298,14 +206,7 @@
+@@ -298,14 +216,7 @@
          self.message_system_attributes = input;
          self
      }
@@ -28419,7 +27668,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_message_system_attributes(
          &self,
      ) -> &::std::option::Option<
-@@ -314,134 +215,45 @@
+@@ -314,30 +225,11 @@
          &self.message_system_attributes
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -28452,9 +27701,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.message_deduplication_id = ::std::option::Option::Some(input.into());
+@@ -344,30 +236,11 @@
          self
      }
--    /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+     /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
 -    /// <p>The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html"> Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 -    /// <ul>
 -    /// <li>
@@ -28474,14 +27724,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li>
 -    /// </ul><note>
--    /// <p>The <code>MessageDeduplicationId</code> is available to the consumer of the message (this can be useful for troubleshooting delivery issues).</p>
--    /// <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SQS can't detect duplicate messages.</p>
--    /// <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
++    /// <p>The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p><ul><li><p>Every message must have a unique <code>MessageDeduplicationId</code>,</p><ul><li><p>You may provide a <code>MessageDeduplicationId</code> explicitly.</p></li><li><p>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p></li><li><p>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have <code>ContentBasedDeduplication</code> set, the action fails with an error.</p></li><li><p>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code> overrides the generated one.</p></li></ul></li><li><p>When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.</p></li><li><p>If you send one message with <code>ContentBasedDeduplication</code> enabled and then another message with a <code>MessageDeduplicationId</code> that is the same as the one generated for the first <code>MessageDeduplicationId</code>, the two messages are treated as duplicates and only one copy of the message is delivered.</p></li></ul><note>
+     /// <p>The <code>MessageDeduplicationId</code> is available to the consumer of the message (this can be useful for troubleshooting delivery issues).</p>
+     /// <p>If a message is sent successfully but the acknowledgement is lost and the message is resent with the same <code>MessageDeduplicationId</code> after the deduplication interval, Amazon SQS can't detect duplicate messages.</p>
+     /// <p>Amazon SQS continues to keep track of the message deduplication ID even after the message is received and deleted.</p>
 -    /// </note>
 -    /// <p>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~</code>).</p>
--    /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// </note><p>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~</code>).</p>
+     /// <p>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using the MessageDeduplicationId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.message_deduplication_id = input;
+@@ -374,74 +247,34 @@
          self
      }
      /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -28536,13 +27789,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <ul>
 -    /// <li>
 -    /// <p><b>FIFO queues:</b> <code>MessageGroupId</code> acts as the tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use <code>MessageGroupId</code> values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.</p>
--    /// <p>If you do not provide a <code>MessageGroupId</code> when sending a message to a FIFO queue, the action fails.</p>
++    /// <p><code>MessageGroupId</code> is an attribute used in Amazon SQS FIFO (First-In-First-Out) and standard queues. In FIFO queues, <code>MessageGroupId</code> organizes messages into distinct groups. Messages within the same message group are always processed one at a time, in strict order, ensuring that no two messages from the same group are processed simultaneously. In standard queues, using <code>MessageGroupId</code> enables fair queues. It is used to identify the tenant a message belongs to, helping maintain consistent message dwell time across all tenants during noisy neighbor events. Unlike FIFO queues, messages with the same <code>MessageGroupId</code> can be processed in parallel, maintaining the high throughput of standard queues.</p><ul><li><p><b>FIFO queues:</b> <code>MessageGroupId</code> acts as the tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use <code>MessageGroupId</code> values (for example, session data for multiple users). In this scenario, multiple consumers can process the queue, but the session data of each user is processed in a FIFO fashion.</p>
+     /// <p>If you do not provide a <code>MessageGroupId</code> when sending a message to a FIFO queue, the action fails.</p>
 -    /// <p><code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code> values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.</p></li>
 -    /// <li>
 -    /// <p><b>Standard queues:</b>Use <code>MessageGroupId</code> in standard queues to enable fair queues. The <code>MessageGroupId</code> identifies the tenant a message belongs to. A tenant can be any entity that shares a queue with others, such as your customer, a client application, or a request type. When one tenant sends a disproportionately large volume of messages or has messages that require longer processing time, fair queues ensure other tenants' messages maintain low dwell time. This preserves quality of service for all tenants while maintaining the scalability and throughput of standard queues. We recommend that you include a <code>MessageGroupId</code> in all messages when using fair queues.</p></li>
 -    /// </ul>
 -    /// <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p>
--    /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
++    /// <p><code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code> values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.</p></li><li><p><b>Standard queues:</b>Use <code>MessageGroupId</code> in standard queues to enable fair queues. The <code>MessageGroupId</code> identifies the tenant a message belongs to. A tenant can be any entity that shares a queue with others, such as your customer, a client application, or a request type. When one tenant sends a disproportionately large volume of messages or has messages that require longer processing time, fair queues ensure other tenants' messages maintain low dwell time. This preserves quality of service for all tenants while maintaining the scalability and throughput of standard queues. We recommend that you include a <code>MessageGroupId</code> in all messages when using fair queues.</p></li></ul><p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@\[\\]^_`{|}~)</code>.</p>
+     /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn set_message_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.message_group_id = input;
          self
@@ -28562,7 +27817,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>MessageGroupId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn get_message_group_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.message_group_id
-@@ -448,8 +260,8 @@
+@@ -448,8 +281,8 @@
      }
      /// Consumes the builder and constructs a [`SendMessageBatchRequestEntry`](crate::types::SendMessageBatchRequestEntry).
      /// This method will fail if any of the following fields are not set:
@@ -28588,57 +27843,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct SendMessageBatchResultEntry {
-@@ -75,7 +75,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier for the message in this batch.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -90,7 +89,6 @@
-         self.message_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An identifier for the message.</p>
-     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message_id = input;
-         self
-@@ -105,7 +103,6 @@
-         self.md5_of_message_body = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-     pub fn set_md5_of_message_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_body = input;
-         self
-@@ -119,7 +116,6 @@
-         self.md5_of_message_attributes = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-     pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_attributes = input;
-         self
-@@ -133,7 +129,6 @@
-         self.md5_of_message_system_attributes = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-     pub fn set_md5_of_message_system_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.md5_of_message_system_attributes = input;
-         self
-@@ -149,9 +144,6 @@
-         self.sequence_number = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
--    /// <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
--    /// <p>The length of <code>SequenceNumber</code> is 128 bits. As <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
-     pub fn set_sequence_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.sequence_number = input;
-         self
-@@ -164,9 +156,9 @@
+@@ -164,9 +164,9 @@
      }
      /// Consumes the builder and constructs a [`SendMessageBatchResultEntry`](crate::types::SendMessageBatchResultEntry).
      /// This method will fail if any of the following fields are not set:
@@ -29030,7 +28235,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/change_message_visibility_batch/builders.rs`
 - `src/operation/change_message_visibility_batch.rs`
 - `src/operation/create_queue/_create_queue_input.rs`
-- `src/operation/create_queue/_create_queue_output.rs`
 - `src/operation/create_queue/builders.rs`
 - `src/operation/create_queue.rs`
 - `src/operation/delete_message/_delete_message_input.rs`
@@ -29048,7 +28252,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_queue_attributes/builders.rs`
 - `src/operation/get_queue_attributes.rs`
 - `src/operation/get_queue_url/_get_queue_url_input.rs`
-- `src/operation/get_queue_url/_get_queue_url_output.rs`
 - `src/operation/get_queue_url/builders.rs`
 - `src/operation/get_queue_url.rs`
 - `src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_input.rs`
@@ -29078,7 +28281,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/remove_permission/builders.rs`
 - `src/operation/remove_permission.rs`
 - `src/operation/send_message/_send_message_input.rs`
-- `src/operation/send_message/_send_message_output.rs`
 - `src/operation/send_message/builders.rs`
 - `src/operation/send_message.rs`
 - `src/operation/send_message_batch/_send_message_batch_input.rs`
@@ -29089,7 +28291,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/set_queue_attributes/builders.rs`
 - `src/operation/set_queue_attributes.rs`
 - `src/operation/start_message_move_task/_start_message_move_task_input.rs`
-- `src/operation/start_message_move_task/_start_message_move_task_output.rs`
 - `src/operation/start_message_move_task/builders.rs`
 - `src/operation/start_message_move_task.rs`
 - `src/operation/tag_queue/_tag_queue_input.rs`

@@ -47,6 +47,7 @@ impl ReplicaAutoScalingUpdateBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Region where the replica exists.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self
@@ -65,6 +66,7 @@ impl ReplicaAutoScalingUpdateBuilder {
         self.replica_global_secondary_index_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
     pub fn set_replica_global_secondary_index_updates(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,

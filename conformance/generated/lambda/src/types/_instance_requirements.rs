@@ -51,6 +51,7 @@ impl InstanceRequirementsBuilder {
         self.architectures = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
     pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
         self.architectures = input;
         self
@@ -69,6 +70,7 @@ impl InstanceRequirementsBuilder {
         self.allowed_instance_types = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
     pub fn set_allowed_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.allowed_instance_types = input;
         self
@@ -87,6 +89,7 @@ impl InstanceRequirementsBuilder {
         self.excluded_instance_types = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
     pub fn set_excluded_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.excluded_instance_types = input;
         self

@@ -34,6 +34,7 @@ impl DeleteMessageBatchResultEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Represents a successfully deleted message.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self

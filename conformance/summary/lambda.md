@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1206/1206` files compared · `82` matched · `235` mismatches · `767` missing · `122` extra · `6.80%` match (100.00% means fully matched)
+**Progress:** `1206/1206` files compared · `143` matched · `174` mismatches · `767` missing · `122` extra · `11.86%` match (100.00% means fully matched)
 
 ### `src/client/delete_function.rs`
 
@@ -2975,7 +2975,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_name(&self) -> ::std::option::Option<&str> {
          self.function_name.as_deref()
      }
-@@ -53,48 +34,17 @@
+@@ -53,48 +34,18 @@
      pub(crate) qualifier: ::std::option::Option<::std::string::String>,
  }
  impl DeleteFunctionInputBuilder {
@@ -3007,6 +3007,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li>
 -    /// </ul>
 -    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
++    /// <p>The name or ARN of the Lambda function or version.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.function_name = input;
          self
@@ -3026,15 +3027,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_name
      }
-@@ -103,7 +53,6 @@
-         self.qualifier = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specify a version to delete. You can't delete a version that an alias references.</p>
-     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.qualifier = input;
-         self
-@@ -113,12 +62,10 @@
+@@ -113,12 +64,10 @@
          &self.qualifier
      }
      /// Consumes the builder and constructs a [`DeleteFunctionInput`](crate::operation::delete_function::DeleteFunctionInput).
@@ -3076,15 +3069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.status_code
      }
  }
-@@ -38,7 +39,6 @@
-         self.status_code = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The HTTP status code returned by the operation.</p>
-     pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.status_code = input;
-         self
-@@ -59,7 +59,7 @@
+@@ -59,7 +60,7 @@
      /// Consumes the builder and constructs a [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput).
      pub fn build(self) -> crate::operation::delete_function::DeleteFunctionOutput {
          crate::operation::delete_function::DeleteFunctionOutput {
@@ -3929,7 +3914,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_name(&self) -> ::std::option::Option<&str> {
          self.function_name.as_deref()
      }
-@@ -53,48 +34,17 @@
+@@ -53,48 +34,18 @@
      pub(crate) qualifier: ::std::option::Option<::std::string::String>,
  }
  impl DeleteFunctionEventInvokeConfigInputBuilder {
@@ -3961,6 +3946,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
 -    /// </ul>
 -    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
++    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.function_name = input;
          self
@@ -3980,15 +3966,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_name
      }
-@@ -103,7 +53,6 @@
-         self.qualifier = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A version number or alias name.</p>
-     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.qualifier = input;
-         self
-@@ -113,17 +62,10 @@
+@@ -113,17 +64,10 @@
          &self.qualifier
      }
      /// Consumes the builder and constructs a [`DeleteFunctionEventInvokeConfigInput`](crate::operation::delete_function_event_invoke_config::DeleteFunctionEventInvokeConfigInput).
@@ -4846,15 +4824,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn revision_id(&self) -> ::std::option::Option<&str> {
          self.revision_id.as_deref()
      }
-@@ -39,7 +40,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy from. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -48,28 +48,24 @@
+@@ -48,28 +49,25 @@
      pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.resource_arn
      }
@@ -4865,6 +4835,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <code>GetResourcePolicy</code> operation.</p>
++    /// <p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
      pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.revision_id = input;
          self
@@ -5711,22 +5682,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -45,7 +46,6 @@
-         self.account_limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Limits that are related to concurrency and code storage.</p>
-     pub fn set_account_limit(mut self, input: ::std::option::Option<crate::types::AccountLimit>) -> Self {
-         self.account_limit = input;
-         self
-@@ -59,7 +59,6 @@
-         self.account_usage = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of functions and amount of storage in use.</p>
-     pub fn set_account_usage(mut self, input: ::std::option::Option<crate::types::AccountUsage>) -> Self {
-         self.account_usage = input;
-         self
 ```
 
 ### `src/operation/get_account_settings/builders.rs`
@@ -6378,7 +6333,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_name(&self) -> ::std::option::Option<&str> {
          self.function_name.as_deref()
      }
-@@ -53,48 +34,17 @@
+@@ -53,48 +34,18 @@
      pub(crate) qualifier: ::std::option::Option<::std::string::String>,
  }
  impl GetFunctionEventInvokeConfigInputBuilder {
@@ -6410,6 +6365,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
 -    /// </ul>
 -    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
++    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.function_name = input;
          self
@@ -6429,15 +6385,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_name
      }
-@@ -103,7 +53,6 @@
-         self.qualifier = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A version number or alias name.</p>
-     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.qualifier = input;
-         self
-@@ -113,15 +62,10 @@
+@@ -113,15 +64,10 @@
          &self.qualifier
      }
      /// Consumes the builder and constructs a [`GetFunctionEventInvokeConfigInput`](crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput).
@@ -6513,39 +6461,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
-@@ -96,7 +71,6 @@
-         self.last_modified = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time that the configuration was last updated.</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_modified = input;
-         self
-@@ -110,7 +84,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the function.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -124,7 +97,6 @@
-         self.maximum_retry_attempts = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of times to retry when the function returns an error.</p>
-     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_retry_attempts = input;
-         self
-@@ -138,7 +110,6 @@
-         self.maximum_event_age_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-     pub fn set_maximum_event_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_event_age_in_seconds = input;
-         self
-@@ -147,20 +118,7 @@
+@@ -147,20 +122,7 @@
      pub fn get_maximum_event_age_in_seconds(&self) -> &::std::option::Option<i32> {
          &self.maximum_event_age_in_seconds
      }
@@ -6567,7 +6483,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
-@@ -167,40 +125,11 @@
+@@ -167,20 +129,7 @@
          self.destination_config = ::std::option::Option::Some(input);
          self
      }
@@ -6585,9 +6501,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
 -    /// </ul><note>
--    /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
--    /// </note>
++    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
      pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+@@ -187,20 +136,7 @@
          self.destination_config = input;
          self
      }
@@ -7417,15 +7335,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetResourcePolicyInput {
      /// <p>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
      pub resource_arn: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -42,11 +42,9 @@
+@@ -42,11 +43,9 @@
          &self.resource_arn
      }
      /// Consumes the builder and constructs a [`GetResourcePolicyInput`](crate::operation::get_resource_policy::GetResourcePolicyInput).
@@ -7471,15 +7381,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn revision_id(&self) -> ::std::option::Option<&str> {
          self.revision_id.as_deref()
      }
-@@ -45,7 +46,6 @@
-         self.policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource-based policy attached to the Lambda resource you specified.</p>
-     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy = input;
-         self
-@@ -54,17 +54,16 @@
+@@ -54,17 +55,17 @@
      pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> {
          &self.policy
      }
@@ -7490,6 +7392,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> request. Doing so ensures the operation acts on the expected version of the policy.</p>
++    /// <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <a>PutResourcePolicy</a> or <a>DeleteResourcePolicy</a> request. Doing so ensures the operation acts on the expected version of the policy.</p>
      pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.revision_id = input;
          self
@@ -8258,7 +8161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_name(&self) -> ::std::option::Option<&str> {
          self.function_name.as_deref()
      }
-@@ -60,48 +41,17 @@
+@@ -60,48 +41,18 @@
      pub(crate) max_items: ::std::option::Option<i32>,
  }
  impl ListFunctionEventInvokeConfigsInputBuilder {
@@ -8290,6 +8193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
 -    /// </ul>
 -    /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
++    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.function_name = input;
          self
@@ -8309,23 +8213,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_name
      }
-@@ -110,7 +60,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -124,7 +73,6 @@
-         self.max_items = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of configurations to return.</p>
-     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_items = input;
-         self
-@@ -134,18 +82,11 @@
+@@ -134,18 +85,11 @@
          &self.max_items
      }
      /// Consumes the builder and constructs a [`ListFunctionEventInvokeConfigsInput`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsInput).
@@ -8385,22 +8273,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_event_invoke_configs(mut self, input: crate::types::FunctionEventInvokeConfig) -> Self {
          let mut v = self.function_event_invoke_configs.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.function_event_invoke_configs = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of configurations.</p>
-     pub fn set_function_event_invoke_configs(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
-@@ -70,7 +67,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The pagination token that's included if more results are available.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
 ```
 
 ### `src/operation/list_function_event_invoke_configs/builders.rs`
@@ -9246,15 +9118,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListTagsInput {
      /// <p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>
      pub resource: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.resource = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>
-     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource = input;
-         self
-@@ -42,7 +42,7 @@
+@@ -42,7 +43,7 @@
          &self.resource
      }
      /// Consumes the builder and constructs a [`ListTagsInput`](crate::operation::list_tags::ListTagsInput).
@@ -9277,7 +9141,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -33,18 +34,16 @@
+@@ -33,15 +34,14 @@
      _request_id: Option<String>,
  }
  impl ListTagsOutputBuilder {
@@ -9296,10 +9160,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.tags = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The function's tags.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.tags = input;
-         self
+     /// <p>The function's tags.</p>
 ```
 
 ### `src/operation/list_tags/builders.rs`
@@ -10074,7 +9935,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
-@@ -104,48 +59,17 @@
+@@ -104,48 +59,18 @@
      pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
  }
  impl PutFunctionEventInvokeConfigInputBuilder {
@@ -10106,6 +9967,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
 -    /// </ul>
 -    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
++    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.function_name = input;
          self
@@ -10125,31 +9987,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_name
      }
-@@ -154,7 +78,6 @@
-         self.qualifier = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A version number or alias name.</p>
-     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.qualifier = input;
-         self
-@@ -168,7 +91,6 @@
-         self.maximum_retry_attempts = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of times to retry when the function returns an error.</p>
-     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_retry_attempts = input;
-         self
-@@ -182,7 +104,6 @@
-         self.maximum_event_age_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-     pub fn set_maximum_event_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_event_age_in_seconds = input;
-         self
-@@ -191,20 +112,7 @@
+@@ -191,20 +116,7 @@
      pub fn get_maximum_event_age_in_seconds(&self) -> &::std::option::Option<i32> {
          &self.maximum_event_age_in_seconds
      }
@@ -10171,7 +10009,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
-@@ -211,40 +119,11 @@
+@@ -211,20 +123,7 @@
          self.destination_config = ::std::option::Option::Some(input);
          self
      }
@@ -10189,9 +10027,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
 -    /// </ul><note>
--    /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
--    /// </note>
++    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
      pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+@@ -231,20 +130,7 @@
          self.destination_config = input;
          self
      }
@@ -10213,7 +10053,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
-@@ -251,18 +130,13 @@
+@@ -251,18 +137,13 @@
          &self.destination_config
      }
      /// Consumes the builder and constructs a [`PutFunctionEventInvokeConfigInput`](crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput).
@@ -10292,39 +10132,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
-@@ -96,7 +71,6 @@
-         self.last_modified = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time that the configuration was last updated.</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_modified = input;
-         self
-@@ -110,7 +84,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the function.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -124,7 +97,6 @@
-         self.maximum_retry_attempts = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of times to retry when the function returns an error.</p>
-     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_retry_attempts = input;
-         self
-@@ -138,7 +110,6 @@
-         self.maximum_event_age_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-     pub fn set_maximum_event_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_event_age_in_seconds = input;
-         self
-@@ -147,20 +118,7 @@
+@@ -147,20 +122,7 @@
      pub fn get_maximum_event_age_in_seconds(&self) -> &::std::option::Option<i32> {
          &self.maximum_event_age_in_seconds
      }
@@ -10346,7 +10154,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
-@@ -167,40 +125,11 @@
+@@ -167,20 +129,7 @@
          self.destination_config = ::std::option::Option::Some(input);
          self
      }
@@ -10364,9 +10172,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
 -    /// </ul><note>
--    /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
--    /// </note>
++    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
      pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+@@ -187,20 +136,7 @@
          self.destination_config = input;
          self
      }
@@ -11328,24 +11138,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn revision_id(&self) -> ::std::option::Option<&str> {
          self.revision_id.as_deref()
      }
-@@ -48,7 +49,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the Lambda resource you want to add the policy to. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -64,8 +64,6 @@
-         self.policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The policy document you want to add to your Lambda resource. This is formatted as a JSON string.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Working with resource-based policies in Lambda</a> in the <i>Lambda Developer Guide</i>.</p>
-     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy = input;
-         self
-@@ -75,28 +73,25 @@
+@@ -75,28 +76,26 @@
      pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> {
          &self.policy
      }
@@ -11356,6 +11149,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <code>GetResourcePolicy</code> operation.</p>
++    /// <p>The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
      pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.revision_id = input;
          self
@@ -11392,22 +11186,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -45,7 +46,6 @@
-         self.policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource-based policy that Lambda adds to the resource.</p>
-     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy = input;
-         self
-@@ -59,7 +59,6 @@
-         self.revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
-     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.revision_id = input;
-         self
 ```
 
 ### `src/operation/put_resource_policy/builders.rs`
@@ -12240,23 +12018,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SendDurableExecutionCallbackFailureInput {
      /// <p>The unique identifier for the callback operation.</p>
      pub callback_id: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.callback_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for the callback operation.</p>
-     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.callback_id = input;
-         self
-@@ -53,7 +53,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Error details describing why the callback operation failed.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.error = input;
-         self
-@@ -63,17 +62,10 @@
+@@ -63,17 +64,10 @@
          &self.error
      }
      /// Consumes the builder and constructs a [`SendDurableExecutionCallbackFailureInput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput).
@@ -13104,15 +12866,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SendDurableExecutionCallbackHeartbeatInput {
      /// <p>The unique identifier for the callback operation.</p>
      pub callback_id: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.callback_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for the callback operation.</p>
-     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.callback_id = input;
-         self
-@@ -42,16 +42,9 @@
+@@ -42,16 +43,9 @@
          &self.callback_id
      }
      /// Consumes the builder and constructs a [`SendDurableExecutionCallbackHeartbeatInput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput).
@@ -13930,15 +13684,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl SendDurableExecutionCallbackSuccessInputBuilder {
      /// <p>The unique identifier for the callback operation.</p>
-@@ -47,7 +40,6 @@
-         self.callback_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for the callback operation.</p>
-     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.callback_id = input;
-         self
-@@ -57,39 +49,23 @@
+@@ -57,39 +50,24 @@
          &self.callback_id
      }
      /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
@@ -13947,7 +13693,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.result = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
+     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
 -    pub fn set_result(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.result = input;
@@ -14811,15 +14557,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagResourceInput {
      /// <p>The resource's Amazon Resource Name (ARN).</p>
      pub resource: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.resource = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource's Amazon Resource Name (ARN).</p>
-     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource = input;
-         self
-@@ -48,18 +48,16 @@
+@@ -48,15 +49,14 @@
      pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
          &self.resource
      }
@@ -14838,11 +14576,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.tags = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A list of tags to apply to the resource.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.tags = input;
-         self
-@@ -69,10 +67,10 @@
+     /// <p>A list of tags to apply to the resource.</p>
+@@ -69,10 +69,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
@@ -15623,15 +15358,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(&self) -> &[::std::string::String] {
          self.tag_keys.as_deref().unwrap_or_default()
      }
-@@ -41,7 +40,6 @@
-         self.resource = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource's Amazon Resource Name (ARN).</p>
-     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource = input;
-         self
-@@ -50,11 +48,10 @@
+@@ -50,11 +49,10 @@
      pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
          &self.resource
      }
@@ -15644,15 +15371,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.tag_keys.unwrap_or_default();
          v.push(input.into());
-@@ -61,7 +58,6 @@
-         self.tag_keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of tag keys to remove from the resource.</p>
-     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.tag_keys = input;
-         self
-@@ -71,12 +67,10 @@
+@@ -71,12 +69,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
@@ -16511,7 +16230,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
-@@ -104,48 +59,17 @@
+@@ -104,48 +59,18 @@
      pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
  }
  impl UpdateFunctionEventInvokeConfigInputBuilder {
@@ -16543,6 +16262,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li>
 -    /// </ul>
 -    /// <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
++    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
      pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.function_name = input;
          self
@@ -16562,31 +16282,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_name
      }
-@@ -154,7 +78,6 @@
-         self.qualifier = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A version number or alias name.</p>
-     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.qualifier = input;
-         self
-@@ -168,7 +91,6 @@
-         self.maximum_retry_attempts = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of times to retry when the function returns an error.</p>
-     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_retry_attempts = input;
-         self
-@@ -182,7 +104,6 @@
-         self.maximum_event_age_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-     pub fn set_maximum_event_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_event_age_in_seconds = input;
-         self
-@@ -191,20 +112,7 @@
+@@ -191,20 +116,7 @@
      pub fn get_maximum_event_age_in_seconds(&self) -> &::std::option::Option<i32> {
          &self.maximum_event_age_in_seconds
      }
@@ -16608,7 +16304,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
-@@ -211,40 +119,11 @@
+@@ -211,20 +123,7 @@
          self.destination_config = ::std::option::Option::Some(input);
          self
      }
@@ -16626,9 +16322,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
 -    /// </ul><note>
--    /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
--    /// </note>
++    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
      pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+@@ -231,20 +130,7 @@
          self.destination_config = input;
          self
      }
@@ -16650,7 +16348,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
-@@ -251,20 +130,13 @@
+@@ -251,20 +137,13 @@
          &self.destination_config
      }
      /// Consumes the builder and constructs a [`UpdateFunctionEventInvokeConfigInput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigInput).
@@ -16736,39 +16434,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(&self) -> ::std::option::Option<&crate::types::DestinationConfig> {
-@@ -96,7 +71,6 @@
-         self.last_modified = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time that the configuration was last updated.</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_modified = input;
-         self
-@@ -110,7 +84,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the function.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -124,7 +97,6 @@
-         self.maximum_retry_attempts = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of times to retry when the function returns an error.</p>
-     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_retry_attempts = input;
-         self
-@@ -138,7 +110,6 @@
-         self.maximum_event_age_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-     pub fn set_maximum_event_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_event_age_in_seconds = input;
-         self
-@@ -147,20 +118,7 @@
+@@ -147,20 +122,7 @@
      pub fn get_maximum_event_age_in_seconds(&self) -> &::std::option::Option<i32> {
          &self.maximum_event_age_in_seconds
      }
@@ -16790,7 +16456,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
      /// </note>
      pub fn destination_config(mut self, input: crate::types::DestinationConfig) -> Self {
-@@ -167,40 +125,11 @@
+@@ -167,20 +129,7 @@
          self.destination_config = ::std::option::Option::Some(input);
          self
      }
@@ -16808,9 +16474,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li>
 -    /// </ul><note>
--    /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
--    /// </note>
++    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+     /// </note>
      pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
+@@ -187,20 +136,7 @@
          self.destination_config = input;
          self
      }
@@ -18136,39 +17804,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn unreserved_concurrent_executions(&self) -> ::std::option::Option<i32> {
          self.unreserved_concurrent_executions
      }
-@@ -60,7 +60,6 @@
-         self.total_code_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
-     pub fn set_total_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.total_code_size = input;
-         self
-@@ -74,7 +73,6 @@
-         self.code_size_unzipped = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
-     pub fn set_code_size_unzipped(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.code_size_unzipped = input;
-         self
-@@ -88,7 +86,6 @@
-         self.code_size_zipped = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.</p>
-     pub fn set_code_size_zipped(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.code_size_zipped = input;
-         self
-@@ -102,7 +99,6 @@
-         self.concurrent_executions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of simultaneous function executions.</p>
-     pub fn set_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.concurrent_executions = input;
-         self
-@@ -111,17 +107,16 @@
+@@ -111,17 +111,17 @@
      pub fn get_concurrent_executions(&self) -> &::std::option::Option<i32> {
          &self.concurrent_executions
      }
@@ -18179,6 +17815,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
++    /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
      pub fn set_unreserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
          self.unreserved_concurrent_executions = input;
          self
@@ -18188,7 +17825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_unreserved_concurrent_executions(&self) -> &::std::option::Option<i32> {
          &self.unreserved_concurrent_executions
      }
-@@ -128,10 +123,10 @@
+@@ -128,10 +128,10 @@
      /// Consumes the builder and constructs a [`AccountLimit`](crate::types::AccountLimit).
      pub fn build(self) -> crate::types::AccountLimit {
          crate::types::AccountLimit {
@@ -18232,23 +17869,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.function_count
      }
  }
-@@ -39,7 +39,6 @@
-         self.total_code_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
-     pub fn set_total_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.total_code_size = input;
-         self
-@@ -53,7 +52,6 @@
-         self.function_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of Lambda functions.</p>
-     pub fn set_function_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.function_count = input;
-         self
-@@ -65,8 +63,8 @@
+@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`AccountUsage`](crate::types::AccountUsage).
      pub fn build(self) -> crate::types::AccountUsage {
          crate::types::AccountUsage {
@@ -18261,67 +17882,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_alias_configuration.rs`
-
-```diff
---- reference/src/types/_alias_configuration.rs
-+++ generated/src/types/_alias_configuration.rs
-@@ -67,7 +67,6 @@
-         self.alias_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the alias.</p>
-     pub fn set_alias_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.alias_arn = input;
-         self
-@@ -81,7 +80,6 @@
-         self.name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the alias.</p>
-     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.name = input;
-         self
-@@ -95,7 +93,6 @@
-         self.function_version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The function version that the alias invokes.</p>
-     pub fn set_function_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_version = input;
-         self
-@@ -109,7 +106,6 @@
-         self.description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A description of the alias.</p>
-     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.description = input;
-         self
-@@ -123,7 +119,6 @@
-         self.routing_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
-     pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
-         self.routing_config = input;
-         self
-@@ -137,7 +132,6 @@
-         self.revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier that changes when you update the alias.</p>
-     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.revision_id = input;
-         self
-```
-
 ### `src/types/_alias_routing_configuration.rs`
 
 ```diff
 --- reference/src/types/_alias_routing_configuration.rs
 +++ generated/src/types/_alias_routing_configuration.rs
-@@ -27,18 +27,16 @@
+@@ -27,15 +27,14 @@
      pub(crate) additional_version_weights: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>,
  }
  impl AliasRoutingConfigurationBuilder {
@@ -18340,10 +17906,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.additional_version_weights = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The second version, and the percentage of traffic that's routed to it.</p>
-     pub fn set_additional_version_weights(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>) -> Self {
-         self.additional_version_weights = input;
-         self
+     /// <p>The second version, and the percentage of traffic that's routed to it.</p>
 ```
 
 ### `src/types/_allowed_publishers.rs`
@@ -18364,15 +17927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn signing_profile_version_arns(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.signing_profile_version_arns.unwrap_or_default();
          v.push(input.into());
-@@ -39,7 +38,6 @@
-         self.signing_profile_version_arns = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.</p>
-     pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.signing_profile_version_arns = input;
-         self
-@@ -50,7 +48,7 @@
+@@ -50,7 +49,7 @@
      }
      /// Consumes the builder and constructs a [`AllowedPublishers`](crate::types::AllowedPublishers).
      /// This method will fail if any of the following fields are not set:
@@ -18381,29 +17936,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::AllowedPublishers, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::AllowedPublishers {
              signing_profile_version_arns: self.signing_profile_version_arns.ok_or_else(|| {
-```
-
-### `src/types/_amazon_managed_kafka_event_source_config.rs`
-
-```diff
---- reference/src/types/_amazon_managed_kafka_event_source_config.rs
-+++ generated/src/types/_amazon_managed_kafka_event_source_config.rs
-@@ -39,7 +39,6 @@
-         self.consumer_group_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
-     pub fn set_consumer_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.consumer_group_id = input;
-         self
-@@ -53,7 +52,6 @@
-         self.schema_registry_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specific configuration settings for a Kafka schema registry.</p>
-     pub fn set_schema_registry_config(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryConfig>) -> Self {
-         self.schema_registry_config = input;
-         self
 ```
 
 ### `src/types/_callback_details.rs`
@@ -18445,31 +17977,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct CallbackDetailsBuilder {
      pub(crate) callback_id: ::std::option::Option<::std::string::String>,
-@@ -55,7 +46,6 @@
-         self.callback_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The callback ID. Callback IDs are generated by the <code>DurableContext</code> when a durable function calls <code>ctx.waitForCallback</code>.</p>
-     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.callback_id = input;
-         self
-@@ -69,7 +59,6 @@
-         self.result = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The response payload from the callback operation as a string.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.result = input;
-         self
-@@ -83,7 +72,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An error object that contains details about the failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.error = input;
-         self
-@@ -101,12 +89,3 @@
+@@ -101,12 +92,3 @@
          }
      }
  }
@@ -18489,18 +17997,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_callback_failed_details.rs
 +++ generated/src/types/_callback_failed_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl CallbackFailedDetailsBuilder {
      /// <p>An error object that contains details about the failure.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An error object that contains details about the failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -18531,23 +18034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.heartbeat_timeout_seconds
      }
  }
-@@ -39,7 +39,6 @@
-         self.timeout_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
-     pub fn set_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.timeout_seconds = input;
-         self
-@@ -53,7 +52,6 @@
-         self.heartbeat_timeout_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
-     pub fn set_heartbeat_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.heartbeat_timeout_seconds = input;
-         self
-@@ -65,8 +63,8 @@
+@@ -65,8 +65,8 @@
      /// Consumes the builder and constructs a [`CallbackOptions`](crate::types::CallbackOptions).
      pub fn build(self) -> crate::types::CallbackOptions {
          crate::types::CallbackOptions {
@@ -18565,31 +18052,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_callback_started_details.rs
 +++ generated/src/types/_callback_started_details.rs
-@@ -48,7 +48,6 @@
-         self.callback_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The callback ID. Callback IDs are generated by the <code>DurableContext</code> when a durable function calls <code>ctx.waitForCallback</code>.</p>
-     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.callback_id = input;
-         self
-@@ -62,7 +61,6 @@
-         self.heartbeat_timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The heartbeat timeout value, in seconds.</p>
-     pub fn set_heartbeat_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.heartbeat_timeout = input;
-         self
-@@ -76,7 +74,6 @@
-         self.timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The timeout value, in seconds.</p>
-     pub fn set_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.timeout = input;
-         self
-@@ -87,7 +84,7 @@
+@@ -87,7 +87,7 @@
      }
      /// Consumes the builder and constructs a [`CallbackStartedDetails`](crate::types::CallbackStartedDetails).
      /// This method will fail if any of the following fields are not set:
@@ -18605,18 +18068,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_callback_succeeded_details.rs
 +++ generated/src/types/_callback_succeeded_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl CallbackSucceededDetailsBuilder {
      /// <p>The response payload from the successful operation.</p>
 -    /// This field is required.
      pub fn result(mut self, input: crate::types::EventResult) -> Self {
          self.result = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The response payload from the successful operation.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
-         self.result = input;
          self
 ```
 
@@ -18625,18 +18083,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_callback_timed_out_details.rs
 +++ generated/src/types/_callback_timed_out_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl CallbackTimedOutDetailsBuilder {
      /// <p>Details about the callback timeout.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the callback timeout.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -18661,23 +18114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn propagate_tags(&self) -> ::std::option::Option<&crate::types::PropagateTags> {
          self.propagate_tags.as_ref()
      }
-@@ -97,7 +95,6 @@
-         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-     pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.capacity_provider_arn = input;
-         self
-@@ -112,7 +109,6 @@
-         self.state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current state of the capacity provider.</p>
-     pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self {
-         self.state = input;
-         self
-@@ -122,12 +118,10 @@
+@@ -122,7 +120,6 @@
          &self.state
      }
      /// <p>The VPC configuration for the capacity provider.</p>
@@ -18685,12 +18122,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vpc_config(mut self, input: crate::types::CapacityProviderVpcConfig) -> Self {
          self.vpc_config = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The VPC configuration for the capacity provider.</p>
-     pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderVpcConfig>) -> Self {
-         self.vpc_config = input;
-         self
-@@ -137,12 +131,10 @@
+@@ -137,7 +134,6 @@
          &self.vpc_config
      }
      /// <p>The permissions configuration for the capacity provider.</p>
@@ -18698,44 +18130,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
          self.permissions_config = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The permissions configuration for the capacity provider.</p>
-     pub fn set_permissions_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderPermissionsConfig>) -> Self {
-         self.permissions_config = input;
-         self
-@@ -156,7 +148,6 @@
-         self.instance_requirements = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The instance requirements for compute resources managed by the capacity provider.</p>
-     pub fn set_instance_requirements(mut self, input: ::std::option::Option<crate::types::InstanceRequirements>) -> Self {
-         self.instance_requirements = input;
-         self
-@@ -170,7 +161,6 @@
-         self.capacity_provider_scaling_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The scaling configuration for the capacity provider.</p>
-     pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingConfig>) -> Self {
-         self.capacity_provider_scaling_config = input;
-         self
-@@ -184,7 +174,6 @@
-         self.kms_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>
-     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_key_arn = input;
-         self
-@@ -198,7 +187,6 @@
-         self.last_modified = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The date and time when the capacity provider was last modified.</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_modified = input;
-         self
-@@ -207,17 +195,14 @@
+@@ -207,17 +203,14 @@
      pub fn get_last_modified(&self) -> &::std::option::Option<::std::string::String> {
          &self.last_modified
      }
@@ -18753,15 +18148,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
          &self.propagate_tags
      }
-@@ -226,7 +211,6 @@
-         self.telemetry_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The telemetry configuration for the capacity provider, including logging settings.</p>
-     pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
-         self.telemetry_config = input;
-         self
-@@ -237,8 +221,8 @@
+@@ -237,8 +230,8 @@
      }
      /// Consumes the builder and constructs a [`CapacityProvider`](crate::types::CapacityProvider).
      /// This method will fail if any of the following fields are not set:
@@ -18779,41 +18166,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_capacity_provider_config.rs
 +++ generated/src/types/_capacity_provider_config.rs
-@@ -30,12 +30,10 @@
+@@ -30,7 +30,6 @@
  }
  impl CapacityProviderConfigBuilder {
      /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
 -    /// This field is required.
      pub fn lambda_managed_instances_capacity_provider_config(mut self, input: crate::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
          self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
-     pub fn set_lambda_managed_instances_capacity_provider_config(
-         mut self,
-         input: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
-```
-
-### `src/types/_capacity_provider_logging_config.rs`
-
-```diff
---- reference/src/types/_capacity_provider_logging_config.rs
-+++ generated/src/types/_capacity_provider_logging_config.rs
-@@ -39,7 +39,6 @@
-         self.system_log_level = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-     pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
-         self.system_log_level = input;
-         self
-@@ -53,7 +52,6 @@
-         self.log_group = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
-     pub fn set_log_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.log_group = input;
          self
 ```
 
@@ -18822,15 +18181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_capacity_provider_permissions_config.rs
 +++ generated/src/types/_capacity_provider_permissions_config.rs
-@@ -34,7 +34,6 @@
-         self.capacity_provider_operator_role_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
-     pub fn set_capacity_provider_operator_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.capacity_provider_operator_role_arn = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`CapacityProviderPermissionsConfig`](crate::types::CapacityProviderPermissionsConfig).
      /// This method will fail if any of the following fields are not set:
@@ -18855,23 +18206,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn scaling_policies(&self) -> &[crate::types::TargetTrackingScalingPolicy] {
          self.scaling_policies.as_deref().unwrap_or_default()
      }
-@@ -48,7 +46,6 @@
-         self.max_v_cpu_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of vCPUs that the capacity provider can provision across all compute instances.</p>
-     pub fn set_max_v_cpu_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_v_cpu_count = input;
-         self
-@@ -62,7 +59,6 @@
-         self.scaling_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
-     pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingMode>) -> Self {
-         self.scaling_mode = input;
-         self
-@@ -71,11 +67,10 @@
+@@ -71,11 +69,10 @@
      pub fn get_scaling_mode(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingMode> {
          &self.scaling_mode
      }
@@ -18884,29 +18219,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn scaling_policies(mut self, input: crate::types::TargetTrackingScalingPolicy) -> Self {
          let mut v = self.scaling_policies.unwrap_or_default();
          v.push(input);
-@@ -82,7 +77,6 @@
-         self.scaling_policies = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
-     pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TargetTrackingScalingPolicy>>) -> Self {
-         self.scaling_policies = input;
-         self
-```
-
-### `src/types/_capacity_provider_telemetry_config.rs`
-
-```diff
---- reference/src/types/_capacity_provider_telemetry_config.rs
-+++ generated/src/types/_capacity_provider_telemetry_config.rs
-@@ -32,7 +32,6 @@
-         self.logging_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>
-     pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderLoggingConfig>) -> Self {
-         self.logging_config = input;
-         self
 ```
 
 ### `src/types/_capacity_provider_vpc_config.rs`
@@ -18927,15 +18239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.subnet_ids.unwrap_or_default();
          v.push(input.into());
-@@ -47,7 +46,6 @@
-         self.subnet_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of subnet IDs where the capacity provider launches compute instances.</p>
-     pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.subnet_ids = input;
-         self
-@@ -56,11 +54,10 @@
+@@ -56,11 +55,10 @@
      pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.subnet_ids
      }
@@ -18948,15 +18252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.security_group_ids.unwrap_or_default();
          v.push(input.into());
-@@ -67,7 +64,6 @@
-         self.security_group_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
-     pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.security_group_ids = input;
-         self
-@@ -78,8 +74,8 @@
+@@ -78,8 +76,8 @@
      }
      /// Consumes the builder and constructs a [`CapacityProviderVpcConfig`](crate::types::CapacityProviderVpcConfig).
      /// This method will fail if any of the following fields are not set:
@@ -19007,23 +18303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct ChainedInvokeDetailsBuilder {
      pub(crate) result: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.result = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The response payload from the chained invocation.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.result = input;
-         self
-@@ -61,7 +52,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the chained invocation failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.error = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -19042,18 +18322,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_chained_invoke_failed_details.rs
 +++ generated/src/types/_chained_invoke_failed_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ChainedInvokeFailedDetailsBuilder {
      /// <p>Details about the chained invocation failure.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the chained invocation failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -19062,23 +18337,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_chained_invoke_options.rs
 +++ generated/src/types/_chained_invoke_options.rs
-@@ -41,7 +41,6 @@
-         self.function_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name or ARN of the Lambda function to invoke.</p>
-     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_name = input;
-         self
-@@ -55,7 +54,6 @@
-         self.tenant_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The tenant identifier for the chained invocation.</p>
-     pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.tenant_id = input;
-         self
-@@ -66,7 +64,7 @@
+@@ -66,7 +66,7 @@
      }
      /// Consumes the builder and constructs a [`ChainedInvokeOptions`](crate::types::ChainedInvokeOptions).
      /// This method will fail if any of the following fields are not set:
@@ -19094,47 +18353,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_chained_invoke_started_details.rs
 +++ generated/src/types/_chained_invoke_started_details.rs
-@@ -62,7 +62,6 @@
-         self.function_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name or ARN of the Lambda function being invoked.</p>
-     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_name = input;
-         self
-@@ -76,7 +75,6 @@
-         self.tenant_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The tenant identifier for the chained invocation.</p>
-     pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.tenant_id = input;
-         self
-@@ -90,7 +88,6 @@
-         self.input = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The JSON input payload provided to the chained invocation.</p>
-     pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
-         self.input = input;
-         self
-@@ -104,7 +101,6 @@
-         self.executed_version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The version of the function that was executed.</p>
-     pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.executed_version = input;
-         self
-@@ -118,7 +114,6 @@
-         self.durable_execution_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
-     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.durable_execution_arn = input;
-         self
-@@ -129,7 +124,7 @@
+@@ -129,7 +129,7 @@
      }
      /// Consumes the builder and constructs a [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
      /// This method will fail if any of the following fields are not set:
@@ -19150,18 +18369,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_chained_invoke_stopped_details.rs
 +++ generated/src/types/_chained_invoke_stopped_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ChainedInvokeStoppedDetailsBuilder {
      /// <p>Details about why the chained invocation stopped.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about why the chained invocation stopped.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -19170,18 +18384,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_chained_invoke_succeeded_details.rs
 +++ generated/src/types/_chained_invoke_succeeded_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ChainedInvokeSucceededDetailsBuilder {
      /// <p>The response payload from the successful operation.</p>
 -    /// This field is required.
      pub fn result(mut self, input: crate::types::EventResult) -> Self {
          self.result = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The response payload from the successful operation.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
-         self.result = input;
          self
 ```
 
@@ -19190,18 +18399,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_chained_invoke_timed_out_details.rs
 +++ generated/src/types/_chained_invoke_timed_out_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ChainedInvokeTimedOutDetailsBuilder {
      /// <p>Details about the chained invocation timeout.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the chained invocation timeout.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -19232,22 +18436,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn operations(mut self, input: crate::types::Operation) -> Self {
          let mut v = self.operations.unwrap_or_default();
          v.push(input);
-@@ -47,7 +44,6 @@
-         self.operations = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of operations that have been updated since the last checkpoint.</p>
-     pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
-         self.operations = input;
-         self
-@@ -61,7 +57,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
 ```
 
 ### `src/types/_code_signing_config.rs`
@@ -19255,31 +18443,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_code_signing_config.rs
 +++ generated/src/types/_code_signing_config.rs
-@@ -71,7 +71,6 @@
-         self.code_signing_config_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifer for the Code signing configuration.</p>
-     pub fn set_code_signing_config_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.code_signing_config_id = input;
-         self
-@@ -86,7 +85,6 @@
-         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
-     pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.code_signing_config_arn = input;
-         self
-@@ -100,7 +98,6 @@
-         self.description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Code signing configuration description.</p>
-     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.description = input;
-         self
-@@ -110,12 +107,10 @@
+@@ -110,7 +110,6 @@
          &self.description
      }
      /// <p>List of allowed publishers.</p>
@@ -19287,12 +18451,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn allowed_publishers(mut self, input: crate::types::AllowedPublishers) -> Self {
          self.allowed_publishers = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>List of allowed publishers.</p>
-     pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
-         self.allowed_publishers = input;
-         self
-@@ -125,12 +120,10 @@
+@@ -125,7 +124,6 @@
          &self.allowed_publishers
      }
      /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
@@ -19300,20 +18459,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn code_signing_policies(mut self, input: crate::types::CodeSigningPolicies) -> Self {
          self.code_signing_policies = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
-     pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
-         self.code_signing_policies = input;
-         self
-@@ -145,7 +138,6 @@
-         self.last_modified = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_modified = input;
-         self
-@@ -156,9 +148,9 @@
+@@ -156,9 +154,9 @@
      }
      /// Consumes the builder and constructs a [`CodeSigningConfig`](crate::types::CodeSigningConfig).
      /// This method will fail if any of the following fields are not set:
@@ -19328,22 +18474,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              code_signing_config_id: self.code_signing_config_id.ok_or_else(|| {
 ```
 
-### `src/types/_code_signing_policies.rs`
-
-```diff
---- reference/src/types/_code_signing_policies.rs
-+++ generated/src/types/_code_signing_policies.rs
-@@ -35,8 +35,6 @@
-         self.untrusted_artifact_on_deployment = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and issues a new Amazon CloudWatch metric (<code>SignatureValidationErrors</code>) and also stores the warning in the CloudTrail log.</p>
--    /// <p>Default value: <code>Warn</code></p>
-     pub fn set_untrusted_artifact_on_deployment(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicy>) -> Self {
-         self.untrusted_artifact_on_deployment = input;
-         self
-```
-
 ### `src/types/_concurrency.rs`
 
 ```diff
@@ -19355,14 +18485,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -31,7 +32,6 @@
-         self.reserved_concurrent_executions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved concurrency</a>.</p>
-     pub fn set_reserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.reserved_concurrent_executions = input;
-         self
 ```
 
 ### `src/types/_context_details.rs`
@@ -19404,31 +18526,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct ContextDetailsBuilder {
      pub(crate) replay_children: ::std::option::Option<bool>,
-@@ -55,7 +46,6 @@
-         self.replay_children = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Whether the state data of child operations of this completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
-     pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.replay_children = input;
-         self
-@@ -69,7 +59,6 @@
-         self.result = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The response payload from the context.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.result = input;
-         self
-@@ -83,7 +72,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the context failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.error = input;
-         self
-@@ -101,12 +89,3 @@
+@@ -101,12 +92,3 @@
          }
      }
  }
@@ -19448,33 +18546,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_context_failed_details.rs
 +++ generated/src/types/_context_failed_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ContextFailedDetailsBuilder {
      /// <p>Details about the context failure.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the context failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
-         self
-```
-
-### `src/types/_context_options.rs`
-
-```diff
---- reference/src/types/_context_options.rs
-+++ generated/src/types/_context_options.rs
-@@ -32,7 +32,6 @@
-         self.replay_children = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Whether the state data of children of the completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
-     pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.replay_children = input;
          self
 ```
 
@@ -19483,18 +18561,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_context_succeeded_details.rs
 +++ generated/src/types/_context_succeeded_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ContextSucceededDetailsBuilder {
      /// <p>The JSON response payload from the successful context.</p>
 -    /// This field is required.
      pub fn result(mut self, input: crate::types::EventResult) -> Self {
          self.result = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The JSON response payload from the successful context.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
-         self.result = input;
          self
 ```
 
@@ -19531,15 +18604,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expose_headers(&self) -> &[::std::string::String] {
          self.expose_headers.as_deref().unwrap_or_default()
      }
-@@ -77,7 +69,6 @@
-         self.allow_credentials = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Whether to allow cookies or other credentials in requests to your function URL. The default is <code>false</code>.</p>
-     pub fn set_allow_credentials(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.allow_credentials = input;
-         self
-@@ -86,11 +77,10 @@
+@@ -86,11 +78,10 @@
      pub fn get_allow_credentials(&self) -> &::std::option::Option<bool> {
          &self.allow_credentials
      }
@@ -19552,15 +18617,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn allow_headers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.allow_headers.unwrap_or_default();
          v.push(input.into());
-@@ -97,7 +87,6 @@
-         self.allow_headers = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
-     pub fn set_allow_headers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.allow_headers = input;
-         self
-@@ -106,11 +95,10 @@
+@@ -106,11 +97,10 @@
      pub fn get_allow_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.allow_headers
      }
@@ -19573,15 +18630,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn allow_methods(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.allow_methods.unwrap_or_default();
          v.push(input.into());
-@@ -117,7 +105,6 @@
-         self.allow_methods = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
-     pub fn set_allow_methods(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.allow_methods = input;
-         self
-@@ -126,12 +113,11 @@
+@@ -126,12 +116,11 @@
      pub fn get_allow_methods(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.allow_methods
      }
@@ -19596,16 +18645,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn allow_origins(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.allow_origins.unwrap_or_default();
          v.push(input.into());
-@@ -138,8 +124,6 @@
-         self.allow_origins = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p>
--    /// <p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
-     pub fn set_allow_origins(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.allow_origins = input;
-         self
-@@ -149,11 +133,10 @@
+@@ -149,11 +138,10 @@
      pub fn get_allow_origins(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.allow_origins
      }
@@ -19618,122 +18658,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expose_headers(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.expose_headers.unwrap_or_default();
          v.push(input.into());
-@@ -160,7 +143,6 @@
-         self.expose_headers = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
-     pub fn set_expose_headers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.expose_headers = input;
-         self
-@@ -174,7 +156,6 @@
-         self.max_age = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to <code>0</code>, which means that the browser doesn't cache results.</p>
-     pub fn set_max_age(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_age = input;
-         self
-```
-
-### `src/types/_dead_letter_config.rs`
-
-```diff
---- reference/src/types/_dead_letter_config.rs
-+++ generated/src/types/_dead_letter_config.rs
-@@ -32,7 +32,6 @@
-         self.target_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
-     pub fn set_target_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.target_arn = input;
-         self
-```
-
-### `src/types/_destination_config.rs`
-
-```diff
---- reference/src/types/_destination_config.rs
-+++ generated/src/types/_destination_config.rs
-@@ -39,7 +39,6 @@
-         self.on_success = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The destination configuration for successful invocations. Not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code>.</p>
-     pub fn set_on_success(mut self, input: ::std::option::Option<crate::types::OnSuccess>) -> Self {
-         self.on_success = input;
-         self
-@@ -53,7 +52,6 @@
-         self.on_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The destination configuration for failed invocations.</p>
-     pub fn set_on_failure(mut self, input: ::std::option::Option<crate::types::OnFailure>) -> Self {
-         self.on_failure = input;
-         self
-```
-
-### `src/types/_document_db_event_source_config.rs`
-
-```diff
---- reference/src/types/_document_db_event_source_config.rs
-+++ generated/src/types/_document_db_event_source_config.rs
-@@ -46,7 +46,6 @@
-         self.database_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the database to consume within the DocumentDB cluster.</p>
-     pub fn set_database_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.database_name = input;
-         self
-@@ -60,7 +59,6 @@
-         self.collection_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.</p>
-     pub fn set_collection_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.collection_name = input;
-         self
-@@ -74,7 +72,6 @@
-         self.full_document = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.</p>
-     pub fn set_full_document(mut self, input: ::std::option::Option<crate::types::FullDocument>) -> Self {
-         self.full_document = input;
-         self
-```
-
-### `src/types/_durable_config.rs`
-
-```diff
---- reference/src/types/_durable_config.rs
-+++ generated/src/types/_durable_config.rs
-@@ -46,7 +46,6 @@
-         self.kms_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_key_arn = input;
-         self
-@@ -60,7 +59,6 @@
-         self.retention_period_in_days = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.</p>
-     pub fn set_retention_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.retention_period_in_days = input;
-         self
-@@ -74,7 +72,6 @@
-         self.execution_timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.</p>
-     pub fn set_execution_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.execution_timeout = input;
-         self
 ```
 
 ### `src/types/_environment.rs`
@@ -19764,7 +18688,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl Environment {
      /// Creates a new builder-style object to manufacture [`Environment`](crate::types::Environment).
      pub fn builder() -> crate::types::builders::EnvironmentBuilder {
-@@ -28,24 +21,22 @@
+@@ -28,21 +21,20 @@
  }
 
  /// A builder for [`Environment`](crate::types::Environment).
@@ -19790,11 +18714,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.variables = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
-     pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.variables = input;
-         self
-@@ -59,10 +50,3 @@
+     /// <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
+@@ -59,10 +51,3 @@
          crate::types::Environment { variables: self.variables }
      }
  }
@@ -19845,23 +18766,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct EnvironmentErrorBuilder {
      pub(crate) error_code: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error code.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -61,7 +52,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -19913,7 +18818,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct EnvironmentResponseBuilder {
      pub(crate) variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -42,18 +34,16 @@
+@@ -42,15 +34,14 @@
      pub(crate) error: ::std::option::Option<crate::types::EnvironmentError>,
  }
  impl EnvironmentResponseBuilder {
@@ -19932,19 +18837,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.variables = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
-     pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-         self.variables = input;
-         self
-@@ -67,7 +57,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Error messages for environment variables that couldn't be applied.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EnvironmentError>) -> Self {
-         self.error = input;
-         self
-@@ -84,11 +73,3 @@
+     /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
+@@ -84,11 +75,3 @@
          }
      }
  }
@@ -19963,15 +18857,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_ephemeral_storage.rs
 +++ generated/src/types/_ephemeral_storage.rs
-@@ -33,7 +33,6 @@
-         self.size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The size of the function's <code>/tmp</code> directory.</p>
-     pub fn set_size(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.size = input;
-         self
-@@ -44,7 +43,7 @@
+@@ -44,7 +44,7 @@
      }
      /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
      /// This method will fail if any of the following fields are not set:
@@ -20028,31 +18914,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct ErrorObjectBuilder {
      pub(crate) error_message: ::std::option::Option<::std::string::String>,
-@@ -65,7 +53,6 @@
-         self.error_message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A human-readable error message.</p>
-     pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_message = input;
-         self
-@@ -79,7 +66,6 @@
-         self.error_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error type.</p>
-     pub fn set_error_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_type = input;
-         self
-@@ -93,7 +79,6 @@
-         self.error_data = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Machine-readable error data.</p>
-     pub fn set_error_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_data = input;
-         self
-@@ -102,11 +87,10 @@
+@@ -102,11 +90,10 @@
      pub fn get_error_data(&self) -> &::std::option::Option<::std::string::String> {
          &self.error_data
      }
@@ -20065,15 +18927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn stack_trace(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.stack_trace.unwrap_or_default();
          v.push(input.into());
-@@ -113,7 +97,6 @@
-         self.stack_trace = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Stack trace information for the error.</p>
-     pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.stack_trace = input;
-         self
-@@ -132,13 +115,3 @@
+@@ -132,13 +119,3 @@
          }
      }
  }
@@ -20172,175 +19026,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn callback_timed_out_details(&self) -> ::std::option::Option<&crate::types::CallbackTimedOutDetails> {
          self.callback_timed_out_details.as_ref()
      }
-@@ -242,7 +230,6 @@
-         self.event_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of event that occurred.</p>
-     pub fn set_event_type(mut self, input: ::std::option::Option<crate::types::EventType>) -> Self {
-         self.event_type = input;
-         self
-@@ -256,7 +243,6 @@
-         self.sub_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The subtype of the event, providing additional categorization.</p>
-     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.sub_type = input;
-         self
-@@ -270,7 +256,6 @@
-         self.event_id = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The unique identifier for this event. Event IDs increment sequentially.</p>
-     pub fn set_event_id(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.event_id = input;
-         self
-@@ -284,7 +269,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for this operation.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -298,7 +282,6 @@
-         self.name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The customer-provided name for this operation.</p>
-     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.name = input;
-         self
-@@ -312,7 +295,6 @@
-         self.event_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when this event occurred, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_event_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.event_timestamp = input;
-         self
-@@ -326,7 +308,6 @@
-         self.parent_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
-     pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.parent_id = input;
-         self
-@@ -340,7 +321,6 @@
-         self.execution_started_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about an execution that started.</p>
-     pub fn set_execution_started_details(mut self, input: ::std::option::Option<crate::types::ExecutionStartedDetails>) -> Self {
-         self.execution_started_details = input;
-         self
-@@ -354,7 +334,6 @@
-         self.execution_succeeded_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about an execution that succeeded.</p>
-     pub fn set_execution_succeeded_details(mut self, input: ::std::option::Option<crate::types::ExecutionSucceededDetails>) -> Self {
-         self.execution_succeeded_details = input;
-         self
-@@ -368,7 +347,6 @@
-         self.execution_failed_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about an execution that failed.</p>
-     pub fn set_execution_failed_details(mut self, input: ::std::option::Option<crate::types::ExecutionFailedDetails>) -> Self {
-         self.execution_failed_details = input;
-         self
-@@ -382,7 +360,6 @@
-         self.execution_timed_out_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about an execution that timed out.</p>
-     pub fn set_execution_timed_out_details(mut self, input: ::std::option::Option<crate::types::ExecutionTimedOutDetails>) -> Self {
-         self.execution_timed_out_details = input;
-         self
-@@ -396,7 +373,6 @@
-         self.execution_stopped_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about an execution that was stopped.</p>
-     pub fn set_execution_stopped_details(mut self, input: ::std::option::Option<crate::types::ExecutionStoppedDetails>) -> Self {
-         self.execution_stopped_details = input;
-         self
-@@ -410,7 +386,6 @@
-         self.context_started_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a context that started.</p>
-     pub fn set_context_started_details(mut self, input: ::std::option::Option<crate::types::ContextStartedDetails>) -> Self {
-         self.context_started_details = input;
-         self
-@@ -424,7 +399,6 @@
-         self.context_succeeded_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a context that succeeded.</p>
-     pub fn set_context_succeeded_details(mut self, input: ::std::option::Option<crate::types::ContextSucceededDetails>) -> Self {
-         self.context_succeeded_details = input;
-         self
-@@ -438,7 +412,6 @@
-         self.context_failed_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a context that failed.</p>
-     pub fn set_context_failed_details(mut self, input: ::std::option::Option<crate::types::ContextFailedDetails>) -> Self {
-         self.context_failed_details = input;
-         self
-@@ -452,7 +425,6 @@
-         self.wait_started_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a wait operation that started.</p>
-     pub fn set_wait_started_details(mut self, input: ::std::option::Option<crate::types::WaitStartedDetails>) -> Self {
-         self.wait_started_details = input;
-         self
-@@ -466,7 +438,6 @@
-         self.wait_succeeded_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a wait operation that succeeded.</p>
-     pub fn set_wait_succeeded_details(mut self, input: ::std::option::Option<crate::types::WaitSucceededDetails>) -> Self {
-         self.wait_succeeded_details = input;
-         self
-@@ -480,7 +451,6 @@
-         self.wait_cancelled_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a wait operation that was cancelled.</p>
-     pub fn set_wait_cancelled_details(mut self, input: ::std::option::Option<crate::types::WaitCancelledDetails>) -> Self {
-         self.wait_cancelled_details = input;
-         self
-@@ -494,7 +464,6 @@
-         self.step_started_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a step that started.</p>
-     pub fn set_step_started_details(mut self, input: ::std::option::Option<crate::types::StepStartedDetails>) -> Self {
-         self.step_started_details = input;
-         self
-@@ -508,7 +477,6 @@
-         self.step_succeeded_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a step that succeeded.</p>
-     pub fn set_step_succeeded_details(mut self, input: ::std::option::Option<crate::types::StepSucceededDetails>) -> Self {
-         self.step_succeeded_details = input;
-         self
-@@ -522,7 +490,6 @@
-         self.step_failed_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a step that failed.</p>
-     pub fn set_step_failed_details(mut self, input: ::std::option::Option<crate::types::StepFailedDetails>) -> Self {
-         self.step_failed_details = input;
-         self
-@@ -531,17 +498,14 @@
+@@ -531,17 +519,14 @@
      pub fn get_step_failed_details(&self) -> &::std::option::Option<crate::types::StepFailedDetails> {
          &self.step_failed_details
      }
@@ -20358,15 +19044,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_chained_invoke_started_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeStartedDetails> {
          &self.chained_invoke_started_details
      }
-@@ -550,7 +514,6 @@
-         self.chained_invoke_succeeded_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a chained invocation that succeeded.</p>
-     pub fn set_chained_invoke_succeeded_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeSucceededDetails>) -> Self {
-         self.chained_invoke_succeeded_details = input;
-         self
-@@ -559,17 +522,14 @@
+@@ -559,17 +544,14 @@
      pub fn get_chained_invoke_succeeded_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeSucceededDetails> {
          &self.chained_invoke_succeeded_details
      }
@@ -20384,23 +19062,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_chained_invoke_failed_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeFailedDetails> {
          &self.chained_invoke_failed_details
      }
-@@ -578,7 +538,6 @@
-         self.chained_invoke_timed_out_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a chained invocation that timed out.</p>
-     pub fn set_chained_invoke_timed_out_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeTimedOutDetails>) -> Self {
-         self.chained_invoke_timed_out_details = input;
-         self
-@@ -592,7 +551,6 @@
-         self.chained_invoke_stopped_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a chained invocation that was stopped.</p>
-     pub fn set_chained_invoke_stopped_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeStoppedDetails>) -> Self {
-         self.chained_invoke_stopped_details = input;
-         self
-@@ -601,59 +559,47 @@
+@@ -601,59 +583,47 @@
      pub fn get_chained_invoke_stopped_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeStoppedDetails> {
          &self.chained_invoke_stopped_details
      }
@@ -20460,15 +19122,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_callback_timed_out_details(&self) -> &::std::option::Option<crate::types::CallbackTimedOutDetails> {
          &self.callback_timed_out_details
      }
-@@ -662,7 +608,6 @@
-         self.invocation_completed_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about a function invocation that completed.</p>
-     pub fn set_invocation_completed_details(mut self, input: ::std::option::Option<crate::types::InvocationCompletedDetails>) -> Self {
-         self.invocation_completed_details = input;
-         self
-@@ -676,7 +621,7 @@
+@@ -676,7 +646,7 @@
          crate::types::Event {
              event_type: self.event_type,
              sub_type: self.sub_type,
@@ -20477,29 +19131,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              id: self.id,
              name: self.name,
              event_timestamp: self.event_timestamp,
-```
-
-### `src/types/_event_error.rs`
-
-```diff
---- reference/src/types/_event_error.rs
-+++ generated/src/types/_event_error.rs
-@@ -39,7 +39,6 @@
-         self.payload = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The error payload.</p>
-     pub fn set_payload(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.payload = input;
-         self
-@@ -53,7 +52,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates if the error payload was truncated due to size limits.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
 ```
 
 ### `src/types/_event_input.rs`
@@ -20540,23 +19171,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct EventInputBuilder {
      pub(crate) payload: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.payload = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The input payload.</p>
-     pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.payload = input;
-         self
-@@ -61,7 +52,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates if the error payload was truncated due to size limits.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -20608,23 +19223,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct EventResultBuilder {
      pub(crate) payload: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.payload = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The result payload.</p>
-     pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.payload = input;
-         self
-@@ -61,7 +52,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates if the error payload was truncated due to size limits.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -20681,164 +19280,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_response_types(&self) -> &[crate::types::FunctionResponseType] {
          self.function_response_types.as_deref().unwrap_or_default()
      }
-@@ -278,7 +270,6 @@
-         self.uuid = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the event source mapping.</p>
-     pub fn set_uuid(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.uuid = input;
-         self
-@@ -292,7 +283,6 @@
-         self.starting_position = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
-     pub fn set_starting_position(mut self, input: ::std::option::Option<crate::types::EventSourcePosition>) -> Self {
-         self.starting_position = input;
-         self
-@@ -306,7 +296,6 @@
-         self.starting_position_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
-     pub fn set_starting_position_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.starting_position_timestamp = input;
-         self
-@@ -322,9 +311,6 @@
-         self.batch_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
--    /// <p>Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.</p>
--    /// <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
-     pub fn set_batch_size(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.batch_size = input;
-         self
-@@ -342,9 +328,6 @@
-         self.maximum_batching_window_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p>
--    /// <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p>
--    /// <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
-     pub fn set_maximum_batching_window_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_batching_window_in_seconds = input;
-         self
-@@ -360,7 +343,6 @@
-         self.parallelization_factor = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
-     pub fn set_parallelization_factor(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.parallelization_factor = input;
-         self
-@@ -374,7 +356,6 @@
-         self.event_source_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the event source.</p>
-     pub fn set_event_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.event_source_arn = input;
-         self
-@@ -389,8 +370,6 @@
-         self.filter_criteria = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
--    /// <p>If filter criteria is encrypted, this field shows up as <code>null</code> in the response of ListEventSourceMapping API calls. You can view this field in plaintext in the response of GetEventSourceMapping and DeleteEventSourceMapping calls if you have <code>kms:Decrypt</code> permissions for the correct KMS key.</p>
-     pub fn set_filter_criteria(mut self, input: ::std::option::Option<crate::types::FilterCriteria>) -> Self {
-         self.filter_criteria = input;
-         self
-@@ -405,7 +384,6 @@
-         self.filter_criteria_error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An object that contains details about an error related to filter criteria encryption.</p>
-     pub fn set_filter_criteria_error(mut self, input: ::std::option::Option<crate::types::FilterCriteriaError>) -> Self {
-         self.filter_criteria_error = input;
-         self
-@@ -419,7 +397,6 @@
-         self.kms_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
-     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_key_arn = input;
-         self
-@@ -433,7 +410,6 @@
-         self.metrics_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
-     pub fn set_metrics_config(mut self, input: ::std::option::Option<crate::types::EventSourceMappingMetricsConfig>) -> Self {
-         self.metrics_config = input;
-         self
-@@ -447,7 +423,6 @@
-         self.logging_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
-     pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::EventSourceMappingLoggingConfig>) -> Self {
-         self.logging_config = input;
-         self
-@@ -461,7 +436,6 @@
-         self.scaling_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
-     pub fn set_scaling_config(mut self, input: ::std::option::Option<crate::types::ScalingConfig>) -> Self {
-         self.scaling_config = input;
-         self
-@@ -475,7 +449,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the Lambda function.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -489,7 +462,6 @@
-         self.last_modified = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date that the event source mapping was last updated or that its state changed.</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_modified = input;
-         self
-@@ -503,7 +475,6 @@
-         self.last_processing_result = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The result of the event source mapping's last processing attempt.</p>
-     pub fn set_last_processing_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_processing_result = input;
-         self
-@@ -517,7 +488,6 @@
-         self.state = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>, <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>, <code>Updating</code>, or <code>Deleting</code>.</p>
-     pub fn set_state(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.state = input;
-         self
-@@ -531,7 +501,6 @@
-         self.state_transition_reason = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Indicates whether a user or Lambda made the last change to the event source mapping.</p>
-     pub fn set_state_transition_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.state_transition_reason = input;
-         self
-@@ -545,7 +514,6 @@
-         self.destination_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
-     pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
-         self.destination_config = input;
-         self
-@@ -554,11 +522,10 @@
+@@ -554,11 +546,10 @@
      pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> {
          &self.destination_config
      }
@@ -20851,15 +19293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn topics(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.topics.unwrap_or_default();
          v.push(input.into());
-@@ -565,7 +532,6 @@
-         self.topics = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The name of the Kafka topic.</p>
-     pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.topics = input;
-         self
-@@ -574,11 +540,10 @@
+@@ -574,11 +565,10 @@
      pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.topics
      }
@@ -20872,15 +19306,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn queues(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.queues.unwrap_or_default();
          v.push(input.into());
-@@ -585,7 +550,6 @@
-         self.queues = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>(Amazon MQ) The name of the Amazon MQ broker destination queue to consume.</p>
-     pub fn set_queues(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.queues = input;
-         self
-@@ -594,11 +558,10 @@
+@@ -594,11 +584,10 @@
      pub fn get_queues(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.queues
      }
@@ -20893,57 +19319,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn source_access_configurations(mut self, input: crate::types::SourceAccessConfiguration) -> Self {
          let mut v = self.source_access_configurations.unwrap_or_default();
          v.push(input);
-@@ -605,7 +568,6 @@
-         self.source_access_configurations = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
-     pub fn set_source_access_configurations(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::SourceAccessConfiguration>>,
-@@ -622,7 +584,6 @@
-         self.self_managed_event_source = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The self-managed Apache Kafka cluster for your event source.</p>
-     pub fn set_self_managed_event_source(mut self, input: ::std::option::Option<crate::types::SelfManagedEventSource>) -> Self {
-         self.self_managed_event_source = input;
-         self
-@@ -638,9 +599,6 @@
-         self.maximum_record_age_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p><note>
--    /// <p>The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed</p>
--    /// </note>
-     pub fn set_maximum_record_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_record_age_in_seconds = input;
-         self
-@@ -656,7 +614,6 @@
-         self.bisect_batch_on_function_error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry. The default value is false.</p>
-     pub fn set_bisect_batch_on_function_error(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.bisect_batch_on_function_error = input;
-         self
-@@ -670,7 +627,6 @@
-         self.maximum_retry_attempts = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
-     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_retry_attempts = input;
-         self
-@@ -684,7 +640,6 @@
-         self.tumbling_window_in_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
-     pub fn set_tumbling_window_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.tumbling_window_in_seconds = input;
-         self
-@@ -693,11 +648,10 @@
+@@ -693,11 +682,10 @@
      pub fn get_tumbling_window_in_seconds(&self) -> &::std::option::Option<i32> {
          &self.tumbling_window_in_seconds
      }
@@ -20956,54 +19332,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn function_response_types(mut self, input: crate::types::FunctionResponseType) -> Self {
          let mut v = self.function_response_types.unwrap_or_default();
          v.push(input);
-@@ -704,7 +658,6 @@
-         self.function_response_types = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
-     pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionResponseType>>) -> Self {
-         self.function_response_types = input;
-         self
-@@ -718,7 +671,6 @@
-         self.amazon_managed_kafka_event_source_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
-     pub fn set_amazon_managed_kafka_event_source_config(
-         mut self,
-         input: ::std::option::Option<crate::types::AmazonManagedKafkaEventSourceConfig>,
-@@ -735,7 +687,6 @@
-         self.self_managed_kafka_event_source_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
-     pub fn set_self_managed_kafka_event_source_config(
-         mut self,
-         input: ::std::option::Option<crate::types::SelfManagedKafkaEventSourceConfig>,
-@@ -752,7 +703,6 @@
-         self.document_db_event_source_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specific configuration settings for a DocumentDB event source.</p>
-     pub fn set_document_db_event_source_config(mut self, input: ::std::option::Option<crate::types::DocumentDbEventSourceConfig>) -> Self {
-         self.document_db_event_source_config = input;
-         self
-@@ -766,7 +716,6 @@
-         self.event_source_mapping_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
-     pub fn set_event_source_mapping_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.event_source_mapping_arn = input;
-         self
-@@ -780,7 +729,6 @@
-         self.provisioned_poller_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
-     pub fn set_provisioned_poller_config(mut self, input: ::std::option::Option<crate::types::ProvisionedPollerConfig>) -> Self {
-         self.provisioned_poller_config = input;
-         self
 ```
 
 ### `src/types/_event_source_mapping_logging_config.rs`
@@ -21025,7 +19353,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn system_log_level(&self) -> ::std::option::Option<&crate::types::EventSourceMappingSystemLogLevel> {
          self.system_log_level.as_ref()
      }
-@@ -27,17 +27,16 @@
+@@ -27,17 +27,17 @@
      pub(crate) system_log_level: ::std::option::Option<crate::types::EventSourceMappingSystemLogLevel>,
  }
  impl EventSourceMappingLoggingConfigBuilder {
@@ -21036,6 +19364,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html"> Event source mapping logging</a>.</p>
++    /// <p>The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
      pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::EventSourceMappingSystemLogLevel>) -> Self {
          self.system_log_level = input;
          self
@@ -21108,7 +19437,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn metrics(mut self, input: crate::types::EventSourceMappingMetric) -> Self {
          let mut v = self.metrics.unwrap_or_default();
          v.push(input);
-@@ -67,30 +37,11 @@
+@@ -67,30 +37,12 @@
          self.metrics = ::std::option::Option::Some(v);
          self
      }
@@ -21122,6 +19451,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li>
 -    /// </ul>
 -    /// <p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>.</p>
++    /// <p>The metrics you want your event source mapping to produce, including <code>EventCount</code>, <code>ErrorCount</code>, <code>KafkaMetrics</code>.</p><ul><li><p><code>EventCount</code> to receive metrics related to the number of events processed by your event source mapping.</p></li><li><p><code>ErrorCount</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.</p></li><li><p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li></ul><p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
      pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>) -> Self {
          self.metrics = input;
          self
@@ -21147,63 +19477,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_execution.rs
 +++ generated/src/types/_execution.rs
-@@ -78,7 +78,6 @@
-         self.durable_execution_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
-     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.durable_execution_arn = input;
-         self
-@@ -93,7 +92,6 @@
-         self.durable_execution_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
-     pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.durable_execution_name = input;
-         self
-@@ -108,7 +106,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -123,7 +120,6 @@
-         self.status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the durable execution.</p>
-     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
-         self.status = input;
-         self
-@@ -138,7 +134,6 @@
-         self.start_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.start_timestamp = input;
-         self
-@@ -152,7 +147,6 @@
-         self.end_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.end_timestamp = input;
-         self
-@@ -166,7 +160,6 @@
-         self.kms_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_key_arn = input;
-         self
-@@ -177,11 +170,11 @@
+@@ -177,11 +177,11 @@
      }
      /// Consumes the builder and constructs a [`Execution`](crate::types::Execution).
      /// This method will fail if any of the following fields are not set:
@@ -21259,15 +19533,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct ExecutionDetailsBuilder {
      pub(crate) input_payload: ::std::option::Option<::std::string::String>,
-@@ -39,7 +32,6 @@
-         self.input_payload = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The original input payload provided for the durable execution.</p>
-     pub fn set_input_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.input_payload = input;
-         self
-@@ -55,10 +47,3 @@
+@@ -55,10 +48,3 @@
          }
      }
  }
@@ -21285,18 +19551,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_execution_failed_details.rs
 +++ generated/src/types/_execution_failed_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ExecutionFailedDetailsBuilder {
      /// <p>Details about the execution failure.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the execution failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -21305,7 +19566,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_execution_started_details.rs
 +++ generated/src/types/_execution_started_details.rs
-@@ -35,12 +35,10 @@
+@@ -35,7 +35,6 @@
  }
  impl ExecutionStartedDetailsBuilder {
      /// <p>The input payload provided for the durable execution.</p>
@@ -21313,20 +19574,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn input(mut self, input: crate::types::EventInput) -> Self {
          self.input = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The input payload provided for the durable execution.</p>
-     pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
-         self.input = input;
-         self
-@@ -55,7 +53,6 @@
-         self.execution_timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
-     pub fn set_execution_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.execution_timeout = input;
-         self
-@@ -66,7 +63,7 @@
+@@ -66,7 +65,7 @@
      }
      /// Consumes the builder and constructs a [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
      /// This method will fail if any of the following fields are not set:
@@ -21342,18 +19590,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_execution_stopped_details.rs
 +++ generated/src/types/_execution_stopped_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ExecutionStoppedDetailsBuilder {
      /// <p>Details about why the execution stopped.</p>
 -    /// This field is required.
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about why the execution stopped.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -21362,33 +19605,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_execution_succeeded_details.rs
 +++ generated/src/types/_execution_succeeded_details.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl ExecutionSucceededDetailsBuilder {
      /// <p>The response payload from the successful operation.</p>
 -    /// This field is required.
      pub fn result(mut self, input: crate::types::EventResult) -> Self {
          self.result = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The response payload from the successful operation.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
-         self.result = input;
-         self
-```
-
-### `src/types/_execution_timed_out_details.rs`
-
-```diff
---- reference/src/types/_execution_timed_out_details.rs
-+++ generated/src/types/_execution_timed_out_details.rs
-@@ -32,7 +32,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the execution timeout.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
          self
 ```
 
@@ -21397,23 +19620,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_file_system_config.rs
 +++ generated/src/types/_file_system_config.rs
-@@ -42,7 +42,6 @@
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-@@ -57,7 +56,6 @@
-         self.local_mount_path = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
-     pub fn set_local_mount_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.local_mount_path = input;
-         self
-@@ -68,8 +66,8 @@
+@@ -68,8 +68,8 @@
      }
      /// Consumes the builder and constructs a [`FileSystemConfig`](crate::types::FileSystemConfig).
      /// This method will fail if any of the following fields are not set:
@@ -21445,7 +19652,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn pattern(&self) -> ::std::option::Option<&str> {
          self.pattern.as_deref()
      }
-@@ -27,17 +27,16 @@
+@@ -27,17 +27,17 @@
      pub(crate) pattern: ::std::option::Option<::std::string::String>,
  }
  impl FilterBuilder {
@@ -21456,6 +19663,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>A filter pattern. For more information on the syntax of a filter pattern, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax"> Filter rule syntax</a>.</p>
++    /// <p>A filter pattern. For more information on the syntax of a filter pattern, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax">Filter rule syntax</a>.</p>
      pub fn set_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.pattern = input;
          self
@@ -21494,37 +19702,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn filters(mut self, input: crate::types::Filter) -> Self {
          let mut v = self.filters.unwrap_or_default();
          v.push(input);
-@@ -40,7 +37,6 @@
-         self.filters = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of filters.</p>
-     pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
-         self.filters = input;
-         self
-```
-
-### `src/types/_filter_criteria_error.rs`
-
-```diff
---- reference/src/types/_filter_criteria_error.rs
-+++ generated/src/types/_filter_criteria_error.rs
-@@ -39,7 +39,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS exception that resulted from filter criteria encryption or decryption.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -53,7 +52,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
 ```
 
 ### `src/types/_function_code.rs`
@@ -21617,7 +19794,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
      pub(crate) s3_key: ::std::option::Option<::std::string::String>,
      pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
-@@ -95,17 +70,16 @@
+@@ -95,17 +70,17 @@
  }
  impl FunctionCodeBuilder {
      /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
@@ -21626,7 +19803,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.zip_file = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
+     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
 -    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.zip_file = input;
@@ -21638,31 +19815,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.zip_file
      }
      /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
-@@ -113,7 +87,6 @@
-         self.s3_bucket = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
-     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket = input;
-         self
-@@ -127,7 +100,6 @@
-         self.s3_key = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 key of the deployment package.</p>
-     pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_key = input;
-         self
-@@ -141,7 +113,6 @@
-         self.s3_object_version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>For versioned objects, the version of the deployment package object to use.</p>
-     pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_object_version = input;
-         self
-@@ -150,35 +121,16 @@
+@@ -150,35 +125,17 @@
      pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> {
          &self.s3_object_version
      }
@@ -21685,6 +19838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li>
 -    /// </ul>
++    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
      pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
          self.s3_object_storage_mode = input;
          self
@@ -21700,23 +19854,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
          &self.s3_object_storage_mode
      }
-@@ -187,7 +139,6 @@
-         self.image_uri = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
-     pub fn set_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.image_uri = input;
-         self
-@@ -201,7 +152,6 @@
-         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
-     pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_kms_key_arn = input;
-         self
-@@ -223,16 +173,3 @@
+@@ -223,16 +180,3 @@
          }
      }
  }
@@ -21733,69 +19871,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 -    }
 -}
-```
-
-### `src/types/_function_code_location.rs`
-
-```diff
---- reference/src/types/_function_code_location.rs
-+++ generated/src/types/_function_code_location.rs
-@@ -74,7 +74,6 @@
-         self.repository_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The service that's hosting the file.</p>
-     pub fn set_repository_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.repository_type = input;
-         self
-@@ -88,7 +87,6 @@
-         self.location = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A presigned URL that you can use to download the deployment package.</p>
-     pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.location = input;
-         self
-@@ -102,7 +100,6 @@
-         self.image_uri = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>URI of a container image in the Amazon ECR registry.</p>
-     pub fn set_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.image_uri = input;
-         self
-@@ -116,7 +113,6 @@
-         self.resolved_image_uri = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resolved URI for the image.</p>
-     pub fn set_resolved_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resolved_image_uri = input;
-         self
-@@ -130,7 +126,6 @@
-         self.resolved_s3_object = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The resolved Amazon S3 object that contains the deployment package.</p>
-     pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<crate::types::ResolvedS3Object>) -> Self {
-         self.resolved_s3_object = input;
-         self
-@@ -144,7 +139,6 @@
-         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
-     pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_kms_key_arn = input;
-         self
-@@ -158,7 +152,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An object that contains details about an error related to function deployment package retrieval.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::FunctionCodeLocationError>) -> Self {
-         self.error = input;
-         self
 ```
 
 ### `src/types/_function_code_location_error.rs`
@@ -21836,23 +19911,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct FunctionCodeLocationErrorBuilder {
      pub(crate) error_code: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error code that identifies why Lambda failed to retrieve the deployment package.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -61,7 +52,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The human-readable message that describes why Lambda failed to retrieve the deployment package.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -21974,23 +20033,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn architectures(&self) -> &[crate::types::Architecture] {
          self.architectures.as_deref().unwrap_or_default()
      }
-@@ -337,7 +309,6 @@
-         self.function_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the function.</p>
-     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_name = input;
-         self
-@@ -351,7 +322,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The function's Amazon Resource Name (ARN).</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -360,7 +330,7 @@
+@@ -360,7 +332,7 @@
      pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.function_arn
      }
@@ -21999,14 +20042,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
      pub fn runtime(mut self, input: crate::types::Runtime) -> Self {
-@@ -367,14 +337,11 @@
+@@ -367,7 +339,7 @@
          self.runtime = ::std::option::Option::Some(input);
          self
      }
 -    /// <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p>
--    /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
--    /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
++    /// <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p>
+     /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
      pub fn set_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self {
+@@ -374,7 +346,7 @@
          self.runtime = input;
          self
      }
@@ -22015,103 +20060,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
      /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
      pub fn get_runtime(&self) -> &::std::option::Option<crate::types::Runtime> {
-@@ -385,7 +352,6 @@
-         self.role = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The function's execution role.</p>
-     pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.role = input;
-         self
-@@ -399,7 +365,6 @@
-         self.handler = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The function that Lambda calls to begin running your function.</p>
-     pub fn set_handler(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.handler = input;
-         self
-@@ -413,7 +378,6 @@
-         self.code_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The size of the function's deployment package, in bytes.</p>
-     pub fn set_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.code_size = input;
-         self
-@@ -427,7 +391,6 @@
-         self.description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The function's description.</p>
-     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.description = input;
-         self
-@@ -441,7 +404,6 @@
-         self.timeout = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-     pub fn set_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.timeout = input;
-         self
-@@ -455,7 +417,6 @@
-         self.memory_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of memory available to the function at runtime.</p>
-     pub fn set_memory_size(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.memory_size = input;
-         self
-@@ -469,7 +430,6 @@
-         self.last_modified = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_modified = input;
-         self
-@@ -483,7 +443,6 @@
-         self.code_sha256 = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The SHA256 hash of the function's deployment package.</p>
-     pub fn set_code_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.code_sha256 = input;
-         self
-@@ -497,7 +456,6 @@
-         self.version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The version of the Lambda function.</p>
-     pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.version = input;
-         self
-@@ -511,7 +469,6 @@
-         self.vpc_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's networking configuration.</p>
-     pub fn set_vpc_config(mut self, input: ::std::option::Option<crate::types::VpcConfigResponse>) -> Self {
-         self.vpc_config = input;
-         self
-@@ -525,7 +482,6 @@
-         self.dead_letter_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's dead letter queue.</p>
-     pub fn set_dead_letter_config(mut self, input: ::std::option::Option<crate::types::DeadLetterConfig>) -> Self {
-         self.dead_letter_config = input;
-         self
-@@ -539,7 +495,6 @@
-         self.environment = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
-     pub fn set_environment(mut self, input: ::std::option::Option<crate::types::EnvironmentResponse>) -> Self {
-         self.environment = input;
-         self
-@@ -548,50 +503,16 @@
+@@ -548,50 +520,17 @@
      pub fn get_environment(&self) -> &::std::option::Option<crate::types::EnvironmentResponse> {
          &self.environment
      }
@@ -22144,6 +20093,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p></li>
 -    /// </ul>
 -    /// <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
++    /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p><ul><li><p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p></li><li><p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p></li><li><p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption">Specifying a customer managed key for Lambda</a>.</p></li><li><p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p></li></ul><p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
      pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.kms_key_arn = input;
          self
@@ -22164,31 +20114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.kms_key_arn
      }
-@@ -600,7 +521,6 @@
-         self.tracing_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's X-Ray tracing configuration.</p>
-     pub fn set_tracing_config(mut self, input: ::std::option::Option<crate::types::TracingConfigResponse>) -> Self {
-         self.tracing_config = input;
-         self
-@@ -614,7 +534,6 @@
-         self.master_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>For Lambda@Edge functions, the ARN of the main function.</p>
-     pub fn set_master_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.master_arn = input;
-         self
-@@ -628,7 +547,6 @@
-         self.revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The latest updated revision of the function or alias.</p>
-     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.revision_id = input;
-         self
-@@ -637,11 +555,10 @@
+@@ -637,11 +576,10 @@
      pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.revision_id
      }
@@ -22201,63 +20127,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn layers(mut self, input: crate::types::Layer) -> Self {
          let mut v = self.layers.unwrap_or_default();
          v.push(input);
-@@ -648,7 +565,6 @@
-         self.layers = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
-     pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Layer>>) -> Self {
-         self.layers = input;
-         self
-@@ -662,7 +578,6 @@
-         self.state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
-     pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
-         self.state = input;
-         self
-@@ -676,7 +591,6 @@
-         self.state_reason = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The reason for the function's current state.</p>
-     pub fn set_state_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.state_reason = input;
-         self
-@@ -690,7 +604,6 @@
-         self.state_reason_code = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
-     pub fn set_state_reason_code(mut self, input: ::std::option::Option<crate::types::StateReasonCode>) -> Self {
-         self.state_reason_code = input;
-         self
-@@ -704,7 +617,6 @@
-         self.last_update_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
-     pub fn set_last_update_status(mut self, input: ::std::option::Option<crate::types::LastUpdateStatus>) -> Self {
-         self.last_update_status = input;
-         self
-@@ -718,7 +630,6 @@
-         self.last_update_status_reason = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The reason for the last update that was performed on the function.</p>
-     pub fn set_last_update_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_update_status_reason = input;
-         self
-@@ -732,7 +643,6 @@
-         self.last_update_status_reason_code = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The reason code for the last update that was performed on the function.</p>
-     pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<crate::types::LastUpdateStatusReasonCode>) -> Self {
-         self.last_update_status_reason_code = input;
-         self
-@@ -741,11 +651,10 @@
+@@ -741,11 +679,10 @@
      pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<crate::types::LastUpdateStatusReasonCode> {
          &self.last_update_status_reason_code
      }
@@ -22270,47 +20140,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn file_system_configs(mut self, input: crate::types::FileSystemConfig) -> Self {
          let mut v = self.file_system_configs.unwrap_or_default();
          v.push(input);
-@@ -752,7 +661,6 @@
-         self.file_system_configs = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
-     pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FileSystemConfig>>) -> Self {
-         self.file_system_configs = input;
-         self
-@@ -766,7 +674,6 @@
-         self.signing_profile_version_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the signing profile version.</p>
-     pub fn set_signing_profile_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.signing_profile_version_arn = input;
-         self
-@@ -780,7 +687,6 @@
-         self.signing_job_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the signing job.</p>
-     pub fn set_signing_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.signing_job_arn = input;
-         self
-@@ -794,7 +700,6 @@
-         self.package_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
-     pub fn set_package_type(mut self, input: ::std::option::Option<crate::types::PackageType>) -> Self {
-         self.package_type = input;
-         self
-@@ -808,7 +713,6 @@
-         self.image_config_response = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's image configuration values.</p>
-     pub fn set_image_config_response(mut self, input: ::std::option::Option<crate::types::ImageConfigResponse>) -> Self {
-         self.image_config_response = input;
-         self
-@@ -817,11 +721,10 @@
+@@ -817,11 +754,10 @@
      pub fn get_image_config_response(&self) -> &::std::option::Option<crate::types::ImageConfigResponse> {
          &self.image_config_response
      }
@@ -22323,79 +20153,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn architectures(mut self, input: crate::types::Architecture) -> Self {
          let mut v = self.architectures.unwrap_or_default();
          v.push(input);
-@@ -828,7 +731,6 @@
-         self.architectures = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
-     pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
-         self.architectures = input;
-         self
-@@ -842,7 +744,6 @@
-         self.ephemeral_storage = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
-     pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<crate::types::EphemeralStorage>) -> Self {
-         self.ephemeral_storage = input;
-         self
-@@ -856,7 +757,6 @@
-         self.snap_start = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
-     pub fn set_snap_start(mut self, input: ::std::option::Option<crate::types::SnapStartResponse>) -> Self {
-         self.snap_start = input;
-         self
-@@ -870,7 +770,6 @@
-         self.runtime_version_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The ARN of the runtime and any errors that occured.</p>
-     pub fn set_runtime_version_config(mut self, input: ::std::option::Option<crate::types::RuntimeVersionConfig>) -> Self {
-         self.runtime_version_config = input;
-         self
-@@ -884,7 +783,6 @@
-         self.logging_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's Amazon CloudWatch Logs configuration settings.</p>
-     pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::LoggingConfig>) -> Self {
-         self.logging_config = input;
-         self
-@@ -898,7 +796,6 @@
-         self.tenancy_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
-     pub fn set_tenancy_config(mut self, input: ::std::option::Option<crate::types::TenancyConfig>) -> Self {
-         self.tenancy_config = input;
-         self
-@@ -912,7 +809,6 @@
-         self.capacity_provider_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
-     pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderConfig>) -> Self {
-         self.capacity_provider_config = input;
-         self
-@@ -926,7 +822,6 @@
-         self.config_sha256 = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The SHA256 hash of the function configuration.</p>
-     pub fn set_config_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.config_sha256 = input;
-         self
-@@ -940,7 +835,6 @@
-         self.durable_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
-     pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
-         self.durable_config = input;
-         self
-@@ -957,7 +851,7 @@
+@@ -957,7 +893,7 @@
              runtime: self.runtime,
              role: self.role,
              handler: self.handler,
@@ -22404,29 +20162,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              description: self.description,
              timeout: self.timeout,
              memory_size: self.memory_size,
-```
-
-### `src/types/_function_scaling_config.rs`
-
-```diff
---- reference/src/types/_function_scaling_config.rs
-+++ generated/src/types/_function_scaling_config.rs
-@@ -39,7 +39,6 @@
-         self.min_execution_environments = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The minimum number of execution environments to maintain for the function.</p>
-     pub fn set_min_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.min_execution_environments = input;
-         self
-@@ -53,7 +52,6 @@
-         self.max_execution_environments = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of execution environments that can be provisioned for the function.</p>
-     pub fn set_max_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_execution_environments = input;
-         self
 ```
 
 ### `src/types/_function_url_config.rs`
@@ -22464,55 +20199,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn invoke_mode(&self) -> ::std::option::Option<&crate::types::InvokeMode> {
          self.invoke_mode.as_ref()
      }
-@@ -91,7 +79,6 @@
-         self.function_url = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The HTTP URL endpoint for your function.</p>
-     pub fn set_function_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_url = input;
-         self
-@@ -106,7 +93,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of your function.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -121,7 +107,6 @@
-         self.creation_time = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_creation_time(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.creation_time = input;
-         self
-@@ -136,7 +121,6 @@
-         self.last_modified_time = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_last_modified_time(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_modified_time = input;
-         self
-@@ -150,7 +134,6 @@
-         self.cors = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
-     pub fn set_cors(mut self, input: ::std::option::Option<crate::types::Cors>) -> Self {
-         self.cors = input;
-         self
-@@ -165,7 +148,6 @@
-         self.auth_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
-     pub fn set_auth_type(mut self, input: ::std::option::Option<crate::types::FunctionUrlAuthType>) -> Self {
-         self.auth_type = input;
-         self
-@@ -174,45 +156,26 @@
+@@ -174,45 +162,27 @@
      pub fn get_auth_type(&self) -> &::std::option::Option<crate::types::FunctionUrlAuthType> {
          &self.auth_type
      }
@@ -22535,6 +20222,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li>
 -    /// </ul>
++    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
      pub fn set_invoke_mode(mut self, input: ::std::option::Option<crate::types::InvokeMode>) -> Self {
          self.invoke_mode = input;
          self
@@ -22572,23 +20260,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_function_versions_by_capacity_provider_list_item.rs
 +++ generated/src/types/_function_versions_by_capacity_provider_list_item.rs
-@@ -41,7 +41,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the function version.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -56,7 +55,6 @@
-         self.state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current state of the function version.</p>
-     pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
-         self.state = input;
-         self
-@@ -67,8 +65,8 @@
+@@ -67,8 +67,8 @@
      }
      /// Consumes the builder and constructs a [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
      /// This method will fail if any of the following fields are not set:
@@ -22634,15 +20306,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn entry_point(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.entry_point.unwrap_or_default();
          v.push(input.into());
-@@ -56,7 +51,6 @@
-         self.entry_point = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
-     pub fn set_entry_point(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.entry_point = input;
-         self
-@@ -65,11 +59,10 @@
+@@ -65,11 +60,10 @@
      pub fn get_entry_point(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.entry_point
      }
@@ -22655,22 +20319,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn command(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.command.unwrap_or_default();
          v.push(input.into());
-@@ -76,7 +69,6 @@
-         self.command = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
-     pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.command = input;
-         self
-@@ -90,7 +82,6 @@
-         self.working_directory = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specifies the working directory.</p>
-     pub fn set_working_directory(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.working_directory = input;
-         self
 ```
 
 ### `src/types/_image_config_error.rs`
@@ -22711,23 +20359,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct ImageConfigErrorBuilder {
      pub(crate) error_code: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Error code.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -61,7 +52,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Error message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -22739,29 +20371,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 -    }
 -}
-```
-
-### `src/types/_image_config_response.rs`
-
-```diff
---- reference/src/types/_image_config_response.rs
-+++ generated/src/types/_image_config_response.rs
-@@ -39,7 +39,6 @@
-         self.image_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Configuration values that override the container image Dockerfile.</p>
-     pub fn set_image_config(mut self, input: ::std::option::Option<crate::types::ImageConfig>) -> Self {
-         self.image_config = input;
-         self
-@@ -53,7 +52,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Error response to <code>GetFunctionConfiguration</code>.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ImageConfigError>) -> Self {
-         self.error = input;
-         self
 ```
 
 ### `src/types/_instance_requirements.rs`
@@ -22803,15 +20412,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn architectures(mut self, input: crate::types::Architecture) -> Self {
          let mut v = self.architectures.unwrap_or_default();
          v.push(input);
-@@ -58,7 +51,6 @@
-         self.architectures = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
-     pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
-         self.architectures = input;
-         self
-@@ -67,11 +59,10 @@
+@@ -67,11 +60,10 @@
      pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
          &self.architectures
      }
@@ -22824,15 +20425,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.allowed_instance_types.unwrap_or_default();
          v.push(input.into());
-@@ -78,7 +69,6 @@
-         self.allowed_instance_types = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
-     pub fn set_allowed_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.allowed_instance_types = input;
-         self
-@@ -87,11 +77,10 @@
+@@ -87,11 +79,10 @@
      pub fn get_allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.allowed_instance_types
      }
@@ -22845,14 +20438,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.excluded_instance_types.unwrap_or_default();
          v.push(input.into());
-@@ -98,7 +87,6 @@
-         self.excluded_instance_types = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
-     pub fn set_excluded_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.excluded_instance_types = input;
-         self
 ```
 
 ### `src/types/_invocation_completed_details.rs`
@@ -22860,39 +20445,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_invocation_completed_details.rs
 +++ generated/src/types/_invocation_completed_details.rs
-@@ -55,7 +55,6 @@
-         self.start_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.start_timestamp = input;
-         self
-@@ -70,7 +69,6 @@
-         self.end_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.end_timestamp = input;
-         self
-@@ -85,7 +83,6 @@
-         self.request_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The request ID for the invocation.</p>
-     pub fn set_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.request_id = input;
-         self
-@@ -99,7 +96,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the invocation failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
-         self
-@@ -110,9 +106,9 @@
+@@ -110,9 +110,9 @@
      }
      /// Consumes the builder and constructs a [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
      /// This method will fail if any of the following fields are not set:
@@ -22940,7 +20493,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl InvokeResponseStreamUpdate {
      /// Creates a new builder-style object to manufacture [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
      pub fn builder() -> crate::types::builders::InvokeResponseStreamUpdateBuilder {
-@@ -28,24 +21,23 @@
+@@ -28,24 +21,24 @@
  }
 
  /// A builder for [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
@@ -22958,7 +20511,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.payload = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Data returned by your Lambda function.</p>
+     /// <p>Data returned by your Lambda function.</p>
 -    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.payload = input;
@@ -22970,7 +20523,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.payload
      }
      /// Consumes the builder and constructs a [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
-@@ -53,10 +45,3 @@
+@@ -53,10 +46,3 @@
          crate::types::InvokeResponseStreamUpdate { payload: self.payload }
      }
  }
@@ -22981,37 +20534,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 -    }
 -}
-```
-
-### `src/types/_invoke_with_response_stream_complete_event.rs`
-
-```diff
---- reference/src/types/_invoke_with_response_stream_complete_event.rs
-+++ generated/src/types/_invoke_with_response_stream_complete_event.rs
-@@ -46,7 +46,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An error code.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -60,7 +59,6 @@
-         self.error_details = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The details of any returned error.</p>
-     pub fn set_error_details(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_details = input;
-         self
-@@ -74,7 +72,6 @@
-         self.log_result = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
-     pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.log_result = input;
-         self
 ```
 
 ### `src/types/_invoke_with_response_stream_response_event.rs`
@@ -23075,29 +20597,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        matches!(self, Self::Unknown)
 -    }
 -}
-```
-
-### `src/types/_kafka_schema_registry_access_config.rs`
-
-```diff
---- reference/src/types/_kafka_schema_registry_access_config.rs
-+++ generated/src/types/_kafka_schema_registry_access_config.rs
-@@ -41,7 +41,6 @@
-         self.r#type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of authentication Lambda uses to access your schema registry.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>) -> Self {
-         self.r#type = input;
-         self
-@@ -55,7 +54,6 @@
-         self.uri = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.</p>
-     pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.uri = input;
-         self
 ```
 
 ### `src/types/_kafka_schema_registry_config.rs`
@@ -23167,7 +20666,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn schema_validation_configs(&self) -> &[crate::types::KafkaSchemaValidationConfig] {
          self.schema_validation_configs.as_deref().unwrap_or_default()
      }
-@@ -76,75 +48,36 @@
+@@ -76,75 +48,38 @@
      pub(crate) schema_validation_configs: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>,
  }
  impl KafkaSchemaRegistryConfigBuilder {
@@ -23190,6 +20689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>For Confluent schema registries, use the URL of the registry.</p></li>
 -    /// </ul>
++    /// <p>The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.</p><ul><li><p>For Glue schema registries, use the ARN of the registry.</p></li><li><p>For Confluent schema registries, use the URL of the registry.</p></li></ul>
      pub fn set_schema_registry_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.schema_registry_uri = input;
          self
@@ -23224,6 +20724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p></li>
 -    /// </ul>
++    /// <p>The record format that Lambda delivers to your function after schema validation.</p><ul><li><p>Choose <code>JSON</code> to have Lambda deliver the record to your function as a standard JSON object.</p></li><li><p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p></li></ul>
      pub fn set_event_record_format(mut self, input: ::std::option::Option<crate::types::SchemaRegistryEventRecordFormat>) -> Self {
          self.event_record_format = input;
          self
@@ -23248,15 +20749,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn access_configs(mut self, input: crate::types::KafkaSchemaRegistryAccessConfig) -> Self {
          let mut v = self.access_configs.unwrap_or_default();
          v.push(input);
-@@ -151,7 +84,6 @@
-         self.access_configs = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
-     pub fn set_access_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>>) -> Self {
-         self.access_configs = input;
-         self
-@@ -160,11 +92,10 @@
+@@ -160,11 +95,10 @@
      pub fn get_access_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaRegistryAccessConfig>> {
          &self.access_configs
      }
@@ -23269,29 +20762,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn schema_validation_configs(mut self, input: crate::types::KafkaSchemaValidationConfig) -> Self {
          let mut v = self.schema_validation_configs.unwrap_or_default();
          v.push(input);
-@@ -171,7 +102,6 @@
-         self.schema_validation_configs = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
-     pub fn set_schema_validation_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KafkaSchemaValidationConfig>>) -> Self {
-         self.schema_validation_configs = input;
-         self
-```
-
-### `src/types/_kafka_schema_validation_config.rs`
-
-```diff
---- reference/src/types/_kafka_schema_validation_config.rs
-+++ generated/src/types/_kafka_schema_validation_config.rs
-@@ -32,7 +32,6 @@
-         self.attribute = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
-     pub fn set_attribute(mut self, input: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>) -> Self {
-         self.attribute = input;
-         self
 ```
 
 ### `src/types/_lambda_managed_instances_capacity_provider_config.rs`
@@ -23328,23 +20798,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl LambdaManagedInstancesCapacityProviderConfigBuilder {
      /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-@@ -48,7 +48,6 @@
-         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-     pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.capacity_provider_arn = input;
-         self
-@@ -62,7 +61,6 @@
-         self.per_execution_environment_max_concurrency = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
-     pub fn set_per_execution_environment_max_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.per_execution_environment_max_concurrency = input;
-         self
-@@ -72,22 +70,21 @@
+@@ -72,22 +72,22 @@
          &self.per_execution_environment_max_concurrency
      }
      /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
@@ -23354,7 +20808,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.execution_environment_memory_gi_b_per_v_cpu = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
+     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
 -    pub fn set_execution_environment_memory_gib_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
 -        self.execution_environment_memory_gib_per_v_cpu = input;
 +    pub fn set_execution_environment_memory_gi_b_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
@@ -23374,7 +20828,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(
          self,
      ) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
-@@ -99,7 +96,7 @@
+@@ -99,7 +99,7 @@
                  )
              })?,
              per_execution_environment_max_concurrency: self.per_execution_environment_max_concurrency,
@@ -23408,39 +20862,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.code_size
      }
      /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-@@ -53,7 +53,6 @@
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-@@ -67,7 +66,6 @@
-         self.code_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The size of the layer archive in bytes.</p>
-     pub fn set_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.code_size = input;
-         self
-@@ -81,7 +79,6 @@
-         self.signing_profile_version_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-     pub fn set_signing_profile_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.signing_profile_version_arn = input;
-         self
-@@ -95,7 +92,6 @@
-         self.signing_job_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-     pub fn set_signing_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.signing_job_arn = input;
-         self
-@@ -108,7 +104,7 @@
+@@ -108,7 +108,7 @@
      pub fn build(self) -> crate::types::Layer {
          crate::types::Layer {
              arn: self.arn,
@@ -23537,31 +20959,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl LayerVersionContentInputBuilder {
      /// <p>The Amazon S3 bucket of the layer archive.</p>
-@@ -83,7 +60,6 @@
-         self.s3_bucket = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 bucket of the layer archive.</p>
-     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket = input;
-         self
-@@ -97,7 +73,6 @@
-         self.s3_key = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 key of the layer archive.</p>
-     pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_key = input;
-         self
-@@ -111,7 +86,6 @@
-         self.s3_object_version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>For versioned objects, the version of the layer archive object to use.</p>
-     pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_object_version = input;
-         self
-@@ -120,50 +94,30 @@
+@@ -120,50 +97,32 @@
      pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> {
          &self.s3_object_version
      }
@@ -23584,6 +20982,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li>
 -    /// </ul>
++    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
      pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
          self.s3_object_storage_mode = input;
          self
@@ -23605,7 +21004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.zip_file = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
+     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
 -    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.zip_file = input;
@@ -23617,7 +21016,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.zip_file
      }
      /// Consumes the builder and constructs a [`LayerVersionContentInput`](crate::types::LayerVersionContentInput).
-@@ -177,14 +131,3 @@
+@@ -177,14 +136,3 @@
          }
      }
  }
@@ -23657,55 +21056,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.code_size
      }
      /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-@@ -67,7 +67,6 @@
-         self.location = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
-     pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.location = input;
-         self
-@@ -81,7 +80,6 @@
-         self.code_sha256 = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The SHA-256 hash of the layer archive.</p>
-     pub fn set_code_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.code_sha256 = input;
-         self
-@@ -95,7 +93,6 @@
-         self.code_size = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The size of the layer archive in bytes.</p>
-     pub fn set_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.code_size = input;
-         self
-@@ -109,7 +106,6 @@
-         self.signing_profile_version_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-     pub fn set_signing_profile_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.signing_profile_version_arn = input;
-         self
-@@ -123,7 +119,6 @@
-         self.signing_job_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-     pub fn set_signing_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.signing_job_arn = input;
-         self
-@@ -137,7 +132,6 @@
-         self.resolved_s3_object = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The resolved Amazon S3 object that contains the layer archive.</p>
-     pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<crate::types::ResolvedS3Object>) -> Self {
-         self.resolved_s3_object = input;
-         self
-@@ -151,7 +145,7 @@
+@@ -151,7 +151,7 @@
          crate::types::LayerVersionContentOutput {
              location: self.location,
              code_sha256: self.code_sha256,
@@ -23757,39 +21108,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn compatible_runtimes(&self) -> &[crate::types::Runtime] {
          self.compatible_runtimes.as_deref().unwrap_or_default()
      }
-@@ -82,7 +78,6 @@
-         self.layer_version_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the layer version.</p>
-     pub fn set_layer_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.layer_version_arn = input;
-         self
-@@ -96,7 +91,6 @@
-         self.version = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The version number.</p>
-     pub fn set_version(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.version = input;
-         self
-@@ -110,7 +104,6 @@
-         self.description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The description of the version.</p>
-     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.description = input;
-         self
-@@ -124,7 +117,6 @@
-         self.created_date = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
-     pub fn set_created_date(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.created_date = input;
-         self
-@@ -133,11 +125,10 @@
+@@ -133,11 +129,10 @@
      pub fn get_created_date(&self) -> &::std::option::Option<::std::string::String> {
          &self.created_date
      }
@@ -23802,15 +21121,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn compatible_architectures(mut self, input: crate::types::Architecture) -> Self {
          let mut v = self.compatible_architectures.unwrap_or_default();
          v.push(input);
-@@ -144,7 +135,6 @@
-         self.compatible_architectures = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
-         self.compatible_architectures = input;
-         self
-@@ -153,13 +143,12 @@
+@@ -153,13 +148,12 @@
      pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
          &self.compatible_architectures
      }
@@ -23827,25 +21138,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn compatible_runtimes(mut self, input: crate::types::Runtime) -> Self {
          let mut v = self.compatible_runtimes.unwrap_or_default();
          v.push(input);
-@@ -166,9 +155,6 @@
-         self.compatible_runtimes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The layer's compatible runtimes.</p>
--    /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
--    /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>) -> Self {
-         self.compatible_runtimes = input;
-         self
-@@ -184,7 +170,6 @@
-         self.license_info = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The layer's open-source license.</p>
-     pub fn set_license_info(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.license_info = input;
-         self
-@@ -197,7 +182,7 @@
+@@ -197,7 +191,7 @@
      pub fn build(self) -> crate::types::LayerVersionsListItem {
          crate::types::LayerVersionsListItem {
              layer_version_arn: self.layer_version_arn,
@@ -23854,76 +21147,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              description: self.description,
              created_date: self.created_date,
              compatible_architectures: self.compatible_architectures,
-```
-
-### `src/types/_layers_list_item.rs`
-
-```diff
---- reference/src/types/_layers_list_item.rs
-+++ generated/src/types/_layers_list_item.rs
-@@ -46,7 +46,6 @@
-         self.layer_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the layer.</p>
-     pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.layer_name = input;
-         self
-@@ -60,7 +59,6 @@
-         self.layer_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
-     pub fn set_layer_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.layer_arn = input;
-         self
-@@ -74,7 +72,6 @@
-         self.latest_matching_version = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The newest version of the layer.</p>
-     pub fn set_latest_matching_version(mut self, input: ::std::option::Option<crate::types::LayerVersionsListItem>) -> Self {
-         self.latest_matching_version = input;
-         self
-```
-
-### `src/types/_logging_config.rs`
-
-```diff
---- reference/src/types/_logging_config.rs
-+++ generated/src/types/_logging_config.rs
-@@ -53,7 +53,6 @@
-         self.log_format = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
-     pub fn set_log_format(mut self, input: ::std::option::Option<crate::types::LogFormat>) -> Self {
-         self.log_format = input;
-         self
-@@ -67,7 +66,6 @@
-         self.application_log_level = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
-     pub fn set_application_log_level(mut self, input: ::std::option::Option<crate::types::ApplicationLogLevel>) -> Self {
-         self.application_log_level = input;
-         self
-@@ -81,7 +79,6 @@
-         self.system_log_level = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-     pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
-         self.system_log_level = input;
-         self
-@@ -95,7 +92,6 @@
-         self.log_group = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
-     pub fn set_log_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.log_group = input;
-         self
 ```
 
 ### `src/types/_on_failure.rs`
@@ -23951,7 +21174,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn destination(&self) -> ::std::option::Option<&str> {
          self.destination.as_deref()
      }
-@@ -38,17 +36,11 @@
+@@ -38,8 +36,7 @@
      /// <p>The Amazon Resource Name (ARN) of the destination resource.</p>
      /// <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.</p><note>
      /// <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p>
@@ -23961,16 +21184,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn destination(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.destination = ::std::option::Option::Some(input.into());
          self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the destination resource.</p>
--    /// <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.</p><note>
--    /// <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p>
+@@ -47,8 +44,7 @@
+     /// <p>The Amazon Resource Name (ARN) of the destination resource.</p>
+     /// <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.</p><note>
+     /// <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p>
 -    /// </note>
 -    /// <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
++    /// </note><p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
      pub fn set_destination(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.destination = input;
          self
-@@ -56,8 +48,7 @@
+@@ -56,8 +52,7 @@
      /// <p>The Amazon Resource Name (ARN) of the destination resource.</p>
      /// <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.</p><note>
      /// <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p>
@@ -23980,23 +21204,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_destination(&self) -> &::std::option::Option<::std::string::String> {
          &self.destination
      }
-```
-
-### `src/types/_on_success.rs`
-
-```diff
---- reference/src/types/_on_success.rs
-+++ generated/src/types/_on_success.rs
-@@ -41,9 +41,6 @@
-         self.destination = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the destination resource.</p><note>
--    /// <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p>
--    /// </note>
-     pub fn set_destination(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.destination = input;
-         self
 ```
 
 ### `src/types/_operation.rs`
@@ -24026,103 +21233,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn chained_invoke_details(&self) -> ::std::option::Option<&crate::types::ChainedInvokeDetails> {
          self.chained_invoke_details.as_ref()
      }
-@@ -125,7 +121,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for this operation.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -139,7 +134,6 @@
-         self.parent_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
-     pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.parent_id = input;
-         self
-@@ -153,7 +147,6 @@
-         self.name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The customer-provided name for this operation.</p>
-     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.name = input;
-         self
-@@ -168,7 +161,6 @@
-         self.r#type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of operation.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
-         self.r#type = input;
-         self
-@@ -182,7 +174,6 @@
-         self.sub_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The subtype of the operation, providing additional categorization.</p>
-     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.sub_type = input;
-         self
-@@ -197,7 +188,6 @@
-         self.start_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the operation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.start_timestamp = input;
-         self
-@@ -211,7 +201,6 @@
-         self.end_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the operation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.end_timestamp = input;
-         self
-@@ -226,7 +215,6 @@
-         self.status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the operation.</p>
-     pub fn set_status(mut self, input: ::std::option::Option<crate::types::OperationStatus>) -> Self {
-         self.status = input;
-         self
-@@ -240,7 +228,6 @@
-         self.execution_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the execution, if this operation represents an execution.</p>
-     pub fn set_execution_details(mut self, input: ::std::option::Option<crate::types::ExecutionDetails>) -> Self {
-         self.execution_details = input;
-         self
-@@ -254,7 +241,6 @@
-         self.context_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the context, if this operation represents a context.</p>
-     pub fn set_context_details(mut self, input: ::std::option::Option<crate::types::ContextDetails>) -> Self {
-         self.context_details = input;
-         self
-@@ -268,7 +254,6 @@
-         self.step_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the step, if this operation represents a step.</p>
-     pub fn set_step_details(mut self, input: ::std::option::Option<crate::types::StepDetails>) -> Self {
-         self.step_details = input;
-         self
-@@ -282,7 +267,6 @@
-         self.wait_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the wait operation, if this operation represents a wait.</p>
-     pub fn set_wait_details(mut self, input: ::std::option::Option<crate::types::WaitDetails>) -> Self {
-         self.wait_details = input;
-         self
-@@ -291,40 +275,34 @@
+@@ -291,40 +287,34 @@
      pub fn get_wait_details(&self) -> &::std::option::Option<crate::types::WaitDetails> {
          &self.wait_details
      }
@@ -24237,95 +21348,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct OperationUpdateBuilder {
      pub(crate) id: ::std::option::Option<::std::string::String>,
-@@ -137,7 +114,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for this operation.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
-@@ -151,7 +127,6 @@
-         self.parent_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
-     pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.parent_id = input;
-         self
-@@ -165,7 +140,6 @@
-         self.name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The customer-provided name for this operation.</p>
-     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.name = input;
-         self
-@@ -180,7 +154,6 @@
-         self.r#type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of operation to update.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
-         self.r#type = input;
-         self
-@@ -194,7 +167,6 @@
-         self.sub_type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The subtype of the operation, providing additional categorization.</p>
-     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.sub_type = input;
-         self
-@@ -209,7 +181,6 @@
-         self.action = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The action to take on the operation.</p>
-     pub fn set_action(mut self, input: ::std::option::Option<crate::types::OperationAction>) -> Self {
-         self.action = input;
-         self
-@@ -223,7 +194,6 @@
-         self.payload = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
-     pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.payload = input;
-         self
-@@ -237,7 +207,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The error information for failed operations.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.error = input;
-         self
-@@ -251,7 +220,6 @@
-         self.context_options = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Options for context operations.</p>
-     pub fn set_context_options(mut self, input: ::std::option::Option<crate::types::ContextOptions>) -> Self {
-         self.context_options = input;
-         self
-@@ -265,7 +233,6 @@
-         self.step_options = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Options for step operations.</p>
-     pub fn set_step_options(mut self, input: ::std::option::Option<crate::types::StepOptions>) -> Self {
-         self.step_options = input;
-         self
-@@ -279,7 +246,6 @@
-         self.wait_options = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Options for wait operations.</p>
-     pub fn set_wait_options(mut self, input: ::std::option::Option<crate::types::WaitOptions>) -> Self {
-         self.wait_options = input;
-         self
-@@ -288,39 +254,33 @@
+@@ -288,39 +265,33 @@
      pub fn get_wait_options(&self) -> &::std::option::Option<crate::types::WaitOptions> {
          &self.wait_options
      }
@@ -24368,7 +21391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::OperationUpdate {
              id: self.id.ok_or_else(|| {
-@@ -354,22 +314,3 @@
+@@ -354,22 +325,3 @@
          })
      }
  }
@@ -24398,15 +21421,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_propagate_tags.rs
 +++ generated/src/types/_propagate_tags.rs
-@@ -39,7 +39,6 @@
-         self.mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-     pub fn set_mode(mut self, input: ::std::option::Option<crate::types::PropagateTagsMode>) -> Self {
-         self.mode = input;
-         self
-@@ -48,18 +47,16 @@
+@@ -48,15 +48,14 @@
      pub fn get_mode(&self) -> &::std::option::Option<crate::types::PropagateTagsMode> {
          &self.mode
      }
@@ -24425,10 +21440,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.explicit_tags = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
-     pub fn set_explicit_tags(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
 ```
 
 ### `src/types/_propagate_tags_mode.rs`
@@ -24448,69 +21460,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
 ```
 
-### `src/types/_provisioned_concurrency_config_list_item.rs`
-
-```diff
---- reference/src/types/_provisioned_concurrency_config_list_item.rs
-+++ generated/src/types/_provisioned_concurrency_config_list_item.rs
-@@ -74,7 +74,6 @@
-         self.function_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the alias or version.</p>
-     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.function_arn = input;
-         self
-@@ -88,7 +87,6 @@
-         self.requested_provisioned_concurrent_executions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of provisioned concurrency requested.</p>
-     pub fn set_requested_provisioned_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.requested_provisioned_concurrent_executions = input;
-         self
-@@ -102,7 +100,6 @@
-         self.available_provisioned_concurrent_executions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of provisioned concurrency available.</p>
-     pub fn set_available_provisioned_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.available_provisioned_concurrent_executions = input;
-         self
-@@ -116,7 +113,6 @@
-         self.allocated_provisioned_concurrent_executions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
-     pub fn set_allocated_provisioned_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.allocated_provisioned_concurrent_executions = input;
-         self
-@@ -130,7 +126,6 @@
-         self.status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The status of the allocation process.</p>
-     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ProvisionedConcurrencyStatusEnum>) -> Self {
-         self.status = input;
-         self
-@@ -144,7 +139,6 @@
-         self.status_reason = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
-     pub fn set_status_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.status_reason = input;
-         self
-@@ -158,7 +152,6 @@
-         self.last_modified = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-     pub fn set_last_modified(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_modified = input;
-         self
-```
-
 ### `src/types/_provisioned_poller_config.rs`
 
 ```diff
@@ -24524,61 +21473,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ProvisionedPollerConfig {
-@@ -46,7 +46,6 @@
-         self.minimum_pollers = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.</p>
-     pub fn set_minimum_pollers(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.minimum_pollers = input;
-         self
-@@ -60,7 +59,6 @@
-         self.maximum_pollers = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.</p>
-     pub fn set_maximum_pollers(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_pollers = input;
-         self
-@@ -74,7 +72,6 @@
-         self.poller_group_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
-     pub fn set_poller_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.poller_group_name = input;
-         self
-```
-
-### `src/types/_resolved_s3_object.rs`
-
-```diff
---- reference/src/types/_resolved_s3_object.rs
-+++ generated/src/types/_resolved_s3_object.rs
-@@ -46,7 +46,6 @@
-         self.s3_bucket = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 bucket that contains the deployment package.</p>
-     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket = input;
-         self
-@@ -60,7 +59,6 @@
-         self.s3_key = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 key of the deployment package.</p>
-     pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_key = input;
-         self
-@@ -74,7 +72,6 @@
-         self.s3_object_version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The version of the deployment package object.</p>
-     pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_object_version = input;
-         self
 ```
 
 ### `src/types/_retry_details.rs`
@@ -24602,23 +21496,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.current_attempt
      }
      /// <p>The delay before the next retry attempt, in seconds.</p>
-@@ -39,7 +39,6 @@
-         self.current_attempt = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current attempt number for this operation.</p>
-     pub fn set_current_attempt(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.current_attempt = input;
-         self
-@@ -53,7 +52,6 @@
-         self.next_attempt_delay_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The delay before the next retry attempt, in seconds.</p>
-     pub fn set_next_attempt_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.next_attempt_delay_seconds = input;
-         self
-@@ -65,7 +63,7 @@
+@@ -65,7 +65,7 @@
      /// Consumes the builder and constructs a [`RetryDetails`](crate::types::RetryDetails).
      pub fn build(self) -> crate::types::RetryDetails {
          crate::types::RetryDetails {
@@ -24627,29 +21505,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              next_attempt_delay_seconds: self.next_attempt_delay_seconds,
          }
      }
-```
-
-### `src/types/_runtime_version_config.rs`
-
-```diff
---- reference/src/types/_runtime_version_config.rs
-+++ generated/src/types/_runtime_version_config.rs
-@@ -39,7 +39,6 @@
-         self.runtime_version_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the runtime version you want the function to use.</p>
-     pub fn set_runtime_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.runtime_version_arn = input;
-         self
-@@ -53,7 +52,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::RuntimeVersionError>) -> Self {
-         self.error = input;
-         self
 ```
 
 ### `src/types/_runtime_version_error.rs`
@@ -24690,23 +21545,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct RuntimeVersionErrorBuilder {
      pub(crate) error_code: ::std::option::Option<::std::string::String>,
-@@ -47,7 +39,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error code.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -61,7 +52,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -78,11 +68,3 @@
+@@ -78,11 +70,3 @@
          }
      }
  }
@@ -24737,27 +21576,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
 ```
 
-### `src/types/_scaling_config.rs`
-
-```diff
---- reference/src/types/_scaling_config.rs
-+++ generated/src/types/_scaling_config.rs
-@@ -32,7 +32,6 @@
-         self.maximum_concurrency = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</p>
-     pub fn set_maximum_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.maximum_concurrency = input;
-         self
-```
-
 ### `src/types/_self_managed_event_source.rs`
 
 ```diff
 --- reference/src/types/_self_managed_event_source.rs
 +++ generated/src/types/_self_managed_event_source.rs
-@@ -29,18 +29,16 @@
+@@ -29,15 +29,14 @@
      pub(crate) endpoints: ::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
  }
  impl SelfManagedEventSourceBuilder {
@@ -24776,71 +21600,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.endpoints = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
-     pub fn set_endpoints(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
-```
-
-### `src/types/_self_managed_kafka_event_source_config.rs`
-
-```diff
---- reference/src/types/_self_managed_kafka_event_source_config.rs
-+++ generated/src/types/_self_managed_kafka_event_source_config.rs
-@@ -39,7 +39,6 @@
-         self.consumer_group_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add">Customizable consumer group ID</a>.</p>
-     pub fn set_consumer_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.consumer_group_id = input;
-         self
-@@ -53,7 +52,6 @@
-         self.schema_registry_config = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specific configuration settings for a Kafka schema registry.</p>
-     pub fn set_schema_registry_config(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryConfig>) -> Self {
-         self.schema_registry_config = input;
-         self
-```
-
-### `src/types/_snap_start.rs`
-
-```diff
---- reference/src/types/_snap_start.rs
-+++ generated/src/types/_snap_start.rs
-@@ -32,7 +32,6 @@
-         self.apply_on = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
-     pub fn set_apply_on(mut self, input: ::std::option::Option<crate::types::SnapStartApplyOn>) -> Self {
-         self.apply_on = input;
-         self
-```
-
-### `src/types/_snap_start_response.rs`
-
-```diff
---- reference/src/types/_snap_start_response.rs
-+++ generated/src/types/_snap_start_response.rs
-@@ -39,7 +39,6 @@
-         self.apply_on = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
-     pub fn set_apply_on(mut self, input: ::std::option::Option<crate::types::SnapStartApplyOn>) -> Self {
-         self.apply_on = input;
-         self
-@@ -53,7 +52,6 @@
-         self.optimization_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
-     pub fn set_optimization_status(mut self, input: ::std::option::Option<crate::types::SnapStartOptimizationStatus>) -> Self {
-         self.optimization_status = input;
-         self
+     /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
 ```
 
 ### `src/types/_source_access_configuration.rs`
@@ -24904,7 +21664,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn r#type(&self) -> ::std::option::Option<&crate::types::SourceAccessType> {
          self.r#type.as_ref()
      }
-@@ -74,77 +34,16 @@
+@@ -74,77 +34,17 @@
      pub(crate) uri: ::std::option::Option<::std::string::String>,
  }
  impl SourceAccessConfigurationBuilder {
@@ -24955,6 +21715,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SERVER_ROOT_CA_CERTIFICATE</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.</p></li>
 -    /// </ul>
++    /// <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> – (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>BASIC_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p></li><li><p><code>VPC_SUBNET</code> – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p></li><li><p><code>CLIENT_CERTIFICATE_TLS_AUTH</code> – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p></li><li><p><code>SERVER_ROOT_CA_CERTIFICATE</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.</p></li></ul>
      pub fn set_type(mut self, input: ::std::option::Option<crate::types::SourceAccessType>) -> Self {
          self.r#type = input;
          self
@@ -24984,14 +21745,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_type(&self) -> &::std::option::Option<crate::types::SourceAccessType> {
          &self.r#type
      }
-@@ -153,7 +52,6 @@
-         self.uri = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
-     pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.uri = input;
-         self
 ```
 
 ### `src/types/_step_details.rs`
@@ -25047,39 +21800,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct StepDetailsBuilder {
      pub(crate) attempt: ::std::option::Option<i32>,
-@@ -63,7 +53,6 @@
-         self.attempt = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current attempt number for this step.</p>
-     pub fn set_attempt(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.attempt = input;
-         self
-@@ -77,7 +66,6 @@
-         self.next_attempt_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
-     pub fn set_next_attempt_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.next_attempt_timestamp = input;
-         self
-@@ -91,7 +79,6 @@
-         self.result = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The JSON response payload from the step operation.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.result = input;
-         self
-@@ -105,7 +92,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about the step failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
-         self.error = input;
-         self
-@@ -117,7 +103,7 @@
+@@ -117,7 +107,7 @@
      /// Consumes the builder and constructs a [`StepDetails`](crate::types::StepDetails).
      pub fn build(self) -> crate::types::StepDetails {
          crate::types::StepDetails {
@@ -25088,7 +21809,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              next_attempt_timestamp: self.next_attempt_timestamp,
              result: self.result,
              error: self.error,
-@@ -124,13 +110,3 @@
+@@ -124,13 +114,3 @@
          }
      }
  }
@@ -25109,7 +21830,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_step_failed_details.rs
 +++ generated/src/types/_step_failed_details.rs
-@@ -35,12 +35,10 @@
+@@ -35,7 +35,6 @@
  }
  impl StepFailedDetailsBuilder {
      /// <p>Details about the step failure.</p>
@@ -25117,38 +21838,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn error(mut self, input: crate::types::EventError) -> Self {
          self.error = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Details about the step failure.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
-         self
-@@ -50,12 +48,10 @@
+@@ -50,7 +49,6 @@
          &self.error
      }
      /// <p>Information about retry attempts for this step operation.</p>
 -    /// This field is required.
      pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
          self.retry_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Information about retry attempts for this step operation.</p>
-     pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
-         self.retry_details = input;
-         self
-```
-
-### `src/types/_step_options.rs`
-
-```diff
---- reference/src/types/_step_options.rs
-+++ generated/src/types/_step_options.rs
-@@ -32,7 +32,6 @@
-         self.next_attempt_delay_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The delay in seconds before the next retry attempt.</p>
-     pub fn set_next_attempt_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.next_attempt_delay_seconds = input;
          self
 ```
 
@@ -25157,7 +21853,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_step_succeeded_details.rs
 +++ generated/src/types/_step_succeeded_details.rs
-@@ -35,12 +35,10 @@
+@@ -35,7 +35,6 @@
  }
  impl StepSucceededDetailsBuilder {
      /// <p>The response payload from the successful operation.</p>
@@ -25165,23 +21861,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn result(mut self, input: crate::types::EventResult) -> Self {
          self.result = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The response payload from the successful operation.</p>
-     pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
-         self.result = input;
-         self
-@@ -50,12 +48,10 @@
+@@ -50,7 +49,6 @@
          &self.result
      }
      /// <p>Information about retry attempts for this step operation.</p>
 -    /// This field is required.
      pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
          self.retry_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Information about retry attempts for this step operation.</p>
-     pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
-         self.retry_details = input;
          self
 ```
 
@@ -25190,23 +21876,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_tags_error.rs
 +++ generated/src/types/_tags_error.rs
-@@ -42,7 +42,6 @@
-         self.error_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error code.</p>
-     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.error_code = input;
-         self
-@@ -57,7 +56,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -68,8 +66,8 @@
+@@ -68,8 +68,8 @@
      }
      /// Consumes the builder and constructs a [`TagsError`](crate::types::TagsError).
      /// This method will fail if any of the following fields are not set:
@@ -25224,23 +21894,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_target_tracking_scaling_policy.rs
 +++ generated/src/types/_target_tracking_scaling_policy.rs
-@@ -40,7 +40,6 @@
-         self.predefined_metric_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The predefined metric type to track for scaling decisions.</p>
-     pub fn set_predefined_metric_type(mut self, input: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>) -> Self {
-         self.predefined_metric_type = input;
-         self
-@@ -55,7 +54,6 @@
-         self.target_value = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
-     pub fn set_target_value(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.target_value = input;
-         self
-@@ -66,8 +64,8 @@
+@@ -66,8 +66,8 @@
      }
      /// Consumes the builder and constructs a [`TargetTrackingScalingPolicy`](crate::types::TargetTrackingScalingPolicy).
      /// This method will fail if any of the following fields are not set:
@@ -25258,15 +21912,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_tenancy_config.rs
 +++ generated/src/types/_tenancy_config.rs
-@@ -33,7 +33,6 @@
-         self.tenant_isolation_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
-     pub fn set_tenant_isolation_mode(mut self, input: ::std::option::Option<crate::types::TenantIsolationMode>) -> Self {
-         self.tenant_isolation_mode = input;
-         self
-@@ -44,7 +43,7 @@
+@@ -44,7 +44,7 @@
      }
      /// Consumes the builder and constructs a [`TenancyConfig`](crate::types::TenancyConfig).
      /// This method will fail if any of the following fields are not set:
@@ -25275,51 +21921,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::TenancyConfig, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::TenancyConfig {
              tenant_isolation_mode: self.tenant_isolation_mode.ok_or_else(|| {
-```
-
-### `src/types/_trace_header.rs`
-
-```diff
---- reference/src/types/_trace_header.rs
-+++ generated/src/types/_trace_header.rs
-@@ -32,7 +32,6 @@
-         self.x_amzn_trace_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The X-Ray trace header associated with the durable execution.</p>
-     pub fn set_x_amzn_trace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.x_amzn_trace_id = input;
-         self
-```
-
-### `src/types/_tracing_config.rs`
-
-```diff
---- reference/src/types/_tracing_config.rs
-+++ generated/src/types/_tracing_config.rs
-@@ -32,7 +32,6 @@
-         self.mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The tracing mode.</p>
-     pub fn set_mode(mut self, input: ::std::option::Option<crate::types::TracingMode>) -> Self {
-         self.mode = input;
-         self
-```
-
-### `src/types/_tracing_config_response.rs`
-
-```diff
---- reference/src/types/_tracing_config_response.rs
-+++ generated/src/types/_tracing_config_response.rs
-@@ -32,7 +32,6 @@
-         self.mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The tracing mode.</p>
-     pub fn set_mode(mut self, input: ::std::option::Option<crate::types::TracingMode>) -> Self {
-         self.mode = input;
-         self
 ```
 
 ### `src/types/_vpc_config.rs`
@@ -25355,15 +21956,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.subnet_ids.unwrap_or_default();
          v.push(input.into());
-@@ -56,7 +51,6 @@
-         self.subnet_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of VPC subnet IDs.</p>
-     pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.subnet_ids = input;
-         self
-@@ -65,11 +59,10 @@
+@@ -65,11 +60,10 @@
      pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.subnet_ids
      }
@@ -25376,22 +21969,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.security_group_ids.unwrap_or_default();
          v.push(input.into());
-@@ -76,7 +69,6 @@
-         self.security_group_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of VPC security group IDs.</p>
-     pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.security_group_ids = input;
-         self
-@@ -90,7 +82,6 @@
-         self.ipv6_allowed_for_dual_stack = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
-     pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.ipv6_allowed_for_dual_stack = input;
-         self
 ```
 
 ### `src/types/_vpc_config_response.rs`
@@ -25427,15 +22004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.subnet_ids.unwrap_or_default();
          v.push(input.into());
-@@ -63,7 +58,6 @@
-         self.subnet_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of VPC subnet IDs.</p>
-     pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.subnet_ids = input;
-         self
-@@ -72,11 +66,10 @@
+@@ -72,11 +67,10 @@
      pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.subnet_ids
      }
@@ -25448,75 +22017,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.security_group_ids.unwrap_or_default();
          v.push(input.into());
-@@ -83,7 +76,6 @@
-         self.security_group_ids = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of VPC security group IDs.</p>
-     pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.security_group_ids = input;
-         self
-@@ -97,7 +89,6 @@
-         self.vpc_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ID of the VPC.</p>
-     pub fn set_vpc_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.vpc_id = input;
-         self
-@@ -111,7 +102,6 @@
-         self.ipv6_allowed_for_dual_stack = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
-     pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.ipv6_allowed_for_dual_stack = input;
-         self
-```
-
-### `src/types/_wait_cancelled_details.rs`
-
-```diff
---- reference/src/types/_wait_cancelled_details.rs
-+++ generated/src/types/_wait_cancelled_details.rs
-@@ -32,7 +32,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Details about why the wait operation was cancelled.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
-         self.error = input;
-         self
-```
-
-### `src/types/_wait_details.rs`
-
-```diff
---- reference/src/types/_wait_details.rs
-+++ generated/src/types/_wait_details.rs
-@@ -32,7 +32,6 @@
-         self.scheduled_end_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.scheduled_end_timestamp = input;
-         self
-```
-
-### `src/types/_wait_options.rs`
-
-```diff
---- reference/src/types/_wait_options.rs
-+++ generated/src/types/_wait_options.rs
-@@ -32,7 +32,6 @@
-         self.wait_seconds = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The duration to wait, in seconds.</p>
-     pub fn set_wait_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.wait_seconds = input;
-         self
 ```
 
 ### `src/types/_wait_started_details.rs`
@@ -25524,23 +22024,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_wait_started_details.rs
 +++ generated/src/types/_wait_started_details.rs
-@@ -40,7 +40,6 @@
-         self.duration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The duration to wait, in seconds.</p>
-     pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.duration = input;
-         self
-@@ -55,7 +54,6 @@
-         self.scheduled_end_timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.scheduled_end_timestamp = input;
-         self
-@@ -66,8 +64,8 @@
+@@ -66,8 +66,8 @@
      }
      /// Consumes the builder and constructs a [`WaitStartedDetails`](crate::types::WaitStartedDetails).
      /// This method will fail if any of the following fields are not set:
@@ -25551,173 +22035,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::WaitStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::WaitStartedDetails {
              duration: self.duration.ok_or_else(|| {
-```
-
-### `src/types/_wait_succeeded_details.rs`
-
-```diff
---- reference/src/types/_wait_succeeded_details.rs
-+++ generated/src/types/_wait_succeeded_details.rs
-@@ -32,7 +32,6 @@
-         self.duration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The wait duration, in seconds.</p>
-     pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.duration = input;
-         self
-```
-
-### `src/types/error/_alias_limit_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_alias_limit_exceeded_exception.rs
-+++ generated/src/types/error/_alias_limit_exceeded_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_callback_timeout_exception.rs`
-
-```diff
---- reference/src/types/error/_callback_timeout_exception.rs
-+++ generated/src/types/error/_callback_timeout_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-```
-
-### `src/types/error/_capacity_provider_limit_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_capacity_provider_limit_exceeded_exception.rs
-+++ generated/src/types/error/_capacity_provider_limit_exceeded_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-```
-
-### `src/types/error/_code_artifact_user_deleted_exception.rs`
-
-```diff
---- reference/src/types/error/_code_artifact_user_deleted_exception.rs
-+++ generated/src/types/error/_code_artifact_user_deleted_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_code_artifact_user_failed_exception.rs`
-
-```diff
---- reference/src/types/error/_code_artifact_user_failed_exception.rs
-+++ generated/src/types/error/_code_artifact_user_failed_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_code_artifact_user_pending_exception.rs`
-
-```diff
---- reference/src/types/error/_code_artifact_user_pending_exception.rs
-+++ generated/src/types/error/_code_artifact_user_pending_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_code_storage_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_code_storage_exceeded_exception.rs
-+++ generated/src/types/error/_code_storage_exceeded_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-```
-
-### `src/types/error/_durable_execution_already_started_exception.rs`
-
-```diff
---- reference/src/types/error/_durable_execution_already_started_exception.rs
-+++ generated/src/types/error/_durable_execution_already_started_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
 ```
 
 ### `src/types/error/_ec2_access_denied_exception.rs`
@@ -25862,83 +22179,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let ::std::option::Option::Some(inner_1) = &self.message {
              {
                  ::std::write!(f, ": {inner_1}")?;
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_function_versions_per_capacity_provider_limit_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_function_versions_per_capacity_provider_limit_exceeded_exception.rs
-+++ generated/src/types/error/_function_versions_per_capacity_provider_limit_exceeded_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-```
-
-### `src/types/error/_invalid_parameter_value_exception.rs`
-
-```diff
---- reference/src/types/error/_invalid_parameter_value_exception.rs
-+++ generated/src/types/error/_invalid_parameter_value_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_invalid_request_content_exception.rs`
-
-```diff
---- reference/src/types/error/_invalid_request_content_exception.rs
-+++ generated/src/types/error/_invalid_request_content_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
 ```
 
 ### `src/types/error/_invalid_security_group_id_exception.rs`
@@ -26037,44 +22277,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::write!(f, ": {inner_1}")?;
 ```
 
-### `src/types/error/_mode_not_supported_exception.rs`
-
-```diff
---- reference/src/types/error/_mode_not_supported_exception.rs
-+++ generated/src/types/error/_mode_not_supported_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_no_published_version_exception.rs`
-
-```diff
---- reference/src/types/error/_no_published_version_exception.rs
-+++ generated/src/types/error/_no_published_version_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-```
-
 ### `src/types/error/_precondition_failed_exception.rs`
 
 ```diff
@@ -26094,244 +22296,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct PreconditionFailedException {
-@@ -72,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -86,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_public_policy_exception.rs`
-
-```diff
---- reference/src/types/error/_public_policy_exception.rs
-+++ generated/src/types/error/_public_policy_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_recursive_invocation_exception.rs`
-
-```diff
---- reference/src/types/error/_recursive_invocation_exception.rs
-+++ generated/src/types/error/_recursive_invocation_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_resource_conflict_exception.rs`
-
-```diff
---- reference/src/types/error/_resource_conflict_exception.rs
-+++ generated/src/types/error/_resource_conflict_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_resource_not_ready_exception.rs`
-
-```diff
---- reference/src/types/error/_resource_not_ready_exception.rs
-+++ generated/src/types/error/_resource_not_ready_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_s3_files_mount_connectivity_exception.rs`
-
-```diff
---- reference/src/types/error/_s3_files_mount_connectivity_exception.rs
-+++ generated/src/types/error/_s3_files_mount_connectivity_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_s3_files_mount_failure_exception.rs`
-
-```diff
---- reference/src/types/error/_s3_files_mount_failure_exception.rs
-+++ generated/src/types/error/_s3_files_mount_failure_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_s3_files_mount_timeout_exception.rs`
-
-```diff
---- reference/src/types/error/_s3_files_mount_timeout_exception.rs
-+++ generated/src/types/error/_s3_files_mount_timeout_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_serialized_request_entity_too_large_exception.rs`
-
-```diff
---- reference/src/types/error/_serialized_request_entity_too_large_exception.rs
-+++ generated/src/types/error/_serialized_request_entity_too_large_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-```
-
-### `src/types/error/_service_quota_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_service_quota_exceeded_exception.rs
-+++ generated/src/types/error/_service_quota_exceeded_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_snap_start_regeneration_failure_exception.rs`
-
-```diff
---- reference/src/types/error/_snap_start_regeneration_failure_exception.rs
-+++ generated/src/types/error/_snap_start_regeneration_failure_exception.rs
-@@ -66,7 +66,6 @@
-         self.r#type = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception type.</p>
-     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.r#type = input;
-         self
-@@ -80,7 +79,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The exception message.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
 ```
 
 ### `src/types/error/_subnet_ip_address_limit_reached_exception.rs`
@@ -26348,21 +22312,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let ::std::option::Option::Some(inner_1) = &self.message {
              {
                  ::std::write!(f, ": {inner_1}")?;
-```
-
-### `src/types/error/_too_many_requests_exception.rs`
-
-```diff
---- reference/src/types/error/_too_many_requests_exception.rs
-+++ generated/src/types/error/_too_many_requests_exception.rs
-@@ -80,7 +80,6 @@
-         self.retry_after_seconds = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The number of seconds the caller should wait before retrying.</p>
-     pub fn set_retry_after_seconds(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.retry_after_seconds = input;
-         self
 ```
 
 ### `src/types/error/builders.rs`
@@ -29047,7 +24996,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/delete_resource_policy/builders.rs`
 - `src/operation/delete_resource_policy.rs`
 - `src/operation/get_account_settings/_get_account_settings_input.rs`
-- `src/operation/get_account_settings/_get_account_settings_output.rs`
 - `src/operation/get_account_settings/builders.rs`
 - `src/operation/get_account_settings.rs`
 - `src/operation/get_function_event_invoke_config/_get_function_event_invoke_config_input.rs`
@@ -29071,7 +25019,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/put_function_event_invoke_config/builders.rs`
 - `src/operation/put_function_event_invoke_config.rs`
 - `src/operation/put_resource_policy/_put_resource_policy_input.rs`
-- `src/operation/put_resource_policy/_put_resource_policy_output.rs`
 - `src/operation/put_resource_policy/builders.rs`
 - `src/operation/put_resource_policy.rs`
 - `src/operation/send_durable_execution_callback_failure/_send_durable_execution_callback_failure_input.rs`
@@ -29096,10 +25043,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation.rs`
 - `src/types/_account_limit.rs`
 - `src/types/_account_usage.rs`
-- `src/types/_alias_configuration.rs`
 - `src/types/_alias_routing_configuration.rs`
 - `src/types/_allowed_publishers.rs`
-- `src/types/_amazon_managed_kafka_event_source_config.rs`
 - `src/types/_callback_details.rs`
 - `src/types/_callback_failed_details.rs`
 - `src/types/_callback_options.rs`
@@ -29108,10 +25053,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_callback_timed_out_details.rs`
 - `src/types/_capacity_provider.rs`
 - `src/types/_capacity_provider_config.rs`
-- `src/types/_capacity_provider_logging_config.rs`
 - `src/types/_capacity_provider_permissions_config.rs`
 - `src/types/_capacity_provider_scaling_config.rs`
-- `src/types/_capacity_provider_telemetry_config.rs`
 - `src/types/_capacity_provider_vpc_config.rs`
 - `src/types/_chained_invoke_details.rs`
 - `src/types/_chained_invoke_failed_details.rs`
@@ -29122,24 +25065,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_chained_invoke_timed_out_details.rs`
 - `src/types/_checkpoint_updated_execution_state.rs`
 - `src/types/_code_signing_config.rs`
-- `src/types/_code_signing_policies.rs`
-- `src/types/_concurrency.rs`
 - `src/types/_context_details.rs`
 - `src/types/_context_failed_details.rs`
-- `src/types/_context_options.rs`
 - `src/types/_context_succeeded_details.rs`
 - `src/types/_cors.rs`
-- `src/types/_dead_letter_config.rs`
-- `src/types/_destination_config.rs`
-- `src/types/_document_db_event_source_config.rs`
-- `src/types/_durable_config.rs`
 - `src/types/_environment.rs`
 - `src/types/_environment_error.rs`
 - `src/types/_environment_response.rs`
 - `src/types/_ephemeral_storage.rs`
 - `src/types/_error_object.rs`
 - `src/types/_event.rs`
-- `src/types/_event_error.rs`
 - `src/types/_event_input.rs`
 - `src/types/_event_result.rs`
 - `src/types/_event_source_mapping_configuration.rs`
@@ -29151,80 +25086,46 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_execution_started_details.rs`
 - `src/types/_execution_stopped_details.rs`
 - `src/types/_execution_succeeded_details.rs`
-- `src/types/_execution_timed_out_details.rs`
 - `src/types/_file_system_config.rs`
 - `src/types/_filter.rs`
 - `src/types/_filter_criteria.rs`
-- `src/types/_filter_criteria_error.rs`
 - `src/types/_function_code.rs`
-- `src/types/_function_code_location.rs`
 - `src/types/_function_code_location_error.rs`
 - `src/types/_function_configuration.rs`
-- `src/types/_function_scaling_config.rs`
 - `src/types/_function_url_config.rs`
 - `src/types/_function_versions_by_capacity_provider_list_item.rs`
 - `src/types/_image_config.rs`
 - `src/types/_image_config_error.rs`
-- `src/types/_image_config_response.rs`
 - `src/types/_instance_requirements.rs`
 - `src/types/_invocation_completed_details.rs`
 - `src/types/_invoke_response_stream_update.rs`
-- `src/types/_invoke_with_response_stream_complete_event.rs`
 - `src/types/_invoke_with_response_stream_response_event.rs`
-- `src/types/_kafka_schema_registry_access_config.rs`
 - `src/types/_kafka_schema_registry_config.rs`
-- `src/types/_kafka_schema_validation_config.rs`
 - `src/types/_lambda_managed_instances_capacity_provider_config.rs`
 - `src/types/_layer.rs`
 - `src/types/_layer_version_content_input.rs`
 - `src/types/_layer_version_content_output.rs`
 - `src/types/_layer_versions_list_item.rs`
-- `src/types/_layers_list_item.rs`
-- `src/types/_logging_config.rs`
 - `src/types/_on_failure.rs`
-- `src/types/_on_success.rs`
 - `src/types/_operation.rs`
 - `src/types/_operation_update.rs`
 - `src/types/_propagate_tags.rs`
 - `src/types/_propagate_tags_mode.rs`
-- `src/types/_provisioned_concurrency_config_list_item.rs`
 - `src/types/_provisioned_poller_config.rs`
-- `src/types/_resolved_s3_object.rs`
 - `src/types/_retry_details.rs`
-- `src/types/_runtime_version_config.rs`
 - `src/types/_runtime_version_error.rs`
 - `src/types/_s3_object_storage_mode.rs`
-- `src/types/_scaling_config.rs`
 - `src/types/_self_managed_event_source.rs`
-- `src/types/_self_managed_kafka_event_source_config.rs`
-- `src/types/_snap_start.rs`
-- `src/types/_snap_start_response.rs`
 - `src/types/_source_access_configuration.rs`
 - `src/types/_step_details.rs`
 - `src/types/_step_failed_details.rs`
-- `src/types/_step_options.rs`
 - `src/types/_step_succeeded_details.rs`
 - `src/types/_tags_error.rs`
 - `src/types/_target_tracking_scaling_policy.rs`
 - `src/types/_tenancy_config.rs`
-- `src/types/_trace_header.rs`
-- `src/types/_tracing_config.rs`
-- `src/types/_tracing_config_response.rs`
 - `src/types/_vpc_config.rs`
 - `src/types/_vpc_config_response.rs`
-- `src/types/_wait_cancelled_details.rs`
-- `src/types/_wait_details.rs`
-- `src/types/_wait_options.rs`
 - `src/types/_wait_started_details.rs`
-- `src/types/_wait_succeeded_details.rs`
-- `src/types/error/_alias_limit_exceeded_exception.rs`
-- `src/types/error/_callback_timeout_exception.rs`
-- `src/types/error/_capacity_provider_limit_exceeded_exception.rs`
-- `src/types/error/_code_artifact_user_deleted_exception.rs`
-- `src/types/error/_code_artifact_user_failed_exception.rs`
-- `src/types/error/_code_artifact_user_pending_exception.rs`
-- `src/types/error/_code_storage_exceeded_exception.rs`
-- `src/types/error/_durable_execution_already_started_exception.rs`
 - `src/types/error/_ec2_access_denied_exception.rs`
 - `src/types/error/_ec2_throttled_exception.rs`
 - `src/types/error/_ec2_unexpected_exception.rs`
@@ -29234,29 +25135,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/error/_efsio_exception.rs`
 - `src/types/error/_eni_limit_reached_exception.rs`
 - `src/types/error/_eni_not_ready_exception.rs`
-- `src/types/error/_function_versions_per_capacity_provider_limit_exceeded_exception.rs`
-- `src/types/error/_invalid_parameter_value_exception.rs`
-- `src/types/error/_invalid_request_content_exception.rs`
 - `src/types/error/_invalid_security_group_id_exception.rs`
 - `src/types/error/_invalid_subnet_id_exception.rs`
 - `src/types/error/_kms_access_denied_exception.rs`
 - `src/types/error/_kms_disabled_exception.rs`
 - `src/types/error/_kms_invalid_state_exception.rs`
 - `src/types/error/_kms_not_found_exception.rs`
-- `src/types/error/_mode_not_supported_exception.rs`
-- `src/types/error/_no_published_version_exception.rs`
 - `src/types/error/_precondition_failed_exception.rs`
-- `src/types/error/_public_policy_exception.rs`
-- `src/types/error/_recursive_invocation_exception.rs`
-- `src/types/error/_resource_conflict_exception.rs`
-- `src/types/error/_resource_not_ready_exception.rs`
-- `src/types/error/_s3_files_mount_connectivity_exception.rs`
-- `src/types/error/_s3_files_mount_failure_exception.rs`
-- `src/types/error/_s3_files_mount_timeout_exception.rs`
-- `src/types/error/_serialized_request_entity_too_large_exception.rs`
-- `src/types/error/_service_quota_exceeded_exception.rs`
-- `src/types/error/_snap_start_regeneration_failure_exception.rs`
 - `src/types/error/_subnet_ip_address_limit_reached_exception.rs`
-- `src/types/error/_too_many_requests_exception.rs`
 - `src/types/error/builders.rs`
 - `src/types.rs`

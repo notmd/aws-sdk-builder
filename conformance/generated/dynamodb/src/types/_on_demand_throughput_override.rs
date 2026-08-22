@@ -32,6 +32,7 @@ impl OnDemandThroughputOverrideBuilder {
         self.max_read_request_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of read request units for the specified replica table.</p>
     pub fn set_max_read_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.max_read_request_units = input;
         self

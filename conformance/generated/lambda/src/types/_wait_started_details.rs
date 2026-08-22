@@ -40,6 +40,7 @@ impl WaitStartedDetailsBuilder {
         self.duration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The duration to wait, in seconds.</p>
     pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self {
         self.duration = input;
         self
@@ -54,6 +55,7 @@ impl WaitStartedDetailsBuilder {
         self.scheduled_end_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.scheduled_end_timestamp = input;
         self

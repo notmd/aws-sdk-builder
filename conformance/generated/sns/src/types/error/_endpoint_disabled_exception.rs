@@ -57,6 +57,7 @@ impl EndpointDisabledExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Message for endpoint disabled.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

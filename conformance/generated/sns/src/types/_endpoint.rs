@@ -39,6 +39,7 @@ impl EndpointBuilder {
         self.endpoint_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The <code>EndpointArn</code> for mobile app and device.</p>
     pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.endpoint_arn = input;
         self
@@ -57,6 +58,7 @@ impl EndpointBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Attributes for endpoint.</p>
     pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self

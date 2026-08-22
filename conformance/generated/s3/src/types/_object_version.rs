@@ -102,6 +102,7 @@ impl ObjectVersionBuilder {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The entity tag is an MD5 hash of that version of the object.</p>
     pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.e_tag = input;
         self
@@ -120,6 +121,7 @@ impl ObjectVersionBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The algorithm that was used to create a checksum of the object.</p>
     pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self {
         self.checksum_algorithm = input;
         self
@@ -133,6 +135,7 @@ impl ObjectVersionBuilder {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
         self.checksum_type = input;
         self
@@ -146,6 +149,7 @@ impl ObjectVersionBuilder {
         self.size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Size in bytes of the object.</p>
     pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
         self.size = input;
         self
@@ -159,6 +163,7 @@ impl ObjectVersionBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The class of storage used to store the object.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::ObjectVersionStorageClass>) -> Self {
         self.storage_class = input;
         self
@@ -172,6 +177,7 @@ impl ObjectVersionBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The object key.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -185,6 +191,7 @@ impl ObjectVersionBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Version ID of an object.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self
@@ -198,6 +205,7 @@ impl ObjectVersionBuilder {
         self.is_latest = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
     pub fn set_is_latest(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_latest = input;
         self
@@ -211,6 +219,7 @@ impl ObjectVersionBuilder {
         self.last_modified = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Date and time when the object was last modified.</p>
     pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified = input;
         self
@@ -224,6 +233,7 @@ impl ObjectVersionBuilder {
         self.owner = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the owner of the object.</p>
     pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
         self.owner = input;
         self
@@ -237,6 +247,7 @@ impl ObjectVersionBuilder {
         self.restore_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_restore_status(mut self, input: ::std::option::Option<crate::types::RestoreStatus>) -> Self {
         self.restore_status = input;
         self

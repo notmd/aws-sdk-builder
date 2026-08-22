@@ -40,6 +40,7 @@ impl CreateBackupInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -54,6 +55,7 @@ impl CreateBackupInputBuilder {
         self.backup_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specified name for the backup.</p>
     pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.backup_name = input;
         self

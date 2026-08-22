@@ -46,6 +46,7 @@ impl BatchStatementResponseBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The error associated with a failed PartiQL batch statement.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::BatchStatementError>) -> Self {
         self.error = input;
         self
@@ -59,6 +60,7 @@ impl BatchStatementResponseBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The table name associated with a failed PartiQL batch statement.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -77,6 +79,7 @@ impl BatchStatementResponseBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,

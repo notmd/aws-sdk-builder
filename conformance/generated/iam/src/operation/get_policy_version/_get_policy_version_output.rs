@@ -39,6 +39,7 @@ impl GetPolicyVersionOutputBuilder {
         self.policy_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the policy version.</p>
     pub fn set_policy_version(mut self, input: ::std::option::Option<crate::types::PolicyVersion>) -> Self {
         self.policy_version = input;
         self

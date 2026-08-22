@@ -39,6 +39,7 @@ impl CreateKeyOutputBuilder {
         self.key_metadata = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Metadata associated with the KMS key.</p>
     pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
         self.key_metadata = input;
         self

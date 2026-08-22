@@ -66,6 +66,7 @@ impl NoPublishedVersionExceptionBuilder {
         self.r#type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The exception type.</p>
     pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.r#type = input;
         self

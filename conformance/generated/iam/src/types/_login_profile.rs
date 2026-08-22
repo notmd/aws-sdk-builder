@@ -49,6 +49,7 @@ impl LoginProfileBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the user, which can be used for signing in to the Amazon Web Services Management Console.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -63,6 +64,7 @@ impl LoginProfileBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date when the password for the user was created.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
@@ -76,6 +78,7 @@ impl LoginProfileBuilder {
         self.password_reset_required = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the user is required to set a new password on next sign-in.</p>
     pub fn set_password_reset_required(mut self, input: ::std::option::Option<bool>) -> Self {
         self.password_reset_required = input;
         self

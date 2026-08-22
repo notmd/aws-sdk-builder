@@ -57,6 +57,7 @@ impl InvalidParameterValueExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The parameter of an entry in a request doesn't abide by the specification.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

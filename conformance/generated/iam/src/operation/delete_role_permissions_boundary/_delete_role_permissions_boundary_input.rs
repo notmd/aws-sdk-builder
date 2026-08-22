@@ -33,6 +33,7 @@ impl DeleteRolePermissionsBoundaryInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.</p>
     pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_name = input;
         self

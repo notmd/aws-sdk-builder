@@ -46,6 +46,7 @@ impl InvokeWithResponseStreamCompleteEventBuilder {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An error code.</p>
     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_code = input;
         self
@@ -59,6 +60,7 @@ impl InvokeWithResponseStreamCompleteEventBuilder {
         self.error_details = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The details of any returned error.</p>
     pub fn set_error_details(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_details = input;
         self
@@ -72,6 +74,7 @@ impl InvokeWithResponseStreamCompleteEventBuilder {
         self.log_result = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
     pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_result = input;
         self

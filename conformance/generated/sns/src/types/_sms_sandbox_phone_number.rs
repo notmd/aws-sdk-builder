@@ -40,6 +40,7 @@ impl SmsSandboxPhoneNumberBuilder {
         self.phone_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The destination phone number.</p>
     pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.phone_number = input;
         self
@@ -53,6 +54,7 @@ impl SmsSandboxPhoneNumberBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The destination phone number's verification status.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::SmsSandboxPhoneNumberVerificationStatus>) -> Self {
         self.status = input;
         self

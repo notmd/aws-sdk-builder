@@ -49,6 +49,7 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
         self.metadata_table_configuration_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
     pub fn set_metadata_table_configuration_result(mut self, input: ::std::option::Option<crate::types::MetadataTableConfigurationResult>) -> Self {
         self.metadata_table_configuration_result = input;
         self
@@ -63,6 +64,7 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The status of the metadata table. The status values are:</p><ul><li><p><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The metadata table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records. See <code>ErrorDetails</code> for details.</p></li></ul>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status = input;
         self
@@ -76,6 +78,7 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code and error message.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
         self.error = input;
         self

@@ -41,6 +41,7 @@ impl SourceRoleTemplateBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the role template that the role was created from.</p>
     pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_arn = input;
         self
@@ -55,6 +56,7 @@ impl SourceRoleTemplateBuilder {
         self.template_minor_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The minor version of the role template that was used to create the role.</p>
     pub fn set_template_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
         self.template_minor_version = input;
         self

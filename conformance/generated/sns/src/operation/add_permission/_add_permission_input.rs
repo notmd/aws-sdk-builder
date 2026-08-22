@@ -56,6 +56,7 @@ impl AddPermissionInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the topic whose access control policy you wish to modify.</p>
     pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.topic_arn = input;
         self
@@ -70,6 +71,7 @@ impl AddPermissionInputBuilder {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique identifier for the new policy statement.</p>
     pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.label = input;
         self
@@ -88,6 +90,7 @@ impl AddPermissionInputBuilder {
         self.aws_account_id = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
     pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.aws_account_id = input;
         self
@@ -107,6 +110,8 @@ impl AddPermissionInputBuilder {
         self.action_name = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The action you want to allow for the specified principal(s).</p>
+    /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
     pub fn set_action_name(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.action_name = input;
         self

@@ -46,6 +46,7 @@ impl GetBucketAbacOutputBuilder {
         self.abac_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The ABAC status of the general purpose bucket.</p>
     pub fn set_abac_status(mut self, input: ::std::option::Option<crate::types::AbacStatus>) -> Self {
         self.abac_status = input;
         self

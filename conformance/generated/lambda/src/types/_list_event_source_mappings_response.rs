@@ -39,6 +39,7 @@ impl ListEventSourceMappingsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -57,6 +58,7 @@ impl ListEventSourceMappingsResponseBuilder {
         self.event_source_mappings = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of event source mappings.</p>
     pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>) -> Self {
         self.event_source_mappings = input;
         self

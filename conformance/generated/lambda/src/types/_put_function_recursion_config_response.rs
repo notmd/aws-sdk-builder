@@ -38,6 +38,9 @@ impl PutFunctionRecursionConfigResponseBuilder {
         self.recursive_loop = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of your function's recursive loop detection configuration.</p>
+    /// <p>When this value is set to <code>Allow</code>and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.</p>
+    /// <p>When this value is set to <code>Terminate</code> and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.</p>
     pub fn set_recursive_loop(mut self, input: ::std::option::Option<crate::types::RecursiveLoop>) -> Self {
         self.recursive_loop = input;
         self

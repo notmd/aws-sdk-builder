@@ -46,6 +46,9 @@ impl GetBucketLocationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket for which to get the location.</p>
+    /// <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
+    /// <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of Error Codes</a>.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -61,6 +64,7 @@ impl GetBucketLocationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

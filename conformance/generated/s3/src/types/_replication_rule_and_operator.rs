@@ -40,6 +40,7 @@ impl ReplicationRuleAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -58,6 +59,7 @@ impl ReplicationRuleAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An array of tags containing key and value pairs.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

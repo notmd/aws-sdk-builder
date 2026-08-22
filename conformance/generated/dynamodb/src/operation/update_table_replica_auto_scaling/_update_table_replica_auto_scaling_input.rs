@@ -56,6 +56,7 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
         self.global_secondary_index_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
     pub fn set_global_secondary_index_updates(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>,
@@ -73,6 +74,7 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -105,6 +107,7 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
         self.replica_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
     pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>) -> Self {
         self.replica_updates = input;
         self

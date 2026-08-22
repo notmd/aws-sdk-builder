@@ -39,6 +39,7 @@ impl GetDataProtectionPolicyOutputBuilder {
         self.data_protection_policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p>
     pub fn set_data_protection_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.data_protection_policy = input;
         self

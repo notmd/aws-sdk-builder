@@ -53,6 +53,7 @@ impl WebsiteConfigurationBuilder {
         self.error_document = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The name of the error document for the website.</p>
     pub fn set_error_document(mut self, input: ::std::option::Option<crate::types::ErrorDocument>) -> Self {
         self.error_document = input;
         self
@@ -66,6 +67,7 @@ impl WebsiteConfigurationBuilder {
         self.index_document = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The name of the index document for the website.</p>
     pub fn set_index_document(mut self, input: ::std::option::Option<crate::types::IndexDocument>) -> Self {
         self.index_document = input;
         self
@@ -79,6 +81,7 @@ impl WebsiteConfigurationBuilder {
         self.redirect_all_requests_to = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The redirect behavior for every request to this bucket's website endpoint.</p> <important><p>If you specify this property, you can't specify any other property.</p></important>
     pub fn set_redirect_all_requests_to(mut self, input: ::std::option::Option<crate::types::RedirectAllRequestsTo>) -> Self {
         self.redirect_all_requests_to = input;
         self
@@ -97,6 +100,7 @@ impl WebsiteConfigurationBuilder {
         self.routing_rules = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     pub fn set_routing_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>) -> Self {
         self.routing_rules = input;
         self

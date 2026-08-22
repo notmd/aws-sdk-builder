@@ -3209,6 +3209,7 @@ fn render_type_builder(
             )
             .unwrap();
         }
+        render_builder_docs(output, member, &inner, false);
         render_deprecated_attribute(output, member, indent + 4);
         writeln!(
             output,

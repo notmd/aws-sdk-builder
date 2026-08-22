@@ -45,6 +45,8 @@ impl SetDefaultPolicyVersionInputBuilder {
         self.policy_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.</p>
+    /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_arn = input;
         self
@@ -61,6 +63,8 @@ impl SetDefaultPolicyVersionInputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version of the policy to set as the default (operative) version.</p>
+    /// <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self

@@ -50,6 +50,7 @@ impl ParameterizedStatementBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A PartiQL statement that uses parameters.</p>
     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.statement = input;
         self
@@ -68,6 +69,7 @@ impl ParameterizedStatementBuilder {
         self.parameters = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The parameter values.</p>
     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
         self.parameters = input;
         self
@@ -82,6 +84,8 @@ impl ParameterizedStatementBuilder {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
     pub fn set_return_values_on_condition_check_failure(
         mut self,
         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,

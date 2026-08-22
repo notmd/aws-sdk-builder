@@ -51,6 +51,8 @@ impl PublishOutputBuilder {
         self.message_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Unique identifier assigned to the published message.</p>
+    /// <p>Length Constraint: Maximum 100 characters</p>
     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_id = input;
         self
@@ -66,6 +68,8 @@ impl PublishOutputBuilder {
         self.sequence_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>This response element applies only to FIFO (first-in-first-out) topics.</p>
+    /// <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message. The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
     pub fn set_sequence_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sequence_number = input;
         self

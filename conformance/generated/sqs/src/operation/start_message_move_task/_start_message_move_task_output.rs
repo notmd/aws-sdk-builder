@@ -39,6 +39,7 @@ impl StartMessageMoveTaskOutputBuilder {
         self.task_handle = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier associated with a message movement task. You can use this identifier to cancel a specified message movement task using the <code>CancelMessageMoveTask</code> action.</p>
     pub fn set_task_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.task_handle = input;
         self

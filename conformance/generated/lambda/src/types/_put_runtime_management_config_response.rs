@@ -48,6 +48,7 @@ impl PutRuntimeManagementConfigResponseBuilder {
         self.update_runtime_on = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The runtime update mode.</p>
     pub fn set_update_runtime_on(mut self, input: ::std::option::Option<crate::types::UpdateRuntimeOn>) -> Self {
         self.update_runtime_on = input;
         self
@@ -62,6 +63,7 @@ impl PutRuntimeManagementConfigResponseBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the function</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_arn = input;
         self
@@ -75,6 +77,7 @@ impl PutRuntimeManagementConfigResponseBuilder {
         self.runtime_version_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
     pub fn set_runtime_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.runtime_version_arn = input;
         self

@@ -53,6 +53,7 @@ impl ContributorInsightsSummaryBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the table associated with the summary.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -66,6 +67,7 @@ impl ContributorInsightsSummaryBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the index associated with the summary, if any.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -79,6 +81,7 @@ impl ContributorInsightsSummaryBuilder {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
         self.contributor_insights_status = input;
         self
@@ -92,6 +95,7 @@ impl ContributorInsightsSummaryBuilder {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self

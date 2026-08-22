@@ -39,6 +39,7 @@ impl RetryDetailsBuilder {
         self.current_attempt = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current attempt number for this operation.</p>
     pub fn set_current_attempt(mut self, input: ::std::option::Option<i32>) -> Self {
         self.current_attempt = input;
         self
@@ -52,6 +53,7 @@ impl RetryDetailsBuilder {
         self.next_attempt_delay_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The delay before the next retry attempt, in seconds.</p>
     pub fn set_next_attempt_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.next_attempt_delay_seconds = input;
         self

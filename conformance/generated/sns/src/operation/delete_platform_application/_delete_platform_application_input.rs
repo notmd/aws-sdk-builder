@@ -33,6 +33,7 @@ impl DeletePlatformApplicationInputBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>PlatformApplicationArn</code> of platform application object to delete.</p>
     pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.platform_application_arn = input;
         self

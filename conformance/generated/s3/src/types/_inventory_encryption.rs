@@ -39,6 +39,7 @@ impl InventoryEncryptionBuilder {
         self.sses3 = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
     pub fn set_sses3(mut self, input: ::std::option::Option<crate::types::Sses3>) -> Self {
         self.sses3 = input;
         self
@@ -52,6 +53,7 @@ impl InventoryEncryptionBuilder {
         self.ssekms = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
     pub fn set_ssekms(mut self, input: ::std::option::Option<crate::types::Ssekms>) -> Self {
         self.ssekms = input;
         self

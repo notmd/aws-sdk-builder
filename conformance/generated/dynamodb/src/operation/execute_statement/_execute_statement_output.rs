@@ -63,6 +63,7 @@ impl ExecuteStatementOutputBuilder {
         self.items = ::std::option::Option::Some(v);
         self
     }
+    /// <p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>
     pub fn set_items(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
@@ -81,6 +82,7 @@ impl ExecuteStatementOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self
@@ -110,6 +112,7 @@ impl ExecuteStatementOutputBuilder {
         self.last_evaluated_key = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
     pub fn set_last_evaluated_key(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,

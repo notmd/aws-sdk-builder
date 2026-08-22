@@ -89,6 +89,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Region name of the replica.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self
@@ -102,6 +103,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
     pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
         self.replica_status = input;
         self
@@ -115,6 +117,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_billing_mode_summary = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The read/write capacity mode of the replica.</p>
     pub fn set_replica_billing_mode_summary(mut self, input: ::std::option::Option<crate::types::BillingModeSummary>) -> Self {
         self.replica_billing_mode_summary = input;
         self
@@ -128,6 +131,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_provisioned_read_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_replica_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.replica_provisioned_read_capacity_units = input;
         self
@@ -141,6 +145,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Auto scaling settings for a global table replica's read capacity units.</p>
     pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
@@ -159,6 +164,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_provisioned_write_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_replica_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.replica_provisioned_write_capacity_units = input;
         self
@@ -172,6 +178,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Auto scaling settings for a global table replica's write capacity units.</p>
     pub fn set_replica_provisioned_write_capacity_auto_scaling_settings(
         mut self,
         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
@@ -195,6 +202,7 @@ impl ReplicaSettingsDescriptionBuilder {
         self.replica_global_secondary_index_settings = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Replica global secondary index settings for the global table.</p>
     pub fn set_replica_global_secondary_index_settings(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsDescription>>,

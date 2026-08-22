@@ -94,6 +94,7 @@ impl ListObjectVersionsInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The bucket name that contains the objects.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -108,6 +109,8 @@ impl ListObjectVersionsInputBuilder {
         self.delimiter = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A delimiter is a character that you specify to group keys. All keys that contain the same string between the <code>prefix</code> and the first occurrence of the delimiter are grouped under a single result element in <code>CommonPrefixes</code>. These groups are counted as one result against the <code>max-keys</code> limitation. These keys are not returned elsewhere in the response.</p>
+    /// <p><code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p>
     pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delimiter = input;
         self
@@ -133,6 +136,7 @@ impl ListObjectVersionsInputBuilder {
         self.key_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specifies the key to start with when listing objects in a bucket.</p>
     pub fn set_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_marker = input;
         self
@@ -146,6 +150,7 @@ impl ListObjectVersionsInputBuilder {
         self.max_keys = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><isTruncated>true</isTruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
     pub fn set_max_keys(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_keys = input;
         self
@@ -159,6 +164,7 @@ impl ListObjectVersionsInputBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using <code>prefix</code> to make groups in the same way that you'd use a folder in a file system.) You can use <code>prefix</code> with <code>delimiter</code> to roll up numerous objects into a single result under <code>CommonPrefixes</code>.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -172,6 +178,7 @@ impl ListObjectVersionsInputBuilder {
         self.version_id_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specifies the object version you want to start listing from.</p>
     pub fn set_version_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id_marker = input;
         self
@@ -185,6 +192,7 @@ impl ListObjectVersionsInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
@@ -214,6 +222,7 @@ impl ListObjectVersionsInputBuilder {
         self.optional_object_attributes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
     pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self {
         self.optional_object_attributes = input;
         self

@@ -40,6 +40,7 @@ impl RecordExpirationBuilder {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
     pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::ExpirationState>) -> Self {
         self.expiration = input;
         self
@@ -53,6 +54,7 @@ impl RecordExpirationBuilder {
         self.days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from <code>7</code> to <code>2147483647</code>. For example, to retain your journal table records for one year, set this value to <code>365</code>.</p>
     pub fn set_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.days = input;
         self

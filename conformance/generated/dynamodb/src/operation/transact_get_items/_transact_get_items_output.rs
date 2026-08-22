@@ -53,6 +53,7 @@ impl TransactGetItemsOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(v);
         self
     }
+    /// <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
         self.consumed_capacity = input;
         self
@@ -72,6 +73,8 @@ impl TransactGetItemsOutputBuilder {
         self.responses = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
+    /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
     pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>) -> Self {
         self.responses = input;
         self

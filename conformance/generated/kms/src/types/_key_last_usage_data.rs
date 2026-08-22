@@ -53,6 +53,7 @@ impl KeyLastUsageDataBuilder {
         self.operation = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
     pub fn set_operation(mut self, input: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>) -> Self {
         self.operation = input;
         self
@@ -66,6 +67,7 @@ impl KeyLastUsageDataBuilder {
         self.timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
     pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.timestamp = input;
         self
@@ -79,6 +81,7 @@ impl KeyLastUsageDataBuilder {
         self.cloud_trail_event_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The CloudTrail <code>eventId</code> associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
     pub fn set_cloud_trail_event_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.cloud_trail_event_id = input;
         self
@@ -92,6 +95,7 @@ impl KeyLastUsageDataBuilder {
         self.kms_request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The KMS request ID associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
     pub fn set_kms_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_request_id = input;
         self

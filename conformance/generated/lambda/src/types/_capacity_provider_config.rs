@@ -34,6 +34,7 @@ impl CapacityProviderConfigBuilder {
         self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
     pub fn set_lambda_managed_instances_capacity_provider_config(
         mut self,
         input: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,

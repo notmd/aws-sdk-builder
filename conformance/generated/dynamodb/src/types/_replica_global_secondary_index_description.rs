@@ -53,6 +53,7 @@ impl ReplicaGlobalSecondaryIndexDescriptionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -66,6 +67,7 @@ impl ReplicaGlobalSecondaryIndexDescriptionBuilder {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If not described, uses the source table GSI's read capacity settings.</p>
     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
         self.provisioned_throughput_override = input;
         self
@@ -79,6 +81,7 @@ impl ReplicaGlobalSecondaryIndexDescriptionBuilder {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
         self.on_demand_throughput_override = input;
         self
@@ -92,6 +95,7 @@ impl ReplicaGlobalSecondaryIndexDescriptionBuilder {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self {
         self.warm_throughput = input;
         self

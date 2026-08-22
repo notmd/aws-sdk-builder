@@ -58,6 +58,7 @@ impl ListDirectoryBucketsOutputBuilder {
         self.buckets = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of buckets owned by the requester.</p>
     pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self {
         self.buckets = input;
         self
@@ -71,6 +72,7 @@ impl ListDirectoryBucketsOutputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If <code>ContinuationToken</code> was sent with the request, it is included in the response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self

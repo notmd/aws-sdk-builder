@@ -65,6 +65,7 @@ impl ListLayerVersionsRequestBuilder {
         self.compatible_architecture = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
     pub fn set_compatible_architecture(mut self, input: ::std::option::Option<crate::types::Architecture>) -> Self {
         self.compatible_architecture = input;
         self
@@ -80,6 +81,9 @@ impl ListLayerVersionsRequestBuilder {
         self.compatible_runtime = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A runtime identifier.</p>
+    /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
+    /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
     pub fn set_compatible_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self {
         self.compatible_runtime = input;
         self
@@ -96,6 +100,7 @@ impl ListLayerVersionsRequestBuilder {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
     pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.layer_name = input;
         self
@@ -109,6 +114,7 @@ impl ListLayerVersionsRequestBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A pagination token returned by a previous call.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -122,6 +128,7 @@ impl ListLayerVersionsRequestBuilder {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of versions to return.</p>
     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_items = input;
         self

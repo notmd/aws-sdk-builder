@@ -60,6 +60,7 @@ impl LayerVersionContentInputBuilder {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon S3 bucket of the layer archive.</p>
     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_bucket = input;
         self
@@ -73,6 +74,7 @@ impl LayerVersionContentInputBuilder {
         self.s3_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon S3 key of the layer archive.</p>
     pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_key = input;
         self
@@ -86,6 +88,7 @@ impl LayerVersionContentInputBuilder {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>For versioned objects, the version of the layer archive object to use.</p>
     pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_object_version = input;
         self
@@ -99,6 +102,7 @@ impl LayerVersionContentInputBuilder {
         self.s3_object_storage_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
     pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
         self.s3_object_storage_mode = input;
         self
@@ -112,6 +116,7 @@ impl LayerVersionContentInputBuilder {
         self.zip_file = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
     pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.zip_file = input;
         self

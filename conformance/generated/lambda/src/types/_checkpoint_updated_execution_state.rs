@@ -44,6 +44,7 @@ impl CheckpointUpdatedExecutionStateBuilder {
         self.operations = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of operations that have been updated since the last checkpoint.</p>
     pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
         self.operations = input;
         self
@@ -57,6 +58,7 @@ impl CheckpointUpdatedExecutionStateBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

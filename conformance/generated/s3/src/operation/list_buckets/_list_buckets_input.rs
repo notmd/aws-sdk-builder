@@ -65,6 +65,7 @@ impl ListBucketsInputBuilder {
         self.max_buckets = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
     pub fn set_max_buckets(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_buckets = input;
         self
@@ -82,6 +83,11 @@ impl ListBucketsInputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+    /// <p>Length Constraints: Minimum length of 0. Maximum length of 1024.</p>
+    /// <p>Required: No.</p><note>
+    /// <p>If you specify the <code>bucket-region</code>, <code>prefix</code>, or <code>continuation-token</code> query parameters without using <code>max-buckets</code> to set the maximum number of buckets returned in the response, Amazon S3 applies a default page size of 10,000 and provides a continuation token if there are more buckets.</p>
+    /// </note>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -99,6 +105,7 @@ impl ListBucketsInputBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Limits the response to bucket names that begin with the specified bucket name prefix.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -114,6 +121,9 @@ impl ListBucketsInputBuilder {
         self.bucket_region = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Limits the response to buckets that are located in the specified Amazon Web Services Region. The Amazon Web Services Region must be expressed according to the Amazon Web Services Region code, such as <code>us-west-2</code> for the US West (Oregon) Region. For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p><note>
+    /// <p>Requests made to a Regional endpoint that is different from the <code>bucket-region</code> parameter are not supported. For example, if you want to limit the response to your buckets in Region <code>us-west-2</code>, the request must be made to an endpoint in Region <code>us-west-2</code>.</p>
+    /// </note>
     pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_region = input;
         self

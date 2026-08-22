@@ -59,6 +59,7 @@ impl InventoryTableConfigurationResultBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
     pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self {
         self.configuration_state = input;
         self
@@ -72,6 +73,7 @@ impl InventoryTableConfigurationResultBuilder {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
     pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_status = input;
         self
@@ -96,6 +98,7 @@ impl InventoryTableConfigurationResultBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the inventory table.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -109,6 +112,7 @@ impl InventoryTableConfigurationResultBuilder {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) for the inventory table.</p>
     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_arn = input;
         self

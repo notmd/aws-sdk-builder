@@ -44,6 +44,7 @@ impl ListQueueTagsOutputBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The list of all tags added to the specified queue.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self

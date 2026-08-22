@@ -32,6 +32,7 @@ impl ConcurrencyBuilder {
         self.reserved_concurrent_executions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved concurrency</a>.</p>
     pub fn set_reserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.reserved_concurrent_executions = input;
         self

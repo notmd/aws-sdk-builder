@@ -191,6 +191,8 @@ impl RoleTemplateVersionBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) that identifies the role template.</p>
+    /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_arn = input;
         self
@@ -205,6 +207,7 @@ impl RoleTemplateVersionBuilder {
         self.template_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The friendly name that identifies the role template.</p>
     pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_name = input;
         self
@@ -218,6 +221,7 @@ impl RoleTemplateVersionBuilder {
         self.template_version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the role template version.</p>
     pub fn set_template_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_version_id = input;
         self
@@ -231,6 +235,7 @@ impl RoleTemplateVersionBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The description of the role template.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self
@@ -244,6 +249,7 @@ impl RoleTemplateVersionBuilder {
         self.major_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The major version number of the role template.</p>
     pub fn set_major_version(mut self, input: ::std::option::Option<i32>) -> Self {
         self.major_version = input;
         self
@@ -257,6 +263,7 @@ impl RoleTemplateVersionBuilder {
         self.default_minor_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The minor version that the service uses by default when you create a role from this template without specifying a minor version.</p>
     pub fn set_default_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
         self.default_minor_version = input;
         self
@@ -270,6 +277,7 @@ impl RoleTemplateVersionBuilder {
         self.managed_by_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates that the role template is managed by an Amazon Web Services service.</p>
     pub fn set_managed_by_type(mut self, input: ::std::option::Option<crate::types::ManagedByTypeType>) -> Self {
         self.managed_by_type = input;
         self
@@ -283,6 +291,7 @@ impl RoleTemplateVersionBuilder {
         self.managed_by_value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the Amazon Web Services service that manages the role template.</p>
     pub fn set_managed_by_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.managed_by_value = input;
         self
@@ -296,6 +305,7 @@ impl RoleTemplateVersionBuilder {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the role template is enabled. When a template is disabled, you cannot create roles from it.</p>
     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.enabled = input;
         self
@@ -309,6 +319,7 @@ impl RoleTemplateVersionBuilder {
         self.minor_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The minor version number of this role template version.</p>
     pub fn set_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
         self.minor_version = input;
         self
@@ -322,6 +333,7 @@ impl RoleTemplateVersionBuilder {
         self.role_name_pattern = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pattern that is used to generate the name of a role that is created from this template. The pattern can include <code>@{parameter}</code> placeholders that are replaced with the values you supply in the <code>ReplacementValues</code> parameter of <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
     pub fn set_role_name_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_name_pattern = input;
         self
@@ -335,6 +347,7 @@ impl RoleTemplateVersionBuilder {
         self.role_path_pattern = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pattern that is used to generate the path of a role that is created from this template.</p>
     pub fn set_role_path_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_path_pattern = input;
         self
@@ -348,6 +361,7 @@ impl RoleTemplateVersionBuilder {
         self.role_description_pattern = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pattern that is used to generate the description of a role that is created from this template.</p>
     pub fn set_role_description_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_description_pattern = input;
         self
@@ -361,6 +375,7 @@ impl RoleTemplateVersionBuilder {
         self.assume_role_policy_document_template = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The trust policy template that grants an entity permission to assume roles that you create from this template.</p>
     pub fn set_assume_role_policy_document_template(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.assume_role_policy_document_template = input;
         self
@@ -379,6 +394,7 @@ impl RoleTemplateVersionBuilder {
         self.inline_policy_templates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
     pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>>) -> Self {
         self.inline_policy_templates = input;
         self
@@ -397,6 +413,7 @@ impl RoleTemplateVersionBuilder {
         self.managed_policy_arns = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
     pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.managed_policy_arns = input;
         self
@@ -411,6 +428,8 @@ impl RoleTemplateVersionBuilder {
         self.permission_boundary_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the policy that sets the permissions boundary for roles that you create from this template.</p>
+    /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_permission_boundary_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.permission_boundary_arn = input;
         self
@@ -430,6 +449,7 @@ impl RoleTemplateVersionBuilder {
         self.parameters_definition = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
     pub fn set_parameters_definition(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>>) -> Self {
         self.parameters_definition = input;
         self
@@ -448,6 +468,7 @@ impl RoleTemplateVersionBuilder {
         self.role_tags_template = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
     pub fn set_role_tags_template(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagTemplate>>) -> Self {
         self.role_tags_template = input;
         self
@@ -461,6 +482,7 @@ impl RoleTemplateVersionBuilder {
         self.max_session_duration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum session duration (in seconds) for roles that are created from this template.</p>
     pub fn set_max_session_duration(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_session_duration = input;
         self
@@ -474,6 +496,7 @@ impl RoleTemplateVersionBuilder {
         self.version_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether this specific minor version of the role template is enabled.</p>
     pub fn set_version_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.version_enabled = input;
         self
@@ -487,6 +510,7 @@ impl RoleTemplateVersionBuilder {
         self.create_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was created.</p>
     pub fn set_create_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_timestamp = input;
         self
@@ -500,6 +524,7 @@ impl RoleTemplateVersionBuilder {
         self.update_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was last updated.</p>
     pub fn set_update_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.update_timestamp = input;
         self

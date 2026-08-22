@@ -62,6 +62,7 @@ impl RestoreObjectOutputBuilder {
         self.restore_output_path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
     pub fn set_restore_output_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.restore_output_path = input;
         self

@@ -39,6 +39,7 @@ impl ListLayersResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A pagination token returned when the response doesn't contain all layers.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -57,6 +58,7 @@ impl ListLayersResponseBuilder {
         self.layers = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of function layers.</p>
     pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>>) -> Self {
         self.layers = input;
         self

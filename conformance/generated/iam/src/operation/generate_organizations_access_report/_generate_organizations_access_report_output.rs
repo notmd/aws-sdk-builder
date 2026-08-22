@@ -39,6 +39,7 @@ impl GenerateOrganizationsAccessReportOutputBuilder {
         self.job_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The job identifier that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a> operation.</p>
     pub fn set_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.job_id = input;
         self

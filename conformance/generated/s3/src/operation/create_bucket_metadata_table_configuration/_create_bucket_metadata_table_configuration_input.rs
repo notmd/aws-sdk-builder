@@ -61,6 +61,7 @@ impl CreateBucketMetadataTableConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The general purpose bucket that you want to create the metadata table configuration for.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -74,6 +75,7 @@ impl CreateBucketMetadataTableConfigurationInputBuilder {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The <code>Content-MD5</code> header for the metadata table configuration.</p>
     pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.content_md5 = input;
         self
@@ -87,6 +89,7 @@ impl CreateBucketMetadataTableConfigurationInputBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The checksum algorithm to use with your metadata table configuration.</p>
     pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
@@ -100,6 +103,7 @@ impl CreateBucketMetadataTableConfigurationInputBuilder {
         self.metadata_table_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The contents of your metadata table configuration.</p>
     pub fn set_metadata_table_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableConfiguration>) -> Self {
         self.metadata_table_configuration = input;
         self
@@ -113,6 +117,7 @@ impl CreateBucketMetadataTableConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The expected owner of the general purpose bucket that corresponds to your metadata table configuration.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

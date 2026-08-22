@@ -39,6 +39,7 @@ impl FilterRuleBuilder {
         self.name = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_name(mut self, input: ::std::option::Option<crate::types::FilterRuleName>) -> Self {
         self.name = input;
         self
@@ -52,6 +53,7 @@ impl FilterRuleBuilder {
         self.value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The value that the filter searches for in object key names.</p>
     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.value = input;
         self

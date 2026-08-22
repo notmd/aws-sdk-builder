@@ -75,6 +75,7 @@ impl EntityInfoBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the entity (user or role).</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -89,6 +90,7 @@ impl EntityInfoBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of entity (user or role).</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self {
         self.r#type = input;
         self
@@ -103,6 +105,7 @@ impl EntityInfoBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the entity (user or role).</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -116,6 +119,7 @@ impl EntityInfoBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The path to the entity (user or role). For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.path = input;
         self

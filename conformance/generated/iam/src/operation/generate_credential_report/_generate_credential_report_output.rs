@@ -46,6 +46,7 @@ impl GenerateCredentialReportOutputBuilder {
         self.state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Information about the state of the credential report.</p>
     pub fn set_state(mut self, input: ::std::option::Option<crate::types::ReportStateType>) -> Self {
         self.state = input;
         self
@@ -59,6 +60,7 @@ impl GenerateCredentialReportOutputBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Information about the credential report.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self

@@ -95,6 +95,9 @@ impl VerifyInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be the same KMS key that was used to generate the signature. If you specify a different KMS key, the signature verification fails.</p>
+    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -112,6 +115,8 @@ impl VerifyInputBuilder {
         self.message = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
+    /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.message = input;
         self
@@ -130,6 +135,11 @@ impl VerifyInputBuilder {
         self.message_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
+    /// <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips the hashing step in the signing algorithm. When the value is <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the message done in the ML-DSA signing algorithm.</p> <important><p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message, the security of the signing operation can be compromised.</p></important><p>When using ECC_NIST_EDWARDS25519 KMS keys:</p><ul><li><p>ED25519_SHA_512 signing algorithm requires KMS <code>MessageType:RAW</code></p></li><li><p>ED25519_PH_SHA_512 signing algorithm requires KMS <code>MessageType:DIGEST</code></p></li></ul> <important><p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1 of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.</p></important><p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+    /// <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the <code>Message</code> value must be 64 bytes.</p>
+    /// <p>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code> so the digest is hashed again while signing. However, if the signed message is hashed once while signing, but twice while verifying, verification fails, even when the message hasn't changed.</p>
+    /// <p>The hashing algorithm that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code> value.</p><ul><li><p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHAKE_256 use the SHAKE_256 hashing algorithm.</p></li><li><p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li></ul>
     pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
         self.message_type = input;
         self
@@ -148,6 +158,7 @@ impl VerifyInputBuilder {
         self.signature = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The signature that the <code>Sign</code> operation generated.</p>
     pub fn set_signature(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.signature = input;
         self
@@ -162,6 +173,7 @@ impl VerifyInputBuilder {
         self.signing_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
         self.signing_algorithm = input;
         self
@@ -181,6 +193,8 @@ impl VerifyInputBuilder {
         self.grant_tokens = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of grant tokens.</p>
+    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.grant_tokens = input;
         self
@@ -196,6 +210,8 @@ impl VerifyInputBuilder {
         self.dry_run = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
+    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
         self.dry_run = input;
         self

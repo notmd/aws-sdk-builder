@@ -44,6 +44,7 @@ impl ListOpenIdConnectProvidersOutputBuilder {
         self.open_id_connect_provider_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     pub fn set_open_id_connect_provider_list(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>>,

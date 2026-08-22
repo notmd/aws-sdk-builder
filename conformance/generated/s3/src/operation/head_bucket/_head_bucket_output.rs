@@ -94,6 +94,9 @@ impl HeadBucketOutputBuilder {
         self.bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
+    /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
+    /// </note>
     pub fn set_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_arn = input;
         self
@@ -111,6 +114,9 @@ impl HeadBucketOutputBuilder {
         self.bucket_location_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of location where the bucket is created.</p><note>
+    /// <p>This functionality is only supported by directory buckets.</p>
+    /// </note>
     pub fn set_bucket_location_type(mut self, input: ::std::option::Option<crate::types::LocationType>) -> Self {
         self.bucket_location_type = input;
         self
@@ -129,6 +135,10 @@ impl HeadBucketOutputBuilder {
         self.bucket_location_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the location where the bucket will be created.</p>
+    /// <p>For directory buckets, the Zone ID of the Availability Zone or the Local Zone where the bucket is created. An example Zone ID value for an Availability Zone is <code>usw2-az1</code>.</p><note>
+    /// <p>This functionality is only supported by directory buckets.</p>
+    /// </note>
     pub fn set_bucket_location_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_location_name = input;
         self
@@ -145,6 +155,7 @@ impl HeadBucketOutputBuilder {
         self.bucket_region = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Region that the bucket is located.</p>
     pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_region = input;
         self
@@ -160,6 +171,9 @@ impl HeadBucketOutputBuilder {
         self.access_point_alias = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the bucket name used in the request is an access point alias.</p><note>
+    /// <p>For directory buckets, the value of this field is <code>false</code>.</p>
+    /// </note>
     pub fn set_access_point_alias(mut self, input: ::std::option::Option<bool>) -> Self {
         self.access_point_alias = input;
         self

@@ -39,6 +39,7 @@ impl ChainedInvokeDetailsBuilder {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The response payload from the chained invocation.</p>
     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.result = input;
         self
@@ -52,6 +53,7 @@ impl ChainedInvokeDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the chained invocation failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self

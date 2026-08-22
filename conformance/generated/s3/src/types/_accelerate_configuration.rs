@@ -32,6 +32,7 @@ impl AccelerateConfigurationBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the transfer acceleration status of the bucket.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAccelerateStatus>) -> Self {
         self.status = input;
         self

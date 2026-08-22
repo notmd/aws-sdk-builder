@@ -36,6 +36,8 @@ impl DescribeContinuousBackupsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.</p>
+    /// <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self

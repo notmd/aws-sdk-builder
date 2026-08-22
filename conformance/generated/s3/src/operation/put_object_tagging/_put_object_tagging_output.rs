@@ -46,6 +46,7 @@ impl PutObjectTaggingOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The versionId of the object the tag-set was added to.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self

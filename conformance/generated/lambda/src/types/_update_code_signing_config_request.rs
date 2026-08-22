@@ -55,6 +55,7 @@ impl UpdateCodeSigningConfigRequestBuilder {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
     pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.code_signing_config_arn = input;
         self
@@ -68,6 +69,7 @@ impl UpdateCodeSigningConfigRequestBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Descriptive name for this code signing configuration.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self
@@ -81,6 +83,7 @@ impl UpdateCodeSigningConfigRequestBuilder {
         self.allowed_publishers = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Signing profiles for this code signing configuration.</p>
     pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
         self.allowed_publishers = input;
         self
@@ -94,6 +97,7 @@ impl UpdateCodeSigningConfigRequestBuilder {
         self.code_signing_policies = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The code signing policy.</p>
     pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
         self.code_signing_policies = input;
         self

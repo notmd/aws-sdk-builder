@@ -34,6 +34,7 @@ impl DeleteGlobalTableWitnessGroupMemberActionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The witness Region name to be removed from the MRSC global table.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self

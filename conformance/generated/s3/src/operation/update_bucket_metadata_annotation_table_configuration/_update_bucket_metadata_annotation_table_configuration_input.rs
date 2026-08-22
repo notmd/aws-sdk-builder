@@ -63,6 +63,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket whose annotation table configuration to update.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -76,6 +77,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Base64-encoded MD5 digest of the message body.</p>
     pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.content_md5 = input;
         self
@@ -89,6 +91,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Checksum algorithm for the request payload.</p>
     pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
         self.checksum_algorithm = input;
         self
@@ -102,6 +105,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The annotation table configuration updates to apply.</p>
     pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>) -> Self {
         self.annotation_table_configuration = input;
         self
@@ -115,6 +119,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

@@ -34,6 +34,7 @@ impl ChangeMessageVisibilityBatchResultEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Represents a message whose visibility timeout has been changed successfully.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self

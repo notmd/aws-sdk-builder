@@ -39,6 +39,7 @@ impl AnalyticsAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -57,6 +58,7 @@ impl AnalyticsAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of tags to use when evaluating an AND predicate.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

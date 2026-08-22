@@ -30,8 +30,8 @@ Updated 2026-08-22. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 952 exact matches (14.83% arithmetic average),
-  with 2,646 mismatches, 2,863 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 1,137 exact matches (17.38% arithmetic average),
+  with 2,461 mismatches, 2,863 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -50,6 +50,30 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Generic setter documentation parity
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now renders modeled member
+  documentation before generated `set_<field>` builder methods, matching Smithy
+  Rust's `BuilderGenerator`/`RustWriter` behavior. The rule is shared by every
+  structure and operation builder; it is not service- or operation-specific.
+- Evidence: the pinned Smithy source was consulted at
+  `/tmp/smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`;
+  `cargo fmt --all`, `cargo fmt --all -- --check`, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, `git diff --check`,
+  and `just conformance` completed. Conformance intentionally exits 1 because
+  parity remains incomplete.
+- Conformance: the previous checkpoint had `952` exact, `2,646` mismatches,
+  `2,863` missing, and `123` extra files overall; this checkpoint has `1,137`
+  exact, `2,461` mismatches, `2,863` missing, and `123` extra. S3 increased from
+  `247` exact / `585` mismatches / `512` missing / `0` extra to `293` exact /
+  `539` mismatches / `512` missing / `0` extra. Exact coverage increased by 185
+  files overall and 46 files for S3.
+- Blocker: model documentation normalization, the missing protocol/runtime source
+  tree, endpoint/auth/retry/checksum behavior, and full operation semantics remain.
+- Next action: align the generic modeled HTML documentation normalization used by
+  shape and enum renderers, then regenerate and compare the S3 source tree.
 
 ### Checkpoint: 2026-08-22 — Model-driven primitive module closure and formatter audit
 

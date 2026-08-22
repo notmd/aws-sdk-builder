@@ -39,6 +39,7 @@ impl CsvOptionsBuilder {
         self.delimiter = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The delimiter used for separating items in the CSV file being imported.</p>
     pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delimiter = input;
         self
@@ -57,6 +58,7 @@ impl CsvOptionsBuilder {
         self.header_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.</p>
     pub fn set_header_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.header_list = input;
         self

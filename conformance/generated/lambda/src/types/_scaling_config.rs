@@ -32,6 +32,7 @@ impl ScalingConfigBuilder {
         self.maximum_concurrency = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</p>
     pub fn set_maximum_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
         self.maximum_concurrency = input;
         self

@@ -33,6 +33,7 @@ impl StopDurableExecutionResponseBuilder {
         self.stop_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
     pub fn set_stop_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.stop_timestamp = input;
         self

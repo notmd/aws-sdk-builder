@@ -39,6 +39,7 @@ impl UploadSigningCertificateOutputBuilder {
         self.certificate = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Information about the certificate.</p>
     pub fn set_certificate(mut self, input: ::std::option::Option<crate::types::SigningCertificate>) -> Self {
         self.certificate = input;
         self

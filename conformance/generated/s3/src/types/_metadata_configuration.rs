@@ -46,6 +46,7 @@ impl MetadataConfigurationBuilder {
         self.journal_table_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The journal table configuration for a metadata configuration.</p>
     pub fn set_journal_table_configuration(mut self, input: ::std::option::Option<crate::types::JournalTableConfiguration>) -> Self {
         self.journal_table_configuration = input;
         self
@@ -59,6 +60,7 @@ impl MetadataConfigurationBuilder {
         self.inventory_table_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The inventory table configuration for a metadata configuration.</p>
     pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<crate::types::InventoryTableConfiguration>) -> Self {
         self.inventory_table_configuration = input;
         self
@@ -72,6 +74,7 @@ impl MetadataConfigurationBuilder {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Optional annotation table configuration to include with the metadata configuration.</p>
     pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfiguration>) -> Self {
         self.annotation_table_configuration = input;
         self

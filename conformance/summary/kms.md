@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `89` matched · `285` mismatches · `225` missing · `1` extra · `14.83%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `94` matched · `280` mismatches · `225` missing · `1` extra · `15.67%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -3730,7 +3730,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl CancelKeyDeletionInputBuilder {
      /// <p>Identifies the KMS key whose deletion is being canceled.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -3746,10 +3746,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Identifies the KMS key whose deletion is being canceled.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies the KMS key whose deletion is being canceled.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -3758,10 +3758,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,21 +45,12 @@
+@@ -75,21 +48,12 @@
      }
      /// <p>Identifies the KMS key whose deletion is being canceled.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -3799,14 +3800,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is canceled.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
 ```
 
 ### `src/operation/cancel_key_deletion/builders.rs`
@@ -4578,7 +4571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn custom_key_store_id(&self) -> ::std::option::Option<&str> {
          self.custom_key_store_id.as_deref()
      }
-@@ -26,28 +27,24 @@
+@@ -26,28 +27,25 @@
      pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
  }
  impl ConnectCustomKeyStoreInputBuilder {
@@ -4590,6 +4583,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
++    /// <p>Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
      pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.custom_key_store_id = input;
          self
@@ -5441,7 +5435,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn target_key_id(&self) -> ::std::option::Option<&str> {
          self.target_key_id.as_deref()
      }
-@@ -61,59 +42,30 @@
+@@ -61,42 +42,26 @@
      pub(crate) target_key_id: ::std::option::Option<::std::string::String>,
  }
  impl CreateAliasInputBuilder {
@@ -5459,6 +5453,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed keys</a>.</p>
++    /// <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed keys</a>.</p>
      pub fn set_alias_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.alias_name = input;
          self
@@ -5488,12 +5483,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn target_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.target_key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -104,16 +69,9 @@
      }
--    /// <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key must be in the same Amazon Web Services Region.</p>
--    /// <p>A valid key ID is required. If you supply a null or empty string value, this operation returns an error.</p>
+     /// <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key must be in the same Amazon Web Services Region.</p>
+     /// <p>A valid key ID is required. If you supply a null or empty string value, this operation returns an error.</p>
 -    /// <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in the <i> <i>Key Management Service Developer Guide</i> </i>.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
++    /// <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -5502,10 +5498,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_target_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.target_key_id = input;
          self
-@@ -120,24 +72,17 @@
+@@ -120,24 +78,17 @@
      }
      /// <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key must be in the same Amazon Web Services Region.</p>
      /// <p>A valid key ID is required. If you supply a null or empty string value, this operation returns an error.</p>
@@ -6543,7 +6540,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct CreateCustomKeyStoreInputBuilder {
      pub(crate) custom_key_store_name: ::std::option::Option<::std::string::String>,
-@@ -189,24 +137,17 @@
+@@ -189,24 +137,18 @@
      pub(crate) xks_proxy_connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
  }
  impl CreateCustomKeyStoreInputBuilder {
@@ -6559,6 +6556,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Specifies a friendly name for the custom key store. The name must be unique in your Amazon Web Services account and Region. This parameter is required for all custom key stores.</p><important>
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
++    /// <p>Specifies a friendly name for the custom key store. The name must be unique in your Amazon Web Services account and Region. This parameter is required for all custom key stores.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important>
      pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.custom_key_store_name = input;
          self
@@ -6570,25 +6568,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_custom_key_store_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.custom_key_store_name
      }
-@@ -216,8 +157,6 @@
-         self.cloud_hsm_cluster_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the CloudHSM cluster for an CloudHSM key store. This parameter is required for custom key stores with <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
--    /// <p>Enter the cluster ID of any active CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
-     pub fn set_cloud_hsm_cluster_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_hsm_cluster_id = input;
-         self
-@@ -233,8 +172,6 @@
-         self.trust_anchor_certificate = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specifies the certificate for an CloudHSM key store. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
--    /// <p>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is the content of the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized the cluster</a>.</p>
-     pub fn set_trust_anchor_certificate(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.trust_anchor_certificate = input;
-         self
-@@ -245,7 +182,7 @@
+@@ -245,7 +187,7 @@
          &self.trust_anchor_certificate
      }
      /// <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
@@ -6597,16 +6577,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
      /// <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change the password in the CloudHSM cluster.</p>
      pub fn key_store_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-@@ -252,16 +189,12 @@
-         self.key_store_password = ::std::option::Option::Some(input.into());
+@@ -253,7 +195,7 @@
          self
      }
--    /// <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
+     /// <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
 -    /// <p>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser"> <code>kmsuser</code> crypto user (CU) account</a> in the specified CloudHSM cluster. KMS logs into the cluster as this user to manage key material on your behalf.</p>
--    /// <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
--    /// <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change the password in the CloudHSM cluster.</p>
++    /// <p>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser"><code>kmsuser</code> crypto user (CU) account</a> in the specified CloudHSM cluster. KMS logs into the cluster as this user to manage key material on your behalf.</p>
+     /// <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
+     /// <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change the password in the CloudHSM cluster.</p>
      pub fn set_key_store_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_store_password = input;
+@@ -261,7 +203,7 @@
          self
      }
      /// <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
@@ -6615,16 +6595,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
      /// <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change the password in the CloudHSM cluster.</p>
      pub fn get_key_store_password(&self) -> &::std::option::Option<::std::string::String> {
-@@ -273,8 +206,6 @@
-         self.custom_key_store_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the type of custom key store. The default value is <code>AWS_CLOUDHSM</code>.</p>
--    /// <p>For a custom key store backed by an CloudHSM cluster, omit the parameter or enter <code>AWS_CLOUDHSM</code>. For a custom key store backed by an external key manager outside of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot change this property after the key store is created.</p>
-     pub fn set_custom_key_store_type(mut self, input: ::std::option::Option<crate::types::CustomKeyStoreType>) -> Self {
-         self.custom_key_store_type = input;
-         self
-@@ -287,35 +218,13 @@
+@@ -287,17 +229,9 @@
      /// <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy (XKS proxy). This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
      /// <p>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port in the <code>XksProxyUriEndpoint</code> value.</p>
      /// <p>For external key stores with <code>XksProxyConnectivity</code> value of <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS name of the VPC endpoint service.</p>
@@ -6644,12 +6615,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn xks_proxy_uri_endpoint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.xks_proxy_uri_endpoint = ::std::option::Option::Some(input.into());
          self
-     }
--    /// <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy (XKS proxy). This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port in the <code>XksProxyUriEndpoint</code> value.</p>
--    /// <p>For external key stores with <code>XksProxyConnectivity</code> value of <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS name of the VPC endpoint service.</p>
+@@ -305,17 +239,9 @@
+     /// <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy (XKS proxy). This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
+     /// <p>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port in the <code>XksProxyUriEndpoint</code> value.</p>
+     /// <p>For external key stores with <code>XksProxyConnectivity</code> value of <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS name of the VPC endpoint service.</p>
 -    /// <p>For external key stores with <code>PUBLIC_ENDPOINT</code> connectivity, this endpoint must be reachable before you create the custom key store. KMS connects to the external key store proxy while creating the custom key store. For external key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity, KMS connects when you call the <code>ConnectCustomKeyStore</code> operation.</p>
--    /// <p>The value of this parameter must begin with <code>https://</code>. The remainder can contain upper and lower case letters (A-Z and a-z), numbers (0-9), dots (<code>.</code>), and hyphens (<code>-</code>). Additional slashes (<code>/</code> and <code>\</code>) are not permitted.</p>
++    /// <p>For external key stores with <code>PUBLIC_ENDPOINT</code> connectivity, this endpoint must be reachable before you create the custom key store. KMS connects to the external key store proxy while creating the custom key store. For external key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity, KMS connects when you call the <a>ConnectCustomKeyStore</a> operation.</p>
+     /// <p>The value of this parameter must begin with <code>https://</code>. The remainder can contain upper and lower case letters (A-Z and a-z), numbers (0-9), dots (<code>.</code>), and hyphens (<code>-</code>). Additional slashes (<code>/</code> and <code>\</code>) are not permitted.</p>
 -    /// <p><b>Uniqueness requirements: </b></p>
 -    /// <ul>
 -    /// <li>
@@ -6659,10 +6631,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have its own private DNS name. The <code>XksProxyUriEndpoint</code> value for external key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity (private DNS name) must be unique in the Amazon Web Services account and Region.</p></li>
 -    /// </ul>
++    /// <p><b>Uniqueness requirements:</b></p><ul><li><p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must be unique in the Amazon Web Services account and Region.</p></li><li><p>An external key store with <code>PUBLIC_ENDPOINT</code> connectivity cannot use the same <code>XksProxyUriEndpoint</code> value as an external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity in this Amazon Web Services Region.</p></li><li><p>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have its own private DNS name. The <code>XksProxyUriEndpoint</code> value for external key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity (private DNS name) must be unique in the Amazon Web Services account and Region.</p></li></ul>
      pub fn set_xks_proxy_uri_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.xks_proxy_uri_endpoint = input;
          self
-@@ -323,38 +232,19 @@
+@@ -323,27 +249,15 @@
      /// <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy (XKS proxy). This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
      /// <p>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port in the <code>XksProxyUriEndpoint</code> value.</p>
      /// <p>For external key stores with <code>XksProxyConnectivity</code> value of <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS name of the VPC endpoint service.</p>
@@ -6693,18 +6666,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn xks_proxy_uri_path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.xks_proxy_uri_path = ::std::option::Option::Some(input.into());
          self
+@@ -350,11 +264,7 @@
      }
--    /// <p>Specifies the base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code> where <code>v1</code> represents the version of the KMS external key store proxy API. This path can include an optional prefix between the required elements such as <code>/<i>prefix</i>/kms/xks/v1</code>.</p>
+     /// <p>Specifies the base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
+     /// <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code> where <code>v1</code> represents the version of the KMS external key store proxy API. This path can include an optional prefix between the required elements such as <code>/<i>prefix</i>/kms/xks/v1</code>.</p>
 -    /// <p><b>Uniqueness requirements: </b></p>
 -    /// <ul>
 -    /// <li>
 -    /// <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must be unique in the Amazon Web Services account and Region.</p></li>
 -    /// </ul>
++    /// <p><b>Uniqueness requirements:</b></p><ul><li><p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must be unique in the Amazon Web Services account and Region.</p></li></ul>
      pub fn set_xks_proxy_uri_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.xks_proxy_uri_path = input;
          self
-@@ -361,32 +251,17 @@
+@@ -361,21 +271,13 @@
      }
      /// <p>Specifies the base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
      /// <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code> where <code>v1</code> represents the version of the KMS external key store proxy API. This path can include an optional prefix between the required elements such as <code>/<i>prefix</i>/kms/xks/v1</code>.</p>
@@ -6728,18 +6703,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn xks_proxy_vpc_endpoint_service_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.xks_proxy_vpc_endpoint_service_name = ::std::option::Option::Some(input.into());
          self
+@@ -382,11 +284,7 @@
      }
--    /// <p>Specifies the name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). This parameter is required when the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the value of <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</p>
--    /// <p>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill all requirements</a> for use with an external key store.</p>
+     /// <p>Specifies the name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). This parameter is required when the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the value of <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</p>
+     /// <p>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill all requirements</a> for use with an external key store.</p>
 -    /// <p><b>Uniqueness requirements:</b></p>
 -    /// <ul>
 -    /// <li>
 -    /// <p>External key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity can share an Amazon VPC, but each external key store must have its own VPC endpoint service and private DNS name.</p></li>
 -    /// </ul>
++    /// <p><b>Uniqueness requirements:</b></p><ul><li><p>External key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity can share an Amazon VPC, but each external key store must have its own VPC endpoint service and private DNS name.</p></li></ul>
      pub fn set_xks_proxy_vpc_endpoint_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.xks_proxy_vpc_endpoint_service_name = input;
          self
-@@ -393,11 +268,7 @@
+@@ -393,11 +291,7 @@
      }
      /// <p>Specifies the name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). This parameter is required when the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the value of <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</p>
      /// <p>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill all requirements</a> for use with an external key store.</p>
@@ -6752,15 +6729,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_xks_proxy_vpc_endpoint_service_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.xks_proxy_vpc_endpoint_service_name
      }
-@@ -406,7 +277,6 @@
-         self.xks_proxy_vpc_endpoint_service_owner = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specifies the Amazon Web Services account ID that owns the Amazon VPC service endpoint for the interface that is used to communicate with your external key store proxy (XKS proxy). This parameter is optional. If not provided, the Amazon Web Services account ID calling the action will be used.</p>
-     pub fn set_xks_proxy_vpc_endpoint_service_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.xks_proxy_vpc_endpoint_service_owner = input;
-         self
-@@ -418,15 +288,11 @@
+@@ -418,7 +312,7 @@
      /// <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
      /// <p>The <code>XksProxyAuthenticationCredential</code> has two required elements: <code>RawSecretAccessKey</code>, a secret key, and <code>AccessKeyId</code>, a unique identifier for the <code>RawSecretAccessKey</code>. For character requirements, see <a href="API_XksProxyAuthenticationCredentialType.html">XksProxyAuthenticationCredentialType</a>.</p>
      /// <p>KMS uses this authentication credential to sign requests to the external key store proxy on your behalf. This credential is unrelated to Identity and Access Management (IAM) and Amazon Web Services credentials.</p>
@@ -6769,15 +6738,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn xks_proxy_authentication_credential(mut self, input: crate::types::XksProxyAuthenticationCredentialType) -> Self {
          self.xks_proxy_authentication_credential = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>The <code>XksProxyAuthenticationCredential</code> has two required elements: <code>RawSecretAccessKey</code>, a secret key, and <code>AccessKeyId</code>, a unique identifier for the <code>RawSecretAccessKey</code>. For character requirements, see <a href="API_XksProxyAuthenticationCredentialType.html">XksProxyAuthenticationCredentialType</a>.</p>
--    /// <p>KMS uses this authentication credential to sign requests to the external key store proxy on your behalf. This credential is unrelated to Identity and Access Management (IAM) and Amazon Web Services credentials.</p>
+@@ -426,7 +320,7 @@
+     /// <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
+     /// <p>The <code>XksProxyAuthenticationCredential</code> has two required elements: <code>RawSecretAccessKey</code>, a secret key, and <code>AccessKeyId</code>, a unique identifier for the <code>RawSecretAccessKey</code>. For character requirements, see <a href="API_XksProxyAuthenticationCredentialType.html">XksProxyAuthenticationCredentialType</a>.</p>
+     /// <p>KMS uses this authentication credential to sign requests to the external key store proxy on your behalf. This credential is unrelated to Identity and Access Management (IAM) and Amazon Web Services credentials.</p>
 -    /// <p>This parameter doesn't set or change the authentication credentials on the XKS proxy. It just tells KMS the credential that you established on your external key store proxy. If you rotate your proxy authentication credential, use the <code>UpdateCustomKeyStore</code> operation to provide the new credential to KMS.</p>
++    /// <p>This parameter doesn't set or change the authentication credentials on the XKS proxy. It just tells KMS the credential that you established on your external key store proxy. If you rotate your proxy authentication credential, use the <a>UpdateCustomKeyStore</a> operation to provide the new credential to KMS.</p>
      pub fn set_xks_proxy_authentication_credential(
          mut self,
          input: ::std::option::Option<crate::types::XksProxyAuthenticationCredentialType>,
-@@ -437,7 +303,7 @@
+@@ -437,7 +331,7 @@
      /// <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
      /// <p>The <code>XksProxyAuthenticationCredential</code> has two required elements: <code>RawSecretAccessKey</code>, a secret key, and <code>AccessKeyId</code>, a unique identifier for the <code>RawSecretAccessKey</code>. For character requirements, see <a href="API_XksProxyAuthenticationCredentialType.html">XksProxyAuthenticationCredentialType</a>.</p>
      /// <p>KMS uses this authentication credential to sign requests to the external key store proxy on your behalf. This credential is unrelated to Identity and Access Management (IAM) and Amazon Web Services credentials.</p>
@@ -6786,17 +6756,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_xks_proxy_authentication_credential(&self) -> &::std::option::Option<crate::types::XksProxyAuthenticationCredentialType> {
          &self.xks_proxy_authentication_credential
      }
-@@ -448,9 +314,6 @@
-         self.xks_proxy_connectivity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates how KMS communicates with the external key store proxy. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>If the external key store proxy uses a public endpoint, specify <code>PUBLIC_ENDPOINT</code>. If the external key store proxy uses a Amazon VPC endpoint service for communication with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. For help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/choose-xks-connectivity.html">Choosing a connectivity option</a> in the <i>Key Management Service Developer Guide</i>.</p>
--    /// <p>An Amazon VPC endpoint service keeps your communication with KMS in a private address space entirely within Amazon Web Services, but it requires more configuration, including establishing a Amazon VPC with multiple subnets, a VPC endpoint service, a network load balancer, and a verified private DNS name. A public endpoint is simpler to set up, but it might be slower and might not fulfill your security requirements. You might consider testing with a public endpoint, and then establishing a VPC endpoint service for production tasks. Note that this choice does not determine the location of the external key store proxy. Even if you choose a VPC endpoint service, the proxy can be hosted within the VPC or outside of Amazon Web Services such as in your corporate data center.</p>
-     pub fn set_xks_proxy_connectivity(mut self, input: ::std::option::Option<crate::types::XksProxyConnectivityType>) -> Self {
-         self.xks_proxy_connectivity = input;
-         self
-@@ -462,11 +325,8 @@
+@@ -462,11 +356,8 @@
          &self.xks_proxy_connectivity
      }
      /// Consumes the builder and constructs a [`CreateCustomKeyStoreInput`](crate::operation::create_custom_key_store::CreateCustomKeyStoreInput).
@@ -6810,7 +6770,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              custom_key_store_name: self.custom_key_store_name,
              cloud_hsm_cluster_id: self.cloud_hsm_cluster_id,
              trust_anchor_certificate: self.trust_anchor_certificate,
-@@ -478,23 +338,6 @@
+@@ -478,23 +369,6 @@
              xks_proxy_vpc_endpoint_service_owner: self.xks_proxy_vpc_endpoint_service_owner,
              xks_proxy_authentication_credential: self.xks_proxy_authentication_credential,
              xks_proxy_connectivity: self.xks_proxy_connectivity,
@@ -6848,14 +6808,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.custom_key_store_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the new custom key store.</p>
-     pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.custom_key_store_id = input;
-         self
 ```
 
 ### `src/operation/create_custom_key_store/builders.rs`
@@ -8234,7 +8186,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn retiring_service_principal(&self) -> ::std::option::Option<&str> {
          self.retiring_service_principal.as_deref()
-@@ -167,29 +124,12 @@
+@@ -167,14 +124,7 @@
  impl CreateGrantInputBuilder {
      /// <p>Identifies the KMS key for the grant. The grant gives principals permission to use this KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
@@ -8250,10 +8202,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -182,14 +132,7 @@
      }
--    /// <p>Identifies the KMS key for the grant. The grant gives principals permission to use this KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
+     /// <p>Identifies the KMS key for the grant. The grant gives principals permission to use this KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -8262,10 +8214,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -196,66 +136,51 @@
+@@ -196,19 +139,12 @@
      }
      /// <p>Identifies the KMS key for the grant. The grant gives principals permission to use this KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
@@ -8287,13 +8240,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
      pub fn grantee_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.grantee_principal = ::std::option::Option::Some(input.into());
+@@ -215,7 +151,7 @@
          self
      }
--    /// <p>The identity that gets the permissions specified in the grant.</p>
+     /// <p>The identity that gets the permissions specified in the grant.</p>
 -    /// <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
--    /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
++    /// <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</p>
+     /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
      pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.grantee_principal = input;
+@@ -222,40 +158,39 @@
          self
      }
      /// <p>The identity that gets the permissions specified in the grant.</p>
@@ -8317,7 +8273,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The principal that has permission to use the <code>RetireGrant</code> operation to retire the grant.</p>
 -    /// <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
 -    /// <p>The grant determines the retiring principal. Other principals might have permission to retire the grant or revoke the grant. For details, see <code>RevokeGrant</code> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
--    /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
++    /// <p>The principal that has permission to use the <a>RetireGrant</a> operation to retire the grant.</p>
++    /// <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</p>
++    /// <p>The grant determines the retiring principal. Other principals might have permission to retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.retiring_principal = input;
          self
@@ -8343,12 +8302,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn operations(mut self, input: crate::types::GrantOperation) -> Self {
          let mut v = self.operations.unwrap_or_default();
          v.push(input);
-@@ -262,73 +187,37 @@
-         self.operations = ::std::option::Option::Some(v);
+@@ -263,72 +198,41 @@
          self
      }
--    /// <p>A list of operations that the grant permits.</p>
+     /// <p>A list of operations that the grant permits.</p>
 -    /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <code>Sign</code> operation, or a grant for an asymmetric KMS key that allows the <code>GenerateDataKey</code> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>This list must include only operations that are permitted in a grant. Also, the operation must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
          self.operations = input;
          self
@@ -8392,6 +8351,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SourceArn</code> — This grant constraint allows the permissions in the grant only when the request is made on behalf of a specific Amazon Web Services resource, identified by its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>. This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint is supported on grants for all types of KMS keys and can also be applied to the <code>DescribeKey</code> operation when specified in the request. However, it does not apply to <code>RetireGrant</code> operation.</p></li>
 -    /// </ul>
 -    /// <p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies a grant constraint.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>KMS supports the following grant constraints.</p><ul><li><p><code>EncryptionContextEquals</code> and <code>EncryptionContextSubset</code> — These encryption context grant constraints allow the permissions in the grant only when the encryption context in the request matches (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>) the encryption context specified in the constraint.</p>
++    /// <p>Encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric encryption KMS keys. You cannot use an encryption context grant constraint for cryptographic operations with asymmetric KMS keys or HMAC KMS keys. Operations with these keys don't support an encryption context. Grants with encryption context grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn't apply to these operations. If a grant with an encryption context grant constraint includes the <code>CreateGrant</code> operation, the constraint requires that any grants created with the <code>CreateGrant</code> permission have an equally strict or stricter encryption context constraint.</p>
++    /// <p>Each constraint value can include up to 8 encryption context pairs. The encryption context value in each constraint cannot exceed 384 characters. For more information about encryption context, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p></li><li><p><code>SourceArn</code> — This grant constraint allows the permissions in the grant only when the request is made on behalf of a specific Amazon Web Services resource, identified by its <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>. This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint is supported on grants for all types of KMS keys and can also be applied to the <a>DescribeKey</a> operation when specified in the request. However, it does not apply to <a>RetireGrant</a> operation.</p></li></ul><p>For information about grant constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant constraints</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_constraints(mut self, input: ::std::option::Option<crate::types::GrantConstraints>) -> Self {
          self.constraints = input;
          self
@@ -8426,16 +8388,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -335,8 +224,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -346,28 +233,17 @@
+@@ -346,28 +250,19 @@
      pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
          &self.grant_tokens
      }
@@ -8453,7 +8406,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
--    /// <p>When this value is present, you can retry a <code>CreateGrant</code> request with identical parameters; if the grant already exists, the original <code>GrantId</code> is returned without creating a new grant. Note that the returned grant token is unique with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned. All grant tokens for the same grant ID can be used interchangeably.</p>
++    /// <p>A friendly name for the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
+     /// <p>When this value is present, you can retry a <code>CreateGrant</code> request with identical parameters; if the grant already exists, the original <code>GrantId</code> is returned without creating a new grant. Note that the returned grant token is unique with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned. All grant tokens for the same grant ID can be used interchangeably.</p>
      pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.name = input;
          self
@@ -8466,26 +8420,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>When this value is present, you can retry a <code>CreateGrant</code> request with identical parameters; if the grant already exists, the original <code>GrantId</code> is returned without creating a new grant. Note that the returned grant token is unique with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned. All grant tokens for the same grant ID can be used interchangeably.</p>
      pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.name
-@@ -378,8 +254,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -396,9 +270,6 @@
-         self.grantee_service_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions specified in the grant.</p>
--    /// <p>When you specify a <code>GranteeServicePrincipal</code>, you must also specify a <code>SourceArn</code> grant constraint. In addition, you must specify either a <code>RetiringPrincipal</code> or a <code>RetiringServicePrincipal</code>.</p>
--    /// <p>You must specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-     pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grantee_service_principal = input;
-         self
-@@ -409,26 +280,24 @@
+@@ -409,26 +304,26 @@
      pub fn get_grantee_service_principal(&self) -> &::std::option::Option<::std::string::String> {
          &self.grantee_service_principal
      }
@@ -8497,7 +8432,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that has permission to use the <code>RetireGrant</code> operation to retire the grant.</p>
--    /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
++    /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that has permission to use the <a>RetireGrant</a> operation to retire the grant.</p>
+     /// <p>You can specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.retiring_service_principal = input;
          self
@@ -8516,7 +8452,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              grantee_principal: self.grantee_principal,
              retiring_principal: self.retiring_principal,
-@@ -439,6 +308,6 @@
+@@ -439,6 +334,6 @@
              dry_run: self.dry_run,
              grantee_service_principal: self.grantee_service_principal,
              retiring_service_principal: self.retiring_service_principal,
@@ -8555,16 +8491,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_id(&self) -> ::std::option::Option<&str> {
          self.grant_id.as_deref()
      }
-@@ -50,8 +51,6 @@
-         self.grant_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The grant token.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grant_token = input;
-         self
-@@ -62,19 +61,17 @@
+@@ -62,19 +63,19 @@
          &self.grant_token
      }
      /// <p>The unique identifier for the grant.</p>
@@ -8574,8 +8501,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.grant_id = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>The unique identifier for the grant.</p>
+     /// <p>The unique identifier for the grant.</p>
 -    /// <p>You can use the <code>GrantId</code> in a <code>ListGrants</code>, <code>RetireGrant</code>, or <code>RevokeGrant</code> operation.</p>
++    /// <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
      pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.grant_id = input;
          self
@@ -10022,7 +9950,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>
      pub fn multi_region(&self) -> ::std::option::Option<bool> {
          self.multi_region
-@@ -361,146 +152,55 @@
+@@ -361,146 +152,65 @@
  }
  impl CreateKeyInputBuilder {
      /// <p>The key policy to attach to the KMS key.</p>
@@ -10047,7 +9975,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.policy = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>The key policy to attach to the KMS key.</p>
+     /// <p>The key policy to attach to the KMS key.</p>
 -    /// <p>If you provide a key policy, it must meet the following criteria:</p>
 -    /// <ul>
 -    /// <li>
@@ -10055,13 +9983,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services principal, you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p></li>
 -    /// </ul><note>
--    /// <p>If either of the required <code>Resource</code> or <code>Action</code> elements are missing from a key policy statement, the policy statement has no effect. When a key policy statement is missing one of these elements, the KMS console correctly reports an error, but the <code>CreateKey</code> and <code>PutKeyPolicy</code> API requests succeed, even though the policy statement is ineffective.</p>
--    /// <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>If you provide a key policy, it must meet the following criteria:</p><ul><li><p>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code> request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p></li><li><p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services principal, you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p></li></ul><note>
+     /// <p>If either of the required <code>Resource</code> or <code>Action</code> elements are missing from a key policy statement, the policy statement has no effect. When a key policy statement is missing one of these elements, the KMS console correctly reports an error, but the <code>CreateKey</code> and <code>PutKeyPolicy</code> API requests succeed, even though the policy statement is ineffective.</p>
+     /// <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </note>
 -    /// <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p><note>
--    /// <p>If the key policy exceeds the length constraint, KMS returns a <code>LimitExceededException</code>.</p>
++    /// </note><p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p><note>
+     /// <p>If the key policy exceeds the length constraint, KMS returns a <code>LimitExceededException</code>.</p>
 -    /// </note>
 -    /// <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
++    /// </note><p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</p>
      pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.policy = input;
          self
@@ -10100,6 +10031,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>To set or change the description after the key is created, use <code>UpdateKeyDescription</code>.</p>
++    /// <p>A description of the KMS key. Use a description that helps you decide whether the KMS key is appropriate for a task. The default value is an empty string (no description).</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</p>
      pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.description = input;
          self
@@ -10154,6 +10086,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, or <code>KEY_AGREEMENT</code>.</p></li>
 -    /// </ul>
++    /// <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric encryption KMS key; otherwise, it is required. You can't change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#key-usage"><code>KeyUsage</code></a> value after the KMS key is created. Each KMS key can have only one key usage. This follows key usage best practices according to <a href="https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final">NIST SP 800-57 Recommendations for Key Management</a>, section 5.2, Key usage.</p>
++    /// <p>Select only one valid value.</p><ul><li><p>For symmetric encryption KMS keys, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p></li><li><p>For asymmetric KMS keys with RSA key pairs, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with NIST-standard elliptic curve key pairs, specify <code>SIGN_VERIFY</code> or <code>KEY_AGREEMENT</code>.</p></li><li><p>For asymmetric KMS keys with <code>ECC_SECG_P256K1</code> key pairs, specify <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with ML-DSA key pairs, specify <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, or <code>KEY_AGREEMENT</code>.</p></li></ul>
      pub fn set_key_usage(mut self, input: ::std::option::Option<crate::types::KeyUsageType>) -> Self {
          self.key_usage = input;
          self
@@ -10181,16 +10115,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_usage(&self) -> &::std::option::Option<crate::types::KeyUsageType> {
          &self.key_usage
      }
-@@ -511,8 +211,6 @@
-         self.customer_master_key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Instead, use the <code>KeySpec</code> parameter.</p>
--    /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> parameters work the same way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your code. However, to avoid breaking changes, KMS supports both parameters.</p>
-     #[deprecated(note = "This parameter has been deprecated. Instead, use the KeySpec parameter.")]
-     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<crate::types::CustomerMasterKeySpec>) -> Self {
-         self.customer_master_key_spec = input;
-@@ -524,233 +222,18 @@
+@@ -524,233 +234,20 @@
      pub fn get_customer_master_key_spec(&self) -> &::std::option::Option<crate::types::CustomerMasterKeySpec> {
          &self.customer_master_key_spec
      }
@@ -10346,6 +10271,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SM2</code> (China Regions only)</p></li>
 -    /// </ul></li>
 -    /// </ul>
++    /// <p>Specifies the type of KMS key to create. The default value, <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key that uses SM4 encryption. For a detailed description of all supported key specs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose-key-spec.html">Key spec reference</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p>
++    /// <p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an asymmetric key pair. It also determines the algorithms that the KMS key supports. You can't change the <code>KeySpec</code> after the KMS key is created. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-key-agreement-algorithm">kms:KeyAgreementAlgorithm</a>, or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-signing-algorithm">kms:SigningAlgorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</p> <important><p><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that are integrated with KMS</a> use symmetric encryption KMS keys to protect your data. These services do not support asymmetric KMS keys or HMAC KMS keys.</p></important><p>KMS supports the following key specs for KMS keys:</p><ul><li><p>Symmetric encryption key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code></p></li></ul></li><li><p>HMAC keys (symmetric)</p><ul><li><p><code>HMAC_224</code></p></li><li><p><code>HMAC_256</code></p></li><li><p><code>HMAC_384</code></p></li><li><p><code>HMAC_512</code></p></li></ul></li><li><p>Asymmetric RSA key pairs (encryption and decryption -or- signing and verification)</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-standard elliptic curve key pairs (signing and verification -or- deriving shared secrets)</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li><li><p><code>ECC_NIST_EDWARDS25519</code> (ed25519) - signing and verification only</p><ul><li><p><b>Note:</b> For ECC_NIST_EDWARDS25519 KMS keys, the ED25519_SHA_512 signing algorithm requires <a href="kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType"><code>MessageType:RAW</code></a>, while ED25519_PH_SHA_512 requires <a href="kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType"><code>MessageType:DIGEST</code></a>. These message types cannot be used interchangeably.</p></li></ul></li></ul></li><li><p>Other asymmetric elliptic curve key pairs (signing and verification)</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li><li><p>Asymmetric ML-DSA key pairs (signing and verification)</p><ul><li><p><code>ML_DSA_44</code></p></li><li><p><code>ML_DSA_65</code></p></li><li><p><code>ML_DSA_87</code></p></li></ul></li><li><p>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving shared secrets)</p><ul><li><p><code>SM2</code> (China Regions only)</p></li></ul></li></ul>
      pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::KeySpec>) -> Self {
          self.key_spec = input;
          self
@@ -10428,18 +10355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_spec(&self) -> &::std::option::Option<crate::types::KeySpec> {
          &self.key_spec
      }
-@@ -762,10 +245,6 @@
-         self.origin = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is <code>AWS_KMS</code>, which means that KMS creates the key material.</p>
--    /// <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html">create a KMS key with no key material</a> (for imported key material), set this value to <code>EXTERNAL</code>. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>Key Management Service Developer Guide</i>. The <code>EXTERNAL</code> origin value is valid only for symmetric KMS keys.</p>
--    /// <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">create a KMS key in an CloudHSM key store</a> and create its key material in the associated CloudHSM cluster, set this value to <code>AWS_CLOUDHSM</code>. You must also use the <code>CustomKeyStoreId</code> parameter to identify the CloudHSM key store. The <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
--    /// <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">create a KMS key in an external key store</a>, set this value to <code>EXTERNAL_KEY_STORE</code>. You must also use the <code>CustomKeyStoreId</code> parameter to identify the external key store and the <code>XksKeyId</code> parameter to identify the associated external key. The <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
-     pub fn set_origin(mut self, input: ::std::option::Option<crate::types::OriginType>) -> Self {
-         self.origin = input;
-         self
-@@ -777,7 +256,7 @@
+@@ -777,7 +274,7 @@
      pub fn get_origin(&self) -> &::std::option::Option<crate::types::OriginType> {
          &self.origin
      }
@@ -10448,14 +10364,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You cannot create any other type of KMS key in a custom key store.</p>
      /// <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to specify an external key that serves as key material for the KMS key.</p>
      pub fn custom_key_store_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-@@ -784,57 +263,39 @@
+@@ -784,7 +281,7 @@
          self.custom_key_store_id = ::std::option::Option::Some(input.into());
          self
      }
 -    /// <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of the custom key store must be <code>CONNECTED</code>. To find the CustomKeyStoreID and ConnectionState use the <code>DescribeCustomKeyStores</code> operation.</p>
--    /// <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You cannot create any other type of KMS key in a custom key store.</p>
--    /// <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to specify an external key that serves as key material for the KMS key.</p>
++    /// <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of the custom key store must be <code>CONNECTED</code>. To find the CustomKeyStoreID and ConnectionState use the <a>DescribeCustomKeyStores</a> operation.</p>
+     /// <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You cannot create any other type of KMS key in a custom key store.</p>
+     /// <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to specify an external key that serves as key material for the KMS key.</p>
      pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+@@ -791,50 +288,37 @@
          self.custom_key_store_id = input;
          self
      }
@@ -10482,6 +10400,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </important>
 -    /// <p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
++    /// <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p> <important><p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.</p>
++    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p></important><p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
      pub fn set_bypass_policy_lockout_safety_check(mut self, input: ::std::option::Option<bool>) -> Self {
          self.bypass_policy_lockout_safety_check = input;
          self
@@ -10516,19 +10436,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -841,24 +302,13 @@
+@@ -841,12 +325,9 @@
          self.tags = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important> <note>
--    /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><note>
+     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </note>
 -    /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
--    /// <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
--    /// <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p>
++    /// </note><p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
+     /// <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
+     /// <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p>
      pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+@@ -853,12 +334,9 @@
          self.tags = input;
          self
      }
@@ -10543,7 +10466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
      /// <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p>
      pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
-@@ -867,17 +317,12 @@
+@@ -867,7 +345,7 @@
      /// <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You cannot change this value after you create the KMS key.</p>
      /// <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS key, omit this parameter or set it to <code>False</code>. The default value is <code>False</code>.</p>
      /// <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -10552,17 +10475,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>
      pub fn multi_region(mut self, input: bool) -> Self {
          self.multi_region = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You cannot change this value after you create the KMS key.</p>
--    /// <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS key, omit this parameter or set it to <code>False</code>. The default value is <code>False</code>.</p>
--    /// <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+@@ -876,7 +354,7 @@
+     /// <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You cannot change this value after you create the KMS key.</p>
+     /// <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS key, omit this parameter or set it to <code>False</code>. The default value is <code>False</code>.</p>
+     /// <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// <p>This value creates a <i>primary key</i>, not a replica. To create a <i>replica key</i>, use the <code>ReplicateKey</code> operation.</p>
--    /// <p>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>
++    /// <p>This value creates a <i>primary key</i>, not a replica. To create a <i>replica key</i>, use the <a>ReplicateKey</a> operation.</p>
+     /// <p>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>
      pub fn set_multi_region(mut self, input: ::std::option::Option<bool>) -> Self {
          self.multi_region = input;
-         self
-@@ -885,7 +330,7 @@
+@@ -885,7 +363,7 @@
      /// <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You cannot change this value after you create the KMS key.</p>
      /// <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS key, omit this parameter or set it to <code>False</code>. The default value is <code>False</code>.</p>
      /// <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -10571,18 +10493,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You can create a symmetric or asymmetric multi-Region key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.</p>
      pub fn get_multi_region(&self) -> &::std::option::Option<bool> {
          &self.multi_region
-@@ -898,10 +343,6 @@
-         self.xks_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key</a> that serves as key material for the KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>. Specify the ID that the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-xks-proxy">external key store proxy</a> uses to refer to the external key. For help, see the documentation for your external key store proxy.</p>
--    /// <p>This parameter is required for a KMS key with an <code>Origin</code> value of <code>EXTERNAL_KEY_STORE</code>. It is not valid for KMS keys with any other <code>Origin</code> value.</p>
--    /// <p>The external key must be an existing 256-bit AES symmetric encryption key hosted outside of Amazon Web Services in an external key manager associated with the external key store specified by the <code>CustomKeyStoreId</code> parameter. This key must be enabled and configured to perform encryption and decryption. Each KMS key in an external key store must use a different external key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html#xks-key-requirements">Requirements for a KMS key in an external key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
--    /// <p>Each KMS key in an external key store is associated two backing keys. One is key material that KMS generates. The other is the external key specified by this parameter. When you use the KMS key in an external key store to encrypt data, the encryption operation is performed first by KMS using the KMS key material, and then by the external key manager using the specified external key, a process known as <i>double encryption</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-double-encryption">Double encryption</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_xks_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.xks_key_id = input;
-         self
-@@ -914,8 +355,8 @@
+@@ -914,8 +392,8 @@
          &self.xks_key_id
      }
      /// Consumes the builder and constructs a [`CreateKeyInput`](crate::operation::create_key::CreateKeyInput).
@@ -10593,7 +10504,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              policy: self.policy,
              description: self.description,
              key_usage: self.key_usage,
-@@ -927,6 +368,6 @@
+@@ -927,6 +405,6 @@
              tags: self.tags,
              multi_region: self.multi_region,
              xks_key_id: self.xks_key_id,
@@ -10614,14 +10525,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.key_metadata = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Metadata associated with the KMS key.</p>
-     pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
-         self.key_metadata = input;
-         self
 ```
 
 ### `src/operation/create_key/builders.rs`
@@ -12182,7 +12085,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
-@@ -133,41 +108,35 @@
+@@ -133,36 +108,35 @@
  impl DecryptInputBuilder {
      /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
      /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
@@ -12191,8 +12094,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
--    /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
+     /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
+     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
 -    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_blob = input;
@@ -12227,13 +12130,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.encryption_context = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p>
--    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_encryption_context(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -181,12 +150,11 @@
+     /// <p>Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p>
+@@ -181,12 +155,11 @@
      pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.encryption_context
      }
@@ -12248,16 +12146,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -193,8 +161,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -208,38 +174,11 @@
+@@ -208,18 +181,7 @@
      /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>Decrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
      /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
@@ -12277,11 +12166,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
          self
-     }
--    /// <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
--    /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>Decrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
--    /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
+@@ -228,18 +190,7 @@
+     /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>Decrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
+     /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -12294,10 +12182,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -248,18 +187,7 @@
+@@ -248,18 +199,7 @@
      /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>Decrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
      /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
@@ -12317,63 +12206,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -269,8 +197,6 @@
-         self.encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify the same algorithm that was used to encrypt the data. If you specify a different algorithm, the <code>Decrypt</code> operation fails.</p>
--    /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported algorithm that is valid for symmetric encryption KMS keys.</p>
-     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.encryption_algorithm = input;
-         self
-@@ -288,10 +214,6 @@
-         self.recipient = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A signed <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-concepts.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>.</p>
--    /// <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM.</p>
--    /// <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the plaintext data with the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
--    /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-         self.recipient = input;
-         self
-@@ -309,8 +231,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -320,13 +240,12 @@
+@@ -320,13 +260,12 @@
      pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
          &self.dry_run
      }
--    /// Appends an item to `dry_run_modifiers`.
++    /// <p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p>
++    /// <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p>
++    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// Appends an item to `dry_run_modifiers`.
+     ///
+     /// To override the contents of this collection use [`set_dry_run_modifiers`](Self::set_dry_run_modifiers).
 -    ///
--    /// To override the contents of this collection use [`set_dry_run_modifiers`](Self::set_dry_run_modifiers).
--    ///
-     /// <p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p>
-     /// <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p>
-     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-+    /// Appends an item to `dry_run_modifiers`.
-+    ///
-+    /// To override the contents of this collection use [`set_dry_run_modifiers`](Self::set_dry_run_modifiers).
-     pub fn dry_run_modifiers(mut self, input: crate::types::DryRunModifierType) -> Self {
-         let mut v = self.dry_run_modifiers.unwrap_or_default();
-         v.push(input);
-@@ -333,9 +252,6 @@
-         self.dry_run_modifiers = ::std::option::Option::Some(v);
-         self
-     }
 -    /// <p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p>
 -    /// <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p>
 -    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>>) -> Self {
-         self.dry_run_modifiers = input;
-         self
-@@ -347,8 +263,8 @@
+     pub fn dry_run_modifiers(mut self, input: crate::types::DryRunModifierType) -> Self {
+         let mut v = self.dry_run_modifiers.unwrap_or_default();
+         v.push(input);
+@@ -347,8 +286,8 @@
          &self.dry_run_modifiers
      }
      /// Consumes the builder and constructs a [`DecryptInput`](crate::operation::decrypt::DecryptInput).
@@ -12384,7 +12234,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ciphertext_blob: self.ciphertext_blob,
              encryption_context: self.encryption_context,
              grant_tokens: self.grant_tokens,
-@@ -357,6 +273,6 @@
+@@ -357,6 +296,6 @@
              recipient: self.recipient,
              dry_run: self.dry_run,
              dry_run_modifiers: self.dry_run_modifiers,
@@ -12476,15 +12326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
  }
-@@ -82,7 +71,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to decrypt the ciphertext.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -93,19 +81,17 @@
+@@ -93,19 +82,19 @@
      }
      /// <p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
      /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
@@ -12493,8 +12335,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.plaintext = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
--    /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
+     /// <p>Decrypted plaintext data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
 -    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.plaintext = input;
@@ -12507,15 +12349,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.plaintext
      }
      /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-@@ -113,7 +99,6 @@
-         self.encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.encryption_algorithm = input;
-         self
-@@ -124,19 +109,17 @@
+@@ -124,19 +113,19 @@
      }
      /// <p>The plaintext data encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
      /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -12524,8 +12358,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_for_recipient = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext data encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
--    /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>The plaintext data encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
+     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_for_recipient = input;
@@ -12538,15 +12372,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_for_recipient
      }
      /// <p>The identifier of the key material used to decrypt the ciphertext. This field is present only when the operation uses a symmetric encryption KMS key. This field is omitted if the request includes the <code>Recipient</code> parameter.</p>
-@@ -144,7 +127,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to decrypt the ciphertext. This field is present only when the operation uses a symmetric encryption KMS key. This field is omitted if the request includes the <code>Recipient</code> parameter.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
-@@ -174,15 +156,3 @@
+@@ -174,15 +163,3 @@
          }
      }
  }
@@ -13597,15 +13423,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteAliasInput {
      /// <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>.</p>
      pub alias_name: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.alias_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>.</p>
-     pub fn set_alias_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.alias_name = input;
-         self
-@@ -42,7 +42,7 @@
+@@ -42,7 +43,7 @@
          &self.alias_name
      }
      /// Consumes the builder and constructs a [`DeleteAliasInput`](crate::operation::delete_alias::DeleteAliasInput).
@@ -14364,7 +14182,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn custom_key_store_id(&self) -> ::std::option::Option<&str> {
          self.custom_key_store_id.as_deref()
      }
-@@ -26,28 +27,24 @@
+@@ -26,28 +27,25 @@
      pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
  }
  impl DeleteCustomKeyStoreInputBuilder {
@@ -14376,6 +14194,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
++    /// <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
      pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.custom_key_store_id = input;
          self
@@ -15190,7 +15009,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_material_id(&self) -> ::std::option::Option<&str> {
          self.key_material_id.as_deref()
      }
-@@ -59,29 +40,12 @@
+@@ -59,14 +40,7 @@
  impl DeleteImportedKeyMaterialInputBuilder {
      /// <p>Identifies the KMS key from which you are deleting imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -15206,10 +15025,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -74,14 +48,7 @@
      }
--    /// <p>Identifies the KMS key from which you are deleting imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies the KMS key from which you are deleting imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -15218,10 +15037,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -88,50 +52,28 @@
+@@ -88,50 +55,29 @@
      }
      /// <p>Identifies the KMS key from which you are deleting imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -15250,6 +15070,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If no KeyMaterialId is specified, KMS deletes the current key material.</p>
 -    /// </important>
 -    /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
++    /// <p>Identifies the imported key material you are deleting.</p> <important><p>If no KeyMaterialId is specified, KMS deletes the current key material.</p></important><p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>
      pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_material_id = input;
          self
@@ -15291,22 +15112,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -45,7 +46,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key from which the key material was deleted.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -59,7 +59,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the deleted key material.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
 ```
 
 ### `src/operation/delete_imported_key_material/builders.rs`
@@ -16209,7 +16014,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -103,63 +78,27 @@
+@@ -103,63 +78,30 @@
  pub struct DeriveSharedSecretInputBuilder {
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
@@ -16242,7 +16047,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Identifies an asymmetric NIST-standard ECC or SM2 (China Regions only) KMS key. KMS uses the private key in the specified key pair to derive the shared secret. The key usage of the KMS key must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Identifies an asymmetric NIST-standard ECC or SM2 (China Regions only) KMS key. KMS uses the private key in the specified key pair to derive the shared secret. The key usage of the KMS key must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -16255,6 +16061,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -16278,15 +16085,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -169,7 +108,6 @@
-         self.key_agreement_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the key agreement algorithm used to derive the shared secret. The only valid value is <code>ECDH</code>.</p>
-     pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>) -> Self {
-         self.key_agreement_algorithm = input;
-         self
-@@ -180,40 +118,31 @@
+@@ -180,40 +122,36 @@
      }
      /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
      /// <p>The public key must be a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
@@ -16302,13 +16101,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.public_key = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
--    /// <p>The public key must be a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
+     /// <p>Specifies the public key in your peer's NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key pair.</p>
+     /// <p>The public key must be a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
 -    /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
--    /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
++    /// <p><a>GetPublicKey</a> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
+     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
 -    /// </note>
 -    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
 -    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// </note><p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
 +    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.public_key = input;
          self
@@ -16336,36 +16137,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -220,8 +149,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -237,8 +164,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -256,10 +181,6 @@
-         self.recipient = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>.</p>
--    /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
--    /// <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p>
--    /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-         self.recipient = input;
-         self
-@@ -272,11 +193,8 @@
+@@ -272,11 +210,8 @@
          &self.recipient
      }
      /// Consumes the builder and constructs a [`DeriveSharedSecretInput`](crate::operation::derive_shared_secret::DeriveSharedSecretInput).
@@ -16379,7 +16151,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              key_agreement_algorithm: self.key_agreement_algorithm,
              public_key: self.public_key,
-@@ -283,6 +201,6 @@
+@@ -283,6 +218,6 @@
              grant_tokens: self.grant_tokens,
              dry_run: self.dry_run,
              recipient: self.recipient,
@@ -16465,15 +16237,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
      pub(crate) key_origin: ::std::option::Option<crate::types::OriginType>,
      _request_id: Option<String>,
-@@ -86,7 +75,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the KMS key used to derive the shared secret.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -97,36 +85,32 @@
+@@ -97,36 +86,36 @@
      }
      /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
      /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
@@ -16482,8 +16246,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.shared_secret = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
--    /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
+     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
+     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
 -    pub fn set_shared_secret(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_shared_secret(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.shared_secret = input;
@@ -16502,8 +16266,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_for_recipient = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
--    /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
+     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_for_recipient = input;
@@ -16516,25 +16280,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_for_recipient
      }
      /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-@@ -134,7 +118,6 @@
-         self.key_agreement_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-     pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>) -> Self {
-         self.key_agreement_algorithm = input;
-         self
-@@ -150,9 +133,6 @@
-         self.key_origin = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The source of the key material for the specified KMS key.</p>
--    /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
--    /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-     pub fn set_key_origin(mut self, input: ::std::option::Option<crate::types::OriginType>) -> Self {
-         self.key_origin = input;
-         self
-@@ -184,15 +164,3 @@
+@@ -184,15 +173,3 @@
          }
      }
  }
@@ -17528,41 +17274,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeCustomKeyStoresInput {
      /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
      /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-@@ -57,8 +58,6 @@
-         self.custom_key_store_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
--    /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-     pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.custom_key_store_id = input;
-         self
-@@ -74,8 +73,6 @@
-         self.custom_key_store_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
--    /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-     pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.custom_key_store_name = input;
-         self
-@@ -90,7 +87,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -104,7 +100,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -114,17 +109,12 @@
+@@ -114,17 +115,12 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`DescribeCustomKeyStoresInput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput).
@@ -17633,31 +17345,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn custom_key_stores(mut self, input: crate::types::CustomKeyStoresListEntry) -> Self {
          let mut v = self.custom_key_stores.unwrap_or_default();
          v.push(input);
-@@ -60,7 +58,6 @@
-         self.custom_key_stores = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Contains metadata about each custom key store.</p>
-     pub fn set_custom_key_stores(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>) -> Self {
-         self.custom_key_stores = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput {
              custom_key_stores: self.custom_key_stores,
              next_marker: self.next_marker,
@@ -18511,7 +18199,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -68,38 +45,12 @@
+@@ -68,18 +45,7 @@
      /// <p>Describes the specified KMS key.</p>
      /// <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its <code>KeyId</code> and <code>Arn</code> in the response.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -18531,11 +18219,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Describes the specified KMS key.</p>
--    /// <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its <code>KeyId</code> and <code>Arn</code> in the response.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+@@ -88,18 +54,7 @@
+     /// <p>Describes the specified KMS key.</p>
+     /// <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its <code>KeyId</code> and <code>Arn</code> in the response.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -18548,10 +18235,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -107,27 +58,15 @@
+@@ -107,27 +62,15 @@
      /// <p>Describes the specified KMS key.</p>
      /// <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a> and returns its <code>KeyId</code> and <code>Arn</code> in the response.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -18582,16 +18270,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -134,8 +73,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -146,10 +83,10 @@
+@@ -146,10 +89,10 @@
          &self.grant_tokens
      }
      /// Consumes the builder and constructs a [`DescribeKeyInput`](crate::operation::describe_key::DescribeKeyInput).
@@ -18618,14 +18297,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.key_metadata = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Metadata associated with the key.</p>
-     pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
-         self.key_metadata = input;
-         self
 ```
 
 ### `src/operation/describe_key/builders.rs`
@@ -19462,7 +19133,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl DisableKeyInputBuilder {
      /// <p>Identifies the KMS key to disable.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -19478,10 +19149,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Identifies the KMS key to disable.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies the KMS key to disable.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -19490,10 +19161,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,19 +45,12 @@
+@@ -75,19 +48,12 @@
      }
      /// <p>Identifies the KMS key to disable.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -20299,7 +19971,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl DisableKeyRotationInputBuilder {
      /// <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -20315,10 +19987,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -20327,10 +19999,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,22 +45,12 @@
+@@ -75,22 +48,12 @@
      }
      /// <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -21165,7 +20838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn custom_key_store_id(&self) -> ::std::option::Option<&str> {
          self.custom_key_store_id.as_deref()
      }
-@@ -26,30 +27,24 @@
+@@ -26,30 +27,25 @@
      pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
  }
  impl DisconnectCustomKeyStoreInputBuilder {
@@ -21177,6 +20850,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
++    /// <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
      pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.custom_key_store_id = input;
          self
@@ -21968,7 +21642,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl EnableKeyInputBuilder {
      /// <p>Identifies the KMS key to enable.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -21984,10 +21658,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Identifies the KMS key to enable.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies the KMS key to enable.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -21996,10 +21670,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,19 +45,12 @@
+@@ -75,19 +48,12 @@
      }
      /// <p>Identifies the KMS key to enable.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -22822,7 +22497,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p></p>
      pub fn rotation_period_in_days(&self) -> ::std::option::Option<i32> {
          self.rotation_period_in_days
-@@ -59,29 +46,12 @@
+@@ -59,14 +46,7 @@
  impl EnableKeyRotationInputBuilder {
      /// <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -22838,10 +22513,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -74,14 +54,7 @@
      }
--    /// <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -22850,10 +22525,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -88,29 +58,18 @@
+@@ -88,20 +61,13 @@
      }
      /// <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -22876,16 +22552,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p></p>
      pub fn rotation_period_in_days(mut self, input: i32) -> Self {
          self.rotation_period_in_days = ::std::option::Option::Some(input);
-         self
+@@ -109,7 +75,7 @@
      }
--    /// <p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p>
--    /// <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p>
+     /// <p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p>
+     /// <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p>
 -    /// <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"> <code>kms:RotationPeriodInDays</code> </a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p>
--    /// <p></p>
++    /// <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"><code>kms:RotationPeriodInDays</code></a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p>
+     /// <p></p>
      pub fn set_rotation_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
          self.rotation_period_in_days = input;
-         self
-@@ -117,18 +76,16 @@
+@@ -117,18 +83,16 @@
      }
      /// <p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p>
      /// <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p>
@@ -23843,7 +23519,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
-@@ -117,99 +76,53 @@
+@@ -117,98 +76,58 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl EncryptInputBuilder {
@@ -23869,7 +23545,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -23882,6 +23559,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -23912,7 +23590,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.plaintext = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Data to be encrypted.</p>
+     /// <p>Data to be encrypted.</p>
 -    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.plaintext = input;
@@ -23951,11 +23629,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies the encryption context that will be used to encrypt the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_encryption_context(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -217,20 +130,16 @@
+@@ -217,20 +136,16 @@
          self.encryption_context = input;
          self
      }
@@ -23979,35 +23657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -237,8 +146,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -255,9 +162,6 @@
-         self.encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
--    /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
--    /// <p>The SM2PKE algorithm is only available in China Regions.</p>
-     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.encryption_algorithm = input;
-         self
-@@ -274,8 +178,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -286,8 +188,8 @@
+@@ -286,8 +201,8 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`EncryptInput`](crate::operation::encrypt::EncryptInput).
@@ -24018,7 +23668,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              plaintext: self.plaintext,
              encryption_context: self.encryption_context,
-@@ -294,18 +196,6 @@
+@@ -294,18 +209,6 @@
              grant_tokens: self.grant_tokens,
              encryption_algorithm: self.encryption_algorithm,
              dry_run: self.dry_run,
@@ -24076,7 +23726,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
      _request_id: Option<String>,
-@@ -48,17 +49,16 @@
+@@ -48,17 +49,17 @@
  }
  impl EncryptOutputBuilder {
      /// <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -24085,7 +23735,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_blob = input;
@@ -24097,22 +23747,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_blob
      }
      /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to encrypt the plaintext.</p>
-@@ -66,7 +66,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to encrypt the plaintext.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -80,7 +79,6 @@
-         self.encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The encryption algorithm that was used to encrypt the plaintext.</p>
-     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.encryption_algorithm = input;
-         self
 ```
 
 ### `src/operation/encrypt/builders.rs`
@@ -25155,7 +24789,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -118,84 +89,39 @@
+@@ -118,83 +89,43 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl GenerateDataKeyInputBuilder {
@@ -25181,7 +24815,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -25194,6 +24829,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -25245,11 +24881,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies the encryption context that will be used when encrypting the data key.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_encryption_context(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -203,10 +129,7 @@
+@@ -203,10 +134,7 @@
          self.encryption_context = input;
          self
      }
@@ -25261,25 +24897,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.encryption_context
-@@ -217,8 +140,6 @@
-         self.number_of_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For 128-bit (16-byte) and 256-bit (32-byte) data keys, use the <code>KeySpec</code> parameter.</p>
--    /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
-     pub fn set_number_of_bytes(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.number_of_bytes = input;
-         self
-@@ -234,8 +155,6 @@
-         self.key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
--    /// <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
-     pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::DataKeySpec>) -> Self {
-         self.key_spec = input;
-         self
-@@ -245,12 +164,11 @@
+@@ -245,12 +173,11 @@
      pub fn get_key_spec(&self) -> &::std::option::Option<crate::types::DataKeySpec> {
          &self.key_spec
      }
@@ -25294,36 +24912,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -257,8 +175,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -276,10 +192,6 @@
-         self.recipient = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>.</p>
--    /// <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM.</p>
--    /// <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts the plaintext data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code> field in the response is null or empty.</p>
--    /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-         self.recipient = input;
-         self
-@@ -297,8 +209,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -309,10 +219,8 @@
+@@ -309,10 +236,8 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`GenerateDataKeyInput`](crate::operation::generate_data_key::GenerateDataKeyInput).
@@ -25336,7 +24925,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              encryption_context: self.encryption_context,
              number_of_bytes: self.number_of_bytes,
-@@ -320,6 +228,6 @@
+@@ -320,6 +245,6 @@
              grant_tokens: self.grant_tokens,
              recipient: self.recipient,
              dry_run: self.dry_run,
@@ -25418,7 +25007,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for GenerateDataKeyOutput {
      fn request_id(&self) -> Option<&str> {
          self._request_id.as_deref()
-@@ -66,46 +55,43 @@
+@@ -66,46 +55,46 @@
  }
 
  /// A builder for [`GenerateDataKeyOutput`](crate::operation::generate_data_key::GenerateDataKeyOutput).
@@ -25443,7 +25032,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_blob = input;
@@ -25461,8 +25050,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.plaintext = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of KMS. Then, remove it from memory as soon as possible.</p>
--    /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
+     /// <p>The plaintext data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of KMS. Then, remove it from memory as soon as possible.</p>
+     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
 -    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.plaintext = input;
@@ -25475,15 +25064,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.plaintext
      }
      /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
-@@ -113,7 +99,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -124,19 +109,17 @@
+@@ -124,19 +113,19 @@
      }
      /// <p>The plaintext data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
      /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -25492,8 +25073,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_for_recipient = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
--    /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>The plaintext data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
+     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_for_recipient = input;
@@ -25506,15 +25087,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_for_recipient
      }
      /// <p>The identifier of the key material used to encrypt the data key. This field is omitted if the request includes the <code>Recipient</code> parameter.</p>
-@@ -144,7 +127,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to encrypt the data key. This field is omitted if the request includes the <code>Recipient</code> parameter.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
-@@ -174,15 +156,3 @@
+@@ -174,15 +163,3 @@
          }
      }
  }
@@ -26608,7 +26181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -109,30 +80,21 @@
+@@ -109,29 +80,22 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl GenerateDataKeyPairInputBuilder {
@@ -26640,11 +26213,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies the encryption context that will be used when encrypting the private key in the data key pair.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_encryption_context(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -140,65 +102,26 @@
+@@ -140,65 +104,29 @@
          self.encryption_context = input;
          self
      }
@@ -26679,7 +26252,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -26692,6 +26266,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -26715,16 +26290,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -209,8 +132,6 @@
-         self.key_pair_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines the type of data key pair that is generated.</p>
--    /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
-     pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
-         self.key_pair_spec = input;
-         self
-@@ -220,12 +141,11 @@
+@@ -220,12 +148,11 @@
      pub fn get_key_pair_spec(&self) -> &::std::option::Option<crate::types::DataKeyPairSpec> {
          &self.key_pair_spec
      }
@@ -26739,36 +26305,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -232,8 +152,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -251,10 +169,6 @@
-         self.recipient = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>.</p>
--    /// <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call GenerateDataKeyPair generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p>
--    /// <p>When you use this parameter, instead of returning a plaintext copy of the private data key, KMS encrypts the plaintext private data key under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains a copy of the private data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p>
--    /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-         self.recipient = input;
-         self
-@@ -272,8 +186,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -284,11 +196,8 @@
+@@ -284,11 +211,8 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`GenerateDataKeyPairInput`](crate::operation::generate_data_key_pair::GenerateDataKeyPairInput).
@@ -26782,7 +26319,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              encryption_context: self.encryption_context,
              key_id: self.key_id,
              key_pair_spec: self.key_pair_spec,
-@@ -295,6 +204,6 @@
+@@ -295,6 +219,6 @@
              grant_tokens: self.grant_tokens,
              recipient: self.recipient,
              dry_run: self.dry_run,
@@ -26877,7 +26414,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for GenerateDataKeyPairOutput {
      fn request_id(&self) -> Option<&str> {
          self._request_id.as_deref()
-@@ -80,62 +67,58 @@
+@@ -80,62 +67,62 @@
  }
 
  /// A builder for [`GenerateDataKeyPairOutput`](crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput).
@@ -26905,7 +26442,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.private_key_ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.private_key_ciphertext_blob = input;
@@ -26923,8 +26460,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.private_key_plaintext = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
--    /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
+     /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
 -    pub fn set_private_key_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_private_key_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.private_key_plaintext = input;
@@ -26942,7 +26479,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.public_key = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.public_key = input;
@@ -26954,23 +26491,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.public_key
      }
      /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
-@@ -143,7 +126,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -157,7 +139,6 @@
-         self.key_pair_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of data key pair that was generated.</p>
-     pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
-         self.key_pair_spec = input;
-         self
-@@ -168,19 +149,17 @@
+@@ -168,19 +155,19 @@
      }
      /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
      /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -26979,8 +26500,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_for_recipient = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
--    /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
+     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_for_recipient = input;
@@ -26993,15 +26514,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_for_recipient
      }
      /// <p>The identifier of the key material used to encrypt the private key.</p>
-@@ -188,7 +167,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to encrypt the private key.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
-@@ -220,17 +198,3 @@
+@@ -220,17 +207,3 @@
          }
      }
  }
@@ -28081,7 +27594,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -96,30 +67,21 @@
+@@ -96,29 +67,22 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl GenerateDataKeyPairWithoutPlaintextInputBuilder {
@@ -28113,11 +27626,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies the encryption context that will be used when encrypting the private key in the data key pair.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_encryption_context(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -127,65 +89,26 @@
+@@ -127,65 +91,29 @@
          self.encryption_context = input;
          self
      }
@@ -28152,7 +27665,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -28165,6 +27679,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -28188,16 +27703,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -196,8 +119,6 @@
-         self.key_pair_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines the type of data key pair that is generated.</p>
--    /// <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), the rule that permits you to use ECC KMS keys only to sign and verify, and the rule that permits you to use ML-DSA key pairs to sign and verify only are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
-     pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
-         self.key_pair_spec = input;
-         self
-@@ -207,12 +128,11 @@
+@@ -207,12 +135,11 @@
      pub fn get_key_pair_spec(&self) -> &::std::option::Option<crate::types::DataKeyPairSpec> {
          &self.key_pair_spec
      }
@@ -28212,25 +27718,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -219,8 +139,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -236,8 +154,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -248,20 +164,13 @@
+@@ -248,20 +175,13 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`GenerateDataKeyPairWithoutPlaintextInput`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput).
@@ -28307,7 +27795,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
      pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
-@@ -62,31 +63,29 @@
+@@ -62,31 +63,31 @@
  }
  impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
      /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -28316,7 +27804,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.private_key_ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.private_key_ciphertext_blob = input;
@@ -28333,7 +27821,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.public_key = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.public_key = input;
@@ -28345,30 +27833,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.public_key
      }
      /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
-@@ -94,7 +93,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -108,7 +106,6 @@
-         self.key_pair_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of data key pair that was generated.</p>
-     pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
-         self.key_pair_spec = input;
-         self
-@@ -122,7 +119,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to encrypt the private key.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
 ```
 
 ### `src/operation/generate_data_key_pair_without_plaintext/builders.rs`
@@ -29414,7 +28878,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -101,84 +72,39 @@
+@@ -101,83 +72,43 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl GenerateDataKeyWithoutPlaintextInputBuilder {
@@ -29440,7 +28904,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -29453,6 +28918,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -29504,11 +28970,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies the encryption context that will be used when encrypting the data key.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_encryption_context(
          mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -186,10 +112,7 @@
+@@ -186,10 +117,7 @@
          self.encryption_context = input;
          self
      }
@@ -29520,23 +28986,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.encryption_context
-@@ -199,7 +122,6 @@
-         self.key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-     pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::DataKeySpec>) -> Self {
-         self.key_spec = input;
-         self
-@@ -213,7 +135,6 @@
-         self.number_of_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
-     pub fn set_number_of_bytes(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.number_of_bytes = input;
-         self
-@@ -222,12 +143,11 @@
+@@ -222,12 +150,11 @@
      pub fn get_number_of_bytes(&self) -> &::std::option::Option<i32> {
          &self.number_of_bytes
      }
@@ -29551,25 +29001,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -234,8 +154,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -251,8 +169,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -263,21 +179,14 @@
+@@ -263,21 +190,14 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`GenerateDataKeyWithoutPlaintextInput`](crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextInput).
@@ -29638,7 +29070,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -48,17 +49,16 @@
+@@ -48,17 +49,17 @@
  }
  impl GenerateDataKeyWithoutPlaintextOutputBuilder {
      /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -29647,7 +29079,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_blob = input;
@@ -29659,22 +29091,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_blob
      }
      /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
-@@ -66,7 +66,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -80,7 +79,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to encrypt the data key.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
 ```
 
 ### `src/operation/generate_data_key_without_plaintext/builders.rs`
@@ -30730,7 +30146,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-@@ -78,65 +66,58 @@
+@@ -78,25 +66,25 @@
  }
  impl GenerateMacInputBuilder {
      /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
@@ -30742,9 +30158,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.message = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
+     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
 -    /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
 -    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p><code>GenerateMac</code> and <a>VerifyMac</a> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
 +    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.message = input;
          self
@@ -30762,10 +30179,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
+@@ -103,18 +91,18 @@
          self
      }
--    /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
+     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
 -    /// <p>To identify an HMAC KMS key, use the <code>DescribeKey</code> operation and see the <code>KeySpec</code> field in the response.</p>
++    /// <p>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the <code>KeySpec</code> field in the response.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -30782,10 +30201,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn mac_algorithm(mut self, input: crate::types::MacAlgorithmSpec) -> Self {
          self.mac_algorithm = ::std::option::Option::Some(input);
+@@ -121,22 +109,21 @@
          self
      }
--    /// <p>The MAC algorithm used in the operation.</p>
+     /// <p>The MAC algorithm used in the operation.</p>
 -    /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <code>DescribeKey</code> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
++    /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
      pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
          self.mac_algorithm = input;
          self
@@ -30807,25 +30228,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -143,8 +124,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -160,8 +139,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -172,24 +149,13 @@
+@@ -172,24 +159,13 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`GenerateMacInput`](crate::operation::generate_mac::GenerateMacInput).
@@ -30893,7 +30296,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      _request_id: Option<String>,
-@@ -51,19 +52,17 @@
+@@ -51,19 +52,19 @@
  impl GenerateMacOutputBuilder {
      /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
      /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
@@ -30902,8 +30305,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.mac = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
--    /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
+     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
+     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
 -    pub fn set_mac(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_mac(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.mac = input;
@@ -30916,22 +30319,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.mac
      }
      /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-@@ -71,7 +70,6 @@
-         self.mac_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The MAC algorithm that was used to generate the HMAC.</p>
-     pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
-         self.mac_algorithm = input;
-         self
-@@ -85,7 +83,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The HMAC KMS key used in the operation.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
 ```
 
 ### `src/operation/generate_mac/builders.rs`
@@ -31812,15 +31199,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</p>
      pub fn custom_key_store_id(&self) -> ::std::option::Option<&str> {
          self.custom_key_store_id.as_deref()
-@@ -53,7 +54,6 @@
-         self.number_of_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The length of the random byte string. This parameter is required.</p>
-     pub fn set_number_of_bytes(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.number_of_bytes = input;
-         self
-@@ -62,19 +62,17 @@
+@@ -62,19 +63,19 @@
      pub fn get_number_of_bytes(&self) -> &::std::option::Option<i32> {
          &self.number_of_bytes
      }
@@ -31832,7 +31211,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Generates the random byte string in the CloudHSM cluster that is associated with the specified CloudHSM key store. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
--    /// <p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</p>
++    /// <p>Generates the random byte string in the CloudHSM cluster that is associated with the specified CloudHSM key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+     /// <p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</p>
      pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.custom_key_store_id = input;
          self
@@ -31842,18 +31222,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>External key store IDs are not valid for this parameter. If you specify the ID of an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</p>
      pub fn get_custom_key_store_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.custom_key_store_id
-@@ -87,10 +85,6 @@
-         self.recipient = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>.</p>
--    /// <p>This parameter supports the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK for Amazon Web Services Nitro Enclaves. It supports any Amazon Web Services SDK for Amazon Web Services NitroTPM.</p>
--    /// <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the plaintext bytes under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>Plaintext</code> field in the response is null or empty.</p>
--    /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_recipient(mut self, input: ::std::option::Option<crate::types::RecipientInfo>) -> Self {
-         self.recipient = input;
-         self
-@@ -103,13 +97,11 @@
+@@ -103,13 +104,11 @@
          &self.recipient
      }
      /// Consumes the builder and constructs a [`GenerateRandomInput`](crate::operation::generate_random::GenerateRandomInput).
@@ -31921,7 +31290,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for GenerateRandomOutput {
      fn request_id(&self) -> Option<&str> {
          self._request_id.as_deref()
-@@ -45,46 +37,42 @@
+@@ -45,46 +37,46 @@
  }
 
  /// A builder for [`GenerateRandomOutput`](crate::operation::generate_random::GenerateRandomOutput).
@@ -31943,8 +31312,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.plaintext = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
--    /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
+     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
 -    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.plaintext = input;
@@ -31963,8 +31332,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_for_recipient = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
--    /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
+     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_for_recipient = input;
@@ -31977,7 +31346,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_for_recipient
      }
      pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-@@ -105,12 +93,3 @@
+@@ -105,12 +97,3 @@
          }
      }
  }
@@ -32803,7 +32172,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl GetKeyLastUsageInputBuilder {
      /// <p>Identifies the KMS key to get usage information for. To specify a KMS key, use its key ID or key ARN. Alias names are not supported.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -32819,10 +32188,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Identifies the KMS key to get usage information for. To specify a KMS key, use its key ID or key ARN. Alias names are not supported.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies the KMS key to get usage information for. To specify a KMS key, use its key ID or key ARN. Alias names are not supported.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -32831,10 +32200,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,21 +45,12 @@
+@@ -75,21 +48,12 @@
      }
      /// <p>Identifies the KMS key to get usage information for. To specify a KMS key, use its key ID or key ARN. Alias names are not supported.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -32872,38 +32242,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -59,7 +60,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The globally unique identifier for the KMS key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -73,7 +73,6 @@
-         self.key_last_usage = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
-     pub fn set_key_last_usage(mut self, input: ::std::option::Option<crate::types::KeyLastUsageData>) -> Self {
-         self.key_last_usage = input;
-         self
-@@ -87,7 +86,6 @@
-         self.tracking_start_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
-     pub fn set_tracking_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.tracking_start_date = input;
-         self
-@@ -101,7 +99,6 @@
-         self.key_creation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the KMS key was created.</p>
-     pub fn set_key_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.key_creation_date = input;
-         self
 ```
 
 ### `src/operation/get_key_last_usage/builders.rs`
@@ -33700,7 +33038,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn policy_name(&self) -> ::std::option::Option<&str> {
          self.policy_name.as_deref()
      }
-@@ -53,29 +40,12 @@
+@@ -53,14 +40,7 @@
  impl GetKeyPolicyInputBuilder {
      /// <p>Gets the key policy for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -33716,10 +33054,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -68,14 +48,7 @@
      }
--    /// <p>Gets the key policy for the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Gets the key policy for the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -33728,10 +33066,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -82,38 +52,28 @@
+@@ -82,38 +55,29 @@
      }
      /// <p>Gets the key policy for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -33754,6 +33093,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Specifies the name of the key policy. If no policy name is specified, the default value is <code>default</code>. The only valid name is <code>default</code>. To get the names of key policies, use <code>ListKeyPolicies</code>.</p>
++    /// <p>Specifies the name of the key policy. If no policy name is specified, the default value is <code>default</code>. The only valid name is <code>default</code>. To get the names of key policies, use <a>ListKeyPolicies</a>.</p>
      pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.policy_name = input;
          self
@@ -33789,22 +33129,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -45,7 +46,6 @@
-         self.policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A key policy document in JSON format.</p>
-     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy = input;
-         self
-@@ -59,7 +59,6 @@
-         self.policy_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the key policy. The only valid value is <code>default</code>.</p>
-     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_name = input;
-         self
 ```
 
 ### `src/operation/get_key_policy/builders.rs`
@@ -34613,7 +33937,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl GetKeyRotationStatusInputBuilder {
      /// <p>Gets the rotation status for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
@@ -34629,10 +33953,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Gets the rotation status for the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
+     /// <p>Gets the rotation status for the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -34641,10 +33965,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,22 +45,12 @@
+@@ -75,22 +48,12 @@
      }
      /// <p>Gets the rotation status for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
@@ -34715,39 +34040,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn on_demand_rotation_start_date(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
          self.on_demand_rotation_start_date.as_ref()
      }
-@@ -68,7 +69,6 @@
-         self.key_rotation_enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
-     pub fn set_key_rotation_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.key_rotation_enabled = input;
-         self
-@@ -82,7 +82,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the specified symmetric encryption KMS key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -96,7 +95,6 @@
-         self.rotation_period_in_days = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of days between each automatic rotation. The default value is 365 days.</p>
-     pub fn set_rotation_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.rotation_period_in_days = input;
-         self
-@@ -110,7 +108,6 @@
-         self.next_rotation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The next date that KMS will automatically rotate the key material.</p>
-     pub fn set_next_rotation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.next_rotation_date = input;
-         self
-@@ -120,19 +117,17 @@
+@@ -120,19 +121,19 @@
          &self.next_rotation_date
      }
      /// <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
@@ -34757,8 +34050,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.on_demand_rotation_start_date = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
+     /// <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
 -    /// <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <code>ListKeyRotations</code> to view the details of the completed on-demand rotation.</p>
++    /// <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
      pub fn set_on_demand_rotation_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
          self.on_demand_rotation_start_date = input;
          self
@@ -34769,7 +34063,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_on_demand_rotation_start_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.on_demand_rotation_start_date
      }
-@@ -148,7 +143,7 @@
+@@ -148,7 +149,7 @@
      /// Consumes the builder and constructs a [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
      pub fn build(self) -> crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
          crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
@@ -35654,7 +34948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn wrapping_algorithm(&self) -> ::std::option::Option<&crate::types::AlgorithmSpec> {
          self.wrapping_algorithm.as_ref()
      }
-@@ -99,30 +62,12 @@
+@@ -99,14 +62,7 @@
      /// <p>The identifier of the KMS key that will be associated with the imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
      /// <p>All KMS key types are supported, including multi-Region keys. However, you cannot import key material into a KMS key in a custom key store.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -35670,11 +34964,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the KMS key that will be associated with the imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
--    /// <p>All KMS key types are supported, including multi-Region keys. However, you cannot import key material into a KMS key in a custom key store.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+@@ -115,14 +71,7 @@
+     /// <p>The identifier of the KMS key that will be associated with the imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
+     /// <p>All KMS key types are supported, including multi-Region keys. However, you cannot import key material into a KMS key in a custom key store.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -35683,10 +34976,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -130,56 +75,20 @@
+@@ -130,34 +79,15 @@
      /// <p>The identifier of the KMS key that will be associated with the imported key material. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
      /// <p>All KMS key types are supported, including multi-Region keys. However, you cannot import key material into a KMS key in a custom key store.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -35725,10 +35019,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn wrapping_algorithm(mut self, input: crate::types::AlgorithmSpec) -> Self {
          self.wrapping_algorithm = ::std::option::Option::Some(input);
-         self
+@@ -165,21 +95,9 @@
      }
--    /// <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
--    /// <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
+     /// <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
+     /// <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
 -    /// <p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p>
 -    /// <ul>
 -    /// <li>
@@ -35744,10 +35038,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li>
 -    /// </ul>
++    /// <p>The wrapping algorithms that you can use depend on the type of key material that you are importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p><ul><li><p><b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for wrapping RSA and ECC key material.</p></li><li><p><b>RSAES_OAEP_SHA_256</b> — Supported for all types of key material, except RSA key material (private key).</p>
++    /// <p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_OAEP_SHA_1</b> — Supported for all types of key material, except RSA key material (private key).</p>
++    /// <p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key spec to wrap ECC_NIST_P521 key material.</p></li><li><p><b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October 10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p></li></ul>
      pub fn set_wrapping_algorithm(mut self, input: ::std::option::Option<crate::types::AlgorithmSpec>) -> Self {
          self.wrapping_algorithm = input;
          self
-@@ -186,21 +95,9 @@
+@@ -186,21 +104,9 @@
      }
      /// <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the response to protect your key material during import. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
      /// <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
@@ -35772,17 +35069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_wrapping_algorithm(&self) -> &::std::option::Option<crate::types::AlgorithmSpec> {
          &self.wrapping_algorithm
      }
-@@ -212,9 +109,6 @@
-         self.wrapping_key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of RSA public key to return in the response. You will use this wrapping key with the specified wrapping algorithm to protect your key material during import.</p>
--    /// <p>Use the longest RSA wrapping key that is practical.</p>
--    /// <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key. Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
-     pub fn set_wrapping_key_spec(mut self, input: ::std::option::Option<crate::types::WrappingKeySpec>) -> Self {
-         self.wrapping_key_spec = input;
-         self
-@@ -226,16 +120,11 @@
+@@ -226,16 +132,11 @@
          &self.wrapping_key_spec
      }
      /// Consumes the builder and constructs a [`GetParametersForImportInput`](crate::operation::get_parameters_for_import::GetParametersForImportInput).
@@ -35871,7 +35158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for GetParametersForImportOutput {
      fn request_id(&self) -> Option<&str> {
          self._request_id.as_deref()
-@@ -55,69 +45,65 @@
+@@ -55,69 +45,69 @@
  }
 
  /// A builder for [`GetParametersForImportOutput`](crate::operation::get_parameters_for_import::GetParametersForImportOutput).
@@ -35895,6 +35182,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
++    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -35913,6 +35201,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
 -    pub fn set_import_token(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
 +    pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.import_token = input;
          self
@@ -35932,6 +35221,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
 -    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
 +    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.public_key = input;
          self
@@ -35949,6 +35239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
++    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
      pub fn set_parameters_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
          self.parameters_valid_to = input;
          self
@@ -35958,7 +35249,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_parameters_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.parameters_valid_to
      }
-@@ -141,14 +127,3 @@
+@@ -141,14 +131,3 @@
          }
      }
  }
@@ -36915,7 +36206,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(&self) -> &[::std::string::String] {
          self.grant_tokens.as_deref().unwrap_or_default()
      }
-@@ -65,37 +42,12 @@
+@@ -65,18 +42,7 @@
  impl GetPublicKeyInputBuilder {
      /// <p>Identifies the asymmetric KMS key that includes the public key.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -36935,10 +36226,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -84,18 +50,7 @@
      }
--    /// <p>Identifies the asymmetric KMS key that includes the public key.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+     /// <p>Identifies the asymmetric KMS key that includes the public key.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -36951,10 +36242,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -102,27 +54,15 @@
+@@ -102,27 +57,15 @@
      }
      /// <p>Identifies the asymmetric KMS key that includes the public key.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -36985,16 +36277,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -129,8 +69,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -141,12 +79,10 @@
+@@ -141,12 +84,10 @@
          &self.grant_tokens
      }
      /// Consumes the builder and constructs a [`GetPublicKeyInput`](crate::operation::get_public_key::GetPublicKeyInput).
@@ -37072,15 +36355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) customer_master_key_spec: ::std::option::Option<crate::types::CustomerMasterKeySpec>,
      pub(crate) key_spec: ::std::option::Option<crate::types::KeySpec>,
      pub(crate) key_usage: ::std::option::Option<crate::types::KeyUsageType>,
-@@ -109,7 +104,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -121,14 +115,11 @@
+@@ -121,7 +116,7 @@
      /// <p>The exported public key.</p>
      /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
      /// <p></p>
@@ -37089,15 +36364,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.public_key = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The exported public key.</p>
--    /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
--    /// <p></p>
+@@ -128,7 +123,7 @@
+     /// <p>The exported public key.</p>
+     /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p></p>
 -    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.public_key = input;
          self
      }
-@@ -135,7 +126,7 @@
+@@ -135,7 +130,7 @@
      /// <p>The exported public key.</p>
      /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
      /// <p></p>
@@ -37106,60 +36382,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.public_key
      }
      /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
-@@ -145,8 +136,6 @@
-         self.customer_master_key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
--    /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
-     #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
-     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<crate::types::CustomerMasterKeySpec>) -> Self {
-         self.customer_master_key_spec = input;
-@@ -163,7 +152,6 @@
-         self.key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of the of the public key that was downloaded.</p>
-     pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::KeySpec>) -> Self {
-         self.key_spec = input;
-         self
-@@ -178,8 +166,6 @@
-         self.key_usage = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The permitted use of the public key. Valid values for asymmetric key pairs are <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, and <code>KEY_AGREEMENT</code>.</p>
--    /// <p>This information is critical. For example, if a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of KMS, the ciphertext cannot be decrypted.</p>
-     pub fn set_key_usage(mut self, input: ::std::option::Option<crate::types::KeyUsageType>) -> Self {
-         self.key_usage = input;
-         self
-@@ -189,13 +175,12 @@
+@@ -189,13 +184,12 @@
      pub fn get_key_usage(&self) -> &::std::option::Option<crate::types::KeyUsageType> {
          &self.key_usage
      }
-+    /// <p>The encryption algorithms that KMS supports for this key.</p>
-+    /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
-+    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
-     /// Appends an item to `encryption_algorithms`.
-     ///
-     /// To override the contents of this collection use [`set_encryption_algorithms`](Self::set_encryption_algorithms).
+-    /// Appends an item to `encryption_algorithms`.
 -    ///
--    /// <p>The encryption algorithms that KMS supports for this key.</p>
--    /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
--    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
+-    /// To override the contents of this collection use [`set_encryption_algorithms`](Self::set_encryption_algorithms).
+-    ///
+     /// <p>The encryption algorithms that KMS supports for this key.</p>
+     /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
+     /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
++    /// Appends an item to `encryption_algorithms`.
++    ///
++    /// To override the contents of this collection use [`set_encryption_algorithms`](Self::set_encryption_algorithms).
      pub fn encryption_algorithms(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
          let mut v = self.encryption_algorithms.unwrap_or_default();
          v.push(input);
-@@ -202,9 +187,6 @@
-         self.encryption_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The encryption algorithms that KMS supports for this key.</p>
--    /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
--    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
-     pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>>) -> Self {
-         self.encryption_algorithms = input;
-         self
-@@ -215,12 +197,11 @@
+@@ -215,12 +209,11 @@
      pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>> {
          &self.encryption_algorithms
      }
@@ -37174,16 +36414,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn signing_algorithms(mut self, input: crate::types::SigningAlgorithmSpec) -> Self {
          let mut v = self.signing_algorithms.unwrap_or_default();
          v.push(input);
-@@ -227,8 +208,6 @@
-         self.signing_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The signing algorithms that KMS supports for this key.</p>
--    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
-     pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>>) -> Self {
-         self.signing_algorithms = input;
-         self
-@@ -238,11 +217,10 @@
+@@ -238,11 +231,10 @@
      pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>> {
          &self.signing_algorithms
      }
@@ -37196,14 +36427,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_agreement_algorithms(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
          let mut v = self.key_agreement_algorithms.unwrap_or_default();
          v.push(input);
-@@ -249,7 +227,6 @@
-         self.key_agreement_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
-     pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>) -> Self {
-         self.key_agreement_algorithms = input;
-         self
 ```
 
 ### `src/operation/get_public_key/builders.rs`
@@ -38193,7 +37416,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
      pub(crate) expiration_model: ::std::option::Option<crate::types::ExpirationModelType>,
      pub(crate) import_type: ::std::option::Option<crate::types::ImportType>,
-@@ -125,93 +94,62 @@
+@@ -125,85 +94,64 @@
      pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
  }
  impl ImportKeyMaterialInputBuilder {
@@ -38216,8 +37439,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The identifier of the KMS key that will be associated with the imported key material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding <code>GetParametersForImport</code> request. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code> and its <code>KeyState</code> must be <code>PendingImport</code>.</p>
--    /// <p>The KMS key can be a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key, or asymmetric signing KMS key, including a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported type. You cannot perform this operation on a KMS key in a custom key store, or on a KMS key in a different Amazon Web Services account.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
++    /// <p>The identifier of the KMS key that will be associated with the imported key material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a> request. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code> and its <code>KeyState</code> must be <code>PendingImport</code>.</p>
+     /// <p>The KMS key can be a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key, or asymmetric signing KMS key, including a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported type. You cannot perform this operation on a KMS key in a custom key store, or on a KMS key in a different Amazon Web Services account.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -38226,6 +37450,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -38256,6 +37481,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
 -    pub fn set_import_token(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p>The import token that you received in the response to a previous <a>GetParametersForImport</a> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
 +    pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.import_token = input;
          self
@@ -38276,6 +37502,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
 -    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <a>GetParametersForImport</a> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
 +    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.encrypted_key_material = input;
          self
@@ -38294,15 +37521,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn valid_to(mut self, input: ::aws_smithy_types::DateTime) -> Self {
          self.valid_to = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
--    /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
--    /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
+@@ -211,7 +159,7 @@
+     /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
+     /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
+     /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
 -    /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must delete (<code>DeleteImportedKeyMaterial</code>) and reimport the key material.</p>
++    /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
      pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
          self.valid_to = input;
          self
-@@ -219,7 +157,7 @@
+@@ -219,7 +167,7 @@
      /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
      /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
      /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
@@ -38311,34 +37539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.valid_to
      }
-@@ -230,9 +168,6 @@
-         self.expiration_model = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
--    /// <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you must specify a value for the <code>ValidTo</code> parameter. When value is <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
--    /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must reimport the key material.</p>
-     pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self {
-         self.expiration_model = input;
-         self
-@@ -249,8 +184,6 @@
-         self.import_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether the key material being imported is previously associated with this KMS key or not. This parameter is optional and only usable with symmetric encryption keys. If no key material has ever been imported into the KMS key, and this parameter is omitted, the parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported, if this parameter is omitted then the parameter defaults to <code>EXISTING_KEY_MATERIAL</code>.</p>
--    /// <p>For multi-Region keys, you must first import new key material into the primary Region key. You should use the <code>NEW_KEY_MATERIAL</code> import type when importing key material into the primary Region key. Then, you can import the same key material into the replica Region key. The import type for the replica Region key should be <code>EXISTING_KEY_MATERIAL</code>.</p>
-     pub fn set_import_type(mut self, input: ::std::option::Option<crate::types::ImportType>) -> Self {
-         self.import_type = input;
-         self
-@@ -265,7 +198,6 @@
-         self.key_material_description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Description for the key material being imported. This parameter is optional and only usable with symmetric encryption keys. If you do not specify a key material description, KMS retains the value you specified when you last imported the same key material into this KMS key.</p>
-     pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_description = input;
-         self
-@@ -274,52 +206,22 @@
+@@ -274,52 +222,23 @@
      pub fn get_key_material_description(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_material_description
      }
@@ -38367,6 +37568,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Verifies that the key material ID is already associated with the KMS key</p></li>
 -    /// </ul>
 -    /// <p>To get the list of key material IDs associated with a KMS key, use <code>ListKeyRotations</code>.</p>
++    /// <p>Identifies the key material being imported. This parameter is optional and only usable with symmetric encryption keys. You cannot specify a key material ID with <code>ImportType</code> set to <code>NEW_KEY_MATERIAL</code>. Whenever you import key material into a symmetric encryption key, KMS assigns a unique identifier to the key material based on the KMS key ID and the imported key material. When you re-import key material with a specified key material ID, KMS:</p><ul><li><p>Computes the identifier for the key material</p></li><li><p>Matches the computed identifier against the specified key material ID</p></li><li><p>Verifies that the key material ID is already associated with the KMS key</p></li></ul><p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>
      pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_material_id = input;
          self
@@ -38395,7 +37597,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              import_token: self.import_token,
              encrypted_key_material: self.encrypted_key_material,
-@@ -328,6 +230,6 @@
+@@ -328,6 +247,6 @@
              import_type: self.import_type,
              key_material_description: self.key_material_description,
              key_material_id: self.key_material_id,
@@ -38416,22 +37618,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -45,7 +46,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key into which key material was imported.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -59,7 +59,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the imported key material.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
 ```
 
 ### `src/operation/import_key_material/builders.rs`
@@ -39500,7 +38686,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -65,29 +52,11 @@
+@@ -65,14 +52,7 @@
      /// <p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your Amazon Web Services account.</p>
      /// <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases in the account and Region.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -39516,10 +38702,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
          self
-     }
--    /// <p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your Amazon Web Services account.</p>
--    /// <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases in the account and Region.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+@@ -80,14 +60,7 @@
+     /// <p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your Amazon Web Services account.</p>
+     /// <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases in the account and Region.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -39528,10 +38714,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -95,14 +64,7 @@
+@@ -95,14 +68,7 @@
      /// <p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your Amazon Web Services account.</p>
      /// <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases in the account and Region.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -39547,24 +38734,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -112,8 +74,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -128,7 +88,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -138,11 +97,11 @@
+@@ -138,11 +104,11 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`ListAliasesInput`](crate::operation::list_aliases::ListAliasesInput).
@@ -39629,31 +38799,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn aliases(mut self, input: crate::types::AliasListEntry) -> Self {
          let mut v = self.aliases.unwrap_or_default();
          v.push(input);
-@@ -60,7 +58,6 @@
-         self.aliases = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of aliases.</p>
-     pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>) -> Self {
-         self.aliases = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::list_aliases::ListAliasesOutput {
              aliases: self.aliases,
              next_marker: self.next_marker,
@@ -40511,24 +39657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -91,8 +78,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -107,7 +92,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -118,29 +102,12 @@
+@@ -118,14 +105,7 @@
      }
      /// <p>Returns only grants for the specified KMS key. This parameter is required.</p>
      /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
@@ -40544,10 +39673,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -133,14 +113,7 @@
      }
--    /// <p>Returns only grants for the specified KMS key. This parameter is required.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
+     /// <p>Returns only grants for the specified KMS key. This parameter is required.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -40556,10 +39685,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -147,14 +114,7 @@
+@@ -147,14 +120,7 @@
      }
      /// <p>Returns only grants for the specified KMS key. This parameter is required.</p>
      /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
@@ -40575,33 +39705,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -163,7 +123,6 @@
-         self.grant_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Returns only the grant with the specified grant ID. The grant ID uniquely identifies the grant.</p>
-     pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grant_id = input;
-         self
-@@ -178,8 +137,6 @@
-         self.grantee_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
--    /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-     pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grantee_principal = input;
-         self
-@@ -195,8 +152,6 @@
-         self.grantee_service_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
--    /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-     pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grantee_service_principal = input;
-         self
-@@ -207,8 +162,8 @@
+@@ -207,8 +173,8 @@
          &self.grantee_service_principal
      }
      /// Consumes the builder and constructs a [`ListGrantsInput`](crate::operation::list_grants::ListGrantsInput).
@@ -40612,7 +39716,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              limit: self.limit,
              marker: self.marker,
              key_id: self.key_id,
-@@ -215,6 +170,6 @@
+@@ -215,6 +181,6 @@
              grant_id: self.grant_id,
              grantee_principal: self.grantee_principal,
              grantee_service_principal: self.grantee_service_principal,
@@ -40670,31 +39774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grants(mut self, input: crate::types::GrantListEntry) -> Self {
          let mut v = self.grants.unwrap_or_default();
          v.push(input);
-@@ -60,7 +58,6 @@
-         self.grants = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grants.</p>
-     pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantListEntry>>) -> Self {
-         self.grants = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::list_grants::ListGrantsOutput {
              grants: self.grants,
              next_marker: self.next_marker,
@@ -41644,7 +40724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -64,29 +51,12 @@
+@@ -64,14 +51,7 @@
  impl ListKeyPoliciesInputBuilder {
      /// <p>Gets the names of key policies for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -41660,10 +40740,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -79,14 +59,7 @@
      }
--    /// <p>Gets the names of key policies for the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Gets the names of key policies for the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -41672,10 +40752,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -93,14 +63,7 @@
+@@ -93,14 +66,7 @@
      }
      /// <p>Gets the names of key policies for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -41691,25 +40772,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -111,9 +74,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
--    /// <p>Only one policy can be attached to a key.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -129,7 +89,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -139,13 +98,11 @@
+@@ -139,13 +105,11 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`ListKeyPoliciesInput`](crate::operation::list_key_policies::ListKeyPoliciesInput).
@@ -41776,31 +40839,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.policy_names.unwrap_or_default();
          v.push(input.into());
-@@ -60,7 +58,6 @@
-         self.policy_names = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of key policy names. The only valid value is <code>default</code>.</p>
-     pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.policy_names = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::list_key_policies::ListKeyPoliciesOutput {
              policy_names: self.policy_names,
              next_marker: self.next_marker,
@@ -42656,7 +41695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -69,29 +56,12 @@
+@@ -69,14 +56,7 @@
  impl ListKeyRotationsInputBuilder {
      /// <p>Gets the key rotations for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -42672,10 +41711,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -84,14 +64,7 @@
      }
--    /// <p>Gets the key rotations for the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Gets the key rotations for the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -42684,10 +41723,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -98,14 +68,7 @@
+@@ -98,14 +71,7 @@
      }
      /// <p>Gets the key rotations for the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -42703,32 +41743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -114,7 +77,6 @@
-         self.include_key_material = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p>
-     pub fn set_include_key_material(mut self, input: ::std::option::Option<crate::types::IncludeKeyMaterial>) -> Self {
-         self.include_key_material = input;
-         self
-@@ -129,8 +91,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -145,7 +105,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -155,14 +114,12 @@
+@@ -155,14 +121,12 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
@@ -42796,31 +41811,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn rotations(mut self, input: crate::types::RotationsListEntry) -> Self {
          let mut v = self.rotations.unwrap_or_default();
          v.push(input);
-@@ -60,7 +58,6 @@
-         self.rotations = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
-     pub fn set_rotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>>) -> Self {
-         self.rotations = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::list_key_rotations::ListKeyRotationsOutput {
              rotations: self.rotations,
              next_marker: self.next_marker,
@@ -43683,24 +42674,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListKeysInput {
      /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
      /// <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-@@ -41,8 +42,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -57,7 +56,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -67,10 +65,10 @@
+@@ -67,10 +68,10 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`ListKeysInput`](crate::operation::list_keys::ListKeysInput).
@@ -43764,31 +42738,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn keys(mut self, input: crate::types::KeyListEntry) -> Self {
          let mut v = self.keys.unwrap_or_default();
          v.push(input);
-@@ -60,7 +58,6 @@
-         self.keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of KMS keys.</p>
-     pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>) -> Self {
-         self.keys = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::list_keys::ListKeysOutput {
              keys: self.keys,
              next_marker: self.next_marker,
@@ -44544,7 +43494,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -64,29 +51,12 @@
+@@ -64,14 +51,7 @@
  impl ListResourceTagsInputBuilder {
      /// <p>Gets tags on the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -44560,10 +43510,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -79,14 +59,7 @@
      }
--    /// <p>Gets tags on the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Gets tags on the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -44572,10 +43522,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -93,14 +63,7 @@
+@@ -93,14 +66,7 @@
      }
      /// <p>Gets tags on the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -44591,25 +43542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -110,8 +73,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 50, inclusive. If you do not include a value, it defaults to 50.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -127,8 +88,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
--    /// <p>Do not attempt to construct this value. Use only the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -139,13 +98,11 @@
+@@ -139,13 +105,11 @@
          &self.marker
      }
      /// Consumes the builder and constructs a [`ListResourceTagsInput`](crate::operation::list_resource_tags::ListResourceTagsInput).
@@ -44683,34 +43616,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -68,9 +66,6 @@
-         self.tags = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
--    /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
--    /// </note>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-         self.tags = input;
-         self
-@@ -87,8 +82,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    /// <p>Do not assume or infer any information from this value.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -103,7 +96,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -126,7 +118,7 @@
+@@ -126,7 +124,7 @@
          crate::operation::list_resource_tags::ListResourceTagsOutput {
              tags: self.tags,
              next_marker: self.next_marker,
@@ -45541,24 +44447,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn retiring_principal(&self) -> ::std::option::Option<&str> {
          self.retiring_principal.as_deref()
-@@ -61,8 +62,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
--    /// <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -77,7 +76,6 @@
-         self.marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.marker = input;
-         self
-@@ -87,21 +85,18 @@
+@@ -87,7 +88,7 @@
          &self.marker
      }
      /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
@@ -45567,13 +44456,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn retiring_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.retiring_principal = ::std::option::Option::Some(input.into());
+@@ -94,7 +95,7 @@
          self
      }
--    /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
+     /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
 -    /// <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
--    /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
++    /// <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</p>
+     /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.retiring_principal = input;
+@@ -101,7 +102,7 @@
          self
      }
      /// <p>The retiring principal for which to list grants. Enter a principal in your Amazon Web Services account.</p>
@@ -45582,16 +44474,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
      pub fn get_retiring_principal(&self) -> &::std::option::Option<::std::string::String> {
          &self.retiring_principal
-@@ -112,8 +107,6 @@
-         self.retiring_service_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p>
--    /// <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p>
-     pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.retiring_service_principal = input;
-         self
-@@ -124,15 +117,12 @@
+@@ -124,15 +125,12 @@
          &self.retiring_service_principal
      }
      /// Consumes the builder and constructs a [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
@@ -45660,31 +44543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grants(mut self, input: crate::types::GrantListEntry) -> Self {
          let mut v = self.grants.unwrap_or_default();
          v.push(input);
-@@ -60,7 +58,6 @@
-         self.grants = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grants.</p>
-     pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantListEntry>>) -> Self {
-         self.grants = input;
-         self
-@@ -74,7 +71,6 @@
-         self.next_marker = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_marker = input;
-         self
-@@ -88,7 +84,6 @@
-         self.truncated = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.truncated = input;
-         self
-@@ -111,7 +106,7 @@
+@@ -111,7 +109,7 @@
          crate::operation::list_retirable_grants::ListRetirableGrantsOutput {
              grants: self.grants,
              next_marker: self.next_marker,
@@ -46623,7 +45482,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn bypass_policy_lockout_safety_check(&self) -> ::std::option::Option<bool> {
          self.bypass_policy_lockout_safety_check
      }
-@@ -119,29 +68,12 @@
+@@ -119,14 +68,7 @@
  impl PutKeyPolicyInputBuilder {
      /// <p>Sets the key policy on the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -46639,10 +45498,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -134,14 +76,7 @@
      }
--    /// <p>Sets the key policy on the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Sets the key policy on the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -46651,10 +45510,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -148,14 +80,7 @@
+@@ -148,14 +83,7 @@
      }
      /// <p>Sets the key policy on the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -46670,15 +45530,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -164,7 +89,6 @@
-         self.policy_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the key policy. If no policy name is specified, the default value is <code>default</code>. The only valid value is <code>default</code>.</p>
-     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_name = input;
-         self
-@@ -174,121 +98,53 @@
+@@ -174,28 +102,12 @@
          &self.policy_name
      }
      /// <p>The key policy to attach to the KMS key.</p>
@@ -46710,9 +45562,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.policy = ::std::option::Option::Some(input.into());
+@@ -202,93 +114,50 @@
          self
      }
--    /// <p>The key policy to attach to the KMS key.</p>
+     /// <p>The key policy to attach to the KMS key.</p>
 -    /// <p>The key policy must meet the following criteria:</p>
 -    /// <ul>
 -    /// <li>
@@ -46720,8 +45573,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services principal, you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p></li>
 -    /// </ul><note>
--    /// <p>If either of the required <code>Resource</code> or <code>Action</code> elements are missing from a key policy statement, the policy statement has no effect. When a key policy statement is missing one of these elements, the KMS console correctly reports an error, but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is ineffective.</p>
--    /// <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>The key policy must meet the following criteria:</p><ul><li><p>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code> request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p></li><li><p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services principal, you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p></li></ul><note>
+     /// <p>If either of the required <code>Resource</code> or <code>Action</code> elements are missing from a key policy statement, the policy statement has no effect. When a key policy statement is missing one of these elements, the KMS console correctly reports an error, but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is ineffective.</p>
+     /// <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </note>
 -    /// <p>A key policy document can include only the following characters:</p>
 -    /// <ul>
@@ -46732,9 +45586,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p></li>
 -    /// </ul><note>
--    /// <p>If the key policy exceeds the length constraint, KMS returns a <code>LimitExceededException</code>.</p>
++    /// </note><p>A key policy document can include only the following characters:</p><ul><li><p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p></li><li><p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p></li><li><p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p></li></ul><note>
+     /// <p>If the key policy exceeds the length constraint, KMS returns a <code>LimitExceededException</code>.</p>
 -    /// </note>
 -    /// <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
++    /// </note><p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</p>
      pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.policy = input;
          self
@@ -46784,6 +45640,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </important>
 -    /// <p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
++    /// <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p> <important><p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.</p>
++    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p></important><p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
      pub fn set_bypass_policy_lockout_safety_check(mut self, input: ::std::option::Option<bool>) -> Self {
          self.bypass_policy_lockout_safety_check = input;
          self
@@ -47878,7 +46736,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) source_encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
      pub(crate) source_key_id: ::std::option::Option<::std::string::String>,
      pub(crate) destination_key_id: ::std::option::Option<::std::string::String>,
-@@ -183,41 +130,35 @@
+@@ -183,36 +130,35 @@
  impl ReEncryptInputBuilder {
      /// <p>Ciphertext of the data to reencrypt.</p>
      /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
@@ -47887,8 +46745,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Ciphertext of the data to reencrypt.</p>
--    /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
+     /// <p>Ciphertext of the data to reencrypt.</p>
+     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
 -    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_blob = input;
@@ -47923,13 +46781,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.source_encryption_context = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same encryption context that was used to encrypt the ciphertext.</p>
--    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_source_encryption_context(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -235,38 +176,11 @@
+     /// <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same encryption context that was used to encrypt the ciphertext.</p>
+@@ -235,18 +181,7 @@
      /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
      /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
@@ -47949,11 +46802,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn source_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.source_key_id = ::std::option::Option::Some(input.into());
          self
-     }
--    /// <p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is re-encrypted.</p>
--    /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
--    /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
+@@ -255,18 +190,7 @@
+     /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
+     /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -47966,10 +46818,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_source_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.source_key_id = input;
          self
-@@ -275,101 +189,44 @@
+@@ -275,99 +199,48 @@
      /// <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
      /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key or when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to the symmetric ciphertext blob. However, it is always recommended as a best practice. This practice ensures that you use the KMS key that you intend.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you should use the key ARN or alias ARN.</p>
@@ -48011,7 +46864,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>A unique identifier for the KMS key that is used to reencrypt the data. Specify a symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>A unique identifier for the KMS key that is used to reencrypt the data. Specify a symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -48024,6 +46878,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_destination_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.destination_key_id = input;
          self
@@ -48077,12 +46932,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>A destination encryption context is valid only when the destination KMS key is a symmetric encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not include fields for metadata.</p>
--    /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Specifies that encryption context to use when the reencrypting the data.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>A destination encryption context is valid only when the destination KMS key is a symmetric encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not include fields for metadata.</p>
+     /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_destination_encryption_context(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -377,10 +234,7 @@
+@@ -377,10 +250,7 @@
          self.destination_encryption_context = input;
          self
      }
@@ -48094,26 +46948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn get_destination_encryption_context(
-@@ -395,9 +249,6 @@
-         self.source_encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm used for symmetric encryption KMS keys.</p>
--    /// <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a different algorithm, the decrypt attempt fails.</p>
--    /// <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.</p>
-     pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.source_encryption_algorithm = input;
-         self
-@@ -414,8 +265,6 @@
-         self.destination_encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption algorithm used for symmetric encryption KMS keys.</p>
--    /// <p>This parameter is required only when the destination KMS key is an asymmetric KMS key.</p>
-     pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.destination_encryption_algorithm = input;
-         self
-@@ -425,12 +274,11 @@
+@@ -425,12 +295,11 @@
      pub fn get_destination_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
          &self.destination_encryption_algorithm
      }
@@ -48128,25 +46963,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -437,8 +285,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -454,8 +300,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -465,13 +309,12 @@
+@@ -465,13 +334,12 @@
      pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
          &self.dry_run
      }
@@ -48163,17 +46980,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn dry_run_modifiers(mut self, input: crate::types::DryRunModifierType) -> Self {
          let mut v = self.dry_run_modifiers.unwrap_or_default();
          v.push(input);
-@@ -478,9 +321,6 @@
-         self.dry_run_modifiers = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Specifies the modifiers to apply to the dry run operation. <code>DryRunModifiers</code> is an optional parameter that only applies when <code>DryRun</code> is set to <code>true</code>.</p>
--    /// <p>When set to <code>IGNORE_CIPHERTEXT</code>, KMS performs only authorization validation without ciphertext validation. This allows you to test permissions without requiring a valid ciphertext blob.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>>) -> Self {
-         self.dry_run_modifiers = input;
-         self
-@@ -492,8 +332,8 @@
+@@ -492,8 +360,8 @@
          &self.dry_run_modifiers
      }
      /// Consumes the builder and constructs a [`ReEncryptInput`](crate::operation::re_encrypt::ReEncryptInput).
@@ -48184,7 +46991,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ciphertext_blob: self.ciphertext_blob,
              source_encryption_context: self.source_encryption_context,
              source_key_id: self.source_key_id,
-@@ -504,6 +344,6 @@
+@@ -504,6 +372,6 @@
              grant_tokens: self.grant_tokens,
              dry_run: self.dry_run,
              dry_run_modifiers: self.dry_run_modifiers,
@@ -48230,7 +47037,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) source_key_id: ::std::option::Option<::std::string::String>,
      pub(crate) key_id: ::std::option::Option<::std::string::String>,
      pub(crate) source_encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
-@@ -76,17 +77,16 @@
+@@ -76,17 +77,17 @@
  }
  impl ReEncryptOutputBuilder {
      /// <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -48239,7 +47046,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.ciphertext_blob = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+     /// <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.ciphertext_blob = input;
@@ -48251,54 +47058,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.ciphertext_blob
      }
      /// <p>Unique identifier of the KMS key used to originally encrypt the data.</p>
-@@ -94,7 +94,6 @@
-         self.source_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifier of the KMS key used to originally encrypt the data.</p>
-     pub fn set_source_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_key_id = input;
-         self
-@@ -108,7 +107,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to reencrypt the data.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -122,7 +120,6 @@
-         self.source_encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
-     pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.source_encryption_algorithm = input;
-         self
-@@ -136,7 +133,6 @@
-         self.destination_encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The encryption algorithm that was used to reencrypt the data.</p>
-     pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
-         self.destination_encryption_algorithm = input;
-         self
-@@ -150,7 +146,6 @@
-         self.source_key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to originally encrypt the data. This field is present only when the original encryption used a symmetric encryption KMS key.</p>
-     pub fn set_source_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_key_material_id = input;
-         self
-@@ -164,7 +159,6 @@
-         self.destination_key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>
-     pub fn set_destination_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.destination_key_material_id = input;
-         self
 ```
 
 ### `src/operation/re_encrypt/builders.rs`
@@ -49586,7 +48345,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(&self) -> &[crate::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
-@@ -151,45 +86,21 @@
+@@ -151,45 +86,24 @@
      pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
  }
  impl ReplicateKeyInputBuilder {
@@ -49608,7 +48367,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Identifies the multi-Region primary key that is being replicated. To determine whether a KMS key is a multi-Region primary key, use the <code>DescribeKey</code> operation to check the value of the <code>MultiRegionKeyType</code> property.</p>
--    /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
++    /// <p>Identifies the multi-Region primary key that is being replicated. To determine whether a KMS key is a multi-Region primary key, use the <a>DescribeKey</a> operation to check the value of the <code>MultiRegionKeyType</code> property.</p>
+     /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -49617,6 +48377,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -49636,17 +48397,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -201,9 +112,6 @@
-         self.replica_region = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region ID of the Amazon Web Services Region for this replica key.</p>
--    /// <p>Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. For a list of Amazon Web Services Regions in which KMS is supported, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">KMS service endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p>
--    /// <p>The replica must be in a different Amazon Web Services Region than its primary key and other replicas of that primary key, but in the same Amazon Web Services partition. KMS must be available in the replica Region. If the Region is not enabled by default, the Amazon Web Services account must be enabled in the Region. For information about Amazon Web Services partitions, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. For information about enabling and disabling Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Enabling a Region</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-disable">Disabling a Region</a> in the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_replica_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.replica_region = input;
-         self
-@@ -216,46 +124,11 @@
+@@ -216,23 +130,7 @@
      }
      /// <p>The key policy to attach to the KMS key. This parameter is optional. If you do not provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">default key policy</a> to the KMS key.</p>
      /// <p>The key policy is not a shared property of multi-Region keys. You can specify the same key policy or a different key policy for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
@@ -49671,9 +48422,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn policy(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.policy = ::std::option::Option::Some(input.into());
          self
+@@ -239,23 +137,7 @@
      }
--    /// <p>The key policy to attach to the KMS key. This parameter is optional. If you do not provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">default key policy</a> to the KMS key.</p>
--    /// <p>The key policy is not a shared property of multi-Region keys. You can specify the same key policy or a different key policy for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
+     /// <p>The key policy to attach to the KMS key. This parameter is optional. If you do not provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">default key policy</a> to the KMS key.</p>
+     /// <p>The key policy is not a shared property of multi-Region keys. You can specify the same key policy or a different key policy for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
 -    /// <p>If you provide a key policy, it must meet the following criteria:</p>
 -    /// <ul>
 -    /// <li>
@@ -49691,10 +48443,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p></li>
 -    /// </ul>
 -    /// <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the <i>Key Management Service Developer Guide</i>. For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>
++    /// <p>If you provide a key policy, it must meet the following criteria:</p><ul><li><p>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code> request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p></li><li><p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services principal, you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p></li></ul><p>A key policy document can include only the following characters:</p><ul><li><p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p></li><li><p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p></li><li><p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p></li></ul><p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the <i>Key Management Service Developer Guide</i>. For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</p>
      pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.policy = input;
          self
-@@ -262,88 +135,47 @@
+@@ -262,88 +144,50 @@
      }
      /// <p>The key policy to attach to the KMS key. This parameter is optional. If you do not provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html">default key policy</a> to the KMS key.</p>
      /// <p>The key policy is not a shared property of multi-Region keys. You can specify the same key policy or a different key policy for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
@@ -49735,6 +48488,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </important>
 -    /// <p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
++    /// <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p> <important><p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.</p>
++    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p></important><p>Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the KMS key.</p>
      pub fn set_bypass_policy_lockout_safety_check(mut self, input: ::std::option::Option<bool>) -> Self {
          self.bypass_policy_lockout_safety_check = input;
          self
@@ -49762,6 +48517,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>The description is not a shared property of multi-Region keys. You can specify the same description or a different description for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
++    /// <p>A description of the KMS key. The default value is an empty string (no description).</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>The description is not a shared property of multi-Region keys. You can specify the same description or a different description for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
      pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.description = input;
          self
@@ -49795,20 +48551,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -350,25 +182,13 @@
+@@ -350,12 +194,9 @@
          self.tags = ::std::option::Option::Some(v);
          self
      }
 -    /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important> <note>
--    /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><note>
+     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    /// </note>
 -    /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
--    /// <p>Tags are not a shared property of multi-Region keys. You can specify the same tags or different tags for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
--    /// <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
--    /// <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
++    /// </note><p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
+     /// <p>Tags are not a shared property of multi-Region keys. You can specify the same tags or different tags for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
+     /// <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
+     /// <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p>
+@@ -363,12 +204,9 @@
          self.tags = input;
          self
      }
@@ -49823,7 +48581,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>Tags are not a shared property of multi-Region keys. You can specify the same tags or different tags for each key in a set of related multi-Region keys. KMS does not synchronize this property.</p>
      /// <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
      /// <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p>
-@@ -376,10 +196,8 @@
+@@ -376,10 +214,8 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`ReplicateKeyInput`](crate::operation::replicate_key::ReplicateKeyInput).
@@ -49836,7 +48594,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              replica_region: self.replica_region,
              policy: self.policy,
-@@ -386,6 +204,6 @@
+@@ -386,6 +222,6 @@
              bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
              description: self.description,
              tags: self.tags,
@@ -49866,23 +48624,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_tags(&self) -> &[crate::types::Tag] {
          self.replica_tags.as_deref().unwrap_or_default()
      }
-@@ -54,7 +53,6 @@
-         self.replica_key_metadata = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
-     pub fn set_replica_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
-         self.replica_key_metadata = input;
-         self
-@@ -68,7 +66,6 @@
-         self.replica_policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The key policy of the new replica key. The value is a key policy document in JSON format.</p>
-     pub fn set_replica_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.replica_policy = input;
-         self
-@@ -77,11 +74,10 @@
+@@ -77,11 +76,10 @@
      pub fn get_replica_policy(&self) -> &::std::option::Option<::std::string::String> {
          &self.replica_policy
      }
@@ -49895,14 +48637,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.replica_tags.unwrap_or_default();
          v.push(input);
-@@ -88,7 +84,6 @@
-         self.replica_tags = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
-     pub fn set_replica_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-         self.replica_tags = input;
-         self
 ```
 
 ### `src/operation/replicate_key/builders.rs`
@@ -50991,7 +49725,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_id(&self) -> ::std::option::Option<&str> {
          self.grant_id.as_deref()
      }
-@@ -62,62 +55,45 @@
+@@ -62,62 +55,50 @@
  }
  impl RetireGrantInputBuilder {
      /// <p>Identifies the grant to be retired. You can use a grant token to identify a new grant even before it has achieved eventual consistency.</p>
@@ -51001,8 +49735,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.grant_token = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>Identifies the grant to be retired. You can use a grant token to identify a new grant even before it has achieved eventual consistency.</p>
+     /// <p>Identifies the grant to be retired. You can use a grant token to identify a new grant even before it has achieved eventual consistency.</p>
 -    /// <p>Only the <code>CreateGrant</code> operation returns a grant token. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>Only the <a>CreateGrant</a> operation returns a grant token. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_grant_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.grant_token = input;
          self
@@ -51021,7 +49756,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The key ARN KMS key associated with the grant. To find the key ARN, use the <code>ListKeys</code> operation.</p>
--    /// <p>For example: <code>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p>
++    /// <p>The key ARN KMS key associated with the grant. To find the key ARN, use the <a>ListKeys</a> operation.</p>
+     /// <p>For example: <code>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -51047,6 +49783,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123</p></li>
 -    /// </ul>
++    /// <p>Identifies the grant to retire. To get the grant ID, use <a>CreateGrant</a>, <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p><ul><li><p>Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123</p></li></ul>
      pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.grant_id = input;
          self
@@ -51060,16 +49797,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.grant_id
      }
-@@ -127,8 +103,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -139,12 +113,12 @@
+@@ -139,12 +120,12 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`RetireGrantInput`](crate::operation::retire_grant::RetireGrantInput).
@@ -51986,7 +50714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_id(&self) -> ::std::option::Option<&str> {
          self.grant_id.as_deref()
      }
-@@ -60,60 +47,35 @@
+@@ -60,60 +47,39 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl RevokeGrantInputBuilder {
@@ -52008,7 +50736,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
++    /// <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -52017,6 +50746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -52044,6 +50774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Identifies the grant to revoke. To get the grant ID, use <code>CreateGrant</code>, <code>ListGrants</code>, or <code>ListRetirableGrants</code>.</p>
++    /// <p>Identifies the grant to revoke. To get the grant ID, use <a>CreateGrant</a>, <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p>
      pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.grant_id = input;
          self
@@ -52053,16 +50784,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.grant_id
      }
-@@ -123,8 +85,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -135,11 +95,11 @@
+@@ -135,11 +101,11 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`RevokeGrantInput`](crate::operation::revoke_grant::RevokeGrantInput).
@@ -52940,7 +51662,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -46,29 +33,12 @@
+@@ -46,14 +33,7 @@
  impl RotateKeyOnDemandInputBuilder {
      /// <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, invoke the on-demand rotation on the primary key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -52956,10 +51678,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -61,14 +41,7 @@
      }
--    /// <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, invoke the on-demand rotation on the primary key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, invoke the on-demand rotation on the primary key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -52968,10 +51690,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -75,21 +45,12 @@
+@@ -75,21 +48,12 @@
      }
      /// <p>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, multi-Region KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, invoke the on-demand rotation on the primary key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -53009,14 +51732,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the symmetric encryption KMS key that you initiated on-demand rotation on.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
 ```
 
 ### `src/operation/rotate_key_on_demand/builders.rs`
@@ -53884,7 +52599,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn pending_window_in_days(&self) -> ::std::option::Option<i32> {
          self.pending_window_in_days
      }
-@@ -57,29 +44,12 @@
+@@ -57,14 +44,7 @@
  impl ScheduleKeyDeletionInputBuilder {
      /// <p>The unique identifier of the KMS key to delete.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -53900,10 +52615,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -72,14 +52,7 @@
      }
--    /// <p>The unique identifier of the KMS key to delete.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>The unique identifier of the KMS key to delete.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -53912,10 +52627,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -86,27 +56,17 @@
+@@ -86,20 +59,13 @@
      }
      /// <p>The unique identifier of the KMS key to delete.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -53938,14 +52654,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn pending_window_in_days(mut self, input: i32) -> Self {
          self.pending_window_in_days = ::std::option::Option::Some(input);
          self
+@@ -106,7 +72,7 @@
      }
--    /// <p>The waiting period, specified in number of days. After the waiting period ends, KMS deletes the KMS key.</p>
--    /// <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
+     /// <p>The waiting period, specified in number of days. After the waiting period ends, KMS deletes the KMS key.</p>
+     /// <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
 -    /// <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days"> <code>kms:ScheduleKeyDeletionPendingWindowInDays</code> </a> condition key to further constrain the values that principals can specify in the <code>PendingWindowInDays</code> parameter.</p>
++    /// <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days"><code>kms:ScheduleKeyDeletionPendingWindowInDays</code></a> condition key to further constrain the values that principals can specify in the <code>PendingWindowInDays</code> parameter.</p>
      pub fn set_pending_window_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
          self.pending_window_in_days = input;
          self
-@@ -113,18 +73,15 @@
+@@ -113,18 +79,15 @@
      }
      /// <p>The waiting period, specified in number of days. After the waiting period ends, KMS deletes the KMS key.</p>
      /// <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
@@ -53981,41 +52699,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -65,7 +66,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is scheduled.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -80,8 +80,6 @@
-         self.deletion_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time after which KMS deletes the KMS key.</p>
--    /// <p>If the KMS key is a multi-Region primary key with replica keys, this field does not appear. The deletion date for the primary key isn't known until its last replica key is deleted.</p>
-     pub fn set_deletion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.deletion_date = input;
-         self
-@@ -97,8 +95,6 @@
-         self.key_state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the KMS key.</p>
--    /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_key_state(mut self, input: ::std::option::Option<crate::types::KeyState>) -> Self {
-         self.key_state = input;
-         self
-@@ -114,8 +110,6 @@
-         self.pending_window_in_days = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The waiting period before the KMS key is deleted.</p>
--    /// <p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
-     pub fn set_pending_window_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.pending_window_in_days = input;
-         self
 ```
 
 ### `src/operation/schedule_key_deletion/builders.rs`
@@ -54972,7 +53655,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) message_type: ::std::option::Option<crate::types::MessageType>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-@@ -165,57 +82,21 @@
+@@ -165,57 +82,24 @@
      pub(crate) dry_run: ::std::option::Option<bool>,
  }
  impl SignInputBuilder {
@@ -54998,7 +53681,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key to sign the message. The <code>KeyUsage</code> type of the KMS key must be <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a KMS key, use the <code>DescribeKey</code> operation.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
++    /// <p>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key to sign the message. The <code>KeyUsage</code> type of the KMS key must be <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -55011,6 +53695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
@@ -55034,7 +53719,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -222,125 +103,45 @@
+@@ -222,125 +106,52 @@
      /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
      /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
      /// This field is required.
@@ -55043,8 +53728,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.message = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
--    /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
+     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
+     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
 -    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.message = input;
@@ -55091,7 +53776,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.message_type = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
+     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
 -    /// <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips the hashing step in the signing algorithm. When the value is <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the message done in the ML-DSA signing algorithm.</p><important>
 -    /// <p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message, the security of the signing operation can be compromised.</p>
 -    /// </important>
@@ -55105,8 +53790,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1 of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.</p>
 -    /// </important>
 -    /// <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
--    /// <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the <code>Message</code> value must be 64 bytes.</p>
--    /// <p>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code> so the digest is hashed again while signing. However, this can cause verification failures when verifying with a system that assumes a single hash.</p>
++    /// <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips the hashing step in the signing algorithm. When the value is <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the message done in the ML-DSA signing algorithm.</p> <important><p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message, the security of the signing operation can be compromised.</p></important><p>When using ECC_NIST_EDWARDS25519 KMS keys:</p><ul><li><p>ED25519_SHA_512 signing algorithm requires KMS <code>MessageType:RAW</code></p></li><li><p>ED25519_PH_SHA_512 signing algorithm requires KMS <code>MessageType:DIGEST</code></p></li></ul> <important><p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1 of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.</p></important><p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+     /// <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the <code>Message</code> value must be 64 bytes.</p>
+     /// <p>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code> so the digest is hashed again while signing. However, this can cause verification failures when verifying with a system that assumes a single hash.</p>
 -    /// <p>The hashing algorithm that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
 -    /// <ul>
 -    /// <li>
@@ -55120,6 +53806,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
 -    /// </ul>
++    /// <p>The hashing algorithm that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code> value.</p><ul><li><p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHAKE_256 use the SHAKE_256 hashing algorithm.</p></li><li><p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li></ul>
      pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
          self.message_type = input;
          self
@@ -55169,34 +53856,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -347,8 +148,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -365,8 +164,6 @@
-         self.signing_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the signing algorithm to use when signing the message.</p>
--    /// <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
-     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
-         self.signing_algorithm = input;
-         self
-@@ -382,8 +179,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -394,8 +189,8 @@
+@@ -394,8 +205,8 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`SignInput`](crate::operation::sign::SignInput).
@@ -55207,7 +53867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              message: self.message,
              message_type: self.message_type,
-@@ -402,18 +197,6 @@
+@@ -402,18 +213,6 @@
              grant_tokens: self.grant_tokens,
              signing_algorithm: self.signing_algorithm,
              dry_run: self.dry_run,
@@ -55285,15 +53945,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
      _request_id: Option<String>,
  }
-@@ -66,7 +53,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -75,39 +61,17 @@
+@@ -75,39 +62,18 @@
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
@@ -55320,6 +53972,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// </ul>
 -    /// <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 -    pub fn set_signature(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p>The cryptographic signature that was generated for the message.</p><ul><li><p>When used with the supported RSA signing algorithms, the encoding of this value is defined by <a href="https://tools.ietf.org/html/rfc8017">PKCS #1 in RFC 8017</a>.</p></li><li><p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>. This is the most commonly used signature format and is appropriate for most uses.</p></li></ul><p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
 +    pub fn set_signature(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.signature = input;
          self
@@ -55338,14 +53991,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.signature
      }
      /// <p>The signing algorithm that was used to sign the message.</p>
-@@ -115,7 +79,6 @@
-         self.signing_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The signing algorithm that was used to sign the message.</p>
-     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
-         self.signing_algorithm = input;
-         self
 ```
 
 ### `src/operation/sign/builders.rs`
@@ -56381,7 +55026,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(&self) -> &[crate::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
-@@ -61,29 +40,12 @@
+@@ -61,14 +40,7 @@
  impl TagResourceInputBuilder {
      /// <p>Identifies a customer managed key in the account and Region.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -56397,10 +55042,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -76,14 +48,7 @@
      }
--    /// <p>Identifies a customer managed key in the account and Region.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies a customer managed key in the account and Region.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -56409,10 +55054,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -90,25 +52,14 @@
+@@ -90,25 +55,14 @@
      }
      /// <p>Identifies a customer managed key in the account and Region.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -56440,7 +55086,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -115,26 +66,19 @@
+@@ -115,26 +69,20 @@
          self.tags = ::std::option::Option::Some(v);
          self
      }
@@ -56448,6 +55094,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
++    /// <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
      pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
          self.tags = input;
          self
@@ -57325,7 +55972,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(&self) -> &[::std::string::String] {
          self.tag_keys.as_deref().unwrap_or_default()
      }
-@@ -55,29 +40,12 @@
+@@ -55,14 +40,7 @@
  impl UntagResourceInputBuilder {
      /// <p>Identifies the KMS key from which you are removing tags.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -57341,10 +55988,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -70,14 +48,7 @@
      }
--    /// <p>Identifies the KMS key from which you are removing tags.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Identifies the KMS key from which you are removing tags.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -57353,10 +56000,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -84,22 +52,14 @@
+@@ -84,22 +55,14 @@
      }
      /// <p>Identifies the KMS key from which you are removing tags.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -57381,15 +56029,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.tag_keys.unwrap_or_default();
          v.push(input.into());
-@@ -106,7 +66,6 @@
-         self.tag_keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
-     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.tag_keys = input;
-         self
-@@ -116,12 +75,10 @@
+@@ -116,12 +79,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
@@ -58247,7 +56887,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn target_key_id(&self) -> ::std::option::Option<&str> {
          self.target_key_id.as_deref()
      }
-@@ -59,24 +42,17 @@
+@@ -59,24 +42,18 @@
      pub(crate) target_key_id: ::std::option::Option<::std::string::String>,
  }
  impl UpdateAliasInputBuilder {
@@ -58263,6 +56903,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Identifies the alias that is changing its KMS key. This value must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use <code>UpdateAlias</code> to change the alias name.</p><important>
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
++    /// <p>Identifies the alias that is changing its KMS key. This value must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use <code>UpdateAlias</code> to change the alias name.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important>
      pub fn set_alias_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.alias_name = input;
          self
@@ -58274,7 +56915,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_alias_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.alias_name
      }
-@@ -83,32 +59,13 @@
+@@ -83,15 +60,8 @@
      /// <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
      /// <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new target KMS key must be the same type as the current target KMS key (both symmetric or both asymmetric or both HMAC) and they must have the same key usage.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -58292,11 +56933,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn target_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.target_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
--    /// <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new target KMS key must be the same type as the current target KMS key (both symmetric or both asymmetric or both HMAC) and they must have the same key usage.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+@@ -100,15 +70,8 @@
+     /// <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
+     /// <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new target KMS key must be the same type as the current target KMS key (both symmetric or both asymmetric or both HMAC) and they must have the same key usage.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -58306,10 +56946,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
 -    /// <p>To verify that the alias is mapped to the correct KMS key, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
++    /// <p>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</p>
      pub fn set_target_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.target_key_id = input;
          self
-@@ -116,23 +73,16 @@
+@@ -116,23 +79,16 @@
      /// <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a> to associate with the alias. You don't have permission to associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed key</a>.</p>
      /// <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new target KMS key must be the same type as the current target KMS key (both symmetric or both asymmetric or both HMAC) and they must have the same key usage.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -59213,7 +57855,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct UpdateCustomKeyStoreInputBuilder {
      pub(crate) custom_key_store_id: ::std::option::Option<::std::string::String>,
-@@ -149,41 +128,30 @@
+@@ -149,41 +128,32 @@
      pub(crate) xks_proxy_connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
  }
  impl UpdateCustomKeyStoreInputBuilder {
@@ -59225,6 +57867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the <code>DescribeCustomKeyStores</code> operation.</p>
++    /// <p>Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
      pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.custom_key_store_id = input;
          self
@@ -59247,6 +57890,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
 -    /// <p>To change this value, the custom key store can be connected or disconnected.</p>
++    /// <p>Changes the friendly name of the custom key store to the value that you specify. The custom key store name must be unique in the Amazon Web Services account.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>To change this value, the custom key store can be connected or disconnected.</p>
      pub fn set_new_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.new_custom_key_store_name = input;
          self
@@ -59259,90 +57903,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_new_custom_key_store_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.new_custom_key_store_name
      }
-@@ -194,9 +162,6 @@
-         self.key_store_password = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the CloudHSM cluster that is associated with the custom key store. This parameter is valid only for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
--    /// <p>This parameter tells KMS the current password of the <code>kmsuser</code> crypto user (CU). It does not set or change the password of any users in the CloudHSM cluster.</p>
--    /// <p>To change this value, the CloudHSM key store must be disconnected.</p>
-     pub fn set_key_store_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_store_password = input;
-         self
-@@ -214,9 +179,6 @@
-         self.cloud_hsm_cluster_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Associates the custom key store with a related CloudHSM cluster. This parameter is valid only for custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
--    /// <p>Enter the cluster ID of the cluster that you used to create the custom key store or a cluster that shares a backup history and has the same cluster certificate as the original cluster. You cannot use this parameter to associate a custom key store with an unrelated cluster. In addition, the replacement cluster must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill the requirements</a> for a cluster associated with a custom key store. To view the cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
--    /// <p>To change this value, the CloudHSM key store must be disconnected.</p>
-     pub fn set_cloud_hsm_cluster_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_hsm_cluster_id = input;
-         self
-@@ -236,11 +198,6 @@
-         self.xks_proxy_uri_endpoint = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Changes the URI endpoint that KMS uses to connect to your external key store proxy (XKS proxy). This parameter is valid only for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>For external key stores with an <code>XksProxyConnectivity</code> value of <code>PUBLIC_ENDPOINT</code>, the protocol must be HTTPS.</p>
--    /// <p>For external key stores with an <code>XksProxyConnectivity</code> value of <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS name associated with the VPC endpoint service. Each external key store must use a different private DNS name.</p>
--    /// <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must be unique in the Amazon Web Services account and Region.</p>
--    /// <p>To change this value, the external key store must be disconnected.</p>
-     pub fn set_xks_proxy_uri_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.xks_proxy_uri_endpoint = input;
-         self
-@@ -261,10 +218,6 @@
-         self.xks_proxy_uri_path = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Changes the base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key manager and external key store proxy (XKS proxy). This parameter is valid only for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code>, where <code>v1</code> represents the version of the KMS external key store proxy API. You can include an optional prefix between the required elements such as <code>/<i>example</i>/kms/xks/v1</code>.</p>
--    /// <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must be unique in the Amazon Web Services account and Region.</p>
--    /// <p>You can change this value when the external key store is connected or disconnected.</p>
-     pub fn set_xks_proxy_uri_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.xks_proxy_uri_path = input;
-         self
-@@ -282,8 +235,6 @@
-         self.xks_proxy_vpc_endpoint_service_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Changes the name that KMS uses to identify the Amazon VPC endpoint service for your external key store proxy (XKS proxy). This parameter is valid when the <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</p>
--    /// <p>To change this value, the external key store must be disconnected.</p>
-     pub fn set_xks_proxy_vpc_endpoint_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.xks_proxy_vpc_endpoint_service_name = input;
-         self
-@@ -299,8 +250,6 @@
-         self.xks_proxy_vpc_endpoint_service_owner = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Changes the Amazon Web Services account ID that KMS uses to identify the Amazon VPC endpoint service for your external key store proxy (XKS proxy). This parameter is optional. If not specified, the current Amazon Web Services account ID for the VPC endpoint service will not be updated.</p>
--    /// <p>To change this value, the external key store must be disconnected.</p>
-     pub fn set_xks_proxy_vpc_endpoint_service_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.xks_proxy_vpc_endpoint_service_owner = input;
-         self
-@@ -318,10 +267,6 @@
-         self.xks_proxy_authentication_credential = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Changes the credentials that KMS uses to sign requests to the external key store proxy (XKS proxy). This parameter is valid only for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
--    /// <p>You must specify both the <code>AccessKeyId</code> and <code>SecretAccessKey</code> value in the authentication credential, even if you are only updating one value.</p>
--    /// <p>This parameter doesn't establish or change your authentication credentials on the proxy. It just tells KMS the credential that you established with your external key store proxy. For example, if you rotate the credential on your external key store proxy, you can use this parameter to update the credential in KMS.</p>
--    /// <p>You can change this value when the external key store is connected or disconnected.</p>
-     pub fn set_xks_proxy_authentication_credential(
-         mut self,
-         input: ::std::option::Option<crate::types::XksProxyAuthenticationCredentialType>,
-@@ -344,10 +289,6 @@
-         self.xks_proxy_connectivity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Changes the connectivity setting for the external key store. To indicate that the external key store proxy uses a Amazon VPC endpoint service to communicate with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. Otherwise, specify <code>PUBLIC_ENDPOINT</code>.</p>
--    /// <p>If you change the <code>XksProxyConnectivity</code> to <code>VPC_ENDPOINT_SERVICE</code>, you must also change the <code>XksProxyUriEndpoint</code> and add an <code>XksProxyVpcEndpointServiceName</code> value.</p>
--    /// <p>If you change the <code>XksProxyConnectivity</code> to <code>PUBLIC_ENDPOINT</code>, you must also change the <code>XksProxyUriEndpoint</code> and specify a null or empty string for the <code>XksProxyVpcEndpointServiceName</code> value.</p>
--    /// <p>To change this value, the external key store must be disconnected.</p>
-     pub fn set_xks_proxy_connectivity(mut self, input: ::std::option::Option<crate::types::XksProxyConnectivityType>) -> Self {
-         self.xks_proxy_connectivity = input;
-         self
-@@ -360,11 +301,8 @@
+@@ -360,11 +330,8 @@
          &self.xks_proxy_connectivity
      }
      /// Consumes the builder and constructs a [`UpdateCustomKeyStoreInput`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreInput).
@@ -59356,7 +57917,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              custom_key_store_id: self.custom_key_store_id,
              new_custom_key_store_name: self.new_custom_key_store_name,
              key_store_password: self.key_store_password,
-@@ -375,22 +313,6 @@
+@@ -375,22 +342,6 @@
              xks_proxy_vpc_endpoint_service_owner: self.xks_proxy_vpc_endpoint_service_owner,
              xks_proxy_authentication_credential: self.xks_proxy_authentication_credential,
              xks_proxy_connectivity: self.xks_proxy_connectivity,
@@ -60597,7 +59158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn description(&self) -> ::std::option::Option<&str> {
          self.description.as_deref()
      }
-@@ -57,29 +40,12 @@
+@@ -57,14 +40,7 @@
  impl UpdateKeyDescriptionInputBuilder {
      /// <p>Updates the description of the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -60613,10 +59174,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -72,14 +48,7 @@
      }
--    /// <p>Updates the description of the specified KMS key.</p>
--    /// <p>Specify the key ID or key ARN of the KMS key.</p>
+     /// <p>Updates the description of the specified KMS key.</p>
+     /// <p>Specify the key ID or key ARN of the KMS key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -60625,10 +59186,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -86,46 +52,29 @@
+@@ -86,46 +55,30 @@
      }
      /// <p>Updates the description of the specified KMS key.</p>
      /// <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -60656,6 +59218,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>New description for the KMS key.</p><important>
 -    /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
 -    /// </important>
++    /// <p>New description for the KMS key.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important>
      pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.description = input;
          self
@@ -61512,7 +60075,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_id(&self) -> ::std::option::Option<&str> {
          self.key_id.as_deref()
      }
-@@ -55,29 +42,12 @@
+@@ -55,14 +42,7 @@
  impl UpdatePrimaryRegionInputBuilder {
      /// <p>Identifies the current primary key. When the operation completes, this KMS key will be a replica key.</p>
      /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
@@ -61528,10 +60091,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -70,14 +50,7 @@
      }
--    /// <p>Identifies the current primary key. When the operation completes, this KMS key will be a replica key.</p>
--    /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
+     /// <p>Identifies the current primary key. When the operation completes, this KMS key will be a replica key.</p>
+     /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -61540,10 +60103,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -84,14 +54,7 @@
+@@ -84,14 +57,7 @@
      }
      /// <p>Identifies the current primary key. When the operation completes, this KMS key will be a replica key.</p>
      /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
@@ -61559,16 +60123,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -102,8 +65,6 @@
-         self.primary_region = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
--    /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
-     pub fn set_primary_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.primary_region = input;
-         self
-@@ -114,13 +75,10 @@
+@@ -114,13 +80,10 @@
          &self.primary_region
      }
      /// Consumes the builder and constructs a [`UpdatePrimaryRegionInput`](crate::operation::update_primary_region::UpdatePrimaryRegionInput).
@@ -62574,7 +61129,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) dry_run: ::std::option::Option<bool>,
-@@ -173,37 +89,12 @@
+@@ -173,18 +89,7 @@
  impl VerifyInputBuilder {
      /// <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be the same KMS key that was used to generate the signature. If you specify a different KMS key, the signature verification fails.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -62594,10 +61149,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_id = ::std::option::Option::Some(input.into());
-         self
+@@ -192,18 +97,7 @@
      }
--    /// <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be the same KMS key that was used to generate the signature. If you specify a different KMS key, the signature verification fails.</p>
--    /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
+     /// <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be the same KMS key that was used to generate the signature. If you specify a different KMS key, the signature verification fails.</p>
+     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
 -    /// <p>For example:</p>
 -    /// <ul>
 -    /// <li>
@@ -62610,10 +61165,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li>
 -    /// </ul>
 -    /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
++    /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
      pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_id = input;
          self
-@@ -210,18 +101,7 @@
+@@ -210,18 +104,7 @@
      }
      /// <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be the same KMS key that was used to generate the signature. If you specify a different KMS key, the signature verification fails.</p>
      /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
@@ -62633,7 +61189,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.key_id
      }
-@@ -228,132 +108,52 @@
+@@ -228,132 +111,60 @@
      /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
      /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
      /// This field is required.
@@ -62642,8 +61198,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.message = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
--    /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
+     /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
+     /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
 -    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.message = input;
@@ -62690,7 +61246,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.message_type = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
+     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
 -    /// <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips the hashing step in the signing algorithm. When the value is <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the message done in the ML-DSA signing algorithm.</p><important>
 -    /// <p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message, the security of the signing operation can be compromised.</p>
 -    /// </important>
@@ -62704,8 +61260,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1 of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.</p>
 -    /// </important>
 -    /// <p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
--    /// <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the <code>Message</code> value must be 64 bytes.</p>
--    /// <p>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code> so the digest is hashed again while signing. However, if the signed message is hashed once while signing, but twice while verifying, verification fails, even when the message hasn't changed.</p>
++    /// <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips the hashing step in the signing algorithm. When the value is <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the message done in the ML-DSA signing algorithm.</p> <important><p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message, the security of the signing operation can be compromised.</p></important><p>When using ECC_NIST_EDWARDS25519 KMS keys:</p><ul><li><p>ED25519_SHA_512 signing algorithm requires KMS <code>MessageType:RAW</code></p></li><li><p>ED25519_PH_SHA_512 signing algorithm requires KMS <code>MessageType:DIGEST</code></p></li></ul> <important><p>When you specify the ED25519_PH_SHA_512 signing algorithm with <code>MessageType:DIGEST</code>, KMS still performs the SHA-512 prehash described in <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39">Step 1 of Section 7.8.1 in FIPS 186-5</a>. This means the input is hashed twice: once by you and once by KMS.</p></important><p>When the value of <code>MessageType</code> is <code>DIGEST</code>, the length of the <code>Message</code> value must match the length of hashed messages for the specified signing algorithm.</p>
+     /// <p>When the value of <code>MessageType</code> is <code>EXTERNAL_MU</code> the length of the <code>Message</code> value must be 64 bytes.</p>
+     /// <p>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code> so the digest is hashed again while signing. However, if the signed message is hashed once while signing, but twice while verifying, verification fails, even when the message hasn't changed.</p>
 -    /// <p>The hashing algorithm that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code> value.</p>
 -    /// <ul>
 -    /// <li>
@@ -62719,6 +61276,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li>
 -    /// </ul>
++    /// <p>The hashing algorithm that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code> value.</p><ul><li><p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p></li><li><p>Signing algorithms that end in SHAKE_256 use the SHAKE_256 hashing algorithm.</p></li><li><p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline verification with SM2 key pairs</a>.</p></li></ul>
      pub fn set_message_type(mut self, input: ::std::option::Option<crate::types::MessageType>) -> Self {
          self.message_type = input;
          self
@@ -62764,7 +61322,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.signature = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The signature that the <code>Sign</code> operation generated.</p>
+     /// <p>The signature that the <code>Sign</code> operation generated.</p>
 -    pub fn set_signature(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_signature(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.signature = input;
@@ -62776,15 +61334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.signature
      }
      /// <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
-@@ -362,7 +162,6 @@
-         self.signing_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
-     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
-         self.signing_algorithm = input;
-         self
-@@ -371,12 +170,11 @@
+@@ -371,12 +182,11 @@
      pub fn get_signing_algorithm(&self) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> {
          &self.signing_algorithm
      }
@@ -62799,25 +61349,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -383,8 +181,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -400,8 +196,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -412,8 +206,8 @@
+@@ -412,8 +222,8 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`VerifyInput`](crate::operation::verify::VerifyInput).
@@ -62828,7 +61360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              key_id: self.key_id,
              message: self.message,
              message_type: self.message_type,
-@@ -421,19 +215,6 @@
+@@ -421,19 +231,6 @@
              signing_algorithm: self.signing_algorithm,
              grant_tokens: self.grant_tokens,
              dry_run: self.dry_run,
@@ -62880,31 +61412,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.signature_valid
      }
      /// <p>The signing algorithm that was used to verify the signature.</p>
-@@ -52,7 +53,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -66,7 +66,6 @@
-         self.signature_valid = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
-     pub fn set_signature_valid(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.signature_valid = input;
-         self
-@@ -80,7 +79,6 @@
-         self.signing_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The signing algorithm that was used to verify the signature.</p>
-     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
-         self.signing_algorithm = input;
-         self
-@@ -102,7 +100,7 @@
+@@ -102,7 +103,7 @@
      pub fn build(self) -> crate::operation::verify::VerifyOutput {
          crate::operation::verify::VerifyOutput {
              key_id: self.key_id,
@@ -63985,7 +62493,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl VerifyMacInput {
      /// Creates a new builder-style object to manufacture [`VerifyMacInput`](crate::operation::verify_mac::VerifyMacInput).
      pub fn builder() -> crate::operation::verify_mac::builders::VerifyMacInputBuilder {
-@@ -72,33 +59,31 @@
+@@ -72,33 +59,33 @@
  }
 
  /// A builder for [`VerifyMacInput`](crate::operation::verify_mac::VerifyMacInput).
@@ -64012,9 +62520,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.message = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The message that will be used in the verification. Enter the same message that was used to generate the HMAC.</p>
+     /// <p>The message that will be used in the verification. Enter the same message that was used to generate the HMAC.</p>
 -    /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generated an HMAC for a hash digest of a message, you must verify the HMAC for the same hash digest.</p>
 -    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p><a>GenerateMac</a> and <code>VerifyMac</code> do not provide special handling for message digests. If you generated an HMAC for a hash digest of a message, you must verify the HMAC for the same hash digest.</p>
 +    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.message = input;
          self
@@ -64027,24 +62536,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.message
      }
      /// <p>The KMS key that will be used in the verification.</p>
-@@ -108,8 +93,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS key that will be used in the verification.</p>
--    /// <p>Enter a key ID of the KMS key that was used to generate the HMAC. If you identify a different KMS key, the <code>VerifyMac</code> operation fails.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -125,7 +108,6 @@
-         self.mac_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The MAC algorithm that will be used in the verification. Enter the same MAC algorithm that was used to compute the HMAC. This algorithm must be supported by the HMAC KMS key identified by the <code>KeyId</code> parameter.</p>
-     pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
-         self.mac_algorithm = input;
-         self
-@@ -134,27 +116,25 @@
+@@ -134,27 +121,26 @@
      pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> {
          &self.mac_algorithm
      }
@@ -64058,6 +62550,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 -    /// <p>The HMAC to verify. Enter the HMAC that was generated by the <code>GenerateMac</code> operation when you specified the same message, HMAC KMS key, and MAC algorithm as the values specified in this request.</p>
 -    pub fn set_mac(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
++    /// <p>The HMAC to verify. Enter the HMAC that was generated by the <a>GenerateMac</a> operation when you specified the same message, HMAC KMS key, and MAC algorithm as the values specified in this request.</p>
 +    pub fn set_mac(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.mac = input;
          self
@@ -64079,25 +62572,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.grant_tokens.unwrap_or_default();
          v.push(input.into());
-@@ -161,8 +141,6 @@
-         self.grant_tokens = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of grant tokens.</p>
--    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.grant_tokens = input;
-         self
-@@ -178,8 +156,6 @@
-         self.dry_run = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
--    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.dry_run = input;
-         self
-@@ -190,8 +166,8 @@
+@@ -190,8 +176,8 @@
          &self.dry_run
      }
      /// Consumes the builder and constructs a [`VerifyMacInput`](crate::operation::verify_mac::VerifyMacInput).
@@ -64108,7 +62583,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              message: self.message,
              key_id: self.key_id,
              mac_algorithm: self.mac_algorithm,
-@@ -198,18 +174,6 @@
+@@ -198,18 +184,6 @@
              mac: self.mac,
              grant_tokens: self.grant_tokens,
              dry_run: self.dry_run,
@@ -64159,32 +62634,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.mac_valid
      }
      /// <p>The MAC algorithm used in the verification.</p>
-@@ -54,7 +55,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The HMAC KMS key used in the verification.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -69,8 +69,6 @@
-         self.mac_valid = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
--    /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
-     pub fn set_mac_valid(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.mac_valid = input;
-         self
-@@ -85,7 +83,6 @@
-         self.mac_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The MAC algorithm used in the verification.</p>
-     pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
-         self.mac_algorithm = input;
-         self
-@@ -107,7 +104,7 @@
+@@ -107,7 +108,7 @@
      pub fn build(self) -> crate::operation::verify_mac::VerifyMacOutput {
          crate::operation::verify_mac::VerifyMacOutput {
              key_id: self.key_id,
@@ -65397,53 +63847,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/types/_alias_list_entry.rs`
-
-```diff
---- reference/src/types/_alias_list_entry.rs
-+++ generated/src/types/_alias_list_entry.rs
-@@ -60,7 +60,6 @@
-         self.alias_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>String that contains the alias. This value begins with <code>alias/</code>.</p>
-     pub fn set_alias_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.alias_name = input;
-         self
-@@ -74,7 +73,6 @@
-         self.alias_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>String that contains the key ARN.</p>
-     pub fn set_alias_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.alias_arn = input;
-         self
-@@ -88,7 +86,6 @@
-         self.target_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>String that contains the key identifier of the KMS key associated with the alias.</p>
-     pub fn set_target_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.target_key_id = input;
-         self
-@@ -102,7 +99,6 @@
-         self.creation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Date and time that the alias was most recently created in the account and Region. Formatted as Unix time.</p>
-     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.creation_date = input;
-         self
-@@ -116,7 +112,6 @@
-         self.last_updated_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Date and time that the alias was most recently associated with a KMS key in the account and Region. Formatted as Unix time.</p>
-     pub fn set_last_updated_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_updated_date = input;
-         self
-```
-
 ### `src/types/_custom_key_stores_list_entry.rs`
 
 ```diff
@@ -65611,40 +64014,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn connection_error_code(&self) -> ::std::option::Option<&crate::types::ConnectionErrorCodeType> {
          self.connection_error_code.as_ref()
      }
-@@ -230,7 +102,6 @@
-         self.custom_key_store_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the custom key store.</p>
-     pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.custom_key_store_id = input;
-         self
-@@ -244,7 +115,6 @@
-         self.custom_key_store_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The user-specified friendly name for the custom key store.</p>
-     pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.custom_key_store_name = input;
-         self
-@@ -258,7 +128,6 @@
-         self.cloud_hsm_cluster_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the CloudHSM cluster that is associated with an CloudHSM key store. This field appears only when the <code>CustomKeyStoreType</code> is <code>AWS_CLOUDHSM</code>.</p>
-     pub fn set_cloud_hsm_cluster_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_hsm_cluster_id = input;
-         self
-@@ -273,8 +142,6 @@
-         self.trust_anchor_certificate = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The trust anchor certificate of the CloudHSM cluster associated with an CloudHSM key store. When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the cluster</a>, you create this certificate and save it in the <code>customerCA.crt</code> file.</p>
--    /// <p>This field appears only when the <code>CustomKeyStoreType</code> is <code>AWS_CLOUDHSM</code>.</p>
-     pub fn set_trust_anchor_certificate(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.trust_anchor_certificate = input;
-         self
-@@ -286,16 +153,12 @@
+@@ -286,7 +158,7 @@
      }
      /// <p>Indicates whether the custom key store is connected to its backing key store. For an CloudHSM key store, the <code>ConnectionState</code> indicates whether it is connected to its CloudHSM cluster. For an external key store, the <code>ConnectionState</code> indicates whether it is connected to the external key store proxy that communicates with your external key manager.</p>
      /// <p>You can create and use KMS keys in your custom key stores only when its <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
@@ -65653,16 +64023,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>A value of <code>FAILED</code> indicates that an attempt to connect was unsuccessful. The <code>ConnectionErrorCode</code> field in the response indicates the cause of the failure. For help resolving a connection failure, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a custom key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn connection_state(mut self, input: crate::types::ConnectionStateType) -> Self {
          self.connection_state = ::std::option::Option::Some(input);
-         self
+@@ -294,7 +166,7 @@
      }
--    /// <p>Indicates whether the custom key store is connected to its backing key store. For an CloudHSM key store, the <code>ConnectionState</code> indicates whether it is connected to its CloudHSM cluster. For an external key store, the <code>ConnectionState</code> indicates whether it is connected to the external key store proxy that communicates with your external key manager.</p>
--    /// <p>You can create and use KMS keys in your custom key stores only when its <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
+     /// <p>Indicates whether the custom key store is connected to its backing key store. For an CloudHSM key store, the <code>ConnectionState</code> indicates whether it is connected to its CloudHSM cluster. For an external key store, the <code>ConnectionState</code> indicates whether it is connected to the external key store proxy that communicates with your external key manager.</p>
+     /// <p>You can create and use KMS keys in your custom key stores only when its <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
 -    /// <p>The <code>ConnectionState</code> value is <code>DISCONNECTED</code> only if the key store has never been connected or you use the <code>DisconnectCustomKeyStore</code> operation to disconnect it. If the value is <code>CONNECTED</code> but you are having trouble using the custom key store, make sure that the backing key store is reachable and active. For an CloudHSM key store, verify that its associated CloudHSM cluster is active and contains at least one active HSM. For an external key store, verify that the external key store proxy and external key manager are connected and enabled.</p>
--    /// <p>A value of <code>FAILED</code> indicates that an attempt to connect was unsuccessful. The <code>ConnectionErrorCode</code> field in the response indicates the cause of the failure. For help resolving a connection failure, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a custom key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
++    /// <p>The <code>ConnectionState</code> value is <code>DISCONNECTED</code> only if the key store has never been connected or you use the <a>DisconnectCustomKeyStore</a> operation to disconnect it. If the value is <code>CONNECTED</code> but you are having trouble using the custom key store, make sure that the backing key store is reachable and active. For an CloudHSM key store, verify that its associated CloudHSM cluster is active and contains at least one active HSM. For an external key store, verify that the external key store proxy and external key manager are connected and enabled.</p>
+     /// <p>A value of <code>FAILED</code> indicates that an attempt to connect was unsuccessful. The <code>ConnectionErrorCode</code> field in the response indicates the cause of the failure. For help resolving a connection failure, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a custom key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub fn set_connection_state(mut self, input: ::std::option::Option<crate::types::ConnectionStateType>) -> Self {
          self.connection_state = input;
-         self
-@@ -302,220 +165,25 @@
+@@ -302,220 +174,28 @@
      }
      /// <p>Indicates whether the custom key store is connected to its backing key store. For an CloudHSM key store, the <code>ConnectionState</code> indicates whether it is connected to its CloudHSM cluster. For an external key store, the <code>ConnectionState</code> indicates whether it is connected to the external key store proxy that communicates with your external key manager.</p>
      /// <p>You can create and use KMS keys in your custom key stores only when its <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
@@ -65745,7 +64115,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.connection_error_code = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Describes the connection error. This field appears in the response only when the <code>ConnectionState</code> is <code>FAILED</code>.</p>
+     /// <p>Describes the connection error. This field appears in the response only when the <code>ConnectionState</code> is <code>FAILED</code>.</p>
 -    /// <p>Many failures can be resolved by updating the properties of the custom key store. To update a custom key store, disconnect it (<code>DisconnectCustomKeyStore</code>), correct the errors (<code>UpdateCustomKeyStore</code>), and try to connect again (<code>ConnectCustomKeyStore</code>). For additional help resolving these errors, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection Failure</a> in <i>Key Management Service Developer Guide</i>.</p>
 -    /// <p><b>All custom key stores:</b></p>
 -    /// <ul>
@@ -65812,6 +64182,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND</code> — KMS can't find the VPC endpoint service that it uses to communicate with the external key store proxy. Verify that the <code>XksProxyVpcEndpointServiceName</code> is correct and the KMS service principal has service consumer permissions on the Amazon VPC endpoint service.</p></li>
 -    /// </ul>
++    /// <p>Many failures can be resolved by updating the properties of the custom key store. To update a custom key store, disconnect it (<a>DisconnectCustomKeyStore</a>), correct the errors (<a>UpdateCustomKeyStore</a>), and try to connect again (<a>ConnectCustomKeyStore</a>). For additional help resolving these errors, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection Failure</a> in <i>Key Management Service Developer Guide</i>.</p>
++    /// <p><b>All custom key stores:</b></p><ul><li><p><code>INTERNAL_ERROR</code> — KMS could not complete the request due to an internal error. Retry the request. For <code>ConnectCustomKeyStore</code> requests, disconnect the custom key store before trying to connect again.</p></li><li><p><code>NETWORK_ERRORS</code> — Network errors are preventing KMS from connecting the custom key store to its backing key store.</p></li></ul><p><b>CloudHSM key stores:</b></p><ul><li><p><code>CLUSTER_NOT_FOUND</code> — KMS cannot find the CloudHSM cluster with the specified cluster ID.</p></li><li><p><code>INSUFFICIENT_CLOUDHSM_HSMS</code> — The associated CloudHSM cluster does not contain any active HSMs. To connect a custom key store to its CloudHSM cluster, the cluster must contain at least one active HSM.</p></li><li><p><code>INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET</code> — At least one private subnet associated with the CloudHSM cluster doesn't have any available IP addresses. A CloudHSM key store connection requires one free IP address in each of the associated private subnets, although two are preferable. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection Failure</a> in the <i>Key Management Service Developer Guide</i>.</p></li><li><p><code>INVALID_CREDENTIALS</code> — The <code>KeyStorePassword</code> for the custom key store doesn't match the current password of the <code>kmsuser</code> crypto user in the CloudHSM cluster. Before you can connect your custom key store to its CloudHSM cluster, you must change the <code>kmsuser</code> account password and update the <code>KeyStorePassword</code> value for the custom key store.</p></li><li><p><code>SUBNET_NOT_FOUND</code> — A subnet in the CloudHSM cluster configuration was deleted. If KMS cannot find all of the subnets in the cluster configuration, attempts to connect the custom key store to the CloudHSM cluster fail. To fix this error, create a cluster from a recent backup and associate it with your custom key store. (This process creates a new cluster configuration with a VPC and private subnets.) For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection Failure</a> in the <i>Key Management Service Developer Guide</i>.</p></li><li><p><code>USER_LOCKED_OUT</code> — The <code>kmsuser</code> CU account is locked out of the associated CloudHSM cluster due to too many failed password attempts. Before you can connect your custom key store to its CloudHSM cluster, you must change the <code>kmsuser</code> account password and update the key store password value for the custom key store.</p></li><li><p><code>USER_LOGGED_IN</code> — The <code>kmsuser</code> CU account is logged into the associated CloudHSM cluster. This prevents KMS from rotating the <code>kmsuser</code> account password and logging into the cluster. Before you can connect your custom key store to its CloudHSM cluster, you must log the <code>kmsuser</code> CU out of the cluster. If you changed the <code>kmsuser</code> password to log into the cluster, you must also and update the key store password value for the custom key store. For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#login-kmsuser-2">How to Log Out and Reconnect</a> in the <i>Key Management Service Developer Guide</i>.</p></li><li><p><code>USER_NOT_FOUND</code> — KMS cannot find a <code>kmsuser</code> CU account in the associated CloudHSM cluster. Before you can connect your custom key store to its CloudHSM cluster, you must create a <code>kmsuser</code> CU account in the cluster, and then update the key store password value for the custom key store.</p></li></ul><p><b>External key stores:</b></p><ul><li><p><code>INVALID_CREDENTIALS</code> — One or both of the <code>XksProxyAuthenticationCredential</code> values is not valid on the specified external key store proxy.</p></li><li><p><code>XKS_PROXY_ACCESS_DENIED</code> — KMS requests are denied access to the external key store proxy. If the external key store proxy has authorization rules, verify that they permit KMS to communicate with the proxy on your behalf.</p></li><li><p><code>XKS_PROXY_INVALID_CONFIGURATION</code> — A configuration error is preventing the external key store from connecting to its proxy. Verify the value of the <code>XksProxyUriPath</code>.</p></li><li><p><code>XKS_PROXY_INVALID_RESPONSE</code> — KMS cannot interpret the response from the external key store proxy. If you see this connection error code repeatedly, notify your external key store proxy vendor.</p></li><li><p><code>XKS_PROXY_INVALID_TLS_CONFIGURATION</code> — KMS cannot connect to the external key store proxy because the TLS configuration is invalid. Verify that the XKS proxy supports TLS 1.2 or 1.3. Also, verify that the TLS certificate is not expired, and that it matches the hostname in the <code>XksProxyUriEndpoint</code> value, and that it is signed by a certificate authority included in the <a href="https://github.com/aws/aws-kms-xksproxy-api-spec/blob/main/TrustedCertificateAuthorities">Trusted Certificate Authorities</a> list.</p></li><li><p><code>XKS_PROXY_NOT_REACHABLE</code> — KMS can't communicate with your external key store proxy. Verify that the <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> are correct. Use the tools for your external key store proxy to verify that the proxy is active and available on its network. Also, verify that your external key manager instances are operating properly. Connection attempts fail with this connection error code if the proxy reports that all external key manager instances are unavailable.</p></li><li><p><code>XKS_PROXY_TIMED_OUT</code> — KMS can connect to the external key store proxy, but the proxy does not respond to KMS in the time allotted. If you see this connection error code repeatedly, notify your external key store proxy vendor.</p></li><li><p><code>XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION</code> — The Amazon VPC endpoint service configuration doesn't conform to the requirements for an KMS external key store.</p><ul><li><p>The VPC endpoint service must be an endpoint service for interface endpoints in the caller's Amazon Web Services account.</p></li><li><p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li><li><p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li><li><p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li><li><p>It must have a private DNS name. The private DNS name for an external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must be unique in its Amazon Web Services Region.</p></li><li><p>The domain of the private DNS name must have a <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/verify-domains.html">verification status</a> of <code>verified</code>.</p></li><li><p>The <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS certificate</a> specifies the private DNS hostname at which the endpoint is reachable.</p></li></ul></li><li><p><code>XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND</code> — KMS can't find the VPC endpoint service that it uses to communicate with the external key store proxy. Verify that the <code>XksProxyVpcEndpointServiceName</code> is correct and the KMS service principal has service consumer permissions on the Amazon VPC endpoint service.</p></li></ul>
      pub fn set_connection_error_code(mut self, input: ::std::option::Option<crate::types::ConnectionErrorCodeType>) -> Self {
          self.connection_error_code = input;
          self
@@ -65888,31 +64260,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_connection_error_code(&self) -> &::std::option::Option<crate::types::ConnectionErrorCodeType> {
          &self.connection_error_code
      }
-@@ -524,7 +192,6 @@
-         self.creation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the custom key store was created.</p>
-     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.creation_date = input;
-         self
-@@ -538,7 +205,6 @@
-         self.custom_key_store_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates the type of the custom key store. <code>AWS_CLOUDHSM</code> indicates a custom key store backed by an CloudHSM cluster. <code>EXTERNAL_KEY_STORE</code> indicates a custom key store backed by an external key store proxy and external key manager outside of Amazon Web Services.</p>
-     pub fn set_custom_key_store_type(mut self, input: ::std::option::Option<crate::types::CustomKeyStoreType>) -> Self {
-         self.custom_key_store_type = input;
-         self
-@@ -553,8 +219,6 @@
-         self.xks_proxy_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Configuration settings for the external key store proxy (XKS proxy). The external key store proxy translates KMS requests into a format that your external key manager can understand. The proxy configuration includes connection information that KMS requires.</p>
--    /// <p>This field appears only when the <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code>.</p>
-     pub fn set_xks_proxy_configuration(mut self, input: ::std::option::Option<crate::types::XksProxyConfigurationType>) -> Self {
-         self.xks_proxy_configuration = input;
-         self
 ```
 
 ### `src/types/_customer_master_key_spec.rs`
@@ -65973,7 +64320,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn source_arn(&self) -> ::std::option::Option<&str> {
          self.source_arn.as_deref()
      }
-@@ -52,22 +44,20 @@
+@@ -52,19 +44,18 @@
      pub(crate) source_arn: ::std::option::Option<::std::string::String>,
  }
  impl GrantConstraintsBuilder {
@@ -65996,11 +64343,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.encryption_context_subset = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.</p>
-     pub fn set_encryption_context_subset(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -79,22 +69,20 @@
+     /// <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.</p>
+@@ -79,19 +70,18 @@
      pub fn get_encryption_context_subset(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.encryption_context_subset
      }
@@ -66023,11 +64367,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.encryption_context_equals = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.</p>
-     pub fn set_encryption_context_equals(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -106,17 +94,16 @@
+     /// <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.</p>
+@@ -106,17 +96,17 @@
      pub fn get_encryption_context_equals(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.encryption_context_equals
      }
@@ -66038,6 +64379,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html"> Amazon Resource Name (ARN)</a> of an Amazon Web Services resource on behalf of which the request is made. This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint ensures that the principal can use the KMS key only when the request is made on behalf of the specified resource.</p>
++    /// <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an Amazon Web Services resource on behalf of which the request is made. This is effectively the same as having the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn">aws:SourceArn</a> global condition key in the grant. The SourceArn constraint ensures that the principal can use the KMS key only when the request is made on behalf of the specified resource.</p>
      pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.source_arn = input;
          self
@@ -66081,23 +64423,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn operations(&self) -> &[crate::types::GrantOperation] {
          self.operations.as_deref().unwrap_or_default()
      }
-@@ -106,7 +104,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for the KMS key to which the grant applies.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -120,7 +117,6 @@
-         self.grant_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier for the grant.</p>
-     pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grant_id = input;
-         self
-@@ -129,17 +125,16 @@
+@@ -129,17 +127,17 @@
      pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.grant_id
      }
@@ -66108,6 +64434,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The friendly name that identifies the grant. If a name was provided in the <code>CreateGrant</code> request, that name is returned. Otherwise this value is null.</p>
++    /// <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
      pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.name = input;
          self
@@ -66117,40 +64444,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.name
      }
-@@ -148,7 +143,6 @@
-         self.creation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the grant was created.</p>
-     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.creation_date = input;
-         self
-@@ -163,8 +157,6 @@
-         self.grantee_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The identity that gets the permissions in the grant.</p>
--    /// <p>When a grant is created with the <code>GranteePrincipal</code> field, the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, if the grantee principal is an Amazon Web Services service, the <code>GranteePrincipal</code> field contains an Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might correspond to several different grantee principals, such as an IAM user, IAM role, or Amazon Web Services account.</p>
-     pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grantee_principal = input;
-         self
-@@ -179,7 +171,6 @@
-         self.retiring_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The principal that can retire the grant.</p>
-     pub fn set_retiring_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.retiring_principal = input;
-         self
-@@ -193,7 +184,6 @@
-         self.issuing_account = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services account under which the grant was issued.</p>
-     pub fn set_issuing_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.issuing_account = input;
-         self
-@@ -202,11 +192,10 @@
+@@ -202,11 +200,10 @@
      pub fn get_issuing_account(&self) -> &::std::option::Option<::std::string::String> {
          &self.issuing_account
      }
@@ -66163,100 +64457,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn operations(mut self, input: crate::types::GrantOperation) -> Self {
          let mut v = self.operations.unwrap_or_default();
          v.push(input);
-@@ -213,7 +202,6 @@
-         self.operations = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The list of operations permitted by the grant.</p>
-     pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
-         self.operations = input;
-         self
-@@ -227,7 +215,6 @@
-         self.constraints = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The constraints on the grant, such as encryption context pairs or a SourceArn, that restrict the subsequent operations the grant allows.</p>
-     pub fn set_constraints(mut self, input: ::std::option::Option<crate::types::GrantConstraints>) -> Self {
-         self.constraints = input;
-         self
-@@ -241,7 +228,6 @@
-         self.grantee_service_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that gets the permissions in the grant.</p>
-     pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.grantee_service_principal = input;
-         self
-@@ -255,7 +241,6 @@
-         self.retiring_service_principal = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a> that can retire the grant.</p>
-     pub fn set_retiring_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.retiring_service_principal = input;
-         self
-```
-
-### `src/types/_key_last_usage_data.rs`
-
-```diff
---- reference/src/types/_key_last_usage_data.rs
-+++ generated/src/types/_key_last_usage_data.rs
-@@ -53,7 +53,6 @@
-         self.operation = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The last successful cryptographic operation the KMS key was used for. Absent if the key has not been used since KMS began tracking.</p>
-     pub fn set_operation(mut self, input: ::std::option::Option<crate::types::KeyLastUsageTrackingOperation>) -> Self {
-         self.operation = input;
-         self
-@@ -67,7 +66,6 @@
-         self.timestamp = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the KMS key was most recently used for a successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-     pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.timestamp = input;
-         self
-@@ -81,7 +79,6 @@
-         self.cloud_trail_event_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The CloudTrail <code>eventId</code> associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-     pub fn set_cloud_trail_event_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_trail_event_id = input;
-         self
-@@ -95,7 +92,6 @@
-         self.kms_request_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS request ID associated with the last successful cryptographic operation. Absent if the key has not been used since KMS began tracking.</p>
-     pub fn set_kms_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_request_id = input;
-         self
-```
-
-### `src/types/_key_list_entry.rs`
-
-```diff
---- reference/src/types/_key_list_entry.rs
-+++ generated/src/types/_key_list_entry.rs
-@@ -39,7 +39,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifier of the key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -53,7 +52,6 @@
-         self.key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>ARN of the key.</p>
-     pub fn set_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_arn = input;
-         self
 ```
 
 ### `src/types/_key_metadata.rs`
@@ -66356,146 +64556,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn mac_algorithms(&self) -> &[crate::types::MacAlgorithmSpec] {
          self.mac_algorithms.as_deref().unwrap_or_default()
      }
-@@ -255,7 +231,6 @@
-         self.aws_account_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
-     pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.aws_account_id = input;
-         self
-@@ -270,7 +245,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The globally unique identifier for the KMS key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -284,7 +258,6 @@
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the KMS key. For examples, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Key Management Service (KMS)</a> in the Example ARNs section of the <i>Amazon Web Services General Reference</i>.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-@@ -298,7 +271,6 @@
-         self.creation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the KMS key was created.</p>
-     pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.creation_date = input;
-         self
-@@ -312,7 +284,6 @@
-         self.enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies whether the KMS key is enabled. When <code>KeyState</code> is <code>Enabled</code> this value is true, otherwise it is false.</p>
-     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.enabled = input;
-         self
-@@ -326,7 +297,6 @@
-         self.description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The description of the KMS key.</p>
-     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.description = input;
-         self
-@@ -340,7 +310,6 @@
-         self.key_usage = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key.</p>
-     pub fn set_key_usage(mut self, input: ::std::option::Option<crate::types::KeyUsageType>) -> Self {
-         self.key_usage = input;
-         self
-@@ -355,8 +324,6 @@
-         self.key_state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the KMS key.</p>
--    /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_key_state(mut self, input: ::std::option::Option<crate::types::KeyState>) -> Self {
-         self.key_state = input;
-         self
-@@ -372,8 +339,6 @@
-         self.deletion_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time after which KMS deletes this KMS key. This value is present only when the KMS key is scheduled for deletion, that is, when its <code>KeyState</code> is <code>PendingDeletion</code>.</p>
--    /// <p>When the primary key in a multi-Region key is scheduled for deletion but still has replica keys, its key state is <code>PendingReplicaDeletion</code> and the length of its waiting period is displayed in the <code>PendingDeletionWindowInDays</code> field.</p>
-     pub fn set_deletion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.deletion_date = input;
-         self
-@@ -388,7 +353,6 @@
-         self.valid_to = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The earliest time at which any imported key material permanently associated with this KMS key expires. When a key material expires, KMS deletes the key material and the KMS key becomes unusable. This value is present only for KMS keys whose <code>Origin</code> is <code>EXTERNAL</code> and the <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
-     pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.valid_to = input;
-         self
-@@ -402,7 +366,6 @@
-         self.origin = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The source of the key material for the KMS key. When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material. When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
-     pub fn set_origin(mut self, input: ::std::option::Option<crate::types::OriginType>) -> Self {
-         self.origin = input;
-         self
-@@ -416,7 +379,6 @@
-         self.custom_key_store_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> that contains the KMS key. This field is present only when the KMS key is created in a custom key store.</p>
-     pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.custom_key_store_id = input;
-         self
-@@ -430,7 +392,6 @@
-         self.cloud_hsm_cluster_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The cluster ID of the CloudHSM cluster that contains the key material for the KMS key. When you create a KMS key in an CloudHSM <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>, KMS creates the key material for the KMS key in the associated CloudHSM cluster. This field is present only when the KMS key is created in an CloudHSM key store.</p>
-     pub fn set_cloud_hsm_cluster_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_hsm_cluster_id = input;
-         self
-@@ -444,7 +405,6 @@
-         self.expiration_model = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies whether the KMS key's key material expires. This value is present only when <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
-     pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self {
-         self.expiration_model = input;
-         self
-@@ -458,7 +418,6 @@
-         self.key_manager = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed. For more information about the difference, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_key_manager(mut self, input: ::std::option::Option<crate::types::KeyManagerType>) -> Self {
-         self.key_manager = input;
-         self
-@@ -474,8 +433,6 @@
-         self.customer_master_key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Instead, use the <code>KeySpec</code> field.</p>
--    /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
-     #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
-     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<crate::types::CustomerMasterKeySpec>) -> Self {
-         self.customer_master_key_spec = input;
-@@ -492,7 +449,6 @@
-         self.key_spec = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Describes the type of key material in the KMS key.</p>
-     pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::KeySpec>) -> Self {
-         self.key_spec = input;
-         self
-@@ -501,12 +457,11 @@
+@@ -501,12 +477,11 @@
      pub fn get_key_spec(&self) -> &::std::option::Option<crate::types::KeySpec> {
          &self.key_spec
      }
@@ -66510,16 +64571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn encryption_algorithms(mut self, input: crate::types::EncryptionAlgorithmSpec) -> Self {
          let mut v = self.encryption_algorithms.unwrap_or_default();
          v.push(input);
-@@ -513,8 +468,6 @@
-         self.encryption_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The encryption algorithms that the KMS key supports. You cannot use the KMS key with other encryption algorithms within KMS.</p>
--    /// <p>This value is present only when the <code>KeyUsage</code> of the KMS key is <code>ENCRYPT_DECRYPT</code>.</p>
-     pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>>) -> Self {
-         self.encryption_algorithms = input;
-         self
-@@ -524,12 +477,11 @@
+@@ -524,12 +499,11 @@
      pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>> {
          &self.encryption_algorithms
      }
@@ -66534,16 +64586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn signing_algorithms(mut self, input: crate::types::SigningAlgorithmSpec) -> Self {
          let mut v = self.signing_algorithms.unwrap_or_default();
          v.push(input);
-@@ -536,8 +488,6 @@
-         self.signing_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The signing algorithms that the KMS key supports. You cannot use the KMS key with other signing algorithms within KMS.</p>
--    /// <p>This field appears only when the <code>KeyUsage</code> of the KMS key is <code>SIGN_VERIFY</code>.</p>
-     pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>>) -> Self {
-         self.signing_algorithms = input;
-         self
-@@ -547,11 +497,10 @@
+@@ -547,11 +521,10 @@
      pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>> {
          &self.signing_algorithms
      }
@@ -66556,24 +64599,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_agreement_algorithms(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
          let mut v = self.key_agreement_algorithms.unwrap_or_default();
          v.push(input);
-@@ -558,7 +507,6 @@
-         self.key_agreement_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The key agreement algorithm used to derive a shared secret.</p>
-     pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>) -> Self {
-         self.key_agreement_algorithms = input;
-         self
-@@ -573,8 +521,6 @@
-         self.multi_region = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether the KMS key is a multi-Region (<code>True</code>) or regional (<code>False</code>) key. This value is <code>True</code> for multi-Region primary and replica keys and <code>False</code> for regional KMS keys.</p>
--    /// <p>For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_multi_region(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.multi_region = input;
-         self
-@@ -585,43 +531,17 @@
+@@ -585,43 +558,19 @@
          &self.multi_region
      }
      /// <p>Lists the primary and replica keys in same multi-Region key. This field is present only when the value of the <code>MultiRegion</code> field is <code>True</code>.</p>
@@ -66591,7 +64617,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.multi_region_configuration = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Lists the primary and replica keys in same multi-Region key. This field is present only when the value of the <code>MultiRegion</code> field is <code>True</code>.</p>
+     /// <p>Lists the primary and replica keys in same multi-Region key. This field is present only when the value of the <code>MultiRegion</code> field is <code>True</code>.</p>
 -    /// <p>For more information about any listed KMS key, use the <code>DescribeKey</code> operation.</p>
 -    /// <ul>
 -    /// <li>
@@ -66601,6 +64627,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ReplicaKeys</code> displays the key ARNs and Regions of all replica keys. This field includes the current KMS key if it is a replica key.</p></li>
 -    /// </ul>
++    /// <p>For more information about any listed KMS key, use the <a>DescribeKey</a> operation.</p><ul><li><p><code>MultiRegionKeyType</code> indicates whether the KMS key is a <code>PRIMARY</code> or <code>REPLICA</code> key.</p></li><li><p><code>PrimaryKey</code> displays the key ARN and Region of the primary key. This field displays the current KMS key if it is the primary key.</p></li><li><p><code>ReplicaKeys</code> displays the key ARNs and Regions of all replica keys. This field includes the current KMS key if it is a replica key.</p></li></ul>
      pub fn set_multi_region_configuration(mut self, input: ::std::option::Option<crate::types::MultiRegionConfiguration>) -> Self {
          self.multi_region_configuration = input;
          self
@@ -66619,16 +64646,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_multi_region_configuration(&self) -> &::std::option::Option<crate::types::MultiRegionConfiguration> {
          &self.multi_region_configuration
      }
-@@ -631,8 +551,6 @@
-         self.pending_deletion_window_in_days = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The waiting period before the primary key in a multi-Region key is deleted. This waiting period begins when the last of its replica keys is deleted. This value is present only when the <code>KeyState</code> of the KMS key is <code>PendingReplicaDeletion</code>. That indicates that the KMS key is the primary key in a multi-Region key, it is scheduled for deletion, and it still has existing replica keys.</p>
--    /// <p>When a single-Region KMS key or a multi-Region replica key is scheduled for deletion, its deletion date is displayed in the <code>DeletionDate</code> field. However, when the primary key in a multi-Region key is scheduled for deletion, its waiting period doesn't begin until all of its replica keys are deleted. This value displays that waiting period. When the last replica key in the multi-Region key is deleted, the <code>KeyState</code> of the scheduled primary key changes from <code>PendingReplicaDeletion</code> to <code>PendingDeletion</code> and the deletion date appears in the <code>DeletionDate</code> field.</p>
-     pub fn set_pending_deletion_window_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.pending_deletion_window_in_days = input;
-         self
-@@ -642,12 +560,11 @@
+@@ -642,12 +591,11 @@
      pub fn get_pending_deletion_window_in_days(&self) -> &::std::option::Option<i32> {
          &self.pending_deletion_window_in_days
      }
@@ -66643,33 +64661,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn mac_algorithms(mut self, input: crate::types::MacAlgorithmSpec) -> Self {
          let mut v = self.mac_algorithms.unwrap_or_default();
          v.push(input);
-@@ -654,8 +571,6 @@
-         self.mac_algorithms = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The message authentication code (MAC) algorithm that the HMAC KMS key supports.</p>
--    /// <p>This value is present only when the <code>KeyUsage</code> of the KMS key is <code>GENERATE_VERIFY_MAC</code>.</p>
-     pub fn set_mac_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MacAlgorithmSpec>>) -> Self {
-         self.mac_algorithms = input;
-         self
-@@ -671,8 +586,6 @@
-         self.xks_key_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Information about the external key that is associated with a KMS key in an external key store.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     pub fn set_xks_key_configuration(mut self, input: ::std::option::Option<crate::types::XksKeyConfigurationType>) -> Self {
-         self.xks_key_configuration = input;
-         self
-@@ -687,7 +600,6 @@
-         self.current_key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the current key material. This value is present for symmetric encryption keys with <code>AWS_KMS</code> or <code>EXTERNAL</code> origin. These KMS keys support automatic or on-demand key rotation and can have multiple key materials associated with them. KMS uses the current key material for both encryption and decryption, and the non-current key material for decryption operations only.</p>
-     pub fn set_current_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.current_key_material_id = input;
-         self
-@@ -698,7 +610,7 @@
+@@ -698,7 +646,7 @@
      }
      /// Consumes the builder and constructs a [`KeyMetadata`](crate::types::KeyMetadata).
      /// This method will fail if any of the following fields are not set:
@@ -66678,7 +64670,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::KeyMetadata, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::KeyMetadata {
              aws_account_id: self.aws_account_id,
-@@ -710,7 +622,7 @@
+@@ -710,7 +658,7 @@
              })?,
              arn: self.arn,
              creation_date: self.creation_date,
@@ -66712,23 +64704,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_keys(&self) -> &[crate::types::MultiRegionKey] {
          self.replica_keys.as_deref().unwrap_or_default()
      }
-@@ -49,7 +47,6 @@
-         self.multi_region_key_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether the KMS key is a <code>PRIMARY</code> or <code>REPLICA</code> key.</p>
-     pub fn set_multi_region_key_type(mut self, input: ::std::option::Option<crate::types::MultiRegionKeyType>) -> Self {
-         self.multi_region_key_type = input;
-         self
-@@ -63,7 +60,6 @@
-         self.primary_key = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Displays the key ARN and Region of the primary key. This field includes the current KMS key if it is the primary key.</p>
-     pub fn set_primary_key(mut self, input: ::std::option::Option<crate::types::MultiRegionKey>) -> Self {
-         self.primary_key = input;
-         self
-@@ -72,11 +68,10 @@
+@@ -72,11 +70,10 @@
      pub fn get_primary_key(&self) -> &::std::option::Option<crate::types::MultiRegionKey> {
          &self.primary_key
      }
@@ -66741,37 +64717,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_keys(mut self, input: crate::types::MultiRegionKey) -> Self {
          let mut v = self.replica_keys.unwrap_or_default();
          v.push(input);
-@@ -83,7 +78,6 @@
-         self.replica_keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>displays the key ARNs and Regions of all replica keys. This field includes the current KMS key if it is a replica key.</p>
-     pub fn set_replica_keys(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MultiRegionKey>>) -> Self {
-         self.replica_keys = input;
-         self
-```
-
-### `src/types/_multi_region_key.rs`
-
-```diff
---- reference/src/types/_multi_region_key.rs
-+++ generated/src/types/_multi_region_key.rs
-@@ -39,7 +39,6 @@
-         self.arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Displays the key ARN of a primary or replica key of a multi-Region key.</p>
-     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.arn = input;
-         self
-@@ -53,7 +52,6 @@
-         self.region = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Displays the Amazon Web Services Region of a primary or replica key in a multi-Region key.</p>
-     pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region = input;
-         self
 ```
 
 ### `src/types/_recipient_info.rs`
@@ -66806,15 +64751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
  impl RecipientInfoBuilder {
      /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-@@ -40,7 +40,6 @@
-         self.key_encryption_algorithm = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The encryption algorithm that KMS should use with the public key for an Amazon Web Services Nitro Enclave or NitroTPM to encrypt plaintext values for the response. The only valid value is <code>RSAES_OAEP_SHA_256</code>.</p>
-     pub fn set_key_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::KeyEncryptionMechanism>) -> Self {
-         self.key_encryption_algorithm = input;
-         self
-@@ -50,17 +49,16 @@
+@@ -50,17 +50,17 @@
          &self.key_encryption_algorithm
      }
      /// <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's public key.</p>
@@ -66823,7 +64760,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.attestation_document = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's public key.</p>
+     /// <p>The attestation document for an Amazon Web Services Nitro Enclave or a NitroTPM. This document includes the enclave's public key.</p>
 -    pub fn set_attestation_document(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
 +    pub fn set_attestation_document(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.attestation_document = input;
@@ -66835,85 +64772,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.attestation_document
      }
      /// Consumes the builder and constructs a [`RecipientInfo`](crate::types::RecipientInfo).
-```
-
-### `src/types/_rotations_list_entry.rs`
-
-```diff
---- reference/src/types/_rotations_list_entry.rs
-+++ generated/src/types/_rotations_list_entry.rs
-@@ -88,7 +88,6 @@
-         self.key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifier of the key.</p>
-     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_id = input;
-         self
-@@ -102,7 +101,6 @@
-         self.key_material_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifier of the key material.</p>
-     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_id = input;
-         self
-@@ -116,7 +114,6 @@
-         self.key_material_description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>User-specified description of the key material. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
-     pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key_material_description = input;
-         self
-@@ -130,7 +127,6 @@
-         self.import_state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates if the key material is currently imported into KMS. It has two possible values: <code>IMPORTED</code> or <code>PENDING_IMPORT</code>. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
-     pub fn set_import_state(mut self, input: ::std::option::Option<crate::types::ImportState>) -> Self {
-         self.import_state = input;
-         self
-@@ -144,7 +140,6 @@
-         self.key_material_state = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>There are four possible values for this field: <code>CURRENT</code>, <code>NON_CURRENT</code>, <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code> key material for both encryption and decryption and <code>NON_CURRENT</code> key material only for decryption. <code>PENDING_ROTATION</code> identifies key material that has been imported for on-demand key rotation but the rotation hasn't completed. The key material state <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> is unique to multi-region, symmetric encryption keys with imported key material. It indicates key material that has been imported into the primary Region key but not all of the replica Region keys. When this key material is imported in to all of the replica Region keys, the key material state will change to <code>PENDING_ROTATION</code>. Key material in <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> or <code>PENDING_ROTATION</code> state is not permanently associated with the KMS key. You can delete this key material and import different key material in its place. The <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and <code>PENDING_ROTATION</code> values are only used in symmetric encryption keys with imported key material. The other values, <code>CURRENT</code> and <code>NON_CURRENT</code>, are used for all KMS keys that support automatic or on-demand key rotation.</p>
-     pub fn set_key_material_state(mut self, input: ::std::option::Option<crate::types::KeyMaterialState>) -> Self {
-         self.key_material_state = input;
-         self
-@@ -158,7 +153,6 @@
-         self.expiration_model = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates if the key material is configured to automatically expire. There are two possible values for this field: <code>KEY_MATERIAL_EXPIRES</code> and <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>. For any key material that expires, the expiration date and time is indicated in <code>ValidTo</code>. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
-     pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self {
-         self.expiration_model = input;
-         self
-@@ -172,7 +166,6 @@
-         self.valid_to = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Date and time at which the key material expires. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin in rotation list entries with an <code>ExpirationModel</code> value of <code>KEY_MATERIAL_EXPIRES</code>.</p>
-     pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.valid_to = input;
-         self
-@@ -186,7 +179,6 @@
-         self.rotation_date = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Date and time that the key material rotation completed. Formatted as Unix time. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
-     pub fn set_rotation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.rotation_date = input;
-         self
-@@ -200,7 +192,6 @@
-         self.rotation_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html">on-demand rotation</a>. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
-     pub fn set_rotation_type(mut self, input: ::std::option::Option<crate::types::RotationType>) -> Self {
-         self.rotation_type = input;
-         self
 ```
 
 ### `src/types/_tag.rs`
@@ -66932,23 +64790,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct Tag {
-@@ -45,7 +42,6 @@
-         self.tag_key = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The key of the tag.</p>
-     pub fn set_tag_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.tag_key = input;
-         self
-@@ -60,7 +56,6 @@
-         self.tag_value = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The value of the tag.</p>
-     pub fn set_tag_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.tag_value = input;
-         self
-@@ -71,8 +66,8 @@
+@@ -71,8 +68,8 @@
      }
      /// Consumes the builder and constructs a [`Tag`](crate::types::Tag).
      /// This method will fail if any of the following fields are not set:
@@ -66976,14 +64818,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>The <i>external key</i> is a symmetric encryption key that is hosted by an external key manager outside of Amazon Web Services. When you use the KMS key in an external key store in a cryptographic operation, the cryptographic operation is performed in the external key manager using the specified external key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -34,7 +34,6 @@
-         self.id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ID of the external key in its external key manager. This is the ID that the external key store proxy uses to identify the external key.</p>
-     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.id = input;
-         self
 ```
 
 ### `src/types/_xks_proxy_authentication_credential_type.rs`
@@ -67024,23 +64858,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct XksProxyAuthenticationCredentialTypeBuilder {
      pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
-@@ -51,7 +43,6 @@
-         self.access_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the raw secret access key.</p>
-     pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.access_key_id = input;
-         self
-@@ -66,7 +57,6 @@
-         self.raw_secret_access_key = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A secret string of 43-64 characters. Valid characters are a-z, A-Z, 0-9, /, +, and =.</p>
-     pub fn set_raw_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.raw_secret_access_key = input;
-         self
-@@ -77,8 +67,8 @@
+@@ -77,8 +69,8 @@
      }
      /// Consumes the builder and constructs a [`XksProxyAuthenticationCredentialType`](crate::types::XksProxyAuthenticationCredentialType).
      /// This method will fail if any of the following fields are not set:
@@ -67051,7 +64869,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(
          self,
      ) -> ::std::result::Result<crate::types::XksProxyAuthenticationCredentialType, ::aws_smithy_types::error::operation::BuildError> {
-@@ -98,11 +88,3 @@
+@@ -98,11 +90,3 @@
          })
      }
  }
@@ -67109,57 +64927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  pub struct XksProxyConfigurationTypeBuilder {
      pub(crate) connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
-@@ -83,7 +71,6 @@
-         self.connectivity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-     pub fn set_connectivity(mut self, input: ::std::option::Option<crate::types::XksProxyConnectivityType>) -> Self {
-         self.connectivity = input;
-         self
-@@ -97,7 +84,6 @@
-         self.access_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access key.</p>
-     pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.access_key_id = input;
-         self
-@@ -113,9 +99,6 @@
-         self.uri_endpoint = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The URI endpoint for the external key store proxy.</p>
--    /// <p>If the external key store proxy has a public endpoint, it is displayed here.</p>
--    /// <p>If the external key store proxy uses an Amazon VPC endpoint service name, this field displays the private DNS name associated with the VPC endpoint service.</p>
-     pub fn set_uri_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.uri_endpoint = input;
-         self
-@@ -131,7 +114,6 @@
-         self.uri_path = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The path to the external key store proxy APIs.</p>
-     pub fn set_uri_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.uri_path = input;
-         self
-@@ -145,7 +127,6 @@
-         self.vpc_endpoint_service_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon VPC endpoint service used to communicate with the external key store proxy. This field appears only when the external key store proxy uses an Amazon VPC endpoint service to communicate with KMS.</p>
-     pub fn set_vpc_endpoint_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.vpc_endpoint_service_name = input;
-         self
-@@ -159,7 +140,6 @@
-         self.vpc_endpoint_service_owner = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Web Services account ID that owns the Amazon VPC endpoint service used to communicate with the external key store proxy (XKS). This field appears only when the XKS uses an VPC endpoint service to communicate with KMS.</p>
-     pub fn set_vpc_endpoint_service_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.vpc_endpoint_service_owner = input;
-         self
-@@ -180,15 +160,3 @@
+@@ -180,15 +168,3 @@
          }
      }
  }
@@ -68145,7 +65913,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/error.rs`
 - `src/lib.rs`
 - `src/operation/cancel_key_deletion/_cancel_key_deletion_input.rs`
-- `src/operation/cancel_key_deletion/_cancel_key_deletion_output.rs`
 - `src/operation/cancel_key_deletion/builders.rs`
 - `src/operation/cancel_key_deletion.rs`
 - `src/operation/connect_custom_key_store/_connect_custom_key_store_input.rs`
@@ -68155,7 +65922,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_alias/builders.rs`
 - `src/operation/create_alias.rs`
 - `src/operation/create_custom_key_store/_create_custom_key_store_input.rs`
-- `src/operation/create_custom_key_store/_create_custom_key_store_output.rs`
 - `src/operation/create_custom_key_store/builders.rs`
 - `src/operation/create_custom_key_store.rs`
 - `src/operation/create_grant/_create_grant_input.rs`
@@ -68163,7 +65929,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_grant/builders.rs`
 - `src/operation/create_grant.rs`
 - `src/operation/create_key/_create_key_input.rs`
-- `src/operation/create_key/_create_key_output.rs`
 - `src/operation/create_key/builders.rs`
 - `src/operation/create_key.rs`
 - `src/operation/decrypt/_decrypt_input.rs`
@@ -68177,7 +65942,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/delete_custom_key_store/builders.rs`
 - `src/operation/delete_custom_key_store.rs`
 - `src/operation/delete_imported_key_material/_delete_imported_key_material_input.rs`
-- `src/operation/delete_imported_key_material/_delete_imported_key_material_output.rs`
 - `src/operation/delete_imported_key_material/builders.rs`
 - `src/operation/delete_imported_key_material.rs`
 - `src/operation/derive_shared_secret/_derive_shared_secret_input.rs`
@@ -68189,7 +65953,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/describe_custom_key_stores/builders.rs`
 - `src/operation/describe_custom_key_stores.rs`
 - `src/operation/describe_key/_describe_key_input.rs`
-- `src/operation/describe_key/_describe_key_output.rs`
 - `src/operation/describe_key/builders.rs`
 - `src/operation/describe_key.rs`
 - `src/operation/disable_key/_disable_key_input.rs`
@@ -68236,11 +65999,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/generate_random/builders.rs`
 - `src/operation/generate_random.rs`
 - `src/operation/get_key_last_usage/_get_key_last_usage_input.rs`
-- `src/operation/get_key_last_usage/_get_key_last_usage_output.rs`
 - `src/operation/get_key_last_usage/builders.rs`
 - `src/operation/get_key_last_usage.rs`
 - `src/operation/get_key_policy/_get_key_policy_input.rs`
-- `src/operation/get_key_policy/_get_key_policy_output.rs`
 - `src/operation/get_key_policy/builders.rs`
 - `src/operation/get_key_policy.rs`
 - `src/operation/get_key_rotation_status/_get_key_rotation_status_input.rs`
@@ -68256,7 +66017,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_public_key/builders.rs`
 - `src/operation/get_public_key.rs`
 - `src/operation/import_key_material/_import_key_material_input.rs`
-- `src/operation/import_key_material/_import_key_material_output.rs`
 - `src/operation/import_key_material/builders.rs`
 - `src/operation/import_key_material.rs`
 - `src/operation/list_aliases/_list_aliases_input.rs`
@@ -68305,11 +66065,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/revoke_grant/builders.rs`
 - `src/operation/revoke_grant.rs`
 - `src/operation/rotate_key_on_demand/_rotate_key_on_demand_input.rs`
-- `src/operation/rotate_key_on_demand/_rotate_key_on_demand_output.rs`
 - `src/operation/rotate_key_on_demand/builders.rs`
 - `src/operation/rotate_key_on_demand.rs`
 - `src/operation/schedule_key_deletion/_schedule_key_deletion_input.rs`
-- `src/operation/schedule_key_deletion/_schedule_key_deletion_output.rs`
 - `src/operation/schedule_key_deletion/builders.rs`
 - `src/operation/schedule_key_deletion.rs`
 - `src/operation/sign/_sign_input.rs`
@@ -68343,18 +66101,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/verify_mac/builders.rs`
 - `src/operation/verify_mac.rs`
 - `src/operation.rs`
-- `src/types/_alias_list_entry.rs`
 - `src/types/_custom_key_stores_list_entry.rs`
 - `src/types/_customer_master_key_spec.rs`
 - `src/types/_grant_constraints.rs`
 - `src/types/_grant_list_entry.rs`
-- `src/types/_key_last_usage_data.rs`
-- `src/types/_key_list_entry.rs`
 - `src/types/_key_metadata.rs`
 - `src/types/_multi_region_configuration.rs`
-- `src/types/_multi_region_key.rs`
 - `src/types/_recipient_info.rs`
-- `src/types/_rotations_list_entry.rs`
 - `src/types/_tag.rs`
 - `src/types/_xks_key_configuration_type.rs`
 - `src/types/_xks_proxy_authentication_credential_type.rs`

@@ -40,6 +40,7 @@ impl ListMessageMoveTasksInputBuilder {
         self.source_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the queue whose message movement tasks are to be listed.</p>
     pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_arn = input;
         self
@@ -53,6 +54,7 @@ impl ListMessageMoveTasksInputBuilder {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of results to include in the response. The default is 1, which provides the most recent message movement task. The upper limit is 10.</p>
     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_results = input;
         self

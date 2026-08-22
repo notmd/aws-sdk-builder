@@ -67,6 +67,7 @@ impl AliasConfigurationBuilder {
         self.alias_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the alias.</p>
     pub fn set_alias_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.alias_arn = input;
         self
@@ -80,6 +81,7 @@ impl AliasConfigurationBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the alias.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -93,6 +95,7 @@ impl AliasConfigurationBuilder {
         self.function_version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The function version that the alias invokes.</p>
     pub fn set_function_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_version = input;
         self
@@ -106,6 +109,7 @@ impl AliasConfigurationBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A description of the alias.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self
@@ -119,6 +123,7 @@ impl AliasConfigurationBuilder {
         self.routing_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
     pub fn set_routing_config(mut self, input: ::std::option::Option<crate::types::AliasRoutingConfiguration>) -> Self {
         self.routing_config = input;
         self
@@ -132,6 +137,7 @@ impl AliasConfigurationBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique identifier that changes when you update the alias.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

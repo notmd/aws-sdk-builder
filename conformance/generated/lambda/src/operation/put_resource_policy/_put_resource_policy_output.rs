@@ -46,6 +46,7 @@ impl PutResourcePolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource-based policy that Lambda adds to the resource.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy = input;
         self
@@ -59,6 +60,7 @@ impl PutResourcePolicyOutputBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

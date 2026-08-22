@@ -53,6 +53,7 @@ impl LifecycleRuleAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -71,6 +72,7 @@ impl LifecycleRuleAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
@@ -84,6 +86,7 @@ impl LifecycleRuleAndOperatorBuilder {
         self.object_size_greater_than = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Minimum object size to which the rule applies.</p>
     pub fn set_object_size_greater_than(mut self, input: ::std::option::Option<i64>) -> Self {
         self.object_size_greater_than = input;
         self
@@ -97,6 +100,7 @@ impl LifecycleRuleAndOperatorBuilder {
         self.object_size_less_than = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum object size to which the rule applies.</p>
     pub fn set_object_size_less_than(mut self, input: ::std::option::Option<i64>) -> Self {
         self.object_size_less_than = input;
         self

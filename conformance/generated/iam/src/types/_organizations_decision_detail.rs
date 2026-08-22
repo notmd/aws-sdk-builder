@@ -32,6 +32,7 @@ impl OrganizationsDecisionDetailBuilder {
         self.allowed_by_organizations = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.</p>
     pub fn set_allowed_by_organizations(mut self, input: ::std::option::Option<bool>) -> Self {
         self.allowed_by_organizations = input;
         self

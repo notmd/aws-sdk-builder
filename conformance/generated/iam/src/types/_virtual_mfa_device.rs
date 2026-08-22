@@ -69,6 +69,7 @@ impl VirtualMfaDeviceBuilder {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
     pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.serial_number = input;
         self
@@ -82,6 +83,7 @@ impl VirtualMfaDeviceBuilder {
         self.base32_string_seed = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
     pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.base32_string_seed = input;
         self
@@ -95,6 +97,7 @@ impl VirtualMfaDeviceBuilder {
         self.qr_code_png = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
     pub fn set_qr_code_png(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.qr_code_png = input;
         self
@@ -108,6 +111,7 @@ impl VirtualMfaDeviceBuilder {
         self.user = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The IAM user associated with this virtual MFA device.</p>
     pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
         self.user = input;
         self
@@ -121,6 +125,7 @@ impl VirtualMfaDeviceBuilder {
         self.enable_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time on which the virtual MFA device was enabled.</p>
     pub fn set_enable_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.enable_date = input;
         self
@@ -139,6 +144,7 @@ impl VirtualMfaDeviceBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

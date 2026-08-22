@@ -47,6 +47,7 @@ impl EncryptionBuilder {
         self.encryption_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, <code>aws:kms</code>).</p>
     pub fn set_encryption_type(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
         self.encryption_type = input;
         self
@@ -60,6 +61,7 @@ impl EncryptionBuilder {
         self.kms_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of the symmetric encryption customer managed key to use for encryption of job results. Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     pub fn set_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_key_id = input;
         self
@@ -73,6 +75,7 @@ impl EncryptionBuilder {
         self.kms_context = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to specify the encryption context for the restore results.</p>
     pub fn set_kms_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_context = input;
         self

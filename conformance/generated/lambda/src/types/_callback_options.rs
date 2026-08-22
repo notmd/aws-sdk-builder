@@ -39,6 +39,7 @@ impl CallbackOptionsBuilder {
         self.timeout_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
     pub fn set_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.timeout_seconds = input;
         self
@@ -52,6 +53,7 @@ impl CallbackOptionsBuilder {
         self.heartbeat_timeout_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
     pub fn set_heartbeat_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.heartbeat_timeout_seconds = input;
         self

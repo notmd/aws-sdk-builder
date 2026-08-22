@@ -65,6 +65,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -78,6 +79,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A version number or alias name.</p>
     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.qualifier = input;
         self
@@ -91,6 +93,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
         self.maximum_retry_attempts = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of times to retry when the function returns an error.</p>
     pub fn set_maximum_retry_attempts(mut self, input: ::std::option::Option<i32>) -> Self {
         self.maximum_retry_attempts = input;
         self
@@ -104,6 +107,7 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
         self.maximum_event_age_in_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum age of a request that Lambda sends to a function for processing.</p>
     pub fn set_maximum_event_age_in_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.maximum_event_age_in_seconds = input;
         self
@@ -119,6 +123,9 @@ impl UpdateFunctionEventInvokeConfigInputBuilder {
         self.destination_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of a standard SQS queue.</p></li><li><p><b>Bucket</b> - The ARN of an Amazon S3 bucket.</p></li><li><p><b>Topic</b> - The ARN of a standard SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul><note>
+    /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+    /// </note>
     pub fn set_destination_config(mut self, input: ::std::option::Option<crate::types::DestinationConfig>) -> Self {
         self.destination_config = input;
         self

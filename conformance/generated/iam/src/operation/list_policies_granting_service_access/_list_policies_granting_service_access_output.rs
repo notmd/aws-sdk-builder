@@ -59,6 +59,7 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
         self.policies_granting_service_access = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>
     pub fn set_policies_granting_service_access(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ListPoliciesGrantingServiceAccessEntry>>,
@@ -77,6 +78,7 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -90,6 +92,7 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self

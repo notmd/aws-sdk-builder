@@ -33,6 +33,7 @@ impl DeleteUserPermissionsBoundaryInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name (friendly name, not ARN) of the IAM user from which you want to remove the permissions boundary.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self

@@ -45,6 +45,7 @@ impl ListFunctionUrlConfigsResponseBuilder {
         self.function_url_configs = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of function URL configurations.</p>
     pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>) -> Self {
         self.function_url_configs = input;
         self
@@ -58,6 +59,7 @@ impl ListFunctionUrlConfigsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

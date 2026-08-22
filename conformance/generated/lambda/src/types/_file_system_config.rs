@@ -42,6 +42,7 @@ impl FileSystemConfigBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
@@ -56,6 +57,7 @@ impl FileSystemConfigBuilder {
         self.local_mount_path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
     pub fn set_local_mount_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.local_mount_path = input;
         self

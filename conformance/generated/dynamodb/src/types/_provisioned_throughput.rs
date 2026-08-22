@@ -46,6 +46,8 @@ impl ProvisionedThroughputBuilder {
         self.read_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.read_capacity_units = input;
         self
@@ -62,6 +64,8 @@ impl ProvisionedThroughputBuilder {
         self.write_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+    /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.write_capacity_units = input;
         self

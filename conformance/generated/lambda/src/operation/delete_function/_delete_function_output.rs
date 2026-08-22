@@ -39,6 +39,7 @@ impl DeleteFunctionOutputBuilder {
         self.status_code = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The HTTP status code returned by the operation.</p>
     pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
         self.status_code = input;
         self

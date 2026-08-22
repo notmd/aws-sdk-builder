@@ -46,6 +46,7 @@ impl DeleteImportedKeyMaterialOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key from which the key material was deleted.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -59,6 +60,7 @@ impl DeleteImportedKeyMaterialOutputBuilder {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Identifies the deleted key material.</p>
     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self

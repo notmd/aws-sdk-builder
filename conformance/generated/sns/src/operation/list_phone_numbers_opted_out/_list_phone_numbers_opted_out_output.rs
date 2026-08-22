@@ -51,6 +51,7 @@ impl ListPhoneNumbersOptedOutOutputBuilder {
         self.phone_numbers = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
     pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.phone_numbers = input;
         self
@@ -64,6 +65,7 @@ impl ListPhoneNumbersOptedOutOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A <code>NextToken</code> string is returned when you call the <code>ListPhoneNumbersOptedOut</code> action if additional records are available after the first page of results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

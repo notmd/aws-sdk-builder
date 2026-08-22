@@ -32,6 +32,7 @@ impl TracingConfigResponseBuilder {
         self.mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The tracing mode.</p>
     pub fn set_mode(mut self, input: ::std::option::Option<crate::types::TracingMode>) -> Self {
         self.mode = input;
         self

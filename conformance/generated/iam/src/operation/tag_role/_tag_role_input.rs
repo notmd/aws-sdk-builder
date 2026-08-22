@@ -43,6 +43,8 @@ impl TagRoleInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM role to which you want to add tags.</p>
+    /// <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_name = input;
         self
@@ -62,6 +64,7 @@ impl TagRoleInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

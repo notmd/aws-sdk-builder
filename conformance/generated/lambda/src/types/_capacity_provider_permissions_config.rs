@@ -34,6 +34,7 @@ impl CapacityProviderPermissionsConfigBuilder {
         self.capacity_provider_operator_role_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
     pub fn set_capacity_provider_operator_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_operator_role_arn = input;
         self

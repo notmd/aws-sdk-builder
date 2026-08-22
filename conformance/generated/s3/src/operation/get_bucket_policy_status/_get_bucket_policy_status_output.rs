@@ -46,6 +46,7 @@ impl GetBucketPolicyStatusOutputBuilder {
         self.policy_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The policy status for the specified bucket.</p>
     pub fn set_policy_status(mut self, input: ::std::option::Option<crate::types::PolicyStatus>) -> Self {
         self.policy_status = input;
         self

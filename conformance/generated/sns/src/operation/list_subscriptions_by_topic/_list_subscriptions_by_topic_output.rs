@@ -51,6 +51,7 @@ impl ListSubscriptionsByTopicOutputBuilder {
         self.subscriptions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of subscriptions.</p>
     pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>) -> Self {
         self.subscriptions = input;
         self
@@ -64,6 +65,7 @@ impl ListSubscriptionsByTopicOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

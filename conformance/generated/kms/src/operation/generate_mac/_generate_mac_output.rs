@@ -56,6 +56,8 @@ impl GenerateMacOutputBuilder {
         self.mac = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
+    /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
     pub fn set_mac(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.mac = input;
         self
@@ -70,6 +72,7 @@ impl GenerateMacOutputBuilder {
         self.mac_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The MAC algorithm that was used to generate the HMAC.</p>
     pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
         self.mac_algorithm = input;
         self
@@ -83,6 +86,7 @@ impl GenerateMacOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The HMAC KMS key used in the operation.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self

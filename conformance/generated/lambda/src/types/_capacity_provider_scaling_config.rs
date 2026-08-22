@@ -46,6 +46,7 @@ impl CapacityProviderScalingConfigBuilder {
         self.max_v_cpu_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of vCPUs that the capacity provider can provision across all compute instances.</p>
     pub fn set_max_v_cpu_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_v_cpu_count = input;
         self
@@ -59,6 +60,7 @@ impl CapacityProviderScalingConfigBuilder {
         self.scaling_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
     pub fn set_scaling_mode(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingMode>) -> Self {
         self.scaling_mode = input;
         self
@@ -77,6 +79,7 @@ impl CapacityProviderScalingConfigBuilder {
         self.scaling_policies = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
     pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TargetTrackingScalingPolicy>>) -> Self {
         self.scaling_policies = input;
         self

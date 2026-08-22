@@ -57,6 +57,7 @@ impl InternalServerErrorBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The server encountered an internal error trying to fulfill the request.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

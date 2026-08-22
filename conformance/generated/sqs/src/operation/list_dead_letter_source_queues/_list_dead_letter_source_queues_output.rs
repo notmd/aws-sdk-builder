@@ -52,6 +52,7 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
         self.queue_urls = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
     pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.queue_urls = input;
         self
@@ -65,6 +66,7 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

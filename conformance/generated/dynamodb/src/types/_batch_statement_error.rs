@@ -46,6 +46,7 @@ impl BatchStatementErrorBuilder {
         self.code = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The error code associated with the failed PartiQL batch statement.</p>
     pub fn set_code(mut self, input: ::std::option::Option<crate::types::BatchStatementErrorCodeEnum>) -> Self {
         self.code = input;
         self
@@ -59,6 +60,7 @@ impl BatchStatementErrorBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The error message associated with the PartiQL batch response.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self
@@ -77,6 +79,7 @@ impl BatchStatementErrorBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,

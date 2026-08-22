@@ -104,6 +104,7 @@ impl GetPublicKeyOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -119,6 +120,9 @@ impl GetPublicKeyOutputBuilder {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The exported public key.</p>
+    /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+    /// <p></p>
     pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.public_key = input;
         self
@@ -136,6 +140,8 @@ impl GetPublicKeyOutputBuilder {
         self.customer_master_key_spec = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
+    /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
     #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<crate::types::CustomerMasterKeySpec>) -> Self {
         self.customer_master_key_spec = input;
@@ -152,6 +158,7 @@ impl GetPublicKeyOutputBuilder {
         self.key_spec = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of the of the public key that was downloaded.</p>
     pub fn set_key_spec(mut self, input: ::std::option::Option<crate::types::KeySpec>) -> Self {
         self.key_spec = input;
         self
@@ -166,6 +173,8 @@ impl GetPublicKeyOutputBuilder {
         self.key_usage = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The permitted use of the public key. Valid values for asymmetric key pairs are <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, and <code>KEY_AGREEMENT</code>.</p>
+    /// <p>This information is critical. For example, if a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of KMS, the ciphertext cannot be decrypted.</p>
     pub fn set_key_usage(mut self, input: ::std::option::Option<crate::types::KeyUsageType>) -> Self {
         self.key_usage = input;
         self
@@ -187,6 +196,9 @@ impl GetPublicKeyOutputBuilder {
         self.encryption_algorithms = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The encryption algorithms that KMS supports for this key.</p>
+    /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
+    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
     pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>>) -> Self {
         self.encryption_algorithms = input;
         self
@@ -208,6 +220,8 @@ impl GetPublicKeyOutputBuilder {
         self.signing_algorithms = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The signing algorithms that KMS supports for this key.</p>
+    /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
     pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>>) -> Self {
         self.signing_algorithms = input;
         self
@@ -227,6 +241,7 @@ impl GetPublicKeyOutputBuilder {
         self.key_agreement_algorithms = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
     pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>) -> Self {
         self.key_agreement_algorithms = input;
         self

@@ -33,6 +33,7 @@ impl GetDelegatedAccessTokenInputBuilder {
         self.trade_in_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>
     pub fn set_trade_in_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.trade_in_token = input;
         self

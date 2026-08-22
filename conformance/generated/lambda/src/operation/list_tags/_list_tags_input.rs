@@ -33,6 +33,7 @@ impl ListTagsInputBuilder {
         self.resource = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>
     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource = input;
         self

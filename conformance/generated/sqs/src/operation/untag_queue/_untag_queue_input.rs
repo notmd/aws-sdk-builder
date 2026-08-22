@@ -40,6 +40,7 @@ impl UntagQueueInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the queue.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self
@@ -58,6 +59,7 @@ impl UntagQueueInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of tags to be removed from the specified queue.</p>
     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self

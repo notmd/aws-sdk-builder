@@ -45,6 +45,7 @@ impl AnnotationTableConfigurationUpdatesBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The new configuration state to apply.</p>
     pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
         self.configuration_state = input;
         self
@@ -69,6 +70,7 @@ impl AnnotationTableConfigurationUpdatesBuilder {
         self.role = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The new IAM role ARN to apply.</p>
     pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role = input;
         self

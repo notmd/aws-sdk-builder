@@ -39,6 +39,7 @@ impl ExportTableToPointInTimeOutputBuilder {
         self.export_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains a description of the table export.</p>
     pub fn set_export_description(mut self, input: ::std::option::Option<crate::types::ExportDescription>) -> Self {
         self.export_description = input;
         self

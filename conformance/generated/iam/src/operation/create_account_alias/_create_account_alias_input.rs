@@ -36,6 +36,8 @@ impl CreateAccountAliasInputBuilder {
         self.account_alias = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account alias to create.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>
     pub fn set_account_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.account_alias = input;
         self

@@ -40,6 +40,7 @@ impl UpdateDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the delegation request to update.</p>
     pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
@@ -53,6 +54,7 @@ impl UpdateDelegationRequestInputBuilder {
         self.notes = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Additional notes or comments to add to the delegation request.</p>
     pub fn set_notes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.notes = input;
         self

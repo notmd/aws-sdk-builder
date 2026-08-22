@@ -78,6 +78,7 @@ impl ExecutionBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
@@ -92,6 +93,7 @@ impl ExecutionBuilder {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
     pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_name = input;
         self
@@ -106,6 +108,7 @@ impl ExecutionBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_arn = input;
         self
@@ -120,6 +123,7 @@ impl ExecutionBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current status of the durable execution.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
         self.status = input;
         self
@@ -134,6 +138,7 @@ impl ExecutionBuilder {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
@@ -147,6 +152,7 @@ impl ExecutionBuilder {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
@@ -160,6 +166,7 @@ impl ExecutionBuilder {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_key_arn = input;
         self

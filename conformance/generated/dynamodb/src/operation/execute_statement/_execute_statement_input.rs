@@ -75,6 +75,7 @@ impl ExecuteStatementInputBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The PartiQL statement representing the operation to run.</p>
     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.statement = input;
         self
@@ -93,6 +94,7 @@ impl ExecuteStatementInputBuilder {
         self.parameters = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The parameters for the PartiQL statement, if any.</p>
     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
         self.parameters = input;
         self
@@ -106,6 +108,7 @@ impl ExecuteStatementInputBuilder {
         self.consistent_read = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
     pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
         self.consistent_read = input;
         self
@@ -119,6 +122,7 @@ impl ExecuteStatementInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self
@@ -143,6 +147,7 @@ impl ExecuteStatementInputBuilder {
         self.limit = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, along with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation.</p>
     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
         self.limit = input;
         self
@@ -157,6 +162,8 @@ impl ExecuteStatementInputBuilder {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p>
+    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
     pub fn set_return_values_on_condition_check_failure(
         mut self,
         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,

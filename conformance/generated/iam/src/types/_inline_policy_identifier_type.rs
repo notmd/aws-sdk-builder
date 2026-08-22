@@ -49,6 +49,7 @@ impl InlinePolicyIdentifierTypeBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the inline policy.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self
@@ -63,6 +64,7 @@ impl InlinePolicyIdentifierTypeBuilder {
         self.attachment_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of IAM entity that the inline policy is attached to.</p>
     pub fn set_attachment_type(mut self, input: ::std::option::Option<crate::types::AttachmentType>) -> Self {
         self.attachment_type = input;
         self
@@ -77,6 +79,7 @@ impl InlinePolicyIdentifierTypeBuilder {
         self.attachment_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
     pub fn set_attachment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attachment_name = input;
         self

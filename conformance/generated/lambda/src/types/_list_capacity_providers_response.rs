@@ -45,6 +45,7 @@ impl ListCapacityProvidersResponseBuilder {
         self.capacity_providers = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of capacity providers in your account.</p>
     pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>) -> Self {
         self.capacity_providers = input;
         self
@@ -58,6 +59,7 @@ impl ListCapacityProvidersResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

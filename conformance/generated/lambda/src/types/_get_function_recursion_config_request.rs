@@ -34,6 +34,7 @@ impl GetFunctionRecursionConfigRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the function.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self

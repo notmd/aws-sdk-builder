@@ -83,6 +83,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table being described.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -96,6 +97,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index being described.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -114,6 +116,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self.contributor_insights_rule_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>List of names of the associated contributor insights rules.</p>
     pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.contributor_insights_rule_list = input;
         self
@@ -127,6 +130,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Current status of contributor insights.</p>
     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
         self.contributor_insights_status = input;
         self
@@ -140,6 +144,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self.last_update_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Timestamp of the last time the status was changed.</p>
     pub fn set_last_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_update_date_time = input;
         self
@@ -154,6 +159,8 @@ impl DescribeContributorInsightsOutputBuilder {
         self.failure_exception = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Returns information about the last failure that was encountered.</p>
+    /// <p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
     pub fn set_failure_exception(mut self, input: ::std::option::Option<crate::types::FailureException>) -> Self {
         self.failure_exception = input;
         self
@@ -168,6 +175,7 @@ impl DescribeContributorInsightsOutputBuilder {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self

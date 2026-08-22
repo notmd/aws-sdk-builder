@@ -58,6 +58,7 @@ impl VpcConfigResponseBuilder {
         self.subnet_ids = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of VPC subnet IDs.</p>
     pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.subnet_ids = input;
         self
@@ -76,6 +77,7 @@ impl VpcConfigResponseBuilder {
         self.security_group_ids = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of VPC security group IDs.</p>
     pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.security_group_ids = input;
         self
@@ -89,6 +91,7 @@ impl VpcConfigResponseBuilder {
         self.vpc_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID of the VPC.</p>
     pub fn set_vpc_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.vpc_id = input;
         self
@@ -102,6 +105,7 @@ impl VpcConfigResponseBuilder {
         self.ipv6_allowed_for_dual_stack = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
     pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<bool>) -> Self {
         self.ipv6_allowed_for_dual_stack = input;
         self

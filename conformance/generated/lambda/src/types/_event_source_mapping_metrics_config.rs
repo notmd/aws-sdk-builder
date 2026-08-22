@@ -37,6 +37,7 @@ impl EventSourceMappingMetricsConfigBuilder {
         self.metrics = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The metrics you want your event source mapping to produce, including <code>EventCount</code>, <code>ErrorCount</code>, <code>KafkaMetrics</code>.</p><ul><li><p><code>EventCount</code> to receive metrics related to the number of events processed by your event source mapping.</p></li><li><p><code>ErrorCount</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.</p></li><li><p><code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p></li></ul><p>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
     pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingMetric>>) -> Self {
         self.metrics = input;
         self

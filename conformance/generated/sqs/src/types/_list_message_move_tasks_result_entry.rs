@@ -88,6 +88,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.task_handle = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier associated with a message movement task. When this field is returned in the response of the <code>ListMessageMoveTasks</code> action, it is only populated for tasks that are in RUNNING status.</p>
     pub fn set_task_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.task_handle = input;
         self
@@ -101,6 +102,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The status of the message movement task. Possible values are: RUNNING, COMPLETED, CANCELLING, CANCELLED, and FAILED.</p>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status = input;
         self
@@ -114,6 +116,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.source_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the queue that contains the messages to be moved to another queue.</p>
     pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_arn = input;
         self
@@ -127,6 +130,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.destination_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the destination queue if it has been specified in the <code>StartMessageMoveTask</code> request. If a <code>DestinationArn</code> has not been specified in the <code>StartMessageMoveTask</code> request, this field value will be NULL.</p>
     pub fn set_destination_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.destination_arn = input;
         self
@@ -140,6 +144,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.max_number_of_messages_per_second = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of messages to be moved per second (the message movement rate), if it has been specified in the <code>StartMessageMoveTask</code> request. If a <code>MaxNumberOfMessagesPerSecond</code> has not been specified in the <code>StartMessageMoveTask</code> request, this field value will be NULL.</p>
     pub fn set_max_number_of_messages_per_second(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_number_of_messages_per_second = input;
         self
@@ -153,6 +158,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.approximate_number_of_messages_moved = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The approximate number of messages already moved to the destination queue.</p>
     pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self {
         self.approximate_number_of_messages_moved = input;
         self
@@ -166,6 +172,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.approximate_number_of_messages_to_move = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of messages to be moved from the source queue. This number is obtained at the time of starting the message movement task and is only included after the message movement task is selected to start.</p>
     pub fn set_approximate_number_of_messages_to_move(mut self, input: ::std::option::Option<i64>) -> Self {
         self.approximate_number_of_messages_to_move = input;
         self
@@ -179,6 +186,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.failure_reason = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The task failure reason (only included if the task status is FAILED).</p>
     pub fn set_failure_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.failure_reason = input;
         self
@@ -192,6 +200,7 @@ impl ListMessageMoveTasksResultEntryBuilder {
         self.started_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The timestamp of starting the message movement task.</p>
     pub fn set_started_timestamp(mut self, input: ::std::option::Option<i64>) -> Self {
         self.started_timestamp = input;
         self

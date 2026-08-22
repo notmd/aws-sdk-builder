@@ -85,6 +85,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user associated with the service-specific credential.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -99,6 +100,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
         self.status = input;
         self
@@ -112,6 +114,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.service_user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The generated user name for the service-specific credential.</p>
     pub fn set_service_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_user_name = input;
         self
@@ -125,6 +128,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.service_credential_alias = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
     pub fn set_service_credential_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_credential_alias = input;
         self
@@ -139,6 +143,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
@@ -152,6 +157,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.expiration_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the service specific credential expires. This field is only present for Bedrock API keys and CloudWatch Logs API keys that were created with an expiration period.</p>
     pub fn set_expiration_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.expiration_date = input;
         self
@@ -166,6 +172,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.service_specific_credential_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the service-specific credential.</p>
     pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_specific_credential_id = input;
         self
@@ -180,6 +187,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.service_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the service associated with the service-specific credential.</p>
     pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_name = input;
         self

@@ -47,6 +47,7 @@ impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier (ID) of an organization.</p>
     pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.organization_id = input;
         self
@@ -65,6 +66,7 @@ impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
         self.enabled_features = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The features you have enabled for centralized root access.</p>
     pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
         self.enabled_features = input;
         self

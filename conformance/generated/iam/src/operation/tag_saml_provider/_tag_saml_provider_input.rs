@@ -43,6 +43,8 @@ impl TagSamlProviderInputBuilder {
         self.saml_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.saml_provider_arn = input;
         self
@@ -62,6 +64,7 @@ impl TagSamlProviderInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of tags that you want to attach to the SAML identity provider in IAM. Each tag consists of a key name and an associated value.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

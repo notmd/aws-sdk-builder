@@ -34,6 +34,7 @@ impl InventoryFilterBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The prefix that an object must have to be included in the inventory results.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self

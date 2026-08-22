@@ -57,6 +57,7 @@ impl UpdateGlobalSecondaryIndexActionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index to be updated.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -71,6 +72,8 @@ impl UpdateGlobalSecondaryIndexActionBuilder {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
@@ -85,6 +88,7 @@ impl UpdateGlobalSecondaryIndexActionBuilder {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
@@ -98,6 +102,7 @@ impl UpdateGlobalSecondaryIndexActionBuilder {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
         self.warm_throughput = input;
         self

@@ -46,6 +46,7 @@ impl NoncurrentVersionTransitionBuilder {
         self.noncurrent_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_noncurrent_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.noncurrent_days = input;
         self
@@ -59,6 +60,7 @@ impl NoncurrentVersionTransitionBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The class of storage used to store the object.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::TransitionStorageClass>) -> Self {
         self.storage_class = input;
         self
@@ -72,6 +74,7 @@ impl NoncurrentVersionTransitionBuilder {
         self.newer_noncurrent_versions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before transitioning objects. You can specify up to 100 noncurrent versions to retain. Amazon S3 will transition any additional noncurrent versions beyond the specified number to retain. For more information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration elements</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_newer_noncurrent_versions(mut self, input: ::std::option::Option<i32>) -> Self {
         self.newer_noncurrent_versions = input;
         self

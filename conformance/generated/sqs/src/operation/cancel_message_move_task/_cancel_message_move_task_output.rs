@@ -39,6 +39,7 @@ impl CancelMessageMoveTaskOutputBuilder {
         self.approximate_number_of_messages_moved = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The approximate number of messages already moved to the destination queue.</p>
     pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self {
         self.approximate_number_of_messages_moved = input;
         self

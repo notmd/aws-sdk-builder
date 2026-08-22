@@ -46,6 +46,7 @@ impl DurableConfigBuilder {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_key_arn = input;
         self
@@ -59,6 +60,7 @@ impl DurableConfigBuilder {
         self.retention_period_in_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.</p>
     pub fn set_retention_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.retention_period_in_days = input;
         self
@@ -72,6 +74,7 @@ impl DurableConfigBuilder {
         self.execution_timeout = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.</p>
     pub fn set_execution_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
         self.execution_timeout = input;
         self

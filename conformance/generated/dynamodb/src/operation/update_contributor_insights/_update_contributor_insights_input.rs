@@ -54,6 +54,7 @@ impl UpdateContributorInsightsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -67,6 +68,7 @@ impl UpdateContributorInsightsInputBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The global secondary index name, if applicable.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -81,6 +83,7 @@ impl UpdateContributorInsightsInputBuilder {
         self.contributor_insights_action = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the contributor insights action.</p>
     pub fn set_contributor_insights_action(mut self, input: ::std::option::Option<crate::types::ContributorInsightsAction>) -> Self {
         self.contributor_insights_action = input;
         self
@@ -94,6 +97,7 @@ impl UpdateContributorInsightsInputBuilder {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self

@@ -46,6 +46,7 @@ impl TableWarmThroughputDescriptionBuilder {
         self.read_units_per_second = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the base table's warm throughput value in read units per second.</p>
     pub fn set_read_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
         self.read_units_per_second = input;
         self
@@ -59,6 +60,7 @@ impl TableWarmThroughputDescriptionBuilder {
         self.write_units_per_second = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the base table's warm throughput value in write units per second.</p>
     pub fn set_write_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
         self.write_units_per_second = input;
         self
@@ -72,6 +74,7 @@ impl TableWarmThroughputDescriptionBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents warm throughput value of the base table.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
         self.status = input;
         self

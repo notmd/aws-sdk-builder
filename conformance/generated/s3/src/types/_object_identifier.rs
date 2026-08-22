@@ -78,6 +78,7 @@ impl ObjectIdentifierBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Key name of the object.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -93,6 +94,9 @@ impl ObjectIdentifierBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Version ID for the specific version of the object to delete.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self
@@ -110,6 +114,9 @@ impl ObjectIdentifierBuilder {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An entity tag (ETag) is an identifier assigned by a web server to a specific version of a resource found at a URL. This header field makes the request method conditional on <code>ETags</code>.</p><note>
+    /// <p>Entity tags (ETags) for S3 Express One Zone are random alphanumeric strings unique to the object.</p>
+    /// </note>
     pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.e_tag = input;
         self
@@ -127,6 +134,9 @@ impl ObjectIdentifierBuilder {
         self.last_modified_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If present, the objects are deleted only if its modification times matches the provided <code>Timestamp</code>.</p><note>
+    /// <p>This functionality is only supported for directory buckets.</p>
+    /// </note>
     pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.last_modified_time = input;
         self
@@ -144,6 +154,9 @@ impl ObjectIdentifierBuilder {
         self.size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If present, the objects are deleted only if its size matches the provided size in bytes.</p><note>
+    /// <p>This functionality is only supported for directory buckets.</p>
+    /// </note>
     pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
         self.size = input;
         self

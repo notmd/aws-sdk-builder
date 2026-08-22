@@ -46,6 +46,7 @@ impl StatsBuilder {
         self.bytes_scanned = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of object bytes scanned.</p>
     pub fn set_bytes_scanned(mut self, input: ::std::option::Option<i64>) -> Self {
         self.bytes_scanned = input;
         self
@@ -59,6 +60,7 @@ impl StatsBuilder {
         self.bytes_processed = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of uncompressed object bytes processed.</p>
     pub fn set_bytes_processed(mut self, input: ::std::option::Option<i64>) -> Self {
         self.bytes_processed = input;
         self
@@ -72,6 +74,7 @@ impl StatsBuilder {
         self.bytes_returned = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of bytes of records payload data returned.</p>
     pub fn set_bytes_returned(mut self, input: ::std::option::Option<i64>) -> Self {
         self.bytes_returned = input;
         self

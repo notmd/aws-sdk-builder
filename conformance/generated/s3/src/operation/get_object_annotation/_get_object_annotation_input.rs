@@ -75,6 +75,7 @@ impl GetObjectAnnotationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket that contains the object.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -89,6 +90,7 @@ impl GetObjectAnnotationInputBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The object key.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -104,6 +106,8 @@ impl GetObjectAnnotationInputBuilder {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the annotation to retrieve.</p>
+    /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_name = input;
         self
@@ -118,6 +122,7 @@ impl GetObjectAnnotationInputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version ID of the object.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self
@@ -142,6 +147,7 @@ impl GetObjectAnnotationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self
@@ -155,6 +161,7 @@ impl GetObjectAnnotationInputBuilder {
         self.checksum_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
     pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
         self.checksum_mode = input;
         self

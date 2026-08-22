@@ -44,6 +44,7 @@ impl TransactGetItemsInputBuilder {
         self.transact_items = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
     pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>) -> Self {
         self.transact_items = input;
         self
@@ -57,6 +58,7 @@ impl TransactGetItemsInputBuilder {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
         self.return_consumed_capacity = input;
         self

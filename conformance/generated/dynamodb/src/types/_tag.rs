@@ -44,6 +44,7 @@ impl TagBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -58,6 +59,7 @@ impl TagBuilder {
         self.value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The value of the tag. Tag values are case-sensitive and can be null.</p>
     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.value = input;
         self

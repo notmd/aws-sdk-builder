@@ -51,6 +51,7 @@ impl ListExportsOutputBuilder {
         self.export_summaries = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code>ExportSummary</code> objects.</p>
     pub fn set_export_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>) -> Self {
         self.export_summaries = input;
         self
@@ -64,6 +65,7 @@ impl ListExportsOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

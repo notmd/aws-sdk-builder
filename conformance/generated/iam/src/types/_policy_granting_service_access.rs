@@ -65,6 +65,7 @@ impl PolicyGrantingServiceAccessBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The policy name.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self
@@ -79,6 +80,7 @@ impl PolicyGrantingServiceAccessBuilder {
         self.policy_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
         self.policy_type = input;
         self
@@ -104,6 +106,8 @@ impl PolicyGrantingServiceAccessBuilder {
         self.entity_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.</p>
+    /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_entity_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self {
         self.entity_type = input;
         self
@@ -119,6 +123,8 @@ impl PolicyGrantingServiceAccessBuilder {
         self.entity_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the entity (user or role) to which the inline policy is attached.</p>
+    /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_entity_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.entity_name = input;
         self

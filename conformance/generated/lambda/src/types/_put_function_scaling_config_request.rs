@@ -49,6 +49,7 @@ impl PutFunctionScalingConfigRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -63,6 +64,7 @@ impl PutFunctionScalingConfigRequestBuilder {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.qualifier = input;
         self
@@ -76,6 +78,7 @@ impl PutFunctionScalingConfigRequestBuilder {
         self.function_scaling_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
     pub fn set_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
         self.function_scaling_config = input;
         self

@@ -43,6 +43,7 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique identifier for the raw secret access key.</p>
     pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self
@@ -57,6 +58,7 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
         self.raw_secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A secret string of 43-64 characters. Valid characters are a-z, A-Z, 0-9, /, +, and =.</p>
     pub fn set_raw_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.raw_secret_access_key = input;
         self

@@ -51,6 +51,7 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
         self.function_event_invoke_configs = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of configurations.</p>
     pub fn set_function_event_invoke_configs(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
@@ -67,6 +68,7 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

@@ -79,6 +79,7 @@ impl InventoryConfigurationBuilder {
         self.destination = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains information about where to publish the inventory results.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<crate::types::InventoryDestination>) -> Self {
         self.destination = input;
         self
@@ -93,6 +94,7 @@ impl InventoryConfigurationBuilder {
         self.is_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the inventory is enabled or disabled. If set to <code>True</code>, an inventory list is generated. If set to <code>False</code>, no inventory list is generated.</p>
     pub fn set_is_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_enabled = input;
         self
@@ -106,6 +108,7 @@ impl InventoryConfigurationBuilder {
         self.filter = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
     pub fn set_filter(mut self, input: ::std::option::Option<crate::types::InventoryFilter>) -> Self {
         self.filter = input;
         self
@@ -120,6 +123,7 @@ impl InventoryConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID used to identify the inventory configuration.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -134,6 +138,7 @@ impl InventoryConfigurationBuilder {
         self.included_object_versions = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Object versions to include in the inventory list. If set to <code>All</code>, the list includes all the object versions, which adds the version-related fields <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>, the list does not contain these version-related fields.</p>
     pub fn set_included_object_versions(mut self, input: ::std::option::Option<crate::types::InventoryIncludedObjectVersions>) -> Self {
         self.included_object_versions = input;
         self
@@ -154,6 +159,9 @@ impl InventoryConfigurationBuilder {
         self.optional_fields = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Contains the optional fields that are included in the inventory results.</p><note>
+    /// <p>The following optional fields are supported for directory buckets <code>Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | EncryptionStatus | BucketKeyStatus | ChecksumAlgorithm | LifecycleExpirationDate.</code> Throws MalformedXML error if unsupported optional field is provided.</p>
+    /// </note>
     pub fn set_optional_fields(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InventoryOptionalField>>) -> Self {
         self.optional_fields = input;
         self
@@ -169,6 +177,7 @@ impl InventoryConfigurationBuilder {
         self.schedule = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the schedule for generating inventory results.</p>
     pub fn set_schedule(mut self, input: ::std::option::Option<crate::types::InventorySchedule>) -> Self {
         self.schedule = input;
         self

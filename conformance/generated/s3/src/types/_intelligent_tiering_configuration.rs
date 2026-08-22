@@ -57,6 +57,7 @@ impl IntelligentTieringConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -70,6 +71,7 @@ impl IntelligentTieringConfigurationBuilder {
         self.filter = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies a bucket filter. The configuration only includes objects that meet the filter's criteria.</p>
     pub fn set_filter(mut self, input: ::std::option::Option<crate::types::IntelligentTieringFilter>) -> Self {
         self.filter = input;
         self
@@ -84,6 +86,7 @@ impl IntelligentTieringConfigurationBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the status of the configuration.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::IntelligentTieringStatus>) -> Self {
         self.status = input;
         self
@@ -102,6 +105,7 @@ impl IntelligentTieringConfigurationBuilder {
         self.tierings = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Specifies the S3 Intelligent-Tiering storage class tier of the configuration.</p>
     pub fn set_tierings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tiering>>) -> Self {
         self.tierings = input;
         self

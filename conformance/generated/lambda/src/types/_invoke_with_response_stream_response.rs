@@ -53,6 +53,7 @@ impl InvokeWithResponseStreamResponseBuilder {
         self.status_code = ::std::option::Option::Some(input);
         self
     }
+    /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
     pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
         self.status_code = input;
         self
@@ -66,6 +67,7 @@ impl InvokeWithResponseStreamResponseBuilder {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.executed_version = input;
         self
@@ -79,6 +81,7 @@ impl InvokeWithResponseStreamResponseBuilder {
         self.event_stream = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The stream of response payloads.</p>
     pub fn set_event_stream(mut self, input: ::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent>) -> Self {
         self.event_stream = input;
         self
@@ -92,6 +95,7 @@ impl InvokeWithResponseStreamResponseBuilder {
         self.response_stream_content_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The type of data the stream is returning.</p>
     pub fn set_response_stream_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.response_stream_content_type = input;
         self

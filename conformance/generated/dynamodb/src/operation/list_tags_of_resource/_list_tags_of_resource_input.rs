@@ -40,6 +40,7 @@ impl ListTagsOfResourceInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).</p>
     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource_arn = input;
         self
@@ -53,6 +54,7 @@ impl ListTagsOfResourceInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

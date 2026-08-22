@@ -44,6 +44,7 @@ impl LocationInfoBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of location where the bucket will be created.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::LocationType>) -> Self {
         self.r#type = input;
         self
@@ -58,6 +59,8 @@ impl LocationInfoBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the location where the bucket will be created.</p>
+    /// <p>For directory buckets, the name of the location is the Zone ID of the Availability Zone (AZ) or Local Zone (LZ) where the bucket will be created. An example AZ ID value is <code>usw2-az1</code>.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self

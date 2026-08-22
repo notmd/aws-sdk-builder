@@ -51,6 +51,7 @@ impl GetBucketAccelerateConfigurationOutputBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The accelerate configuration of the bucket.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAccelerateStatus>) -> Self {
         self.status = input;
         self

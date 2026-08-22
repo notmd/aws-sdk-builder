@@ -51,6 +51,7 @@ impl ListPlatformApplicationsOutputBuilder {
         self.platform_applications = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
     pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>>) -> Self {
         self.platform_applications = input;
         self
@@ -64,6 +65,7 @@ impl ListPlatformApplicationsOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

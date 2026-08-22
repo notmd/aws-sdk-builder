@@ -55,6 +55,7 @@ impl VerifyMacOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The HMAC KMS key used in the verification.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -69,6 +70,8 @@ impl VerifyMacOutputBuilder {
         self.mac_valid = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
+    /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
     pub fn set_mac_valid(mut self, input: ::std::option::Option<bool>) -> Self {
         self.mac_valid = input;
         self
@@ -83,6 +86,7 @@ impl VerifyMacOutputBuilder {
         self.mac_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The MAC algorithm used in the verification.</p>
     pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
         self.mac_algorithm = input;
         self

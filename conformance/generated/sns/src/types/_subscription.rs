@@ -60,6 +60,7 @@ impl SubscriptionBuilder {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subscription's ARN.</p>
     pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.subscription_arn = input;
         self
@@ -73,6 +74,7 @@ impl SubscriptionBuilder {
         self.owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subscription's owner.</p>
     pub fn set_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.owner = input;
         self
@@ -86,6 +88,7 @@ impl SubscriptionBuilder {
         self.protocol = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subscription's protocol.</p>
     pub fn set_protocol(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.protocol = input;
         self
@@ -99,6 +102,7 @@ impl SubscriptionBuilder {
         self.endpoint = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subscription's endpoint (format depends on the protocol).</p>
     pub fn set_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.endpoint = input;
         self
@@ -112,6 +116,7 @@ impl SubscriptionBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the subscription's topic.</p>
     pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.topic_arn = input;
         self

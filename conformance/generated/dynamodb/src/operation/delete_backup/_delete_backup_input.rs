@@ -33,6 +33,7 @@ impl DeleteBackupInputBuilder {
         self.backup_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN associated with the backup.</p>
     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.backup_arn = input;
         self

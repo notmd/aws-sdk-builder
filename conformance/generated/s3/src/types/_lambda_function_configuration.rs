@@ -63,6 +63,7 @@ impl LambdaFunctionConfigurationBuilder {
         self.lambda_function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
     pub fn set_lambda_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.lambda_function_arn = input;
         self
@@ -81,6 +82,7 @@ impl LambdaFunctionConfigurationBuilder {
         self.events = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The Amazon S3 bucket event for which to invoke the Lambda function. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
         self.events = input;
         self

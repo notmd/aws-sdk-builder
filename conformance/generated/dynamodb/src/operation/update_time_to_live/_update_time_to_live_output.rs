@@ -39,6 +39,7 @@ impl UpdateTimeToLiveOutputBuilder {
         self.time_to_live_specification = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
     pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self {
         self.time_to_live_specification = input;
         self

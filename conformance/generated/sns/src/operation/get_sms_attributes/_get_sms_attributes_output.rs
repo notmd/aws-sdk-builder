@@ -44,6 +44,7 @@ impl GetSmsAttributesOutputBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The SMS attribute names and their values.</p>
     pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self

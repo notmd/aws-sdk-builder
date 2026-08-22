@@ -39,6 +39,7 @@ impl CreateLoginProfileOutputBuilder {
         self.login_profile = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing the user name and password create date.</p>
     pub fn set_login_profile(mut self, input: ::std::option::Option<crate::types::LoginProfile>) -> Self {
         self.login_profile = input;
         self

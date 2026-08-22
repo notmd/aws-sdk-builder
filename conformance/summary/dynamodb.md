@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `903/903` files compared · `124` matched · `382` mismatches · `397` missing · `0` extra · `13.73%` match (100.00% means fully matched)
+**Progress:** `903/903` files compared · `162` matched · `344` mismatches · `397` missing · `0` extra · `17.94%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -3010,15 +3010,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn statements(mut self, input: crate::types::BatchStatementRequest) -> Self {
          let mut v = self.statements.unwrap_or_default();
          v.push(input);
-@@ -64,7 +42,6 @@
-         self.statements = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The list of PartiQL statements representing the batch to run.</p>
-     pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>) -> Self {
-         self.statements = input;
-         self
-@@ -73,55 +50,22 @@
+@@ -73,55 +51,22 @@
      pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
          &self.statements
      }
@@ -3118,15 +3110,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn responses(mut self, input: crate::types::BatchStatementResponse) -> Self {
          let mut v = self.responses.unwrap_or_default();
          v.push(input);
-@@ -55,7 +51,6 @@
-         self.responses = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
-     pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>) -> Self {
-         self.responses = input;
-         self
-@@ -64,11 +59,10 @@
+@@ -64,11 +60,10 @@
      pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>> {
          &self.responses
      }
@@ -3139,14 +3123,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
-@@ -75,7 +69,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
-         self.consumed_capacity = input;
-         self
 ```
 
 ### `src/operation/batch_execute_statement/builders.rs`
@@ -3982,7 +3958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
          self.return_consumed_capacity.as_ref()
      }
-@@ -134,100 +42,21 @@
+@@ -134,100 +42,27 @@
      pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
  }
  impl BatchGetItemInputBuilder {
@@ -4047,7 +4023,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.request_items = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more items to retrieve from that table. Each table name or ARN can be used only once per <code>BatchGetItem</code> request.</p>
+     /// <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more items to retrieve from that table. Each table name or ARN can be used only once per <code>BatchGetItem</code> request.</p>
 -    /// <p>Each element in the map of items to retrieve consists of the following:</p>
 -    /// <ul>
 -    /// <li>
@@ -4077,22 +4053,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>Each element in the map of items to retrieve consists of the following:</p><ul><li><p><code>ConsistentRead</code> - If <code>true</code>, a strongly consistent read is used; if <code>false</code> (the default), an eventually consistent read is used.</p></li><li><p><code>ExpressionAttributeNames</code> - One or more substitution tokens for attribute names in the <code>ProjectionExpression</code> parameter. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
 -    /// <li>
 -    /// <p><code>Keys</code> - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide <i>both</i> the partition key value and the sort key value.</p></li>
 -    /// <li>
 -    /// <p><code>ProjectionExpression</code> - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
--    /// <p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p>
++    /// </note><p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide <i>both</i> the partition key value and the sort key value.</p></li><li><p><code>ProjectionExpression</code> - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
+     /// <p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p>
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
 -    /// <li>
 -    /// <p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li>
 -    /// </ul>
++    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li></ul>
      pub fn set_request_items(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
-@@ -236,98 +65,30 @@
+@@ -236,98 +71,30 @@
          self
      }
      /// <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more items to retrieve from that table. Each table name or ARN can be used only once per <code>BatchGetItem</code> request.</p>
@@ -4264,7 +4243,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
          self.consumed_capacity.as_deref().unwrap_or_default()
      }
-@@ -101,22 +69,20 @@
+@@ -101,19 +69,18 @@
      _request_id: Option<String>,
  }
  impl BatchGetItemOutputBuilder {
@@ -4287,11 +4266,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.responses = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists of a table name or ARN, along with a map of attribute data consisting of the data type and attribute value.</p>
-     pub fn set_responses(
-         mut self,
-         input: ::std::option::Option<
-@@ -140,38 +106,17 @@
+     /// <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists of a table name or ARN, along with a map of attribute data consisting of the data type and attribute value.</p>
+@@ -140,38 +107,19 @@
      > {
          &self.responses
      }
@@ -4321,7 +4297,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.unprocessed_keys = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of tables and their respective keys that were not processed with the current response. The <code>UnprocessedKeys</code> value is in the same form as <code>RequestItems</code>, so the value can be provided directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
+     /// <p>A map of tables and their respective keys that were not processed with the current response. The <code>UnprocessedKeys</code> value is in the same form as <code>RequestItems</code>, so the value can be provided directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
 -    /// <p>Each element consists of:</p>
 -    /// <ul>
 -    /// <li>
@@ -4332,10 +4308,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ConsistentRead</code> - The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p></li>
 -    /// </ul>
 -    /// <p>If there are no unprocessed keys remaining, the response contains an empty <code>UnprocessedKeys</code> map.</p>
++    /// <p>Each element consists of:</p><ul><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table.</p></li><li><p><code>ProjectionExpression</code> - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a requested attribute is not found, it does not appear in the result.</p></li><li><p><code>ConsistentRead</code> - The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p></li></ul><p>If there are no unprocessed keys remaining, the response contains an empty <code>UnprocessedKeys</code> map.</p>
      pub fn set_unprocessed_keys(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
-@@ -180,33 +125,17 @@
+@@ -180,33 +128,17 @@
          self
      }
      /// <p>A map of tables and their respective keys that were not processed with the current response. The <code>UnprocessedKeys</code> value is in the same form as <code>RequestItems</code>, so the value can be provided directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
@@ -4372,11 +4349,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
-@@ -213,26 +142,12 @@
-         self.consumed_capacity = ::std::option::Option::Some(v);
+@@ -214,25 +146,13 @@
          self
      }
--    /// <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
+     /// <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
 -    /// <p>Each element consists of:</p>
 -    /// <ul>
 -    /// <li>
@@ -4384,6 +4360,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li>
 -    /// </ul>
++    /// <p>Each element consists of:</p><ul><li><p><code>TableName</code> - The table that consumed the provisioned throughput.</p></li><li><p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li></ul>
      pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
          self.consumed_capacity = input;
          self
@@ -5358,7 +5335,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
          self.return_consumed_capacity.as_ref()
      }
-@@ -91,48 +43,17 @@
+@@ -91,48 +43,19 @@
      pub(crate) return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
  }
  impl BatchWriteItemInputBuilder {
@@ -5409,10 +5386,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li>
 -    /// </ul></li>
 -    /// </ul>
++    /// <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a <code>ValidationException</code> exception.</p>
++    /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
      pub fn set_request_items(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>,
-@@ -140,65 +61,21 @@
+@@ -140,65 +63,21 @@
          self.request_items = input;
          self
      }
@@ -5480,15 +5459,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -207,7 +84,6 @@
-         self.return_item_collection_metrics = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-     pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
-         self.return_item_collection_metrics = input;
-         self
-@@ -217,13 +93,11 @@
+@@ -217,13 +96,11 @@
          &self.return_item_collection_metrics
      }
      /// Consumes the builder and constructs a [`BatchWriteItemInput`](crate::operation::batch_write_item::BatchWriteItemInput).
@@ -5621,7 +5592,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
          self.consumed_capacity.as_deref().unwrap_or_default()
      }
-@@ -123,52 +65,18 @@
+@@ -123,52 +65,21 @@
      _request_id: Option<String>,
  }
  impl BatchWriteItemOutputBuilder {
@@ -5659,7 +5630,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.unprocessed_items = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
+     /// <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
 -    /// <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p>
 -    /// <ul>
 -    /// <li>
@@ -5677,10 +5648,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// </ul></li>
 -    /// </ul>
 -    /// <p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
++    /// <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table, a list of operations to perform (<code>DeleteRequest</code> or <code>PutRequest</code>).</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p>
++    /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul><p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
      pub fn set_unprocessed_items(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>,
-@@ -177,60 +85,29 @@
+@@ -177,60 +88,32 @@
          self
      }
      /// <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
@@ -5737,7 +5710,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item_collection_metrics = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table, information about any item collections that were affected by individual <code>DeleteItem</code> or <code>PutItem</code> operations.</p>
+     /// <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table, information about any item collections that were affected by individual <code>DeleteItem</code> or <code>PutItem</code> operations.</p>
 -    /// <p>Each entry consists of the following subelements:</p>
 -    /// <ul>
 -    /// <li>
@@ -5746,10 +5719,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
 -    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
 -    /// </ul>
++    /// <p>Each entry consists of the following subelements:</p><ul><li><p><code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item.</p></li><li><p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
++    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
      pub fn set_item_collection_metrics(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
-@@ -239,32 +116,18 @@
+@@ -239,32 +122,18 @@
          self
      }
      /// <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table, information about any item collections that were affected by individual <code>DeleteItem</code> or <code>PutItem</code> operations.</p>
@@ -5786,11 +5761,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
-@@ -271,28 +134,12 @@
-         self.consumed_capacity = ::std::option::Option::Some(v);
+@@ -272,27 +141,13 @@
          self
      }
--    /// <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
+     /// <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
 -    /// <p>Each element consists of:</p>
 -    /// <ul>
 -    /// <li>
@@ -5799,6 +5773,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li>
 -    /// </ul>
 -    /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
++    /// <p>Each element consists of:</p><ul><li><p><code>TableName</code> - The table that consumed the provisioned throughput.</p></li><li><p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li></ul><p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
      pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
          self.consumed_capacity = input;
          self
@@ -6690,23 +6665,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct CreateBackupInput {
      /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -54,7 +54,6 @@
-         self.backup_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specified name for the backup.</p>
-     pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_name = input;
-         self
-@@ -64,12 +63,10 @@
+@@ -64,12 +65,10 @@
          &self.backup_name
      }
      /// Consumes the builder and constructs a [`CreateBackupInput`](crate::operation::create_backup::CreateBackupInput).
@@ -6735,14 +6694,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.backup_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the backup created for the table.</p>
-     pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
-         self.backup_details = input;
-         self
 ```
 
 ### `src/operation/create_backup/builders.rs`
@@ -7554,15 +7505,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replication_group(&self) -> &[crate::types::Replica] {
          self.replication_group.as_deref().unwrap_or_default()
      }
-@@ -41,7 +40,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The global table name.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -50,11 +48,10 @@
+@@ -50,11 +49,10 @@
      pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_name
      }
@@ -7575,15 +7518,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replication_group(mut self, input: crate::types::Replica) -> Self {
          let mut v = self.replication_group.unwrap_or_default();
          v.push(input);
-@@ -61,7 +58,6 @@
-         self.replication_group = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Regions where the global table needs to be created.</p>
-     pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Replica>>) -> Self {
-         self.replication_group = input;
-         self
-@@ -71,12 +67,10 @@
+@@ -71,12 +69,10 @@
          &self.replication_group
      }
      /// Consumes the builder and constructs a [`CreateGlobalTableInput`](crate::operation::create_global_table::CreateGlobalTableInput).
@@ -7612,14 +7547,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.global_table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the global table.</p>
-     pub fn set_global_table_description(mut self, input: ::std::option::Option<crate::types::GlobalTableDescription>) -> Self {
-         self.global_table_description = input;
-         self
 ```
 
 ### `src/operation/create_global_table/builders.rs`
@@ -8744,23 +8671,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_definitions(mut self, input: crate::types::AttributeDefinition) -> Self {
          let mut v = self.attribute_definitions.unwrap_or_default();
          v.push(input);
-@@ -389,7 +186,6 @@
-         self.attribute_definitions = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of attributes that describe the key schema for the table and indexes.</p>
-     pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
-         self.attribute_definitions = input;
-         self
-@@ -404,7 +200,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -413,30 +208,16 @@
+@@ -413,30 +210,16 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -8796,11 +8707,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -443,82 +224,26 @@
-         self.key_schema = ::std::option::Option::Some(v);
+@@ -444,23 +227,10 @@
          self
      }
--    /// <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     /// <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
 -    /// <p>Each <code>KeySchemaElement</code> in the array is composed of:</p>
 -    /// <ul>
 -    /// <li>
@@ -8814,14 +8724,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from the DynamoDB usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
++    /// <p>Each <code>KeySchemaElement</code> in the array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of this key attribute.</p></li><li><p><code>KeyType</code> - The role that the key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from the DynamoDB usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
 -    /// </note>
 -    /// <p>For a simple primary key (partition key), you must provide exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p>
--    /// <p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>, and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For a simple primary key (partition key), you must provide exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p>
+     /// <p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>, and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
-         self.key_schema = input;
+@@ -468,57 +238,21 @@
          self
      }
      /// <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -8884,11 +8796,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn local_secondary_indexes(mut self, input: crate::types::LocalSecondaryIndex) -> Self {
          let mut v = self.local_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -525,93 +250,21 @@
-         self.local_secondary_indexes = ::std::option::Option::Some(v);
+@@ -526,92 +260,23 @@
          self
      }
--    /// <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p>
+     /// <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p>
 -    /// <p>Each local secondary index in the array includes the following:</p>
 -    /// <ul>
 -    /// <li>
@@ -8913,6 +8824,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
 -    /// </ul></li>
 -    /// </ul>
++    /// <p>Each local secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index. Must be unique only for this table.</p>
++    /// <p></p></li><li><p><code>KeySchema</code> - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li></ul>
      pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self {
          self.local_secondary_indexes = input;
          self
@@ -8982,7 +8895,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -618,94 +271,25 @@
+@@ -618,94 +283,28 @@
          self.global_secondary_indexes = ::std::option::Option::Some(v);
          self
      }
@@ -9012,6 +8925,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li>
 -    /// </ul>
++    /// <p>One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the global secondary index. Must be unique only for this table.</p>
++    /// <p></p></li><li><p><code>KeySchema</code> - Specifies the key schema for the global secondary index. Each global secondary index supports up to 4 partition keys and up to 4 sort keys.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
      pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
          self.global_secondary_indexes = input;
          self
@@ -9066,6 +8981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li>
 -    /// </ul>
++    /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li></ul>
      pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
          self.billing_mode = input;
          self
@@ -9081,17 +8997,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.billing_mode
      }
-@@ -716,9 +300,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p>
--    /// <p>If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property.</p>
--    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -729,65 +310,16 @@
+@@ -729,65 +328,17 @@
      pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
          &self.provisioned_throughput
      }
@@ -9134,6 +9040,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li>
 -    /// </ul></li>
 -    /// </ul>
++    /// <p>The settings for DynamoDB Streams on the table. These settings consist of:</p><ul><li><p><code>StreamEnabled</code> - Indicates whether DynamoDB Streams is to be enabled (true) or disabled (false).</p></li><li><p><code>StreamViewType</code> - When an item in the table is modified, <code>StreamViewType</code> determines what information is written to the table's stream. Valid values for <code>StreamViewType</code> are:</p><ul><li><p><code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the stream.</p></li><li><p><code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written to the stream.</p></li><li><p><code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is written to the stream.</p></li><li><p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li></ul></li></ul>
      pub fn set_stream_specification(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
          self.stream_specification = input;
          self
@@ -9159,15 +9066,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_stream_specification(&self) -> &::std::option::Option<crate::types::StreamSpecification> {
          &self.stream_specification
      }
-@@ -796,7 +328,6 @@
-         self.sse_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the settings used to enable server-side encryption.</p>
-     pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
-         self.sse_specification = input;
-         self
-@@ -805,11 +336,10 @@
+@@ -805,11 +356,10 @@
      pub fn get_sse_specification(&self) -> &::std::option::Option<crate::types::SseSpecification> {
          &self.sse_specification
      }
@@ -9180,75 +9079,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -816,7 +346,6 @@
-         self.tags = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-         self.tags = input;
-         self
-@@ -830,7 +359,6 @@
-         self.table_class = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The table class of the new table. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-     pub fn set_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
-         self.table_class = input;
-         self
-@@ -844,7 +372,6 @@
-         self.deletion_protection_enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
-     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.deletion_protection_enabled = input;
-         self
-@@ -858,7 +385,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput (in read units per second and write units per second) for creating a table.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -876,11 +402,6 @@
-         self.resource_policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p>
--    /// <p>When you attach a resource-based policy while creating a table, the policy application is <i>strongly consistent</i>.</p>
--    /// <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p><note>
--    /// <p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p>
--    /// </note>
-     pub fn set_resource_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_policy = input;
-         self
-@@ -898,7 +419,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -912,7 +432,6 @@
-         self.global_table_source_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the source table used for the creation of a multi-account global table.</p>
-     pub fn set_global_table_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_source_arn = input;
-         self
-@@ -926,7 +445,6 @@
-         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES.</p>
-     pub fn set_global_table_settings_replication_mode(
-         mut self,
-         input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
-@@ -938,25 +456,10 @@
+@@ -938,25 +488,10 @@
      pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
          &self.global_table_settings_replication_mode
      }
@@ -9275,7 +9106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_indexes(mut self, input: crate::types::VectorIndex) -> Self {
          let mut v = self.vector_indexes.unwrap_or_default();
          v.push(input);
-@@ -963,46 +466,17 @@
+@@ -963,46 +498,18 @@
          self.vector_indexes = ::std::option::Option::Some(v);
          self
      }
@@ -9294,6 +9125,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SearchSchema</code> - (Optional) Defines the partition key (<code>HASH</code>) and inline filter (<code>INLINE_FILTER</code>) attributes for the vector index.</p></li>
 -    /// </ul>
++    /// <p>One or more vector indexes to be created on the table. Each vector index enables similarity search on a vector attribute. Each element in the list consists of:</p><ul><li><p><code>IndexName</code> - The name of the vector index. Must be unique within the table.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index. The total number of projected non-key attributes is shared across the vector attribute (counts as 1) and <code>INLINE_FILTER</code> search schema elements (each counts as 1). <code>HASH</code> search schema elements do not count toward this limit.</p></li><li><p><code>SearchSchema</code> - (Optional) Defines the partition key (<code>HASH</code>) and inline filter (<code>INLINE_FILTER</code>) attributes for the vector index.</p></li></ul>
      pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
          self.vector_indexes = input;
          self
@@ -9325,7 +9157,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              attribute_definitions: self.attribute_definitions,
              table_name: self.table_name,
              key_schema: self.key_schema,
-@@ -1021,6 +495,6 @@
+@@ -1021,6 +528,6 @@
              global_table_source_arn: self.global_table_source_arn,
              global_table_settings_replication_mode: self.global_table_settings_replication_mode,
              vector_indexes: self.vector_indexes,
@@ -9333,21 +9165,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/create_table/_create_table_output.rs`
-
-```diff
---- reference/src/operation/create_table/_create_table_output.rs
-+++ generated/src/operation/create_table/_create_table_output.rs
-@@ -39,7 +39,6 @@
-         self.table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of the table.</p>
-     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
-         self.table_description = input;
-         self
 ```
 
 ### `src/operation/create_table/builders.rs`
@@ -10735,15 +10552,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteBackupInput {
      /// <p>The ARN associated with the backup.</p>
      pub backup_arn: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN associated with the backup.</p>
-     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_arn = input;
-         self
-@@ -42,9 +42,7 @@
+@@ -42,9 +43,7 @@
          &self.backup_arn
      }
      /// Consumes the builder and constructs a [`DeleteBackupInput`](crate::operation::delete_backup::DeleteBackupInput).
@@ -10768,14 +10577,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.backup_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the description of the backup created for the table.</p>
-     pub fn set_backup_description(mut self, input: ::std::option::Option<crate::types::BackupDescription>) -> Self {
-         self.backup_description = input;
-         self
 ```
 
 ### `src/operation/delete_backup/builders.rs`
@@ -11676,15 +11477,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          self.expression_attribute_names.as_ref()
      }
-@@ -233,7 +133,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -242,20 +141,17 @@
+@@ -242,16 +142,15 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -11705,12 +11498,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
--    /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -265,18 +161,16 @@
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
+@@ -265,15 +164,14 @@
      pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.key
      }
@@ -11729,19 +11518,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expected = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expected(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
-@@ -293,7 +187,6 @@
-         self.conditional_operator = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
-         self.conditional_operator = input;
-         self
-@@ -302,14 +195,7 @@
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -302,14 +200,7 @@
      pub fn get_conditional_operator(&self) -> &::std::option::Option<crate::types::ConditionalOperator> {
          &self.conditional_operator
      }
@@ -11757,7 +11535,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
      /// </note>
      pub fn return_values(mut self, input: crate::types::ReturnValue) -> Self {
-@@ -316,71 +202,24 @@
+@@ -316,14 +207,7 @@
          self.return_values = ::std::option::Option::Some(input);
          self
      }
@@ -11769,9 +11547,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ALL_OLD</code> - The content of the old item is returned.</p></li>
 -    /// </ul>
 -    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
--    /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
--    /// </note>
++    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - The content of the old item is returned.</p></li></ul><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
      pub fn set_return_values(mut self, input: ::std::option::Option<crate::types::ReturnValue>) -> Self {
+@@ -330,57 +214,20 @@
          self.return_values = input;
          self
      }
@@ -11830,15 +11610,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -389,7 +228,6 @@
-         self.return_item_collection_metrics = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-     pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
-         self.return_item_collection_metrics = input;
-         self
-@@ -399,120 +237,38 @@
+@@ -399,120 +246,44 @@
          &self.return_item_collection_metrics
      }
      /// <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p>
@@ -11859,7 +11631,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.condition_expression = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p>
+     /// <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p>
 -    /// <p>An expression can contain any of the following:</p>
 -    /// <ul>
 -    /// <li>
@@ -11871,6 +11643,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
 -    /// </ul>
 -    /// <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
++    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.condition_expression = input;
          self
@@ -11963,13 +11737,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -520,42 +276,14 @@
+@@ -520,42 +291,14 @@
          self.expression_attribute_names = input;
          self
      }
@@ -12014,7 +11790,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>One or more values that can be substituted in an expression.</p>
      /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
      /// <p><code>Available | Backordered | Discontinued</code></p>
-@@ -564,20 +292,15 @@
+@@ -564,10 +307,13 @@
      /// <p>You could then use these values in an expression, such as this:</p>
      /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
      /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -12030,27 +11806,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
--    /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
--    /// <p><code>Available | Backordered | Discontinued</code></p>
--    /// <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
--    /// <p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p>
--    /// <p>You could then use these values in an expression, such as this:</p>
--    /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
--    /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -604,8 +327,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -619,8 +340,8 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -619,8 +365,8 @@
          &self.return_values_on_condition_check_failure
      }
      /// Consumes the builder and constructs a [`DeleteItemInput`](crate::operation::delete_item::DeleteItemInput).
@@ -12061,7 +11818,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              key: self.key,
              expected: self.expected,
-@@ -632,6 +353,6 @@
+@@ -632,6 +378,6 @@
              expression_attribute_names: self.expression_attribute_names,
              expression_attribute_values: self.expression_attribute_values,
              return_values_on_condition_check_failure: self.return_values_on_condition_check_failure,
@@ -12110,7 +11867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ItemCollectionMetrics> {
          self.item_collection_metrics.as_ref()
      }
-@@ -66,18 +54,16 @@
+@@ -66,15 +54,14 @@
      _request_id: Option<String>,
  }
  impl DeleteItemOutputBuilder {
@@ -12129,20 +11886,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the item as it appeared before the <code>DeleteItem</code> operation. This map appears in the response only if <code>ReturnValues</code> was specified as <code>ALL_OLD</code> in the request.</p>
-     pub fn set_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -95,8 +81,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -107,40 +91,19 @@
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the item as it appeared before the <code>DeleteItem</code> operation. This map appears in the response only if <code>ReturnValues</code> was specified as <code>ALL_OLD</code> in the request.</p>
+@@ -107,40 +94,22 @@
          &self.consumed_capacity
      }
      /// <p>Information about item collections, if any, that were affected by the <code>DeleteItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
@@ -12160,7 +11905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.item_collection_metrics = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Information about item collections, if any, that were affected by the <code>DeleteItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
+     /// <p>Information about item collections, if any, that were affected by the <code>DeleteItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
 -    /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p>
 -    /// <ul>
 -    /// <li>
@@ -12169,6 +11914,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
 -    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
 -    /// </ul>
++    /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p><ul><li><p><code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p></li><li><p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
++    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
      pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ItemCollectionMetrics>) -> Self {
          self.item_collection_metrics = input;
          self
@@ -13384,23 +13131,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteResourcePolicyInput {
      /// <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
      pub resource_arn: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -53,7 +53,6 @@
-         self.expected_revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
-     pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.expected_revision_id = input;
-         self
-@@ -63,13 +62,10 @@
+@@ -63,13 +64,10 @@
          &self.expected_revision_id
      }
      /// Consumes the builder and constructs a [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
@@ -13430,15 +13161,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -41,8 +42,6 @@
-         self.revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
--    /// <p>This value will be empty if you make a request against a resource without a policy.</p>
-     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.revision_id = input;
-         self
 ```
 
 ### `src/operation/delete_resource_policy/builders.rs`
@@ -14235,15 +13957,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteTableInput {
      /// <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -33,7 +33,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -43,7 +42,7 @@
+@@ -43,7 +43,7 @@
          &self.table_name
      }
      /// Consumes the builder and constructs a [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
@@ -14253,21 +13967,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        crate::operation::delete_table::DeleteTableInput { table_name: self.table_name }
      }
  }
-```
-
-### `src/operation/delete_table/_delete_table_output.rs`
-
-```diff
---- reference/src/operation/delete_table/_delete_table_output.rs
-+++ generated/src/operation/delete_table/_delete_table_output.rs
-@@ -39,7 +39,6 @@
-         self.table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of a table.</p>
-     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
-         self.table_description = input;
-         self
 ```
 
 ### `src/operation/delete_table/builders.rs`
@@ -15023,15 +14722,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeBackupInput {
      /// <p>The Amazon Resource Name (ARN) associated with the backup.</p>
      pub backup_arn: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the backup.</p>
-     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_arn = input;
-         self
-@@ -42,9 +42,7 @@
+@@ -42,9 +43,7 @@
          &self.backup_arn
      }
      /// Consumes the builder and constructs a [`DescribeBackupInput`](crate::operation::describe_backup::DescribeBackupInput).
@@ -15056,14 +14747,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.backup_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the description of the backup created for the table.</p>
-     pub fn set_backup_description(mut self, input: ::std::option::Option<crate::types::BackupDescription>) -> Self {
-         self.backup_description = input;
-         self
 ```
 
 ### `src/operation/describe_backup/builders.rs`
@@ -15779,16 +15462,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeContinuousBackupsInput {
      /// <p>Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.</p>
      /// <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-@@ -35,8 +36,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.</p>
--    /// <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -47,12 +46,7 @@
+@@ -47,12 +48,7 @@
          &self.table_name
      }
      /// Consumes the builder and constructs a [`DescribeContinuousBackupsInput`](crate::operation::describe_continuous_backups::DescribeContinuousBackupsInput).
@@ -15816,14 +15490,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.continuous_backups_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the continuous backups and point in time recovery settings on the table.</p>
-     pub fn set_continuous_backups_description(mut self, input: ::std::option::Option<crate::types::ContinuousBackupsDescription>) -> Self {
-         self.continuous_backups_description = input;
-         self
 ```
 
 ### `src/operation/describe_continuous_backups/builders.rs`
@@ -16555,23 +16221,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeContributorInsightsInput {
      /// <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -53,7 +53,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index to describe, if applicable.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -63,15 +62,10 @@
+@@ -63,15 +64,10 @@
          &self.index_name
      }
      /// Consumes the builder and constructs a [`DescribeContributorInsightsInput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsInput).
@@ -16650,23 +16300,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn failure_exception(&self) -> ::std::option::Option<&crate::types::FailureException> {
          self.failure_exception.as_ref()
      }
-@@ -104,7 +83,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table being described.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -118,7 +96,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index being described.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -127,11 +104,10 @@
+@@ -127,11 +106,10 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -16679,31 +16313,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn contributor_insights_rule_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.contributor_insights_rule_list.unwrap_or_default();
          v.push(input.into());
-@@ -138,7 +114,6 @@
-         self.contributor_insights_rule_list = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of names of the associated contributor insights rules.</p>
-     pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.contributor_insights_rule_list = input;
-         self
-@@ -152,7 +127,6 @@
-         self.contributor_insights_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Current status of contributor insights.</p>
-     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
-         self.contributor_insights_status = input;
-         self
-@@ -166,7 +140,6 @@
-         self.last_update_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Timestamp of the last time the status was changed.</p>
-     pub fn set_last_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_update_date_time = input;
-         self
-@@ -176,49 +149,17 @@
+@@ -176,49 +154,19 @@
          &self.last_update_date_time
      }
      /// <p>Returns information about the last failure that was encountered.</p>
@@ -16723,7 +16333,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.failure_exception = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Returns information about the last failure that was encountered.</p>
+     /// <p>Returns information about the last failure that was encountered.</p>
 -    /// <p>The most common exceptions for a FAILED status are:</p>
 -    /// <ul>
 -    /// <li>
@@ -16735,6 +16345,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li>
 -    /// </ul>
++    /// <p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
      pub fn set_failure_exception(mut self, input: ::std::option::Option<crate::types::FailureException>) -> Self {
          self.failure_exception = input;
          self
@@ -16755,14 +16366,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_failure_exception(&self) -> &::std::option::Option<crate::types::FailureException> {
          &self.failure_exception
      }
-@@ -227,7 +168,6 @@
-         self.contributor_insights_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
-     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
-         self.contributor_insights_mode = input;
-         self
 ```
 
 ### `src/operation/describe_contributor_insights/builders.rs`
@@ -17535,15 +17138,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn endpoints(mut self, input: crate::types::Endpoint) -> Self {
          let mut v = self.endpoints.unwrap_or_default();
          v.push(input);
-@@ -45,7 +45,6 @@
-         self.endpoints = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of endpoints.</p>
-     pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
-         self.endpoints = input;
-         self
-@@ -65,7 +64,7 @@
+@@ -65,7 +65,7 @@
      }
      /// Consumes the builder and constructs a [`DescribeEndpointsOutput`](crate::operation::describe_endpoints::DescribeEndpointsOutput).
      /// This method will fail if any of the following fields are not set:
@@ -18160,15 +17755,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeExportInput {
      /// <p>The Amazon Resource Name (ARN) associated with the export.</p>
      pub export_arn: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.export_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the export.</p>
-     pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.export_arn = input;
-         self
-@@ -42,9 +42,7 @@
+@@ -42,9 +43,7 @@
          &self.export_arn
      }
      /// Consumes the builder and constructs a [`DescribeExportInput`](crate::operation::describe_export::DescribeExportInput).
@@ -18193,14 +17780,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.export_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of the export.</p>
-     pub fn set_export_description(mut self, input: ::std::option::Option<crate::types::ExportDescription>) -> Self {
-         self.export_description = input;
-         self
 ```
 
 ### `src/operation/describe_export/builders.rs`
@@ -18921,15 +18500,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeGlobalTableInput {
      /// <p>The name of the global table.</p>
      pub global_table_name: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global table.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -42,12 +42,9 @@
+@@ -42,12 +43,9 @@
          &self.global_table_name
      }
      /// Consumes the builder and constructs a [`DescribeGlobalTableInput`](crate::operation::describe_global_table::DescribeGlobalTableInput).
@@ -18958,14 +18529,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.global_table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the global table.</p>
-     pub fn set_global_table_description(mut self, input: ::std::option::Option<crate::types::GlobalTableDescription>) -> Self {
-         self.global_table_description = input;
-         self
 ```
 
 ### `src/operation/describe_global_table/builders.rs`
@@ -19690,15 +19253,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeGlobalTableSettingsInput {
      /// <p>The name of the global table to describe.</p>
      pub global_table_name: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global table to describe.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -42,14 +42,9 @@
+@@ -42,14 +43,9 @@
          &self.global_table_name
      }
      /// Consumes the builder and constructs a [`DescribeGlobalTableSettingsInput`](crate::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput).
@@ -19738,15 +19293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_settings(&self) -> &[crate::types::ReplicaSettingsDescription] {
          self.replica_settings.as_deref().unwrap_or_default()
      }
-@@ -47,7 +46,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global table.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -56,11 +54,10 @@
+@@ -56,11 +55,10 @@
      pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_name
      }
@@ -19759,14 +19306,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_settings(mut self, input: crate::types::ReplicaSettingsDescription) -> Self {
          let mut v = self.replica_settings.unwrap_or_default();
          v.push(input);
-@@ -67,7 +64,6 @@
-         self.replica_settings = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Region-specific settings for the global table.</p>
-     pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self {
-         self.replica_settings = input;
-         self
 ```
 
 ### `src/operation/describe_global_table_settings/builders.rs`
@@ -20497,15 +20036,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeImportInput {
      /// <p>The Amazon Resource Name (ARN) associated with the table you're importing to.</p>
      pub import_arn: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.import_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the table you're importing to.</p>
-     pub fn set_import_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.import_arn = input;
-         self
-@@ -42,9 +42,7 @@
+@@ -42,9 +43,7 @@
          &self.import_arn
      }
      /// Consumes the builder and constructs a [`DescribeImportInput`](crate::operation::describe_import::DescribeImportInput).
@@ -20530,18 +20061,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -34,12 +35,10 @@
+@@ -34,7 +35,6 @@
  }
  impl DescribeImportOutputBuilder {
      /// <p>Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered.</p>
 -    /// This field is required.
      pub fn import_table_description(mut self, input: crate::types::ImportTableDescription) -> Self {
          self.import_table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered.</p>
-     pub fn set_import_table_description(mut self, input: ::std::option::Option<crate::types::ImportTableDescription>) -> Self {
-         self.import_table_description = input;
          self
 ```
 
@@ -21233,15 +20759,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeKinesisStreamingDestinationInput {
      /// <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -42,14 +42,7 @@
+@@ -42,14 +43,7 @@
          &self.table_name
      }
      /// Consumes the builder and constructs a [`DescribeKinesisStreamingDestinationInput`](crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput).
@@ -21280,15 +20798,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn kinesis_data_stream_destinations(&self) -> &[crate::types::KinesisDataStreamDestination] {
          self.kinesis_data_stream_destinations.as_deref().unwrap_or_default()
      }
-@@ -47,7 +46,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table being described.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -56,11 +54,10 @@
+@@ -56,11 +55,10 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -21301,14 +20811,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn kinesis_data_stream_destinations(mut self, input: crate::types::KinesisDataStreamDestination) -> Self {
          let mut v = self.kinesis_data_stream_destinations.unwrap_or_default();
          v.push(input);
-@@ -67,7 +64,6 @@
-         self.kinesis_data_stream_destinations = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The list of replica structures for the table being described.</p>
-     pub fn set_kinesis_data_stream_destinations(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>>,
 ```
 
 ### `src/operation/describe_kinesis_streaming_destination/builders.rs`
@@ -22054,45 +21556,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/describe_limits/_describe_limits_output.rs`
-
-```diff
---- reference/src/operation/describe_limits/_describe_limits_output.rs
-+++ generated/src/operation/describe_limits/_describe_limits_output.rs
-@@ -60,7 +60,6 @@
-         self.account_max_read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.</p>
-     pub fn set_account_max_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.account_max_read_capacity_units = input;
-         self
-@@ -74,7 +73,6 @@
-         self.account_max_write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.</p>
-     pub fn set_account_max_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.account_max_write_capacity_units = input;
-         self
-@@ -88,7 +86,6 @@
-         self.table_max_read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).</p>
-     pub fn set_table_max_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.table_max_read_capacity_units = input;
-         self
-@@ -102,7 +99,6 @@
-         self.table_max_write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).</p>
-     pub fn set_table_max_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.table_max_write_capacity_units = input;
-         self
-```
-
 ### `src/operation/describe_limits/builders.rs`
 
 ```diff
@@ -22749,15 +22212,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeTableInput {
      /// <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -33,7 +33,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -43,9 +42,7 @@
+@@ -43,9 +43,7 @@
          &self.table_name
      }
      /// Consumes the builder and constructs a [`DescribeTableInput`](crate::operation::describe_table::DescribeTableInput).
@@ -22769,21 +22224,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        crate::operation::describe_table::DescribeTableInput { table_name: self.table_name }
      }
  }
-```
-
-### `src/operation/describe_table/_describe_table_output.rs`
-
-```diff
---- reference/src/operation/describe_table/_describe_table_output.rs
-+++ generated/src/operation/describe_table/_describe_table_output.rs
-@@ -39,7 +39,6 @@
-         self.table = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The properties of the table.</p>
-     pub fn set_table(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
-         self.table = input;
-         self
 ```
 
 ### `src/operation/describe_table/builders.rs`
@@ -23497,15 +22937,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeTableReplicaAutoScalingInput {
      /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -42,14 +42,7 @@
+@@ -42,14 +43,7 @@
          &self.table_name
      }
      /// Consumes the builder and constructs a [`DescribeTableReplicaAutoScalingInput`](crate::operation::describe_table_replica_auto_scaling::DescribeTableReplicaAutoScalingInput).
@@ -23535,14 +22967,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.table_auto_scaling_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the auto scaling properties of the table.</p>
-     pub fn set_table_auto_scaling_description(mut self, input: ::std::option::Option<crate::types::TableAutoScalingDescription>) -> Self {
-         self.table_auto_scaling_description = input;
-         self
 ```
 
 ### `src/operation/describe_table_replica_auto_scaling/builders.rs`
@@ -24258,15 +23682,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeTimeToLiveInput {
      /// <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -42,10 +42,7 @@
+@@ -42,10 +43,7 @@
          &self.table_name
      }
      /// Consumes the builder and constructs a [`DescribeTimeToLiveInput`](crate::operation::describe_time_to_live::DescribeTimeToLiveInput).
@@ -24292,14 +23708,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.time_to_live_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p></p>
-     pub fn set_time_to_live_description(mut self, input: ::std::option::Option<crate::types::TimeToLiveDescription>) -> Self {
-         self.time_to_live_description = input;
-         self
 ```
 
 ### `src/operation/describe_time_to_live/builders.rs`
@@ -25019,31 +24427,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DisableKinesisStreamingDestinationInput {
      /// <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -46,7 +47,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -61,7 +61,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN for a Kinesis data stream.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -75,7 +74,6 @@
-         self.enable_kinesis_streaming_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-     pub fn set_enable_kinesis_streaming_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
-@@ -88,18 +86,11 @@
+@@ -88,18 +89,11 @@
          &self.enable_kinesis_streaming_configuration
      }
      /// Consumes the builder and constructs a [`DisableKinesisStreamingDestinationInput`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationInput).
@@ -25081,38 +24465,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -59,7 +60,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table being modified.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -73,7 +73,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN for the specific Kinesis data stream.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -87,7 +86,6 @@
-         self.destination_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the replication.</p>
-     pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
-         self.destination_status = input;
-         self
-@@ -101,7 +99,6 @@
-         self.enable_kinesis_streaming_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
-     pub fn set_enable_kinesis_streaming_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
 ```
 
 ### `src/operation/disable_kinesis_streaming_destination/builders.rs`
@@ -25925,31 +25277,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct EnableKinesisStreamingDestinationInput {
      /// <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -46,7 +47,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -61,7 +61,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN for a Kinesis data stream.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -75,7 +74,6 @@
-         self.enable_kinesis_streaming_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-     pub fn set_enable_kinesis_streaming_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
-@@ -88,18 +86,11 @@
+@@ -88,18 +89,11 @@
          &self.enable_kinesis_streaming_configuration
      }
      /// Consumes the builder and constructs a [`EnableKinesisStreamingDestinationInput`](crate::operation::enable_kinesis_streaming_destination::EnableKinesisStreamingDestinationInput).
@@ -25987,38 +25315,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -59,7 +60,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table being modified.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -73,7 +73,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN for the specific Kinesis data stream.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -87,7 +86,6 @@
-         self.destination_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the replication.</p>
-     pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
-         self.destination_status = input;
-         self
-@@ -101,7 +99,6 @@
-         self.enable_kinesis_streaming_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
-     pub fn set_enable_kinesis_streaming_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
 ```
 
 ### `src/operation/enable_kinesis_streaming_destination/builders.rs`
@@ -26872,15 +26168,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
          self.return_consumed_capacity.as_ref()
      }
-@@ -96,7 +75,6 @@
-         self.statement = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The PartiQL statement representing the operation to run.</p>
-     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.statement = input;
-         self
-@@ -105,11 +83,10 @@
+@@ -105,11 +84,10 @@
      pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
          &self.statement
      }
@@ -26893,31 +26181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
          let mut v = self.parameters.unwrap_or_default();
          v.push(input);
-@@ -116,7 +93,6 @@
-         self.parameters = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The parameters for the PartiQL statement, if any.</p>
-     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-         self.parameters = input;
-         self
-@@ -130,7 +106,6 @@
-         self.consistent_read = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
-     pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.consistent_read = input;
-         self
-@@ -144,7 +119,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -153,44 +127,14 @@
+@@ -153,44 +131,14 @@
      pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
          &self.next_token
      }
@@ -26962,24 +26226,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -199,7 +143,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, along with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -214,8 +157,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -229,10 +170,8 @@
+@@ -229,10 +177,8 @@
          &self.return_values_on_condition_check_failure
      }
      /// Consumes the builder and constructs a [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
@@ -26992,7 +26239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              statement: self.statement,
              parameters: self.parameters,
              consistent_read: self.consistent_read,
-@@ -240,6 +179,6 @@
+@@ -240,6 +186,6 @@
              return_consumed_capacity: self.return_consumed_capacity,
              limit: self.limit,
              return_values_on_condition_check_failure: self.return_values_on_condition_check_failure,
@@ -27051,23 +26298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>) -> Self {
          let mut v = self.items.unwrap_or_default();
          v.push(input);
-@@ -67,7 +63,6 @@
-         self.items = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>
-     pub fn set_items(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-@@ -86,7 +81,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -95,32 +89,27 @@
+@@ -95,29 +91,25 @@
      pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
          &self.next_token
      }
@@ -27100,10 +26331,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.last_evaluated_key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
-     pub fn set_last_evaluated_key(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
 ```
 
 ### `src/operation/execute_statement/builders.rs`
@@ -28051,31 +27279,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn transact_statements(mut self, input: crate::types::ParameterizedStatement) -> Self {
          let mut v = self.transact_statements.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.transact_statements = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The list of PartiQL statements representing the transaction to run.</p>
-     pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterizedStatement>>) -> Self {
-         self.transact_statements = input;
-         self
-@@ -67,7 +64,6 @@
-         self.client_request_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
-     pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.client_request_token = input;
-         self
-@@ -81,7 +77,6 @@
-         self.return_consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
-     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
-         self.return_consumed_capacity = input;
-         self
-@@ -91,13 +86,11 @@
+@@ -91,13 +89,11 @@
          &self.return_consumed_capacity
      }
      /// Consumes the builder and constructs a [`ExecuteTransactionInput`](crate::operation::execute_transaction::ExecuteTransactionInput).
@@ -28133,15 +27337,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn responses(mut self, input: crate::types::ItemResponse) -> Self {
          let mut v = self.responses.unwrap_or_default();
          v.push(input);
-@@ -55,7 +51,6 @@
-         self.responses = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The response to a PartiQL transaction.</p>
-     pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>) -> Self {
-         self.responses = input;
-         self
-@@ -64,11 +59,10 @@
+@@ -64,11 +60,10 @@
      pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>> {
          &self.responses
      }
@@ -28154,14 +27350,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
-@@ -75,7 +69,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
-         self.consumed_capacity = input;
-         self
 ```
 
 ### `src/operation/execute_transaction/builders.rs`
@@ -29170,59 +28358,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn s3_sse_algorithm(&self) -> ::std::option::Option<&crate::types::S3SseAlgorithm> {
          self.s3_sse_algorithm.as_ref()
      }
-@@ -122,7 +111,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -136,7 +124,6 @@
-         self.export_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time in the past from which to export table data, counted in seconds from the start of the Unix epoch. The table export will be a snapshot of the table's state at this point in time.</p>
-     pub fn set_export_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.export_time = input;
-         self
-@@ -152,9 +139,6 @@
-         self.client_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
--    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
--    /// <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>ExportConflictException</code>.</p>
-     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.client_token = input;
-         self
-@@ -171,7 +155,6 @@
-         self.s3_bucket = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
-     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket = input;
-         self
-@@ -187,9 +170,6 @@
-         self.s3_bucket_owner = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ID of the Amazon Web Services account that owns the bucket the export will be stored in.</p><note>
--    /// <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p>
--    /// </note>
-     pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket_owner = input;
-         self
-@@ -205,7 +185,6 @@
-         self.s3_prefix = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.</p>
-     pub fn set_s3_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_prefix = input;
-         self
-@@ -214,35 +193,16 @@
+@@ -214,35 +203,17 @@
      pub fn get_s3_prefix(&self) -> &::std::option::Option<::std::string::String> {
          &self.s3_prefix
      }
@@ -29245,6 +28381,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
 -    /// </ul>
++    /// <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with KMS managed keys</p></li></ul>
      pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self {
          self.s3_sse_algorithm = input;
          self
@@ -29260,39 +28397,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<crate::types::S3SseAlgorithm> {
          &self.s3_sse_algorithm
      }
-@@ -251,7 +211,6 @@
-         self.s3_sse_kms_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
-     pub fn set_s3_sse_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_sse_kms_key_id = input;
-         self
-@@ -265,7 +224,6 @@
-         self.export_format = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format for the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-     pub fn set_export_format(mut self, input: ::std::option::Option<crate::types::ExportFormat>) -> Self {
-         self.export_format = input;
-         self
-@@ -279,7 +237,6 @@
-         self.export_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Choice of whether to execute as a full export or incremental export. Valid values are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be used.</p>
-     pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
-         self.export_type = input;
-         self
-@@ -293,7 +250,6 @@
-         self.incremental_export_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Optional object containing the parameters specific to an incremental export.</p>
-     pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<crate::types::IncrementalExportSpecification>) -> Self {
-         self.incremental_export_specification = input;
-         self
-@@ -303,13 +259,8 @@
+@@ -303,13 +274,8 @@
          &self.incremental_export_specification
      }
      /// Consumes the builder and constructs a [`ExportTableToPointInTimeInput`](crate::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput).
@@ -29308,7 +28413,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_arn: self.table_arn,
              export_time: self.export_time,
              client_token: self.client_token,
-@@ -321,6 +272,6 @@
+@@ -321,6 +287,6 @@
              export_format: self.export_format,
              export_type: self.export_type,
              incremental_export_specification: self.incremental_export_specification,
@@ -29329,14 +28434,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.export_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains a description of the table export.</p>
-     pub fn set_export_description(mut self, input: ::std::option::Option<crate::types::ExportDescription>) -> Self {
-         self.export_description = input;
-         self
 ```
 
 ### `src/operation/export_table_to_point_in_time/builders.rs`
@@ -30433,15 +29530,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          self.expression_attribute_names.as_ref()
      }
-@@ -153,7 +83,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table containing the requested item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -162,20 +91,17 @@
+@@ -162,16 +92,15 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -30462,12 +29551,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to retrieve.</p>
--    /// <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -185,11 +111,10 @@
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to retrieve.</p>
+@@ -185,11 +114,10 @@
      pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.key
      }
@@ -30480,23 +29565,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.attributes_to_get.unwrap_or_default();
          v.push(input.into());
-@@ -196,7 +121,6 @@
-         self.attributes_to_get = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.attributes_to_get = input;
-         self
-@@ -210,7 +134,6 @@
-         self.consistent_read = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines the read consistency model: If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
-     pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.consistent_read = input;
-         self
-@@ -219,44 +142,14 @@
+@@ -219,44 +147,14 @@
      pub fn get_consistent_read(&self) -> &::std::option::Option<bool> {
          &self.consistent_read
      }
@@ -30541,17 +29610,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -267,9 +160,6 @@
-         self.projection_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
--    /// <p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.projection_expression = input;
-         self
-@@ -280,74 +170,22 @@
+@@ -280,74 +178,25 @@
      pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.projection_expression
      }
@@ -30626,13 +29685,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -355,33 +193,9 @@
+@@ -355,33 +204,9 @@
          self.expression_attribute_names = input;
          self
      }
@@ -30668,7 +29729,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_expression_attribute_names(
          &self,
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-@@ -388,8 +202,8 @@
+@@ -388,8 +213,8 @@
          &self.expression_attribute_names
      }
      /// Consumes the builder and constructs a [`GetItemInput`](crate::operation::get_item::GetItemInput).
@@ -30679,7 +29740,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              key: self.key,
              attributes_to_get: self.attributes_to_get,
-@@ -397,6 +211,6 @@
+@@ -397,6 +222,6 @@
              return_consumed_capacity: self.return_consumed_capacity,
              projection_expression: self.projection_expression,
              expression_attribute_names: self.expression_attribute_names,
@@ -30694,7 +29755,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_item/_get_item_output.rs
 +++ generated/src/operation/get_item/_get_item_output.rs
-@@ -41,18 +41,16 @@
+@@ -41,15 +41,14 @@
      _request_id: Option<String>,
  }
  impl GetItemOutputBuilder {
@@ -30713,18 +29774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -69,7 +67,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
 ```
 
 ### `src/operation/get_item/builders.rs`
@@ -31691,15 +30741,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetResourcePolicyInput {
      /// <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The resources you can specify include tables and streams.</p>
      pub resource_arn: ::std::option::Option<::std::string::String>,
-@@ -32,7 +33,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The resources you can specify include tables and streams.</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -42,11 +42,9 @@
+@@ -42,11 +43,9 @@
          &self.resource_arn
      }
      /// Consumes the builder and constructs a [`GetResourcePolicyInput`](crate::operation::get_resource_policy::GetResourcePolicyInput).
@@ -31727,22 +30769,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -45,7 +46,6 @@
-         self.policy = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
-     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy = input;
-         self
-@@ -59,7 +59,6 @@
-         self.revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
-     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.revision_id = input;
-         self
 ```
 
 ### `src/operation/get_resource_policy/builders.rs`
@@ -32484,17 +31510,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ImportTableInput {
      /// <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
      /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
-@@ -72,9 +73,6 @@
-         self.client_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
--    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
--    /// <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
-     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.client_token = input;
-         self
-@@ -86,12 +84,10 @@
+@@ -86,7 +87,6 @@
          &self.client_token
      }
      /// <p>The S3 bucket that provides the source for the import.</p>
@@ -32502,36 +31518,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn s3_bucket_source(mut self, input: crate::types::S3BucketSource) -> Self {
          self.s3_bucket_source = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The S3 bucket that provides the source for the import.</p>
-     pub fn set_s3_bucket_source(mut self, input: ::std::option::Option<crate::types::S3BucketSource>) -> Self {
-         self.s3_bucket_source = input;
-         self
-@@ -106,7 +102,6 @@
-         self.input_format = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format of the source data. Valid values for <code>ImportFormat</code> are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-     pub fn set_input_format(mut self, input: ::std::option::Option<crate::types::InputFormat>) -> Self {
-         self.input_format = input;
-         self
-@@ -120,7 +115,6 @@
-         self.input_format_options = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Additional properties that specify how the input is formatted,</p>
-     pub fn set_input_format_options(mut self, input: ::std::option::Option<crate::types::InputFormatOptions>) -> Self {
-         self.input_format_options = input;
-         self
-@@ -134,7 +128,6 @@
-         self.input_compression_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Type of compression to be used on the input coming from the imported table.</p>
-     pub fn set_input_compression_type(mut self, input: ::std::option::Option<crate::types::InputCompressionType>) -> Self {
-         self.input_compression_type = input;
-         self
-@@ -144,12 +137,10 @@
+@@ -144,7 +144,6 @@
          &self.input_compression_type
      }
      /// <p>Parameters for the table to import the data into.</p>
@@ -32539,12 +31526,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn table_creation_parameters(mut self, input: crate::types::TableCreationParameters) -> Self {
          self.table_creation_parameters = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Parameters for the table to import the data into.</p>
-     pub fn set_table_creation_parameters(mut self, input: ::std::option::Option<crate::types::TableCreationParameters>) -> Self {
-         self.table_creation_parameters = input;
-         self
-@@ -159,8 +150,8 @@
+@@ -159,8 +158,8 @@
          &self.table_creation_parameters
      }
      /// Consumes the builder and constructs a [`ImportTableInput`](crate::operation::import_table::ImportTableInput).
@@ -32555,7 +31537,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              client_token: self.client_token,
              s3_bucket_source: self.s3_bucket_source,
              input_format: self.input_format,
-@@ -167,6 +158,6 @@
+@@ -167,6 +166,6 @@
              input_format_options: self.input_format_options,
              input_compression_type: self.input_compression_type,
              table_creation_parameters: self.table_creation_parameters,
@@ -32576,18 +31558,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -34,12 +35,10 @@
+@@ -34,7 +35,6 @@
  }
  impl ImportTableOutputBuilder {
      /// <p>Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered.</p>
 -    /// This field is required.
      pub fn import_table_description(mut self, input: crate::types::ImportTableDescription) -> Self {
          self.import_table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered.</p>
-     pub fn set_import_table_description(mut self, input: ::std::option::Option<crate::types::ImportTableDescription>) -> Self {
-         self.import_table_description = input;
          self
 ```
 
@@ -33443,47 +32420,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn backup_type(&self) -> ::std::option::Option<&crate::types::BackupTypeFilter> {
          self.backup_type.as_ref()
      }
-@@ -84,7 +69,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -98,7 +82,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of backups to return at once.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -112,7 +95,6 @@
-         self.time_range_lower_bound = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is inclusive.</p>
-     pub fn set_time_range_lower_bound(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.time_range_lower_bound = input;
-         self
-@@ -126,7 +108,6 @@
-         self.time_range_upper_bound = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is exclusive.</p>
-     pub fn set_time_range_upper_bound(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.time_range_upper_bound = input;
-         self
-@@ -140,7 +121,6 @@
-         self.exclusive_start_backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p><code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results.</p>
-     pub fn set_exclusive_start_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.exclusive_start_backup_arn = input;
-         self
-@@ -150,49 +130,23 @@
+@@ -150,49 +135,25 @@
          &self.exclusive_start_backup_arn
      }
      /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
@@ -33501,7 +32438,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.backup_type = ::std::option::Option::Some(input);
          self
      }
--    /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
+     /// <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
 -    /// <p>Where <code>BackupType</code> can be:</p>
 -    /// <ul>
 -    /// <li>
@@ -33511,6 +32448,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li>
 -    /// </ul>
++    /// <p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you. (The default setting if no other backup types are specified.)</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
      pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupTypeFilter>) -> Self {
          self.backup_type = input;
          self
@@ -33537,7 +32475,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              limit: self.limit,
              time_range_lower_bound: self.time_range_lower_bound,
-@@ -199,6 +153,6 @@
+@@ -199,6 +160,6 @@
              time_range_upper_bound: self.time_range_upper_bound,
              exclusive_start_backup_arn: self.exclusive_start_backup_arn,
              backup_type: self.backup_type,
@@ -33580,24 +32518,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn backup_summaries(mut self, input: crate::types::BackupSummary) -> Self {
          let mut v = self.backup_summaries.unwrap_or_default();
          v.push(input);
-@@ -57,7 +55,6 @@
-         self.backup_summaries = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of <code>BackupSummary</code> objects.</p>
-     pub fn set_backup_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BackupSummary>>) -> Self {
-         self.backup_summaries = input;
-         self
-@@ -73,9 +70,6 @@
-         self.last_evaluated_backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results.</p>
--    /// <p>If <code>LastEvaluatedBackupArn</code> is empty, then the last page of results has been processed and there are no more results to be retrieved.</p>
--    /// <p>If <code>LastEvaluatedBackupArn</code> is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for <code>LastEvaluatedBackupArn</code> is returned.</p>
-     pub fn set_last_evaluated_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_evaluated_backup_arn = input;
-         self
 ```
 
 ### `src/operation/list_backups/builders.rs`
@@ -34406,31 +33326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListContributorInsightsInput {
      /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -45,7 +46,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -59,7 +59,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A token to for the desired page, if there is one.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -73,7 +72,6 @@
-         self.max_results = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of results to return per page.</p>
-     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_results = input;
-         self
-@@ -83,16 +81,11 @@
+@@ -83,16 +84,11 @@
          &self.max_results
      }
      /// Consumes the builder and constructs a [`ListContributorInsightsInput`](crate::operation::list_contributor_insights::ListContributorInsightsInput).
@@ -34485,22 +33381,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn contributor_insights_summaries(mut self, input: crate::types::ContributorInsightsSummary) -> Self {
          let mut v = self.contributor_insights_summaries.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.contributor_insights_summaries = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of ContributorInsightsSummary.</p>
-     pub fn set_contributor_insights_summaries(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
-@@ -70,7 +67,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A token to go to the next page if there is one.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
 ```
 
 ### `src/operation/list_contributor_insights/builders.rs`
@@ -35248,31 +34128,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListExportsInput {
      /// <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
      pub table_arn: ::std::option::Option<::std::string::String>,
-@@ -45,7 +46,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -59,7 +59,6 @@
-         self.max_results = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of results to return per page.</p>
-     pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.max_results = input;
-         self
-@@ -73,7 +72,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An optional string that, if supplied, must be copied from the output of a previous call to <code>ListExports</code>. When provided in this manner, the API fetches the next page of results.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -83,11 +81,11 @@
+@@ -83,11 +84,11 @@
          &self.next_token
      }
      /// Consumes the builder and constructs a [`ListExportsInput`](crate::operation::list_exports::ListExportsInput).
@@ -35322,22 +34178,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn export_summaries(mut self, input: crate::types::ExportSummary) -> Self {
          let mut v = self.export_summaries.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.export_summaries = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of <code>ExportSummary</code> objects.</p>
-     pub fn set_export_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>) -> Self {
-         self.export_summaries = input;
-         self
-@@ -67,7 +64,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
 ```
 
 ### `src/operation/list_exports/builders.rs`
@@ -36083,32 +34923,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListGlobalTablesInput {
      /// <p>The first global table name that this operation will evaluate.</p>
      pub exclusive_start_global_table_name: ::std::option::Option<::std::string::String>,
-@@ -47,7 +48,6 @@
-         self.exclusive_start_global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The first global table name that this operation will evaluate.</p>
-     pub fn set_exclusive_start_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.exclusive_start_global_table_name = input;
-         self
-@@ -62,8 +62,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>
--    /// <p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -78,7 +76,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Lists the global tables in a specific Region.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -88,13 +85,11 @@
+@@ -88,13 +89,11 @@
          &self.region_name
      }
      /// Consumes the builder and constructs a [`ListGlobalTablesInput`](crate::operation::list_global_tables::ListGlobalTablesInput).
@@ -36160,22 +34975,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_tables(mut self, input: crate::types::GlobalTable) -> Self {
          let mut v = self.global_tables.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.global_tables = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of global table names.</p>
-     pub fn set_global_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>) -> Self {
-         self.global_tables = input;
-         self
-@@ -67,7 +64,6 @@
-         self.last_evaluated_global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Last evaluated global table name.</p>
-     pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_evaluated_global_table_name = input;
-         self
 ```
 
 ### `src/operation/list_global_tables/builders.rs`
@@ -36931,15 +35730,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn page_size(&self) -> ::std::option::Option<i32> {
          self.page_size
      }
-@@ -45,7 +46,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the table that was imported to.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -54,17 +54,16 @@
+@@ -54,17 +55,17 @@
      pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_arn
      }
@@ -36950,6 +35741,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self
      }
 -    /// <p>The number of <code>ImportSummary </code>objects returned in a single page.</p>
++    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
      pub fn set_page_size(mut self, input: ::std::option::Option<i32>) -> Self {
          self.page_size = input;
          self
@@ -36959,15 +35751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_page_size(&self) -> &::std::option::Option<i32> {
          &self.page_size
      }
-@@ -73,7 +72,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An optional string that, if supplied, must be copied from the output of a previous call to <code>ListImports</code>. When provided in this manner, the API fetches the next page of results.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -83,11 +81,11 @@
+@@ -83,11 +84,11 @@
          &self.next_token
      }
      /// Consumes the builder and constructs a [`ListImportsInput`](crate::operation::list_imports::ListImportsInput).
@@ -37017,22 +35801,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn import_summary_list(mut self, input: crate::types::ImportSummary) -> Self {
          let mut v = self.import_summary_list.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.import_summary_list = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of <code>ImportSummary</code> objects.</p>
-     pub fn set_import_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ImportSummary>>) -> Self {
-         self.import_summary_list = input;
-         self
-@@ -67,7 +64,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
 ```
 
 ### `src/operation/list_imports/builders.rs`
@@ -37765,23 +36533,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListTablesInput {
      /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
      pub exclusive_start_table_name: ::std::option::Option<::std::string::String>,
-@@ -39,7 +39,6 @@
-         self.exclusive_start_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The first table name that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain the next page of results.</p>
-     pub fn set_exclusive_start_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.exclusive_start_table_name = input;
-         self
-@@ -53,7 +52,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A maximum number of table names to return. If this parameter is not specified, the limit is 100.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -63,10 +61,10 @@
+@@ -63,10 +63,10 @@
          &self.limit
      }
      /// Consumes the builder and constructs a [`ListTablesInput`](crate::operation::list_tables::ListTablesInput).
@@ -37826,24 +36578,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn table_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.table_names.unwrap_or_default();
          v.push(input.into());
-@@ -59,8 +56,6 @@
-         self.table_names = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
--    /// <p>If <code>LastEvaluatedTableName</code> also appears in the output, you can use this value as the <code>ExclusiveStartTableName</code> parameter in a subsequent <code>ListTables</code> request and obtain the next page of results.</p>
-     pub fn set_table_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.table_names = input;
-         self
-@@ -76,8 +71,6 @@
-         self.last_evaluated_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the last table in the current page of results. Use this value as the <code>ExclusiveStartTableName</code> in a new request to obtain the next page of results, until all the table names are returned.</p>
--    /// <p>If you do not receive a <code>LastEvaluatedTableName</code> value in the response, this means that there are no more table names to be retrieved.</p>
-     pub fn set_last_evaluated_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.last_evaluated_table_name = input;
-         self
 ```
 
 ### `src/operation/list_tables/builders.rs`
@@ -38559,23 +37293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListTagsOfResourceInput {
      /// <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).</p>
      pub resource_arn: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -53,7 +53,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
-@@ -63,13 +62,10 @@
+@@ -63,13 +64,10 @@
          &self.next_token
      }
      /// Consumes the builder and constructs a [`ListTagsOfResourceInput`](crate::operation::list_tags_of_resource::ListTagsOfResourceInput).
@@ -38627,22 +37345,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -53,7 +51,6 @@
-         self.tags = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The tags currently associated with the Amazon DynamoDB resource.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-         self.tags = input;
-         self
-@@ -67,7 +64,6 @@
-         self.next_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.</p>
-     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.next_token = input;
-         self
 ```
 
 ### `src/operation/list_tags_of_resource/builders.rs`
@@ -39582,15 +38284,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          self.expression_attribute_names.as_ref()
      }
-@@ -261,7 +143,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -270,46 +151,21 @@
+@@ -270,44 +152,25 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -39626,9 +38320,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
--    /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
--    /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
+     /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
+     /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
+     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
 -    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p>
 -    /// <ul>
 -    /// <li>
@@ -39639,12 +38333,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li>
 -    /// </ul>
 -    /// <p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
--    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
++    /// <p>If the table has vector indexes, the following validations apply to write operations. A violation of any of these constraints results in a <code>ValidationException</code>:</p><ul><li><p>The vector attribute must be a list of numbers with dimensions matching the index configuration.</p></li><li><p>Vector values must fit in 32-bit IEEE-754 floating point format (f32).</p></li><li><p>Partition key and inline filter attributes defined in the search schema must have data types matching the index schema definition.</p></li></ul><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p>
+     /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     /// <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
      pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -320,33 +176,22 @@
+@@ -320,30 +183,20 @@
      /// <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p>
      /// <p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p>
      /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p>
@@ -39679,11 +38372,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expected = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expected(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
-@@ -358,14 +203,7 @@
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -358,14 +211,7 @@
      pub fn get_expected(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>> {
          &self.expected
      }
@@ -39699,7 +38389,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
      /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
      /// </note>
-@@ -373,29 +211,11 @@
+@@ -373,14 +219,7 @@
          self.return_values = ::std::option::Option::Some(input);
          self
      }
@@ -39711,10 +38401,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li>
 -    /// </ul>
 -    /// <p>The values returned are strongly consistent.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
--    /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
--    /// </note>
-     pub fn set_return_values(mut self, input: ::std::option::Option<crate::types::ReturnValue>) -> Self {
++    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were updated with the <code>PutItem</code> request. For <code>PutItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value pair, then the content of the old item is returned.</p></li></ul><p>The values returned are strongly consistent.</p>
+     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
+     /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
+     /// </note>
+@@ -388,14 +227,7 @@
          self.return_values = input;
          self
      }
@@ -39730,7 +38421,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><note>
      /// <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>PutItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>.</p>
      /// </note>
-@@ -402,44 +222,14 @@
+@@ -402,44 +234,14 @@
      pub fn get_return_values(&self) -> &::std::option::Option<crate::types::ReturnValue> {
          &self.return_values
      }
@@ -39775,23 +38466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -448,7 +238,6 @@
-         self.return_item_collection_metrics = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-     pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
-         self.return_item_collection_metrics = input;
-         self
-@@ -462,7 +251,6 @@
-         self.conditional_operator = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
-         self.conditional_operator = input;
-         self
-@@ -472,120 +260,38 @@
+@@ -472,120 +274,44 @@
          &self.conditional_operator
      }
      /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
@@ -39812,7 +38487,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.condition_expression = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
+     /// <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p>
 -    /// <p>An expression can contain any of the following:</p>
 -    /// <ul>
 -    /// <li>
@@ -39824,6 +38499,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
 -    /// </ul>
 -    /// <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
++    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.condition_expression = input;
          self
@@ -39916,13 +38593,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -593,42 +299,14 @@
+@@ -593,42 +319,14 @@
          self.expression_attribute_names = input;
          self
      }
@@ -39967,7 +38646,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>One or more values that can be substituted in an expression.</p>
      /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
      /// <p><code>Available | Backordered | Discontinued</code></p>
-@@ -637,20 +315,15 @@
+@@ -637,10 +335,13 @@
      /// <p>You could then use these values in an expression, such as this:</p>
      /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
      /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -39983,27 +38662,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
--    /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
--    /// <p><code>Available | Backordered | Discontinued</code></p>
--    /// <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
--    /// <p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p>
--    /// <p>You could then use these values in an expression, such as this:</p>
--    /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
--    /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -677,8 +350,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An optional parameter that returns the item attributes for a <code>PutItem</code> operation that failed a condition check.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -692,8 +363,8 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -692,8 +393,8 @@
          &self.return_values_on_condition_check_failure
      }
      /// Consumes the builder and constructs a [`PutItemInput`](crate::operation::put_item::PutItemInput).
@@ -40014,7 +38674,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              item: self.item,
              expected: self.expected,
-@@ -705,6 +376,6 @@
+@@ -705,6 +406,6 @@
              expression_attribute_names: self.expression_attribute_names,
              expression_attribute_values: self.expression_attribute_values,
              return_values_on_condition_check_failure: self.return_values_on_condition_check_failure,
@@ -40063,7 +38723,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ItemCollectionMetrics> {
          self.item_collection_metrics.as_ref()
      }
-@@ -66,18 +54,16 @@
+@@ -66,15 +54,14 @@
      _request_id: Option<String>,
  }
  impl PutItemOutputBuilder {
@@ -40082,20 +38742,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The attribute values as they appeared before the <code>PutItem</code> operation, but only if <code>ReturnValues</code> is specified as <code>ALL_OLD</code> in the request. Each element consists of an attribute name and an attribute value.</p>
-     pub fn set_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -95,8 +81,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -107,40 +91,19 @@
+     /// <p>The attribute values as they appeared before the <code>PutItem</code> operation, but only if <code>ReturnValues</code> is specified as <code>ALL_OLD</code> in the request. Each element consists of an attribute name and an attribute value.</p>
+@@ -107,40 +94,22 @@
          &self.consumed_capacity
      }
      /// <p>Information about item collections, if any, that were affected by the <code>PutItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
@@ -40113,7 +38761,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.item_collection_metrics = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Information about item collections, if any, that were affected by the <code>PutItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
+     /// <p>Information about item collections, if any, that were affected by the <code>PutItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
 -    /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p>
 -    /// <ul>
 -    /// <li>
@@ -40122,6 +38770,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
 -    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
 -    /// </ul>
++    /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p><ul><li><p><code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p></li><li><p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
++    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
      pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ItemCollectionMetrics>) -> Self {
          self.item_collection_metrics = input;
          self
@@ -41412,16 +40062,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expected_revision_id(&self) -> ::std::option::Option<&str> {
          self.expected_revision_id.as_deref()
      }
-@@ -76,8 +61,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams.</p>
--    /// <p>You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the <code>Resource</code> field of a given <code>Statement</code> in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple <code>Statement</code> fields in your policy document.</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -87,54 +70,27 @@
+@@ -87,46 +72,24 @@
      pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.resource_arn
      }
@@ -41447,6 +40088,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.</p></li>
 -    /// </ul>
 -    /// <p>For a full list of all considerations that apply while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
++    /// <p>An Amazon Web Services resource-based policy document in JSON format.</p><ul><li><p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.</p></li><li><p>Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.</p></li></ul><p>For a full list of all considerations that apply while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
      pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.policy = input;
          self
@@ -41471,15 +40113,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expected_revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.expected_revision_id = ::std::option::Option::Some(input.into());
          self
+@@ -133,8 +96,7 @@
      }
--    /// <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p><note>
--    /// <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
+     /// <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p><note>
+     /// <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
 -    /// </note>
 -    /// <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
++    /// </note><p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
      pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.expected_revision_id = input;
          self
-@@ -141,8 +97,7 @@
+@@ -141,8 +103,7 @@
      }
      /// <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p><note>
      /// <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
@@ -41489,15 +40133,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_expected_revision_id(&self) -> &::std::option::Option<::std::string::String> {
          &self.expected_revision_id
      }
-@@ -151,7 +106,6 @@
-         self.confirm_remove_self_resource_access = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>
-     pub fn set_confirm_remove_self_resource_access(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.confirm_remove_self_resource_access = input;
-         self
-@@ -161,14 +115,12 @@
+@@ -161,14 +122,12 @@
          &self.confirm_remove_self_resource_access
      }
      /// Consumes the builder and constructs a [`PutResourcePolicyInput`](crate::operation::put_resource_policy::PutResourcePolicyInput).
@@ -41528,14 +40164,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.revision_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
-     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.revision_id = input;
-         self
 ```
 
 ### `src/operation/put_resource_policy/builders.rs`
@@ -42645,23 +41273,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          self.expression_attribute_names.as_ref()
      }
-@@ -355,7 +207,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -369,7 +220,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of an index to query. This index can be any local secondary index or global secondary index on the table. Note that if you use the <code>IndexName</code> parameter, you must also provide <code>TableName.</code></p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -378,20 +228,9 @@
+@@ -378,20 +230,9 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -42684,7 +41296,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p>
      /// </note>
      pub fn select(mut self, input: crate::types::Select) -> Self {
-@@ -398,50 +237,22 @@
+@@ -398,20 +239,9 @@
          self.select = ::std::option::Option::Some(input);
          self
      }
@@ -42698,13 +41310,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves. Note that this uses the same quantity of read capacity units as getting the items, and is subject to the same item size calculations.</p></li>
 -    /// <li>
 -    /// <p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>ProjectionExpression</code>. This return value is equivalent to specifying <code>ProjectionExpression</code> without specifying any value for <code>Select</code>.</p>
--    /// <p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB fetches each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p>
++    /// <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index, DynamoDB fetches the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p></li><li><p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves. Note that this uses the same quantity of read capacity units as getting the items, and is subject to the same item size calculations.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>ProjectionExpression</code>. This return value is equivalent to specifying <code>ProjectionExpression</code> without specifying any value for <code>Select</code>.</p>
+     /// <p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB fetches each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p>
 -    /// <p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li>
 -    /// </ul>
 -    /// <p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>ProjectionExpression</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>ProjectionExpression</code> without any value for <code>Select</code>.)</p><note>
--    /// <p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p>
--    /// </note>
++    /// <p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li></ul><p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>ProjectionExpression</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>ProjectionExpression</code> without any value for <code>Select</code>.)</p><note>
+     /// <p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p>
+     /// </note>
      pub fn set_select(mut self, input: ::std::option::Option<crate::types::Select>) -> Self {
+@@ -418,30 +248,18 @@
          self.select = input;
          self
      }
@@ -42738,32 +41353,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.attributes_to_get.unwrap_or_default();
          v.push(input.into());
-@@ -448,7 +259,6 @@
-         self.attributes_to_get = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.attributes_to_get = input;
-         self
-@@ -462,7 +272,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -477,8 +286,6 @@
-         self.consistent_read = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines the read consistency model: If set to <code>true</code>, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.</p>
--    /// <p>Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with <code>ConsistentRead</code> set to <code>true</code>, you will receive a <code>ValidationException</code>.</p>
-     pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.consistent_read = input;
-         self
-@@ -488,18 +295,16 @@
+@@ -488,15 +306,14 @@
      pub fn get_consistent_read(&self) -> &::std::option::Option<bool> {
          &self.consistent_read
      }
@@ -42782,11 +41372,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key_conditions = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_key_conditions(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
-@@ -511,18 +316,16 @@
+     /// <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -511,15 +328,14 @@
      pub fn get_key_conditions(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Condition>> {
          &self.key_conditions
      }
@@ -42805,29 +41392,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.query_filter = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_query_filter(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
-@@ -539,7 +342,6 @@
-         self.conditional_operator = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
-         self.conditional_operator = input;
-         self
-@@ -555,9 +357,6 @@
-         self.scan_index_forward = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the order for index traversal: If <code>true</code> (default), the traversal is performed in ascending order; if <code>false</code>, the traversal is performed in descending order.</p>
--    /// <p>Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned.</p>
--    /// <p>If <code>ScanIndexForward</code> is <code>true</code>, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If <code>ScanIndexForward</code> is <code>false</code>, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.</p>
-     pub fn set_scan_index_forward(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.scan_index_forward = input;
-         self
-@@ -568,20 +367,17 @@
+     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -568,16 +384,15 @@
      pub fn get_scan_index_forward(&self) -> &::std::option::Option<bool> {
          &self.scan_index_forward
      }
@@ -42848,12 +41414,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.exclusive_start_key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
--    /// <p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No set data types are allowed.</p>
-     pub fn set_exclusive_start_key(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -596,44 +392,14 @@
+     /// <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
+@@ -596,44 +411,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.exclusive_start_key
      }
@@ -42898,17 +41460,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -644,9 +410,6 @@
-         self.projection_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
--    /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.projection_expression = input;
-         self
-@@ -660,17 +423,11 @@
+@@ -660,8 +445,7 @@
      /// <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p>
      /// <p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note>
      /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
@@ -42918,16 +41470,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn filter_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.filter_expression = ::std::option::Option::Some(input.into());
          self
-     }
--    /// <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p>
--    /// <p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note>
--    /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
+@@ -669,8 +453,7 @@
+     /// <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p>
+     /// <p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note>
+     /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
 -    /// </note>
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_filter_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.filter_expression = input;
          self
-@@ -678,8 +435,7 @@
+@@ -678,8 +461,7 @@
      /// <p>A string that contains conditions that DynamoDB applies after the <code>Query</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p>
      /// <p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.</p><note>
      /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
@@ -42937,7 +41490,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_filter_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.filter_expression
      }
-@@ -690,77 +446,13 @@
+@@ -690,35 +472,8 @@
      /// <p><code>partitionKeyName</code> <i>=</i> <code>:partitionkeyval</code></p>
      /// <p>If you also want to provide a condition for the sort key, it must be combined using <code>AND</code> with the condition for the sort key. Following is an example, using the <b>=</b> comparison operator for the sort key:</p>
      /// <p><code>partitionKeyName</code> <code>=</code> <code>:partitionkeyval</code> <code>AND</code> <code>sortKeyName</code> <code>=</code> <code>:sortkeyval</code></p>
@@ -42975,15 +41528,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For more information on <code>ExpressionAttributeNames</code> and <code>ExpressionAttributeValues</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html">Using Placeholders for Attribute Names and Values</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn key_condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.key_condition_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The condition that specifies the key values for items to be retrieved by the <code>Query</code> action.</p>
--    /// <p>The condition must perform an equality test on a single partition key value.</p>
--    /// <p>The condition can optionally perform one of several comparison tests on a single sort key value. This allows <code>Query</code> to retrieve one item with a given partition key value and sort key value, or several items that have the same partition key value but different sort key values.</p>
--    /// <p>The partition key equality test is required, and must be specified in the following format:</p>
--    /// <p><code>partitionKeyName</code> <i>=</i> <code>:partitionkeyval</code></p>
--    /// <p>If you also want to provide a condition for the sort key, it must be combined using <code>AND</code> with the condition for the sort key. Following is an example, using the <b>=</b> comparison operator for the sort key:</p>
--    /// <p><code>partitionKeyName</code> <code>=</code> <code>:partitionkeyval</code> <code>AND</code> <code>sortKeyName</code> <code>=</code> <code>:sortkeyval</code></p>
+@@ -731,35 +486,8 @@
+     /// <p><code>partitionKeyName</code> <i>=</i> <code>:partitionkeyval</code></p>
+     /// <p>If you also want to provide a condition for the sort key, it must be combined using <code>AND</code> with the condition for the sort key. Following is an example, using the <b>=</b> comparison operator for the sort key:</p>
+     /// <p><code>partitionKeyName</code> <code>=</code> <code>:partitionkeyval</code> <code>AND</code> <code>sortKeyName</code> <code>=</code> <code>:sortkeyval</code></p>
 -    /// <p>Valid comparisons for the sort key condition are as follows:</p>
 -    /// <ul>
 -    /// <li>
@@ -43013,11 +41561,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>#S = :myval</code></p></li>
 -    /// </ul>
 -    /// <p>For a list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>For more information on <code>ExpressionAttributeNames</code> and <code>ExpressionAttributeValues</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html">Using Placeholders for Attribute Names and Values</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// <p>Valid comparisons for the sort key condition are as follows:</p><ul><li><p><code>sortKeyName</code> <code>=</code> <code>:sortkeyval</code> - true if the sort key value is equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code> <code><</code> <code>:sortkeyval</code> - true if the sort key value is less than <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code> <code><=</code> <code>:sortkeyval</code> - true if the sort key value is less than or equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code> <code>></code> <code>:sortkeyval</code> - true if the sort key value is greater than <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code> <code>>=</code> <code>:sortkeyval</code> - true if the sort key value is greater than or equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code> <code>BETWEEN</code> <code>:sortkeyval1</code> <code>AND</code> <code>:sortkeyval2</code> - true if the sort key value is greater than or equal to <code>:sortkeyval1</code>, and less than or equal to <code>:sortkeyval2</code>.</p></li><li><p><code>begins_with (</code> <code>sortKeyName</code>, <code>:sortkeyval</code> <code>)</code> - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name <code>begins_with</code> is case-sensitive.</p></li></ul><p>Use the <code>ExpressionAttributeValues</code> parameter to replace tokens such as <code>:partitionval</code> and <code>:sortval</code> with actual values at runtime.</p>
++    /// <p>You can optionally use the <code>ExpressionAttributeNames</code> parameter to replace the names of the partition key and sort key with placeholder tokens. This option might be necessary if an attribute name conflicts with a DynamoDB reserved word. For example, the following <code>KeyConditionExpression</code> parameter causes an error because <i>Size</i> is a reserved word:</p><ul><li><p><code>Size = :myval</code></p></li></ul><p>To work around this, define a placeholder (such a <code>#S</code>) to represent the attribute name <i>Size</i>. <code>KeyConditionExpression</code> then is as follows:</p><ul><li><p><code>#S = :myval</code></p></li></ul><p>For a list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+     /// <p>For more information on <code>ExpressionAttributeNames</code> and <code>ExpressionAttributeValues</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html">Using Placeholders for Attribute Names and Values</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_key_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.key_condition_expression = input;
-         self
-@@ -772,107 +464,28 @@
+@@ -772,107 +500,31 @@
      /// <p><code>partitionKeyName</code> <i>=</i> <code>:partitionkeyval</code></p>
      /// <p>If you also want to provide a condition for the sort key, it must be combined using <code>AND</code> with the condition for the sort key. Following is an example, using the <b>=</b> comparison operator for the sort key:</p>
      /// <p><code>partitionKeyName</code> <code>=</code> <code>:partitionkeyval</code> <code>AND</code> <code>sortKeyName</code> <code>=</code> <code>:sortkeyval</code></p>
@@ -43127,13 +41676,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -880,42 +493,14 @@
+@@ -880,42 +532,14 @@
          self.expression_attribute_names = input;
          self
      }
@@ -43178,7 +41729,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>One or more values that can be substituted in an expression.</p>
      /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
      /// <p><code>Available | Backordered | Discontinued</code></p>
-@@ -924,20 +509,15 @@
+@@ -924,10 +548,13 @@
      /// <p>You could then use these values in an expression, such as this:</p>
      /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
      /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -43194,18 +41745,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
--    /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following:</p>
--    /// <p><code>Available | Backordered | Discontinued</code></p>
--    /// <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
--    /// <p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p>
--    /// <p>You could then use these values in an expression, such as this:</p>
--    /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
--    /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -959,8 +539,8 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -959,8 +586,8 @@
          &self.expression_attribute_values
      }
      /// Consumes the builder and constructs a [`QueryInput`](crate::operation::query::QueryInput).
@@ -43216,7 +41757,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              index_name: self.index_name,
              select: self.select,
-@@ -978,6 +558,6 @@
+@@ -978,6 +605,6 @@
              key_condition_expression: self.key_condition_expression,
              expression_attribute_names: self.expression_attribute_names,
              expression_attribute_values: self.expression_attribute_values,
@@ -43281,34 +41822,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>) -> Self {
          let mut v = self.items.unwrap_or_default();
          v.push(input);
-@@ -85,7 +82,6 @@
-         self.items = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
-     pub fn set_items(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-@@ -106,9 +102,6 @@
-         self.count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items in the response.</p>
--    /// <p>If you used a <code>QueryFilter</code> in the request, then <code>Count</code> is the number of items returned after the filter was applied, and <code>ScannedCount</code> is the number of matching items before the filter was applied.</p>
--    /// <p>If you did not use a filter in the request, then <code>Count</code> and <code>ScannedCount</code> are the same.</p>
-     pub fn set_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.count = input;
-         self
-@@ -125,8 +118,6 @@
-         self.scanned_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Count">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as <code>Count</code>.</p>
-     pub fn set_scanned_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.scanned_count = input;
-         self
-@@ -136,22 +127,18 @@
+@@ -136,17 +133,16 @@
      pub fn get_scanned_count(&self) -> &::std::option::Option<i32> {
          &self.scanned_count
      }
@@ -43331,21 +41845,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.last_evaluated_key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
--    /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
--    /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
-     pub fn set_last_evaluated_key(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -170,7 +157,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>Query</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -192,8 +178,8 @@
+     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
+@@ -192,8 +188,8 @@
      pub fn build(self) -> crate::operation::query::QueryOutput {
          crate::operation::query::QueryOutput {
              items: self.items,
@@ -44773,31 +43274,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_index_override(&self) -> &[crate::types::VectorIndex] {
          self.vector_index_override.as_deref().unwrap_or_default()
      }
-@@ -94,7 +87,6 @@
-         self.target_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the new table to which the backup must be restored.</p>
-     pub fn set_target_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.target_table_name = input;
-         self
-@@ -109,7 +101,6 @@
-         self.backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) associated with the backup.</p>
-     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_arn = input;
-         self
-@@ -123,7 +114,6 @@
-         self.billing_mode_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The billing mode of the restored table.</p>
-     pub fn set_billing_mode_override(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
-         self.billing_mode_override = input;
-         self
-@@ -132,11 +122,10 @@
+@@ -132,11 +125,10 @@
      pub fn get_billing_mode_override(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.billing_mode_override
      }
@@ -44810,15 +43287,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_index_override(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
          let mut v = self.global_secondary_index_override.unwrap_or_default();
          v.push(input);
-@@ -143,7 +132,6 @@
-         self.global_secondary_index_override = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-     pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
-         self.global_secondary_index_override = input;
-         self
-@@ -152,11 +140,10 @@
+@@ -152,11 +144,10 @@
      pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
          &self.global_secondary_index_override
      }
@@ -44831,23 +43300,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn local_secondary_index_override(mut self, input: crate::types::LocalSecondaryIndex) -> Self {
          let mut v = self.local_secondary_index_override.unwrap_or_default();
          v.push(input);
-@@ -163,7 +150,6 @@
-         self.local_secondary_index_override = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-     pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self {
-         self.local_secondary_index_override = input;
-         self
-@@ -177,7 +163,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Provisioned throughput settings for the restored table.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -186,17 +171,14 @@
+@@ -186,17 +177,14 @@
      pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
          &self.provisioned_throughput_override
      }
@@ -44865,15 +43318,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
          &self.on_demand_throughput_override
      }
-@@ -205,7 +187,6 @@
-         self.sse_specification_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The new server-side encryption settings for the restored table.</p>
-     pub fn set_sse_specification_override(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
-         self.sse_specification_override = input;
-         self
-@@ -214,11 +195,10 @@
+@@ -214,11 +202,10 @@
      pub fn get_sse_specification_override(&self) -> &::std::option::Option<crate::types::SseSpecification> {
          &self.sse_specification_override
      }
@@ -44886,15 +43331,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_index_override(mut self, input: crate::types::VectorIndex) -> Self {
          let mut v = self.vector_index_override.unwrap_or_default();
          v.push(input);
-@@ -225,7 +205,6 @@
-         self.vector_index_override = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the backup are restored. The indexes provided must match existing vector indexes from the backup. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
-     pub fn set_vector_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
-         self.vector_index_override = input;
-         self
-@@ -235,13 +214,8 @@
+@@ -235,13 +222,8 @@
          &self.vector_index_override
      }
      /// Consumes the builder and constructs a [`RestoreTableFromBackupInput`](crate::operation::restore_table_from_backup::RestoreTableFromBackupInput).
@@ -44910,7 +43347,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              target_table_name: self.target_table_name,
              backup_arn: self.backup_arn,
              billing_mode_override: self.billing_mode_override,
-@@ -251,6 +225,6 @@
+@@ -251,6 +233,6 @@
              on_demand_throughput_override: self.on_demand_throughput_override,
              sse_specification_override: self.sse_specification_override,
              vector_index_override: self.vector_index_override,
@@ -44931,14 +43368,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The description of the table created from an existing backup.</p>
-     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
-         self.table_description = input;
-         self
 ```
 
 ### `src/operation/restore_table_from_backup/builders.rs`
@@ -45918,55 +44347,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_index_override(&self) -> &[crate::types::VectorIndex] {
          self.vector_index_override.as_deref().unwrap_or_default()
      }
-@@ -116,7 +109,6 @@
-         self.source_table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>
-     pub fn set_source_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_table_arn = input;
-         self
-@@ -130,7 +122,6 @@
-         self.source_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the source table that is being restored.</p>
-     pub fn set_source_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_table_name = input;
-         self
-@@ -145,7 +136,6 @@
-         self.target_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the new table to which it must be restored to.</p>
-     pub fn set_target_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.target_table_name = input;
-         self
-@@ -159,7 +149,6 @@
-         self.use_latest_restorable_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Restore the table to the latest possible time. <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.</p>
-     pub fn set_use_latest_restorable_time(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.use_latest_restorable_time = input;
-         self
-@@ -173,7 +162,6 @@
-         self.restore_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time in the past to restore the table to.</p>
-     pub fn set_restore_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.restore_date_time = input;
-         self
-@@ -187,7 +175,6 @@
-         self.billing_mode_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The billing mode of the restored table.</p>
-     pub fn set_billing_mode_override(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
-         self.billing_mode_override = input;
-         self
-@@ -196,12 +183,11 @@
+@@ -196,12 +189,11 @@
      pub fn get_billing_mode_override(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.billing_mode_override
      }
@@ -45981,16 +44362,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_index_override(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
          let mut v = self.global_secondary_index_override.unwrap_or_default();
          v.push(input);
-@@ -208,8 +194,6 @@
-         self.global_secondary_index_override = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
--    /// <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code> appears in the shared index definition, including it in a <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a validation error.</p>
-     pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
-         self.global_secondary_index_override = input;
-         self
-@@ -219,11 +203,10 @@
+@@ -219,11 +211,10 @@
      pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
          &self.global_secondary_index_override
      }
@@ -46003,23 +44375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn local_secondary_index_override(mut self, input: crate::types::LocalSecondaryIndex) -> Self {
          let mut v = self.local_secondary_index_override.unwrap_or_default();
          v.push(input);
-@@ -230,7 +213,6 @@
-         self.local_secondary_index_override = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-     pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self {
-         self.local_secondary_index_override = input;
-         self
-@@ -244,7 +226,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Provisioned throughput settings for the restored table.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -253,17 +234,14 @@
+@@ -253,17 +244,14 @@
      pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
          &self.provisioned_throughput_override
      }
@@ -46037,15 +44393,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
          &self.on_demand_throughput_override
      }
-@@ -272,7 +250,6 @@
-         self.sse_specification_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The new server-side encryption settings for the restored table.</p>
-     pub fn set_sse_specification_override(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
-         self.sse_specification_override = input;
-         self
-@@ -281,11 +258,10 @@
+@@ -281,11 +269,10 @@
      pub fn get_sse_specification_override(&self) -> &::std::option::Option<crate::types::SseSpecification> {
          &self.sse_specification_override
      }
@@ -46058,15 +44406,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_index_override(mut self, input: crate::types::VectorIndex) -> Self {
          let mut v = self.vector_index_override.unwrap_or_default();
          v.push(input);
-@@ -292,7 +268,6 @@
-         self.vector_index_override = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the source table are restored. The indexes provided must match existing vector indexes from the source table. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
-     pub fn set_vector_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
-         self.vector_index_override = input;
-         self
-@@ -302,13 +277,8 @@
+@@ -302,13 +289,8 @@
          &self.vector_index_override
      }
      /// Consumes the builder and constructs a [`RestoreTableToPointInTimeInput`](crate::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput).
@@ -46082,7 +44422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              source_table_arn: self.source_table_arn,
              source_table_name: self.source_table_name,
              target_table_name: self.target_table_name,
-@@ -321,6 +291,6 @@
+@@ -321,6 +303,6 @@
              on_demand_throughput_override: self.on_demand_throughput_override,
              sse_specification_override: self.sse_specification_override,
              vector_index_override: self.vector_index_override,
@@ -46103,14 +44443,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of a table.</p>
-     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
-         self.table_description = input;
-         self
 ```
 
 ### `src/operation/restore_table_to_point_in_time/builders.rs`
@@ -47341,24 +45673,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
      pub fn consistent_read(&self) -> ::std::option::Option<bool> {
          self.consistent_read
-@@ -301,8 +193,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table containing the requested items or if you provide <code>IndexName</code>, the name of the table to which that index belongs.</p>
--    /// <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -317,7 +207,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of a secondary index to scan. This index can be any local secondary index or global secondary index. Note that if you use the <code>IndexName</code> parameter, you must also provide <code>TableName</code>.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -326,11 +215,10 @@
+@@ -326,11 +218,10 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -47371,23 +45686,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.attributes_to_get.unwrap_or_default();
          v.push(input.into());
-@@ -337,7 +225,6 @@
-         self.attributes_to_get = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.attributes_to_get = input;
-         self
-@@ -351,7 +238,6 @@
-         self.limit = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.limit = input;
-         self
-@@ -360,20 +246,9 @@
+@@ -360,20 +251,9 @@
      pub fn get_limit(&self) -> &::std::option::Option<i32> {
          &self.limit
      }
@@ -47410,7 +45709,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p>
      /// </note>
      pub fn select(mut self, input: crate::types::Select) -> Self {
-@@ -380,57 +255,28 @@
+@@ -380,20 +260,9 @@
          self.select = ::std::option::Option::Some(input);
          self
      }
@@ -47424,13 +45723,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves. Note that this uses the same quantity of read capacity units as getting the items, and is subject to the same item size calculations.</p></li>
 -    /// <li>
 -    /// <p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>ProjectionExpression</code>. This return value is equivalent to specifying <code>ProjectionExpression</code> without specifying any value for <code>Select</code>.</p>
--    /// <p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation reads only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB fetches each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p>
++    /// <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index, DynamoDB fetches the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p></li><li><p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves. Note that this uses the same quantity of read capacity units as getting the items, and is subject to the same item size calculations.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>ProjectionExpression</code>. This return value is equivalent to specifying <code>ProjectionExpression</code> without specifying any value for <code>Select</code>.</p>
+     /// <p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation reads only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB fetches each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p>
 -    /// <p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li>
 -    /// </ul>
 -    /// <p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>ProjectionExpression</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>ProjectionExpression</code> without any value for <code>Select</code>.)</p><note>
--    /// <p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p>
--    /// </note>
++    /// <p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li></ul><p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>ProjectionExpression</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>ProjectionExpression</code> without any value for <code>Select</code>.)</p><note>
+     /// <p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p>
+     /// </note>
      pub fn set_select(mut self, input: ::std::option::Option<crate::types::Select>) -> Self {
+@@ -400,34 +269,22 @@
          self.select = input;
          self
      }
@@ -47470,19 +45772,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.scan_filter = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_scan_filter(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
-@@ -447,7 +293,6 @@
-         self.conditional_operator = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
-         self.conditional_operator = input;
-         self
-@@ -456,22 +301,18 @@
+     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -456,17 +313,16 @@
      pub fn get_conditional_operator(&self) -> &::std::option::Option<crate::types::ConditionalOperator> {
          &self.conditional_operator
      }
@@ -47505,13 +45796,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.exclusive_start_key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
--    /// <p>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary. No set data types are allowed.</p>
--    /// <p>In a parallel scan, a <code>Scan</code> request that includes <code>ExclusiveStartKey</code> must specify the same segment whose previous <code>Scan</code> returned the corresponding value of <code>LastEvaluatedKey</code>.</p>
-     pub fn set_exclusive_start_key(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -487,44 +328,14 @@
+     /// <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
+@@ -487,44 +343,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.exclusive_start_key
      }
@@ -47556,39 +45842,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -535,9 +346,6 @@
-         self.total_segments = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the total number of segments into which the <code>Scan</code> operation will be divided. The value of <code>TotalSegments</code> corresponds to the number of application workers that will perform the parallel scan. For example, if you want to use four application threads to scan a table or an index, specify a <code>TotalSegments</code> value of 4.</p>
--    /// <p>The value for <code>TotalSegments</code> must be greater than or equal to 1, and less than or equal to 1000000. If you specify a <code>TotalSegments</code> value of 1, the <code>Scan</code> operation will be sequential rather than parallel.</p>
--    /// <p>If you specify <code>TotalSegments</code>, you must also specify <code>Segment</code>.</p>
-     pub fn set_total_segments(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.total_segments = input;
-         self
-@@ -557,11 +365,6 @@
-         self.segment = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>For a parallel <code>Scan</code> request, <code>Segment</code> identifies an individual segment to be scanned by an application worker.</p>
--    /// <p>Segment IDs are zero-based, so the first segment is always 0. For example, if you want to use four application threads to scan a table or an index, then the first thread specifies a <code>Segment</code> value of 0, the second thread specifies 1, and so on.</p>
--    /// <p>The value of <code>LastEvaluatedKey</code> returned from a parallel <code>Scan</code> request must be used as <code>ExclusiveStartKey</code> with the same segment ID in a subsequent <code>Scan</code> operation.</p>
--    /// <p>The value for <code>Segment</code> must be greater than or equal to 0, and less than the value provided for <code>TotalSegments</code>.</p>
--    /// <p>If you provide <code>Segment</code>, you must also provide <code>TotalSegments</code>.</p>
-     pub fn set_segment(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.segment = input;
-         self
-@@ -581,9 +384,6 @@
-         self.projection_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p>
--    /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.projection_expression = input;
-         self
-@@ -596,16 +396,11 @@
+@@ -596,8 +422,7 @@
      }
      /// <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><note>
      /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
@@ -47598,15 +45852,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn filter_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.filter_expression = ::std::option::Option::Some(input.into());
          self
+@@ -604,8 +429,7 @@
      }
--    /// <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><note>
--    /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
+     /// <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><note>
+     /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
 -    /// </note>
 -    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_filter_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.filter_expression = input;
          self
-@@ -612,79 +407,26 @@
+@@ -612,79 +436,29 @@
      }
      /// <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code> operation, but before the data is returned to you. Items that do not satisfy the <code>FilterExpression</code> criteria are not returned.</p><note>
      /// <p>A <code>FilterExpression</code> is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.</p>
@@ -47687,13 +45943,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -692,42 +434,14 @@
+@@ -692,42 +466,14 @@
          self.expression_attribute_names = input;
          self
      }
@@ -47738,7 +45996,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>One or more values that can be substituted in an expression.</p>
      /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following:</p>
      /// <p><code>Available | Backordered | Discontinued</code></p>
-@@ -736,20 +450,15 @@
+@@ -736,10 +482,13 @@
      /// <p>You could then use these values in an expression, such as this:</p>
      /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
      /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -47754,18 +46012,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
--    /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following:</p>
--    /// <p><code>Available | Backordered | Discontinued</code></p>
--    /// <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
--    /// <p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p>
--    /// <p>You could then use these values in an expression, such as this:</p>
--    /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
--    /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -770,47 +479,24 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -770,47 +519,26 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.expression_attribute_values
      }
@@ -47791,7 +46039,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p></li>
 -    /// </ul>
 -    /// <p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p>
--    /// <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
++    /// <p>A Boolean value that determines the read consistency model during the scan:</p><ul><li><p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from <code>Scan</code> might not contain the results from other recently completed write operations (<code>PutItem</code>, <code>UpdateItem</code>, or <code>DeleteItem</code>).</p></li><li><p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p></li></ul><p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p>
+     /// <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
      pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
          self.consistent_read = input;
          self
@@ -47817,7 +46066,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              index_name: self.index_name,
              attributes_to_get: self.attributes_to_get,
-@@ -827,6 +513,6 @@
+@@ -827,6 +555,6 @@
              expression_attribute_names: self.expression_attribute_names,
              expression_attribute_values: self.expression_attribute_values,
              consistent_read: self.consistent_read,
@@ -47882,34 +46131,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn items(mut self, input: ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>) -> Self {
          let mut v = self.items.unwrap_or_default();
          v.push(input);
-@@ -85,7 +82,6 @@
-         self.items = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
-     pub fn set_items(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-@@ -106,9 +102,6 @@
-         self.count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items in the response.</p>
--    /// <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the number of items returned after the filter was applied, and <code>ScannedCount</code> is the number of matching items before the filter was applied.</p>
--    /// <p>If you did not use a filter in the request, then <code>Count</code> is the same as <code>ScannedCount</code>.</p>
-     pub fn set_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.count = input;
-         self
-@@ -125,8 +118,6 @@
-         self.scanned_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient <code>Scan</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as <code>Count</code>.</p>
-     pub fn set_scanned_count(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.scanned_count = input;
-         self
-@@ -136,22 +127,18 @@
+@@ -136,17 +133,16 @@
      pub fn get_scanned_count(&self) -> &::std::option::Option<i32> {
          &self.scanned_count
      }
@@ -47932,21 +46154,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.last_evaluated_key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
--    /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
--    /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
-     pub fn set_last_evaluated_key(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -170,7 +157,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -192,8 +178,8 @@
+     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
+@@ -192,8 +188,8 @@
      pub fn build(self) -> crate::operation::scan::ScanOutput {
          crate::operation::scan::ScanOutput {
              items: self.items,
@@ -49271,23 +47480,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_vector(&self) -> &[crate::types::AttributeValue] {
          self.search_vector.as_deref().unwrap_or_default()
      }
-@@ -116,7 +95,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name or Amazon Resource Name (ARN) of the table containing the vector index.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -131,7 +109,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector index to search. The index must be in the <code>ACTIVE</code> state.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -140,63 +117,31 @@
+@@ -140,60 +119,29 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -49351,11 +47544,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_names = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
-     pub fn set_expression_attribute_names(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -210,18 +155,16 @@
+     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
+@@ -210,15 +158,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.expression_attribute_names
      }
@@ -49374,20 +47564,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -241,8 +184,6 @@
-         self.projection_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
--    /// <p>Only attributes projected into the vector index can be retrieved.</p>
-     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.projection_expression = input;
-         self
-@@ -252,12 +193,11 @@
+     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
+@@ -252,12 +199,11 @@
      pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.projection_expression
      }
@@ -49402,33 +47580,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_vector(mut self, input: crate::types::AttributeValue) -> Self {
          let mut v = self.search_vector.unwrap_or_default();
          v.push(input);
-@@ -264,8 +204,6 @@
-         self.search_vector = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
--    /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
-     pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-         self.search_vector = input;
-         self
-@@ -281,8 +219,6 @@
-         self.search_condition_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A condition expression used to filter the vector search results. The expression can reference attributes defined in the vector index search schema, including <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
--    /// <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code> attributes. Comparison and range operators are supported for <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search schema can be referenced.</p>
-     pub fn set_search_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.search_condition_expression = input;
-         self
-@@ -298,7 +234,6 @@
-         self.top_k = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of most similar results to return.</p>
-     pub fn set_top_k(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.top_k = input;
-         self
-@@ -308,10 +243,8 @@
+@@ -308,10 +254,8 @@
          &self.top_k
      }
      /// Consumes the builder and constructs a [`SearchVectorsInput`](crate::operation::search_vectors::SearchVectorsInput).
@@ -49441,7 +47593,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              index_name: self.index_name,
              return_consumed_capacity: self.return_consumed_capacity,
-@@ -321,6 +254,6 @@
+@@ -321,6 +265,6 @@
              search_vector: self.search_vector,
              search_condition_expression: self.search_condition_expression,
              top_k: self.top_k,
@@ -49471,15 +47623,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_results(&self) -> &[crate::types::SearchResultItem] {
          self.search_results.as_deref().unwrap_or_default()
      }
-@@ -47,7 +46,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::VectorCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -56,11 +54,10 @@
+@@ -56,11 +55,10 @@
      pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::VectorCapacity> {
          &self.consumed_capacity
      }
@@ -49492,14 +47636,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_results(mut self, input: crate::types::SearchResultItem) -> Self {
          let mut v = self.search_results.unwrap_or_default();
          v.push(input);
-@@ -67,7 +64,6 @@
-         self.search_results = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
-     pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>) -> Self {
-         self.search_results = input;
-         self
 ```
 
 ### `src/operation/search_vectors/builders.rs`
@@ -50451,15 +48587,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(&self) -> &[crate::types::Tag] {
          self.tags.as_deref().unwrap_or_default()
      }
-@@ -41,7 +40,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -50,11 +48,10 @@
+@@ -50,11 +49,10 @@
      pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.resource_arn
      }
@@ -50472,15 +48600,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tags(mut self, input: crate::types::Tag) -> Self {
          let mut v = self.tags.unwrap_or_default();
          v.push(input);
-@@ -61,7 +58,6 @@
-         self.tags = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
-     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
-         self.tags = input;
-         self
-@@ -71,10 +67,10 @@
+@@ -71,10 +69,10 @@
          &self.tags
      }
      /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
@@ -51294,23 +49414,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn transact_items(mut self, input: crate::types::TransactGetItem) -> Self {
          let mut v = self.transact_items.unwrap_or_default();
          v.push(input);
-@@ -46,7 +44,6 @@
-         self.transact_items = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
-     pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>) -> Self {
-         self.transact_items = input;
-         self
-@@ -60,7 +57,6 @@
-         self.return_consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
-     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
-         self.return_consumed_capacity = input;
-         self
-@@ -70,12 +66,10 @@
+@@ -70,12 +68,10 @@
          &self.return_consumed_capacity
      }
      /// Consumes the builder and constructs a [`TransactGetItemsInput`](crate::operation::transact_get_items::TransactGetItemsInput).
@@ -51368,15 +49472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
-@@ -57,7 +53,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -66,12 +61,11 @@
+@@ -66,12 +62,11 @@
      pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
          &self.consumed_capacity
      }
@@ -51391,15 +49487,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn responses(mut self, input: crate::types::ItemResponse) -> Self {
          let mut v = self.responses.unwrap_or_default();
          v.push(input);
-@@ -78,8 +72,6 @@
-         self.responses = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p>
--    /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
-     pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>) -> Self {
-         self.responses = input;
-         self
 ```
 
 ### `src/operation/transact_get_items/builders.rs`
@@ -52342,15 +50429,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn transact_items(mut self, input: crate::types::TransactWriteItem) -> Self {
          let mut v = self.transact_items.unwrap_or_default();
          v.push(input);
-@@ -84,7 +62,6 @@
-         self.transact_items = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same Amazon Web Services account and Region, and no two of them can operate on the same item.</p>
-     pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TransactWriteItem>>) -> Self {
-         self.transact_items = input;
-         self
-@@ -93,44 +70,14 @@
+@@ -93,44 +71,14 @@
      pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TransactWriteItem>> {
          &self.transact_items
      }
@@ -52395,26 +50474,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -139,7 +86,6 @@
-         self.return_item_collection_metrics = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-     pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
-         self.return_item_collection_metrics = input;
-         self
-@@ -156,10 +102,6 @@
-         self.client_request_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Providing a <code>ClientRequestToken</code> makes the call to <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
--    /// <p>Although multiple identical calls using the same client request token produce the same result on the server (no side effects), the responses to the calls might not be the same. If the <code>ReturnConsumedCapacity</code> parameter is set, then the initial <code>TransactWriteItems</code> call returns the amount of write capacity units consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls with the same client token return the number of read capacity units consumed in reading the item.</p>
--    /// <p>A client request token is valid for 10 minutes after the first request that uses it is completed. After 10 minutes, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 10 minutes, or the result might not be idempotent.</p>
--    /// <p>If you submit a request with the same client token but a change in other parameters within the 10-minute idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
-     pub fn set_client_request_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.client_request_token = input;
-         self
-@@ -172,15 +114,12 @@
+@@ -172,15 +120,12 @@
          &self.client_request_token
      }
      /// Consumes the builder and constructs a [`TransactWriteItemsInput`](crate::operation::transact_write_items::TransactWriteItemsInput).
@@ -52470,16 +50530,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
          let mut v = self.consumed_capacity.unwrap_or_default();
          v.push(input);
-@@ -60,8 +58,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
--    /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -71,22 +67,20 @@
+@@ -71,19 +69,18 @@
      pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
          &self.consumed_capacity
      }
@@ -52502,10 +50553,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item_collection_metrics = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
-     pub fn set_item_collection_metrics(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
+     /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
 ```
 
 ### `src/operation/transact_write_items/builders.rs`
@@ -53610,15 +51658,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(&self) -> &[::std::string::String] {
          self.tag_keys.as_deref().unwrap_or_default()
      }
-@@ -41,7 +40,6 @@
-         self.resource_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
-     pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource_arn = input;
-         self
-@@ -50,11 +48,10 @@
+@@ -50,11 +49,10 @@
      pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.resource_arn
      }
@@ -53631,15 +51671,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.tag_keys.unwrap_or_default();
          v.push(input.into());
-@@ -61,7 +58,6 @@
-         self.tag_keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of tag keys. Existing tags of the resource whose keys are members of this list will be removed from the DynamoDB resource.</p>
-     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.tag_keys = input;
-         self
-@@ -71,12 +67,10 @@
+@@ -71,12 +69,10 @@
          &self.tag_keys
      }
      /// Consumes the builder and constructs a [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
@@ -54433,15 +52465,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateContinuousBackupsInput {
      /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -39,7 +40,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -49,12 +49,10 @@
+@@ -49,7 +50,6 @@
          &self.table_name
      }
      /// <p>Represents the settings used to enable point in time recovery.</p>
@@ -54449,12 +52473,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn point_in_time_recovery_specification(mut self, input: crate::types::PointInTimeRecoverySpecification) -> Self {
          self.point_in_time_recovery_specification = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Represents the settings used to enable point in time recovery.</p>
-     pub fn set_point_in_time_recovery_specification(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoverySpecification>) -> Self {
-         self.point_in_time_recovery_specification = input;
-         self
-@@ -64,15 +62,10 @@
+@@ -64,15 +64,10 @@
          &self.point_in_time_recovery_specification
      }
      /// Consumes the builder and constructs a [`UpdateContinuousBackupsInput`](crate::operation::update_continuous_backups::UpdateContinuousBackupsInput).
@@ -54486,14 +52505,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.continuous_backups_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the continuous backups and point in time recovery settings on the table.</p>
-     pub fn set_continuous_backups_description(mut self, input: ::std::option::Option<crate::types::ContinuousBackupsDescription>) -> Self {
-         self.continuous_backups_description = input;
-         self
 ```
 
 ### `src/operation/update_continuous_backups/builders.rs`
@@ -55243,39 +53254,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateContributorInsightsInput {
      /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -53,7 +54,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -67,7 +67,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The global secondary index name, if applicable.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -82,7 +81,6 @@
-         self.contributor_insights_action = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the contributor insights action.</p>
-     pub fn set_contributor_insights_action(mut self, input: ::std::option::Option<crate::types::ContributorInsightsAction>) -> Self {
-         self.contributor_insights_action = input;
-         self
-@@ -96,7 +94,6 @@
-         self.contributor_insights_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
-         self.contributor_insights_mode = input;
-         self
-@@ -106,17 +103,12 @@
+@@ -106,17 +107,12 @@
          &self.contributor_insights_mode
      }
      /// Consumes the builder and constructs a [`UpdateContributorInsightsInput`](crate::operation::update_contributor_insights::UpdateContributorInsightsInput).
@@ -55309,38 +53288,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -59,7 +60,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -73,7 +73,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index, if applicable.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -87,7 +86,6 @@
-         self.contributor_insights_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The status of contributor insights</p>
-     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
-         self.contributor_insights_status = input;
-         self
-@@ -101,7 +99,6 @@
-         self.contributor_insights_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
-     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
-         self.contributor_insights_mode = input;
-         self
 ```
 
 ### `src/operation/update_contributor_insights/builders.rs`
@@ -56116,15 +54063,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_updates(&self) -> &[crate::types::ReplicaUpdate] {
          self.replica_updates.as_deref().unwrap_or_default()
      }
-@@ -41,7 +40,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The global table name.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -50,11 +48,10 @@
+@@ -50,11 +49,10 @@
      pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_name
      }
@@ -56137,15 +54076,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_updates(mut self, input: crate::types::ReplicaUpdate) -> Self {
          let mut v = self.replica_updates.unwrap_or_default();
          v.push(input);
-@@ -61,7 +58,6 @@
-         self.replica_updates = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of Regions that should be added or removed from the global table.</p>
-     pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>>) -> Self {
-         self.replica_updates = input;
-         self
-@@ -71,12 +67,10 @@
+@@ -71,12 +69,10 @@
          &self.replica_updates
      }
      /// Consumes the builder and constructs a [`UpdateGlobalTableInput`](crate::operation::update_global_table::UpdateGlobalTableInput).
@@ -56174,14 +54105,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.global_table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the global table.</p>
-     pub fn set_global_table_description(mut self, input: ::std::option::Option<crate::types::GlobalTableDescription>) -> Self {
-         self.global_table_description = input;
-         self
 ```
 
 ### `src/operation/update_global_table/builders.rs`
@@ -57014,15 +54937,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_settings_update(&self) -> &[crate::types::ReplicaSettingsUpdate] {
          self.replica_settings_update.as_deref().unwrap_or_default()
      }
-@@ -87,7 +72,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global table</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -96,35 +80,16 @@
+@@ -96,35 +81,17 @@
      pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_name
      }
@@ -57045,6 +54960,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li>
 -    /// </ul>
++    /// <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p><ul><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li></ul>
      pub fn set_global_table_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
          self.global_table_billing_mode = input;
          self
@@ -57060,23 +54976,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_global_table_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.global_table_billing_mode
      }
-@@ -133,7 +98,6 @@
-         self.global_table_provisioned_write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
-     pub fn set_global_table_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.global_table_provisioned_write_capacity_units = input;
-         self
-@@ -147,7 +111,6 @@
-         self.global_table_provisioned_write_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
-     pub fn set_global_table_provisioned_write_capacity_auto_scaling_settings_update(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -161,11 +124,10 @@
+@@ -161,11 +128,10 @@
      ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
          &self.global_table_provisioned_write_capacity_auto_scaling_settings_update
      }
@@ -57089,15 +54989,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_table_global_secondary_index_settings_update(mut self, input: crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate) -> Self {
          let mut v = self.global_table_global_secondary_index_settings_update.unwrap_or_default();
          v.push(input);
-@@ -172,7 +134,6 @@
-         self.global_table_global_secondary_index_settings_update = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-     pub fn set_global_table_global_secondary_index_settings_update(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
-@@ -186,11 +147,10 @@
+@@ -186,11 +152,10 @@
      ) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>> {
          &self.global_table_global_secondary_index_settings_update
      }
@@ -57110,15 +55002,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_settings_update(mut self, input: crate::types::ReplicaSettingsUpdate) -> Self {
          let mut v = self.replica_settings_update.unwrap_or_default();
          v.push(input);
-@@ -197,7 +157,6 @@
-         self.replica_settings_update = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the settings for a global table in a Region that will be modified.</p>
-     pub fn set_replica_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>) -> Self {
-         self.replica_settings_update = input;
-         self
-@@ -207,13 +166,8 @@
+@@ -207,13 +172,8 @@
          &self.replica_settings_update
      }
      /// Consumes the builder and constructs a [`UpdateGlobalTableSettingsInput`](crate::operation::update_global_table_settings::UpdateGlobalTableSettingsInput).
@@ -57134,7 +55018,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              global_table_name: self.global_table_name,
              global_table_billing_mode: self.global_table_billing_mode,
              global_table_provisioned_write_capacity_units: self.global_table_provisioned_write_capacity_units,
-@@ -221,6 +175,6 @@
+@@ -221,6 +181,6 @@
                  .global_table_provisioned_write_capacity_auto_scaling_settings_update,
              global_table_global_secondary_index_settings_update: self.global_table_global_secondary_index_settings_update,
              replica_settings_update: self.replica_settings_update,
@@ -57164,15 +55048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_settings(&self) -> &[crate::types::ReplicaSettingsDescription] {
          self.replica_settings.as_deref().unwrap_or_default()
      }
-@@ -47,7 +46,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global table.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -56,11 +54,10 @@
+@@ -56,11 +55,10 @@
      pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_name
      }
@@ -57185,14 +55061,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_settings(mut self, input: crate::types::ReplicaSettingsDescription) -> Self {
          let mut v = self.replica_settings.unwrap_or_default();
          v.push(input);
-@@ -67,7 +64,6 @@
-         self.replica_settings = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Region-specific settings for the global table.</p>
-     pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self {
-         self.replica_settings = input;
-         self
 ```
 
 ### `src/operation/update_global_table_settings/builders.rs`
@@ -58362,15 +56230,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          self.expression_attribute_names.as_ref()
      }
-@@ -331,7 +163,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table containing the item to update. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -340,20 +171,17 @@
+@@ -340,16 +172,15 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -58391,12 +56251,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
--    /// <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -363,18 +191,16 @@
+     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
+@@ -363,15 +194,14 @@
      pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.key
      }
@@ -58415,11 +56271,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.attribute_updates = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_attribute_updates(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValueUpdate>>,
-@@ -388,18 +214,16 @@
+     /// <p>This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -388,15 +218,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValueUpdate>> {
          &self.attribute_updates
      }
@@ -58438,19 +56291,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expected = ::std::option::Option::Some(map);
          self
      }
--    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expected(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
-@@ -416,7 +240,6 @@
-         self.conditional_operator = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_conditional_operator(mut self, input: ::std::option::Option<crate::types::ConditionalOperator>) -> Self {
-         self.conditional_operator = input;
-         self
-@@ -425,100 +248,29 @@
+     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -425,100 +254,31 @@
      pub fn get_conditional_operator(&self) -> &::std::option::Option<crate::types::ConditionalOperator> {
          &self.conditional_operator
      }
@@ -58488,7 +56330,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation.</p></li>
 -    /// </ul>
 -    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
--    /// <p>The values returned are strongly consistent.</p>
++    /// <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear before or after they are successfully updated. For <code>UpdateItem</code>, the valid values are:</p><ul><li><p><code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.)</p></li><li><p><code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.</p></li><li><p><code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation.</p></li><li><p><code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation.</p></li><li><p><code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation.</p></li></ul><p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
+     /// <p>The values returned are strongly consistent.</p>
      pub fn set_return_values(mut self, input: ::std::option::Option<crate::types::ReturnValue>) -> Self {
          self.return_values = input;
          self
@@ -58553,15 +56396,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
          &self.return_consumed_capacity
      }
-@@ -527,7 +279,6 @@
-         self.return_item_collection_metrics = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-     pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
-         self.return_item_collection_metrics = input;
-         self
-@@ -537,242 +288,67 @@
+@@ -537,41 +297,13 @@
          &self.return_item_collection_metrics
      }
      /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.</p>
@@ -58608,9 +56443,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn update_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.update_expression = ::std::option::Option::Some(input.into());
+@@ -578,41 +310,13 @@
          self
      }
--    /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.</p>
+     /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.</p>
 -    /// <p>The following action values are available for <code>UpdateExpression</code>.</p>
 -    /// <ul>
 -    /// <li>
@@ -58630,8 +56466,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <ul>
 -    /// <li>
 -    /// <p>If the existing attribute is a number, and if <code>Value</code> is also a number, then <code>Value</code> is mathematically added to the existing attribute. If <code>Value</code> is a negative number, then it is subtracted from the existing attribute.</p><note>
--    /// <p>If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value.</p>
--    /// <p>Similarly, if you use <code>ADD</code> for an existing item to increment or decrement an attribute value that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update doesn't have an attribute named <code>itemcount</code>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway. DynamoDB will create the <code>itemcount</code> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <code>itemcount</code> attribute in the item, with a value of <code>3</code>.</p>
++    /// <p>The following action values are available for <code>UpdateExpression</code>.</p><ul><li><p><code>SET</code> - Adds one or more attributes and values to an item. If any of these attributes already exist, they are replaced by the new values. You can also use <code>SET</code> to add or subtract from an attribute that is of type Number. For example: <code>SET myNum = myNum + :val</code></p>
++    /// <p><code>SET</code> supports the following functions:</p><ul><li><p><code>if_not_exists (path, operand)</code> - if the item does not contain an attribute at the specified path, then <code>if_not_exists</code> evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.</p></li><li><p><code>list_append (operand, operand)</code> - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.</p></li></ul><p>These function names are case-sensitive.</p></li><li><p><code>REMOVE</code> - Removes one or more attributes from an item.</p></li><li><p><code>ADD</code> - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of <code>ADD</code> depends on the data type of the attribute:</p><ul><li><p>If the existing attribute is a number, and if <code>Value</code> is also a number, then <code>Value</code> is mathematically added to the existing attribute. If <code>Value</code> is a negative number, then it is subtracted from the existing attribute.</p><note>
+     /// <p>If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value.</p>
+     /// <p>Similarly, if you use <code>ADD</code> for an existing item to increment or decrement an attribute value that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update doesn't have an attribute named <code>itemcount</code>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway. DynamoDB will create the <code>itemcount</code> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <code>itemcount</code> attribute in the item, with a value of <code>3</code>.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p>If the existing data type is a set and if <code>Value</code> is also a set, then <code>Value</code> is added to the existing set. For example, if the attribute value is the set <code>\[1,2\]</code>, and the <code>ADD</code> action specified <code>\[3\]</code>, then the final attribute value is <code>\[1,2,3\]</code>. An error occurs if an <code>ADD</code> action is specified for a set attribute and the attribute type specified does not match the existing set type.</p>
@@ -58646,9 +56484,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// </important></li>
 -    /// </ul>
 -    /// <p>You can have many actions in a single expression, such as the following: <code>SET a=:value1, b=:value2 DELETE :value3, :value4, :value5</code></p>
--    /// <p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note></li><li><p>If the existing data type is a set and if <code>Value</code> is also a set, then <code>Value</code> is added to the existing set. For example, if the attribute value is the set <code>\[1,2\]</code>, and the <code>ADD</code> action specified <code>\[3\]</code>, then the final attribute value is <code>\[1,2,3\]</code>. An error occurs if an <code>ADD</code> action is specified for a set attribute and the attribute type specified does not match the existing set type.</p>
++    /// <p>Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <code>Value</code> must also be a set of strings.</p></li></ul> <important><p>The <code>ADD</code> action only supports Number and set data types.</p></important></li><li><p><code>DELETE</code> - Deletes an element from a set.</p>
++    /// <p>If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <code>\[a,b,c\]</code> and the <code>DELETE</code> action specifies <code>\[a,c\]</code>, then the final attribute value is <code>\[b\]</code>. Specifying an empty set is an error.</p> <important><p>The <code>DELETE</code> action only supports set data types.</p></important></li></ul><p>You can have many actions in a single expression, such as the following: <code>SET a=:value1, b=:value2 DELETE :value3, :value4, :value5</code></p>
+     /// <p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_update_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.update_expression = input;
+@@ -619,160 +323,56 @@
          self
      }
      /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.</p>
@@ -58714,7 +56556,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.condition_expression = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
+     /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
 -    /// <p>An expression can contain any of the following:</p>
 -    /// <ul>
 -    /// <li>
@@ -58726,6 +56568,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Logical operators: <code>AND | OR | NOT</code></p></li>
 -    /// </ul>
 -    /// <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// <p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p>
++    /// <p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | <>| < | >| <= | >= | BETWEEN | IN</code></p></li><li><p>Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.condition_expression = input;
          self
@@ -58818,13 +56662,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>.) To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -780,42 +356,14 @@
+@@ -780,42 +380,14 @@
          self.expression_attribute_names = input;
          self
      }
@@ -58869,7 +56715,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>One or more values that can be substituted in an expression.</p>
      /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following:</p>
      /// <p><code>Available | Backordered | Discontinued</code></p>
-@@ -824,20 +372,15 @@
+@@ -824,10 +396,13 @@
      /// <p>You could then use these values in an expression, such as this:</p>
      /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
      /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -58885,27 +56731,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
--    /// <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following:</p>
--    /// <p><code>Available | Backordered | Discontinued</code></p>
--    /// <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p>
--    /// <p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p>
--    /// <p>You could then use these values in an expression, such as this:</p>
--    /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
--    /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -864,8 +407,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -879,8 +420,8 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -879,8 +454,8 @@
          &self.return_values_on_condition_check_failure
      }
      /// Consumes the builder and constructs a [`UpdateItemInput`](crate::operation::update_item::UpdateItemInput).
@@ -58916,7 +56743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              table_name: self.table_name,
              key: self.key,
              attribute_updates: self.attribute_updates,
-@@ -894,6 +435,6 @@
+@@ -894,6 +469,6 @@
              expression_attribute_names: self.expression_attribute_names,
              expression_attribute_values: self.expression_attribute_values,
              return_values_on_condition_check_failure: self.return_values_on_condition_check_failure,
@@ -58965,7 +56792,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ItemCollectionMetrics> {
          self.item_collection_metrics.as_ref()
      }
-@@ -68,20 +56,17 @@
+@@ -68,16 +56,15 @@
      _request_id: Option<String>,
  }
  impl UpdateItemOutputBuilder {
@@ -58986,21 +56813,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.attributes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p>
--    /// <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was specified as something other than <code>NONE</code> in the request. Each element represents one attribute.</p>
-     pub fn set_attributes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -100,8 +85,6 @@
-         self.consumed_capacity = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If the table has vector indexes, the response includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
-     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
-         self.consumed_capacity = input;
-         self
-@@ -112,40 +95,19 @@
+     /// <p>A map of attribute values as they appear before or after the <code>UpdateItem</code> operation, as determined by the <code>ReturnValues</code> parameter.</p>
+@@ -112,40 +99,22 @@
          &self.consumed_capacity
      }
      /// <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
@@ -59018,7 +56832,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.item_collection_metrics = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
+     /// <p>Information about item collections, if any, that were affected by the <code>UpdateItem</code> operation. <code>ItemCollectionMetrics</code> is only returned if the <code>ReturnItemCollectionMetrics</code> parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.</p>
 -    /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p>
 -    /// <ul>
 -    /// <li>
@@ -59027,6 +56841,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
 -    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li>
 -    /// </ul>
++    /// <p>Each <code>ItemCollectionMetrics</code> element consists of:</p><ul><li><p><code>ItemCollectionKey</code> - The partition key value of the item collection. This is the same as the partition key value of the item itself.</p></li><li><p><code>SizeEstimateRangeGB</code> - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
++    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
      pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ItemCollectionMetrics>) -> Self {
          self.item_collection_metrics = input;
          self
@@ -60411,31 +58227,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateKinesisStreamingDestinationInput {
      /// <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -46,7 +47,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -61,7 +61,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) for the Kinesis stream input.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -75,7 +74,6 @@
-         self.update_kinesis_streaming_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The command to update the Kinesis stream configuration.</p>
-     pub fn set_update_kinesis_streaming_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
-@@ -88,18 +86,11 @@
+@@ -88,18 +89,11 @@
          &self.update_kinesis_streaming_configuration
      }
      /// Consumes the builder and constructs a [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
@@ -60473,38 +58265,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -59,7 +60,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The table name for the Kinesis streaming destination output.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -73,7 +73,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN for the Kinesis stream input.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -87,7 +86,6 @@
-         self.destination_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The status of the attempt to update the Kinesis streaming destination output.</p>
-     pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
-         self.destination_status = input;
-         self
-@@ -101,7 +99,6 @@
-         self.update_kinesis_streaming_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The command to update the Kinesis streaming destination configuration.</p>
-     pub fn set_update_kinesis_streaming_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
 ```
 
 ### `src/operation/update_kinesis_streaming_destination/builders.rs`
@@ -61502,23 +59262,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_definitions(mut self, input: crate::types::AttributeDefinition) -> Self {
          let mut v = self.attribute_definitions.unwrap_or_default();
          v.push(input);
-@@ -235,7 +154,6 @@
-         self.attribute_definitions = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
-     pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
-         self.attribute_definitions = input;
-         self
-@@ -250,7 +168,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -259,35 +176,16 @@
+@@ -259,35 +178,17 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -61541,6 +59285,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li>
 -    /// </ul>
++    /// <p>Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.</p><ul><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li></ul>
      pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
          self.billing_mode = input;
          self
@@ -61556,15 +59301,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.billing_mode
      }
-@@ -296,7 +194,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The new provisioned throughput settings for the specified table or index.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -305,21 +202,11 @@
+@@ -305,21 +206,11 @@
      pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
          &self.provisioned_throughput
      }
@@ -61588,7 +59325,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_index_updates(mut self, input: crate::types::GlobalSecondaryIndexUpdate) -> Self {
          let mut v = self.global_secondary_index_updates.unwrap_or_default();
          v.push(input);
-@@ -326,17 +213,6 @@
+@@ -326,16 +217,7 @@
          self.global_secondary_index_updates = ::std::option::Option::Some(v);
          self
      }
@@ -61602,11 +59339,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>Delete</code> - remove a global secondary index from the table.</p></li>
 -    /// </ul>
 -    /// <p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p><ul><li><p><code>Create</code> - add a new global secondary index to the table.</p></li><li><p><code>Update</code> - modify the provisioned throughput settings of an existing global secondary index.</p></li><li><p><code>Delete</code> - remove a global secondary index from the table.</p></li></ul><p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_global_secondary_index_updates(
          mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>>,
-@@ -344,16 +220,7 @@
+@@ -344,16 +226,7 @@
          self.global_secondary_index_updates = input;
          self
      }
@@ -61624,25 +59361,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>> {
          &self.global_secondary_index_updates
-@@ -365,9 +232,6 @@
-         self.stream_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the DynamoDB Streams configuration for the table.</p><note>
--    /// <p>You receive a <code>ValidationException</code> if you try to enable a stream on a table that already has a stream, or if you try to disable a stream on a table that doesn't have a stream.</p>
--    /// </note>
-     pub fn set_stream_specification(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
-         self.stream_specification = input;
-         self
-@@ -383,7 +247,6 @@
-         self.sse_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The new server-side encryption settings for the specified table.</p>
-     pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
-         self.sse_specification = input;
-         self
-@@ -392,11 +255,10 @@
+@@ -392,11 +265,10 @@
      pub fn get_sse_specification(&self) -> &::std::option::Option<crate::types::SseSpecification> {
          &self.sse_specification
      }
@@ -61655,31 +59374,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_updates(mut self, input: crate::types::ReplicationGroupUpdate) -> Self {
          let mut v = self.replica_updates.unwrap_or_default();
          v.push(input);
-@@ -403,7 +265,6 @@
-         self.replica_updates = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of replica update actions (create, delete, or update) for the table.</p>
-     pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicationGroupUpdate>>) -> Self {
-         self.replica_updates = input;
-         self
-@@ -417,7 +278,6 @@
-         self.table_class = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-     pub fn set_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
-         self.table_class = input;
-         self
-@@ -431,7 +291,6 @@
-         self.deletion_protection_enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
-     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.deletion_protection_enabled = input;
-         self
-@@ -441,56 +300,25 @@
+@@ -441,56 +313,27 @@
          &self.deletion_protection_enabled
      }
      /// <p>Specifies the consistency mode for a new global table. This parameter is only valid when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
@@ -61696,7 +59391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.multi_region_consistency = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Specifies the consistency mode for a new global table. This parameter is only valid when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
+     /// <p>Specifies the consistency mode for a new global table. This parameter is only valid when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
 -    /// <p>You can specify one of the following consistency modes:</p>
 -    /// <ul>
 -    /// <li>
@@ -61705,6 +59400,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>STRONG</code>: Configures a new global table for multi-Region strong consistency (MRSC).</p></li>
 -    /// </ul>
 -    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
++    /// <p>You can specify one of the following consistency modes:</p><ul><li><p><code>EVENTUAL</code>: Configures a new global table for multi-Region eventual consistency (MREC). This is the default consistency mode for global tables.</p></li><li><p><code>STRONG</code>: Configures a new global table for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
      pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<crate::types::MultiRegionConsistency>) -> Self {
          self.multi_region_consistency = input;
          self
@@ -61740,7 +59436,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_table_witness_updates(mut self, input: crate::types::GlobalTableWitnessGroupUpdate) -> Self {
          let mut v = self.global_table_witness_updates.unwrap_or_default();
          v.push(input);
-@@ -497,15 +325,6 @@
+@@ -497,14 +340,7 @@
          self.global_table_witness_updates = ::std::option::Option::Some(v);
          self
      }
@@ -61752,11 +59448,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>Delete</code> - remove a witness from the global table.</p></li>
 -    /// </ul>
 -    /// <p>You can create or delete only one witness per <code>UpdateTable</code> operation.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
++    /// <p>A list of witness updates for a MRSC global table. A witness provides a cost-effective alternative to a full replica in a MRSC global table by maintaining replicated change data written to global table replicas. You cannot perform read or write operations on a witness. For each witness, you can request one action:</p><ul><li><p><code>Create</code> - add a new witness to the global table.</p></li><li><p><code>Delete</code> - remove a witness from the global table.</p></li></ul><p>You can create or delete only one witness per <code>UpdateTable</code> operation.</p>
+     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
      pub fn set_global_table_witness_updates(
          mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>>,
-@@ -513,14 +332,7 @@
+@@ -513,14 +349,7 @@
          self.global_table_witness_updates = input;
          self
      }
@@ -61772,23 +59468,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
      pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>> {
          &self.global_table_witness_updates
-@@ -530,7 +342,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -544,7 +355,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput (in read units per second and write units per second) for updating a table.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -553,24 +363,11 @@
+@@ -553,24 +382,12 @@
      pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::WarmThroughput> {
          &self.warm_throughput
      }
@@ -61811,10 +59491,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.</p></li>
 -    /// </ul>
++    /// <p>Controls the settings replication mode for a global table replica. This attribute can be defined using UpdateTable operation only on a regional table with values:</p><ul><li><p><code>ENABLED</code>: Defines settings replication on a regional table to be used as a source table for creating Multi-Account Global Table.</p></li><li><p><code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.</p></li></ul>
      pub fn set_global_table_settings_replication_mode(
          mut self,
          input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
-@@ -578,22 +375,15 @@
+@@ -578,22 +395,15 @@
          self.global_table_settings_replication_mode = input;
          self
      }
@@ -61840,16 +59521,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_index_updates(mut self, input: crate::types::VectorIndexUpdate) -> Self {
          let mut v = self.vector_index_updates.unwrap_or_default();
          v.push(input);
-@@ -600,8 +390,6 @@
-         self.vector_index_updates = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of vector indexes to be added to or removed from the table. You can add or remove one vector index for each <code>UpdateTable</code> operation.</p>
--    /// <p>To add a vector index, specify <code>IndexName</code>, <code>VectorAttribute</code>, <code>Dimensions</code>, <code>DistanceFunction</code>, and <code>Projection</code>. To remove a vector index, specify only the <code>IndexName</code>.</p>
-     pub fn set_vector_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>>) -> Self {
-         self.vector_index_updates = input;
-         self
-@@ -612,8 +400,8 @@
+@@ -612,8 +422,8 @@
          &self.vector_index_updates
      }
      /// Consumes the builder and constructs a [`UpdateTableInput`](crate::operation::update_table::UpdateTableInput).
@@ -61860,7 +59532,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              attribute_definitions: self.attribute_definitions,
              table_name: self.table_name,
              billing_mode: self.billing_mode,
-@@ -630,6 +418,6 @@
+@@ -630,6 +440,6 @@
              warm_throughput: self.warm_throughput,
              global_table_settings_replication_mode: self.global_table_settings_replication_mode,
              vector_index_updates: self.vector_index_updates,
@@ -61868,21 +59540,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        }
      }
  }
-```
-
-### `src/operation/update_table/_update_table_output.rs`
-
-```diff
---- reference/src/operation/update_table/_update_table_output.rs
-+++ generated/src/operation/update_table/_update_table_output.rs
-@@ -39,7 +39,6 @@
-         self.table_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the properties of the table.</p>
-     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
-         self.table_description = input;
-         self
 ```
 
 ### `src/operation/update_table/builders.rs`
@@ -63085,23 +60742,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_index_updates(mut self, input: crate::types::GlobalSecondaryIndexAutoScalingUpdate) -> Self {
          let mut v = self.global_secondary_index_updates.unwrap_or_default();
          v.push(input);
-@@ -62,7 +56,6 @@
-         self.global_secondary_index_updates = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
-     pub fn set_global_secondary_index_updates(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>,
-@@ -80,7 +73,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -89,12 +81,10 @@
+@@ -89,12 +83,10 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -63114,7 +60755,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_provisioned_write_capacity_auto_scaling_update(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -102,15 +92,13 @@
+@@ -102,15 +94,13 @@
          self.provisioned_write_capacity_auto_scaling_update = input;
          self
      }
@@ -63131,15 +60772,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_updates(mut self, input: crate::types::ReplicaAutoScalingUpdate) -> Self {
          let mut v = self.replica_updates.unwrap_or_default();
          v.push(input);
-@@ -117,7 +105,6 @@
-         self.replica_updates = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
-     pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>) -> Self {
-         self.replica_updates = input;
-         self
-@@ -127,17 +114,12 @@
+@@ -127,17 +117,12 @@
          &self.replica_updates
      }
      /// Consumes the builder and constructs a [`UpdateTableReplicaAutoScalingInput`](crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput).
@@ -63173,14 +60806,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.table_auto_scaling_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Returns information about the auto scaling settings of a table with replicas.</p>
-     pub fn set_table_auto_scaling_description(mut self, input: ::std::option::Option<crate::types::TableAutoScalingDescription>) -> Self {
-         self.table_auto_scaling_description = input;
-         self
 ```
 
 ### `src/operation/update_table_replica_auto_scaling/builders.rs`
@@ -63998,15 +61623,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UpdateTimeToLiveInput {
      /// <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
      pub table_name: ::std::option::Option<::std::string::String>,
-@@ -40,7 +40,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -50,12 +49,10 @@
+@@ -50,7 +50,6 @@
          &self.table_name
      }
      /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
@@ -64014,12 +61631,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn time_to_live_specification(mut self, input: crate::types::TimeToLiveSpecification) -> Self {
          self.time_to_live_specification = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
-     pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self {
-         self.time_to_live_specification = input;
-         self
-@@ -65,12 +62,10 @@
+@@ -65,12 +64,10 @@
          &self.time_to_live_specification
      }
      /// Consumes the builder and constructs a [`UpdateTimeToLiveInput`](crate::operation::update_time_to_live::UpdateTimeToLiveInput).
@@ -64048,14 +61660,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-@@ -38,7 +39,6 @@
-         self.time_to_live_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
-     pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self {
-         self.time_to_live_specification = input;
-         self
 ```
 
 ### `src/operation/update_time_to_live/builders.rs`
@@ -65252,15 +62856,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn archival_reason(&self) -> ::std::option::Option<&str> {
          self.archival_reason.as_deref()
      }
-@@ -54,7 +46,6 @@
-         self.archival_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
-     pub fn set_archival_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.archival_date_time = input;
-         self
-@@ -63,29 +54,16 @@
+@@ -63,29 +55,17 @@
      pub fn get_archival_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.archival_date_time
      }
@@ -65279,6 +62875,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p></li>
 -    /// </ul>
++    /// <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p><ul><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p></li></ul>
      pub fn set_archival_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.archival_reason = input;
          self
@@ -65292,14 +62889,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_archival_reason(&self) -> &::std::option::Option<::std::string::String> {
          &self.archival_reason
      }
-@@ -94,7 +72,6 @@
-         self.archival_backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
-     pub fn set_archival_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.archival_backup_arn = input;
-         self
 ```
 
 ### `src/types/_attribute_definition.rs`
@@ -65341,15 +62930,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_type(&self) -> &crate::types::ScalarAttributeType {
          &self.attribute_type
      }
-@@ -57,7 +41,6 @@
-         self.attribute_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A name for the attribute.</p>
-     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.attribute_name = input;
-         self
-@@ -66,49 +49,24 @@
+@@ -66,49 +50,25 @@
      pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.attribute_name
      }
@@ -65377,6 +62958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>B</code> - the attribute is of type Binary</p></li>
 -    /// </ul>
++    /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
      pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self {
          self.attribute_type = input;
          self
@@ -65707,17 +63289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn action(&self) -> ::std::option::Option<&crate::types::AttributeAction> {
          self.action.as_ref()
      }
-@@ -108,9 +59,6 @@
-         self.value = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the data for an attribute.</p>
--    /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_value(mut self, input: ::std::option::Option<crate::types::AttributeValue>) -> Self {
-         self.value = input;
-         self
-@@ -122,106 +70,27 @@
+@@ -122,106 +73,34 @@
          &self.value
      }
      /// <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p>
@@ -65759,7 +63331,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.action = ::std::option::Option::Some(input);
          self
      }
--    /// <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p>
+     /// <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default), <code>DELETE</code>, and <code>ADD</code>. The behavior depends on whether the specified primary key already exists in the table.</p>
 -    /// <p><b>If an item with the specified <i>Key</i> is found in the table:</b></p>
 -    /// <ul>
 -    /// <li>
@@ -65772,8 +63344,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <ul>
 -    /// <li>
 -    /// <p>If the existing attribute is a number, and if <code>Value</code> is also a number, then the <code>Value</code> is mathematically added to the existing attribute. If <code>Value</code> is a negative number, then it is subtracted from the existing attribute.</p><note>
--    /// <p>If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses 0 as the initial value.</p>
--    /// <p>In addition, if you use <code>ADD</code> to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update does not yet have an attribute named <i>itemcount</i>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway, even though it currently does not exist. DynamoDB will create the <i>itemcount</i> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <i>itemcount</i> attribute in the item, with a value of <code>3</code>.</p>
++    /// <p><b>If an item with the specified <i>Key</i> is found in the table:</b></p><ul><li><p><code>PUT</code> - Adds the specified attribute to the item. If the attribute already exists, it is replaced by the new value.</p></li><li><p><code>DELETE</code> - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value's data type.</p>
++    /// <p>If a <i>set</i> of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <code>\[a,b,c\]</code> and the <code>DELETE</code> action specified <code>\[a,c\]</code>, then the final attribute value would be <code>\[b\]</code>. Specifying an empty set is an error.</p></li><li><p><code>ADD</code> - If the attribute does not already exist, then the attribute and its values are added to the item. If the attribute does exist, then the behavior of <code>ADD</code> depends on the data type of the attribute:</p><ul><li><p>If the existing attribute is a number, and if <code>Value</code> is also a number, then the <code>Value</code> is mathematically added to the existing attribute. If <code>Value</code> is a negative number, then it is subtracted from the existing attribute.</p><note>
+     /// <p>If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses 0 as the initial value.</p>
+     /// <p>In addition, if you use <code>ADD</code> to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update does not yet have an attribute named <i>itemcount</i>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway, even though it currently does not exist. DynamoDB will create the <i>itemcount</i> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <i>itemcount</i> attribute in the item, with a value of <code>3</code>.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p>If the existing data type is a set, and if the <code>Value</code> is also a set, then the <code>Value</code> is added to the existing set. (This is a <i>set</i> operation, not mathematical addition.) For example, if the attribute value was the set <code>\[1,2\]</code>, and the <code>ADD</code> action specified <code>\[3\]</code>, then the final attribute value would be <code>\[1,2,3\]</code>. An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type.</p>
@@ -65790,6 +63364,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li>
 -    /// </ul>
++    /// </note></li><li><p>If the existing data type is a set, and if the <code>Value</code> is also a set, then the <code>Value</code> is added to the existing set. (This is a <i>set</i> operation, not mathematical addition.) For example, if the attribute value was the set <code>\[1,2\]</code>, and the <code>ADD</code> action specified <code>\[3\]</code>, then the final attribute value would be <code>\[1,2,3\]</code>. An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type.</p>
++    /// <p>Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <code>Value</code> must also be a set of strings. The same holds true for number sets and binary sets.</p></li></ul><p>This action is only valid for an existing attribute whose data type is number or is a set. Do not use <code>ADD</code> for any other data types.</p></li></ul><p><b>If no item with the specified <i>Key</i> is found:</b></p><ul><li><p><code>PUT</code> - DynamoDB creates a new item with the specified primary key, and then adds the attribute.</p></li><li><p><code>DELETE</code> - Nothing happens; there is no attribute to delete.</p></li><li><p><code>ADD</code> - DynamoDB creates a new item with the supplied primary key and number (or set) for the attribute value. The only data types allowed are number, number set, string set or binary set.</p></li></ul>
      pub fn set_action(mut self, input: ::std::option::Option<crate::types::AttributeAction>) -> Self {
          self.action = input;
          self
@@ -65834,43 +63410,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_auto_scaling_policy_description.rs`
-
-```diff
---- reference/src/types/_auto_scaling_policy_description.rs
-+++ generated/src/types/_auto_scaling_policy_description.rs
-@@ -43,7 +43,6 @@
-         self.policy_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the scaling policy.</p>
-     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_name = input;
-         self
-@@ -60,7 +59,6 @@
-         self.target_tracking_scaling_policy_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents a target tracking scaling policy configuration.</p>
-     pub fn set_target_tracking_scaling_policy_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
-```
-
 ### `src/types/_auto_scaling_policy_update.rs`
 
 ```diff
 --- reference/src/types/_auto_scaling_policy_update.rs
 +++ generated/src/types/_auto_scaling_policy_update.rs
-@@ -42,7 +42,6 @@
-         self.policy_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the scaling policy.</p>
-     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.policy_name = input;
-         self
-@@ -52,7 +51,6 @@
+@@ -52,7 +52,6 @@
          &self.policy_name
      }
      /// <p>Represents a target tracking scaling policy configuration.</p>
@@ -65878,14 +63423,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn target_tracking_scaling_policy_configuration(
          mut self,
          input: crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
-@@ -60,7 +58,6 @@
-         self.target_tracking_scaling_policy_configuration = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents a target tracking scaling policy configuration.</p>
-     pub fn set_target_tracking_scaling_policy_configuration(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
 ```
 
 ### `src/types/_auto_scaling_settings_description.rs`
@@ -65902,39 +63439,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn scaling_policies(&self) -> &[crate::types::AutoScalingPolicyDescription] {
          self.scaling_policies.as_deref().unwrap_or_default()
      }
-@@ -62,7 +60,6 @@
-         self.minimum_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The minimum capacity units that a global table or global secondary index should be scaled down to.</p>
-     pub fn set_minimum_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.minimum_units = input;
-         self
-@@ -76,7 +73,6 @@
-         self.maximum_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
-     pub fn set_maximum_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.maximum_units = input;
-         self
-@@ -90,7 +86,6 @@
-         self.auto_scaling_disabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Disabled auto scaling for this global table or global secondary index.</p>
-     pub fn set_auto_scaling_disabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.auto_scaling_disabled = input;
-         self
-@@ -104,7 +99,6 @@
-         self.auto_scaling_role_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Role ARN used for configuring the auto scaling policy.</p>
-     pub fn set_auto_scaling_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.auto_scaling_role_arn = input;
-         self
-@@ -113,11 +107,10 @@
+@@ -113,11 +111,10 @@
      pub fn get_auto_scaling_role_arn(&self) -> &::std::option::Option<::std::string::String> {
          &self.auto_scaling_role_arn
      }
@@ -65947,61 +63452,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn scaling_policies(mut self, input: crate::types::AutoScalingPolicyDescription) -> Self {
          let mut v = self.scaling_policies.unwrap_or_default();
          v.push(input);
-@@ -124,7 +117,6 @@
-         self.scaling_policies = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Information about the scaling policies.</p>
-     pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AutoScalingPolicyDescription>>) -> Self {
-         self.scaling_policies = input;
-         self
-```
-
-### `src/types/_auto_scaling_settings_update.rs`
-
-```diff
---- reference/src/types/_auto_scaling_settings_update.rs
-+++ generated/src/types/_auto_scaling_settings_update.rs
-@@ -60,7 +60,6 @@
-         self.minimum_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The minimum capacity units that a global table or global secondary index should be scaled down to.</p>
-     pub fn set_minimum_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.minimum_units = input;
-         self
-@@ -74,7 +73,6 @@
-         self.maximum_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
-     pub fn set_maximum_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.maximum_units = input;
-         self
-@@ -88,7 +86,6 @@
-         self.auto_scaling_disabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Disabled auto scaling for this global table or global secondary index.</p>
-     pub fn set_auto_scaling_disabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.auto_scaling_disabled = input;
-         self
-@@ -102,7 +99,6 @@
-         self.auto_scaling_role_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Role ARN used for configuring auto scaling policy.</p>
-     pub fn set_auto_scaling_role_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.auto_scaling_role_arn = input;
-         self
-@@ -116,7 +112,6 @@
-         self.scaling_policy_update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The scaling policy to apply for scaling target global table or global secondary index capacity units.</p>
-     pub fn set_scaling_policy_update(mut self, input: ::std::option::Option<crate::types::AutoScalingPolicyUpdate>) -> Self {
-         self.scaling_policy_update = input;
-         self
 ```
 
 ### `src/types/_auto_scaling_target_tracking_scaling_policy_configuration_description.rs`
@@ -66009,39 +63459,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_auto_scaling_target_tracking_scaling_policy_configuration_description.rs
 +++ generated/src/types/_auto_scaling_target_tracking_scaling_policy_configuration_description.rs
-@@ -53,7 +53,6 @@
-         self.disable_scale_in = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.</p>
-     pub fn set_disable_scale_in(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.disable_scale_in = input;
-         self
-@@ -67,7 +66,6 @@
-         self.scale_in_cooldown = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application auto scaling scales out your scalable target immediately.</p>
-     pub fn set_scale_in_cooldown(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.scale_in_cooldown = input;
-         self
-@@ -81,7 +79,6 @@
-         self.scale_out_cooldown = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.</p>
-     pub fn set_scale_out_cooldown(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.scale_out_cooldown = input;
-         self
-@@ -96,7 +93,6 @@
-         self.target_value = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>
-     pub fn set_target_value(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.target_value = input;
-         self
-@@ -107,7 +103,7 @@
+@@ -107,7 +107,7 @@
      }
      /// Consumes the builder and constructs a [`AutoScalingTargetTrackingScalingPolicyConfigurationDescription`](crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription).
      /// This method will fail if any of the following fields are not set:
@@ -66057,39 +63475,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_auto_scaling_target_tracking_scaling_policy_configuration_update.rs
 +++ generated/src/types/_auto_scaling_target_tracking_scaling_policy_configuration_update.rs
-@@ -53,7 +53,6 @@
-         self.disable_scale_in = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.</p>
-     pub fn set_disable_scale_in(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.disable_scale_in = input;
-         self
-@@ -67,7 +66,6 @@
-         self.scale_in_cooldown = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application auto scaling scales out your scalable target immediately.</p>
-     pub fn set_scale_in_cooldown(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.scale_in_cooldown = input;
-         self
-@@ -81,7 +79,6 @@
-         self.scale_out_cooldown = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.</p>
-     pub fn set_scale_out_cooldown(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.scale_out_cooldown = input;
-         self
-@@ -96,7 +93,6 @@
-         self.target_value = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>
-     pub fn set_target_value(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.target_value = input;
-         self
-@@ -107,7 +103,7 @@
+@@ -107,7 +107,7 @@
      }
      /// Consumes the builder and constructs a [`AutoScalingTargetTrackingScalingPolicyConfigurationUpdate`](crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate).
      /// This method will fail if any of the following fields are not set:
@@ -66098,37 +63484,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(
          self,
      ) -> ::std::result::Result<
-```
-
-### `src/types/_backup_description.rs`
-
-```diff
---- reference/src/types/_backup_description.rs
-+++ generated/src/types/_backup_description.rs
-@@ -46,7 +46,6 @@
-         self.backup_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the backup created for the table.</p>
-     pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
-         self.backup_details = input;
-         self
-@@ -60,7 +59,6 @@
-         self.source_table_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the table when the backup was created.</p>
-     pub fn set_source_table_details(mut self, input: ::std::option::Option<crate::types::SourceTableDetails>) -> Self {
-         self.source_table_details = input;
-         self
-@@ -74,7 +72,6 @@
-         self.source_table_feature_details = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
-     pub fn set_source_table_feature_details(mut self, input: ::std::option::Option<crate::types::SourceTableFeatureDetails>) -> Self {
-         self.source_table_feature_details = input;
-         self
 ```
 
 ### `src/types/_backup_details.rs`
@@ -66170,39 +63525,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn backup_type(&self) -> &crate::types::BackupType {
          &self.backup_type
      }
-@@ -93,7 +77,6 @@
-         self.backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>ARN associated with the backup.</p>
-     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_arn = input;
-         self
-@@ -108,7 +91,6 @@
-         self.backup_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the requested backup.</p>
-     pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_name = input;
-         self
-@@ -122,7 +104,6 @@
-         self.backup_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Size of the backup in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_backup_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.backup_size_bytes = input;
-         self
-@@ -137,7 +118,6 @@
-         self.backup_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-     pub fn set_backup_status(mut self, input: ::std::option::Option<crate::types::BackupStatus>) -> Self {
-         self.backup_status = input;
-         self
-@@ -146,42 +126,17 @@
+@@ -146,42 +130,18 @@
      pub fn get_backup_status(&self) -> &::std::option::Option<crate::types::BackupStatus> {
          &self.backup_status
      }
@@ -66230,6 +63553,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
 -    /// </ul>
++    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
      pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupType>) -> Self {
          self.backup_type = input;
          self
@@ -66247,23 +63571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_backup_type(&self) -> &::std::option::Option<crate::types::BackupType> {
          &self.backup_type
      }
-@@ -191,7 +146,6 @@
-         self.backup_creation_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time at which the backup was created. This is the request time of the backup.</p>
-     pub fn set_backup_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.backup_creation_date_time = input;
-         self
-@@ -205,7 +159,6 @@
-         self.backup_expiry_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>
-     pub fn set_backup_expiry_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.backup_expiry_date_time = input;
-         self
-@@ -216,11 +169,11 @@
+@@ -216,11 +176,11 @@
      }
      /// Consumes the builder and constructs a [`BackupDetails`](crate::types::BackupDetails).
      /// This method will fail if any of the following fields are not set:
@@ -66321,71 +63629,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn backup_type(&self) -> ::std::option::Option<&crate::types::BackupType> {
          self.backup_type.as_ref()
      }
-@@ -111,7 +95,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -125,7 +108,6 @@
-         self.table_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifier for the table.</p>
-     pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_id = input;
-         self
-@@ -139,7 +121,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>ARN associated with the table.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -153,7 +134,6 @@
-         self.backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>ARN associated with the backup.</p>
-     pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_arn = input;
-         self
-@@ -167,7 +147,6 @@
-         self.backup_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the specified backup.</p>
-     pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.backup_name = input;
-         self
-@@ -181,7 +160,6 @@
-         self.backup_creation_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time at which the backup was created.</p>
-     pub fn set_backup_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.backup_creation_date_time = input;
-         self
-@@ -195,7 +173,6 @@
-         self.backup_expiry_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>
-     pub fn set_backup_expiry_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.backup_expiry_date_time = input;
-         self
-@@ -209,7 +186,6 @@
-         self.backup_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
-     pub fn set_backup_status(mut self, input: ::std::option::Option<crate::types::BackupStatus>) -> Self {
-         self.backup_status = input;
-         self
-@@ -218,41 +194,16 @@
+@@ -218,41 +202,17 @@
      pub fn get_backup_status(&self) -> &::std::option::Option<crate::types::BackupStatus> {
          &self.backup_status
      }
@@ -66412,6 +63656,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li>
 -    /// </ul>
++    /// <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.</p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p></li></ul>
      pub fn set_backup_type(mut self, input: ::std::option::Option<crate::types::BackupType>) -> Self {
          self.backup_type = input;
          self
@@ -66429,14 +63674,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_backup_type(&self) -> &::std::option::Option<crate::types::BackupType> {
          &self.backup_type
      }
-@@ -261,7 +212,6 @@
-         self.backup_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Size of the backup in bytes.</p>
-     pub fn set_backup_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.backup_size_bytes = input;
-         self
 ```
 
 ### `src/types/_batch_statement_error.rs`
@@ -66444,23 +63681,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_batch_statement_error.rs
 +++ generated/src/types/_batch_statement_error.rs
-@@ -46,7 +46,6 @@
-         self.code = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The error code associated with the failed PartiQL batch statement.</p>
-     pub fn set_code(mut self, input: ::std::option::Option<crate::types::BatchStatementErrorCodeEnum>) -> Self {
-         self.code = input;
-         self
-@@ -60,7 +59,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error message associated with the PartiQL batch response.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -69,18 +67,16 @@
+@@ -69,15 +69,14 @@
      pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
          &self.message
      }
@@ -66479,10 +63700,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+     /// <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
 ```
 
 ### `src/types/_batch_statement_request.rs`
@@ -66499,15 +63717,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn parameters(&self) -> &[crate::types::AttributeValue] {
          self.parameters.as_deref().unwrap_or_default()
      }
-@@ -59,7 +57,6 @@
-         self.statement = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A valid PartiQL statement.</p>
-     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.statement = input;
-         self
-@@ -68,11 +65,10 @@
+@@ -68,11 +66,10 @@
      pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
          &self.statement
      }
@@ -66520,32 +63730,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
          let mut v = self.parameters.unwrap_or_default();
          v.push(input);
-@@ -79,7 +75,6 @@
-         self.parameters = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The parameters associated with a PartiQL statement in the batch request.</p>
-     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-         self.parameters = input;
-         self
-@@ -93,7 +88,6 @@
-         self.consistent_read = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The read consistency of the PartiQL batch request.</p>
-     pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.consistent_read = input;
-         self
-@@ -108,8 +102,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An optional parameter that returns the item attributes for a PartiQL batch request operation that failed a condition check.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -124,7 +116,7 @@
+@@ -124,7 +121,7 @@
      }
      /// Consumes the builder and constructs a [`BatchStatementRequest`](crate::types::BatchStatementRequest).
      /// This method will fail if any of the following fields are not set:
@@ -66561,23 +63746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_batch_statement_response.rs
 +++ generated/src/types/_batch_statement_response.rs
-@@ -46,7 +46,6 @@
-         self.error = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The error associated with a failed PartiQL batch statement.</p>
-     pub fn set_error(mut self, input: ::std::option::Option<crate::types::BatchStatementError>) -> Self {
-         self.error = input;
-         self
-@@ -60,7 +59,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The table name associated with a failed PartiQL batch statement.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -69,18 +67,16 @@
+@@ -69,15 +69,14 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -66596,10 +63765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
 ```
 
 ### `src/types/_billing_mode_summary.rs`
@@ -66635,7 +63801,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn billing_mode(&self) -> ::std::option::Option<&crate::types::BillingMode> {
          self.billing_mode.as_ref()
      }
-@@ -48,35 +36,16 @@
+@@ -48,35 +36,17 @@
      pub(crate) last_update_to_pay_per_request_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl BillingModeSummaryBuilder {
@@ -66658,6 +63824,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
 -    /// </ul>
++    /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li></ul>
      pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
          self.billing_mode = input;
          self
@@ -66673,14 +63840,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.billing_mode
      }
-@@ -85,7 +54,6 @@
-         self.last_update_to_pay_per_request_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
-     pub fn set_last_update_to_pay_per_request_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_update_to_pay_per_request_date_time = input;
-         self
 ```
 
 ### `src/types/_cancellation_reason.rs`
@@ -66688,7 +63847,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_cancellation_reason.rs
 +++ generated/src/types/_cancellation_reason.rs
-@@ -41,18 +41,16 @@
+@@ -41,15 +41,14 @@
      pub(crate) message: ::std::option::Option<::std::string::String>,
  }
  impl CancellationReasonBuilder {
@@ -66707,57 +63866,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Item in the request which caused the transaction to get cancelled.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -69,7 +67,6 @@
-         self.code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Status code for the result of the cancelled transaction.</p>
-     pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.code = input;
-         self
-@@ -83,7 +80,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Cancellation reason message description.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/_capacity.rs`
-
-```diff
---- reference/src/types/_capacity.rs
-+++ generated/src/types/_capacity.rs
-@@ -46,7 +46,6 @@
-         self.read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of read capacity units consumed on a table or an index.</p>
-     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.read_capacity_units = input;
-         self
-@@ -60,7 +59,6 @@
-         self.write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of write capacity units consumed on a table or an index.</p>
-     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.write_capacity_units = input;
-         self
-@@ -74,7 +72,6 @@
-         self.capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of capacity units consumed on a table or an index.</p>
-     pub fn set_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.capacity_units = input;
-         self
+     /// <p>Item in the request which caused the transaction to get cancelled.</p>
 ```
 
 ### `src/types/_condition.rs`
@@ -66959,18 +64068,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_value_list(mut self, input: crate::types::AttributeValue) -> Self {
          let mut v = self.attribute_value_list.unwrap_or_default();
          v.push(input);
-@@ -176,10 +109,6 @@
-         self.attribute_value_list = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>One or more values to evaluate against the supplied attribute. The number of values in the list depends on the <code>ComparisonOperator</code> being used.</p>
--    /// <p>For type Number, value comparisons are numeric.</p>
--    /// <p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>a</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
--    /// <p>For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p>
-     pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-         self.attribute_value_list = input;
-         self
-@@ -194,122 +123,36 @@
+@@ -194,60 +127,31 @@
      /// <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p>
      /// <p>The following comparison operators are available:</p>
      /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
@@ -67045,56 +64143,66 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// This field is required.
      pub fn comparison_operator(mut self, input: crate::types::ComparisonOperator) -> Self {
          self.comparison_operator = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p>
--    /// <p>The following comparison operators are available:</p>
--    /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
+@@ -256,60 +160,31 @@
+     /// <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p>
+     /// <p>The following comparison operators are available:</p>
+     /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
 -    /// <p>The following are descriptions of each comparison operator.</p>
 -    /// <ul>
 -    /// <li>
 -    /// <p><code>EQ</code> : Equal. <code>EQ</code> is supported for all data types, including lists and maps.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p>The following are descriptions of each comparison operator.</p><ul><li><p><code>EQ</code> : Equal. <code>EQ</code> is supported for all data types, including lists and maps.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>NE</code> : Not equal. <code>NE</code> is supported for all data types, including lists and maps.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>NE</code> : Not equal. <code>NE</code> is supported for all data types, including lists and maps.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>LE</code> : Less than or equal.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>LE</code> : Less than or equal.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>LT</code> : Less than.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>LT</code> : Less than.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>GE</code> : Greater than or equal.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>GE</code> : Greater than or equal.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>GT</code> : Greater than.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>GT</code> : Greater than.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>NOT_NULL</code> : The attribute exists. <code>NOT_NULL</code> is supported for all data types, including lists and maps.</p><note>
--    /// <p>This operator tests for the existence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NOT_NULL</code>, the result is a Boolean <code>true</code>. This result is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NOT_NULL</code> comparison operator.</p>
++    /// <p></p></li><li><p><code>NOT_NULL</code> : The attribute exists. <code>NOT_NULL</code> is supported for all data types, including lists and maps.</p><note>
+     /// <p>This operator tests for the existence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NOT_NULL</code>, the result is a Boolean <code>true</code>. This result is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NOT_NULL</code> comparison operator.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p><code>NULL</code> : The attribute does not exist. <code>NULL</code> is supported for all data types, including lists and maps.</p><note>
--    /// <p>This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NULL</code>, the result is a Boolean <code>false</code>. This is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NULL</code> comparison operator.</p>
++    /// </note></li><li><p><code>NULL</code> : The attribute does not exist. <code>NULL</code> is supported for all data types, including lists and maps.</p><note>
+     /// <p>This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NULL</code>, the result is a Boolean <code>false</code>. This is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NULL</code> comparison operator.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p><code>CONTAINS</code> : Checks for a subsequence, or value in a set.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it finds an exact match with any member of the set.</p>
++    /// </note></li><li><p><code>CONTAINS</code> : Checks for a subsequence, or value in a set.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it finds an exact match with any member of the set.</p>
 -    /// <p>CONTAINS is supported for lists: When evaluating "<code>a CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li>
 -    /// <li>
 -    /// <p><code>NOT_CONTAINS</code> : Checks for absence of a subsequence, or absence of a value in a set.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it <i>does not</i> find an exact match with any member of the set.</p>
++    /// <p>CONTAINS is supported for lists: When evaluating "<code>a CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li><li><p><code>NOT_CONTAINS</code> : Checks for absence of a subsequence, or absence of a value in a set.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it <i>does not</i> find an exact match with any member of the set.</p>
 -    /// <p>NOT_CONTAINS is supported for lists: When evaluating "<code>a NOT CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li>
 -    /// <li>
 -    /// <p><code>BEGINS_WITH</code> : Checks for a prefix.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).</p>
++    /// <p>NOT_CONTAINS is supported for lists: When evaluating "<code>a NOT CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li><li><p><code>BEGINS_WITH</code> : Checks for a prefix.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>IN</code> : Checks for matching elements in a list.</p>
@@ -67104,10 +64212,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>AttributeValueList</code> must contain two <code>AttributeValue</code> elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code></p></li>
 -    /// </ul>
 -    /// <p>For usage examples of <code>AttributeValueList</code> and <code>ComparisonOperator</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// <p></p></li><li><p><code>IN</code> : Checks for matching elements in a list.</p>
++    /// <p><code>AttributeValueList</code> can contain one or more <code>AttributeValue</code> elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.</p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value.</p>
++    /// <p><code>AttributeValueList</code> must contain two <code>AttributeValue</code> elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code></p></li></ul><p>For usage examples of <code>AttributeValueList</code> and <code>ComparisonOperator</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_comparison_operator(mut self, input: ::std::option::Option<crate::types::ComparisonOperator>) -> Self {
          self.comparison_operator = input;
          self
-@@ -317,66 +160,37 @@
+@@ -317,66 +192,37 @@
      /// <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p>
      /// <p>The following comparison operators are available:</p>
      /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
@@ -67196,7 +64307,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_condition_check.rs
 +++ generated/src/types/_condition_check.rs
-@@ -66,18 +66,16 @@
+@@ -66,15 +66,14 @@
      pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
  }
  impl ConditionCheckBuilder {
@@ -67215,27 +64326,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -92,7 +90,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -107,7 +104,6 @@
-         self.condition_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A condition that must be satisfied in order for a conditional update to succeed. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.condition_expression = input;
-         self
-@@ -116,22 +112,20 @@
+     /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
+@@ -116,19 +115,18 @@
      pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.condition_expression
      }
@@ -67258,11 +64350,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_names = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_names(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -145,18 +139,16 @@
+     /// <p>One or more substitution tokens for attribute names in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -145,15 +143,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.expression_attribute_names
      }
@@ -67281,19 +64370,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -175,7 +167,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>ConditionCheck</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -189,9 +180,9 @@
+     /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+@@ -189,9 +186,9 @@
      }
      /// Consumes the builder and constructs a [`ConditionCheck`](crate::types::ConditionCheck).
      /// This method will fail if any of the following fields are not set:
@@ -67313,47 +64391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_consumed_capacity.rs
 +++ generated/src/types/_consumed_capacity.rs
-@@ -81,7 +81,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -95,7 +94,6 @@
-         self.capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of capacity units consumed by the operation.</p>
-     pub fn set_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.capacity_units = input;
-         self
-@@ -109,7 +107,6 @@
-         self.read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of read capacity units consumed by the operation.</p>
-     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.read_capacity_units = input;
-         self
-@@ -123,7 +120,6 @@
-         self.write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of write capacity units consumed by the operation.</p>
-     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.write_capacity_units = input;
-         self
-@@ -137,7 +133,6 @@
-         self.table = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The amount of throughput consumed on the table affected by the operation.</p>
-     pub fn set_table(mut self, input: ::std::option::Option<crate::types::Capacity>) -> Self {
-         self.table = input;
-         self
-@@ -146,18 +141,16 @@
+@@ -146,15 +146,14 @@
      pub fn get_table(&self) -> &::std::option::Option<crate::types::Capacity> {
          &self.table
      }
@@ -67372,11 +64410,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.local_secondary_indexes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
-     pub fn set_local_secondary_indexes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
-@@ -169,18 +162,16 @@
+     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
+@@ -169,15 +168,14 @@
      pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
          &self.local_secondary_indexes
      }
@@ -67395,11 +64430,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.global_secondary_indexes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
-     pub fn set_global_secondary_indexes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
-@@ -192,18 +183,16 @@
+     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
+@@ -192,15 +190,14 @@
      pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
          &self.global_secondary_indexes
      }
@@ -67418,10 +64450,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.vector_indexes = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
-     pub fn set_vector_indexes(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>,
+     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
 ```
 
 ### `src/types/_continuous_backups_description.rs`
@@ -67429,23 +64458,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_continuous_backups_description.rs
 +++ generated/src/types/_continuous_backups_description.rs
-@@ -40,7 +40,6 @@
-         self.continuous_backups_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
-     pub fn set_continuous_backups_status(mut self, input: ::std::option::Option<crate::types::ContinuousBackupsStatus>) -> Self {
-         self.continuous_backups_status = input;
-         self
-@@ -54,7 +53,6 @@
-         self.point_in_time_recovery_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The description of the point in time recovery settings applied to the table.</p>
-     pub fn set_point_in_time_recovery_description(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoveryDescription>) -> Self {
-         self.point_in_time_recovery_description = input;
-         self
-@@ -65,7 +63,7 @@
+@@ -65,7 +65,7 @@
      }
      /// Consumes the builder and constructs a [`ContinuousBackupsDescription`](crate::types::ContinuousBackupsDescription).
      /// This method will fail if any of the following fields are not set:
@@ -67456,59 +64469,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              continuous_backups_status: self.continuous_backups_status.ok_or_else(|| {
 ```
 
-### `src/types/_contributor_insights_summary.rs`
-
-```diff
---- reference/src/types/_contributor_insights_summary.rs
-+++ generated/src/types/_contributor_insights_summary.rs
-@@ -53,7 +53,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table associated with the summary.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -67,7 +66,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the index associated with the summary, if any.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -81,7 +79,6 @@
-         self.contributor_insights_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
-     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
-         self.contributor_insights_status = input;
-         self
-@@ -95,7 +92,6 @@
-         self.contributor_insights_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates the current mode of CloudWatch Contributor Insights, specifying whether it tracks all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
-         self.contributor_insights_mode = input;
-         self
-```
-
 ### `src/types/_create_global_secondary_index_action.rs`
 
 ```diff
 --- reference/src/types/_create_global_secondary_index_action.rs
 +++ generated/src/types/_create_global_secondary_index_action.rs
-@@ -72,7 +72,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index to be created.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -81,11 +80,10 @@
+@@ -81,11 +81,10 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -67521,15 +64487,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -92,7 +90,6 @@
-         self.key_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The key schema for the global secondary index. Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
-         self.key_schema = input;
-         self
-@@ -102,12 +99,10 @@
+@@ -102,7 +101,6 @@
          &self.key_schema
      }
      /// <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -67537,37 +64495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn projection(mut self, input: crate::types::Projection) -> Self {
          self.projection = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -122,8 +117,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
--    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -138,7 +131,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -152,7 +144,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput value (in read units per second and write units per second) when creating a secondary index.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -163,8 +154,8 @@
+@@ -163,8 +161,8 @@
      }
      /// Consumes the builder and constructs a [`CreateGlobalSecondaryIndexAction`](crate::types::CreateGlobalSecondaryIndexAction).
      /// This method will fail if any of the following fields are not set:
@@ -67615,7 +64543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn region_name(&self) -> &str {
          use std::ops::Deref;
          self.region_name.deref()
-@@ -44,48 +28,23 @@
+@@ -44,48 +28,24 @@
      pub(crate) region_name: ::std::option::Option<::std::string::String>,
  }
  impl CreateGlobalTableWitnessGroupMemberActionBuilder {
@@ -67643,6 +64571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li>
 -    /// </ul>
++    /// <p>The Amazon Web Services Region name to be added as a witness Region for the MRSC global table. The witness must be in a different Region than the replicas and within the same Region set:</p><ul><li><p>US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)</p></li><li><p>EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt)</p></li><li><p>AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka)</p></li></ul>
      pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.region_name = input;
          self
@@ -67674,15 +64603,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_create_replica_action.rs
 +++ generated/src/types/_create_replica_action.rs
-@@ -34,7 +34,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region of the replica to be added.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`CreateReplicaAction`](crate::types::CreateReplicaAction).
      /// This method will fail if any of the following fields are not set:
@@ -67707,39 +64628,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(&self) -> &[crate::types::ReplicaGlobalSecondaryIndex] {
          self.global_secondary_indexes.as_deref().unwrap_or_default()
      }
-@@ -71,7 +69,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region where the new replica will be created.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -85,7 +82,6 @@
-         self.kms_master_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_master_key_id = input;
-         self
-@@ -99,7 +95,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -113,7 +108,6 @@
-         self.on_demand_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
-     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
-         self.on_demand_throughput_override = input;
-         self
-@@ -122,11 +116,10 @@
+@@ -122,11 +120,10 @@
      pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
          &self.on_demand_throughput_override
      }
@@ -67752,23 +64641,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndex) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -133,7 +126,6 @@
-         self.global_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Replica-specific global secondary index settings.</p>
-     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>) -> Self {
-         self.global_secondary_indexes = input;
-         self
-@@ -147,7 +139,6 @@
-         self.table_class_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-     pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
-         self.table_class_override = input;
-         self
-@@ -158,7 +149,7 @@
+@@ -158,7 +155,7 @@
      }
      /// Consumes the builder and constructs a [`CreateReplicationGroupMemberAction`](crate::types::CreateReplicationGroupMemberAction).
      /// This method will fail if any of the following fields are not set:
@@ -67793,15 +64666,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
          self.search_schema.as_deref().unwrap_or_default()
      }
-@@ -71,7 +69,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector index. Must be unique within the table.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -81,12 +78,10 @@
+@@ -81,7 +79,6 @@
          &self.index_name
      }
      /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
@@ -67809,12 +64674,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_attribute(mut self, input: crate::types::VectorAttributeDefinition) -> Self {
          self.vector_attribute = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The attribute that contains vector embeddings. If multiple vector indexes reference the same attribute, they must all use the same number of dimensions.</p>
-     pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
-         self.vector_attribute = input;
-         self
-@@ -95,11 +90,10 @@
+@@ -95,11 +92,10 @@
      pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
          &self.vector_attribute
      }
@@ -67827,15 +64687,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
          let mut v = self.search_schema.unwrap_or_default();
          v.push(input);
-@@ -106,7 +100,6 @@
-         self.search_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The partition key and inline filter attribute definitions for the vector index.</p>
-     pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
-         self.search_schema = input;
-         self
-@@ -116,12 +109,10 @@
+@@ -116,7 +112,6 @@
          &self.search_schema
      }
      /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
@@ -67843,28 +64695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn projection(mut self, input: crate::types::Projection) -> Self {
          self.projection = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -136,7 +127,6 @@
-         self.dimensions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of dimensions in each vector.</p>
-     pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.dimensions = input;
-         self
-@@ -151,7 +141,6 @@
-         self.distance_function = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-     pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
-         self.distance_function = input;
-         self
-@@ -162,9 +151,9 @@
+@@ -162,9 +157,9 @@
      }
      /// Consumes the builder and constructs a [`CreateVectorIndexAction`](crate::types::CreateVectorIndexAction).
      /// This method will fail if any of the following fields are not set:
@@ -67893,15 +64724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn header_list(&self) -> &[::std::string::String] {
          self.header_list.as_deref().unwrap_or_default()
      }
-@@ -41,7 +39,6 @@
-         self.delimiter = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The delimiter used for separating items in the CSV file being imported.</p>
-     pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.delimiter = input;
-         self
-@@ -50,11 +47,10 @@
+@@ -50,11 +48,10 @@
      pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> {
          &self.delimiter
      }
@@ -67914,14 +64737,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn header_list(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.header_list.unwrap_or_default();
          v.push(input.into());
-@@ -61,7 +57,6 @@
-         self.header_list = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.</p>
-     pub fn set_header_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.header_list = input;
-         self
 ```
 
 ### `src/types/_delete.rs`
@@ -67929,7 +64744,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete.rs
 +++ generated/src/types/_delete.rs
-@@ -65,18 +65,16 @@
+@@ -65,15 +65,14 @@
      pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
  }
  impl DeleteBuilder {
@@ -67948,27 +64763,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -91,7 +89,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -105,7 +102,6 @@
-         self.condition_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
-     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.condition_expression = input;
-         self
-@@ -114,22 +110,20 @@
+     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
+@@ -114,19 +113,18 @@
      pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.condition_expression
      }
@@ -67991,11 +64787,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_names = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more substitution tokens for attribute names in an expression.</p>
-     pub fn set_expression_attribute_names(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -143,18 +137,16 @@
+     /// <p>One or more substitution tokens for attribute names in an expression.</p>
+@@ -143,15 +141,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.expression_attribute_names
      }
@@ -68014,19 +64807,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -173,7 +165,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Delete</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -187,8 +178,8 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -187,8 +184,8 @@
      }
      /// Consumes the builder and constructs a [`Delete`](crate::types::Delete).
      /// This method will fail if any of the following fields are not set:
@@ -68044,15 +64826,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_global_secondary_index_action.rs
 +++ generated/src/types/_delete_global_secondary_index_action.rs
-@@ -34,7 +34,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index to be deleted.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteGlobalSecondaryIndexAction`](crate::types::DeleteGlobalSecondaryIndexAction).
      /// This method will fail if any of the following fields are not set:
@@ -68068,15 +64842,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_global_table_witness_group_member_action.rs
 +++ generated/src/types/_delete_global_table_witness_group_member_action.rs
-@@ -34,7 +34,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The witness Region name to be removed from the MRSC global table.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteGlobalTableWitnessGroupMemberAction`](crate::types::DeleteGlobalTableWitnessGroupMemberAction).
      /// This method will fail if any of the following fields are not set:
@@ -68092,15 +64858,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_replica_action.rs
 +++ generated/src/types/_delete_replica_action.rs
-@@ -34,7 +34,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region of the replica to be removed.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteReplicaAction`](crate::types::DeleteReplicaAction).
      /// This method will fail if any of the following fields are not set:
@@ -68116,15 +64874,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_replication_group_member_action.rs
 +++ generated/src/types/_delete_replication_group_member_action.rs
-@@ -34,7 +34,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region where the replica exists.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteReplicationGroupMemberAction`](crate::types::DeleteReplicationGroupMemberAction).
      /// This method will fail if any of the following fields are not set:
@@ -68140,7 +64890,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_request.rs
 +++ generated/src/types/_delete_request.rs
-@@ -27,18 +27,16 @@
+@@ -27,15 +27,14 @@
      pub(crate) key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
  }
  impl DeleteRequestBuilder {
@@ -68159,11 +64909,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -49,7 +47,7 @@
+     /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
+@@ -49,7 +48,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteRequest`](crate::types::DeleteRequest).
      /// This method will fail if any of the following fields are not set:
@@ -68179,15 +64926,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_delete_vector_index_action.rs
 +++ generated/src/types/_delete_vector_index_action.rs
-@@ -34,7 +34,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector index to delete.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`DeleteVectorIndexAction`](crate::types::DeleteVectorIndexAction).
      /// This method will fail if any of the following fields are not set:
@@ -68198,43 +64937,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              index_name: self.index_name.ok_or_else(|| {
 ```
 
-### `src/types/_enable_kinesis_streaming_configuration.rs`
-
-```diff
---- reference/src/types/_enable_kinesis_streaming_configuration.rs
-+++ generated/src/types/_enable_kinesis_streaming_configuration.rs
-@@ -32,7 +32,6 @@
-         self.approximate_creation_date_time_precision = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
-     pub fn set_approximate_creation_date_time_precision(
-         mut self,
-         input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
-```
-
 ### `src/types/_endpoint.rs`
 
 ```diff
 --- reference/src/types/_endpoint.rs
 +++ generated/src/types/_endpoint.rs
-@@ -41,7 +41,6 @@
-         self.address = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>IP address of the endpoint.</p>
-     pub fn set_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.address = input;
-         self
-@@ -56,7 +55,6 @@
-         self.cache_period_in_minutes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Endpoint cache time to live (TTL) value.</p>
-     pub fn set_cache_period_in_minutes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.cache_period_in_minutes = input;
-         self
-@@ -67,7 +65,8 @@
+@@ -67,7 +67,8 @@
      }
      /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
      /// This method will fail if any of the following fields are not set:
@@ -68244,7 +64952,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::Endpoint, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::Endpoint {
              address: self.address.ok_or_else(|| {
-@@ -76,7 +75,12 @@
+@@ -76,7 +77,12 @@
                      "address was not specified but it is required when building Endpoint",
                  )
              })?,
@@ -68482,17 +65190,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_value_list(&self) -> &[crate::types::AttributeValue] {
          self.attribute_value_list.as_deref().unwrap_or_default()
      }
-@@ -214,9 +123,6 @@
-         self.value = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the data for the expected attribute.</p>
--    /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_value(mut self, input: ::std::option::Option<crate::types::AttributeValue>) -> Self {
-         self.value = input;
-         self
-@@ -227,59 +133,18 @@
+@@ -227,59 +136,20 @@
      pub fn get_value(&self) -> &::std::option::Option<crate::types::AttributeValue> {
          &self.value
      }
@@ -68532,6 +65230,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li>
 -    /// </ul>
++    /// <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li><li><p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li></ul><p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to <code>true</code>, because it is implied.</p>
++    /// <p>DynamoDB returns a <code>ValidationException</code> if:</p><ul><li><p><code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul>
      pub fn set_exists(mut self, input: ::std::option::Option<bool>) -> Self {
          self.exists = input;
          self
@@ -68556,7 +65256,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_exists(&self) -> &::std::option::Option<bool> {
          &self.exists
      }
-@@ -286,119 +151,35 @@
+@@ -286,59 +156,31 @@
      /// <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals, greater than, less than, etc.</p>
      /// <p>The following comparison operators are available:</p>
      /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
@@ -68630,55 +65330,66 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn comparison_operator(mut self, input: crate::types::ComparisonOperator) -> Self {
          self.comparison_operator = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals, greater than, less than, etc.</p>
--    /// <p>The following comparison operators are available:</p>
--    /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
+@@ -346,59 +188,31 @@
+     /// <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals, greater than, less than, etc.</p>
+     /// <p>The following comparison operators are available:</p>
+     /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
 -    /// <p>The following are descriptions of each comparison operator.</p>
 -    /// <ul>
 -    /// <li>
 -    /// <p><code>EQ</code> : Equal. <code>EQ</code> is supported for all data types, including lists and maps.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p>The following are descriptions of each comparison operator.</p><ul><li><p><code>EQ</code> : Equal. <code>EQ</code> is supported for all data types, including lists and maps.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>NE</code> : Not equal. <code>NE</code> is supported for all data types, including lists and maps.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>NE</code> : Not equal. <code>NE</code> is supported for all data types, including lists and maps.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>LE</code> : Less than or equal.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>LE</code> : Less than or equal.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>LT</code> : Less than.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>LT</code> : Less than.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>GE</code> : Greater than or equal.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>GE</code> : Greater than or equal.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>GT</code> : Greater than.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
++    /// <p></p></li><li><p><code>GT</code> : Greater than.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code>.</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>NOT_NULL</code> : The attribute exists. <code>NOT_NULL</code> is supported for all data types, including lists and maps.</p><note>
--    /// <p>This operator tests for the existence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NOT_NULL</code>, the result is a Boolean <code>true</code>. This result is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NOT_NULL</code> comparison operator.</p>
++    /// <p></p></li><li><p><code>NOT_NULL</code> : The attribute exists. <code>NOT_NULL</code> is supported for all data types, including lists and maps.</p><note>
+     /// <p>This operator tests for the existence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NOT_NULL</code>, the result is a Boolean <code>true</code>. This result is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NOT_NULL</code> comparison operator.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p><code>NULL</code> : The attribute does not exist. <code>NULL</code> is supported for all data types, including lists and maps.</p><note>
--    /// <p>This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NULL</code>, the result is a Boolean <code>false</code>. This is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NULL</code> comparison operator.</p>
++    /// </note></li><li><p><code>NULL</code> : The attribute does not exist. <code>NULL</code> is supported for all data types, including lists and maps.</p><note>
+     /// <p>This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NULL</code>, the result is a Boolean <code>false</code>. This is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NULL</code> comparison operator.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p><code>CONTAINS</code> : Checks for a subsequence, or value in a set.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it finds an exact match with any member of the set.</p>
++    /// </note></li><li><p><code>CONTAINS</code> : Checks for a subsequence, or value in a set.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it finds an exact match with any member of the set.</p>
 -    /// <p>CONTAINS is supported for lists: When evaluating "<code>a CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li>
 -    /// <li>
 -    /// <p><code>NOT_CONTAINS</code> : Checks for absence of a subsequence, or absence of a value in a set.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it <i>does not</i> find an exact match with any member of the set.</p>
++    /// <p>CONTAINS is supported for lists: When evaluating "<code>a CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li><li><p><code>NOT_CONTAINS</code> : Checks for absence of a subsequence, or absence of a value in a set.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it <i>does not</i> find an exact match with any member of the set.</p>
 -    /// <p>NOT_CONTAINS is supported for lists: When evaluating "<code>a NOT CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li>
 -    /// <li>
 -    /// <p><code>BEGINS_WITH</code> : Checks for a prefix.</p>
--    /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).</p>
++    /// <p>NOT_CONTAINS is supported for lists: When evaluating "<code>a NOT CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li><li><p><code>BEGINS_WITH</code> : Checks for a prefix.</p>
+     /// <p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).</p>
 -    /// <p></p></li>
 -    /// <li>
 -    /// <p><code>IN</code> : Checks for matching elements in a list.</p>
@@ -68687,10 +65398,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value.</p>
 -    /// <p><code>AttributeValueList</code> must contain two <code>AttributeValue</code> elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code></p></li>
 -    /// </ul>
++    /// <p></p></li><li><p><code>IN</code> : Checks for matching elements in a list.</p>
++    /// <p><code>AttributeValueList</code> can contain one or more <code>AttributeValue</code> elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.</p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value.</p>
++    /// <p><code>AttributeValueList</code> must contain two <code>AttributeValue</code> elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code></p></li></ul>
      pub fn set_comparison_operator(mut self, input: ::std::option::Option<crate::types::ComparisonOperator>) -> Self {
          self.comparison_operator = input;
          self
-@@ -406,71 +187,42 @@
+@@ -406,71 +220,42 @@
      /// <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals, greater than, less than, etc.</p>
      /// <p>The following comparison operators are available:</p>
      /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
@@ -68779,18 +65493,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_value_list(mut self, input: crate::types::AttributeValue) -> Self {
          let mut v = self.attribute_value_list.unwrap_or_default();
          v.push(input);
-@@ -477,11 +229,6 @@
-         self.attribute_value_list = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>One or more values to evaluate against the supplied attribute. The number of values in the list depends on the <code>ComparisonOperator</code> being used.</p>
--    /// <p>For type Number, value comparisons are numeric.</p>
--    /// <p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>a</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
--    /// <p>For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p>
--    /// <p>For information on specifying data types in JSON, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-         self.attribute_value_list = input;
-         self
 ```
 
 ### `src/types/_export_description.rs`
@@ -68828,103 +65530,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn s3_sse_algorithm(&self) -> ::std::option::Option<&crate::types::S3SseAlgorithm> {
          self.s3_sse_algorithm.as_ref()
      }
-@@ -184,7 +172,6 @@
-         self.export_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the table export.</p>
-     pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.export_arn = input;
-         self
-@@ -198,7 +185,6 @@
-         self.export_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-     pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
-         self.export_status = input;
-         self
-@@ -212,7 +198,6 @@
-         self.start_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time at which the export task began.</p>
-     pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.start_time = input;
-         self
-@@ -226,7 +211,6 @@
-         self.end_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time at which the export task completed.</p>
-     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.end_time = input;
-         self
-@@ -240,7 +224,6 @@
-         self.export_manifest = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the manifest file for the export task.</p>
-     pub fn set_export_manifest(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.export_manifest = input;
-         self
-@@ -254,7 +237,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -268,7 +250,6 @@
-         self.table_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique ID of the table that was exported.</p>
-     pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_id = input;
-         self
-@@ -282,7 +263,6 @@
-         self.export_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Point in time from which table data was exported.</p>
-     pub fn set_export_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.export_time = input;
-         self
-@@ -296,7 +276,6 @@
-         self.client_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The client token that was provided for the export task. A client token makes calls to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
-     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.client_token = input;
-         self
-@@ -310,7 +289,6 @@
-         self.s3_bucket = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Amazon S3 bucket containing the export.</p>
-     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket = input;
-         self
-@@ -324,7 +302,6 @@
-         self.s3_bucket_owner = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ID of the Amazon Web Services account that owns the bucket containing the export.</p>
-     pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket_owner = input;
-         self
-@@ -338,7 +315,6 @@
-         self.s3_prefix = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.</p>
-     pub fn set_s3_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_prefix = input;
-         self
-@@ -347,35 +323,16 @@
+@@ -347,35 +335,17 @@
      pub fn get_s3_prefix(&self) -> &::std::option::Option<::std::string::String> {
          &self.s3_prefix
      }
@@ -68947,6 +65553,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>KMS</code> - server-side encryption with KMS managed keys</p></li>
 -    /// </ul>
++    /// <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with KMS managed keys</p></li></ul>
      pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self {
          self.s3_sse_algorithm = input;
          self
@@ -68962,124 +65569,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<crate::types::S3SseAlgorithm> {
          &self.s3_sse_algorithm
      }
-@@ -384,7 +341,6 @@
-         self.s3_sse_kms_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
-     pub fn set_s3_sse_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_sse_kms_key_id = input;
-         self
-@@ -398,7 +354,6 @@
-         self.failure_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Status code for the result of the failed export.</p>
-     pub fn set_failure_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.failure_code = input;
-         self
-@@ -412,7 +367,6 @@
-         self.failure_message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Export failure reason description.</p>
-     pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.failure_message = input;
-         self
-@@ -426,7 +380,6 @@
-         self.export_format = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-     pub fn set_export_format(mut self, input: ::std::option::Option<crate::types::ExportFormat>) -> Self {
-         self.export_format = input;
-         self
-@@ -440,7 +393,6 @@
-         self.billed_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The billable size of the table export.</p>
-     pub fn set_billed_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.billed_size_bytes = input;
-         self
-@@ -454,7 +406,6 @@
-         self.item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items exported.</p>
-     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.item_count = input;
-         self
-@@ -468,7 +419,6 @@
-         self.export_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-     pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
-         self.export_type = input;
-         self
-@@ -482,7 +432,6 @@
-         self.incremental_export_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Optional object containing the parameters specific to an incremental export.</p>
-     pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<crate::types::IncrementalExportSpecification>) -> Self {
-         self.incremental_export_specification = input;
-         self
-```
-
-### `src/types/_export_summary.rs`
-
-```diff
---- reference/src/types/_export_summary.rs
-+++ generated/src/types/_export_summary.rs
-@@ -46,7 +46,6 @@
-         self.export_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the export.</p>
-     pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.export_arn = input;
-         self
-@@ -60,7 +59,6 @@
-         self.export_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-     pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
-         self.export_status = input;
-         self
-@@ -74,7 +72,6 @@
-         self.export_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-     pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
-         self.export_type = input;
-         self
-```
-
-### `src/types/_failure_exception.rs`
-
-```diff
---- reference/src/types/_failure_exception.rs
-+++ generated/src/types/_failure_exception.rs
-@@ -39,7 +39,6 @@
-         self.exception_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Exception name.</p>
-     pub fn set_exception_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.exception_name = input;
-         self
-@@ -53,7 +52,6 @@
-         self.exception_description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Description of the failure.</p>
-     pub fn set_exception_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.exception_description = input;
-         self
 ```
 
 ### `src/types/_get.rs`
@@ -69087,7 +65576,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_get.rs
 +++ generated/src/types/_get.rs
-@@ -49,18 +49,16 @@
+@@ -49,15 +49,14 @@
      pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
  }
  impl GetBuilder {
@@ -69106,27 +65595,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -75,7 +73,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table from which to retrieve the specified item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -89,7 +86,6 @@
-         self.projection_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.</p>
-     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.projection_expression = input;
-         self
-@@ -98,22 +94,20 @@
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
+@@ -98,19 +97,18 @@
      pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.projection_expression
      }
@@ -69149,11 +65619,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_names = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>
-     pub fn set_expression_attribute_names(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -129,8 +123,8 @@
+     /// <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>
+@@ -129,8 +127,8 @@
      }
      /// Consumes the builder and constructs a [`Get`](crate::types::Get).
      /// This method will fail if any of the following fields are not set:
@@ -69201,15 +65668,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -90,7 +78,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -99,20 +86,13 @@
+@@ -99,20 +87,13 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -69234,7 +65693,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -119,27 +99,11 @@
+@@ -119,13 +100,7 @@
          self.key_schema = ::std::option::Option::Some(v);
          self
      }
@@ -69245,10 +65704,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
++    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
+@@ -133,13 +108,7 @@
          self.key_schema = input;
          self
      }
@@ -69263,7 +65723,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -147,12 +111,10 @@
+@@ -147,7 +116,6 @@
          &self.key_schema
      }
      /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -69271,37 +65731,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn projection(mut self, input: crate::types::Projection) -> Self {
          self.projection = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -167,8 +129,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the provisioned throughput settings for the specified global secondary index. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
--    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -183,7 +143,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -197,7 +156,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -208,8 +166,8 @@
+@@ -208,8 +176,8 @@
      }
      /// Consumes the builder and constructs a [`GlobalSecondaryIndex`](crate::types::GlobalSecondaryIndex).
      /// This method will fail if any of the following fields are not set:
@@ -69335,15 +65765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn provisioned_write_capacity_auto_scaling_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
          self.provisioned_write_capacity_auto_scaling_update.as_ref()
      }
-@@ -39,7 +37,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -48,12 +45,10 @@
+@@ -48,12 +46,10 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -69356,7 +65778,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_provisioned_write_capacity_auto_scaling_update(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -61,7 +56,6 @@
+@@ -61,7 +57,6 @@
          self.provisioned_write_capacity_auto_scaling_update = input;
          self
      }
@@ -69444,15 +65866,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
          self.index_status.as_ref()
      }
-@@ -150,7 +116,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -159,20 +124,13 @@
+@@ -159,20 +125,13 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -69477,7 +65891,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -179,27 +137,11 @@
+@@ -179,13 +138,7 @@
          self.key_schema = ::std::option::Option::Some(v);
          self
      }
@@ -69488,10 +65902,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
++    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
+@@ -193,13 +146,7 @@
          self.key_schema = input;
          self
      }
@@ -69506,15 +65921,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -211,7 +153,6 @@
-         self.projection = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -220,47 +161,16 @@
+@@ -220,47 +167,17 @@
      pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
          &self.projection
      }
@@ -69545,6 +65952,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current state of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
      pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
          self.index_status = input;
          self
@@ -69564,66 +65972,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
          &self.index_status
      }
-@@ -272,10 +182,6 @@
-         self.backfilling = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and <code>Backfilling</code> is false.</p>
--    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false.</p><note>
--    /// <p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p>
--    /// </note>
-     pub fn set_backfilling(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.backfilling = input;
-         self
-@@ -293,8 +199,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
--    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputDescription>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -309,7 +213,6 @@
-         self.index_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.index_size_bytes = input;
-         self
-@@ -323,7 +226,6 @@
-         self.item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.item_count = input;
-         self
-@@ -337,7 +239,6 @@
-         self.index_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
-     pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_arn = input;
-         self
-@@ -351,7 +252,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -365,7 +265,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self {
-         self.warm_throughput = input;
-         self
 ```
 
 ### `src/types/_global_secondary_index_info.rs`
@@ -69682,22 +66030,35 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn on_demand_throughput(&self) -> ::std::option::Option<&crate::types::OnDemandThroughput> {
          self.on_demand_throughput.as_ref()
      }
-@@ -80,7 +64,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -89,20 +72,13 @@
+@@ -89,20 +73,13 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
--    /// Appends an item to `key_schema`.
++    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
++    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
++    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
++    /// </note>
+     /// Appends an item to `key_schema`.
+     ///
+     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
 -    ///
--    /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
--    ///
+-    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
+-    /// <ul>
+-    /// <li>
+-    /// <p><code>HASH</code> - partition key</p></li>
+-    /// <li>
+-    /// <p><code>RANGE</code> - sort key</p></li>
+-    /// </ul><note>
+-    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+-    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+-    /// </note>
+     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
+         let mut v = self.key_schema.unwrap_or_default();
+         v.push(input);
+@@ -109,13 +86,7 @@
+         self.key_schema = ::std::option::Option::Some(v);
+         self
+     }
 -    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
 -    /// <ul>
 -    /// <li>
@@ -69709,27 +66070,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-+    /// Appends an item to `key_schema`.
-+    ///
-+    /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
-     pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
-         let mut v = self.key_schema.unwrap_or_default();
-         v.push(input);
-@@ -109,27 +85,11 @@
-         self.key_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p>
--    /// <ul>
--    /// <li>
--    /// <p><code>HASH</code> - partition key</p></li>
--    /// <li>
--    /// <p><code>RANGE</code> - sort key</p></li>
--    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+@@ -123,13 +94,7 @@
          self.key_schema = input;
          self
      }
@@ -69744,23 +66085,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -141,7 +101,6 @@
-         self.projection = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -155,7 +114,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -164,17 +122,14 @@
+@@ -164,17 +129,14 @@
      pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
          &self.provisioned_throughput
      }
@@ -69841,15 +66166,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn create(&self) -> ::std::option::Option<&crate::types::CreateGlobalSecondaryIndexAction> {
          self.create.as_ref()
      }
-@@ -78,7 +46,6 @@
-         self.update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.</p>
-     pub fn set_update(mut self, input: ::std::option::Option<crate::types::UpdateGlobalSecondaryIndexAction>) -> Self {
-         self.update = input;
-         self
-@@ -87,53 +54,16 @@
+@@ -87,53 +55,17 @@
      pub fn get_update(&self) -> &::std::option::Option<crate::types::UpdateGlobalSecondaryIndexAction> {
          &self.update
      }
@@ -69884,6 +66201,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ProvisionedThroughput </code></p></li>
 -    /// </ul>
++    /// <p>The parameters required for creating a global secondary index on an existing table:</p><ul><li><p><code>IndexName</code></p></li><li><p><code>KeySchema</code></p></li><li><p><code>AttributeDefinitions</code></p></li><li><p><code>Projection</code></p></li><li><p><code>ProvisionedThroughput</code></p></li></ul>
      pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateGlobalSecondaryIndexAction>) -> Self {
          self.create = input;
          self
@@ -69905,45 +66223,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateGlobalSecondaryIndexAction> {
          &self.create
      }
-@@ -142,7 +72,6 @@
-         self.delete = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The name of an existing global secondary index to be removed.</p>
-     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteGlobalSecondaryIndexAction>) -> Self {
-         self.delete = input;
-         self
-```
-
-### `src/types/_global_secondary_index_warm_throughput_description.rs`
-
-```diff
---- reference/src/types/_global_secondary_index_warm_throughput_description.rs
-+++ generated/src/types/_global_secondary_index_warm_throughput_description.rs
-@@ -46,7 +46,6 @@
-         self.read_units_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents warm throughput read units per second value for a global secondary index.</p>
-     pub fn set_read_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.read_units_per_second = input;
-         self
-@@ -60,7 +59,6 @@
-         self.write_units_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents warm throughput write units per second value for a global secondary index.</p>
-     pub fn set_write_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.write_units_per_second = input;
-         self
-@@ -74,7 +72,6 @@
-         self.status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
-     pub fn set_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
-         self.status = input;
-         self
 ```
 
 ### `src/types/_global_table.rs`
@@ -69960,15 +66239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replication_group(&self) -> &[crate::types::Replica] {
          self.replication_group.as_deref().unwrap_or_default()
      }
-@@ -41,7 +39,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The global table name.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
-@@ -50,11 +47,10 @@
+@@ -50,11 +48,10 @@
      pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_name
      }
@@ -69981,14 +66252,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replication_group(mut self, input: crate::types::Replica) -> Self {
          let mut v = self.replication_group.unwrap_or_default();
          v.push(input);
-@@ -61,7 +57,6 @@
-         self.replication_group = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Regions where the global table has replicas.</p>
-     pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Replica>>) -> Self {
-         self.replication_group = input;
-         self
 ```
 
 ### `src/types/_global_table_description.rs`
@@ -70056,31 +66319,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replication_group(mut self, input: crate::types::ReplicaDescription) -> Self {
          let mut v = self.replication_group.unwrap_or_default();
          v.push(input);
-@@ -88,7 +65,6 @@
-         self.replication_group = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Regions where the global table has replicas.</p>
-     pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>>) -> Self {
-         self.replication_group = input;
-         self
-@@ -102,7 +78,6 @@
-         self.global_table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The unique identifier of the global table.</p>
-     pub fn set_global_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_arn = input;
-         self
-@@ -116,7 +91,6 @@
-         self.creation_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The creation time of the global table.</p>
-     pub fn set_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.creation_date_time = input;
-         self
-@@ -125,47 +99,16 @@
+@@ -125,47 +102,17 @@
      pub fn get_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.creation_date_time
      }
@@ -70111,6 +66350,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The global table is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current state of the global table:</p><ul><li><p><code>CREATING</code> - The global table is being created.</p></li><li><p><code>UPDATING</code> - The global table is being updated.</p></li><li><p><code>DELETING</code> - The global table is being deleted.</p></li><li><p><code>ACTIVE</code> - The global table is ready for use.</p></li></ul>
      pub fn set_global_table_status(mut self, input: ::std::option::Option<crate::types::GlobalTableStatus>) -> Self {
          self.global_table_status = input;
          self
@@ -70130,14 +66370,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_global_table_status(&self) -> &::std::option::Option<crate::types::GlobalTableStatus> {
          &self.global_table_status
      }
-@@ -174,7 +117,6 @@
-         self.global_table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The global table name.</p>
-     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_name = input;
-         self
 ```
 
 ### `src/types/_global_table_global_secondary_index_settings_update.rs`
@@ -70145,31 +66377,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_global_table_global_secondary_index_settings_update.rs
 +++ generated/src/types/_global_table_global_secondary_index_settings_update.rs
-@@ -48,7 +48,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -62,7 +61,6 @@
-         self.provisioned_write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
-     pub fn set_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.provisioned_write_capacity_units = input;
-         self
-@@ -76,7 +74,6 @@
-         self.provisioned_write_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
-     pub fn set_provisioned_write_capacity_auto_scaling_settings_update(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -90,7 +87,7 @@
+@@ -90,7 +90,7 @@
      }
      /// Consumes the builder and constructs a [`GlobalTableGlobalSecondaryIndexSettingsUpdate`](crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate).
      /// This method will fail if any of the following fields are not set:
@@ -70178,29 +66386,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(
          self,
      ) -> ::std::result::Result<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
-```
-
-### `src/types/_global_table_witness_description.rs`
-
-```diff
---- reference/src/types/_global_table_witness_description.rs
-+++ generated/src/types/_global_table_witness_description.rs
-@@ -39,7 +39,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -53,7 +52,6 @@
-         self.witness_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of the witness Region in the MRSC global table.</p>
-     pub fn set_witness_status(mut self, input: ::std::option::Option<crate::types::WitnessStatus>) -> Self {
-         self.witness_status = input;
-         self
 ```
 
 ### `src/types/_global_table_witness_group_update.rs`
@@ -70223,93 +66408,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct GlobalTableWitnessGroupUpdate {
-@@ -46,7 +39,6 @@
-         self.create = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
-     pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction>) -> Self {
-         self.create = input;
-         self
-@@ -60,7 +52,6 @@
-         self.delete = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
-     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction>) -> Self {
-         self.delete = input;
-         self
-```
-
-### `src/types/_import_summary.rs`
-
-```diff
---- reference/src/types/_import_summary.rs
-+++ generated/src/types/_import_summary.rs
-@@ -81,7 +81,6 @@
-         self.import_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Number (ARN) corresponding to the import request.</p>
-     pub fn set_import_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.import_arn = input;
-         self
-@@ -95,7 +94,6 @@
-         self.import_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The status of the import operation.</p>
-     pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
-         self.import_status = input;
-         self
-@@ -109,7 +107,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Number (ARN) of the table being imported into.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -123,7 +120,6 @@
-         self.s3_bucket_source = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The path and S3 bucket of the source file that is being imported. This includes the S3Bucket (required), S3KeyPrefix (optional) and S3BucketOwner (optional if the bucket is owned by the requester).</p>
-     pub fn set_s3_bucket_source(mut self, input: ::std::option::Option<crate::types::S3BucketSource>) -> Self {
-         self.s3_bucket_source = input;
-         self
-@@ -137,7 +133,6 @@
-         self.cloud_watch_log_group_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this import task.</p>
-     pub fn set_cloud_watch_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_watch_log_group_arn = input;
-         self
-@@ -151,7 +146,6 @@
-         self.input_format = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format of the source data. Valid values are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-     pub fn set_input_format(mut self, input: ::std::option::Option<crate::types::InputFormat>) -> Self {
-         self.input_format = input;
-         self
-@@ -165,7 +159,6 @@
-         self.start_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time at which this import task began.</p>
-     pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.start_time = input;
-         self
-@@ -179,7 +172,6 @@
-         self.end_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time at which this import task ended.</p>
-     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.end_time = input;
-         self
 ```
 
 ### `src/types/_import_table_description.rs`
@@ -70361,159 +66459,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.imported_item_count
      }
      /// <p>The error code corresponding to the failure that the import job ran into during execution.</p>
-@@ -158,7 +158,6 @@
-         self.import_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Number (ARN) corresponding to the import request.</p>
-     pub fn set_import_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.import_arn = input;
-         self
-@@ -172,7 +171,6 @@
-         self.import_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The status of the import.</p>
-     pub fn set_import_status(mut self, input: ::std::option::Option<crate::types::ImportStatus>) -> Self {
-         self.import_status = input;
-         self
-@@ -186,7 +184,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Number (ARN) of the table being imported into.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -200,7 +197,6 @@
-         self.table_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The table id corresponding to the table created by import table process.</p>
-     pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_id = input;
-         self
-@@ -214,7 +210,6 @@
-         self.client_token = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The client token that was provided for the import task. Reusing the client token on retry makes a call to <code>ImportTable</code> idempotent.</p>
-     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.client_token = input;
-         self
-@@ -228,7 +223,6 @@
-         self.s3_bucket_source = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Values for the S3 bucket the source file is imported from. Includes bucket name (required), key prefix (optional) and bucket account owner ID (optional).</p>
-     pub fn set_s3_bucket_source(mut self, input: ::std::option::Option<crate::types::S3BucketSource>) -> Self {
-         self.s3_bucket_source = input;
-         self
-@@ -242,7 +236,6 @@
-         self.error_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of errors occurred on importing the source file into the target table.</p>
-     pub fn set_error_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.error_count = input;
-         self
-@@ -256,7 +249,6 @@
-         self.cloud_watch_log_group_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the target table.</p>
-     pub fn set_cloud_watch_log_group_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.cloud_watch_log_group_arn = input;
-         self
-@@ -270,7 +262,6 @@
-         self.input_format = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format of the source data going into the target table.</p>
-     pub fn set_input_format(mut self, input: ::std::option::Option<crate::types::InputFormat>) -> Self {
-         self.input_format = input;
-         self
-@@ -284,7 +275,6 @@
-         self.input_format_options = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The format options for the data that was imported into the target table. There is one value, CsvOption.</p>
-     pub fn set_input_format_options(mut self, input: ::std::option::Option<crate::types::InputFormatOptions>) -> Self {
-         self.input_format_options = input;
-         self
-@@ -298,7 +288,6 @@
-         self.input_compression_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The compression options for the data that has been imported into the target table. The values are NONE, GZIP, or ZSTD.</p>
-     pub fn set_input_compression_type(mut self, input: ::std::option::Option<crate::types::InputCompressionType>) -> Self {
-         self.input_compression_type = input;
-         self
-@@ -312,7 +301,6 @@
-         self.table_creation_parameters = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The parameters for the new table that is being imported into.</p>
-     pub fn set_table_creation_parameters(mut self, input: ::std::option::Option<crate::types::TableCreationParameters>) -> Self {
-         self.table_creation_parameters = input;
-         self
-@@ -326,7 +314,6 @@
-         self.start_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time when this import task started.</p>
-     pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.start_time = input;
-         self
-@@ -340,7 +327,6 @@
-         self.end_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time at which the creation of the table associated with this import task completed.</p>
-     pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.end_time = input;
-         self
-@@ -354,7 +340,6 @@
-         self.processed_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total size of data processed from the source file, in Bytes.</p>
-     pub fn set_processed_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.processed_size_bytes = input;
-         self
-@@ -368,7 +353,6 @@
-         self.processed_item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total number of items processed from the source file.</p>
-     pub fn set_processed_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.processed_item_count = input;
-         self
-@@ -382,7 +366,6 @@
-         self.imported_item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items successfully imported into the new table.</p>
-     pub fn set_imported_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.imported_item_count = input;
-         self
-@@ -396,7 +379,6 @@
-         self.failure_code = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error code corresponding to the failure that the import job ran into during execution.</p>
-     pub fn set_failure_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.failure_code = input;
-         self
-@@ -410,7 +392,6 @@
-         self.failure_message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The error message corresponding to the failure that the import job ran into during execution.</p>
-     pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.failure_message = input;
-         self
-@@ -428,7 +409,7 @@
+@@ -428,7 +428,7 @@
              table_id: self.table_id,
              client_token: self.client_token,
              s3_bucket_source: self.s3_bucket_source,
@@ -70522,7 +66468,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              cloud_watch_log_group_arn: self.cloud_watch_log_group_arn,
              input_format: self.input_format,
              input_format_options: self.input_format_options,
-@@ -437,8 +418,8 @@
+@@ -437,8 +437,8 @@
              start_time: self.start_time,
              end_time: self.end_time,
              processed_size_bytes: self.processed_size_bytes,
@@ -70533,53 +66479,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              failure_code: self.failure_code,
              failure_message: self.failure_message,
          }
-```
-
-### `src/types/_incremental_export_specification.rs`
-
-```diff
---- reference/src/types/_incremental_export_specification.rs
-+++ generated/src/types/_incremental_export_specification.rs
-@@ -48,7 +48,6 @@
-         self.export_from_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>
-     pub fn set_export_from_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.export_from_time = input;
-         self
-@@ -62,7 +61,6 @@
-         self.export_to_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>
-     pub fn set_export_to_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.export_to_time = input;
-         self
-@@ -77,8 +75,6 @@
-         self.export_view_type = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>
--    /// <p><code>NEW_AND_OLD_IMAGES</code> exports both the new and old images of each changed item, while <code>NEW_IMAGES</code> exports only the new (latest) image. The view type you choose determines the structure of each item in the output for <code>insert</code>, <code>update</code>, and <code>delete</code> operations. For details and examples of how each view type shapes the export output, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html">DynamoDB table export output format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_export_view_type(mut self, input: ::std::option::Option<crate::types::ExportViewType>) -> Self {
-         self.export_view_type = input;
-         self
-```
-
-### `src/types/_input_format_options.rs`
-
-```diff
---- reference/src/types/_input_format_options.rs
-+++ generated/src/types/_input_format_options.rs
-@@ -32,7 +32,6 @@
-         self.csv = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The options for imported source files in CSV format. The values are Delimiter and HeaderList.</p>
-     pub fn set_csv(mut self, input: ::std::option::Option<crate::types::CsvOptions>) -> Self {
-         self.csv = input;
-         self
 ```
 
 ### `src/types/_item_collection_metrics.rs`
@@ -70596,7 +66495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn size_estimate_range_gb(&self) -> &[f64] {
          self.size_estimate_range_gb.as_deref().unwrap_or_default()
      }
-@@ -38,18 +36,16 @@
+@@ -38,15 +36,14 @@
      pub(crate) size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<f64>>,
  }
  impl ItemCollectionMetricsBuilder {
@@ -70615,11 +66514,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item_collection_key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
-     pub fn set_item_collection_key(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -63,12 +59,11 @@
+     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
+@@ -63,12 +60,11 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
          &self.item_collection_key
      }
@@ -70634,15 +66530,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn size_estimate_range_gb(mut self, input: f64) -> Self {
          let mut v = self.size_estimate_range_gb.unwrap_or_default();
          v.push(input);
-@@ -75,8 +70,6 @@
-         self.size_estimate_range_gb = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
--    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
-     pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<::std::vec::Vec<f64>>) -> Self {
-         self.size_estimate_range_gb = input;
-         self
 ```
 
 ### `src/types/_item_response.rs`
@@ -70650,7 +66537,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_item_response.rs
 +++ generated/src/types/_item_response.rs
-@@ -27,18 +27,16 @@
+@@ -27,15 +27,14 @@
      pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
  }
  impl ItemResponseBuilder {
@@ -70669,10 +66556,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Map of attribute data consisting of the data type and attribute value.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+     /// <p>Map of attribute data consisting of the data type and attribute value.</p>
 ```
 
 ### `src/types/_key_schema_element.rs`
@@ -70710,15 +66594,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -61,7 +49,6 @@
-         self.attribute_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of a key attribute.</p>
-     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.attribute_name = input;
-         self
-@@ -70,13 +57,7 @@
+@@ -70,13 +58,7 @@
      pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.attribute_name
      }
@@ -70733,7 +66609,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -85,27 +66,11 @@
+@@ -85,13 +67,7 @@
          self.key_type = ::std::option::Option::Some(input);
          self
      }
@@ -70744,10 +66620,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_type(mut self, input: ::std::option::Option<crate::types::KeyType>) -> Self {
++    /// <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
+@@ -99,13 +75,7 @@
          self.key_type = input;
          self
      }
@@ -70762,7 +66639,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -114,8 +79,8 @@
+@@ -114,8 +84,8 @@
      }
      /// Consumes the builder and constructs a [`KeySchemaElement`](crate::types::KeySchemaElement).
      /// This method will fail if any of the following fields are not set:
@@ -70874,15 +66751,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn keys(mut self, input: ::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>) -> Self {
          let mut v = self.keys.unwrap_or_default();
          v.push(input);
-@@ -126,7 +75,6 @@
-         self.keys = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The primary key attribute values that define the items and the attributes associated with the items.</p>
-     pub fn set_keys(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
-@@ -140,11 +88,10 @@
+@@ -140,11 +89,10 @@
      ) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>> {
          &self.keys
      }
@@ -70895,33 +66764,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.attributes_to_get.unwrap_or_default();
          v.push(input.into());
-@@ -151,7 +98,6 @@
-         self.attributes_to_get = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.attributes_to_get = input;
-         self
-@@ -165,7 +111,6 @@
-         self.consistent_read = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
-     pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.consistent_read = input;
-         self
-@@ -181,9 +126,6 @@
-         self.projection_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the <code>ProjectionExpression</code> must be separated by commas.</p>
--    /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
--    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.projection_expression = input;
-         self
-@@ -194,74 +136,22 @@
+@@ -194,74 +142,25 @@
      pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.projection_expression
      }
@@ -70996,13 +66839,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>#P = :val</code></p></li>
 -    /// </ul><note>
--    /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
++    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
+     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
 -    /// </note>
 -    /// <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_expression_attribute_names(
          mut self,
          input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -269,33 +159,9 @@
+@@ -269,33 +168,9 @@
          self.expression_attribute_names = input;
          self
      }
@@ -71038,7 +66883,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_expression_attribute_names(
          &self,
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
-@@ -303,7 +169,7 @@
+@@ -303,7 +178,7 @@
      }
      /// Consumes the builder and constructs a [`KeysAndAttributes`](crate::types::KeysAndAttributes).
      /// This method will fail if any of the following fields are not set:
@@ -71047,45 +66892,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::KeysAndAttributes, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::KeysAndAttributes {
              keys: self.keys.ok_or_else(|| {
-```
-
-### `src/types/_kinesis_data_stream_destination.rs`
-
-```diff
---- reference/src/types/_kinesis_data_stream_destination.rs
-+++ generated/src/types/_kinesis_data_stream_destination.rs
-@@ -53,7 +53,6 @@
-         self.stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN for a specific Kinesis data stream.</p>
-     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.stream_arn = input;
-         self
-@@ -67,7 +66,6 @@
-         self.destination_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current status of replication.</p>
-     pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
-         self.destination_status = input;
-         self
-@@ -81,7 +79,6 @@
-         self.destination_status_description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The human-readable string that corresponds to the replica status.</p>
-     pub fn set_destination_status_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.destination_status_description = input;
-         self
-@@ -95,7 +92,6 @@
-         self.approximate_creation_date_time_precision = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
-     pub fn set_approximate_creation_date_time_precision(
-         mut self,
-         input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
 ```
 
 ### `src/types/_local_secondary_index.rs`
@@ -71123,15 +66929,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -67,7 +55,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the local secondary index. The name must be unique among all other indexes on this table.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -76,20 +63,13 @@
+@@ -76,20 +64,13 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -71156,7 +66954,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -96,27 +76,11 @@
+@@ -96,13 +77,7 @@
          self.key_schema = ::std::option::Option::Some(v);
          self
      }
@@ -71167,10 +66965,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
++    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
+@@ -110,13 +85,7 @@
          self.key_schema = input;
          self
      }
@@ -71185,7 +66984,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -124,12 +88,10 @@
+@@ -124,7 +93,6 @@
          &self.key_schema
      }
      /// <p>Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -71193,12 +66992,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn projection(mut self, input: crate::types::Projection) -> Self {
          self.projection = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -140,8 +102,8 @@
+@@ -140,8 +108,8 @@
      }
      /// Consumes the builder and constructs a [`LocalSecondaryIndex`](crate::types::LocalSecondaryIndex).
      /// This method will fail if any of the following fields are not set:
@@ -71251,25 +67045,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
          self.key_schema.as_deref().unwrap_or_default()
      }
-@@ -87,7 +73,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Represents the name of the local secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -96,20 +81,13 @@
+@@ -96,20 +82,13 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
-+    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
-+    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
-+    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
-+    /// </note>
-     /// Appends an item to `key_schema`.
-     ///
-     /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
+-    /// Appends an item to `key_schema`.
+-    ///
+-    /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
 -    ///
 -    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p>
 -    /// <ul>
@@ -71278,13 +67060,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
++    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
++    /// Appends an item to `key_schema`.
++    ///
++    /// To override the contents of this collection use [`set_key_schema`](Self::set_key_schema).
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -116,27 +94,11 @@
+@@ -116,13 +95,7 @@
          self.key_schema = ::std::option::Option::Some(v);
          self
      }
@@ -71295,10 +67081,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
++    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
+@@ -130,13 +103,7 @@
          self.key_schema = input;
          self
      }
@@ -71313,38 +67100,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -148,7 +110,6 @@
-         self.projection = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -162,7 +123,6 @@
-         self.index_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.index_size_bytes = input;
-         self
-@@ -176,7 +136,6 @@
-         self.item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.item_count = input;
-         self
-@@ -190,7 +149,6 @@
-         self.index_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
-     pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_arn = input;
-         self
 ```
 
 ### `src/types/_local_secondary_index_info.rs`
@@ -71387,15 +67142,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
          self.key_schema.as_deref().unwrap_or_default()
      }
-@@ -66,7 +52,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Represents the name of the local secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -75,20 +60,13 @@
+@@ -75,20 +61,13 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -71420,7 +67167,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -95,27 +73,11 @@
+@@ -95,13 +74,7 @@
          self.key_schema = ::std::option::Option::Some(v);
          self
      }
@@ -71431,10 +67178,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
--    /// </note>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
++    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+     /// </note>
+@@ -109,13 +82,7 @@
          self.key_schema = input;
          self
      }
@@ -71449,54 +67197,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
      /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
      /// </note>
-@@ -127,7 +89,6 @@
-         self.projection = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-```
-
-### `src/types/_on_demand_throughput.rs`
-
-```diff
---- reference/src/types/_on_demand_throughput.rs
-+++ generated/src/types/_on_demand_throughput.rs
-@@ -44,8 +44,6 @@
-         self.max_read_request_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of read request units for the specified table.</p>
--    /// <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxReadRequestUnits</code> to -1.</p>
-     pub fn set_max_read_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.max_read_request_units = input;
-         self
-@@ -61,8 +59,6 @@
-         self.max_write_request_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of write request units for the specified table.</p>
--    /// <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxWriteRequestUnits</code> to -1.</p>
-     pub fn set_max_write_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.max_write_request_units = input;
-         self
-```
-
-### `src/types/_on_demand_throughput_override.rs`
-
-```diff
---- reference/src/types/_on_demand_throughput_override.rs
-+++ generated/src/types/_on_demand_throughput_override.rs
-@@ -32,7 +32,6 @@
-         self.max_read_request_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Maximum number of read request units for the specified replica table.</p>
-     pub fn set_max_read_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.max_read_request_units = input;
-         self
 ```
 
 ### `src/types/_parameterized_statement.rs`
@@ -71513,15 +67213,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn parameters(&self) -> &[crate::types::AttributeValue] {
          self.parameters.as_deref().unwrap_or_default()
      }
-@@ -52,7 +50,6 @@
-         self.statement = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A PartiQL statement that uses parameters.</p>
-     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.statement = input;
-         self
-@@ -61,11 +58,10 @@
+@@ -61,11 +59,10 @@
      pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
          &self.statement
      }
@@ -71534,24 +67226,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn parameters(mut self, input: crate::types::AttributeValue) -> Self {
          let mut v = self.parameters.unwrap_or_default();
          v.push(input);
-@@ -72,7 +68,6 @@
-         self.parameters = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The parameter values.</p>
-     pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-         self.parameters = input;
-         self
-@@ -87,8 +82,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>An optional parameter that returns the item attributes for a PartiQL <code>ParameterizedStatement</code> operation that failed a condition check.</p>
--    /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -103,7 +96,7 @@
+@@ -103,7 +100,7 @@
      }
      /// Consumes the builder and constructs a [`ParameterizedStatement`](crate::types::ParameterizedStatement).
      /// This method will fail if any of the following fields are not set:
@@ -71597,7 +67272,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn point_in_time_recovery_status(&self) -> ::std::option::Option<&crate::types::PointInTimeRecoveryStatus> {
          self.point_in_time_recovery_status.as_ref()
      }
-@@ -60,35 +48,16 @@
+@@ -60,35 +48,17 @@
      pub(crate) latest_restorable_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl PointInTimeRecoveryDescriptionBuilder {
@@ -71620,6 +67295,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>DISABLED</code> - Point in time recovery is disabled.</p></li>
 -    /// </ul>
++    /// <p>The current state of point in time recovery:</p><ul><li><p><code>ENABLED</code> - Point in time recovery is enabled.</p></li><li><p><code>DISABLED</code> - Point in time recovery is disabled.</p></li></ul>
      pub fn set_point_in_time_recovery_status(mut self, input: ::std::option::Option<crate::types::PointInTimeRecoveryStatus>) -> Self {
          self.point_in_time_recovery_status = input;
          self
@@ -71635,30 +67311,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_point_in_time_recovery_status(&self) -> &::std::option::Option<crate::types::PointInTimeRecoveryStatus> {
          &self.point_in_time_recovery_status
      }
-@@ -97,7 +66,6 @@
-         self.recovery_period_in_days = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional.</p>
-     pub fn set_recovery_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.recovery_period_in_days = input;
-         self
-@@ -111,7 +79,6 @@
-         self.earliest_restorable_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days.</p>
-     pub fn set_earliest_restorable_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.earliest_restorable_date_time = input;
-         self
-@@ -125,7 +92,6 @@
-         self.latest_restorable_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p><code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.</p>
-     pub fn set_latest_restorable_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.latest_restorable_date_time = input;
-         self
 ```
 
 ### `src/types/_point_in_time_recovery_specification.rs`
@@ -71666,23 +67318,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_point_in_time_recovery_specification.rs
 +++ generated/src/types/_point_in_time_recovery_specification.rs
-@@ -40,7 +40,6 @@
-         self.point_in_time_recovery_enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.</p>
-     pub fn set_point_in_time_recovery_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.point_in_time_recovery_enabled = input;
-         self
-@@ -54,7 +53,6 @@
-         self.recovery_period_in_days = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.</p>
-     pub fn set_recovery_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
-         self.recovery_period_in_days = input;
-         self
-@@ -65,7 +63,7 @@
+@@ -65,7 +65,7 @@
      }
      /// Consumes the builder and constructs a [`PointInTimeRecoverySpecification`](crate::types::PointInTimeRecoverySpecification).
      /// This method will fail if any of the following fields are not set:
@@ -71741,7 +67377,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn non_key_attributes(&self) -> &[::std::string::String] {
          self.non_key_attributes.as_deref().unwrap_or_default()
      }
-@@ -56,53 +36,24 @@
+@@ -56,53 +36,25 @@
      pub(crate) non_key_attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
  }
  impl ProjectionBuilder {
@@ -71770,6 +67406,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ALL</code> - All of the table attributes are projected into the index.</p></li>
 -    /// </ul>
 -    /// <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
++    /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
      pub fn set_projection_type(mut self, input: ::std::option::Option<crate::types::ProjectionType>) -> Self {
          self.projection_type = input;
          self
@@ -71799,15 +67436,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn non_key_attributes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.non_key_attributes.unwrap_or_default();
          v.push(input.into());
-@@ -109,8 +60,6 @@
-         self.non_key_attributes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the non-key attribute names which will be projected into the index.</p>
--    /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
-     pub fn set_non_key_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-         self.non_key_attributes = input;
-         self
 ```
 
 ### `src/types/_provisioned_throughput.rs`
@@ -71815,25 +67443,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_provisioned_throughput.rs
 +++ generated/src/types/_provisioned_throughput.rs
-@@ -46,8 +46,6 @@
-         self.read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
-     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.read_capacity_units = input;
-         self
-@@ -64,8 +62,6 @@
-         self.write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
--    /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
-     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.write_capacity_units = input;
-         self
-@@ -77,8 +73,8 @@
+@@ -77,8 +77,8 @@
      }
      /// Consumes the builder and constructs a [`ProvisionedThroughput`](crate::types::ProvisionedThroughput).
      /// This method will fail if any of the following fields are not set:
@@ -71846,76 +67456,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              read_capacity_units: self.read_capacity_units.ok_or_else(|| {
 ```
 
-### `src/types/_provisioned_throughput_description.rs`
-
-```diff
---- reference/src/types/_provisioned_throughput_description.rs
-+++ generated/src/types/_provisioned_throughput_description.rs
-@@ -64,7 +64,6 @@
-         self.last_increase_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time of the last provisioned throughput increase for this table.</p>
-     pub fn set_last_increase_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_increase_date_time = input;
-         self
-@@ -78,7 +77,6 @@
-         self.last_decrease_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time of the last provisioned throughput decrease for this table.</p>
-     pub fn set_last_decrease_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_decrease_date_time = input;
-         self
-@@ -92,7 +90,6 @@
-         self.number_of_decreases_today = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_number_of_decreases_today(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.number_of_decreases_today = input;
-         self
-@@ -107,8 +104,6 @@
-         self.read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 <code>ReadCapacityUnits</code> per second provides 100 eventually consistent <code>ReadCapacityUnits</code> per second.</p>
--    /// <p>For a table or global secondary index that uses on-demand capacity mode (<code>PAY_PER_REQUEST</code>), this value is <code>0</code>, because on-demand mode does not use provisioned throughput.</p>
-     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.read_capacity_units = input;
-         self
-@@ -124,8 +119,6 @@
-         self.write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
--    /// <p>For a table or global secondary index that uses on-demand capacity mode (<code>PAY_PER_REQUEST</code>), this value is <code>0</code>, because on-demand mode does not use provisioned throughput.</p>
-     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.write_capacity_units = input;
-         self
-```
-
-### `src/types/_provisioned_throughput_override.rs`
-
-```diff
---- reference/src/types/_provisioned_throughput_override.rs
-+++ generated/src/types/_provisioned_throughput_override.rs
-@@ -32,7 +32,6 @@
-         self.read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.</p>
-     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.read_capacity_units = input;
-         self
-```
-
 ### `src/types/_put.rs`
 
 ```diff
 --- reference/src/types/_put.rs
 +++ generated/src/types/_put.rs
-@@ -65,18 +65,16 @@
+@@ -65,15 +65,14 @@
      pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
  }
  impl PutBuilder {
@@ -71934,27 +67480,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -94,7 +92,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -108,7 +105,6 @@
-         self.condition_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.condition_expression = input;
-         self
-@@ -117,22 +113,20 @@
+     /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
+@@ -117,19 +116,18 @@
      pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.condition_expression
      }
@@ -71977,11 +67504,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_names = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more substitution tokens for attribute names in an expression.</p>
-     pub fn set_expression_attribute_names(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -146,18 +140,16 @@
+     /// <p>One or more substitution tokens for attribute names in an expression.</p>
+@@ -146,15 +144,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.expression_attribute_names
      }
@@ -72000,19 +67524,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -176,7 +168,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Put</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -190,8 +181,8 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -190,8 +187,8 @@
      }
      /// Consumes the builder and constructs a [`Put`](crate::types::Put).
      /// This method will fail if any of the following fields are not set:
@@ -72030,7 +67543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_put_request.rs
 +++ generated/src/types/_put_request.rs
-@@ -27,18 +27,16 @@
+@@ -27,15 +27,14 @@
      pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
  }
  impl PutRequestBuilder {
@@ -72049,11 +67562,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -52,7 +50,7 @@
+     /// <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
+@@ -52,7 +51,7 @@
      }
      /// Consumes the builder and constructs a [`PutRequest`](crate::types::PutRequest).
      /// This method will fail if any of the following fields are not set:
@@ -72062,21 +67572,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::PutRequest, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::PutRequest {
              item: self.item.ok_or_else(|| {
-```
-
-### `src/types/_replica.rs`
-
-```diff
---- reference/src/types/_replica.rs
-+++ generated/src/types/_replica.rs
-@@ -32,7 +32,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region where the replica needs to be created.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
 ```
 
 ### `src/types/_replica_auto_scaling_description.rs`
@@ -72139,15 +67634,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_status(&self) -> ::std::option::Option<&crate::types::ReplicaStatus> {
          self.replica_status.as_ref()
      }
-@@ -82,7 +56,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region where the replica exists.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -91,11 +64,10 @@
+@@ -91,11 +65,10 @@
      pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.region_name
      }
@@ -72160,15 +67647,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -102,7 +74,6 @@
-         self.global_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Replica-specific global secondary index auto scaling settings.</p>
-     pub fn set_global_secondary_indexes(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
-@@ -116,12 +87,10 @@
+@@ -116,12 +89,10 @@
      ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>> {
          &self.global_secondary_indexes
      }
@@ -72181,7 +67660,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -129,18 +98,15 @@
+@@ -129,18 +100,15 @@
          self.replica_provisioned_read_capacity_auto_scaling_settings = input;
          self
      }
@@ -72200,7 +67679,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_replica_provisioned_write_capacity_auto_scaling_settings(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -148,53 +114,21 @@
+@@ -148,53 +116,22 @@
          self.replica_provisioned_write_capacity_auto_scaling_settings = input;
          self
      }
@@ -72237,6 +67716,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
      pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
          self.replica_status = input;
          self
@@ -72284,15 +67764,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_provisioned_read_capacity_auto_scaling_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
          self.replica_provisioned_read_capacity_auto_scaling_update.as_ref()
      }
-@@ -51,7 +47,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region where the replica exists.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -60,11 +55,10 @@
+@@ -60,11 +56,10 @@
      pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.region_name
      }
@@ -72305,15 +67777,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_global_secondary_index_updates(mut self, input: crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate) -> Self {
          let mut v = self.replica_global_secondary_index_updates.unwrap_or_default();
          v.push(input);
-@@ -71,7 +65,6 @@
-         self.replica_global_secondary_index_updates = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
-     pub fn set_replica_global_secondary_index_updates(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
-@@ -85,12 +78,10 @@
+@@ -85,12 +80,10 @@
      ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>> {
          &self.replica_global_secondary_index_updates
      }
@@ -72326,7 +67790,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_replica_provisioned_read_capacity_auto_scaling_update(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -98,13 +89,12 @@
+@@ -98,13 +91,12 @@
          self.replica_provisioned_read_capacity_auto_scaling_update = input;
          self
      }
@@ -72455,15 +67919,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_table_settings_replication_mode(&self) -> ::std::option::Option<&crate::types::GlobalTableSettingsReplicationMode> {
          self.global_table_settings_replication_mode.as_ref()
      }
-@@ -170,7 +122,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the Region.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -179,71 +130,24 @@
+@@ -179,71 +131,29 @@
      pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.region_name
      }
@@ -72505,13 +67961,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ACTIVE</code> - The replica is ready for use.</p></li>
 -    /// <li>
 -    /// <p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
--    /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
++    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
+     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
 -    /// </note></li>
 -    /// <li>
 -    /// <p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The KMS key used to encrypt the table is inaccessible.</p><note>
--    /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
++    /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
+     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
 -    /// </note></li>
 -    /// </ul>
++    /// </note></li></ul>
      pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
          self.replica_status = input;
          self
@@ -72541,63 +68000,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
          &self.replica_status
      }
-@@ -252,7 +156,6 @@
-         self.replica_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
-     pub fn set_replica_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.replica_arn = input;
-         self
-@@ -266,7 +169,6 @@
-         self.replica_status_description = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Detailed information about the replica status.</p>
-     pub fn set_replica_status_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.replica_status_description = input;
-         self
-@@ -280,7 +182,6 @@
-         self.replica_status_percent_progress = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.</p>
-     pub fn set_replica_status_percent_progress(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.replica_status_percent_progress = input;
-         self
-@@ -294,7 +195,6 @@
-         self.kms_master_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS key of the replica that will be used for KMS encryption.</p>
-     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_master_key_id = input;
-         self
-@@ -308,7 +208,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -322,7 +221,6 @@
-         self.on_demand_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
-         self.on_demand_throughput_override = input;
-         self
-@@ -336,7 +234,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput value for this replica.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::TableWarmThroughputDescription>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -345,11 +242,10 @@
+@@ -345,11 +255,10 @@
      pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> {
          &self.warm_throughput
      }
@@ -72610,23 +68013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndexDescription) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -356,7 +252,6 @@
-         self.global_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Replica-specific global secondary index settings.</p>
-     pub fn set_global_secondary_indexes(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>,
-@@ -373,7 +268,6 @@
-         self.replica_inaccessible_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
-     pub fn set_replica_inaccessible_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.replica_inaccessible_date_time = input;
-         self
-@@ -382,42 +276,22 @@
+@@ -382,42 +291,23 @@
      pub fn get_replica_inaccessible_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.replica_inaccessible_date_time
      }
@@ -72667,10 +68054,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
 -    /// </ul>
++    /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
      pub fn set_global_table_settings_replication_mode(
          mut self,
          input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
-@@ -425,15 +299,7 @@
+@@ -425,15 +315,7 @@
          self.global_table_settings_replication_mode = input;
          self
      }
@@ -72694,31 +68082,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_replica_global_secondary_index.rs
 +++ generated/src/types/_replica_global_secondary_index.rs
-@@ -48,7 +48,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -62,7 +61,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -76,7 +74,6 @@
-         self.on_demand_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
-     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
-         self.on_demand_throughput_override = input;
-         self
-@@ -87,7 +84,7 @@
+@@ -87,7 +87,7 @@
      }
      /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndex`](crate::types::ReplicaGlobalSecondaryIndex).
      /// This method will fail if any of the following fields are not set:
@@ -72784,15 +68148,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsDescription> {
          self.provisioned_write_capacity_auto_scaling_settings.as_ref()
      }
-@@ -73,7 +49,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -82,56 +57,23 @@
+@@ -82,56 +58,24 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -72823,6 +68179,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The index is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
      pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
          self.index_status = input;
          self
@@ -72851,7 +68208,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_provisioned_read_capacity_auto_scaling_settings(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -139,16 +81,13 @@
+@@ -139,16 +83,13 @@
          self.provisioned_read_capacity_auto_scaling_settings = input;
          self
      }
@@ -72868,7 +68225,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_provisioned_write_capacity_auto_scaling_settings(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -156,7 +95,6 @@
+@@ -156,7 +97,6 @@
          self.provisioned_write_capacity_auto_scaling_settings = input;
          self
      }
@@ -72899,15 +68256,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn provisioned_read_capacity_auto_scaling_update(&self) -> ::std::option::Option<&crate::types::AutoScalingSettingsUpdate> {
          self.provisioned_read_capacity_auto_scaling_update.as_ref()
      }
-@@ -39,7 +37,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -48,12 +45,10 @@
+@@ -48,12 +46,10 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -72920,7 +68269,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_provisioned_read_capacity_auto_scaling_update(
          mut self,
          input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -61,7 +56,6 @@
+@@ -61,7 +57,6 @@
          self.provisioned_read_capacity_auto_scaling_update = input;
          self
      }
@@ -72928,45 +68277,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
          &self.provisioned_read_capacity_auto_scaling_update
      }
-```
-
-### `src/types/_replica_global_secondary_index_description.rs`
-
-```diff
---- reference/src/types/_replica_global_secondary_index_description.rs
-+++ generated/src/types/_replica_global_secondary_index_description.rs
-@@ -53,7 +53,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -67,7 +66,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>If not described, uses the source table GSI's read capacity settings.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -81,7 +79,6 @@
-         self.on_demand_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
-     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
-         self.on_demand_throughput_override = input;
-         self
-@@ -95,7 +92,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput of the global secondary index for this replica.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self {
-         self.warm_throughput = input;
-         self
 ```
 
 ### `src/types/_replica_global_secondary_index_settings_description.rs`
@@ -73012,15 +68322,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
          self.index_status.as_ref()
      }
-@@ -89,7 +69,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -98,47 +77,16 @@
+@@ -98,47 +78,17 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -73051,6 +68353,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The global secondary index is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The global secondary index is being created.</p></li><li><p><code>UPDATING</code> - The global secondary index is being updated.</p></li><li><p><code>DELETING</code> - The global secondary index is being deleted.</p></li><li><p><code>ACTIVE</code> - The global secondary index is ready for use.</p></li></ul>
      pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
          self.index_status = input;
          self
@@ -73070,39 +68373,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
          &self.index_status
      }
-@@ -147,7 +95,6 @@
-         self.provisioned_read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
-     pub fn set_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.provisioned_read_capacity_units = input;
-         self
-@@ -161,7 +108,6 @@
-         self.provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for a global secondary index replica's read capacity units.</p>
-     pub fn set_provisioned_read_capacity_auto_scaling_settings(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -178,7 +124,6 @@
-         self.provisioned_write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
-     pub fn set_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.provisioned_write_capacity_units = input;
-         self
-@@ -192,7 +137,6 @@
-         self.provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for a global secondary index replica's write capacity units.</p>
-     pub fn set_provisioned_write_capacity_auto_scaling_settings(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -206,7 +150,7 @@
+@@ -206,7 +156,7 @@
      }
      /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexSettingsDescription`](crate::types::ReplicaGlobalSecondaryIndexSettingsDescription).
      /// This method will fail if any of the following fields are not set:
@@ -73118,31 +68389,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_replica_global_secondary_index_settings_update.rs
 +++ generated/src/types/_replica_global_secondary_index_settings_update.rs
-@@ -48,7 +48,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -62,7 +61,6 @@
-         self.provisioned_read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
-     pub fn set_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.provisioned_read_capacity_units = input;
-         self
-@@ -76,7 +74,6 @@
-         self.provisioned_read_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
-     pub fn set_provisioned_read_capacity_auto_scaling_settings_update(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -90,7 +87,7 @@
+@@ -90,7 +90,7 @@
      }
      /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexSettingsUpdate`](crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate).
      /// This method will fail if any of the following fields are not set:
@@ -73217,15 +68464,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_table_class_summary(&self) -> ::std::option::Option<&crate::types::TableClassSummary> {
          self.replica_table_class_summary.as_ref()
      }
-@@ -113,7 +89,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region name of the replica.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -122,47 +97,16 @@
+@@ -122,47 +98,17 @@
      pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.region_name
      }
@@ -73256,6 +68495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The Region is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
      pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
          self.replica_status = input;
          self
@@ -73275,47 +68515,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
          &self.replica_status
      }
-@@ -171,7 +115,6 @@
-         self.replica_billing_mode_summary = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The read/write capacity mode of the replica.</p>
-     pub fn set_replica_billing_mode_summary(mut self, input: ::std::option::Option<crate::types::BillingModeSummary>) -> Self {
-         self.replica_billing_mode_summary = input;
-         self
-@@ -185,7 +128,6 @@
-         self.replica_provisioned_read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_replica_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.replica_provisioned_read_capacity_units = input;
-         self
-@@ -199,7 +141,6 @@
-         self.replica_provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for a global table replica's read capacity units.</p>
-     pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -218,7 +159,6 @@
-         self.replica_provisioned_write_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_replica_provisioned_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.replica_provisioned_write_capacity_units = input;
-         self
-@@ -232,7 +172,6 @@
-         self.replica_provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for a global table replica's write capacity units.</p>
-     pub fn set_replica_provisioned_write_capacity_auto_scaling_settings(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
-@@ -246,11 +185,10 @@
+@@ -246,11 +192,10 @@
      ) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
          &self.replica_provisioned_write_capacity_auto_scaling_settings
      }
@@ -73328,15 +68528,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_global_secondary_index_settings(mut self, input: crate::types::ReplicaGlobalSecondaryIndexSettingsDescription) -> Self {
          let mut v = self.replica_global_secondary_index_settings.unwrap_or_default();
          v.push(input);
-@@ -257,7 +195,6 @@
-         self.replica_global_secondary_index_settings = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Replica global secondary index settings for the global table.</p>
-     pub fn set_replica_global_secondary_index_settings(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsDescription>>,
-@@ -271,23 +208,20 @@
+@@ -271,23 +216,20 @@
      ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsDescription>> {
          &self.replica_global_secondary_index_settings
      }
@@ -73377,31 +68569,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_global_secondary_index_settings_update(&self) -> &[crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate] {
          self.replica_global_secondary_index_settings_update.as_deref().unwrap_or_default()
      }
-@@ -66,7 +64,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region of the replica to be added.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -80,7 +77,6 @@
-         self.replica_provisioned_read_capacity_units = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_replica_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.replica_provisioned_read_capacity_units = input;
-         self
-@@ -94,7 +90,6 @@
-         self.replica_provisioned_read_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
-     pub fn set_replica_provisioned_read_capacity_auto_scaling_settings_update(
-         mut self,
-         input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-@@ -108,11 +103,10 @@
+@@ -108,11 +106,10 @@
      ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
          &self.replica_provisioned_read_capacity_auto_scaling_settings_update
      }
@@ -73414,23 +68582,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replica_global_secondary_index_settings_update(mut self, input: crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate) -> Self {
          let mut v = self.replica_global_secondary_index_settings_update.unwrap_or_default();
          v.push(input);
-@@ -119,7 +113,6 @@
-         self.replica_global_secondary_index_settings_update = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-     pub fn set_replica_global_secondary_index_settings_update(
-         mut self,
-         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
-@@ -138,7 +131,6 @@
-         self.replica_table_class = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-     pub fn set_replica_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
-         self.replica_table_class = input;
-         self
-@@ -149,7 +141,7 @@
+@@ -149,7 +146,7 @@
      }
      /// Consumes the builder and constructs a [`ReplicaSettingsUpdate`](crate::types::ReplicaSettingsUpdate).
      /// This method will fail if any of the following fields are not set:
@@ -73462,22 +68614,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ReplicaUpdate {
-@@ -47,7 +39,6 @@
-         self.create = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The parameters required for creating a replica on an existing global table.</p>
-     pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateReplicaAction>) -> Self {
-         self.create = input;
-         self
-@@ -61,7 +52,6 @@
-         self.delete = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The name of the existing replica to be removed.</p>
-     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteReplicaAction>) -> Self {
-         self.delete = input;
-         self
 ```
 
 ### `src/types/_replication_group_update.rs`
@@ -73501,30 +68637,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>When you manually remove a table or global table replica, you do not automatically remove any associated scalable targets, scaling policies, or CloudWatch alarms.</p>
  /// </note>
  #[non_exhaustive]
-@@ -56,7 +48,6 @@
-         self.create = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The parameters required for creating a replica for the table.</p>
-     pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateReplicationGroupMemberAction>) -> Self {
-         self.create = input;
-         self
-@@ -70,7 +61,6 @@
-         self.update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The parameters required for updating a replica for the table.</p>
-     pub fn set_update(mut self, input: ::std::option::Option<crate::types::UpdateReplicationGroupMemberAction>) -> Self {
-         self.update = input;
-         self
-@@ -84,7 +74,6 @@
-         self.delete = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The parameters required for deleting a replica for the table.</p>
-     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteReplicationGroupMemberAction>) -> Self {
-         self.delete = input;
-         self
 ```
 
 ### `src/types/_restore_summary.rs`
@@ -73532,39 +68644,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_restore_summary.rs
 +++ generated/src/types/_restore_summary.rs
-@@ -53,7 +53,6 @@
-         self.source_backup_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
-     pub fn set_source_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_backup_arn = input;
-         self
-@@ -67,7 +66,6 @@
-         self.source_table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The ARN of the source table of the backup that is being restored.</p>
-     pub fn set_source_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.source_table_arn = input;
-         self
-@@ -82,7 +80,6 @@
-         self.restore_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Point in time or source backup time.</p>
-     pub fn set_restore_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.restore_date_time = input;
-         self
-@@ -97,7 +94,6 @@
-         self.restore_in_progress = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates if a restore is in progress or not.</p>
-     pub fn set_restore_in_progress(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.restore_in_progress = input;
-         self
-@@ -108,8 +104,8 @@
+@@ -108,8 +108,8 @@
      }
      /// Consumes the builder and constructs a [`RestoreSummary`](crate::types::RestoreSummary).
      /// This method will fail if any of the following fields are not set:
@@ -73644,31 +68724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_s3_bucket_source.rs
 +++ generated/src/types/_s3_bucket_source.rs
-@@ -47,7 +47,6 @@
-         self.s3_bucket_owner = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.</p>
-     pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket_owner = input;
-         self
-@@ -62,7 +61,6 @@
-         self.s3_bucket = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The S3 bucket that is being imported from.</p>
-     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_bucket = input;
-         self
-@@ -76,7 +74,6 @@
-         self.s3_key_prefix = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The key prefix shared by all S3 Objects that are being imported.</p>
-     pub fn set_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.s3_key_prefix = input;
-         self
-@@ -87,7 +84,7 @@
+@@ -87,7 +87,7 @@
      }
      /// Consumes the builder and constructs a [`S3BucketSource`](crate::types::S3BucketSource).
      /// This method will fail if any of the following fields are not set:
@@ -73702,7 +68758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.score
      }
  }
-@@ -34,18 +34,16 @@
+@@ -34,15 +34,14 @@
      pub(crate) score: ::std::option::Option<f64>,
  }
  impl SearchResultItemBuilder {
@@ -73721,19 +68777,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -62,7 +60,6 @@
-         self.score = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
-     pub fn set_score(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.score = input;
-         self
-@@ -75,7 +72,7 @@
+     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
+@@ -75,7 +74,7 @@
      pub fn build(self) -> crate::types::SearchResultItem {
          crate::types::SearchResultItem {
              item: self.item,
@@ -73779,15 +68824,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema_element_type(&self) -> &crate::types::SearchSchemaElementType {
          &self.search_schema_element_type
      }
-@@ -53,7 +41,6 @@
-         self.attribute_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the attribute.</p>
-     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.attribute_name = input;
-         self
-@@ -62,43 +49,24 @@
+@@ -62,43 +50,25 @@
      pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.attribute_name
      }
@@ -73811,6 +68848,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li>
 -    /// </ul>
++    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
      pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<crate::types::SearchSchemaElementType>) -> Self {
          self.search_schema_element_type = input;
          self
@@ -73884,39 +68922,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn billing_mode(&self) -> ::std::option::Option<&crate::types::BillingMode> {
          self.billing_mode.as_ref()
      }
-@@ -111,7 +97,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table for which the backup was created.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -126,7 +111,6 @@
-         self.table_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Unique identifier for the table for which the backup was created.</p>
-     pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_id = input;
-         self
-@@ -140,7 +124,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>ARN of the table for which backup was created.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -154,7 +137,6 @@
-         self.table_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Size of the table in bytes. Note that this is an approximate value.</p>
-     pub fn set_table_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.table_size_bytes = input;
-         self
-@@ -163,11 +145,10 @@
+@@ -163,11 +149,10 @@
      pub fn get_table_size_bytes(&self) -> &::std::option::Option<i64> {
          &self.table_size_bytes
      }
@@ -73929,23 +68935,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -174,7 +155,6 @@
-         self.key_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Schema of the table.</p>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
-         self.key_schema = input;
-         self
-@@ -189,7 +169,6 @@
-         self.table_creation_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time when the source table was created.</p>
-     pub fn set_table_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.table_creation_date_time = input;
-         self
-@@ -199,12 +178,10 @@
+@@ -199,7 +184,6 @@
          &self.table_creation_date_time
      }
      /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
@@ -73953,12 +68943,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
          self.provisioned_throughput = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -213,17 +190,14 @@
+@@ -213,17 +197,14 @@
      pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
          &self.provisioned_throughput
      }
@@ -73976,15 +68961,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
          &self.on_demand_throughput
      }
-@@ -232,7 +206,6 @@
-         self.item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Number of items in the table. Note that this is an approximate value.</p>
-     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.item_count = input;
-         self
-@@ -241,44 +214,25 @@
+@@ -241,44 +222,26 @@
      pub fn get_item_count(&self) -> &::std::option::Option<i64> {
          &self.item_count
      }
@@ -74007,6 +68984,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li>
 -    /// </ul>
++    /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li></ul>
      pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
          self.billing_mode = input;
          self
@@ -74079,15 +69057,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn local_secondary_indexes(mut self, input: crate::types::LocalSecondaryIndexInfo) -> Self {
          let mut v = self.local_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -79,7 +72,6 @@
-         self.local_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
-     pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>>) -> Self {
-         self.local_secondary_indexes = input;
-         self
-@@ -88,11 +80,10 @@
+@@ -88,11 +81,10 @@
      pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>> {
          &self.local_secondary_indexes
      }
@@ -74100,39 +69070,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndexInfo) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -99,7 +90,6 @@
-         self.global_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
-     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexInfo>>) -> Self {
-         self.global_secondary_indexes = input;
-         self
-@@ -113,7 +103,6 @@
-         self.stream_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Stream settings on the table when the backup was created.</p>
-     pub fn set_stream_description(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
-         self.stream_description = input;
-         self
-@@ -127,7 +116,6 @@
-         self.time_to_live_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Time to Live settings on the table when the backup was created.</p>
-     pub fn set_time_to_live_description(mut self, input: ::std::option::Option<crate::types::TimeToLiveDescription>) -> Self {
-         self.time_to_live_description = input;
-         self
-@@ -141,7 +129,6 @@
-         self.sse_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The description of the server-side encryption status on the table when the backup was created.</p>
-     pub fn set_sse_description(mut self, input: ::std::option::Option<crate::types::SseDescription>) -> Self {
-         self.sse_description = input;
-         self
-@@ -150,11 +137,10 @@
+@@ -150,11 +142,10 @@
      pub fn get_sse_description(&self) -> &::std::option::Option<crate::types::SseDescription> {
          &self.sse_description
      }
@@ -74145,14 +69083,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_indexes(mut self, input: crate::types::VectorIndexInfo) -> Self {
          let mut v = self.vector_indexes.unwrap_or_default();
          v.push(input);
-@@ -161,7 +147,6 @@
-         self.vector_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
-     pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>>) -> Self {
-         self.vector_indexes = input;
-         self
 ```
 
 ### `src/types/_sse_description.rs`
@@ -74206,7 +69136,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn sse_type(&self) -> ::std::option::Option<&crate::types::SseType> {
          self.sse_type.as_ref()
      }
-@@ -68,61 +48,29 @@
+@@ -68,61 +48,31 @@
      pub(crate) inaccessible_encryption_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
  }
  impl SseDescriptionBuilder {
@@ -74229,6 +69159,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>UPDATING</code> - Server-side encryption is being updated.</p></li>
 -    /// </ul>
++    /// <p>Represents the current state of server-side encryption. The only supported values are:</p><ul><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
      pub fn set_status(mut self, input: ::std::option::Option<crate::types::SseStatus>) -> Self {
          self.status = input;
          self
@@ -74259,6 +69190,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
 -    /// </ul>
++    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
      pub fn set_sse_type(mut self, input: ::std::option::Option<crate::types::SseType>) -> Self {
          self.sse_type = input;
          self
@@ -74272,22 +69204,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_sse_type(&self) -> &::std::option::Option<crate::types::SseType> {
          &self.sse_type
      }
-@@ -131,7 +79,6 @@
-         self.kms_master_key_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS key ARN used for the KMS encryption.</p>
-     pub fn set_kms_master_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_master_key_arn = input;
-         self
-@@ -145,7 +92,6 @@
-         self.inaccessible_encryption_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's KMS key is accessible again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>
-     pub fn set_inaccessible_encryption_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.inaccessible_encryption_date_time = input;
-         self
 ```
 
 ### `src/types/_sse_specification.rs`
@@ -74321,15 +69237,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn sse_type(&self) -> ::std::option::Option<&crate::types::SseType> {
          self.sse_type.as_ref()
      }
-@@ -54,7 +46,6 @@
-         self.enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether server-side encryption is done using an Amazon Web Services managed key or an Amazon Web Services owned key. If enabled (true), server-side encryption type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to Amazon Web Services owned key.</p>
-     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.enabled = input;
-         self
-@@ -63,29 +54,16 @@
+@@ -63,29 +55,17 @@
      pub fn get_enabled(&self) -> &::std::option::Option<bool> {
          &self.enabled
      }
@@ -74348,6 +69256,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li>
 -    /// </ul>
++    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
      pub fn set_sse_type(mut self, input: ::std::option::Option<crate::types::SseType>) -> Self {
          self.sse_type = input;
          self
@@ -74361,14 +69270,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_sse_type(&self) -> &::std::option::Option<crate::types::SseType> {
          &self.sse_type
      }
-@@ -94,7 +72,6 @@
-         self.kms_master_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key <code>alias/aws/dynamodb</code>.</p>
-     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_master_key_id = input;
-         self
 ```
 
 ### `src/types/_stream_specification.rs`
@@ -74414,15 +69315,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn stream_view_type(&self) -> ::std::option::Option<&crate::types::StreamViewType> {
          self.stream_view_type.as_ref()
      }
-@@ -60,7 +40,6 @@
-         self.stream_enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</p>
-     pub fn set_stream_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.stream_enabled = input;
-         self
-@@ -69,53 +48,22 @@
+@@ -69,53 +49,23 @@
      pub fn get_stream_enabled(&self) -> &::std::option::Option<bool> {
          &self.stream_enabled
      }
@@ -74453,6 +69346,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li>
 -    /// </ul>
++    /// <p>When an item in the table is modified, <code>StreamViewType</code> determines what information is written to the stream for this table. Valid values for <code>StreamViewType</code> are:</p><ul><li><p><code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the stream.</p></li><li><p><code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written to the stream.</p></li><li><p><code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is written to the stream.</p></li><li><p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li></ul>
      pub fn set_stream_view_type(mut self, input: ::std::option::Option<crate::types::StreamViewType>) -> Self {
          self.stream_view_type = input;
          self
@@ -74530,15 +69424,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replicas(&self) -> &[crate::types::ReplicaAutoScalingDescription] {
          self.replicas.as_deref().unwrap_or_default()
      }
-@@ -68,7 +46,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -77,55 +54,23 @@
+@@ -77,55 +55,24 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -74569,6 +69455,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ACTIVE</code> - The table is ready for use.</p></li>
 -    /// </ul>
++    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
      pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
          self.table_status = input;
          self
@@ -74597,37 +69484,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replicas(mut self, input: crate::types::ReplicaAutoScalingDescription) -> Self {
          let mut v = self.replicas.unwrap_or_default();
          v.push(input);
-@@ -132,7 +77,6 @@
-         self.replicas = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents replicas of the global table.</p>
-     pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingDescription>>) -> Self {
-         self.replicas = input;
-         self
-```
-
-### `src/types/_table_class_summary.rs`
-
-```diff
---- reference/src/types/_table_class_summary.rs
-+++ generated/src/types/_table_class_summary.rs
-@@ -39,7 +39,6 @@
-         self.table_class = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The table class of the specified table. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-     pub fn set_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
-         self.table_class = input;
-         self
-@@ -53,7 +52,6 @@
-         self.last_update_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time at which the table class was last updated.</p>
-     pub fn set_last_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.last_update_date_time = input;
-         self
 ```
 
 ### `src/types/_table_creation_parameters.rs`
@@ -74677,15 +69533,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_indexes(&self) -> &[crate::types::VectorIndex] {
          self.vector_indexes.as_deref().unwrap_or_default()
      }
-@@ -98,7 +86,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table created as part of the import operation.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -107,11 +94,10 @@
+@@ -107,11 +95,10 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -74698,15 +69546,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_definitions(mut self, input: crate::types::AttributeDefinition) -> Self {
          let mut v = self.attribute_definitions.unwrap_or_default();
          v.push(input);
-@@ -118,7 +104,6 @@
-         self.attribute_definitions = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The attributes of the table created as part of the import operation.</p>
-     pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
-         self.attribute_definitions = input;
-         self
-@@ -127,11 +112,10 @@
+@@ -127,11 +114,10 @@
      pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
          &self.attribute_definitions
      }
@@ -74719,23 +69559,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -138,7 +122,6 @@
-         self.key_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
-     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
-         self.key_schema = input;
-         self
-@@ -152,7 +135,6 @@
-         self.billing_mode = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
-     pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
-         self.billing_mode = input;
-         self
-@@ -161,56 +143,43 @@
+@@ -161,56 +147,43 @@
      pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
          &self.billing_mode
      }
@@ -74793,15 +69617,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndex) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -217,7 +186,6 @@
-         self.global_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
-     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
-         self.global_secondary_indexes = input;
-         self
-@@ -226,11 +194,10 @@
+@@ -226,11 +199,10 @@
      pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
          &self.global_secondary_indexes
      }
@@ -74814,15 +69630,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_indexes(mut self, input: crate::types::VectorIndex) -> Self {
          let mut v = self.vector_indexes.unwrap_or_default();
          v.push(input);
-@@ -237,7 +204,6 @@
-         self.vector_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The vector indexes of the table to be created as part of the import operation.</p>
-     pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
-         self.vector_indexes = input;
-         self
-@@ -248,9 +214,9 @@
+@@ -248,9 +220,9 @@
      }
      /// Consumes the builder and constructs a [`TableCreationParameters`](crate::types::TableCreationParameters).
      /// This method will fail if any of the following fields are not set:
@@ -75322,11 +70130,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_definitions(mut self, input: crate::types::AttributeDefinition) -> Self {
          let mut v = self.attribute_definitions.unwrap_or_default();
          v.push(input);
-@@ -571,26 +246,12 @@
-         self.attribute_definitions = ::std::option::Option::Some(v);
+@@ -572,25 +247,13 @@
          self
      }
--    /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
+     /// <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p>
 -    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p>
 -    /// <ul>
 -    /// <li>
@@ -75334,6 +70141,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>AttributeType</code> - The data type for the attribute.</p></li>
 -    /// </ul>
++    /// <p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
      pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
          self.attribute_definitions = input;
          self
@@ -75350,15 +70158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
          &self.attribute_definitions
      }
-@@ -599,7 +260,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the table.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -608,27 +268,13 @@
+@@ -608,27 +271,13 @@
      pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.table_name
      }
@@ -75390,7 +70190,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn key_schema(mut self, input: crate::types::KeySchemaElement) -> Self {
          let mut v = self.key_schema.unwrap_or_default();
          v.push(input);
-@@ -635,106 +281,27 @@
+@@ -635,106 +284,32 @@
          self.key_schema = ::std::option::Option::Some(v);
          self
      }
@@ -75406,11 +70206,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>RANGE</code> - sort key</p></li>
 -    /// </ul><note>
--    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
--    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
++    /// <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
 -    /// </note></li>
 -    /// </ul>
 -    /// <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
++    /// </note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
      pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
          self.key_schema = input;
          self
@@ -75476,6 +70278,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li>
 -    /// </ul>
++    /// <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code>.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the KMS key. DynamoDB will initiate the table archival process when a table's KMS key remains inaccessible for more than seven days.</p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete.</p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information.</p></li></ul>
      pub fn set_table_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
          self.table_status = input;
          self
@@ -75501,63 +70304,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_table_status(&self) -> &::std::option::Option<crate::types::TableStatus> {
          &self.table_status
      }
-@@ -743,7 +310,6 @@
-         self.creation_date_time = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-     pub fn set_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
-         self.creation_date_time = input;
-         self
-@@ -757,7 +323,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputDescription>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -771,7 +336,6 @@
-         self.table_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_table_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.table_size_bytes = input;
-         self
-@@ -785,7 +349,6 @@
-         self.item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.item_count = input;
-         self
-@@ -799,7 +362,6 @@
-         self.table_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the table.</p>
-     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_arn = input;
-         self
-@@ -813,7 +375,6 @@
-         self.table_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A unique identifier for the table, in UUID format, generated by DynamoDB when the table is created.</p>
-     pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_id = input;
-         self
-@@ -827,7 +388,6 @@
-         self.billing_mode_summary = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the details for the read/write capacity mode.</p>
-     pub fn set_billing_mode_summary(mut self, input: ::std::option::Option<crate::types::BillingModeSummary>) -> Self {
-         self.billing_mode_summary = input;
-         self
-@@ -836,38 +396,10 @@
+@@ -836,38 +411,10 @@
      pub fn get_billing_mode_summary(&self) -> &::std::option::Option<crate::types::BillingModeSummary> {
          &self.billing_mode_summary
      }
@@ -75597,7 +70344,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn local_secondary_indexes(mut self, input: crate::types::LocalSecondaryIndexDescription) -> Self {
          let mut v = self.local_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -874,34 +406,6 @@
+@@ -874,34 +421,7 @@
          self.local_secondary_indexes = ::std::option::Option::Some(v);
          self
      }
@@ -75629,10 +70376,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
 -    /// </ul>
 -    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
++    /// <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
      pub fn set_local_secondary_indexes(
          mut self,
          input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexDescription>>,
-@@ -909,86 +413,15 @@
+@@ -909,86 +429,15 @@
          self.local_secondary_indexes = input;
          self
      }
@@ -75722,7 +70470,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::GlobalSecondaryIndexDescription) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -995,51 +428,6 @@
+@@ -995,51 +444,8 @@
          self.global_secondary_indexes = ::std::option::Option::Some(v);
          self
      }
@@ -75771,10 +70519,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li>
 -    /// </ul>
 -    /// <p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
++    /// <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p>
++    /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
      pub fn set_global_secondary_indexes(
          mut self,
          input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexDescription>>,
-@@ -1047,51 +435,8 @@
+@@ -1047,51 +453,8 @@
          self.global_secondary_indexes = input;
          self
      }
@@ -75828,15 +70578,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexDescription>> {
          &self.global_secondary_indexes
      }
-@@ -1100,7 +445,6 @@
-         self.stream_specification = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The current DynamoDB Streams configuration for the table.</p>
-     pub fn set_stream_specification(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
-         self.stream_specification = input;
-         self
-@@ -1110,43 +454,17 @@
+@@ -1110,43 +473,19 @@
          &self.stream_specification
      }
      /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
@@ -75854,7 +70596,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.latest_stream_label = ::std::option::Option::Some(input.into());
          self
      }
--    /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
+     /// <p>A timestamp, in ISO 8601 format, for this stream.</p>
 -    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p>
 -    /// <ul>
 -    /// <li>
@@ -75864,6 +70606,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>StreamLabel</code></p></li>
 -    /// </ul>
++    /// <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>Amazon Web Services customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
      pub fn set_latest_stream_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.latest_stream_label = input;
          self
@@ -75882,23 +70625,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_latest_stream_label(&self) -> &::std::option::Option<::std::string::String> {
          &self.latest_stream_label
      }
-@@ -1155,7 +473,6 @@
-         self.latest_stream_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.</p>
-     pub fn set_latest_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.latest_stream_arn = input;
-         self
-@@ -1169,7 +486,6 @@
-         self.global_table_version = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across Amazon Web Services Regions.</p>
-     pub fn set_global_table_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.global_table_version = input;
-         self
-@@ -1178,11 +494,10 @@
+@@ -1178,11 +517,10 @@
      pub fn get_global_table_version(&self) -> &::std::option::Option<::std::string::String> {
          &self.global_table_version
      }
@@ -75911,15 +70638,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn replicas(mut self, input: crate::types::ReplicaDescription) -> Self {
          let mut v = self.replicas.unwrap_or_default();
          v.push(input);
-@@ -1189,7 +504,6 @@
-         self.replicas = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Represents replicas of the table.</p>
-     pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>>) -> Self {
-         self.replicas = input;
-         self
-@@ -1198,11 +512,10 @@
+@@ -1198,11 +536,10 @@
      pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaDescription>> {
          &self.replicas
      }
@@ -75932,15 +70651,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_table_witnesses(mut self, input: crate::types::GlobalTableWitnessDescription) -> Self {
          let mut v = self.global_table_witnesses.unwrap_or_default();
          v.push(input);
-@@ -1209,7 +522,6 @@
-         self.global_table_witnesses = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The witness Region and its current status in the MRSC global table. Only one witness Region can be configured per MRSC global table.</p>
-     pub fn set_global_table_witnesses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessDescription>>) -> Self {
-         self.global_table_witnesses = input;
-         self
-@@ -1218,28 +530,11 @@
+@@ -1218,28 +555,12 @@
      pub fn get_global_table_witnesses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessDescription>> {
          &self.global_table_witnesses
      }
@@ -75967,10 +70678,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li>
 -    /// </ul>
++    /// <p>Indicates one of the settings synchronization modes for the global table:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
      pub fn set_global_table_settings_replication_mode(
          mut self,
          input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
-@@ -1247,15 +542,7 @@
+@@ -1247,15 +568,7 @@
          self.global_table_settings_replication_mode = input;
          self
      }
@@ -75987,63 +70699,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
          &self.global_table_settings_replication_mode
      }
-@@ -1264,7 +551,6 @@
-         self.restore_summary = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains details for the restore.</p>
-     pub fn set_restore_summary(mut self, input: ::std::option::Option<crate::types::RestoreSummary>) -> Self {
-         self.restore_summary = input;
-         self
-@@ -1278,7 +564,6 @@
-         self.sse_description = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The description of the server-side encryption status on the specified table.</p>
-     pub fn set_sse_description(mut self, input: ::std::option::Option<crate::types::SseDescription>) -> Self {
-         self.sse_description = input;
-         self
-@@ -1292,7 +577,6 @@
-         self.archival_summary = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains information about the table archive.</p>
-     pub fn set_archival_summary(mut self, input: ::std::option::Option<crate::types::ArchivalSummary>) -> Self {
-         self.archival_summary = input;
-         self
-@@ -1306,7 +590,6 @@
-         self.table_class_summary = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains details of the table class.</p>
-     pub fn set_table_class_summary(mut self, input: ::std::option::Option<crate::types::TableClassSummary>) -> Self {
-         self.table_class_summary = input;
-         self
-@@ -1320,7 +603,6 @@
-         self.deletion_protection_enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the table.</p>
-     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.deletion_protection_enabled = input;
-         self
-@@ -1334,7 +616,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -1348,7 +629,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Describes the warm throughput value of the base table.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::TableWarmThroughputDescription>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -1357,70 +637,23 @@
+@@ -1357,70 +670,24 @@
      pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> {
          &self.warm_throughput
      }
@@ -76068,6 +70724,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li>
 -    /// </ul>
 -    /// <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes"> Consistency modes</a> in DynamoDB developer guide.</p>
++    /// <p>Indicates one of the following consistency modes for a global table:</p><ul><li><p><code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency (MREC).</p></li><li><p><code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
      pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<crate::types::MultiRegionConsistency>) -> Self {
          self.multi_region_consistency = input;
          self
@@ -76117,7 +70774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_indexes(mut self, input: crate::types::VectorIndexDescription) -> Self {
          let mut v = self.vector_indexes.unwrap_or_default();
          v.push(input);
-@@ -1427,60 +660,11 @@
+@@ -1427,60 +694,12 @@
          self.vector_indexes = ::std::option::Option::Some(v);
          self
      }
@@ -76146,6 +70803,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li>
 -    /// </ul>
++    /// <p>The vector indexes, if any, on the table. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the vector index.</p></li><li><p><code>IndexStatus</code> - The current status of the vector index: <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p></li><li><p><code>Backfilling</code> - Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p></li><li><p><code>VectorAttribute</code> - The attribute that contains vector embeddings.</p></li><li><p><code>Dimensions</code> - The number of dimensions in each vector.</p></li><li><p><code>DistanceFunction</code> - The distance function used to calculate similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or <code>DOT_PRODUCT</code>).</p></li><li><p><code>SearchSchema</code> - The partition key and inline filter attributes for the vector index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the vector index.</p></li><li><p><code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely identifies the index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul>
      pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexDescription>>) -> Self {
          self.vector_indexes = input;
          self
@@ -76181,59 +70839,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_table_warm_throughput_description.rs`
-
-```diff
---- reference/src/types/_table_warm_throughput_description.rs
-+++ generated/src/types/_table_warm_throughput_description.rs
-@@ -46,7 +46,6 @@
-         self.read_units_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the base table's warm throughput value in read units per second.</p>
-     pub fn set_read_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.read_units_per_second = input;
-         self
-@@ -60,7 +59,6 @@
-         self.write_units_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the base table's warm throughput value in write units per second.</p>
-     pub fn set_write_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.write_units_per_second = input;
-         self
-@@ -74,7 +72,6 @@
-         self.status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents warm throughput value of the base table.</p>
-     pub fn set_status(mut self, input: ::std::option::Option<crate::types::TableStatus>) -> Self {
-         self.status = input;
-         self
-```
-
 ### `src/types/_tag.rs`
 
 ```diff
 --- reference/src/types/_tag.rs
 +++ generated/src/types/_tag.rs
-@@ -44,7 +44,6 @@
-         self.key = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.key = input;
-         self
-@@ -59,7 +58,6 @@
-         self.value = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The value of the tag. Tag values are case-sensitive and can be null.</p>
-     pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.value = input;
-         self
-@@ -70,8 +68,8 @@
+@@ -70,8 +70,8 @@
      }
      /// Consumes the builder and constructs a [`Tag`](crate::types::Tag).
      /// This method will fail if any of the following fields are not set:
@@ -76319,7 +70930,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn reason(&self) -> ::std::option::Option<&str> {
          self.reason.as_deref()
      }
-@@ -86,95 +34,16 @@
+@@ -86,95 +34,17 @@
      pub(crate) resource: ::std::option::Option<::std::string::String>,
  }
  impl ThrottlingReasonBuilder {
@@ -76382,6 +70993,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>IndexWriteAccountLimitExceeded</p></li>
 -    /// </ul>
 -    /// <p>This helps identify exactly what resource is being throttled, what type of operation caused it, and why the throttling occurred.</p>
++    /// <p>The reason for throttling. The throttling reason follows a specific format: <code>ResourceType+OperationType+LimitType</code>:</p><ul><li><p>Resource Type (What is being throttled): Table or Index</p></li><li><p>Operation Type (What kind of operation): Read or Write</p></li><li><p>Limit Type (Why the throttling occurred):</p><ul><li><p><code>ProvisionedThroughputExceeded</code>: The request rate is exceeding the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">provisioned throughput capacity</a> (read or write capacity units) configured for a table or a global secondary index (GSI) in provisioned capacity mode.</p></li><li><p><code>AccountLimitExceeded</code>: The request rate has caused a table or global secondary index (GSI) in on-demand mode to exceed the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#default-limits-throughput">per-table account-level service quotas</a> for read/write throughput in the current Amazon Web Services Region.</p></li><li><p><code>KeyRangeThroughputExceeded</code>: The request rate directed at a specific partition key value has exceeded the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html">internal partition-level throughput limits</a>, indicating uneven access patterns across the table's or GSI's key space.</p></li><li><p><code>MaxOnDemandThroughputExceeded</code>: The request rate has exceeded the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode-max-throughput.html">configured maximum throughput limits</a> set for a table or index in on-demand capacity mode.</p></li></ul></li></ul><p>Examples of complete throttling reasons:</p><ul><li><p>TableReadProvisionedThroughputExceeded</p></li><li><p>IndexWriteAccountLimitExceeded</p></li></ul><p>This helps identify exactly what resource is being throttled, what type of operation caused it, and why the throttling occurred.</p>
      pub fn set_reason(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.reason = input;
          self
@@ -76417,37 +71029,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_reason(&self) -> &::std::option::Option<::std::string::String> {
          &self.reason
      }
-@@ -183,7 +52,6 @@
-         self.resource = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) of the DynamoDB table or index that experienced the throttling event.</p>
-     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.resource = input;
-         self
-```
-
-### `src/types/_time_to_live_description.rs`
-
-```diff
---- reference/src/types/_time_to_live_description.rs
-+++ generated/src/types/_time_to_live_description.rs
-@@ -39,7 +39,6 @@
-         self.time_to_live_status = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The TTL status for the table.</p>
-     pub fn set_time_to_live_status(mut self, input: ::std::option::Option<crate::types::TimeToLiveStatus>) -> Self {
-         self.time_to_live_status = input;
-         self
-@@ -53,7 +52,6 @@
-         self.attribute_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the TTL attribute for items in the table.</p>
-     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.attribute_name = input;
-         self
 ```
 
 ### `src/types/_time_to_live_specification.rs`
@@ -76455,23 +71036,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_time_to_live_specification.rs
 +++ generated/src/types/_time_to_live_specification.rs
-@@ -41,7 +41,6 @@
-         self.enabled = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
-     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.enabled = input;
-         self
-@@ -56,7 +55,6 @@
-         self.attribute_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
-     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.attribute_name = input;
-         self
-@@ -67,8 +65,8 @@
+@@ -67,8 +67,8 @@
      }
      /// Consumes the builder and constructs a [`TimeToLiveSpecification`](crate::types::TimeToLiveSpecification).
      /// This method will fail if any of the following fields are not set:
@@ -76489,57 +71054,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_transact_get_item.rs
 +++ generated/src/types/_transact_get_item.rs
-@@ -28,12 +28,10 @@
+@@ -28,7 +28,6 @@
  }
  impl TransactGetItemBuilder {
      /// <p>Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.</p>
 -    /// This field is required.
      pub fn get(mut self, input: crate::types::Get) -> Self {
          self.get = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.</p>
-     pub fn set_get(mut self, input: ::std::option::Option<crate::types::Get>) -> Self {
-         self.get = input;
-         self
-```
-
-### `src/types/_transact_write_item.rs`
-
-```diff
---- reference/src/types/_transact_write_item.rs
-+++ generated/src/types/_transact_write_item.rs
-@@ -53,7 +53,6 @@
-         self.condition_check = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A request to perform a check item operation.</p>
-     pub fn set_condition_check(mut self, input: ::std::option::Option<crate::types::ConditionCheck>) -> Self {
-         self.condition_check = input;
-         self
-@@ -67,7 +66,6 @@
-         self.put = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A request to perform a <code>PutItem</code> operation.</p>
-     pub fn set_put(mut self, input: ::std::option::Option<crate::types::Put>) -> Self {
-         self.put = input;
-         self
-@@ -81,7 +79,6 @@
-         self.delete = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A request to perform a <code>DeleteItem</code> operation.</p>
-     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::Delete>) -> Self {
-         self.delete = input;
-         self
-@@ -95,7 +92,6 @@
-         self.update = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A request to perform an <code>UpdateItem</code> operation.</p>
-     pub fn set_update(mut self, input: ::std::option::Option<crate::types::Update>) -> Self {
-         self.update = input;
          self
 ```
 
@@ -76548,7 +71069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_update.rs
 +++ generated/src/types/_update.rs
-@@ -73,18 +73,16 @@
+@@ -73,15 +73,14 @@
      pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
  }
  impl UpdateBuilder {
@@ -76567,35 +71088,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.key = ::std::option::Option::Some(map);
          self
      }
--    /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
-     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-         self.key = input;
-         self
-@@ -99,7 +97,6 @@
-         self.update_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
-     pub fn set_update_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.update_expression = input;
-         self
-@@ -114,7 +111,6 @@
-         self.table_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.table_name = input;
-         self
-@@ -128,7 +124,6 @@
-         self.condition_expression = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.condition_expression = input;
-         self
-@@ -137,22 +132,20 @@
+     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
+@@ -137,19 +136,18 @@
      pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
          &self.condition_expression
      }
@@ -76618,11 +71112,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_names = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more substitution tokens for attribute names in an expression.</p>
-     pub fn set_expression_attribute_names(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-@@ -166,18 +159,16 @@
+     /// <p>One or more substitution tokens for attribute names in an expression.</p>
+@@ -166,15 +164,14 @@
      ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
          &self.expression_attribute_names
      }
@@ -76641,19 +71132,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.expression_attribute_values = ::std::option::Option::Some(map);
          self
      }
--    /// <p>One or more values that can be substituted in an expression.</p>
-     pub fn set_expression_attribute_values(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-@@ -196,7 +187,6 @@
-         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
-     pub fn set_return_values_on_condition_check_failure(
-         mut self,
-         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-@@ -210,9 +200,9 @@
+     /// <p>One or more values that can be substituted in an expression.</p>
+@@ -210,9 +207,9 @@
      }
      /// Consumes the builder and constructs a [`Update`](crate::types::Update).
      /// This method will fail if any of the following fields are not set:
@@ -76673,40 +71153,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_update_global_secondary_index_action.rs
 +++ generated/src/types/_update_global_secondary_index_action.rs
-@@ -57,7 +57,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the global secondary index to be updated.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -72,8 +71,6 @@
-         self.provisioned_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
--    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
-         self.provisioned_throughput = input;
-         self
-@@ -88,7 +85,6 @@
-         self.on_demand_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
-         self.on_demand_throughput = input;
-         self
-@@ -102,7 +98,6 @@
-         self.warm_throughput = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
-     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
-         self.warm_throughput = input;
-         self
-@@ -113,7 +108,7 @@
+@@ -113,7 +113,7 @@
      }
      /// Consumes the builder and constructs a [`UpdateGlobalSecondaryIndexAction`](crate::types::UpdateGlobalSecondaryIndexAction).
      /// This method will fail if any of the following fields are not set:
@@ -76715,21 +71162,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::UpdateGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::UpdateGlobalSecondaryIndexAction {
              index_name: self.index_name.ok_or_else(|| {
-```
-
-### `src/types/_update_kinesis_streaming_configuration.rs`
-
-```diff
---- reference/src/types/_update_kinesis_streaming_configuration.rs
-+++ generated/src/types/_update_kinesis_streaming_configuration.rs
-@@ -32,7 +32,6 @@
-         self.approximate_creation_date_time_precision = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Enables updating the precision of Kinesis data stream timestamp.</p>
-     pub fn set_approximate_creation_date_time_precision(
-         mut self,
-         input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
 ```
 
 ### `src/types/_update_replication_group_member_action.rs`
@@ -76746,39 +71178,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(&self) -> &[crate::types::ReplicaGlobalSecondaryIndex] {
          self.global_secondary_indexes.as_deref().unwrap_or_default()
      }
-@@ -71,7 +69,6 @@
-         self.region_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Region where the replica exists.</p>
-     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.region_name = input;
-         self
-@@ -85,7 +82,6 @@
-         self.kms_master_key_id = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The KMS key of the replica that should be used for KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.kms_master_key_id = input;
-         self
-@@ -99,7 +95,6 @@
-         self.provisioned_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
-         self.provisioned_throughput_override = input;
-         self
-@@ -113,7 +108,6 @@
-         self.on_demand_throughput_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Overrides the maximum on-demand throughput for the replica table.</p>
-     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
-         self.on_demand_throughput_override = input;
-         self
-@@ -122,11 +116,10 @@
+@@ -122,11 +120,10 @@
      pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
          &self.on_demand_throughput_override
      }
@@ -76791,23 +71191,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn global_secondary_indexes(mut self, input: crate::types::ReplicaGlobalSecondaryIndex) -> Self {
          let mut v = self.global_secondary_indexes.unwrap_or_default();
          v.push(input);
-@@ -133,7 +126,6 @@
-         self.global_secondary_indexes = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>Replica-specific global secondary index settings.</p>
-     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>) -> Self {
-         self.global_secondary_indexes = input;
-         self
-@@ -147,7 +139,6 @@
-         self.table_class_override = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-     pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
-         self.table_class_override = input;
-         self
-@@ -158,7 +149,7 @@
+@@ -158,7 +155,7 @@
      }
      /// Consumes the builder and constructs a [`UpdateReplicationGroupMemberAction`](crate::types::UpdateReplicationGroupMemberAction).
      /// This method will fail if any of the following fields are not set:
@@ -76823,15 +71207,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/_vector_attribute_definition.rs
 +++ generated/src/types/_vector_attribute_definition.rs
-@@ -34,7 +34,6 @@
-         self.attribute_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector attribute.</p>
-     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.attribute_name = input;
-         self
-@@ -45,7 +44,7 @@
+@@ -45,7 +45,7 @@
      }
      /// Consumes the builder and constructs a [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
      /// This method will fail if any of the following fields are not set:
@@ -76840,29 +71216,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn build(self) -> ::std::result::Result<crate::types::VectorAttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(crate::types::VectorAttributeDefinition {
              attribute_name: self.attribute_name.ok_or_else(|| {
-```
-
-### `src/types/_vector_capacity.rs`
-
-```diff
---- reference/src/types/_vector_capacity.rs
-+++ generated/src/types/_vector_capacity.rs
-@@ -39,7 +39,6 @@
-         self.vector_search_request_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of vector search request bytes consumed by a <code>SearchVectors</code> operation.</p>
-     pub fn set_vector_search_request_bytes(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.vector_search_request_bytes = input;
-         self
-@@ -53,7 +52,6 @@
-         self.vector_write_request_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of vector write request bytes consumed when writing to a vector index. Reported for write operations that modify attributes indexed by a vector index.</p>
-     pub fn set_vector_write_request_bytes(mut self, input: ::std::option::Option<f64>) -> Self {
-         self.vector_write_request_bytes = input;
-         self
 ```
 
 ### `src/types/_vector_index.rs`
@@ -76879,15 +71232,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
          self.search_schema.as_deref().unwrap_or_default()
      }
-@@ -71,7 +69,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -81,12 +78,10 @@
+@@ -81,7 +79,6 @@
          &self.index_name
      }
      /// <p>The vector attribute configuration for the index.</p>
@@ -76895,12 +71240,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn vector_attribute(mut self, input: crate::types::VectorAttributeDefinition) -> Self {
          self.vector_attribute = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>The vector attribute configuration for the index.</p>
-     pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
-         self.vector_attribute = input;
-         self
-@@ -95,11 +90,10 @@
+@@ -95,11 +92,10 @@
      pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
          &self.vector_attribute
      }
@@ -76913,15 +71253,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
          let mut v = self.search_schema.unwrap_or_default();
          v.push(input);
-@@ -106,7 +100,6 @@
-         self.search_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-     pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
-         self.search_schema = input;
-         self
-@@ -116,12 +109,10 @@
+@@ -116,7 +112,6 @@
          &self.search_schema
      }
      /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
@@ -76929,28 +71261,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn projection(mut self, input: crate::types::Projection) -> Self {
          self.projection = ::std::option::Option::Some(input);
          self
-     }
--    /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -136,7 +127,6 @@
-         self.dimensions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of dimensions in each vector.</p>
-     pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.dimensions = input;
-         self
-@@ -151,7 +141,6 @@
-         self.distance_function = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The distance function used to calculate similarity between vectors. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
-     pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
-         self.distance_function = input;
-         self
-@@ -162,9 +151,9 @@
+@@ -162,9 +157,9 @@
      }
      /// Consumes the builder and constructs a [`VectorIndex`](crate::types::VectorIndex).
      /// This method will fail if any of the following fields are not set:
@@ -77013,15 +71324,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn index_status(&self) -> ::std::option::Option<&crate::types::IndexStatus> {
          self.index_status.as_ref()
      }
-@@ -120,7 +102,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -129,11 +110,10 @@
+@@ -129,11 +111,10 @@
      pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
          &self.index_name
      }
@@ -77034,47 +71337,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
          let mut v = self.search_schema.unwrap_or_default();
          v.push(input);
-@@ -140,7 +120,6 @@
-         self.search_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-     pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
-         self.search_schema = input;
-         self
-@@ -154,7 +133,6 @@
-         self.projection = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -168,7 +146,6 @@
-         self.vector_attribute = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The vector attribute configuration for the index.</p>
-     pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
-         self.vector_attribute = input;
-         self
-@@ -182,7 +159,6 @@
-         self.dimensions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of dimensions in each vector.</p>
-     pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.dimensions = input;
-         self
-@@ -196,7 +172,6 @@
-         self.distance_function = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The distance function used to calculate similarity between vectors.</p>
-     pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
-         self.distance_function = input;
-         self
-@@ -205,41 +180,16 @@
+@@ -205,41 +186,17 @@
      pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
          &self.distance_function
      }
@@ -77101,6 +71364,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>DELETING</code> - The index is being deleted.</p></li>
 -    /// </ul>
++    /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
      pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
          self.index_status = input;
          self
@@ -77118,38 +71382,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
          &self.index_status
      }
-@@ -248,7 +198,6 @@
-         self.backfilling = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
-     pub fn set_backfilling(mut self, input: ::std::option::Option<bool>) -> Self {
-         self.backfilling = input;
-         self
-@@ -262,7 +211,6 @@
-         self.index_size_bytes = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.index_size_bytes = input;
-         self
-@@ -276,7 +224,6 @@
-         self.item_count = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.item_count = input;
-         self
-@@ -290,7 +237,6 @@
-         self.index_arn = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the vector index.</p>
-     pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_arn = input;
-         self
 ```
 
 ### `src/types/_vector_index_info.rs`
@@ -77166,23 +71398,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(&self) -> &[crate::types::SearchSchemaElement] {
          self.search_schema.as_deref().unwrap_or_default()
      }
-@@ -69,7 +67,6 @@
-         self.index_name = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The name of the vector index.</p>
-     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.index_name = input;
-         self
-@@ -83,7 +80,6 @@
-         self.vector_attribute = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The vector attribute configuration for the index.</p>
-     pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
-         self.vector_attribute = input;
-         self
-@@ -92,11 +88,10 @@
+@@ -92,11 +90,10 @@
      pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
          &self.vector_attribute
      }
@@ -77195,107 +71411,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn search_schema(mut self, input: crate::types::SearchSchemaElement) -> Self {
          let mut v = self.search_schema.unwrap_or_default();
          v.push(input);
-@@ -103,7 +98,6 @@
-         self.search_schema = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-     pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
-         self.search_schema = input;
-         self
-@@ -117,7 +111,6 @@
-         self.projection = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
-         self.projection = input;
-         self
-@@ -131,7 +124,6 @@
-         self.dimensions = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The number of dimensions in each vector.</p>
-     pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.dimensions = input;
-         self
-@@ -145,7 +137,6 @@
-         self.distance_function = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The distance function used to calculate similarity between vectors.</p>
-     pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
-         self.distance_function = input;
-         self
-```
-
-### `src/types/_vector_index_update.rs`
-
-```diff
---- reference/src/types/_vector_index_update.rs
-+++ generated/src/types/_vector_index_update.rs
-@@ -39,7 +39,6 @@
-         self.create = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The configuration for creating a new vector index on the table.</p>
-     pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateVectorIndexAction>) -> Self {
-         self.create = input;
-         self
-@@ -53,7 +52,6 @@
-         self.delete = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>The configuration for deleting an existing vector index from the table.</p>
-     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteVectorIndexAction>) -> Self {
-         self.delete = input;
-         self
-```
-
-### `src/types/_warm_throughput.rs`
-
-```diff
---- reference/src/types/_warm_throughput.rs
-+++ generated/src/types/_warm_throughput.rs
-@@ -39,7 +39,6 @@
-         self.read_units_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the number of read operations your base table can instantaneously support.</p>
-     pub fn set_read_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.read_units_per_second = input;
-         self
-@@ -53,7 +52,6 @@
-         self.write_units_per_second = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>Represents the number of write operations your base table can instantaneously support.</p>
-     pub fn set_write_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
-         self.write_units_per_second = input;
-         self
-```
-
-### `src/types/_write_request.rs`
-
-```diff
---- reference/src/types/_write_request.rs
-+++ generated/src/types/_write_request.rs
-@@ -39,7 +39,6 @@
-         self.put_request = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A request to perform a <code>PutItem</code> operation.</p>
-     pub fn set_put_request(mut self, input: ::std::option::Option<crate::types::PutRequest>) -> Self {
-         self.put_request = input;
-         self
-@@ -53,7 +52,6 @@
-         self.delete_request = ::std::option::Option::Some(input);
-         self
-     }
--    /// <p>A request to perform a <code>DeleteItem</code> operation.</p>
-     pub fn set_delete_request(mut self, input: ::std::option::Option<crate::types::DeleteRequest>) -> Self {
-         self.delete_request = input;
-         self
 ```
 
 ### `src/types/error/_conditional_check_failed_exception.rs`
@@ -77303,15 +71418,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types/error/_conditional_check_failed_exception.rs
 +++ generated/src/types/error/_conditional_check_failed_exception.rs
-@@ -66,7 +66,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The conditional request failed.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -75,18 +74,16 @@
+@@ -75,15 +75,14 @@
      pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
          &self.message
      }
@@ -77330,25 +71437,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        self.item = ::std::option::Option::Some(map);
          self
      }
--    /// <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
-     pub fn set_item(
-         mut self,
-         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-```
-
-### `src/types/error/_internal_server_error.rs`
-
-```diff
---- reference/src/types/error/_internal_server_error.rs
-+++ generated/src/types/error/_internal_server_error.rs
-@@ -57,7 +57,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The server encountered an internal error trying to fulfill the request.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
+     /// <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
 ```
 
 ### `src/types/error/_invalid_endpoint_exception.rs`
@@ -77362,36 +71451,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-```
-
-### `src/types/error/_item_collection_size_limit_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_item_collection_size_limit_exceeded_exception.rs
-+++ generated/src/types/error/_item_collection_size_limit_exceeded_exception.rs
-@@ -57,7 +57,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The total size of an item collection has exceeded the maximum limit of 10 gigabytes.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_limit_exceeded_exception.rs`
-
-```diff
---- reference/src/types/error/_limit_exceeded_exception.rs
-+++ generated/src/types/error/_limit_exceeded_exception.rs
-@@ -63,7 +63,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>Too many operations for a given subscriber.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
 ```
 
 ### `src/types/error/_provisioned_throughput_exceeded_exception.rs`
@@ -77408,15 +71467,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn throttling_reasons(&self) -> &[crate::types::ThrottlingReason] {
          self.throttling_reasons.as_deref().unwrap_or_default()
      }
-@@ -68,7 +66,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>You exceeded your maximum allowed provisioned throughput.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-@@ -77,11 +74,10 @@
+@@ -77,11 +75,10 @@
      pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
          &self.message
      }
@@ -77429,14 +71480,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn throttling_reasons(mut self, input: crate::types::ThrottlingReason) -> Self {
          let mut v = self.throttling_reasons.unwrap_or_default();
          v.push(input);
-@@ -88,7 +84,6 @@
-         self.throttling_reasons = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-     pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
-         self.throttling_reasons = input;
-         self
 ```
 
 ### `src/types/error/_replicated_write_conflict_exception.rs`
@@ -77484,14 +71527,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn throttling_reasons(mut self, input: crate::types::ThrottlingReason) -> Self {
          let mut v = self.throttling_reasons.unwrap_or_default();
          v.push(input);
-@@ -88,7 +85,6 @@
-         self.throttling_reasons = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-     pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
-         self.throttling_reasons = input;
-         self
 ```
 
 ### `src/types/error/_resource_in_use_exception.rs`
@@ -77516,29 +71551,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
  pub struct ResourceInUseException {
-@@ -66,7 +57,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource which is being attempted to be changed is in use.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
-```
-
-### `src/types/error/_resource_not_found_exception.rs`
-
-```diff
---- reference/src/types/error/_resource_not_found_exception.rs
-+++ generated/src/types/error/_resource_not_found_exception.rs
-@@ -57,7 +57,6 @@
-         self.message = ::std::option::Option::Some(input.into());
-         self
-     }
--    /// <p>The resource which is being requested does not exist.</p>
-     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
-         self.message = input;
-         self
 ```
 
 ### `src/types/error/_throttling_exception.rs`
@@ -77568,14 +71580,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn throttling_reasons(mut self, input: crate::types::ThrottlingReason) -> Self {
          let mut v = self.throttling_reasons.unwrap_or_default();
          v.push(input);
-@@ -88,7 +85,6 @@
-         self.throttling_reasons = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
-     pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
-         self.throttling_reasons = input;
-         self
 ```
 
 ### `src/types/error/_transaction_canceled_exception.rs`
@@ -77749,14 +71753,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn cancellation_reasons(mut self, input: crate::types::CancellationReason) -> Self {
          let mut v = self.cancellation_reasons.unwrap_or_default();
          v.push(input);
-@@ -219,7 +96,6 @@
-         self.cancellation_reasons = ::std::option::Option::Some(v);
-         self
-     }
--    /// <p>A list of cancellation reasons.</p>
-     pub fn set_cancellation_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CancellationReason>>) -> Self {
-         self.cancellation_reasons = input;
-         self
 ```
 
 ### `src/types/error/_transaction_in_progress_exception.rs`
@@ -79473,19 +73469,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/batch_write_item/builders.rs`
 - `src/operation/batch_write_item.rs`
 - `src/operation/create_backup/_create_backup_input.rs`
-- `src/operation/create_backup/_create_backup_output.rs`
 - `src/operation/create_backup/builders.rs`
 - `src/operation/create_backup.rs`
 - `src/operation/create_global_table/_create_global_table_input.rs`
-- `src/operation/create_global_table/_create_global_table_output.rs`
 - `src/operation/create_global_table/builders.rs`
 - `src/operation/create_global_table.rs`
 - `src/operation/create_table/_create_table_input.rs`
-- `src/operation/create_table/_create_table_output.rs`
 - `src/operation/create_table/builders.rs`
 - `src/operation/create_table.rs`
 - `src/operation/delete_backup/_delete_backup_input.rs`
-- `src/operation/delete_backup/_delete_backup_output.rs`
 - `src/operation/delete_backup/builders.rs`
 - `src/operation/delete_backup.rs`
 - `src/operation/delete_item/_delete_item_input.rs`
@@ -79493,19 +73485,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/delete_item/builders.rs`
 - `src/operation/delete_item.rs`
 - `src/operation/delete_resource_policy/_delete_resource_policy_input.rs`
-- `src/operation/delete_resource_policy/_delete_resource_policy_output.rs`
 - `src/operation/delete_resource_policy/builders.rs`
 - `src/operation/delete_resource_policy.rs`
 - `src/operation/delete_table/_delete_table_input.rs`
-- `src/operation/delete_table/_delete_table_output.rs`
 - `src/operation/delete_table/builders.rs`
 - `src/operation/delete_table.rs`
 - `src/operation/describe_backup/_describe_backup_input.rs`
-- `src/operation/describe_backup/_describe_backup_output.rs`
 - `src/operation/describe_backup/builders.rs`
 - `src/operation/describe_backup.rs`
 - `src/operation/describe_continuous_backups/_describe_continuous_backups_input.rs`
-- `src/operation/describe_continuous_backups/_describe_continuous_backups_output.rs`
 - `src/operation/describe_continuous_backups/builders.rs`
 - `src/operation/describe_continuous_backups.rs`
 - `src/operation/describe_contributor_insights/_describe_contributor_insights_input.rs`
@@ -79517,11 +73505,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/describe_endpoints/builders.rs`
 - `src/operation/describe_endpoints.rs`
 - `src/operation/describe_export/_describe_export_input.rs`
-- `src/operation/describe_export/_describe_export_output.rs`
 - `src/operation/describe_export/builders.rs`
 - `src/operation/describe_export.rs`
 - `src/operation/describe_global_table/_describe_global_table_input.rs`
-- `src/operation/describe_global_table/_describe_global_table_output.rs`
 - `src/operation/describe_global_table/builders.rs`
 - `src/operation/describe_global_table.rs`
 - `src/operation/describe_global_table_settings/_describe_global_table_settings_input.rs`
@@ -79537,27 +73523,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/describe_kinesis_streaming_destination/builders.rs`
 - `src/operation/describe_kinesis_streaming_destination.rs`
 - `src/operation/describe_limits/_describe_limits_input.rs`
-- `src/operation/describe_limits/_describe_limits_output.rs`
 - `src/operation/describe_limits/builders.rs`
 - `src/operation/describe_limits.rs`
 - `src/operation/describe_table/_describe_table_input.rs`
-- `src/operation/describe_table/_describe_table_output.rs`
 - `src/operation/describe_table/builders.rs`
 - `src/operation/describe_table.rs`
 - `src/operation/describe_table_replica_auto_scaling/_describe_table_replica_auto_scaling_input.rs`
-- `src/operation/describe_table_replica_auto_scaling/_describe_table_replica_auto_scaling_output.rs`
 - `src/operation/describe_table_replica_auto_scaling/builders.rs`
 - `src/operation/describe_table_replica_auto_scaling.rs`
 - `src/operation/describe_time_to_live/_describe_time_to_live_input.rs`
-- `src/operation/describe_time_to_live/_describe_time_to_live_output.rs`
 - `src/operation/describe_time_to_live/builders.rs`
 - `src/operation/describe_time_to_live.rs`
 - `src/operation/disable_kinesis_streaming_destination/_disable_kinesis_streaming_destination_input.rs`
-- `src/operation/disable_kinesis_streaming_destination/_disable_kinesis_streaming_destination_output.rs`
 - `src/operation/disable_kinesis_streaming_destination/builders.rs`
 - `src/operation/disable_kinesis_streaming_destination.rs`
 - `src/operation/enable_kinesis_streaming_destination/_enable_kinesis_streaming_destination_input.rs`
-- `src/operation/enable_kinesis_streaming_destination/_enable_kinesis_streaming_destination_output.rs`
 - `src/operation/enable_kinesis_streaming_destination/builders.rs`
 - `src/operation/enable_kinesis_streaming_destination.rs`
 - `src/operation/execute_statement/_execute_statement_input.rs`
@@ -79569,7 +73549,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/execute_transaction/builders.rs`
 - `src/operation/execute_transaction.rs`
 - `src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_input.rs`
-- `src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_output.rs`
 - `src/operation/export_table_to_point_in_time/builders.rs`
 - `src/operation/export_table_to_point_in_time.rs`
 - `src/operation/get_item/_get_item_input.rs`
@@ -79577,7 +73556,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_item/builders.rs`
 - `src/operation/get_item.rs`
 - `src/operation/get_resource_policy/_get_resource_policy_input.rs`
-- `src/operation/get_resource_policy/_get_resource_policy_output.rs`
 - `src/operation/get_resource_policy/builders.rs`
 - `src/operation/get_resource_policy.rs`
 - `src/operation/import_table/_import_table_input.rs`
@@ -79617,7 +73595,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/put_item/builders.rs`
 - `src/operation/put_item.rs`
 - `src/operation/put_resource_policy/_put_resource_policy_input.rs`
-- `src/operation/put_resource_policy/_put_resource_policy_output.rs`
 - `src/operation/put_resource_policy/builders.rs`
 - `src/operation/put_resource_policy.rs`
 - `src/operation/query/_query_input.rs`
@@ -79625,11 +73602,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/query/builders.rs`
 - `src/operation/query.rs`
 - `src/operation/restore_table_from_backup/_restore_table_from_backup_input.rs`
-- `src/operation/restore_table_from_backup/_restore_table_from_backup_output.rs`
 - `src/operation/restore_table_from_backup/builders.rs`
 - `src/operation/restore_table_from_backup.rs`
 - `src/operation/restore_table_to_point_in_time/_restore_table_to_point_in_time_input.rs`
-- `src/operation/restore_table_to_point_in_time/_restore_table_to_point_in_time_output.rs`
 - `src/operation/restore_table_to_point_in_time/builders.rs`
 - `src/operation/restore_table_to_point_in_time.rs`
 - `src/operation/scan/_scan_input.rs`
@@ -79655,15 +73630,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/untag_resource/builders.rs`
 - `src/operation/untag_resource.rs`
 - `src/operation/update_continuous_backups/_update_continuous_backups_input.rs`
-- `src/operation/update_continuous_backups/_update_continuous_backups_output.rs`
 - `src/operation/update_continuous_backups/builders.rs`
 - `src/operation/update_continuous_backups.rs`
 - `src/operation/update_contributor_insights/_update_contributor_insights_input.rs`
-- `src/operation/update_contributor_insights/_update_contributor_insights_output.rs`
 - `src/operation/update_contributor_insights/builders.rs`
 - `src/operation/update_contributor_insights.rs`
 - `src/operation/update_global_table/_update_global_table_input.rs`
-- `src/operation/update_global_table/_update_global_table_output.rs`
 - `src/operation/update_global_table/builders.rs`
 - `src/operation/update_global_table.rs`
 - `src/operation/update_global_table_settings/_update_global_table_settings_input.rs`
@@ -79675,19 +73647,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/update_item/builders.rs`
 - `src/operation/update_item.rs`
 - `src/operation/update_kinesis_streaming_destination/_update_kinesis_streaming_destination_input.rs`
-- `src/operation/update_kinesis_streaming_destination/_update_kinesis_streaming_destination_output.rs`
 - `src/operation/update_kinesis_streaming_destination/builders.rs`
 - `src/operation/update_kinesis_streaming_destination.rs`
 - `src/operation/update_table/_update_table_input.rs`
-- `src/operation/update_table/_update_table_output.rs`
 - `src/operation/update_table/builders.rs`
 - `src/operation/update_table.rs`
 - `src/operation/update_table_replica_auto_scaling/_update_table_replica_auto_scaling_input.rs`
-- `src/operation/update_table_replica_auto_scaling/_update_table_replica_auto_scaling_output.rs`
 - `src/operation/update_table_replica_auto_scaling/builders.rs`
 - `src/operation/update_table_replica_auto_scaling.rs`
 - `src/operation/update_time_to_live/_update_time_to_live_input.rs`
-- `src/operation/update_time_to_live/_update_time_to_live_output.rs`
 - `src/operation/update_time_to_live/builders.rs`
 - `src/operation/update_time_to_live.rs`
 - `src/operation.rs`
@@ -79695,13 +73663,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_attribute_definition.rs`
 - `src/types/_attribute_value.rs`
 - `src/types/_attribute_value_update.rs`
-- `src/types/_auto_scaling_policy_description.rs`
 - `src/types/_auto_scaling_policy_update.rs`
 - `src/types/_auto_scaling_settings_description.rs`
-- `src/types/_auto_scaling_settings_update.rs`
 - `src/types/_auto_scaling_target_tracking_scaling_policy_configuration_description.rs`
 - `src/types/_auto_scaling_target_tracking_scaling_policy_configuration_update.rs`
-- `src/types/_backup_description.rs`
 - `src/types/_backup_details.rs`
 - `src/types/_backup_summary.rs`
 - `src/types/_batch_statement_error.rs`
@@ -79709,12 +73674,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_batch_statement_response.rs`
 - `src/types/_billing_mode_summary.rs`
 - `src/types/_cancellation_reason.rs`
-- `src/types/_capacity.rs`
 - `src/types/_condition.rs`
 - `src/types/_condition_check.rs`
 - `src/types/_consumed_capacity.rs`
 - `src/types/_continuous_backups_description.rs`
-- `src/types/_contributor_insights_summary.rs`
 - `src/types/_create_global_secondary_index_action.rs`
 - `src/types/_create_global_table_witness_group_member_action.rs`
 - `src/types/_create_replica_action.rs`
@@ -79728,55 +73691,40 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_delete_replication_group_member_action.rs`
 - `src/types/_delete_request.rs`
 - `src/types/_delete_vector_index_action.rs`
-- `src/types/_enable_kinesis_streaming_configuration.rs`
 - `src/types/_endpoint.rs`
 - `src/types/_expected_attribute_value.rs`
 - `src/types/_export_description.rs`
-- `src/types/_export_summary.rs`
-- `src/types/_failure_exception.rs`
 - `src/types/_get.rs`
 - `src/types/_global_secondary_index.rs`
 - `src/types/_global_secondary_index_auto_scaling_update.rs`
 - `src/types/_global_secondary_index_description.rs`
 - `src/types/_global_secondary_index_info.rs`
 - `src/types/_global_secondary_index_update.rs`
-- `src/types/_global_secondary_index_warm_throughput_description.rs`
 - `src/types/_global_table.rs`
 - `src/types/_global_table_description.rs`
 - `src/types/_global_table_global_secondary_index_settings_update.rs`
-- `src/types/_global_table_witness_description.rs`
 - `src/types/_global_table_witness_group_update.rs`
-- `src/types/_import_summary.rs`
 - `src/types/_import_table_description.rs`
-- `src/types/_incremental_export_specification.rs`
-- `src/types/_input_format_options.rs`
 - `src/types/_item_collection_metrics.rs`
 - `src/types/_item_response.rs`
 - `src/types/_key_schema_element.rs`
 - `src/types/_keys_and_attributes.rs`
-- `src/types/_kinesis_data_stream_destination.rs`
 - `src/types/_local_secondary_index.rs`
 - `src/types/_local_secondary_index_description.rs`
 - `src/types/_local_secondary_index_info.rs`
-- `src/types/_on_demand_throughput.rs`
-- `src/types/_on_demand_throughput_override.rs`
 - `src/types/_parameterized_statement.rs`
 - `src/types/_point_in_time_recovery_description.rs`
 - `src/types/_point_in_time_recovery_specification.rs`
 - `src/types/_projection.rs`
 - `src/types/_provisioned_throughput.rs`
-- `src/types/_provisioned_throughput_description.rs`
-- `src/types/_provisioned_throughput_override.rs`
 - `src/types/_put.rs`
 - `src/types/_put_request.rs`
-- `src/types/_replica.rs`
 - `src/types/_replica_auto_scaling_description.rs`
 - `src/types/_replica_auto_scaling_update.rs`
 - `src/types/_replica_description.rs`
 - `src/types/_replica_global_secondary_index.rs`
 - `src/types/_replica_global_secondary_index_auto_scaling_description.rs`
 - `src/types/_replica_global_secondary_index_auto_scaling_update.rs`
-- `src/types/_replica_global_secondary_index_description.rs`
 - `src/types/_replica_global_secondary_index_settings_description.rs`
 - `src/types/_replica_global_secondary_index_settings_update.rs`
 - `src/types/_replica_settings_description.rs`
@@ -79794,37 +73742,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_sse_specification.rs`
 - `src/types/_stream_specification.rs`
 - `src/types/_table_auto_scaling_description.rs`
-- `src/types/_table_class_summary.rs`
 - `src/types/_table_creation_parameters.rs`
 - `src/types/_table_description.rs`
-- `src/types/_table_warm_throughput_description.rs`
 - `src/types/_tag.rs`
 - `src/types/_throttling_reason.rs`
-- `src/types/_time_to_live_description.rs`
 - `src/types/_time_to_live_specification.rs`
 - `src/types/_transact_get_item.rs`
-- `src/types/_transact_write_item.rs`
 - `src/types/_update.rs`
 - `src/types/_update_global_secondary_index_action.rs`
-- `src/types/_update_kinesis_streaming_configuration.rs`
 - `src/types/_update_replication_group_member_action.rs`
 - `src/types/_vector_attribute_definition.rs`
-- `src/types/_vector_capacity.rs`
 - `src/types/_vector_index.rs`
 - `src/types/_vector_index_description.rs`
 - `src/types/_vector_index_info.rs`
-- `src/types/_vector_index_update.rs`
-- `src/types/_warm_throughput.rs`
-- `src/types/_write_request.rs`
 - `src/types/error/_conditional_check_failed_exception.rs`
-- `src/types/error/_internal_server_error.rs`
-- `src/types/error/_item_collection_size_limit_exceeded_exception.rs`
-- `src/types/error/_limit_exceeded_exception.rs`
 - `src/types/error/_provisioned_throughput_exceeded_exception.rs`
 - `src/types/error/_replicated_write_conflict_exception.rs`
 - `src/types/error/_request_limit_exceeded.rs`
 - `src/types/error/_resource_in_use_exception.rs`
-- `src/types/error/_resource_not_found_exception.rs`
 - `src/types/error/_throttling_exception.rs`
 - `src/types/error/_transaction_canceled_exception.rs`
 - `src/types/error/_transaction_in_progress_exception.rs`

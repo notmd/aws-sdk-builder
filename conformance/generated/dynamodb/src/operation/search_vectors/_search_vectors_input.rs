@@ -95,6 +95,7 @@ impl SearchVectorsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or Amazon Resource Name (ARN) of the table containing the vector index.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -109,6 +110,7 @@ impl SearchVectorsInputBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the vector index to search. The index must be in the <code>ACTIVE</code> state.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -142,6 +144,7 @@ impl SearchVectorsInputBuilder {
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     pub fn set_expression_attribute_names(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -165,6 +168,7 @@ impl SearchVectorsInputBuilder {
         self.expression_attribute_values = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
     pub fn set_expression_attribute_values(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -184,6 +188,8 @@ impl SearchVectorsInputBuilder {
         self.projection_expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
+    /// <p>Only attributes projected into the vector index can be retrieved.</p>
     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.projection_expression = input;
         self
@@ -204,6 +210,8 @@ impl SearchVectorsInputBuilder {
         self.search_vector = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
+    /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
     pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
         self.search_vector = input;
         self
@@ -219,6 +227,8 @@ impl SearchVectorsInputBuilder {
         self.search_condition_expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A condition expression used to filter the vector search results. The expression can reference attributes defined in the vector index search schema, including <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
+    /// <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code> attributes. Comparison and range operators are supported for <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search schema can be referenced.</p>
     pub fn set_search_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.search_condition_expression = input;
         self
@@ -234,6 +244,7 @@ impl SearchVectorsInputBuilder {
         self.top_k = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of most similar results to return.</p>
     pub fn set_top_k(mut self, input: ::std::option::Option<i32>) -> Self {
         self.top_k = input;
         self

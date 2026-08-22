@@ -40,6 +40,7 @@ impl UpdateRoleDescriptionInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the role that you want to modify.</p>
     pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.role_name = input;
         self
@@ -54,6 +55,7 @@ impl UpdateRoleDescriptionInputBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The new description that you want to apply to the specified role.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self

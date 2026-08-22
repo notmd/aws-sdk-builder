@@ -41,6 +41,7 @@ impl SearchSchemaElementBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the attribute.</p>
     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self
@@ -55,6 +56,7 @@ impl SearchSchemaElementBuilder {
         self.search_schema_element_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
     pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<crate::types::SearchSchemaElementType>) -> Self {
         self.search_schema_element_type = input;
         self

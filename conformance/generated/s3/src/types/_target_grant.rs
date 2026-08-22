@@ -40,6 +40,7 @@ impl TargetGrantBuilder {
         self.grantee = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Container for the person being granted permissions.</p>
     pub fn set_grantee(mut self, input: ::std::option::Option<crate::types::Grantee>) -> Self {
         self.grantee = input;
         self
@@ -53,6 +54,7 @@ impl TargetGrantBuilder {
         self.permission = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Logging permissions assigned to the grantee for the bucket.</p>
     pub fn set_permission(mut self, input: ::std::option::Option<crate::types::BucketLogsPermission>) -> Self {
         self.permission = input;
         self

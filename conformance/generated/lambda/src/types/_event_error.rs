@@ -39,6 +39,7 @@ impl EventErrorBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The error payload.</p>
     pub fn set_payload(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.payload = input;
         self
@@ -52,6 +53,7 @@ impl EventErrorBuilder {
         self.truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates if the error payload was truncated due to size limits.</p>
     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.truncated = input;
         self

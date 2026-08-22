@@ -170,6 +170,9 @@ impl UploadPartOutputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
+    /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
+    /// </note>
     pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
         self.server_side_encryption = input;
         self
@@ -185,6 +188,7 @@ impl UploadPartOutputBuilder {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Entity tag for the uploaded object.</p>
     pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.e_tag = input;
         self
@@ -198,6 +202,7 @@ impl UploadPartOutputBuilder {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_crc32 = input;
         self
@@ -211,6 +216,7 @@ impl UploadPartOutputBuilder {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_crc32_c = input;
         self
@@ -224,6 +230,7 @@ impl UploadPartOutputBuilder {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = input;
         self
@@ -237,6 +244,7 @@ impl UploadPartOutputBuilder {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 160-bit <code>SHA1</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_sha1 = input;
         self
@@ -250,6 +258,7 @@ impl UploadPartOutputBuilder {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 256-bit <code>SHA256</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_sha256 = input;
         self
@@ -263,6 +272,7 @@ impl UploadPartOutputBuilder {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 512-bit <code>SHA512</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_sha512 = input;
         self
@@ -276,6 +286,7 @@ impl UploadPartOutputBuilder {
         self.checksum_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 128-bit <code>MD5</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_md5 = input;
         self
@@ -289,6 +300,7 @@ impl UploadPartOutputBuilder {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_xxhash64 = input;
         self
@@ -302,6 +314,7 @@ impl UploadPartOutputBuilder {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_xxhash3 = input;
         self
@@ -315,6 +328,7 @@ impl UploadPartOutputBuilder {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This will only be present if the checksum was provided in the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.checksum_xxhash128 = input;
         self
@@ -330,6 +344,9 @@ impl UploadPartOutputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_algorithm = input;
         self
@@ -347,6 +364,9 @@ impl UploadPartOutputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key_md5 = input;
         self
@@ -362,6 +382,7 @@ impl UploadPartOutputBuilder {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
     pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssekms_key_id = input;
         self
@@ -375,6 +396,7 @@ impl UploadPartOutputBuilder {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.bucket_key_enabled = input;
         self

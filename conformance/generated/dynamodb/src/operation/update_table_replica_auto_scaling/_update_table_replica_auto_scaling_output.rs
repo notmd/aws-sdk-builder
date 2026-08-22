@@ -39,6 +39,7 @@ impl UpdateTableReplicaAutoScalingOutputBuilder {
         self.table_auto_scaling_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Returns information about the auto scaling settings of a table with replicas.</p>
     pub fn set_table_auto_scaling_description(mut self, input: ::std::option::Option<crate::types::TableAutoScalingDescription>) -> Self {
         self.table_auto_scaling_description = input;
         self

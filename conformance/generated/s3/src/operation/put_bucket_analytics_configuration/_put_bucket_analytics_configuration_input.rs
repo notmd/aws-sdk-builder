@@ -54,6 +54,7 @@ impl PutBucketAnalyticsConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket to which an analytics configuration is stored.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -68,6 +69,7 @@ impl PutBucketAnalyticsConfigurationInputBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID that identifies the analytics configuration.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -81,6 +83,7 @@ impl PutBucketAnalyticsConfigurationInputBuilder {
         self.analytics_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The configuration and any analyses for the analytics filter.</p>
     pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
         self.analytics_configuration = input;
         self
@@ -94,6 +97,7 @@ impl PutBucketAnalyticsConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

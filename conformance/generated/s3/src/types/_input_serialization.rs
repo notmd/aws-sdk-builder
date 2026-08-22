@@ -53,6 +53,7 @@ impl InputSerializationBuilder {
         self.csv = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes the serialization of a CSV-encoded object.</p>
     pub fn set_csv(mut self, input: ::std::option::Option<crate::types::CsvInput>) -> Self {
         self.csv = input;
         self
@@ -66,6 +67,7 @@ impl InputSerializationBuilder {
         self.compression_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>
     pub fn set_compression_type(mut self, input: ::std::option::Option<crate::types::CompressionType>) -> Self {
         self.compression_type = input;
         self
@@ -79,6 +81,7 @@ impl InputSerializationBuilder {
         self.json = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies JSON as object's input serialization format.</p>
     pub fn set_json(mut self, input: ::std::option::Option<crate::types::JsonInput>) -> Self {
         self.json = input;
         self
@@ -92,6 +95,7 @@ impl InputSerializationBuilder {
         self.parquet = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies Parquet as object's input serialization format.</p>
     pub fn set_parquet(mut self, input: ::std::option::Option<crate::types::ParquetInput>) -> Self {
         self.parquet = input;
         self

@@ -80,6 +80,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket that contains the object.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -94,6 +95,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The object key.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -107,6 +109,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version ID of the object.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self
@@ -120,6 +123,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.max_annotation_results = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of annotations to return in the response. Maximum is 1,000.</p>
     pub fn set_max_annotation_results(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_annotation_results = input;
         self
@@ -133,6 +137,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.annotation_prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
     pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.annotation_prefix = input;
         self
@@ -146,6 +151,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -170,6 +176,7 @@ impl ListObjectAnnotationsInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

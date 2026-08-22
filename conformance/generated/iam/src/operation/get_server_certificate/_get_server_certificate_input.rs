@@ -36,6 +36,8 @@ impl GetServerCertificateInputBuilder {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the server certificate you want to retrieve information about.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.server_certificate_name = input;
         self

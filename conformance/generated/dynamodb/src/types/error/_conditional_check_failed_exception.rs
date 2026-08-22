@@ -66,6 +66,7 @@ impl ConditionalCheckFailedExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The conditional request failed.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self
@@ -84,6 +85,7 @@ impl ConditionalCheckFailedExceptionBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,

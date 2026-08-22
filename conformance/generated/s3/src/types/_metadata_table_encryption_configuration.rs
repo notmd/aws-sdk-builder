@@ -40,6 +40,7 @@ impl MetadataTableEncryptionConfigurationBuilder {
         self.sse_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encryption type specified for a metadata table. To specify server-side encryption with Key Management Service (KMS) keys (SSE-KMS), use the <code>aws:kms</code> value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <code>AES256</code> value.</p>
     pub fn set_sse_algorithm(mut self, input: ::std::option::Option<crate::types::TableSseAlgorithm>) -> Self {
         self.sse_algorithm = input;
         self
@@ -53,6 +54,7 @@ impl MetadataTableEncryptionConfigurationBuilder {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If server-side encryption with Key Management Service (KMS) keys (SSE-KMS) is specified, you must also specify the KMS key Amazon Resource Name (ARN). You must specify a customer-managed KMS key that's located in the same Region as the general purpose bucket that corresponds to the metadata table configuration.</p>
     pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_key_arn = input;
         self

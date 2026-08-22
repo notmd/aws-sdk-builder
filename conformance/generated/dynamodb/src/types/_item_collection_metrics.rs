@@ -46,6 +46,7 @@ impl ItemCollectionMetricsBuilder {
         self.item_collection_key = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
     pub fn set_item_collection_key(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -70,6 +71,8 @@ impl ItemCollectionMetricsBuilder {
         self.size_estimate_range_gb = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
+    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
     pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<::std::vec::Vec<f64>>) -> Self {
         self.size_estimate_range_gb = input;
         self

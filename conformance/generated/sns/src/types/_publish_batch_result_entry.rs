@@ -50,6 +50,7 @@ impl PublishBatchResultEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The <code>Id</code> of an entry in a batch request.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -63,6 +64,7 @@ impl PublishBatchResultEntryBuilder {
         self.message_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An identifier for the message.</p>
     pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message_id = input;
         self
@@ -78,6 +80,9 @@ impl PublishBatchResultEntryBuilder {
         self.sequence_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
+    /// <p>The large, non-consecutive number that Amazon SNS assigns to each message.</p>
+    /// <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
     pub fn set_sequence_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sequence_number = input;
         self

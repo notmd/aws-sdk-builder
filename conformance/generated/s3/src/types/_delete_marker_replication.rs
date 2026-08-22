@@ -41,6 +41,9 @@ impl DeleteMarkerReplicationBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether to replicate delete markers.</p><note>
+    /// <p>Indicates whether to replicate delete markers.</p>
+    /// </note>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::DeleteMarkerReplicationStatus>) -> Self {
         self.status = input;
         self

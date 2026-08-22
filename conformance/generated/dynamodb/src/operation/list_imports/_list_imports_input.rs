@@ -46,6 +46,7 @@ impl ListImportsInputBuilder {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) associated with the table that was imported to.</p>
     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_arn = input;
         self
@@ -59,6 +60,7 @@ impl ListImportsInputBuilder {
         self.page_size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of <code>ImportSummary</code>objects returned in a single page.</p>
     pub fn set_page_size(mut self, input: ::std::option::Option<i32>) -> Self {
         self.page_size = input;
         self
@@ -72,6 +74,7 @@ impl ListImportsInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An optional string that, if supplied, must be copied from the output of a previous call to <code>ListImports</code>. When provided in this manner, the API fetches the next page of results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

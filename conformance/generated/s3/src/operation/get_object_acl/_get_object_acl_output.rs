@@ -58,6 +58,7 @@ impl GetObjectAclOutputBuilder {
         self.owner = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Container for the bucket owner's ID.</p>
     pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
         self.owner = input;
         self
@@ -76,6 +77,7 @@ impl GetObjectAclOutputBuilder {
         self.grants = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of grants.</p>
     pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self {
         self.grants = input;
         self

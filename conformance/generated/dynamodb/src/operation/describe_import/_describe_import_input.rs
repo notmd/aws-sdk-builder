@@ -33,6 +33,7 @@ impl DescribeImportInputBuilder {
         self.import_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) associated with the table you're importing to.</p>
     pub fn set_import_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.import_arn = input;
         self

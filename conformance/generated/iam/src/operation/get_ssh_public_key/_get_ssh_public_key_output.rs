@@ -39,6 +39,7 @@ impl GetSshPublicKeyOutputBuilder {
         self.ssh_public_key = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the SSH public key.</p>
     pub fn set_ssh_public_key(mut self, input: ::std::option::Option<crate::types::SshPublicKey>) -> Self {
         self.ssh_public_key = input;
         self

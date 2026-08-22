@@ -39,6 +39,7 @@ impl PutResourcePolicyOutputBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

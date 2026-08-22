@@ -81,6 +81,7 @@ impl ReEncryptOutputBuilder {
         self.ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.ciphertext_blob = input;
         self
@@ -94,6 +95,7 @@ impl ReEncryptOutputBuilder {
         self.source_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Unique identifier of the KMS key used to originally encrypt the data.</p>
     pub fn set_source_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_key_id = input;
         self
@@ -107,6 +109,7 @@ impl ReEncryptOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to reencrypt the data.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -120,6 +123,7 @@ impl ReEncryptOutputBuilder {
         self.source_encryption_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
     pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
         self.source_encryption_algorithm = input;
         self
@@ -133,6 +137,7 @@ impl ReEncryptOutputBuilder {
         self.destination_encryption_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encryption algorithm that was used to reencrypt the data.</p>
     pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
         self.destination_encryption_algorithm = input;
         self
@@ -146,6 +151,7 @@ impl ReEncryptOutputBuilder {
         self.source_key_material_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the key material used to originally encrypt the data. This field is present only when the original encryption used a symmetric encryption KMS key.</p>
     pub fn set_source_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_key_material_id = input;
         self
@@ -159,6 +165,7 @@ impl ReEncryptOutputBuilder {
         self.destination_key_material_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>
     pub fn set_destination_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.destination_key_material_id = input;
         self

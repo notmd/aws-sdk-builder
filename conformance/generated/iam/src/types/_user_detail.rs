@@ -96,6 +96,7 @@ impl UserDetailBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.path = input;
         self
@@ -109,6 +110,7 @@ impl UserDetailBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The friendly name identifying the user.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -122,6 +124,7 @@ impl UserDetailBuilder {
         self.user_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The stable and unique string identifying the user. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_user_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_id = input;
         self
@@ -146,6 +149,7 @@ impl UserDetailBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the user was created.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
@@ -164,6 +168,7 @@ impl UserDetailBuilder {
         self.user_policy_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of the inline policies embedded in the user.</p>
     pub fn set_user_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self {
         self.user_policy_list = input;
         self
@@ -182,6 +187,7 @@ impl UserDetailBuilder {
         self.group_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of IAM groups that the user is in.</p>
     pub fn set_group_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.group_list = input;
         self
@@ -200,6 +206,7 @@ impl UserDetailBuilder {
         self.attached_managed_policies = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of the managed policies attached to the user.</p>
     pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self {
         self.attached_managed_policies = input;
         self
@@ -214,6 +221,8 @@ impl UserDetailBuilder {
         self.permissions_boundary = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The ARN of the policy used to set the permissions boundary for the user.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
         self.permissions_boundary = input;
         self
@@ -233,6 +242,7 @@ impl UserDetailBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

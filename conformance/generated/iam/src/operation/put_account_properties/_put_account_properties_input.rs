@@ -43,6 +43,9 @@ impl PutAccountPropertiesInputBuilder {
         self.properties = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of property key-value pairs to set. All keys must belong to the same namespace.</p>
+    /// <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain exactly one <code>/</code> separating the namespace from the property name, and cannot start or end with <code>/</code>.</p>
+    /// <p>The service validates each value based on the property key's expected type. For example, boolean properties expect <code>true</code> or <code>false</code>.</p>
     pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.properties = input;
         self

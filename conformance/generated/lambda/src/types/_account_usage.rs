@@ -39,6 +39,7 @@ impl AccountUsageBuilder {
         self.total_code_size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
     pub fn set_total_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
         self.total_code_size = input;
         self
@@ -52,6 +53,7 @@ impl AccountUsageBuilder {
         self.function_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of Lambda functions.</p>
     pub fn set_function_count(mut self, input: ::std::option::Option<i64>) -> Self {
         self.function_count = input;
         self

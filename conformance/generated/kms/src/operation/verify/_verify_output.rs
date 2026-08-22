@@ -53,6 +53,7 @@ impl VerifyOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -66,6 +67,7 @@ impl VerifyOutputBuilder {
         self.signature_valid = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
     pub fn set_signature_valid(mut self, input: ::std::option::Option<bool>) -> Self {
         self.signature_valid = input;
         self
@@ -79,6 +81,7 @@ impl VerifyOutputBuilder {
         self.signing_algorithm = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The signing algorithm that was used to verify the signature.</p>
     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self {
         self.signing_algorithm = input;
         self

@@ -53,6 +53,7 @@ impl ListFunctionsRequestBuilder {
         self.master_region = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
     pub fn set_master_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.master_region = input;
         self
@@ -66,6 +67,7 @@ impl ListFunctionsRequestBuilder {
         self.function_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
     pub fn set_function_version(mut self, input: ::std::option::Option<crate::types::FunctionVersion>) -> Self {
         self.function_version = input;
         self
@@ -79,6 +81,7 @@ impl ListFunctionsRequestBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -92,6 +95,7 @@ impl ListFunctionsRequestBuilder {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
     pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_items = input;
         self

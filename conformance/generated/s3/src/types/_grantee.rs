@@ -60,6 +60,7 @@ impl GranteeBuilder {
         self.display_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p></p>
     pub fn set_display_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.display_name = input;
         self
@@ -73,6 +74,7 @@ impl GranteeBuilder {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p></p>
     pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.email_address = input;
         self
@@ -86,6 +88,7 @@ impl GranteeBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The canonical user ID of the grantee.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -99,6 +102,7 @@ impl GranteeBuilder {
         self.uri = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>URI of the grantee group.</p>
     pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.uri = input;
         self
@@ -113,6 +117,7 @@ impl GranteeBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Type of grantee</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::Type>) -> Self {
         self.r#type = input;
         self

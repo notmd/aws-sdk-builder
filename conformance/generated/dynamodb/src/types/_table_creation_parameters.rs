@@ -86,6 +86,7 @@ impl TableCreationParametersBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table created as part of the import operation.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -104,6 +105,7 @@ impl TableCreationParametersBuilder {
         self.attribute_definitions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The attributes of the table created as part of the import operation.</p>
     pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
         self.attribute_definitions = input;
         self
@@ -122,6 +124,7 @@ impl TableCreationParametersBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
@@ -135,6 +138,7 @@ impl TableCreationParametersBuilder {
         self.billing_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
     pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.billing_mode = input;
         self
@@ -186,6 +190,7 @@ impl TableCreationParametersBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
         self.global_secondary_indexes = input;
         self
@@ -204,6 +209,7 @@ impl TableCreationParametersBuilder {
         self.vector_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The vector indexes of the table to be created as part of the import operation.</p>
     pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
         self.vector_indexes = input;
         self

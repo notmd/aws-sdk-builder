@@ -82,6 +82,7 @@ impl S3LocationBuilder {
         self.bucket_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket where the restore results will be placed.</p>
     pub fn set_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket_name = input;
         self
@@ -96,6 +97,7 @@ impl S3LocationBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The prefix that is prepended to the restore results for this request.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -120,6 +122,7 @@ impl S3LocationBuilder {
         self.canned_acl = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The canned ACL to apply to the restore results.</p>
     pub fn set_canned_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
         self.canned_acl = input;
         self
@@ -138,6 +141,7 @@ impl S3LocationBuilder {
         self.access_control_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of grants that control access to the staged results.</p>
     pub fn set_access_control_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self {
         self.access_control_list = input;
         self
@@ -151,6 +155,7 @@ impl S3LocationBuilder {
         self.tagging = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The tag-set that is applied to the restore results.</p>
     pub fn set_tagging(mut self, input: ::std::option::Option<crate::types::Tagging>) -> Self {
         self.tagging = input;
         self
@@ -169,6 +174,7 @@ impl S3LocationBuilder {
         self.user_metadata = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of metadata to store with the restore results in S3.</p>
     pub fn set_user_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>>) -> Self {
         self.user_metadata = input;
         self
@@ -182,6 +188,7 @@ impl S3LocationBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The class of storage used to store the restore results.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
         self.storage_class = input;
         self

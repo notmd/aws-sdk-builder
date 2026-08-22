@@ -41,6 +41,7 @@ impl TimeToLiveSpecificationBuilder {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.enabled = input;
         self
@@ -55,6 +56,7 @@ impl TimeToLiveSpecificationBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self

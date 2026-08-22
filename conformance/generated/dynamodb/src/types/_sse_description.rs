@@ -53,6 +53,7 @@ impl SseDescriptionBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the current state of server-side encryption. The only supported values are:</p><ul><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::SseStatus>) -> Self {
         self.status = input;
         self
@@ -66,6 +67,7 @@ impl SseDescriptionBuilder {
         self.sse_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
     pub fn set_sse_type(mut self, input: ::std::option::Option<crate::types::SseType>) -> Self {
         self.sse_type = input;
         self
@@ -79,6 +81,7 @@ impl SseDescriptionBuilder {
         self.kms_master_key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The KMS key ARN used for the KMS encryption.</p>
     pub fn set_kms_master_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_master_key_arn = input;
         self
@@ -92,6 +95,7 @@ impl SseDescriptionBuilder {
         self.inaccessible_encryption_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's KMS key is accessible again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>
     pub fn set_inaccessible_encryption_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.inaccessible_encryption_date_time = input;
         self

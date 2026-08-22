@@ -40,6 +40,7 @@ impl SendDurableExecutionCallbackSuccessInputBuilder {
         self.callback_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the callback operation.</p>
     pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.callback_id = input;
         self
@@ -53,6 +54,7 @@ impl SendDurableExecutionCallbackSuccessInputBuilder {
         self.result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
     pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.result = input;
         self

@@ -67,6 +67,9 @@ impl InventoryS3BucketDestinationBuilder {
         self.account_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.</p><note>
+    /// <p>Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.</p>
+    /// </note>
     pub fn set_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.account_id = input;
         self
@@ -83,6 +86,7 @@ impl InventoryS3BucketDestinationBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be published.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -97,6 +101,7 @@ impl InventoryS3BucketDestinationBuilder {
         self.format = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the output format of the inventory results.</p>
     pub fn set_format(mut self, input: ::std::option::Option<crate::types::InventoryFormat>) -> Self {
         self.format = input;
         self
@@ -110,6 +115,7 @@ impl InventoryS3BucketDestinationBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The prefix that is prepended to all inventory results.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -123,6 +129,7 @@ impl InventoryS3BucketDestinationBuilder {
         self.encryption = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
     pub fn set_encryption(mut self, input: ::std::option::Option<crate::types::InventoryEncryption>) -> Self {
         self.encryption = input;
         self

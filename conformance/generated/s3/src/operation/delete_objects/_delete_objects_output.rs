@@ -63,6 +63,7 @@ impl DeleteObjectsOutputBuilder {
         self.deleted = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
     pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>) -> Self {
         self.deleted = input;
         self
@@ -92,6 +93,7 @@ impl DeleteObjectsOutputBuilder {
         self.errors = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>) -> Self {
         self.errors = input;
         self

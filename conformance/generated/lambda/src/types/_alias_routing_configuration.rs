@@ -37,6 +37,7 @@ impl AliasRoutingConfigurationBuilder {
         self.additional_version_weights = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The second version, and the percentage of traffic that's routed to it.</p>
     pub fn set_additional_version_weights(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, f64>>) -> Self {
         self.additional_version_weights = input;
         self

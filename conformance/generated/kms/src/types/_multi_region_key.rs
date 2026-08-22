@@ -39,6 +39,7 @@ impl MultiRegionKeyBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Displays the key ARN of a primary or replica key of a multi-Region key.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
@@ -52,6 +53,7 @@ impl MultiRegionKeyBuilder {
         self.region = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Displays the Amazon Web Services Region of a primary or replica key in a multi-Region key.</p>
     pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region = input;
         self

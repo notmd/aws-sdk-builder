@@ -44,6 +44,7 @@ impl GetAccountPropertiesOutputBuilder {
         self.properties = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.properties = input;
         self

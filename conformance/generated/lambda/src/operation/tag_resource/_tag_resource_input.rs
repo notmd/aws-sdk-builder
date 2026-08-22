@@ -40,6 +40,7 @@ impl TagResourceInputBuilder {
         self.resource = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource's Amazon Resource Name (ARN).</p>
     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource = input;
         self
@@ -58,6 +59,7 @@ impl TagResourceInputBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A list of tags to apply to the resource.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self

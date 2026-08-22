@@ -46,6 +46,7 @@ impl GetObjectRetentionOutputBuilder {
         self.retention = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The container element for an object's retention settings.</p>
     pub fn set_retention(mut self, input: ::std::option::Option<crate::types::ObjectLockRetention>) -> Self {
         self.retention = input;
         self

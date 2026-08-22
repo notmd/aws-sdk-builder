@@ -32,6 +32,7 @@ impl PutFunctionScalingConfigResponseBuilder {
         self.function_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of the function after applying the scaling configuration.</p>
     pub fn set_function_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
         self.function_state = input;
         self

@@ -32,6 +32,7 @@ impl StorageClassAnalysisBuilder {
         self.data_export = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.</p>
     pub fn set_data_export(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysisDataExport>) -> Self {
         self.data_export = input;
         self

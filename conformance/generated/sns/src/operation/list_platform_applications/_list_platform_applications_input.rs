@@ -32,6 +32,7 @@ impl ListPlatformApplicationsInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

@@ -65,6 +65,7 @@ impl SigningCertificateBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the user the signing certificate is associated with.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -79,6 +80,7 @@ impl SigningCertificateBuilder {
         self.certificate_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID for the signing certificate.</p>
     pub fn set_certificate_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_id = input;
         self
@@ -93,6 +95,7 @@ impl SigningCertificateBuilder {
         self.certificate_body = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The contents of the signing certificate.</p>
     pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.certificate_body = input;
         self
@@ -107,6 +110,7 @@ impl SigningCertificateBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the signing certificate. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
         self.status = input;
         self
@@ -120,6 +124,7 @@ impl SigningCertificateBuilder {
         self.upload_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date when the signing certificate was uploaded.</p>
     pub fn set_upload_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.upload_date = input;
         self

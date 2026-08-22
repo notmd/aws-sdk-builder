@@ -41,6 +41,7 @@ impl PolicyGroupBuilder {
         self.group_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name (friendly name, not ARN) identifying the group.</p>
     pub fn set_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.group_name = input;
         self
@@ -54,6 +55,7 @@ impl PolicyGroupBuilder {
         self.group_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The stable and unique string identifying the group. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.group_id = input;
         self

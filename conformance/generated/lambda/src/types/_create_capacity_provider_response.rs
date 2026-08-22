@@ -32,6 +32,7 @@ impl CreateCapacityProviderResponseBuilder {
         self.capacity_provider = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Information about the capacity provider that was created.</p>
     pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self {
         self.capacity_provider = input;
         self

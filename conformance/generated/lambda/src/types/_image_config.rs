@@ -51,6 +51,7 @@ impl ImageConfigBuilder {
         self.entry_point = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
     pub fn set_entry_point(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.entry_point = input;
         self
@@ -69,6 +70,7 @@ impl ImageConfigBuilder {
         self.command = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
     pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.command = input;
         self
@@ -82,6 +84,7 @@ impl ImageConfigBuilder {
         self.working_directory = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specifies the working directory.</p>
     pub fn set_working_directory(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.working_directory = input;
         self

@@ -40,6 +40,7 @@ impl PublishBatchInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
     pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.topic_arn = input;
         self
@@ -58,6 +59,7 @@ impl PublishBatchInputBuilder {
         self.publish_batch_request_entries = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
     pub fn set_publish_batch_request_entries(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchRequestEntry>>,

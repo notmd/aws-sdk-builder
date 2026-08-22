@@ -52,6 +52,7 @@ impl GetBucketTaggingOutputBuilder {
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Contains the tag set.</p>
     pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tag_set = input;
         self

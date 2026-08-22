@@ -44,6 +44,7 @@ impl ListMessageMoveTasksOutputBuilder {
         self.results = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of message movement tasks and their attributes.</p>
     pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>) -> Self {
         self.results = input;
         self

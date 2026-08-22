@@ -39,6 +39,7 @@ impl GetRoleOutputBuilder {
         self.role = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the IAM role.</p>
     pub fn set_role(mut self, input: ::std::option::Option<crate::types::Role>) -> Self {
         self.role = input;
         self

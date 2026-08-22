@@ -53,6 +53,7 @@ impl SendMessageBatchOutputBuilder {
         self.successful = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code><a>SendMessageBatchResultEntry</a></code> items.</p>
     pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>>) -> Self {
         self.successful = input;
         self
@@ -71,6 +72,7 @@ impl SendMessageBatchOutputBuilder {
         self.failed = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items with error details about each message that can't be enqueued.</p>
     pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
         self.failed = input;
         self

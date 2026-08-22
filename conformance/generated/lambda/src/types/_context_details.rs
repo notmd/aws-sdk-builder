@@ -46,6 +46,7 @@ impl ContextDetailsBuilder {
         self.replay_children = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Whether the state data of child operations of this completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
     pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self {
         self.replay_children = input;
         self
@@ -59,6 +60,7 @@ impl ContextDetailsBuilder {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The response payload from the context.</p>
     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.result = input;
         self
@@ -72,6 +74,7 @@ impl ContextDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the context failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self

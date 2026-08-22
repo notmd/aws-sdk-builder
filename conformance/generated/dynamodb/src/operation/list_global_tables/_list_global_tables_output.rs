@@ -51,6 +51,7 @@ impl ListGlobalTablesOutputBuilder {
         self.global_tables = ::std::option::Option::Some(v);
         self
     }
+    /// <p>List of global table names.</p>
     pub fn set_global_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>) -> Self {
         self.global_tables = input;
         self
@@ -64,6 +65,7 @@ impl ListGlobalTablesOutputBuilder {
         self.last_evaluated_global_table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Last evaluated global table name.</p>
     pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.last_evaluated_global_table_name = input;
         self

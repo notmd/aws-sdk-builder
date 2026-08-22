@@ -58,6 +58,8 @@ impl TransactWriteItemsOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
+    /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
         self.consumed_capacity = input;
         self
@@ -81,6 +83,7 @@ impl TransactWriteItemsOutputBuilder {
         self.item_collection_metrics = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
     pub fn set_item_collection_metrics(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,

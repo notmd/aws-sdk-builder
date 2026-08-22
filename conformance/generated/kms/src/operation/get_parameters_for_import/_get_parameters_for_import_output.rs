@@ -60,6 +60,7 @@ impl GetParametersForImportOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -73,6 +74,7 @@ impl GetParametersForImportOutputBuilder {
         self.import_token = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The import token to send in a subsequent <a>ImportKeyMaterial</a> request.</p>
     pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.import_token = input;
         self
@@ -86,6 +88,7 @@ impl GetParametersForImportOutputBuilder {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
     pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.public_key = input;
         self
@@ -99,6 +102,7 @@ impl GetParametersForImportOutputBuilder {
         self.parameters_valid_to = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub fn set_parameters_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.parameters_valid_to = input;
         self

@@ -32,6 +32,7 @@ impl InvokeAsyncResponseBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status code.</p>
     pub fn set_status(mut self, input: ::std::option::Option<i32>) -> Self {
         self.status = input;
         self

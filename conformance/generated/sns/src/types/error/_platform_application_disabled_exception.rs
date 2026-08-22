@@ -57,6 +57,7 @@ impl PlatformApplicationDisabledExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Message for platform application disabled.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

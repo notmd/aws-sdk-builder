@@ -39,6 +39,7 @@ impl RestoreTableFromBackupOutputBuilder {
         self.table_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The description of the table created from an existing backup.</p>
     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
         self.table_description = input;
         self

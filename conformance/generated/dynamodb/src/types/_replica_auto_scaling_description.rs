@@ -56,6 +56,7 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Region where the replica exists.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self
@@ -74,6 +75,7 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Replica-specific global secondary index auto scaling settings.</p>
     pub fn set_global_secondary_indexes(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
@@ -124,6 +126,7 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
     pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
         self.replica_status = input;
         self

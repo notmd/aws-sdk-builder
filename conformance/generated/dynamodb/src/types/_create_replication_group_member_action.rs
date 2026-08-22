@@ -69,6 +69,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Region where the new replica will be created.</p>
     pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region_name = input;
         self
@@ -82,6 +83,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_master_key_id = input;
         self
@@ -95,6 +97,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
         self.provisioned_throughput_override = input;
         self
@@ -108,6 +111,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
         self.on_demand_throughput_override = input;
         self
@@ -126,6 +130,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Replica-specific global secondary index settings.</p>
     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>) -> Self {
         self.global_secondary_indexes = input;
         self
@@ -139,6 +144,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.table_class_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
     pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
         self.table_class_override = input;
         self

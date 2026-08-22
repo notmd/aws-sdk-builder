@@ -51,6 +51,7 @@ impl ExecuteTransactionOutputBuilder {
         self.responses = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The response to a PartiQL transaction.</p>
     pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>) -> Self {
         self.responses = input;
         self
@@ -69,6 +70,7 @@ impl ExecuteTransactionOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
         self.consumed_capacity = input;
         self

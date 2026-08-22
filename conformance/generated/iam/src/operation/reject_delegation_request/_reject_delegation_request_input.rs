@@ -40,6 +40,7 @@ impl RejectDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the delegation request to reject.</p>
     pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
@@ -53,6 +54,7 @@ impl RejectDelegationRequestInputBuilder {
         self.notes = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Optional notes explaining the reason for rejecting the delegation request.</p>
     pub fn set_notes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.notes = input;
         self

@@ -42,6 +42,7 @@ impl FederatedUserBuilder {
         self.federated_user_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The string that identifies the federated user associated with the credentials, similar to the unique ID of an IAM user.</p>
     pub fn set_federated_user_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.federated_user_id = input;
         self
@@ -56,6 +57,7 @@ impl FederatedUserBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN that specifies the federated user that is associated with the credentials. For more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self

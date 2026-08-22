@@ -41,6 +41,7 @@ impl AttachedPermissionsBoundaryBuilder {
         self.permissions_boundary_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
     pub fn set_permissions_boundary_type(mut self, input: ::std::option::Option<crate::types::PermissionsBoundaryAttachmentType>) -> Self {
         self.permissions_boundary_type = input;
         self
@@ -54,6 +55,7 @@ impl AttachedPermissionsBoundaryBuilder {
         self.permissions_boundary_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the policy used to set the permissions boundary for the user or role.</p>
     pub fn set_permissions_boundary_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.permissions_boundary_arn = input;
         self

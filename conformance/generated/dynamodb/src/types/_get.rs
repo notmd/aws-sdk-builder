@@ -59,6 +59,7 @@ impl GetBuilder {
         self.key = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
         self.key = input;
         self
@@ -73,6 +74,7 @@ impl GetBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table from which to retrieve the specified item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -86,6 +88,7 @@ impl GetBuilder {
         self.projection_expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.</p>
     pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.projection_expression = input;
         self
@@ -108,6 +111,7 @@ impl GetBuilder {
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>
     pub fn set_expression_attribute_names(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,

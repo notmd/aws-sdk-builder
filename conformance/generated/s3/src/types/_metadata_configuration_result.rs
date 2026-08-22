@@ -53,6 +53,7 @@ impl MetadataConfigurationResultBuilder {
         self.destination_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The destination settings for a metadata configuration.</p>
     pub fn set_destination_result(mut self, input: ::std::option::Option<crate::types::DestinationResult>) -> Self {
         self.destination_result = input;
         self
@@ -66,6 +67,7 @@ impl MetadataConfigurationResultBuilder {
         self.journal_table_configuration_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The journal table configuration for a metadata configuration.</p>
     pub fn set_journal_table_configuration_result(mut self, input: ::std::option::Option<crate::types::JournalTableConfigurationResult>) -> Self {
         self.journal_table_configuration_result = input;
         self
@@ -79,6 +81,7 @@ impl MetadataConfigurationResultBuilder {
         self.inventory_table_configuration_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The inventory table configuration for a metadata configuration.</p>
     pub fn set_inventory_table_configuration_result(mut self, input: ::std::option::Option<crate::types::InventoryTableConfigurationResult>) -> Self {
         self.inventory_table_configuration_result = input;
         self
@@ -92,6 +95,7 @@ impl MetadataConfigurationResultBuilder {
         self.annotation_table_configuration_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The annotation table configuration result, if an annotation table is configured.</p>
     pub fn set_annotation_table_configuration_result(
         mut self,
         input: ::std::option::Option<crate::types::AnnotationTableConfigurationResult>,

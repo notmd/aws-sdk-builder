@@ -49,6 +49,7 @@ impl MessageAttributeValueBuilder {
         self.data_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
     pub fn set_data_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.data_type = input;
         self
@@ -62,6 +63,7 @@ impl MessageAttributeValueBuilder {
         self.string_value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
     pub fn set_string_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.string_value = input;
         self
@@ -75,6 +77,7 @@ impl MessageAttributeValueBuilder {
         self.binary_value = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
     pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.binary_value = input;
         self

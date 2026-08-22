@@ -44,6 +44,7 @@ impl ReceiveMessageOutputBuilder {
         self.messages = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of messages.</p>
     pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self {
         self.messages = input;
         self

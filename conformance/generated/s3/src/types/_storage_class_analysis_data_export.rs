@@ -40,6 +40,7 @@ impl StorageClassAnalysisDataExportBuilder {
         self.output_schema_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
     pub fn set_output_schema_version(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>) -> Self {
         self.output_schema_version = input;
         self
@@ -53,6 +54,7 @@ impl StorageClassAnalysisDataExportBuilder {
         self.destination = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The place to store the data for an analysis.</p>
     pub fn set_destination(mut self, input: ::std::option::Option<crate::types::AnalyticsExportDestination>) -> Self {
         self.destination = input;
         self

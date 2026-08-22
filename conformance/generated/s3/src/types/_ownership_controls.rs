@@ -38,6 +38,7 @@ impl OwnershipControlsBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The container element for an ownership control rule.</p>
     pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>>) -> Self {
         self.rules = input;
         self

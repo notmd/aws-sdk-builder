@@ -114,6 +114,7 @@ impl SelectObjectContentInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The S3 bucket.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -128,6 +129,7 @@ impl SelectObjectContentInputBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The object key.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key = input;
         self
@@ -141,6 +143,7 @@ impl SelectObjectContentInputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_algorithm = input;
         self
@@ -154,6 +157,7 @@ impl SelectObjectContentInputBuilder {
         self.sse_customer_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key = input;
         self
@@ -167,6 +171,7 @@ impl SelectObjectContentInputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sse_customer_key_md5 = input;
         self
@@ -181,6 +186,7 @@ impl SelectObjectContentInputBuilder {
         self.expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The expression that is used to query the object.</p>
     pub fn set_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expression = input;
         self
@@ -195,6 +201,7 @@ impl SelectObjectContentInputBuilder {
         self.expression_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of the provided expression (for example, SQL).</p>
     pub fn set_expression_type(mut self, input: ::std::option::Option<crate::types::ExpressionType>) -> Self {
         self.expression_type = input;
         self
@@ -208,6 +215,7 @@ impl SelectObjectContentInputBuilder {
         self.request_progress = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies if periodic request progress information should be enabled.</p>
     pub fn set_request_progress(mut self, input: ::std::option::Option<crate::types::RequestProgress>) -> Self {
         self.request_progress = input;
         self
@@ -221,6 +229,7 @@ impl SelectObjectContentInputBuilder {
         self.input_serialization = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes the format of the data in the object that is being queried.</p>
     pub fn set_input_serialization(mut self, input: ::std::option::Option<crate::types::InputSerialization>) -> Self {
         self.input_serialization = input;
         self
@@ -234,6 +243,7 @@ impl SelectObjectContentInputBuilder {
         self.output_serialization = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
     pub fn set_output_serialization(mut self, input: ::std::option::Option<crate::types::OutputSerialization>) -> Self {
         self.output_serialization = input;
         self
@@ -248,6 +258,8 @@ impl SelectObjectContentInputBuilder {
         self.scan_range = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.</p>
+    /// <p><code>ScanRange</code>may be used in the following ways:</p><ul><li><p><code><scanrange><start>50</start><end>100</end></scanrange></code> - process only the records starting between the bytes 50 and 100 (inclusive, counting from zero)</p></li><li><p><code><scanrange><start>50</start></scanrange></code> - process only the records starting after the byte 50</p></li><li><p><code><scanrange><end>50</end></scanrange></code> - process only the records within the last 50 bytes of the file.</p></li></ul>
     pub fn set_scan_range(mut self, input: ::std::option::Option<crate::types::ScanRange>) -> Self {
         self.scan_range = input;
         self
@@ -262,6 +274,7 @@ impl SelectObjectContentInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

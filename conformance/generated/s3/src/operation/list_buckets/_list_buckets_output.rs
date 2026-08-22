@@ -74,6 +74,7 @@ impl ListBucketsOutputBuilder {
         self.buckets = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of buckets owned by the requester.</p>
     pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self {
         self.buckets = input;
         self
@@ -87,6 +88,7 @@ impl ListBucketsOutputBuilder {
         self.owner = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The owner of the buckets listed.</p>
     pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
         self.owner = input;
         self
@@ -100,6 +102,7 @@ impl ListBucketsOutputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>ContinuationToken</code> is included in the response when there are more buckets that can be listed with pagination. The next <code>ListBuckets</code> request to Amazon S3 can be continued with this <code>ContinuationToken</code>. <code>ContinuationToken</code> is obfuscated and is not a real bucket.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -114,6 +117,8 @@ impl ListBucketsOutputBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p>
+    /// <p>All bucket names in the response begin with the specified bucket name prefix.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self

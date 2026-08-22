@@ -73,6 +73,7 @@ impl SshPublicKeyBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user associated with the SSH public key.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -87,6 +88,7 @@ impl SshPublicKeyBuilder {
         self.ssh_public_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the SSH public key.</p>
     pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssh_public_key_id = input;
         self
@@ -101,6 +103,7 @@ impl SshPublicKeyBuilder {
         self.fingerprint = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The MD5 message digest of the SSH public key.</p>
     pub fn set_fingerprint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.fingerprint = input;
         self
@@ -115,6 +118,7 @@ impl SshPublicKeyBuilder {
         self.ssh_public_key_body = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The SSH public key.</p>
     pub fn set_ssh_public_key_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssh_public_key_body = input;
         self
@@ -129,6 +133,7 @@ impl SshPublicKeyBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
         self.status = input;
         self
@@ -142,6 +147,7 @@ impl SshPublicKeyBuilder {
         self.upload_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the SSH public key was uploaded.</p>
     pub fn set_upload_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.upload_date = input;
         self

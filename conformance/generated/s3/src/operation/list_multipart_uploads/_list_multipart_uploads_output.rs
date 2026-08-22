@@ -152,6 +152,7 @@ impl ListMultipartUploadsOutputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -165,6 +166,7 @@ impl ListMultipartUploadsOutputBuilder {
         self.key_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The key at or after which the listing began.</p>
     pub fn set_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_marker = input;
         self
@@ -180,6 +182,9 @@ impl ListMultipartUploadsOutputBuilder {
         self.upload_id_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified <code>upload-id-marker</code>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_upload_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.upload_id_marker = input;
         self
@@ -195,6 +200,7 @@ impl ListMultipartUploadsOutputBuilder {
         self.next_key_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</p>
     pub fn set_next_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_key_marker = input;
         self
@@ -210,6 +216,9 @@ impl ListMultipartUploadsOutputBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p><note>
+    /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
+    /// </note>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -227,6 +236,9 @@ impl ListMultipartUploadsOutputBuilder {
         self.delimiter = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.</p><note>
+    /// <p><b>Directory buckets</b> - For directory buckets, <code>/</code> is the only supported delimiter.</p>
+    /// </note>
     pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delimiter = input;
         self
@@ -244,6 +256,9 @@ impl ListMultipartUploadsOutputBuilder {
         self.next_upload_id_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When a list is truncated, this element specifies the value that should be used for the <code>upload-id-marker</code> request parameter in a subsequent request.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_next_upload_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_upload_id_marker = input;
         self
@@ -259,6 +274,7 @@ impl ListMultipartUploadsOutputBuilder {
         self.max_uploads = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of multipart uploads that could have been included in the response.</p>
     pub fn set_max_uploads(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_uploads = input;
         self
@@ -272,6 +288,7 @@ impl ListMultipartUploadsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -290,6 +307,7 @@ impl ListMultipartUploadsOutputBuilder {
         self.uploads = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Container for elements related to a particular multipart upload. A response can contain zero or more <code>Upload</code> elements.</p>
     pub fn set_uploads(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MultipartUpload>>) -> Self {
         self.uploads = input;
         self
@@ -310,6 +328,9 @@ impl ListMultipartUploadsOutputBuilder {
         self.common_prefixes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key prefixes are returned in the <code>Prefix</code> child element.</p><note>
+    /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
+    /// </note>
     pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>) -> Self {
         self.common_prefixes = input;
         self
@@ -327,6 +348,9 @@ impl ListMultipartUploadsOutputBuilder {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+    /// <p>If you specify the <code>encoding-type</code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
+    /// <p><code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>, <code>NextKeyMarker</code>, <code>Key</code>.</p>
     pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
         self.encoding_type = input;
         self

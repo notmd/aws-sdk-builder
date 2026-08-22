@@ -46,6 +46,7 @@ impl SseSpecificationBuilder {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether server-side encryption is done using an Amazon Web Services managed key or an Amazon Web Services owned key. If enabled (true), server-side encryption type is set to <code>KMS</code> and an Amazon Web Services managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to Amazon Web Services owned key.</p>
     pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.enabled = input;
         self
@@ -59,6 +60,7 @@ impl SseSpecificationBuilder {
         self.sse_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses Key Management Service. The key is stored in your account and is managed by KMS (KMS charges apply).</p></li></ul>
     pub fn set_sse_type(mut self, input: ::std::option::Option<crate::types::SseType>) -> Self {
         self.sse_type = input;
         self
@@ -72,6 +74,7 @@ impl SseSpecificationBuilder {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key <code>alias/aws/dynamodb</code>.</p>
     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.kms_master_key_id = input;
         self

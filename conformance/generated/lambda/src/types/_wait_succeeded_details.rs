@@ -32,6 +32,7 @@ impl WaitSucceededDetailsBuilder {
         self.duration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The wait duration, in seconds.</p>
     pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self {
         self.duration = input;
         self

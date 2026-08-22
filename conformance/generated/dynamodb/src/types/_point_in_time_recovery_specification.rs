@@ -40,6 +40,7 @@ impl PointInTimeRecoverySpecificationBuilder {
         self.point_in_time_recovery_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.</p>
     pub fn set_point_in_time_recovery_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.point_in_time_recovery_enabled = input;
         self
@@ -53,6 +54,7 @@ impl PointInTimeRecoverySpecificationBuilder {
         self.recovery_period_in_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.</p>
     pub fn set_recovery_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.recovery_period_in_days = input;
         self

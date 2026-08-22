@@ -74,6 +74,7 @@ impl FunctionCodeLocationBuilder {
         self.repository_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The service that's hosting the file.</p>
     pub fn set_repository_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.repository_type = input;
         self
@@ -87,6 +88,7 @@ impl FunctionCodeLocationBuilder {
         self.location = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A presigned URL that you can use to download the deployment package.</p>
     pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.location = input;
         self
@@ -100,6 +102,7 @@ impl FunctionCodeLocationBuilder {
         self.image_uri = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>URI of a container image in the Amazon ECR registry.</p>
     pub fn set_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.image_uri = input;
         self
@@ -113,6 +116,7 @@ impl FunctionCodeLocationBuilder {
         self.resolved_image_uri = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resolved URI for the image.</p>
     pub fn set_resolved_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resolved_image_uri = input;
         self
@@ -126,6 +130,7 @@ impl FunctionCodeLocationBuilder {
         self.resolved_s3_object = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The resolved Amazon S3 object that contains the deployment package.</p>
     pub fn set_resolved_s3_object(mut self, input: ::std::option::Option<crate::types::ResolvedS3Object>) -> Self {
         self.resolved_s3_object = input;
         self
@@ -139,6 +144,7 @@ impl FunctionCodeLocationBuilder {
         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
     pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_kms_key_arn = input;
         self
@@ -152,6 +158,7 @@ impl FunctionCodeLocationBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An object that contains details about an error related to function deployment package retrieval.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::FunctionCodeLocationError>) -> Self {
         self.error = input;
         self

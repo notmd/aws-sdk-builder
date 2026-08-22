@@ -72,6 +72,7 @@ impl SourceTableFeatureDetailsBuilder {
         self.local_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
     pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>>) -> Self {
         self.local_secondary_indexes = input;
         self
@@ -90,6 +91,7 @@ impl SourceTableFeatureDetailsBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
     pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexInfo>>) -> Self {
         self.global_secondary_indexes = input;
         self
@@ -103,6 +105,7 @@ impl SourceTableFeatureDetailsBuilder {
         self.stream_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Stream settings on the table when the backup was created.</p>
     pub fn set_stream_description(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
         self.stream_description = input;
         self
@@ -116,6 +119,7 @@ impl SourceTableFeatureDetailsBuilder {
         self.time_to_live_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Time to Live settings on the table when the backup was created.</p>
     pub fn set_time_to_live_description(mut self, input: ::std::option::Option<crate::types::TimeToLiveDescription>) -> Self {
         self.time_to_live_description = input;
         self
@@ -129,6 +133,7 @@ impl SourceTableFeatureDetailsBuilder {
         self.sse_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The description of the server-side encryption status on the table when the backup was created.</p>
     pub fn set_sse_description(mut self, input: ::std::option::Option<crate::types::SseDescription>) -> Self {
         self.sse_description = input;
         self
@@ -147,6 +152,7 @@ impl SourceTableFeatureDetailsBuilder {
         self.vector_indexes = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
     pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>>) -> Self {
         self.vector_indexes = input;
         self

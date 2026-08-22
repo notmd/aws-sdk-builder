@@ -39,6 +39,7 @@ impl VersioningConfigurationBuilder {
         self.mfa_delete = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
     pub fn set_mfa_delete(mut self, input: ::std::option::Option<crate::types::MfaDelete>) -> Self {
         self.mfa_delete = input;
         self
@@ -52,6 +53,7 @@ impl VersioningConfigurationBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The versioning state of the bucket.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketVersioningStatus>) -> Self {
         self.status = input;
         self

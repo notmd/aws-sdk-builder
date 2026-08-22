@@ -34,6 +34,7 @@ impl GetLayerVersionByArnRequestBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the layer version.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self

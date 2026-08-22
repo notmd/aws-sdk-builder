@@ -46,6 +46,7 @@ impl LayersListItemBuilder {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the layer.</p>
     pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.layer_name = input;
         self
@@ -59,6 +60,7 @@ impl LayersListItemBuilder {
         self.layer_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
     pub fn set_layer_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.layer_arn = input;
         self
@@ -72,6 +74,7 @@ impl LayersListItemBuilder {
         self.latest_matching_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The newest version of the layer.</p>
     pub fn set_latest_matching_version(mut self, input: ::std::option::Option<crate::types::LayerVersionsListItem>) -> Self {
         self.latest_matching_version = input;
         self

@@ -50,6 +50,7 @@ impl MfaDeviceBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The user with whom the MFA device is associated.</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -64,6 +65,7 @@ impl MfaDeviceBuilder {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.</p>
     pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.serial_number = input;
         self
@@ -78,6 +80,7 @@ impl MfaDeviceBuilder {
         self.enable_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date when the MFA device was enabled for the user.</p>
     pub fn set_enable_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.enable_date = input;
         self

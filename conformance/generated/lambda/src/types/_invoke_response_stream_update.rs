@@ -32,6 +32,7 @@ impl InvokeResponseStreamUpdateBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Data returned by your Lambda function.</p>
     pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.payload = input;
         self

@@ -142,6 +142,9 @@ impl CreateBucketInputBuilder {
         self.acl = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The canned ACL to apply to the bucket.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_acl(mut self, input: ::std::option::Option<crate::types::BucketCannedAcl>) -> Self {
         self.acl = input;
         self
@@ -160,6 +163,9 @@ impl CreateBucketInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the bucket to create.</p>
+    /// <p><b>General purpose buckets</b> - For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i></p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -175,6 +181,7 @@ impl CreateBucketInputBuilder {
         self.create_bucket_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The configuration information for the bucket.</p>
     pub fn set_create_bucket_configuration(mut self, input: ::std::option::Option<crate::types::CreateBucketConfiguration>) -> Self {
         self.create_bucket_configuration = input;
         self
@@ -190,6 +197,9 @@ impl CreateBucketInputBuilder {
         self.grant_full_control = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grant_full_control = input;
         self
@@ -207,6 +217,9 @@ impl CreateBucketInputBuilder {
         self.grant_read = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Allows grantee to list the objects in the bucket.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_grant_read(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grant_read = input;
         self
@@ -224,6 +237,9 @@ impl CreateBucketInputBuilder {
         self.grant_read_acp = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Allows grantee to read the bucket ACL.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grant_read_acp = input;
         self
@@ -242,6 +258,10 @@ impl CreateBucketInputBuilder {
         self.grant_write = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Allows grantee to create new objects in the bucket.</p>
+    /// <p>For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_grant_write(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grant_write = input;
         self
@@ -260,6 +280,9 @@ impl CreateBucketInputBuilder {
         self.grant_write_acp = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Allows grantee to write the ACL for the applicable bucket.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.grant_write_acp = input;
         self
@@ -277,6 +300,9 @@ impl CreateBucketInputBuilder {
         self.object_lock_enabled_for_bucket = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_object_lock_enabled_for_bucket(mut self, input: ::std::option::Option<bool>) -> Self {
         self.object_lock_enabled_for_bucket = input;
         self
@@ -306,6 +332,10 @@ impl CreateBucketInputBuilder {
         self.bucket_namespace = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the namespace where you want to create your general purpose bucket. When you create a general purpose bucket, you can choose to create a bucket in the shared global namespace or you can choose to create a bucket in your account regional namespace. Your account regional namespace is a subdivision of the global namespace that only your account can create buckets in. For more information on bucket namespaces, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html">Namespaces for general purpose buckets</a>.</p>
+    /// <p>General purpose buckets in your account regional namespace must follow a specific naming convention. These buckets consist of a bucket name prefix that you create, and a suffix that contains your 12-digit Amazon Web Services Account ID, the Amazon Web Services Region code, and ends with <code>-an</code>. Bucket names must follow the format <code>bucket-name-prefix-accountId-region-an</code> (for example, <code>amzn-s3-demo-bucket-111122223333-us-west-2-an</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html#account-regional-naming-rules">Account regional namespace naming rules</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+    /// <p>This functionality is not supported for directory buckets.</p>
+    /// </note>
     pub fn set_bucket_namespace(mut self, input: ::std::option::Option<crate::types::BucketNamespace>) -> Self {
         self.bucket_namespace = input;
         self

@@ -73,6 +73,7 @@ impl LocalSecondaryIndexDescriptionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Represents the name of the local secondary index.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -94,6 +95,10 @@ impl LocalSecondaryIndexDescriptionBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
+    /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
+    /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
+    /// </note>
     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
@@ -110,6 +115,7 @@ impl LocalSecondaryIndexDescriptionBuilder {
         self.projection = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
         self.projection = input;
         self
@@ -123,6 +129,7 @@ impl LocalSecondaryIndexDescriptionBuilder {
         self.index_size_bytes = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
         self.index_size_bytes = input;
         self
@@ -136,6 +143,7 @@ impl LocalSecondaryIndexDescriptionBuilder {
         self.item_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
         self.item_count = input;
         self
@@ -149,6 +157,7 @@ impl LocalSecondaryIndexDescriptionBuilder {
         self.index_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
     pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_arn = input;
         self

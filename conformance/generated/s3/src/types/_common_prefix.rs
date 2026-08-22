@@ -32,6 +32,7 @@ impl CommonPrefixBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Container for the specified common prefix.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self

@@ -48,6 +48,7 @@ impl ReplicaGlobalSecondaryIndexBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -61,6 +62,7 @@ impl ReplicaGlobalSecondaryIndexBuilder {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
     pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
         self.provisioned_throughput_override = input;
         self
@@ -74,6 +76,7 @@ impl ReplicaGlobalSecondaryIndexBuilder {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
         self.on_demand_throughput_override = input;
         self

@@ -46,6 +46,7 @@ impl CapacityBuilder {
         self.read_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of read capacity units consumed on a table or an index.</p>
     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
         self.read_capacity_units = input;
         self
@@ -59,6 +60,7 @@ impl CapacityBuilder {
         self.write_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of write capacity units consumed on a table or an index.</p>
     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
         self.write_capacity_units = input;
         self
@@ -72,6 +74,7 @@ impl CapacityBuilder {
         self.capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of capacity units consumed on a table or an index.</p>
     pub fn set_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
         self.capacity_units = input;
         self

@@ -57,6 +57,7 @@ impl ItemCollectionSizeLimitExceededExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The total size of an item collection has exceeded the maximum limit of 10 gigabytes.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self

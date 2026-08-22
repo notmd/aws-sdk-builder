@@ -40,6 +40,7 @@ impl GetBucketMetadataTableConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The general purpose bucket that corresponds to the metadata table configuration that you want to retrieve.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -53,6 +54,7 @@ impl GetBucketMetadataTableConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

@@ -53,6 +53,7 @@ impl StepDetailsBuilder {
         self.attempt = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current attempt number for this step.</p>
     pub fn set_attempt(mut self, input: ::std::option::Option<i32>) -> Self {
         self.attempt = input;
         self
@@ -66,6 +67,7 @@ impl StepDetailsBuilder {
         self.next_attempt_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
     pub fn set_next_attempt_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.next_attempt_timestamp = input;
         self
@@ -79,6 +81,7 @@ impl StepDetailsBuilder {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The JSON response payload from the step operation.</p>
     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.result = input;
         self
@@ -92,6 +95,7 @@ impl StepDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the step failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self

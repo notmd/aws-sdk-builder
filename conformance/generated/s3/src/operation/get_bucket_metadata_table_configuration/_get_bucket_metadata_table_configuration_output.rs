@@ -46,6 +46,7 @@ impl GetBucketMetadataTableConfigurationOutputBuilder {
         self.get_bucket_metadata_table_configuration_result = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The metadata table configuration for the general purpose bucket.</p>
     pub fn set_get_bucket_metadata_table_configuration_result(
         mut self,
         input: ::std::option::Option<crate::types::GetBucketMetadataTableConfigurationResult>,

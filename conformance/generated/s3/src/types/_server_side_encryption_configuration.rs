@@ -38,6 +38,7 @@ impl ServerSideEncryptionConfigurationBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Container for information about a particular server-side encryption configuration rule.</p>
     pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>) -> Self {
         self.rules = input;
         self

@@ -39,6 +39,7 @@ impl AddLayerVersionPermissionResponseBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The permission statement.</p>
     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.statement = input;
         self
@@ -52,6 +53,7 @@ impl AddLayerVersionPermissionResponseBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique identifier for the current revision of the policy.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

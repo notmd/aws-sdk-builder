@@ -40,6 +40,7 @@ impl GetQueueUrlInputBuilder {
         self.queue_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>(Required) The name of the queue for which you want to fetch the URL. The name can be up to 80 characters long and can include alphanumeric characters, hyphens (-), and underscores (_). Queue URLs and names are case-sensitive.</p>
     pub fn set_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_name = input;
         self
@@ -53,6 +54,7 @@ impl GetQueueUrlInputBuilder {
         self.queue_owner_aws_account_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
     pub fn set_queue_owner_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_owner_aws_account_id = input;
         self

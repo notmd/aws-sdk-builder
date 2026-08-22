@@ -55,6 +55,7 @@ impl SelectParametersBuilder {
         self.input_serialization = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes the serialization format of the object.</p>
     pub fn set_input_serialization(mut self, input: ::std::option::Option<crate::types::InputSerialization>) -> Self {
         self.input_serialization = input;
         self
@@ -69,6 +70,7 @@ impl SelectParametersBuilder {
         self.expression_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of the provided expression (for example, SQL).</p>
     pub fn set_expression_type(mut self, input: ::std::option::Option<crate::types::ExpressionType>) -> Self {
         self.expression_type = input;
         self
@@ -83,6 +85,7 @@ impl SelectParametersBuilder {
         self.expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <important><p>Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn more</a></p></important><p>The expression that is used to query the object.</p>
     pub fn set_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expression = input;
         self
@@ -96,6 +99,7 @@ impl SelectParametersBuilder {
         self.output_serialization = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Describes how the results of the Select job are serialized.</p>
     pub fn set_output_serialization(mut self, input: ::std::option::Option<crate::types::OutputSerialization>) -> Self {
         self.output_serialization = input;
         self

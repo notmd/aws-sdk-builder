@@ -40,6 +40,7 @@ impl RoleUsageTypeBuilder {
         self.region = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the Region where the service-linked role is being used.</p>
     pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.region = input;
         self
@@ -58,6 +59,7 @@ impl RoleUsageTypeBuilder {
         self.resources = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The name of the resource that is using the service-linked role.</p>
     pub fn set_resources(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.resources = input;
         self

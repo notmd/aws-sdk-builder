@@ -32,6 +32,7 @@ impl ProvisionedThroughputOverrideBuilder {
         self.read_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.</p>
     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.read_capacity_units = input;
         self

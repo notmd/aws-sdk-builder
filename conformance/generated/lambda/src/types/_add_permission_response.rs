@@ -32,6 +32,7 @@ impl AddPermissionResponseBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The permission statement that's added to the function policy.</p>
     pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.statement = input;
         self

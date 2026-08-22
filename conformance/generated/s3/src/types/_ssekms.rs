@@ -34,6 +34,7 @@ impl SsekmsBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key to use for encrypting inventory reports.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self

@@ -66,6 +66,7 @@ impl ProvisionedThroughputExceededExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>You exceeded your maximum allowed provisioned throughput.</p>
     pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.message = input;
         self
@@ -84,6 +85,7 @@ impl ProvisionedThroughputExceededExceptionBuilder {
         self.throttling_reasons = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that provide detailed diagnostic information about why the request was throttled.</p>
     pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ThrottlingReason>>) -> Self {
         self.throttling_reasons = input;
         self

@@ -154,6 +154,7 @@ impl UpdateTableInputBuilder {
         self.attribute_definitions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
     pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
         self.attribute_definitions = input;
         self
@@ -168,6 +169,7 @@ impl UpdateTableInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -181,6 +183,7 @@ impl UpdateTableInputBuilder {
         self.billing_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.</p><ul><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>.</p></li><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for steady workloads with predictable growth where capacity requirements can be reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p></li></ul>
     pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.billing_mode = input;
         self
@@ -194,6 +197,7 @@ impl UpdateTableInputBuilder {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The new provisioned throughput settings for the specified table or index.</p>
     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
@@ -213,6 +217,8 @@ impl UpdateTableInputBuilder {
         self.global_secondary_index_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p><ul><li><p><code>Create</code> - add a new global secondary index to the table.</p></li><li><p><code>Update</code> - modify the provisioned throughput settings of an existing global secondary index.</p></li><li><p><code>Delete</code> - remove a global secondary index from the table.</p></li></ul><p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_global_secondary_index_updates(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>>,
@@ -232,6 +238,9 @@ impl UpdateTableInputBuilder {
         self.stream_specification = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the DynamoDB Streams configuration for the table.</p><note>
+    /// <p>You receive a <code>ValidationException</code> if you try to enable a stream on a table that already has a stream, or if you try to disable a stream on a table that doesn't have a stream.</p>
+    /// </note>
     pub fn set_stream_specification(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
         self.stream_specification = input;
         self
@@ -247,6 +256,7 @@ impl UpdateTableInputBuilder {
         self.sse_specification = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The new server-side encryption settings for the specified table.</p>
     pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
         self.sse_specification = input;
         self
@@ -265,6 +275,7 @@ impl UpdateTableInputBuilder {
         self.replica_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of replica update actions (create, delete, or update) for the table.</p>
     pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicationGroupUpdate>>) -> Self {
         self.replica_updates = input;
         self
@@ -278,6 +289,7 @@ impl UpdateTableInputBuilder {
         self.table_class = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
     pub fn set_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
         self.table_class = input;
         self
@@ -291,6 +303,7 @@ impl UpdateTableInputBuilder {
         self.deletion_protection_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.deletion_protection_enabled = input;
         self
@@ -305,6 +318,8 @@ impl UpdateTableInputBuilder {
         self.multi_region_consistency = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the consistency mode for a new global table. This parameter is only valid when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
+    /// <p>You can specify one of the following consistency modes:</p><ul><li><p><code>EVENTUAL</code>: Configures a new global table for multi-Region eventual consistency (MREC). This is the default consistency mode for global tables.</p></li><li><p><code>STRONG</code>: Configures a new global table for multi-Region strong consistency (MRSC).</p></li></ul><p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>. For more information about global tables consistency modes, see <a href="https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Consistency modes</a> in DynamoDB developer guide.</p>
     pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<crate::types::MultiRegionConsistency>) -> Self {
         self.multi_region_consistency = input;
         self
@@ -325,6 +340,8 @@ impl UpdateTableInputBuilder {
         self.global_table_witness_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of witness updates for a MRSC global table. A witness provides a cost-effective alternative to a full replica in a MRSC global table by maintaining replicated change data written to global table replicas. You cannot perform read or write operations on a witness. For each witness, you can request one action:</p><ul><li><p><code>Create</code> - add a new witness to the global table.</p></li><li><p><code>Delete</code> - remove a witness from the global table.</p></li></ul><p>You can create or delete only one witness per <code>UpdateTable</code> operation.</p>
+    /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
     pub fn set_global_table_witness_updates(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>>,
@@ -342,6 +359,7 @@ impl UpdateTableInputBuilder {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
@@ -355,6 +373,7 @@ impl UpdateTableInputBuilder {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the warm throughput (in read units per second and write units per second) for updating a table.</p>
     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
         self.warm_throughput = input;
         self
@@ -368,6 +387,7 @@ impl UpdateTableInputBuilder {
         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Controls the settings replication mode for a global table replica. This attribute can be defined using UpdateTable operation only on a regional table with values:</p><ul><li><p><code>ENABLED</code>: Defines settings replication on a regional table to be used as a source table for creating Multi-Account Global Table.</p></li><li><p><code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.</p></li></ul>
     pub fn set_global_table_settings_replication_mode(
         mut self,
         input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
@@ -390,6 +410,8 @@ impl UpdateTableInputBuilder {
         self.vector_index_updates = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of vector indexes to be added to or removed from the table. You can add or remove one vector index for each <code>UpdateTable</code> operation.</p>
+    /// <p>To add a vector index, specify <code>IndexName</code>, <code>VectorAttribute</code>, <code>Dimensions</code>, <code>DistanceFunction</code>, and <code>Projection</code>. To remove a vector index, specify only the <code>IndexName</code>.</p>
     pub fn set_vector_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>>) -> Self {
         self.vector_index_updates = input;
         self

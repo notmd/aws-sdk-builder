@@ -41,6 +41,7 @@ impl GetLayerVersionRequestBuilder {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
     pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.layer_name = input;
         self
@@ -55,6 +56,7 @@ impl GetLayerVersionRequestBuilder {
         self.version_number = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The version number.</p>
     pub fn set_version_number(mut self, input: ::std::option::Option<i64>) -> Self {
         self.version_number = input;
         self

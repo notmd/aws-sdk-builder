@@ -32,6 +32,7 @@ impl KafkaSchemaValidationConfigBuilder {
         self.attribute = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes.</p>
     pub fn set_attribute(mut self, input: ::std::option::Option<crate::types::KafkaSchemaValidationAttribute>) -> Self {
         self.attribute = input;
         self

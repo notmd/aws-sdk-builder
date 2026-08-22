@@ -51,6 +51,7 @@ impl ListContributorInsightsOutputBuilder {
         self.contributor_insights_summaries = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of ContributorInsightsSummary.</p>
     pub fn set_contributor_insights_summaries(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
@@ -67,6 +68,7 @@ impl ListContributorInsightsOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A token to go to the next page if there is one.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

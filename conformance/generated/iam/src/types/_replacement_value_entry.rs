@@ -38,6 +38,7 @@ impl ReplacementValueEntryBuilder {
         self.values = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of replacement values for the template parameter.</p>
     pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.values = input;
         self

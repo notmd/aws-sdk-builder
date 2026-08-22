@@ -44,6 +44,7 @@ impl GetContextKeysForCustomPolicyOutputBuilder {
         self.context_key_names = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of context keys that are referenced in the input policies.</p>
     pub fn set_context_key_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.context_key_names = input;
         self

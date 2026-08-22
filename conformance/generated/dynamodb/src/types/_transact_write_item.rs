@@ -53,6 +53,7 @@ impl TransactWriteItemBuilder {
         self.condition_check = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A request to perform a check item operation.</p>
     pub fn set_condition_check(mut self, input: ::std::option::Option<crate::types::ConditionCheck>) -> Self {
         self.condition_check = input;
         self
@@ -66,6 +67,7 @@ impl TransactWriteItemBuilder {
         self.put = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A request to perform a <code>PutItem</code> operation.</p>
     pub fn set_put(mut self, input: ::std::option::Option<crate::types::Put>) -> Self {
         self.put = input;
         self
@@ -79,6 +81,7 @@ impl TransactWriteItemBuilder {
         self.delete = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A request to perform a <code>DeleteItem</code> operation.</p>
     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::Delete>) -> Self {
         self.delete = input;
         self
@@ -92,6 +95,7 @@ impl TransactWriteItemBuilder {
         self.update = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A request to perform an <code>UpdateItem</code> operation.</p>
     pub fn set_update(mut self, input: ::std::option::Option<crate::types::Update>) -> Self {
         self.update = input;
         self

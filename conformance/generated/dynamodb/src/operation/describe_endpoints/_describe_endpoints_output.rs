@@ -45,6 +45,7 @@ impl DescribeEndpointsOutputBuilder {
         self.endpoints = ::std::option::Option::Some(v);
         self
     }
+    /// <p>List of endpoints.</p>
     pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
         self.endpoints = input;
         self

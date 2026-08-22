@@ -33,6 +33,7 @@ impl DisconnectCustomKeyStoreInputBuilder {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
     pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.custom_key_store_id = input;
         self

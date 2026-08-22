@@ -35,6 +35,8 @@ impl ReplicationTimeValueBuilder {
         self.minutes = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains an integer specifying time in minutes.</p>
+    /// <p>Valid value: 15</p>
     pub fn set_minutes(mut self, input: ::std::option::Option<i32>) -> Self {
         self.minutes = input;
         self

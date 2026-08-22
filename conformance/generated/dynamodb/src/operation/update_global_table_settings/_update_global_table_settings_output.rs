@@ -46,6 +46,7 @@ impl UpdateGlobalTableSettingsOutputBuilder {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global table.</p>
     pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.global_table_name = input;
         self
@@ -64,6 +65,7 @@ impl UpdateGlobalTableSettingsOutputBuilder {
         self.replica_settings = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The Region-specific settings for the global table.</p>
     pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self {
         self.replica_settings = input;
         self

@@ -73,6 +73,9 @@ impl ImportTableInputBuilder {
         self.client_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
+    /// <p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p>
+    /// <p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
     pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.client_token = input;
         self
@@ -88,6 +91,7 @@ impl ImportTableInputBuilder {
         self.s3_bucket_source = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The S3 bucket that provides the source for the import.</p>
     pub fn set_s3_bucket_source(mut self, input: ::std::option::Option<crate::types::S3BucketSource>) -> Self {
         self.s3_bucket_source = input;
         self
@@ -102,6 +106,7 @@ impl ImportTableInputBuilder {
         self.input_format = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The format of the source data. Valid values for <code>ImportFormat</code> are <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
     pub fn set_input_format(mut self, input: ::std::option::Option<crate::types::InputFormat>) -> Self {
         self.input_format = input;
         self
@@ -115,6 +120,7 @@ impl ImportTableInputBuilder {
         self.input_format_options = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Additional properties that specify how the input is formatted,</p>
     pub fn set_input_format_options(mut self, input: ::std::option::Option<crate::types::InputFormatOptions>) -> Self {
         self.input_format_options = input;
         self
@@ -128,6 +134,7 @@ impl ImportTableInputBuilder {
         self.input_compression_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Type of compression to be used on the input coming from the imported table.</p>
     pub fn set_input_compression_type(mut self, input: ::std::option::Option<crate::types::InputCompressionType>) -> Self {
         self.input_compression_type = input;
         self
@@ -141,6 +148,7 @@ impl ImportTableInputBuilder {
         self.table_creation_parameters = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Parameters for the table to import the data into.</p>
     pub fn set_table_creation_parameters(mut self, input: ::std::option::Option<crate::types::TableCreationParameters>) -> Self {
         self.table_creation_parameters = input;
         self

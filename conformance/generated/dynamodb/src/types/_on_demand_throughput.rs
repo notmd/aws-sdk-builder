@@ -44,6 +44,8 @@ impl OnDemandThroughputBuilder {
         self.max_read_request_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of read request units for the specified table.</p>
+    /// <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxReadRequestUnits</code> to -1.</p>
     pub fn set_max_read_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.max_read_request_units = input;
         self
@@ -59,6 +61,8 @@ impl OnDemandThroughputBuilder {
         self.max_write_request_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum number of write request units for the specified table.</p>
+    /// <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxWriteRequestUnits</code> to -1.</p>
     pub fn set_max_write_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
         self.max_write_request_units = input;
         self

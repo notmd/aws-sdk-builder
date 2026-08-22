@@ -40,6 +40,7 @@ impl TagQueueInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The URL of the queue.</p>
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.queue_url = input;
         self
@@ -58,6 +59,7 @@ impl TagQueueInputBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The list of tags to be added to the specified queue.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self

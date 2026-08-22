@@ -39,6 +39,7 @@ impl ImageConfigResponseBuilder {
         self.image_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration values that override the container image Dockerfile.</p>
     pub fn set_image_config(mut self, input: ::std::option::Option<crate::types::ImageConfig>) -> Self {
         self.image_config = input;
         self
@@ -52,6 +53,7 @@ impl ImageConfigResponseBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Error response to <code>GetFunctionConfiguration</code>.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ImageConfigError>) -> Self {
         self.error = input;
         self

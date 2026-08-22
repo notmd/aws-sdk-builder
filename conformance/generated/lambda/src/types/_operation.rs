@@ -121,6 +121,7 @@ impl OperationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for this operation.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -134,6 +135,7 @@ impl OperationBuilder {
         self.parent_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
     pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.parent_id = input;
         self
@@ -147,6 +149,7 @@ impl OperationBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The customer-provided name for this operation.</p>
     pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.name = input;
         self
@@ -161,6 +164,7 @@ impl OperationBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of operation.</p>
     pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
         self.r#type = input;
         self
@@ -174,6 +178,7 @@ impl OperationBuilder {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The subtype of the operation, providing additional categorization.</p>
     pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.sub_type = input;
         self
@@ -188,6 +193,7 @@ impl OperationBuilder {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the operation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
@@ -201,6 +207,7 @@ impl OperationBuilder {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the operation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
@@ -215,6 +222,7 @@ impl OperationBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current status of the operation.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::OperationStatus>) -> Self {
         self.status = input;
         self
@@ -228,6 +236,7 @@ impl OperationBuilder {
         self.execution_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the execution, if this operation represents an execution.</p>
     pub fn set_execution_details(mut self, input: ::std::option::Option<crate::types::ExecutionDetails>) -> Self {
         self.execution_details = input;
         self
@@ -241,6 +250,7 @@ impl OperationBuilder {
         self.context_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the context, if this operation represents a context.</p>
     pub fn set_context_details(mut self, input: ::std::option::Option<crate::types::ContextDetails>) -> Self {
         self.context_details = input;
         self
@@ -254,6 +264,7 @@ impl OperationBuilder {
         self.step_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the step, if this operation represents a step.</p>
     pub fn set_step_details(mut self, input: ::std::option::Option<crate::types::StepDetails>) -> Self {
         self.step_details = input;
         self
@@ -267,6 +278,7 @@ impl OperationBuilder {
         self.wait_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the wait operation, if this operation represents a wait.</p>
     pub fn set_wait_details(mut self, input: ::std::option::Option<crate::types::WaitDetails>) -> Self {
         self.wait_details = input;
         self

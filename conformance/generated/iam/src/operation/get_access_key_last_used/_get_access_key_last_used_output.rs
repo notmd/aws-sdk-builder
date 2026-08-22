@@ -49,6 +49,8 @@ impl GetAccessKeyLastUsedOutputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user that owns this access key.</p>
+    /// <p></p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -63,6 +65,7 @@ impl GetAccessKeyLastUsedOutputBuilder {
         self.access_key_last_used = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains information about the last time the access key was used.</p>
     pub fn set_access_key_last_used(mut self, input: ::std::option::Option<crate::types::AccessKeyLastUsed>) -> Self {
         self.access_key_last_used = input;
         self

@@ -32,6 +32,7 @@ impl WaitOptionsBuilder {
         self.wait_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The duration to wait, in seconds.</p>
     pub fn set_wait_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.wait_seconds = input;
         self

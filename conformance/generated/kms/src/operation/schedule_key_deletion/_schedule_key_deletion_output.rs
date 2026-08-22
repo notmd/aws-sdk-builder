@@ -66,6 +66,7 @@ impl ScheduleKeyDeletionOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is scheduled.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -80,6 +81,8 @@ impl ScheduleKeyDeletionOutputBuilder {
         self.deletion_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time after which KMS deletes the KMS key.</p>
+    /// <p>If the KMS key is a multi-Region primary key with replica keys, this field does not appear. The deletion date for the primary key isn't known until its last replica key is deleted.</p>
     pub fn set_deletion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.deletion_date = input;
         self
@@ -95,6 +98,8 @@ impl ScheduleKeyDeletionOutputBuilder {
         self.key_state = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current status of the KMS key.</p>
+    /// <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn set_key_state(mut self, input: ::std::option::Option<crate::types::KeyState>) -> Self {
         self.key_state = input;
         self
@@ -110,6 +115,8 @@ impl ScheduleKeyDeletionOutputBuilder {
         self.pending_window_in_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The waiting period before the KMS key is deleted.</p>
+    /// <p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
     pub fn set_pending_window_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.pending_window_in_days = input;
         self

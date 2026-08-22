@@ -58,6 +58,7 @@ impl ListKeyRotationsOutputBuilder {
         self.rotations = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
     pub fn set_rotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RotationsListEntry>>) -> Self {
         self.rotations = input;
         self
@@ -71,6 +72,7 @@ impl ListKeyRotationsOutputBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -84,6 +86,7 @@ impl ListKeyRotationsOutputBuilder {
         self.truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.truncated = input;
         self

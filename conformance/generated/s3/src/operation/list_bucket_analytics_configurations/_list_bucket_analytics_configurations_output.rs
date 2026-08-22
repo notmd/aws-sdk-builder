@@ -67,6 +67,7 @@ impl ListBucketAnalyticsConfigurationsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -80,6 +81,7 @@ impl ListBucketAnalyticsConfigurationsOutputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -93,6 +95,7 @@ impl ListBucketAnalyticsConfigurationsOutputBuilder {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>NextContinuationToken</code> is sent when <code>isTruncated</code> is true, which indicates that there are more analytics configurations to list. The next request must include this <code>NextContinuationToken</code>. The token is obfuscated and is not a usable value.</p>
     pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_continuation_token = input;
         self
@@ -111,6 +114,7 @@ impl ListBucketAnalyticsConfigurationsOutputBuilder {
         self.analytics_configuration_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of analytics configurations for a bucket.</p>
     pub fn set_analytics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnalyticsConfiguration>>) -> Self {
         self.analytics_configuration_list = input;
         self

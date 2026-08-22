@@ -50,6 +50,7 @@ impl MetricsAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The prefix used when evaluating an AND predicate.</p>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -70,6 +71,9 @@ impl MetricsAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of tags used when evaluating an AND predicate.</p><note>
+    /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
+    /// </note>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self
@@ -85,6 +89,7 @@ impl MetricsAndOperatorBuilder {
         self.access_point_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The access point ARN used when evaluating an <code>AND</code> predicate.</p>
     pub fn set_access_point_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_point_arn = input;
         self

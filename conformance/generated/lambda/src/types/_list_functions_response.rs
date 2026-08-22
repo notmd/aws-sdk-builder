@@ -39,6 +39,7 @@ impl ListFunctionsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -57,6 +58,7 @@ impl ListFunctionsResponseBuilder {
         self.functions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of Lambda functions.</p>
     pub fn set_functions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionConfiguration>>) -> Self {
         self.functions = input;
         self

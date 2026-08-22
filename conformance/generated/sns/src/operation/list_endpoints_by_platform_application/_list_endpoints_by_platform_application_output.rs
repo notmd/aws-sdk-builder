@@ -51,6 +51,7 @@ impl ListEndpointsByPlatformApplicationOutputBuilder {
         self.endpoints = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
     pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
         self.endpoints = input;
         self
@@ -64,6 +65,7 @@ impl ListEndpointsByPlatformApplicationOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

@@ -39,6 +39,7 @@ impl TargetObjectKeyFormatBuilder {
         self.simple_prefix = ::std::option::Option::Some(input);
         self
     }
+    /// <p>To use the simple format for S3 keys for log objects. To specify SimplePrefix format, set SimplePrefix to {}.</p>
     pub fn set_simple_prefix(mut self, input: ::std::option::Option<crate::types::SimplePrefix>) -> Self {
         self.simple_prefix = input;
         self
@@ -52,6 +53,7 @@ impl TargetObjectKeyFormatBuilder {
         self.partitioned_prefix = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Partitioned S3 key for log objects.</p>
     pub fn set_partitioned_prefix(mut self, input: ::std::option::Option<crate::types::PartitionedPrefix>) -> Self {
         self.partitioned_prefix = input;
         self

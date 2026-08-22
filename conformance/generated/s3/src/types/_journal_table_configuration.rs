@@ -39,6 +39,7 @@ impl JournalTableConfigurationBuilder {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The journal table record expiration settings for the journal table.</p>
     pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
         self.record_expiration = input;
         self
@@ -52,6 +53,7 @@ impl JournalTableConfigurationBuilder {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encryption configuration for the journal table.</p>
     pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self {
         self.encryption_configuration = input;
         self

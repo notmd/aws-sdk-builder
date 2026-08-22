@@ -38,6 +38,7 @@ impl AllowedPublishersBuilder {
         self.signing_profile_version_arns = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.</p>
     pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.signing_profile_version_arns = input;
         self

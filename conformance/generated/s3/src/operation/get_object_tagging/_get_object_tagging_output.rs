@@ -54,6 +54,7 @@ impl GetObjectTaggingOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The versionId of the object for which you got the tagging information.</p>
     pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version_id = input;
         self
@@ -72,6 +73,7 @@ impl GetObjectTaggingOutputBuilder {
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Contains the tag set.</p>
     pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tag_set = input;
         self

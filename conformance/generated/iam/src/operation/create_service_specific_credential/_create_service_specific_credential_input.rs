@@ -52,6 +52,8 @@ impl CreateServiceSpecificCredentialInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -67,6 +69,7 @@ impl CreateServiceSpecificCredentialInputBuilder {
         self.service_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the Amazon Web Services service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.</p>
     pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.service_name = input;
         self
@@ -81,6 +84,8 @@ impl CreateServiceSpecificCredentialInputBuilder {
         self.credential_age_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of days until the service specific credential expires. This field is only valid for services that support long-term API keys and must be a positive integer. When not specified, the credential will not expire.</p>
+    /// <p>To see which services support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_credential_age_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.credential_age_days = input;
         self

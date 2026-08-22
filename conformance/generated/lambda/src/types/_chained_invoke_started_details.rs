@@ -62,6 +62,7 @@ impl ChainedInvokeStartedDetailsBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function being invoked.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -75,6 +76,7 @@ impl ChainedInvokeStartedDetailsBuilder {
         self.tenant_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The tenant identifier for the chained invocation.</p>
     pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.tenant_id = input;
         self
@@ -88,6 +90,7 @@ impl ChainedInvokeStartedDetailsBuilder {
         self.input = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The JSON input payload provided to the chained invocation.</p>
     pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
         self.input = input;
         self
@@ -101,6 +104,7 @@ impl ChainedInvokeStartedDetailsBuilder {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version of the function that was executed.</p>
     pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.executed_version = input;
         self
@@ -114,6 +118,7 @@ impl ChainedInvokeStartedDetailsBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self

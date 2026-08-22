@@ -35,6 +35,7 @@ impl ReplicaModificationsBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicaModificationsStatus>) -> Self {
         self.status = input;
         self

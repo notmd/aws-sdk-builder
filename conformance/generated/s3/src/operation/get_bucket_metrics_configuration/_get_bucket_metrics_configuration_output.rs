@@ -46,6 +46,7 @@ impl GetBucketMetricsConfigurationOutputBuilder {
         self.metrics_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the metrics configuration.</p>
     pub fn set_metrics_configuration(mut self, input: ::std::option::Option<crate::types::MetricsConfiguration>) -> Self {
         self.metrics_configuration = input;
         self

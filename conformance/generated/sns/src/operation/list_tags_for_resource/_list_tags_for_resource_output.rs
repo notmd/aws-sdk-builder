@@ -44,6 +44,7 @@ impl ListTagsForResourceOutputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The tags associated with the specified topic.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

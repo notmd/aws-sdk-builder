@@ -58,6 +58,7 @@ impl ListDelegationRequestsOutputBuilder {
         self.delegation_requests = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of delegation requests that match the specified criteria.</p>
     pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>) -> Self {
         self.delegation_requests = input;
         self
@@ -71,6 +72,7 @@ impl ListDelegationRequestsOutputBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self
@@ -84,6 +86,7 @@ impl ListDelegationRequestsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self

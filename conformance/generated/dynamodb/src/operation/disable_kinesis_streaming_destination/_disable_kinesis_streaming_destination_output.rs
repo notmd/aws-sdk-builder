@@ -60,6 +60,7 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table being modified.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -73,6 +74,7 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
         self.stream_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN for the specific Kinesis data stream.</p>
     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.stream_arn = input;
         self
@@ -86,6 +88,7 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
         self.destination_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current status of the replication.</p>
     pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
         self.destination_status = input;
         self
@@ -99,6 +102,7 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
         self.enable_kinesis_streaming_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
     pub fn set_enable_kinesis_streaming_configuration(
         mut self,
         input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,

@@ -58,6 +58,7 @@ impl LoggingEnabledBuilder {
         self.target_bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case, you should choose a different <code>TargetPrefix</code> for each source bucket so that the delivered log files can be distinguished by key.</p>
     pub fn set_target_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_bucket = input;
         self
@@ -77,6 +78,8 @@ impl LoggingEnabledBuilder {
         self.target_grants = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Container for granting information.</p>
+    /// <p>Buckets that use the bucket owner enforced setting for Object Ownership don't support target grants. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_target_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TargetGrant>>) -> Self {
         self.target_grants = input;
         self
@@ -92,6 +95,7 @@ impl LoggingEnabledBuilder {
         self.target_prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.</p>
     pub fn set_target_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.target_prefix = input;
         self
@@ -105,6 +109,7 @@ impl LoggingEnabledBuilder {
         self.target_object_key_format = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Amazon S3 key format for log objects.</p>
     pub fn set_target_object_key_format(mut self, input: ::std::option::Option<crate::types::TargetObjectKeyFormat>) -> Self {
         self.target_object_key_format = input;
         self

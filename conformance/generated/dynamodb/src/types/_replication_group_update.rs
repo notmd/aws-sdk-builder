@@ -48,6 +48,7 @@ impl ReplicationGroupUpdateBuilder {
         self.create = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The parameters required for creating a replica for the table.</p>
     pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateReplicationGroupMemberAction>) -> Self {
         self.create = input;
         self
@@ -61,6 +62,7 @@ impl ReplicationGroupUpdateBuilder {
         self.update = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The parameters required for updating a replica for the table.</p>
     pub fn set_update(mut self, input: ::std::option::Option<crate::types::UpdateReplicationGroupMemberAction>) -> Self {
         self.update = input;
         self
@@ -74,6 +76,7 @@ impl ReplicationGroupUpdateBuilder {
         self.delete = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The parameters required for deleting a replica for the table.</p>
     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteReplicationGroupMemberAction>) -> Self {
         self.delete = input;
         self

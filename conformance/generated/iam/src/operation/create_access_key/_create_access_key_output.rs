@@ -39,6 +39,7 @@ impl CreateAccessKeyOutputBuilder {
         self.access_key = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure with details about the access key.</p>
     pub fn set_access_key(mut self, input: ::std::option::Option<crate::types::AccessKey>) -> Self {
         self.access_key = input;
         self

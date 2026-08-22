@@ -34,6 +34,7 @@ impl XksKeyConfigurationTypeBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ID of the external key in its external key manager. This is the ID that the external key store proxy uses to identify the external key.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self

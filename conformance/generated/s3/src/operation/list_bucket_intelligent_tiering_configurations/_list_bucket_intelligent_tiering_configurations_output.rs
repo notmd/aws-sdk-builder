@@ -68,6 +68,7 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether the returned list of analytics configurations is complete. A value of <code>true</code> indicates that the list is not complete and the <code>NextContinuationToken</code> will be provided for a subsequent request.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -81,6 +82,7 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The <code>ContinuationToken</code> that represents a placeholder from where this request should begin.</p>
     pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.continuation_token = input;
         self
@@ -94,6 +96,7 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The marker used to continue this inventory configuration listing. Use the <code>NextContinuationToken</code> from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
     pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_continuation_token = input;
         self
@@ -112,6 +115,7 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
         self.intelligent_tiering_configuration_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The list of S3 Intelligent-Tiering configurations for a bucket.</p>
     pub fn set_intelligent_tiering_configuration_list(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::IntelligentTieringConfiguration>>,

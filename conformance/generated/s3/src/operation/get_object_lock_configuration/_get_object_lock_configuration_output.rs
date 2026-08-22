@@ -46,6 +46,7 @@ impl GetObjectLockConfigurationOutputBuilder {
         self.object_lock_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The specified bucket's Object Lock configuration.</p>
     pub fn set_object_lock_configuration(mut self, input: ::std::option::Option<crate::types::ObjectLockConfiguration>) -> Self {
         self.object_lock_configuration = input;
         self

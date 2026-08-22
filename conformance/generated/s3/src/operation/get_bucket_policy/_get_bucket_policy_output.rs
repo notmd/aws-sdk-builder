@@ -46,6 +46,7 @@ impl GetBucketPolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The bucket policy as a JSON document.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy = input;
         self

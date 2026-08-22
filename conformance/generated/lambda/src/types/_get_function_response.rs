@@ -60,6 +60,7 @@ impl GetFunctionResponseBuilder {
         self.configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The configuration of the function or version.</p>
     pub fn set_configuration(mut self, input: ::std::option::Option<crate::types::FunctionConfiguration>) -> Self {
         self.configuration = input;
         self
@@ -73,6 +74,7 @@ impl GetFunctionResponseBuilder {
         self.code = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The deployment package of the function or version.</p>
     pub fn set_code(mut self, input: ::std::option::Option<crate::types::FunctionCodeLocation>) -> Self {
         self.code = input;
         self
@@ -91,6 +93,7 @@ impl GetFunctionResponseBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.tags = input;
         self
@@ -104,6 +107,7 @@ impl GetFunctionResponseBuilder {
         self.tags_error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An object that contains details about an error related to retrieving tags.</p>
     pub fn set_tags_error(mut self, input: ::std::option::Option<crate::types::TagsError>) -> Self {
         self.tags_error = input;
         self
@@ -117,6 +121,7 @@ impl GetFunctionResponseBuilder {
         self.concurrency = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
     pub fn set_concurrency(mut self, input: ::std::option::Option<crate::types::Concurrency>) -> Self {
         self.concurrency = input;
         self

@@ -69,6 +69,7 @@ impl GetKeyRotationStatusOutputBuilder {
         self.key_rotation_enabled = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
     pub fn set_key_rotation_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
         self.key_rotation_enabled = input;
         self
@@ -82,6 +83,7 @@ impl GetKeyRotationStatusOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Identifies the specified symmetric encryption KMS key.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -95,6 +97,7 @@ impl GetKeyRotationStatusOutputBuilder {
         self.rotation_period_in_days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of days between each automatic rotation. The default value is 365 days.</p>
     pub fn set_rotation_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.rotation_period_in_days = input;
         self
@@ -108,6 +111,7 @@ impl GetKeyRotationStatusOutputBuilder {
         self.next_rotation_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The next date that KMS will automatically rotate the key material.</p>
     pub fn set_next_rotation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.next_rotation_date = input;
         self
@@ -122,6 +126,8 @@ impl GetKeyRotationStatusOutputBuilder {
         self.on_demand_rotation_start_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
+    /// <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
     pub fn set_on_demand_rotation_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.on_demand_rotation_start_date = input;
         self

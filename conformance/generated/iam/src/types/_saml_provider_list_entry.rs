@@ -46,6 +46,7 @@ impl SamlProviderListEntryBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the SAML provider.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
@@ -59,6 +60,7 @@ impl SamlProviderListEntryBuilder {
         self.valid_until = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The expiration date and time for the SAML provider.</p>
     pub fn set_valid_until(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.valid_until = input;
         self
@@ -72,6 +74,7 @@ impl SamlProviderListEntryBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the SAML provider was created.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self

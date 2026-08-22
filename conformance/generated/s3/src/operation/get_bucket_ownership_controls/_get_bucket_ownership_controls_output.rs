@@ -46,6 +46,7 @@ impl GetBucketOwnershipControlsOutputBuilder {
         self.ownership_controls = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) currently in effect for this Amazon S3 bucket.</p>
     pub fn set_ownership_controls(mut self, input: ::std::option::Option<crate::types::OwnershipControls>) -> Self {
         self.ownership_controls = input;
         self

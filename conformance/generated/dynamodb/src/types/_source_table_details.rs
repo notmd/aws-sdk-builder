@@ -97,6 +97,7 @@ impl SourceTableDetailsBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table for which the backup was created.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -111,6 +112,7 @@ impl SourceTableDetailsBuilder {
         self.table_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Unique identifier for the table for which the backup was created.</p>
     pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_id = input;
         self
@@ -124,6 +126,7 @@ impl SourceTableDetailsBuilder {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>ARN of the table for which backup was created.</p>
     pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_arn = input;
         self
@@ -137,6 +140,7 @@ impl SourceTableDetailsBuilder {
         self.table_size_bytes = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Size of the table in bytes. Note that this is an approximate value.</p>
     pub fn set_table_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
         self.table_size_bytes = input;
         self
@@ -155,6 +159,7 @@ impl SourceTableDetailsBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Schema of the table.</p>
     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
@@ -169,6 +174,7 @@ impl SourceTableDetailsBuilder {
         self.table_creation_date_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Time when the source table was created.</p>
     pub fn set_table_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.table_creation_date_time = input;
         self
@@ -182,6 +188,7 @@ impl SourceTableDetailsBuilder {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
@@ -206,6 +213,7 @@ impl SourceTableDetailsBuilder {
         self.item_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Number of items in the table. Note that this is an approximate value.</p>
     pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
         self.item_count = input;
         self
@@ -219,6 +227,7 @@ impl SourceTableDetailsBuilder {
         self.billing_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li></ul>
     pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
         self.billing_mode = input;
         self

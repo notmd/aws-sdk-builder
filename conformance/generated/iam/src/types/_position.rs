@@ -40,6 +40,7 @@ impl PositionBuilder {
         self.line = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The line containing the specified position in the document.</p>
     pub fn set_line(mut self, input: ::std::option::Option<i32>) -> Self {
         self.line = input;
         self
@@ -53,6 +54,7 @@ impl PositionBuilder {
         self.column = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The column in the line containing the specified position in the document.</p>
     pub fn set_column(mut self, input: ::std::option::Option<i32>) -> Self {
         self.column = input;
         self

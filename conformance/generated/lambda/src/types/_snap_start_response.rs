@@ -39,6 +39,7 @@ impl SnapStartResponseBuilder {
         self.apply_on = ::std::option::Option::Some(input);
         self
     }
+    /// <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
     pub fn set_apply_on(mut self, input: ::std::option::Option<crate::types::SnapStartApplyOn>) -> Self {
         self.apply_on = input;
         self
@@ -52,6 +53,7 @@ impl SnapStartResponseBuilder {
         self.optimization_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
     pub fn set_optimization_status(mut self, input: ::std::option::Option<crate::types::SnapStartOptimizationStatus>) -> Self {
         self.optimization_status = input;
         self

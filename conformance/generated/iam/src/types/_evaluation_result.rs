@@ -113,6 +113,7 @@ impl EvaluationResultBuilder {
         self.eval_action_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the API operation tested on the indicated resource.</p>
     pub fn set_eval_action_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.eval_action_name = input;
         self
@@ -128,6 +129,9 @@ impl EvaluationResultBuilder {
         self.eval_resource_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN template for the simulated resource type (for example, <code>arn:${Partition}:s3:::${BucketName}/${KeyName}</code>), or <code>*</code> if no ARN format is defined for the action. This is not a specific customer-provided resource ARN. To find the decision for a specific resource, use <code>ResourceSpecificResults</code>.</p><note>
+    /// <p>If you previously relied on <code>EvalResourceName</code> to identify which specific resource a result applies to, you must now use the <code>EvalResourceName</code> field within individual entries in <code>ResourceSpecificResults</code> instead.</p>
+    /// </note>
     pub fn set_eval_resource_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.eval_resource_name = input;
         self
@@ -144,6 +148,7 @@ impl EvaluationResultBuilder {
         self.eval_decision = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The result of the simulation.</p>
     pub fn set_eval_decision(mut self, input: ::std::option::Option<crate::types::PolicyEvaluationDecisionType>) -> Self {
         self.eval_decision = input;
         self
@@ -163,6 +168,8 @@ impl EvaluationResultBuilder {
         self.matched_statements = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
+    /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
     pub fn set_matched_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Statement>>) -> Self {
         self.matched_statements = input;
         self
@@ -183,6 +190,8 @@ impl EvaluationResultBuilder {
         self.missing_context_values = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter blank. If you include a list of resources, then any missing context values are instead included under the <code>ResourceSpecificResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+    /// <p>In the top-level result, this field contains the deduplicated set of missing context values across all requested resources. This field doesn't include context keys referenced by service control policies (SCPs). Only context keys referenced by identity-based and resource-based policies appear here.</p>
     pub fn set_missing_context_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.missing_context_values = input;
         self
@@ -198,6 +207,8 @@ impl EvaluationResultBuilder {
         self.organizations_decision_detail = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.</p>
+    /// <p>For resources that don't support organization-level evaluation, this field is omitted from the top-level result. For per-resource details, see <code>ResourceSpecificResults</code>.</p>
     pub fn set_organizations_decision_detail(mut self, input: ::std::option::Option<crate::types::OrganizationsDecisionDetail>) -> Self {
         self.organizations_decision_detail = input;
         self
@@ -212,6 +223,7 @@ impl EvaluationResultBuilder {
         self.permissions_boundary_decision_detail = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
     pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<crate::types::PermissionsBoundaryDecisionDetail>) -> Self {
         self.permissions_boundary_decision_detail = input;
         self
@@ -238,6 +250,11 @@ impl EvaluationResultBuilder {
         self.eval_decision_details = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.</p>
+    /// <p>In the top-level result, this map reports the most restrictive decision per policy type across all requested resources.</p>
+    /// <p>If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (<code>*</code>), then the parameter is not returned.</p>
+    /// <p>When you make a cross-account request, Amazon Web Services evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies within a single account</a>.</p>
+    /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
     pub fn set_eval_decision_details(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::PolicyEvaluationDecisionType>>,
@@ -265,6 +282,7 @@ impl EvaluationResultBuilder {
         self.resource_specific_results = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
     pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ResourceSpecificResult>>) -> Self {
         self.resource_specific_results = input;
         self

@@ -46,6 +46,7 @@ impl BackupDescriptionBuilder {
         self.backup_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the details of the backup created for the table.</p>
     pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self {
         self.backup_details = input;
         self
@@ -59,6 +60,7 @@ impl BackupDescriptionBuilder {
         self.source_table_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the details of the table when the backup was created.</p>
     pub fn set_source_table_details(mut self, input: ::std::option::Option<crate::types::SourceTableDetails>) -> Self {
         self.source_table_details = input;
         self
@@ -72,6 +74,7 @@ impl BackupDescriptionBuilder {
         self.source_table_feature_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.</p>
     pub fn set_source_table_feature_details(mut self, input: ::std::option::Option<crate::types::SourceTableFeatureDetails>) -> Self {
         self.source_table_feature_details = input;
         self

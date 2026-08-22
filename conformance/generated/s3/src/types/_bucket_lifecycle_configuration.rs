@@ -38,6 +38,7 @@ impl BucketLifecycleConfigurationBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
     pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>) -> Self {
         self.rules = input;
         self

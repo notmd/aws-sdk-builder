@@ -33,6 +33,7 @@ impl DecodeAuthorizationMessageInputBuilder {
         self.encoded_message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The encoded message that was returned with the response.</p>
     pub fn set_encoded_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.encoded_message = input;
         self

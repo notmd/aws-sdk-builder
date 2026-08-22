@@ -71,6 +71,7 @@ impl CreateFunctionUrlConfigResponseBuilder {
         self.function_url = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The HTTP URL endpoint for your function.</p>
     pub fn set_function_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_url = input;
         self
@@ -85,6 +86,7 @@ impl CreateFunctionUrlConfigResponseBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of your function.</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_arn = input;
         self
@@ -99,6 +101,7 @@ impl CreateFunctionUrlConfigResponseBuilder {
         self.auth_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
     pub fn set_auth_type(mut self, input: ::std::option::Option<crate::types::FunctionUrlAuthType>) -> Self {
         self.auth_type = input;
         self
@@ -112,6 +115,7 @@ impl CreateFunctionUrlConfigResponseBuilder {
         self.cors = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
     pub fn set_cors(mut self, input: ::std::option::Option<crate::types::Cors>) -> Self {
         self.cors = input;
         self
@@ -126,6 +130,7 @@ impl CreateFunctionUrlConfigResponseBuilder {
         self.creation_time = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_creation_time(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.creation_time = input;
         self
@@ -139,6 +144,7 @@ impl CreateFunctionUrlConfigResponseBuilder {
         self.invoke_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Use one of the following options:</p><ul><li><p><code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p></li><li><p><code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p></li></ul>
     pub fn set_invoke_mode(mut self, input: ::std::option::Option<crate::types::InvokeMode>) -> Self {
         self.invoke_mode = input;
         self

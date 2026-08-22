@@ -39,6 +39,7 @@ impl DescribeContinuousBackupsOutputBuilder {
         self.continuous_backups_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the continuous backups and point in time recovery settings on the table.</p>
     pub fn set_continuous_backups_description(mut self, input: ::std::option::Option<crate::types::ContinuousBackupsDescription>) -> Self {
         self.continuous_backups_description = input;
         self

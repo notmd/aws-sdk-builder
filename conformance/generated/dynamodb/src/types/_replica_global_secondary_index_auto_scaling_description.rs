@@ -49,6 +49,7 @@ impl ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -62,6 +63,7 @@ impl ReplicaGlobalSecondaryIndexAutoScalingDescriptionBuilder {
         self.index_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The table/index configuration is being updated. The table/index remains available for data operations when <code>UPDATING</code></p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
     pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
         self.index_status = input;
         self

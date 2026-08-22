@@ -36,6 +36,8 @@ impl GetAccessKeyInfoInputBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of an access key.</p>
+    /// <p>This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.</p>
     pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.access_key_id = input;
         self

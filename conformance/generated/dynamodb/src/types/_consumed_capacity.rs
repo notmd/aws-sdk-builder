@@ -81,6 +81,7 @@ impl ConsumedCapacityBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -94,6 +95,7 @@ impl ConsumedCapacityBuilder {
         self.capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of capacity units consumed by the operation.</p>
     pub fn set_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
         self.capacity_units = input;
         self
@@ -107,6 +109,7 @@ impl ConsumedCapacityBuilder {
         self.read_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of read capacity units consumed by the operation.</p>
     pub fn set_read_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
         self.read_capacity_units = input;
         self
@@ -120,6 +123,7 @@ impl ConsumedCapacityBuilder {
         self.write_capacity_units = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The total number of write capacity units consumed by the operation.</p>
     pub fn set_write_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
         self.write_capacity_units = input;
         self
@@ -133,6 +137,7 @@ impl ConsumedCapacityBuilder {
         self.table = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The amount of throughput consumed on the table affected by the operation.</p>
     pub fn set_table(mut self, input: ::std::option::Option<crate::types::Capacity>) -> Self {
         self.table = input;
         self
@@ -151,6 +156,7 @@ impl ConsumedCapacityBuilder {
         self.local_secondary_indexes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
     pub fn set_local_secondary_indexes(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
@@ -172,6 +178,7 @@ impl ConsumedCapacityBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
     pub fn set_global_secondary_indexes(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
@@ -193,6 +200,7 @@ impl ConsumedCapacityBuilder {
         self.vector_indexes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
     pub fn set_vector_indexes(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>,

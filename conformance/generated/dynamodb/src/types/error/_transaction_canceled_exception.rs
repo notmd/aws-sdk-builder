@@ -96,6 +96,7 @@ impl TransactionCanceledExceptionBuilder {
         self.cancellation_reasons = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of cancellation reasons.</p>
     pub fn set_cancellation_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CancellationReason>>) -> Self {
         self.cancellation_reasons = input;
         self

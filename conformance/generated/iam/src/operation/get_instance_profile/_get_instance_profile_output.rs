@@ -39,6 +39,7 @@ impl GetInstanceProfileOutputBuilder {
         self.instance_profile = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the instance profile.</p>
     pub fn set_instance_profile(mut self, input: ::std::option::Option<crate::types::InstanceProfile>) -> Self {
         self.instance_profile = input;
         self

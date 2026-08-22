@@ -39,6 +39,7 @@ impl CreateGroupOutputBuilder {
         self.group = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A structure containing details about the new group.</p>
     pub fn set_group(mut self, input: ::std::option::Option<crate::types::Group>) -> Self {
         self.group = input;
         self

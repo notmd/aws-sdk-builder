@@ -99,6 +99,7 @@ impl LifecycleRuleBuilder {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.</p>
     pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::LifecycleExpiration>) -> Self {
         self.expiration = input;
         self
@@ -112,6 +113,7 @@ impl LifecycleRuleBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
     pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.id = input;
         self
@@ -125,6 +127,7 @@ impl LifecycleRuleBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The general purpose bucket prefix that identifies one or more objects to which the rule applies. We recommend using <code>Filter</code> instead of <code>Prefix</code> for new PUTs. Previous configurations where a prefix is defined will continue to operate as before.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -141,6 +144,10 @@ impl LifecycleRuleBuilder {
         self.filter = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, <code>ObjectSizeGreaterThan</code>, <code>ObjectSizeLessThan</code>, or <code>And</code> specified. <code>Filter</code> is required if the <code>LifecycleRule</code> does not contain a <code>Prefix</code> element.</p>
+    /// <p>For more information about <code>Tag</code> filters, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-filters.html">Adding filters to Lifecycle rules</a> in the <i>Amazon S3 User Guide</i>.</p><note>
+    /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
+    /// </note>
     pub fn set_filter(mut self, input: ::std::option::Option<crate::types::LifecycleRuleFilter>) -> Self {
         self.filter = input;
         self
@@ -158,6 +165,7 @@ impl LifecycleRuleBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExpirationStatus>) -> Self {
         self.status = input;
         self
@@ -178,6 +186,9 @@ impl LifecycleRuleBuilder {
         self.transitions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p><note>
+    /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
+    /// </note>
     pub fn set_transitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Transition>>) -> Self {
         self.transitions = input;
         self
@@ -200,6 +211,9 @@ impl LifecycleRuleBuilder {
         self.noncurrent_version_transitions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to a specific storage class at a set period in the object's lifetime.</p><note>
+    /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
+    /// </note>
     pub fn set_noncurrent_version_transitions(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::NoncurrentVersionTransition>>,

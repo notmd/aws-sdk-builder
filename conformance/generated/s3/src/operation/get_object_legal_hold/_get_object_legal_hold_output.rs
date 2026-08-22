@@ -46,6 +46,7 @@ impl GetObjectLegalHoldOutputBuilder {
         self.legal_hold = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current legal hold status for the specified object.</p>
     pub fn set_legal_hold(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHold>) -> Self {
         self.legal_hold = input;
         self

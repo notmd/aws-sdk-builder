@@ -40,6 +40,7 @@ impl DeleteBucketMetadataConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The general purpose bucket that you want to remove the metadata configuration from.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -53,6 +54,7 @@ impl DeleteBucketMetadataConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The expected bucket owner of the general purpose bucket that you want to remove the metadata table configuration from.</p>
     pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.expected_bucket_owner = input;
         self

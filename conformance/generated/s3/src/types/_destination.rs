@@ -80,6 +80,7 @@ impl DestinationBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.</p>
     pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.bucket = input;
         self
@@ -93,6 +94,7 @@ impl DestinationBuilder {
         self.account = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the Amazon Web Services account that owns the destination bucket by specifying the <code>AccessControlTranslation</code> property, this is the account ID of the destination bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html">Replication Additional Configuration: Changing the Replica Owner</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.account = input;
         self
@@ -108,6 +110,9 @@ impl DestinationBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.</p>
+    /// <p>For valid values, see the <code>StorageClass</code> element of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT Bucket replication</a> action in the <i>Amazon S3 API Reference</i>.</p>
+    /// <p><code>FSX_OPENZFS</code> is not an accepted value when replicating objects.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
         self.storage_class = input;
         self
@@ -123,6 +128,7 @@ impl DestinationBuilder {
         self.access_control_translation = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the Amazon Web Services account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same Amazon Web Services account that owns the source object.</p>
     pub fn set_access_control_translation(mut self, input: ::std::option::Option<crate::types::AccessControlTranslation>) -> Self {
         self.access_control_translation = input;
         self
@@ -136,6 +142,7 @@ impl DestinationBuilder {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container that provides information about encryption. If <code>SourceSelectionCriteria</code> is specified, you must specify this element.</p>
     pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::EncryptionConfiguration>) -> Self {
         self.encryption_configuration = input;
         self
@@ -149,6 +156,7 @@ impl DestinationBuilder {
         self.replication_time = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a <code>Metrics</code> block.</p>
     pub fn set_replication_time(mut self, input: ::std::option::Option<crate::types::ReplicationTime>) -> Self {
         self.replication_time = input;
         self
@@ -162,6 +170,7 @@ impl DestinationBuilder {
         self.metrics = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A container specifying replication metrics-related settings enabling replication metrics and events.</p>
     pub fn set_metrics(mut self, input: ::std::option::Option<crate::types::Metrics>) -> Self {
         self.metrics = input;
         self

@@ -45,6 +45,8 @@ impl DeleteSshPublicKeyInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the IAM user associated with the SSH public key.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.user_name = input;
         self
@@ -61,6 +63,8 @@ impl DeleteSshPublicKeyInputBuilder {
         self.ssh_public_key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier for the SSH public key.</p>
+    /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.ssh_public_key_id = input;
         self

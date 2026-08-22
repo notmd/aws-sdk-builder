@@ -55,6 +55,7 @@ impl InvocationCompletedDetailsBuilder {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
@@ -69,6 +70,7 @@ impl InvocationCompletedDetailsBuilder {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
@@ -83,6 +85,7 @@ impl InvocationCompletedDetailsBuilder {
         self.request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The request ID for the invocation.</p>
     pub fn set_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.request_id = input;
         self
@@ -96,6 +99,7 @@ impl InvocationCompletedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the invocation failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
         self.error = input;
         self

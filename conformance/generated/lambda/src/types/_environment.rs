@@ -37,6 +37,7 @@ impl EnvironmentBuilder {
         self.variables = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
     pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.variables = input;
         self

@@ -39,6 +39,7 @@ impl PlatformApplicationBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>PlatformApplicationArn for platform application object.</p>
     pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.platform_application_arn = input;
         self
@@ -57,6 +58,7 @@ impl PlatformApplicationBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>Attributes for platform application object.</p>
     pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
         self.attributes = input;
         self

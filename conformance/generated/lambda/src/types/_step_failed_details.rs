@@ -39,6 +39,7 @@ impl StepFailedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the step failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
         self.error = input;
         self
@@ -52,6 +53,7 @@ impl StepFailedDetailsBuilder {
         self.retry_details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Information about retry attempts for this step operation.</p>
     pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
         self.retry_details = input;
         self

@@ -32,6 +32,7 @@ impl SnapStartBuilder {
         self.apply_on = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
     pub fn set_apply_on(mut self, input: ::std::option::Option<crate::types::SnapStartApplyOn>) -> Self {
         self.apply_on = input;
         self

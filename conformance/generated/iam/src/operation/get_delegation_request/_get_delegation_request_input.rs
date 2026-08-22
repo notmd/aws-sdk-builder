@@ -44,6 +44,7 @@ impl GetDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The unique identifier of the delegation request to retrieve.</p>
     pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.delegation_request_id = input;
         self
@@ -59,6 +60,9 @@ impl GetDelegationRequestInputBuilder {
         self.delegation_permission_check = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether to perform a permission check for the delegation request.</p>
+    /// <p>If set to true, the <code>GetDelegationRequest</code> API call will start a permission check process. This process calculates whether the caller has sufficient permissions to cover the asks from this delegation request.</p>
+    /// <p>Setting this parameter to true does not guarantee an answer in the response. See the <code>PermissionCheckStatus</code> and the <code>PermissionCheckResult</code> response attributes for further details.</p>
     pub fn set_delegation_permission_check(mut self, input: ::std::option::Option<bool>) -> Self {
         self.delegation_permission_check = input;
         self

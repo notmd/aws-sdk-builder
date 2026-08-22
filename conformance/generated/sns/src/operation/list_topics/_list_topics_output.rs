@@ -51,6 +51,7 @@ impl ListTopicsOutputBuilder {
         self.topics = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of topic ARNs.</p>
     pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Topic>>) -> Self {
         self.topics = input;
         self
@@ -64,6 +65,7 @@ impl ListTopicsOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Token to pass along to the next <code>ListTopics</code> request. This element is returned if there are additional topics to retrieve.</p>
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_token = input;
         self

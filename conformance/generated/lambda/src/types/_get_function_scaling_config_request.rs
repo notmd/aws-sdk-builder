@@ -42,6 +42,7 @@ impl GetFunctionScalingConfigRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -56,6 +57,7 @@ impl GetFunctionScalingConfigRequestBuilder {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
     pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.qualifier = input;
         self

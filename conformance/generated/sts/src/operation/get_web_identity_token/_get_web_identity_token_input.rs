@@ -58,6 +58,7 @@ impl GetWebIdentityTokenInputBuilder {
         self.audience = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
     pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.audience = input;
         self
@@ -71,6 +72,7 @@ impl GetWebIdentityTokenInputBuilder {
         self.duration_seconds = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The duration, in seconds, for which the JSON Web Token (JWT) will remain valid. The value can range from 60 seconds (1 minute) to 3600 seconds (1 hour). If not specified, the default duration is 300 seconds (5 minutes). The token is designed to be short-lived and should be used for proof of identity, then exchanged for credentials or short-lived tokens in the external service.</p>
     pub fn set_duration_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
         self.duration_seconds = input;
         self
@@ -85,6 +87,7 @@ impl GetWebIdentityTokenInputBuilder {
         self.signing_algorithm = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.signing_algorithm = input;
         self
@@ -103,6 +106,7 @@ impl GetWebIdentityTokenInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
+    /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tags = input;
         self

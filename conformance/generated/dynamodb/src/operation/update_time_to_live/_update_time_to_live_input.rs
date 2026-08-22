@@ -40,6 +40,7 @@ impl UpdateTimeToLiveInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -53,6 +54,7 @@ impl UpdateTimeToLiveInputBuilder {
         self.time_to_live_specification = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
     pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self {
         self.time_to_live_specification = input;
         self

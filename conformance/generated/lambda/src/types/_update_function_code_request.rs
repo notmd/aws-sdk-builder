@@ -118,6 +118,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code>.</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -131,6 +132,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.zip_file = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
     pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.zip_file = input;
         self
@@ -144,6 +146,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
     pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_bucket = input;
         self
@@ -157,6 +160,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.s3_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
     pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_key = input;
         self
@@ -170,6 +174,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>For versioned objects, the version of the deployment package object to use.</p>
     pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.s3_object_version = input;
         self
@@ -183,6 +188,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.s3_object_storage_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies how the deployment package is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li></ul>
     pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
         self.s3_object_storage_mode = input;
         self
@@ -196,6 +202,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.image_uri = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
     pub fn set_image_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.image_uri = input;
         self
@@ -214,6 +221,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.architectures = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
     pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
         self.architectures = input;
         self
@@ -227,6 +235,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.publish = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
     pub fn set_publish(mut self, input: ::std::option::Option<bool>) -> Self {
         self.publish = input;
         self
@@ -240,6 +249,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.publish_to = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies where to publish the function version or configuration.</p>
     pub fn set_publish_to(mut self, input: ::std::option::Option<crate::types::FunctionVersionLatestPublished>) -> Self {
         self.publish_to = input;
         self
@@ -253,6 +263,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.dry_run = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
     pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
         self.dry_run = input;
         self
@@ -266,6 +277,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self
@@ -279,6 +291,7 @@ impl UpdateFunctionCodeRequestBuilder {
         self.source_kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
     pub fn set_source_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.source_kms_key_arn = input;
         self

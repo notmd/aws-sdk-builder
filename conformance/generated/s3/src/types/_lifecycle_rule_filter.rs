@@ -62,6 +62,7 @@ impl LifecycleRuleFilterBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
     pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.prefix = input;
         self
@@ -77,6 +78,9 @@ impl LifecycleRuleFilterBuilder {
         self.tag = ::std::option::Option::Some(input);
         self
     }
+    /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
+    /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
+    /// </note>
     pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self {
         self.tag = input;
         self
@@ -92,6 +96,7 @@ impl LifecycleRuleFilterBuilder {
         self.object_size_greater_than = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Minimum object size to which the rule applies.</p>
     pub fn set_object_size_greater_than(mut self, input: ::std::option::Option<i64>) -> Self {
         self.object_size_greater_than = input;
         self
@@ -105,6 +110,7 @@ impl LifecycleRuleFilterBuilder {
         self.object_size_less_than = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Maximum object size to which the rule applies.</p>
     pub fn set_object_size_less_than(mut self, input: ::std::option::Option<i64>) -> Self {
         self.object_size_less_than = input;
         self

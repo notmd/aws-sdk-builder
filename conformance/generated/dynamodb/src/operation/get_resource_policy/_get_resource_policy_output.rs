@@ -46,6 +46,7 @@ impl GetResourcePolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy = input;
         self
@@ -59,6 +60,7 @@ impl GetResourcePolicyOutputBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

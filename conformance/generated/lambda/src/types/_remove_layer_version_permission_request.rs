@@ -56,6 +56,7 @@ impl RemoveLayerVersionPermissionRequestBuilder {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
     pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.layer_name = input;
         self
@@ -70,6 +71,7 @@ impl RemoveLayerVersionPermissionRequestBuilder {
         self.version_number = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The version number.</p>
     pub fn set_version_number(mut self, input: ::std::option::Option<i64>) -> Self {
         self.version_number = input;
         self
@@ -84,6 +86,7 @@ impl RemoveLayerVersionPermissionRequestBuilder {
         self.statement_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier that was specified when the statement was added.</p>
     pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.statement_id = input;
         self
@@ -97,6 +100,7 @@ impl RemoveLayerVersionPermissionRequestBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

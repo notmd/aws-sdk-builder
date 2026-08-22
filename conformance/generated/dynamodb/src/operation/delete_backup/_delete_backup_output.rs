@@ -39,6 +39,7 @@ impl DeleteBackupOutputBuilder {
         self.backup_description = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the description of the backup created for the table.</p>
     pub fn set_backup_description(mut self, input: ::std::option::Option<crate::types::BackupDescription>) -> Self {
         self.backup_description = input;
         self

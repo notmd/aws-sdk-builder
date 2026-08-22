@@ -53,6 +53,7 @@ impl ErrorObjectBuilder {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A human-readable error message.</p>
     pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_message = input;
         self
@@ -66,6 +67,7 @@ impl ErrorObjectBuilder {
         self.error_type = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The error type.</p>
     pub fn set_error_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_type = input;
         self
@@ -79,6 +81,7 @@ impl ErrorObjectBuilder {
         self.error_data = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Machine-readable error data.</p>
     pub fn set_error_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_data = input;
         self
@@ -97,6 +100,7 @@ impl ErrorObjectBuilder {
         self.stack_trace = ::std::option::Option::Some(v);
         self
     }
+    /// <p>Stack trace information for the error.</p>
     pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.stack_trace = input;
         self

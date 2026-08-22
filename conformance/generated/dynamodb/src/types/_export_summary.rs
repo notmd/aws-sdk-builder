@@ -46,6 +46,7 @@ impl ExportSummaryBuilder {
         self.export_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the export.</p>
     pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.export_arn = input;
         self
@@ -59,6 +60,7 @@ impl ExportSummaryBuilder {
         self.export_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
     pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
         self.export_status = input;
         self
@@ -72,6 +74,7 @@ impl ExportSummaryBuilder {
         self.export_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
     pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
         self.export_type = input;
         self

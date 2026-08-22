@@ -44,6 +44,7 @@ impl GetQueueAttributesOutputBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of attributes to their respective values.</p>
     pub fn set_attributes(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,

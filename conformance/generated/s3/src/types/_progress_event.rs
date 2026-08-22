@@ -32,6 +32,7 @@ impl ProgressEventBuilder {
         self.details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The Progress event details.</p>
     pub fn set_details(mut self, input: ::std::option::Option<crate::types::Progress>) -> Self {
         self.details = input;
         self

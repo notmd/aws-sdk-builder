@@ -39,6 +39,7 @@ impl ListCodeSigningConfigsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self
@@ -57,6 +58,7 @@ impl ListCodeSigningConfigsResponseBuilder {
         self.code_signing_configs = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The code signing configurations</p>
     pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>) -> Self {
         self.code_signing_configs = input;
         self

@@ -32,6 +32,7 @@ impl TransactGetItemBuilder {
         self.get = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.</p>
     pub fn set_get(mut self, input: ::std::option::Option<crate::types::Get>) -> Self {
         self.get = input;
         self

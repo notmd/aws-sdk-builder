@@ -39,6 +39,7 @@ impl WriteRequestBuilder {
         self.put_request = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A request to perform a <code>PutItem</code> operation.</p>
     pub fn set_put_request(mut self, input: ::std::option::Option<crate::types::PutRequest>) -> Self {
         self.put_request = input;
         self
@@ -52,6 +53,7 @@ impl WriteRequestBuilder {
         self.delete_request = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A request to perform a <code>DeleteItem</code> operation.</p>
     pub fn set_delete_request(mut self, input: ::std::option::Option<crate::types::DeleteRequest>) -> Self {
         self.delete_request = input;
         self

@@ -32,6 +32,7 @@ impl ChainedInvokeFailedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Details about the chained invocation failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
         self.error = input;
         self

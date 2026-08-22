@@ -42,6 +42,7 @@ impl TagBuilder {
         self.tag_key = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The key of the tag.</p>
     pub fn set_tag_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.tag_key = input;
         self
@@ -56,6 +57,7 @@ impl TagBuilder {
         self.tag_value = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The value of the tag.</p>
     pub fn set_tag_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.tag_value = input;
         self

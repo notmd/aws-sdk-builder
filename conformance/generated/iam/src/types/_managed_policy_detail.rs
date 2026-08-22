@@ -119,6 +119,7 @@ impl ManagedPolicyDetailBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The friendly name (not ARN) identifying the policy.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self
@@ -133,6 +134,8 @@ impl ManagedPolicyDetailBuilder {
         self.policy_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The stable and unique string identifying the policy.</p>
+    /// <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_policy_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_id = input;
         self
@@ -159,6 +162,8 @@ impl ManagedPolicyDetailBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The path to the policy.</p>
+    /// <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.path = input;
         self
@@ -174,6 +179,8 @@ impl ManagedPolicyDetailBuilder {
         self.default_version_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier for the version of the policy that is set as the default (operative) version.</p>
+    /// <p>For more information about policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_default_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.default_version_id = input;
         self
@@ -188,6 +195,7 @@ impl ManagedPolicyDetailBuilder {
         self.attachment_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of principal entities (users, groups, and roles) that the policy is attached to.</p>
     pub fn set_attachment_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.attachment_count = input;
         self
@@ -202,6 +210,8 @@ impl ManagedPolicyDetailBuilder {
         self.permissions_boundary_usage_count = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
+    /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
     pub fn set_permissions_boundary_usage_count(mut self, input: ::std::option::Option<i32>) -> Self {
         self.permissions_boundary_usage_count = input;
         self
@@ -216,6 +226,7 @@ impl ManagedPolicyDetailBuilder {
         self.is_attachable = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
     pub fn set_is_attachable(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_attachable = input;
         self
@@ -229,6 +240,7 @@ impl ManagedPolicyDetailBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A friendly description of the policy.</p>
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.description = input;
         self
@@ -242,6 +254,7 @@ impl ManagedPolicyDetailBuilder {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was created.</p>
     pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.create_date = input;
         self
@@ -256,6 +269,8 @@ impl ManagedPolicyDetailBuilder {
         self.update_date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was last updated.</p>
+    /// <p>When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.</p>
     pub fn set_update_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.update_date = input;
         self
@@ -275,6 +290,7 @@ impl ManagedPolicyDetailBuilder {
         self.policy_version_list = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list containing information about the versions of the policy.</p>
     pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>) -> Self {
         self.policy_version_list = input;
         self

@@ -46,6 +46,7 @@ impl GlobalSecondaryIndexUpdateBuilder {
         self.update = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.</p>
     pub fn set_update(mut self, input: ::std::option::Option<crate::types::UpdateGlobalSecondaryIndexAction>) -> Self {
         self.update = input;
         self
@@ -59,6 +60,7 @@ impl GlobalSecondaryIndexUpdateBuilder {
         self.create = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The parameters required for creating a global secondary index on an existing table:</p><ul><li><p><code>IndexName</code></p></li><li><p><code>KeySchema</code></p></li><li><p><code>AttributeDefinitions</code></p></li><li><p><code>Projection</code></p></li><li><p><code>ProvisionedThroughput</code></p></li></ul>
     pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateGlobalSecondaryIndexAction>) -> Self {
         self.create = input;
         self
@@ -72,6 +74,7 @@ impl GlobalSecondaryIndexUpdateBuilder {
         self.delete = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The name of an existing global secondary index to be removed.</p>
     pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteGlobalSecondaryIndexAction>) -> Self {
         self.delete = input;
         self

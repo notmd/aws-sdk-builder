@@ -67,6 +67,7 @@ impl PhoneNumberInformationBuilder {
         self.created_at = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the phone number was created.</p>
     pub fn set_created_at(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.created_at = input;
         self
@@ -80,6 +81,7 @@ impl PhoneNumberInformationBuilder {
         self.phone_number = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The phone number.</p>
     pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.phone_number = input;
         self
@@ -93,6 +95,7 @@ impl PhoneNumberInformationBuilder {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The status of the phone number.</p>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status = input;
         self
@@ -106,6 +109,7 @@ impl PhoneNumberInformationBuilder {
         self.iso2_country_code = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The two-character code for the country or region, in ISO 3166-1 alpha-2 format.</p>
     pub fn set_iso2_country_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.iso2_country_code = input;
         self
@@ -119,6 +123,7 @@ impl PhoneNumberInformationBuilder {
         self.route_type = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The list of supported routes.</p>
     pub fn set_route_type(mut self, input: ::std::option::Option<crate::types::RouteType>) -> Self {
         self.route_type = input;
         self
@@ -137,6 +142,7 @@ impl PhoneNumberInformationBuilder {
         self.number_capabilities = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The capabilities of each phone number.</p>
     pub fn set_number_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NumberCapability>>) -> Self {
         self.number_capabilities = input;
         self

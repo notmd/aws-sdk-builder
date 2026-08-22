@@ -46,6 +46,7 @@ impl TransitionBuilder {
         self.date = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.</p>
     pub fn set_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.date = input;
         self
@@ -59,6 +60,7 @@ impl TransitionBuilder {
         self.days = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be <code>0</code> or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints">Constraints and considerations for transitions</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn set_days(mut self, input: ::std::option::Option<i32>) -> Self {
         self.days = input;
         self
@@ -72,6 +74,7 @@ impl TransitionBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The storage class to which you want the object to transition.</p>
     pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::TransitionStorageClass>) -> Self {
         self.storage_class = input;
         self

@@ -39,6 +39,7 @@ impl TimeToLiveDescriptionBuilder {
         self.time_to_live_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The TTL status for the table.</p>
     pub fn set_time_to_live_status(mut self, input: ::std::option::Option<crate::types::TimeToLiveStatus>) -> Self {
         self.time_to_live_status = input;
         self
@@ -52,6 +53,7 @@ impl TimeToLiveDescriptionBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the TTL attribute for items in the table.</p>
     pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.attribute_name = input;
         self

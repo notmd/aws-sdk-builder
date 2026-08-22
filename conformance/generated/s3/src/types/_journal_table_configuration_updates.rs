@@ -32,6 +32,7 @@ impl JournalTableConfigurationUpdatesBuilder {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The journal table record expiration settings for the journal table.</p>
     pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
         self.record_expiration = input;
         self

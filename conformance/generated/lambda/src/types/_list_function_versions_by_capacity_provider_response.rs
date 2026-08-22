@@ -49,6 +49,7 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
     pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_arn = input;
         self
@@ -67,6 +68,7 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
         self.function_versions = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of function versions that use the specified capacity provider.</p>
     pub fn set_function_versions(
         mut self,
         input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>,
@@ -83,6 +85,7 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The pagination token that's included if more results are available.</p>
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.next_marker = input;
         self

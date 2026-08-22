@@ -53,6 +53,7 @@ impl LayerBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.arn = input;
         self
@@ -66,6 +67,7 @@ impl LayerBuilder {
         self.code_size = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The size of the layer archive in bytes.</p>
     pub fn set_code_size(mut self, input: ::std::option::Option<i64>) -> Self {
         self.code_size = input;
         self
@@ -79,6 +81,7 @@ impl LayerBuilder {
         self.signing_profile_version_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
     pub fn set_signing_profile_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.signing_profile_version_arn = input;
         self
@@ -92,6 +95,7 @@ impl LayerBuilder {
         self.signing_job_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
     pub fn set_signing_job_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.signing_job_arn = input;
         self

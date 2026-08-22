@@ -39,6 +39,7 @@ impl GrantBuilder {
         self.grantee = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The person being granted permissions.</p>
     pub fn set_grantee(mut self, input: ::std::option::Option<crate::types::Grantee>) -> Self {
         self.grantee = input;
         self
@@ -52,6 +53,7 @@ impl GrantBuilder {
         self.permission = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Specifies the permission given to the grantee.</p>
     pub fn set_permission(mut self, input: ::std::option::Option<crate::types::Permission>) -> Self {
         self.permission = input;
         self

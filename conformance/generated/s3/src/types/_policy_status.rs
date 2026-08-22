@@ -32,6 +32,7 @@ impl PolicyStatusBuilder {
         self.is_public = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The policy status for this bucket. <code>TRUE</code> indicates that this bucket is public. <code>FALSE</code> indicates that the bucket is not public.</p>
     pub fn set_is_public(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_public = input;
         self

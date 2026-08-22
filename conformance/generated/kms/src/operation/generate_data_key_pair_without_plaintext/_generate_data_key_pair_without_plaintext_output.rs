@@ -67,6 +67,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self.private_key_ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.private_key_ciphertext_blob = input;
         self
@@ -80,6 +81,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.public_key = input;
         self
@@ -93,6 +95,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_id = input;
         self
@@ -106,6 +109,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self.key_pair_spec = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The type of data key pair that was generated.</p>
     pub fn set_key_pair_spec(mut self, input: ::std::option::Option<crate::types::DataKeyPairSpec>) -> Self {
         self.key_pair_spec = input;
         self
@@ -119,6 +123,7 @@ impl GenerateDataKeyPairWithoutPlaintextOutputBuilder {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The identifier of the key material used to encrypt the private key.</p>
     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.key_material_id = input;
         self

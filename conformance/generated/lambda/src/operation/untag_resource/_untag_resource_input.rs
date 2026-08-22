@@ -40,6 +40,7 @@ impl UntagResourceInputBuilder {
         self.resource = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource's Amazon Resource Name (ARN).</p>
     pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.resource = input;
         self
@@ -58,6 +59,7 @@ impl UntagResourceInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of tag keys to remove from the resource.</p>
     pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
         self.tag_keys = input;
         self

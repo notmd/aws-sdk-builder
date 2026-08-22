@@ -46,6 +46,7 @@ impl GetResourcePolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The resource-based policy attached to the Lambda resource you specified.</p>
     pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy = input;
         self
@@ -59,6 +60,7 @@ impl GetResourcePolicyOutputBuilder {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <a>PutResourcePolicy</a> or <a>DeleteResourcePolicy</a> request. Doing so ensures the operation acts on the expected version of the policy.</p>
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.revision_id = input;
         self

@@ -44,6 +44,7 @@ impl SearchResultItemBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
     pub fn set_item(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -60,6 +61,7 @@ impl SearchResultItemBuilder {
         self.score = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
     pub fn set_score(mut self, input: ::std::option::Option<f64>) -> Self {
         self.score = input;
         self

@@ -60,6 +60,7 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The table name for the Kinesis streaming destination output.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -73,6 +74,7 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self.stream_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The ARN for the Kinesis stream input.</p>
     pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.stream_arn = input;
         self
@@ -86,6 +88,7 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self.destination_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of the attempt to update the Kinesis streaming destination output.</p>
     pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
         self.destination_status = input;
         self
@@ -99,6 +102,7 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self.update_kinesis_streaming_configuration = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The command to update the Kinesis streaming destination configuration.</p>
     pub fn set_update_kinesis_streaming_configuration(
         mut self,
         input: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,

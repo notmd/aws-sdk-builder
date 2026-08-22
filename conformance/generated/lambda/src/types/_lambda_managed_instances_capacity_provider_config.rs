@@ -48,6 +48,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
     pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.capacity_provider_arn = input;
         self
@@ -61,6 +62,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         self.per_execution_environment_max_concurrency = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
     pub fn set_per_execution_environment_max_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
         self.per_execution_environment_max_concurrency = input;
         self
@@ -74,6 +76,7 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         self.execution_environment_memory_gi_b_per_v_cpu = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
     pub fn set_execution_environment_memory_gi_b_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
         self.execution_environment_memory_gi_b_per_v_cpu = input;
         self

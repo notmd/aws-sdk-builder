@@ -32,6 +32,7 @@ impl AbacStatusBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The ABAC status of the general purpose bucket.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAbacStatus>) -> Self {
         self.status = input;
         self

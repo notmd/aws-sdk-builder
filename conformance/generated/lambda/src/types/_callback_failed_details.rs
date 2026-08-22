@@ -32,6 +32,7 @@ impl CallbackFailedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>An error object that contains details about the failure.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
         self.error = input;
         self

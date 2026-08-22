@@ -83,6 +83,7 @@ impl UpdateBuilder {
         self.key = ::std::option::Option::Some(map);
         self
     }
+    /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
         self.key = input;
         self
@@ -97,6 +98,7 @@ impl UpdateBuilder {
         self.update_expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
     pub fn set_update_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.update_expression = input;
         self
@@ -111,6 +113,7 @@ impl UpdateBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -124,6 +127,7 @@ impl UpdateBuilder {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
     pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.condition_expression = input;
         self
@@ -146,6 +150,7 @@ impl UpdateBuilder {
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more substitution tokens for attribute names in an expression.</p>
     pub fn set_expression_attribute_names(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -169,6 +174,7 @@ impl UpdateBuilder {
         self.expression_attribute_values = ::std::option::Option::Some(map);
         self
     }
+    /// <p>One or more values that can be substituted in an expression.</p>
     pub fn set_expression_attribute_values(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
@@ -187,6 +193,7 @@ impl UpdateBuilder {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
     pub fn set_return_values_on_condition_check_failure(
         mut self,
         input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,

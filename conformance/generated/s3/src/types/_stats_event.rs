@@ -32,6 +32,7 @@ impl StatsEventBuilder {
         self.details = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The Stats event details.</p>
     pub fn set_details(mut self, input: ::std::option::Option<crate::types::Stats>) -> Self {
         self.details = input;
         self

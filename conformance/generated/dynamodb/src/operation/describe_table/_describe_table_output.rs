@@ -39,6 +39,7 @@ impl DescribeTableOutputBuilder {
         self.table = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The properties of the table.</p>
     pub fn set_table(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self {
         self.table = input;
         self

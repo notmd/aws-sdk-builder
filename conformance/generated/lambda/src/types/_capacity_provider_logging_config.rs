@@ -39,6 +39,7 @@ impl CapacityProviderLoggingConfigBuilder {
         self.system_log_level = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
     pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
         self.system_log_level = input;
         self
@@ -52,6 +53,7 @@ impl CapacityProviderLoggingConfigBuilder {
         self.log_group = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
     pub fn set_log_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.log_group = input;
         self

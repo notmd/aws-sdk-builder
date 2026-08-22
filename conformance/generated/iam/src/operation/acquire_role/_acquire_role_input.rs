@@ -52,6 +52,8 @@ impl AcquireRoleInputBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p>
+    /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.template_arn = input;
         self
@@ -66,6 +68,7 @@ impl AcquireRoleInputBuilder {
         self.template_minor_version = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The minor version of the role template to use. If you do not specify a minor version, the service uses the template's default minor version.</p>
     pub fn set_template_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
         self.template_minor_version = input;
         self
@@ -84,6 +87,7 @@ impl AcquireRoleInputBuilder {
         self.replacement_values = ::std::option::Option::Some(map);
         self
     }
+    /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     pub fn set_replacement_values(
         mut self,
         input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>>,

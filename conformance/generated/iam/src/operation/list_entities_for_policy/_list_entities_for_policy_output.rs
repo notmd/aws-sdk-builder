@@ -72,6 +72,7 @@ impl ListEntitiesForPolicyOutputBuilder {
         self.policy_groups = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of IAM groups that the policy is attached to.</p>
     pub fn set_policy_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyGroup>>) -> Self {
         self.policy_groups = input;
         self
@@ -90,6 +91,7 @@ impl ListEntitiesForPolicyOutputBuilder {
         self.policy_users = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of IAM users that the policy is attached to.</p>
     pub fn set_policy_users(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyUser>>) -> Self {
         self.policy_users = input;
         self
@@ -108,6 +110,7 @@ impl ListEntitiesForPolicyOutputBuilder {
         self.policy_roles = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A list of IAM roles that the policy is attached to.</p>
     pub fn set_policy_roles(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyRole>>) -> Self {
         self.policy_roles = input;
         self
@@ -121,6 +124,7 @@ impl ListEntitiesForPolicyOutputBuilder {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
+    /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
         self.is_truncated = input;
         self
@@ -134,6 +138,7 @@ impl ListEntitiesForPolicyOutputBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.marker = input;
         self

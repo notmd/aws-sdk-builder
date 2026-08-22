@@ -72,6 +72,7 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index to be created.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -90,6 +91,7 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
+    /// <p>The key schema for the global secondary index. Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
     pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
         self.key_schema = input;
         self
@@ -103,6 +105,7 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.projection = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
     pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
         self.projection = input;
         self
@@ -117,6 +120,8 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
+    /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
         self.provisioned_throughput = input;
         self
@@ -131,6 +136,7 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
         self.on_demand_throughput = input;
         self
@@ -144,6 +150,7 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Represents the warm throughput value (in read units per second and write units per second) when creating a secondary index.</p>
     pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
         self.warm_throughput = input;
         self

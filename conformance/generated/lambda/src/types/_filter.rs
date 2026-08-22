@@ -32,6 +32,7 @@ impl FilterBuilder {
         self.pattern = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>A filter pattern. For more information on the syntax of a filter pattern, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax">Filter rule syntax</a>.</p>
     pub fn set_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.pattern = input;
         self

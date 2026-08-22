@@ -41,6 +41,7 @@ impl ChainedInvokeOptionsBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name or ARN of the Lambda function to invoke.</p>
     pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_name = input;
         self
@@ -54,6 +55,7 @@ impl ChainedInvokeOptionsBuilder {
         self.tenant_id = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The tenant identifier for the chained invocation.</p>
     pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.tenant_id = input;
         self

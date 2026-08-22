@@ -83,6 +83,7 @@ impl VerificationExceptionBuilder {
         self.status = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The status of the verification error.</p>
     pub fn set_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.status = input;
         self

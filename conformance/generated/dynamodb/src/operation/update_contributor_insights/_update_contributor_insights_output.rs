@@ -60,6 +60,7 @@ impl UpdateContributorInsightsOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the table.</p>
     pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.table_name = input;
         self
@@ -73,6 +74,7 @@ impl UpdateContributorInsightsOutputBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the global secondary index, if applicable.</p>
     pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.index_name = input;
         self
@@ -86,6 +88,7 @@ impl UpdateContributorInsightsOutputBuilder {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The status of contributor insights</p>
     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
         self.contributor_insights_status = input;
         self
@@ -99,6 +102,7 @@ impl UpdateContributorInsightsOutputBuilder {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
         self.contributor_insights_mode = input;
         self

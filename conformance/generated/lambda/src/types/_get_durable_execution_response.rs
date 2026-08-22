@@ -120,6 +120,7 @@ impl GetDurableExecutionResponseBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_arn = input;
         self
@@ -134,6 +135,7 @@ impl GetDurableExecutionResponseBuilder {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
     pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.durable_execution_name = input;
         self
@@ -148,6 +150,7 @@ impl GetDurableExecutionResponseBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.</p>
     pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.function_arn = input;
         self
@@ -161,6 +164,7 @@ impl GetDurableExecutionResponseBuilder {
         self.input_payload = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
     pub fn set_input_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.input_payload = input;
         self
@@ -174,6 +178,7 @@ impl GetDurableExecutionResponseBuilder {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
     pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.result = input;
         self
@@ -187,6 +192,7 @@ impl GetDurableExecutionResponseBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
         self.error = input;
         self
@@ -201,6 +207,7 @@ impl GetDurableExecutionResponseBuilder {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
     pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.start_timestamp = input;
         self
@@ -215,6 +222,7 @@ impl GetDurableExecutionResponseBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
     pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
         self.status = input;
         self
@@ -228,6 +236,7 @@ impl GetDurableExecutionResponseBuilder {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
     pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
         self.end_timestamp = input;
         self
@@ -241,6 +250,7 @@ impl GetDurableExecutionResponseBuilder {
         self.version = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
     pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.version = input;
         self
@@ -254,6 +264,7 @@ impl GetDurableExecutionResponseBuilder {
         self.trace_header = ::std::option::Option::Some(input);
         self
     }
+    /// <p>The trace headers associated with the durable execution.</p>
     pub fn set_trace_header(mut self, input: ::std::option::Option<crate::types::TraceHeader>) -> Self {
         self.trace_header = input;
         self
@@ -267,6 +278,7 @@ impl GetDurableExecutionResponseBuilder {
         self.execution_data_included = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
     pub fn set_execution_data_included(mut self, input: ::std::option::Option<bool>) -> Self {
         self.execution_data_included = input;
         self
@@ -280,6 +292,7 @@ impl GetDurableExecutionResponseBuilder {
         self.durable_config = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
     pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
         self.durable_config = input;
         self

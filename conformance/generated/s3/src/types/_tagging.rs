@@ -38,6 +38,7 @@ impl TaggingBuilder {
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
+    /// <p>A collection for a set of tags</p>
     pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
         self.tag_set = input;
         self

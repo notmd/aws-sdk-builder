@@ -33,6 +33,7 @@ impl GlacierJobParametersBuilder {
         self.tier = ::std::option::Option::Some(input);
         self
     }
+    /// <p>Retrieval tier at which the restore will be processed.</p>
     pub fn set_tier(mut self, input: ::std::option::Option<crate::types::Tier>) -> Self {
         self.tier = input;
         self

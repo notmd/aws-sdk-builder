@@ -42,6 +42,7 @@ impl InlinePolicyBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The name of the inline policy.</p>
     pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_name = input;
         self
@@ -56,6 +57,7 @@ impl InlinePolicyBuilder {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
+    /// <p>The inline policy document.</p>
     pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.policy_document = input;
         self
