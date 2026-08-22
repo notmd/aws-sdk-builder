@@ -94,5 +94,8 @@ pub type Output = ListPolicyTagsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_policy_tags/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListPolicyTagsError = Error;
 pub type ListPolicyTagsFluentBuilder = builders::Builder;

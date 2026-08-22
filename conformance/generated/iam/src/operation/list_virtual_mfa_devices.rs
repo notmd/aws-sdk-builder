@@ -81,5 +81,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_virtual_mfa_devices/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListVirtualMFADevicesError = Error;
 pub type ListVirtualMFADevicesFluentBuilder = builders::Builder;

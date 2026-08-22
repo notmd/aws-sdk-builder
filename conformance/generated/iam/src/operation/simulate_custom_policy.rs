@@ -92,5 +92,8 @@ pub mod builders {
         "/generated/iam/src/operation/simulate_custom_policy/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type SimulateCustomPolicyError = Error;
 pub type SimulateCustomPolicyFluentBuilder = builders::Builder;

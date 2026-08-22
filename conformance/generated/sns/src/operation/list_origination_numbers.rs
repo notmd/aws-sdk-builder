@@ -107,5 +107,8 @@ pub mod builders {
         "/generated/sns/src/operation/list_origination_numbers/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListOriginationNumbersError = Error;
 pub type ListOriginationNumbersFluentBuilder = builders::Builder;

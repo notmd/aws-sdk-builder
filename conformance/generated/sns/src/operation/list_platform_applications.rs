@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/sns/src/operation/list_platform_applications/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListPlatformApplicationsError = Error;
 pub type ListPlatformApplicationsFluentBuilder = builders::Builder;

@@ -107,5 +107,8 @@ pub mod builders {
         "/generated/sns/src/operation/list_sms_sandbox_phone_numbers/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListSMSSandboxPhoneNumbersError = Error;
 pub type ListSMSSandboxPhoneNumbersFluentBuilder = builders::Builder;

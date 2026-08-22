@@ -80,5 +80,8 @@ pub type Output = ListPartsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/list_parts/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListPartsError = Error;
 pub type ListPartsFluentBuilder = builders::Builder;

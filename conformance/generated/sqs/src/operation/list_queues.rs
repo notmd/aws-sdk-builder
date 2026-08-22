@@ -96,5 +96,8 @@ pub type Output = ListQueuesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation/list_queues/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListQueuesError = Error;
 pub type ListQueuesFluentBuilder = builders::Builder;

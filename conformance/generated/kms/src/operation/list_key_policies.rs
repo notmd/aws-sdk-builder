@@ -104,5 +104,8 @@ pub type Output = ListKeyPoliciesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_key_policies/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListKeyPoliciesError = Error;
 pub type ListKeyPoliciesFluentBuilder = builders::Builder;

@@ -3,13 +3,79 @@
 pub use ::aws_types::request_id::RequestId;
 
 pub mod operation {
+    pub mod add_layer_version_permission {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/add_layer_version_permission.rs"
+        ));
+    }
+    pub mod add_permission {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/add_permission.rs"));
+    }
+    pub mod checkpoint_durable_execution {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/checkpoint_durable_execution.rs"
+        ));
+    }
+    pub mod create_alias {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_alias.rs"));
+    }
+    pub mod create_capacity_provider {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_capacity_provider.rs"));
+    }
+    pub mod create_code_signing_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_code_signing_config.rs"));
+    }
+    pub mod create_event_source_mapping {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_event_source_mapping.rs"));
+    }
+    pub mod create_function {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_function.rs"));
+    }
+    pub mod create_function_url_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_function_url_config.rs"));
+    }
+    pub mod delete_alias {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_alias.rs"));
+    }
+    pub mod delete_capacity_provider {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_capacity_provider.rs"));
+    }
+    pub mod delete_code_signing_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_code_signing_config.rs"));
+    }
+    pub mod delete_event_source_mapping {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_event_source_mapping.rs"));
+    }
     pub mod delete_function {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function.rs"));
+    }
+    pub mod delete_function_code_signing_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/delete_function_code_signing_config.rs"
+        ));
+    }
+    pub mod delete_function_concurrency {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function_concurrency.rs"));
     }
     pub mod delete_function_event_invoke_config {
         include!(concat!(
             env!("OUT_DIR"),
             "/generated/lambda/src/operation/delete_function_event_invoke_config.rs"
+        ));
+    }
+    pub mod delete_function_url_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function_url_config.rs"));
+    }
+    pub mod delete_layer_version {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_layer_version.rs"));
+    }
+    pub mod delete_provisioned_concurrency_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/delete_provisioned_concurrency_config.rs"
         ));
     }
     pub mod delete_resource_policy {
@@ -18,14 +84,116 @@ pub mod operation {
     pub mod get_account_settings {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_account_settings.rs"));
     }
+    pub mod get_alias {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_alias.rs"));
+    }
+    pub mod get_capacity_provider {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_capacity_provider.rs"));
+    }
+    pub mod get_code_signing_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_code_signing_config.rs"));
+    }
+    pub mod get_durable_execution {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_durable_execution.rs"));
+    }
+    pub mod get_durable_execution_history {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/get_durable_execution_history.rs"
+        ));
+    }
+    pub mod get_durable_execution_state {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_durable_execution_state.rs"));
+    }
+    pub mod get_event_source_mapping {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_event_source_mapping.rs"));
+    }
+    pub mod get_function {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function.rs"));
+    }
+    pub mod get_function_code_signing_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/get_function_code_signing_config.rs"
+        ));
+    }
+    pub mod get_function_concurrency {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_concurrency.rs"));
+    }
+    pub mod get_function_configuration {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_configuration.rs"));
+    }
     pub mod get_function_event_invoke_config {
         include!(concat!(
             env!("OUT_DIR"),
             "/generated/lambda/src/operation/get_function_event_invoke_config.rs"
         ));
     }
+    pub mod get_function_recursion_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/get_function_recursion_config.rs"
+        ));
+    }
+    pub mod get_function_scaling_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_scaling_config.rs"));
+    }
+    pub mod get_function_url_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_url_config.rs"));
+    }
+    pub mod get_layer_version {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_layer_version.rs"));
+    }
+    pub mod get_layer_version_by_arn {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_layer_version_by_arn.rs"));
+    }
+    pub mod get_layer_version_policy {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_layer_version_policy.rs"));
+    }
+    pub mod get_policy {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_policy.rs"));
+    }
+    pub mod get_provisioned_concurrency_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/get_provisioned_concurrency_config.rs"
+        ));
+    }
     pub mod get_resource_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_resource_policy.rs"));
+    }
+    pub mod get_runtime_management_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/get_runtime_management_config.rs"
+        ));
+    }
+    pub mod invoke {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/invoke.rs"));
+    }
+    pub mod invoke_async {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/invoke_async.rs"));
+    }
+    pub mod invoke_with_response_stream {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/invoke_with_response_stream.rs"));
+    }
+    pub mod list_aliases {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_aliases.rs"));
+    }
+    pub mod list_capacity_providers {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_capacity_providers.rs"));
+    }
+    pub mod list_code_signing_configs {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_code_signing_configs.rs"));
+    }
+    pub mod list_durable_executions_by_function {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/list_durable_executions_by_function.rs"
+        ));
+    }
+    pub mod list_event_source_mappings {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_event_source_mappings.rs"));
     }
     pub mod list_function_event_invoke_configs {
         include!(concat!(
@@ -33,8 +201,56 @@ pub mod operation {
             "/generated/lambda/src/operation/list_function_event_invoke_configs.rs"
         ));
     }
+    pub mod list_function_url_configs {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_function_url_configs.rs"));
+    }
+    pub mod list_function_versions_by_capacity_provider {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/list_function_versions_by_capacity_provider.rs"
+        ));
+    }
+    pub mod list_functions {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_functions.rs"));
+    }
+    pub mod list_functions_by_code_signing_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/list_functions_by_code_signing_config.rs"
+        ));
+    }
+    pub mod list_layer_versions {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_layer_versions.rs"));
+    }
+    pub mod list_layers {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_layers.rs"));
+    }
+    pub mod list_provisioned_concurrency_configs {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/list_provisioned_concurrency_configs.rs"
+        ));
+    }
     pub mod list_tags {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_tags.rs"));
+    }
+    pub mod list_versions_by_function {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_versions_by_function.rs"));
+    }
+    pub mod publish_layer_version {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/publish_layer_version.rs"));
+    }
+    pub mod publish_version {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/publish_version.rs"));
+    }
+    pub mod put_function_code_signing_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/put_function_code_signing_config.rs"
+        ));
+    }
+    pub mod put_function_concurrency {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_function_concurrency.rs"));
     }
     pub mod put_function_event_invoke_config {
         include!(concat!(
@@ -42,8 +258,38 @@ pub mod operation {
             "/generated/lambda/src/operation/put_function_event_invoke_config.rs"
         ));
     }
+    pub mod put_function_recursion_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/put_function_recursion_config.rs"
+        ));
+    }
+    pub mod put_function_scaling_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_function_scaling_config.rs"));
+    }
+    pub mod put_provisioned_concurrency_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/put_provisioned_concurrency_config.rs"
+        ));
+    }
     pub mod put_resource_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_resource_policy.rs"));
+    }
+    pub mod put_runtime_management_config {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/put_runtime_management_config.rs"
+        ));
+    }
+    pub mod remove_layer_version_permission {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/remove_layer_version_permission.rs"
+        ));
+    }
+    pub mod remove_permission {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/remove_permission.rs"));
     }
     pub mod send_durable_execution_callback_failure {
         include!(concat!(
@@ -63,16 +309,43 @@ pub mod operation {
             "/generated/lambda/src/operation/send_durable_execution_callback_success.rs"
         ));
     }
+    pub mod stop_durable_execution {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/stop_durable_execution.rs"));
+    }
     pub mod tag_resource {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/tag_resource.rs"));
     }
     pub mod untag_resource {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/untag_resource.rs"));
     }
+    pub mod update_alias {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_alias.rs"));
+    }
+    pub mod update_capacity_provider {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_capacity_provider.rs"));
+    }
+    pub mod update_code_signing_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_code_signing_config.rs"));
+    }
+    pub mod update_event_source_mapping {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_event_source_mapping.rs"));
+    }
+    pub mod update_function_code {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_function_code.rs"));
+    }
+    pub mod update_function_configuration {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/update_function_configuration.rs"
+        ));
+    }
     pub mod update_function_event_invoke_config {
         include!(concat!(
             env!("OUT_DIR"),
             "/generated/lambda/src/operation/update_function_event_invoke_config.rs"
         ));
+    }
+    pub mod update_function_url_config {
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_function_url_config.rs"));
     }
 }

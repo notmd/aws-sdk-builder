@@ -89,5 +89,8 @@ pub type Output = ListMfaDevicesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_mfa_devices/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListMFADevicesError = Error;
 pub type ListMFADevicesFluentBuilder = builders::Builder;

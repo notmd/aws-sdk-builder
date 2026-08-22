@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/kms/src/operation/describe_custom_key_stores/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type DescribeCustomKeyStoresError = Error;
 pub type DescribeCustomKeyStoresFluentBuilder = builders::Builder;

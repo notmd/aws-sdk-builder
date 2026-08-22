@@ -104,5 +104,8 @@ pub type Output = ListAliasesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_aliases/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListAliasesError = Error;
 pub type ListAliasesFluentBuilder = builders::Builder;

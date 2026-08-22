@@ -102,5 +102,8 @@ pub mod builders {
         "/generated/sns/src/operation/list_subscriptions_by_topic/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListSubscriptionsByTopicError = Error;
 pub type ListSubscriptionsByTopicFluentBuilder = builders::Builder;

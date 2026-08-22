@@ -102,5 +102,8 @@ pub mod builders {
         "/generated/lambda/src/operation/list_function_event_invoke_configs/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListFunctionEventInvokeConfigsError = Error;
 pub type ListFunctionEventInvokeConfigsFluentBuilder = builders::Builder;

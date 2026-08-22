@@ -63,6 +63,10 @@ pub use crate::types::error::_unrecognized_public_key_encoding_exception::Unreco
 
 pub use crate::types::error::_policy_evaluation_exception::PolicyEvaluationException;
 
+pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
+
+pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
+
 pub use crate::types::error::_key_pair_mismatch_exception::KeyPairMismatchException;
 
 pub use crate::types::error::_malformed_certificate_exception::MalformedCertificateException;
@@ -70,10 +74,6 @@ pub use crate::types::error::_malformed_certificate_exception::MalformedCertific
 pub use crate::types::error::_duplicate_certificate_exception::DuplicateCertificateException;
 
 pub use crate::types::error::_invalid_certificate_exception::InvalidCertificateException;
-
-pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyException;
-
-pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyException;
 
 mod _account_not_management_or_delegated_administrator_exception;
 

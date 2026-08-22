@@ -84,5 +84,8 @@ pub type Output = ListSshPublicKeysOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_ssh_public_keys/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListSSHPublicKeysError = Error;
 pub type ListSSHPublicKeysFluentBuilder = builders::Builder;

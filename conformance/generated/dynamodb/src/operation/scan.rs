@@ -103,5 +103,8 @@ pub type Output = ScanOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/scan/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ScanError = Error;
 pub type ScanFluentBuilder = builders::Builder;

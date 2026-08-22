@@ -105,5 +105,8 @@ pub mod builders {
         "/generated/s3/src/operation/list_object_annotations/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListObjectAnnotationsError = Error;
 pub type ListObjectAnnotationsFluentBuilder = builders::Builder;

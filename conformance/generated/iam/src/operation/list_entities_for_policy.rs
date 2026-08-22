@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_entities_for_policy/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListEntitiesForPolicyError = Error;
 pub type ListEntitiesForPolicyFluentBuilder = builders::Builder;

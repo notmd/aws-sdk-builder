@@ -111,5 +111,8 @@ pub type Output = ListGrantsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_grants/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListGrantsError = Error;
 pub type ListGrantsFluentBuilder = builders::Builder;

@@ -63,6 +63,10 @@ pub use crate::types::error::_unrecognized_public_key_encoding_exception::Unreco
 
 pub use crate::types::error::_policy_evaluation_exception::PolicyEvaluationExceptionBuilder;
 
+pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyExceptionBuilder;
+
+pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyExceptionBuilder;
+
 pub use crate::types::error::_key_pair_mismatch_exception::KeyPairMismatchExceptionBuilder;
 
 pub use crate::types::error::_malformed_certificate_exception::MalformedCertificateExceptionBuilder;
@@ -70,7 +74,3 @@ pub use crate::types::error::_malformed_certificate_exception::MalformedCertific
 pub use crate::types::error::_duplicate_certificate_exception::DuplicateCertificateExceptionBuilder;
 
 pub use crate::types::error::_invalid_certificate_exception::InvalidCertificateExceptionBuilder;
-
-pub use crate::types::error::_duplicate_ssh_public_key_exception::DuplicateSshPublicKeyExceptionBuilder;
-
-pub use crate::types::error::_invalid_public_key_exception::InvalidPublicKeyExceptionBuilder;

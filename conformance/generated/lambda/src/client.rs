@@ -232,28 +232,125 @@ impl Client {
     }
 }
 
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/add_layer_version_permission.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/add_permission.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/checkpoint_durable_execution.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_alias.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_capacity_provider.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_code_signing_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_event_source_mapping.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_function.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_function_url_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_alias.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_capacity_provider.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_code_signing_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_event_source_mapping.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/delete_function_code_signing_config.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function_concurrency.rs"));
 include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/delete_function_event_invoke_config.rs"
 ));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function_url_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_layer_version.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/delete_provisioned_concurrency_config.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_resource_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_account_settings.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_alias.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_capacity_provider.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_code_signing_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_durable_execution.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_durable_execution_history.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_durable_execution_state.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_event_source_mapping.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/get_function_code_signing_config.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_concurrency.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_configuration.rs"));
 include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/get_function_event_invoke_config.rs"
 ));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_recursion_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_scaling_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_url_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_layer_version.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_layer_version_by_arn.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_layer_version_policy.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_policy.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/get_provisioned_concurrency_config.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_resource_policy.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_runtime_management_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/invoke.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/invoke_async.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/invoke_with_response_stream.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_aliases.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_capacity_providers.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_code_signing_configs.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/list_durable_executions_by_function.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_event_source_mappings.rs"));
 include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/list_function_event_invoke_configs.rs"
 ));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_function_url_configs.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/list_function_versions_by_capacity_provider.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_functions.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/list_functions_by_code_signing_config.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_layer_versions.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_layers.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/list_provisioned_concurrency_configs.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_tags.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_versions_by_function.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/publish_layer_version.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/publish_version.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/put_function_code_signing_config.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_concurrency.rs"));
 include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/put_function_event_invoke_config.rs"
 ));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_recursion_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_scaling_config.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/put_provisioned_concurrency_config.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_resource_policy.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_runtime_management_config.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/remove_layer_version_permission.rs"
+));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/remove_permission.rs"));
 include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/send_durable_execution_callback_failure.rs"
@@ -266,9 +363,17 @@ include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/send_durable_execution_callback_success.rs"
 ));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/stop_durable_execution.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/tag_resource.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/untag_resource.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_alias.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_capacity_provider.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_code_signing_config.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_event_source_mapping.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_code.rs"));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_configuration.rs"));
 include!(concat!(
     env!("OUT_DIR"),
     "/generated/lambda/src/client/update_function_event_invoke_config.rs"
 ));
+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_url_config.rs"));

@@ -91,6 +91,13 @@ impl Builder {
         self.input = self.input.set_consistent_read(Some(value.into()));
         self
     }
+    /// Create a paginator for this request
+    ///
+    /// Paginators are used by calling [`send().await`](crate::operation::scan::paginator::ScanPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> crate::operation::scan::paginator::ScanPaginator {
+        crate::operation::scan::paginator::ScanPaginator::new(self.handle, self.inner)
+    }
+
     pub fn build(self) -> super::Input {
         self.input.build().expect("operation input builder cannot fail")
     }

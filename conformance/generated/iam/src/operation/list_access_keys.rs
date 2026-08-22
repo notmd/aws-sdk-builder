@@ -89,5 +89,8 @@ pub type Output = ListAccessKeysOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_access_keys/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListAccessKeysError = Error;
 pub type ListAccessKeysFluentBuilder = builders::Builder;

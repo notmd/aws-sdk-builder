@@ -102,5 +102,8 @@ pub mod builders {
         "/generated/sns/src/operation/list_endpoints_by_platform_application/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListEndpointsByPlatformApplicationError = Error;
 pub type ListEndpointsByPlatformApplicationFluentBuilder = builders::Builder;

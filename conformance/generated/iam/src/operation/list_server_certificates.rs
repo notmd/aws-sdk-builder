@@ -87,5 +87,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_server_certificates/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListServerCertificatesError = Error;
 pub type ListServerCertificatesFluentBuilder = builders::Builder;

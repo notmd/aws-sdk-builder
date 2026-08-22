@@ -107,5 +107,8 @@ pub mod builders {
         "/generated/sqs/src/operation/list_dead_letter_source_queues/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListDeadLetterSourceQueuesError = Error;
 pub type ListDeadLetterSourceQueuesFluentBuilder = builders::Builder;

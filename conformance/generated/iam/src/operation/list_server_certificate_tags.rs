@@ -92,5 +92,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_server_certificate_tags/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListServerCertificateTagsError = Error;
 pub type ListServerCertificateTagsFluentBuilder = builders::Builder;

@@ -99,5 +99,8 @@ pub type Output = ListResourceTagsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_resource_tags/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListResourceTagsError = Error;
 pub type ListResourceTagsFluentBuilder = builders::Builder;

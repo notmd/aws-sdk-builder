@@ -241,11 +241,11 @@ pub use crate::types::_annotation_entry::AnnotationEntry;
 
 pub use crate::types::_optional_object_attributes::OptionalObjectAttributes;
 
-pub use crate::types::_object::Object;
-
 pub use crate::types::_object_version::ObjectVersion;
 
 pub use crate::types::_delete_marker_entry::DeleteMarkerEntry;
+
+pub use crate::types::_object::Object;
 
 pub use crate::types::_part::Part;
 
@@ -363,11 +363,11 @@ pub use crate::types::_object_part::ObjectPart;
 
 pub use crate::types::_default_retention::DefaultRetention;
 
-pub use crate::types::_object_storage_class::ObjectStorageClass;
+pub use crate::types::_object_version_storage_class::ObjectVersionStorageClass;
 
 pub use crate::types::_restore_status::RestoreStatus;
 
-pub use crate::types::_object_version_storage_class::ObjectVersionStorageClass;
+pub use crate::types::_object_storage_class::ObjectStorageClass;
 
 pub use crate::types::_s3_location::S3Location;
 

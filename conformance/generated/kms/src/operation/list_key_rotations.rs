@@ -109,5 +109,8 @@ pub type Output = ListKeyRotationsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_key_rotations/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListKeyRotationsError = Error;
 pub type ListKeyRotationsFluentBuilder = builders::Builder;

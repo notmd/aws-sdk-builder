@@ -92,5 +92,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_instance_profile_tags/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListInstanceProfileTagsError = Error;
 pub type ListInstanceProfileTagsFluentBuilder = builders::Builder;

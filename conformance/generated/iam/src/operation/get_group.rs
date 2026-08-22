@@ -83,5 +83,8 @@ pub type Output = GetGroupOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_group/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type GetGroupError = Error;
 pub type GetGroupFluentBuilder = builders::Builder;

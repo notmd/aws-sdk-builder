@@ -223,59 +223,36 @@ impl Model {
     }
 
     fn declared_operations(&self) -> Result<Vec<String>, BuildError> {
-        let service = self
-            .shapes
-            .get(self.entry.service_shape_id)
-            .ok_or_else(|| BuildError::InvalidModel {
+        if !self.shapes.contains_key(self.entry.service_shape_id) {
+            return Err(BuildError::InvalidModel {
                 model: self.entry.filename.to_owned(),
                 message: format!("service {} is missing", self.entry.service_shape_id),
-            })?;
-        if let Some(operations) = service.get("operations").and_then(Value::as_array) {
-            return Ok(operations.iter().filter_map(operation_target).collect());
+            });
         }
-        let mut resources = VecDeque::new();
-        if let Some(service_resources) = service.get("resources").and_then(Value::as_array) {
-            resources.extend(service_resources.iter().filter_map(operation_target));
-        }
-        let mut seen = BTreeSet::new();
-        let mut operations = Vec::new();
-        while let Some(resource_id) = resources.pop_front() {
-            if !seen.insert(resource_id.clone()) {
+
+        // Match Smithy's TopDownIndex.getContainedOperations: a service owns
+        // both operations listed directly on the service and operations
+        // attached to any resource in the service closure. Some AWS models
+        // intentionally set `disableDefaultOperations`, leaving the latter
+        // out of the service's explicit `operations` array.
+        let mut queue = VecDeque::from_iter([self.entry.service_shape_id.to_owned()]);
+        let mut visited = BTreeSet::new();
+        let mut operations = BTreeSet::new();
+        while let Some(id) = queue.pop_front() {
+            if !visited.insert(id.clone()) {
                 continue;
             }
-            let Some(resource) = self.shapes.get(&resource_id) else {
+            let Some(shape) = self.shapes.get(&id) else {
                 continue;
             };
-            for key in [
-                "operations",
-                "collectionOperations",
-                "create",
-                "put",
-                "read",
-                "update",
-                "delete",
-                "list",
-            ] {
-                if let Some(values) = resource.get(key) {
-                    match values {
-                        Value::Array(values) => {
-                            operations.extend(values.iter().filter_map(operation_target));
-                        }
-                        value => {
-                            if let Some(target) = operation_target(value) {
-                                operations.push(target);
-                            }
-                        }
-                    }
-                }
+            if self.is_operation(&id) {
+                operations.insert(id);
             }
-            if let Some(nested) = resource.get("resources").and_then(Value::as_array) {
-                resources.extend(nested.iter().filter_map(operation_target));
-            }
+            let mut references = BTreeSet::new();
+            collect_shape_references(shape, &self.shapes, &mut references);
+            queue.extend(references);
         }
-        operations.retain(|id| self.is_operation(id));
-        operations.sort();
-        operations.dedup();
+
         if operations.is_empty() {
             return Err(BuildError::InvalidModel {
                 model: self.entry.filename.to_owned(),
@@ -285,7 +262,7 @@ impl Model {
                 ),
             });
         }
-        Ok(operations)
+        Ok(operations.into_iter().collect())
     }
 }
 
@@ -456,6 +433,27 @@ fn synthetic_operation_shape(
 /// packaged Smithy model alone. The predicates intentionally inspect shape
 /// relationships and traits instead of service or operation names.
 fn apply_model_customizations(shapes: &mut Map<String, Value>) {
+    // The AWS Smithy-RS decorator marks this response so the paginator uses
+    // `is_truncated` instead of the final numeric marker to detect exhaustion.
+    // Keep the customization in the model transform, where the upstream
+    // decorator applies it, rather than teaching the generic paginator about
+    // an operation name.
+    if let Some(shape) = shapes
+        .get_mut("com.amazonaws.s3#ListPartsOutput")
+        .and_then(Value::as_object_mut)
+    {
+        shape
+            .entry("traits".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()))
+            .as_object_mut()
+            .expect("shape traits must be an object")
+            .insert(
+                "software.amazon.smithy.rust.codegen.client.smithy.traits#isTruncatedPaginatorTrait"
+                    .to_owned(),
+                Value::Object(Map::new()),
+            );
+    }
+
     // The S3 service decorator in smithy-rs permits these responses to use
     // wire roots that do not match their modeled output shape names.
     for shape_id in [
@@ -644,15 +642,6 @@ fn root_shape_map(root: &Value) -> BTreeMap<String, Value> {
                 .collect()
         })
         .unwrap_or_default()
-}
-
-fn operation_target(value: &Value) -> Option<String> {
-    value.as_str().map(ToOwned::to_owned).or_else(|| {
-        value
-            .get("target")
-            .and_then(Value::as_str)
-            .map(ToOwned::to_owned)
-    })
 }
 
 fn operation_value(id: String) -> Value {

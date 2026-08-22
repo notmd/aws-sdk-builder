@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_attached_role_policies/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListAttachedRolePoliciesError = Error;
 pub type ListAttachedRolePoliciesFluentBuilder = builders::Builder;

@@ -88,5 +88,8 @@ pub type Output = ListKeysOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_keys/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListKeysError = Error;
 pub type ListKeysFluentBuilder = builders::Builder;

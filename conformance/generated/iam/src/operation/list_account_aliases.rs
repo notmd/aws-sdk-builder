@@ -84,5 +84,8 @@ pub type Output = ListAccountAliasesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_account_aliases/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListAccountAliasesError = Error;
 pub type ListAccountAliasesFluentBuilder = builders::Builder;

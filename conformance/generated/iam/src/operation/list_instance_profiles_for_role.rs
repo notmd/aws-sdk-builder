@@ -92,5 +92,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_instance_profiles_for_role/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListInstanceProfilesForRoleError = Error;
 pub type ListInstanceProfilesForRoleFluentBuilder = builders::Builder;

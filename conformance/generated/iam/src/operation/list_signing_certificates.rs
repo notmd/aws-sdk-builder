@@ -92,5 +92,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_signing_certificates/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListSigningCertificatesError = Error;
 pub type ListSigningCertificatesFluentBuilder = builders::Builder;

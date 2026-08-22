@@ -89,5 +89,8 @@ pub type Output = ListRolePoliciesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_role_policies/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListRolePoliciesError = Error;
 pub type ListRolePoliciesFluentBuilder = builders::Builder;

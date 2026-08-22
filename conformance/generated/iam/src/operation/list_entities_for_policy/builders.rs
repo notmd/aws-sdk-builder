@@ -39,6 +39,13 @@ impl Builder {
         self.input = self.input.set_max_items(Some(value.into()));
         self
     }
+    /// Create a paginator for this request
+    ///
+    /// Paginators are used by calling [`send().await`](crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator {
+        crate::operation::list_entities_for_policy::paginator::ListEntitiesForPolicyPaginator::new(self.handle, self.inner)
+    }
+
     pub fn build(self) -> super::Input {
         self.input.build().expect("operation input builder cannot fail")
     }

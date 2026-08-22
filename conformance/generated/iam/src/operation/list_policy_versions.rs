@@ -94,5 +94,8 @@ pub type Output = ListPolicyVersionsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_policy_versions/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListPolicyVersionsError = Error;
 pub type ListPolicyVersionsFluentBuilder = builders::Builder;

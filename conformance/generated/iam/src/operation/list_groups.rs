@@ -81,5 +81,8 @@ pub type Output = ListGroupsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_groups/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListGroupsError = Error;
 pub type ListGroupsFluentBuilder = builders::Builder;

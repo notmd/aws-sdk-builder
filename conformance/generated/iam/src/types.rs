@@ -49,15 +49,15 @@ pub use crate::types::_error_details::ErrorDetails;
 
 pub use crate::types::_role_template_version::RoleTemplateVersion;
 
+pub use crate::types::_encoding_type::EncodingType;
+
+pub use crate::types::_ssh_public_key::SshPublicKey;
+
 pub use crate::types::_server_certificate::ServerCertificate;
 
 pub use crate::types::_deletion_task_status_type::DeletionTaskStatusType;
 
 pub use crate::types::_deletion_task_failure_reason_type::DeletionTaskFailureReasonType;
-
-pub use crate::types::_encoding_type::EncodingType;
-
-pub use crate::types::_ssh_public_key::SshPublicKey;
 
 pub use crate::types::_entity_type::EntityType;
 
@@ -127,9 +127,9 @@ pub use crate::types::_list_policies_granting_service_access_entry::ListPolicies
 
 pub use crate::types::_saml_provider_list_entry::SamlProviderListEntry;
 
-pub use crate::types::_service_specific_credential_metadata::ServiceSpecificCredentialMetadata;
-
 pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadata;
+
+pub use crate::types::_service_specific_credential_metadata::ServiceSpecificCredentialMetadata;
 
 pub use crate::types::_ordered_organization_policy_type::OrderedOrganizationPolicyType;
 

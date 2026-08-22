@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_attached_user_policies/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListAttachedUserPoliciesError = Error;
 pub type ListAttachedUserPoliciesFluentBuilder = builders::Builder;

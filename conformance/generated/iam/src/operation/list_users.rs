@@ -78,5 +78,8 @@ pub type Output = ListUsersOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_users/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListUsersError = Error;
 pub type ListUsersFluentBuilder = builders::Builder;

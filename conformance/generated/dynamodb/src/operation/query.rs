@@ -103,5 +103,8 @@ pub type Output = QueryOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/query/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type QueryError = Error;
 pub type QueryFluentBuilder = builders::Builder;

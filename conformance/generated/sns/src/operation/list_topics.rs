@@ -91,5 +91,8 @@ pub type Output = ListTopicsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_topics/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListTopicsError = Error;
 pub type ListTopicsFluentBuilder = builders::Builder;

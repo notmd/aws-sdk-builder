@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_open_id_connect_provider_tags/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListOpenIDConnectProviderTagsError = Error;
 pub type ListOpenIDConnectProviderTagsFluentBuilder = builders::Builder;

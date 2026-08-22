@@ -347,6 +347,15 @@ pub(crate) fn list_groups_for_user_output_output_correct_errors(
     builder
 }
 
+pub(crate) fn list_instance_profile_tags_output_output_correct_errors(
+    mut builder: crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsOutputBuilder,
+) -> crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsOutputBuilder {
+    if builder.tags.is_none() {
+        builder.tags = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn list_instance_profiles_output_output_correct_errors(
     mut builder: crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder,
 ) -> crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder {
@@ -365,9 +374,9 @@ pub(crate) fn list_instance_profiles_for_role_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn list_instance_profile_tags_output_output_correct_errors(
-    mut builder: crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsOutputBuilder,
-) -> crate::operation::list_instance_profile_tags::builders::ListInstanceProfileTagsOutputBuilder {
+pub(crate) fn list_mfa_device_tags_output_output_correct_errors(
+    mut builder: crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder,
+) -> crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder {
     if builder.tags.is_none() {
         builder.tags = Some(Default::default())
     }
@@ -379,15 +388,6 @@ pub(crate) fn list_mfa_devices_output_output_correct_errors(
 ) -> crate::operation::list_mfa_devices::builders::ListMfaDevicesOutputBuilder {
     if builder.mfa_devices.is_none() {
         builder.mfa_devices = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn list_mfa_device_tags_output_output_correct_errors(
-    mut builder: crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder,
-) -> crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder {
-    if builder.tags.is_none() {
-        builder.tags = Some(Default::default())
     }
     builder
 }
@@ -428,20 +428,20 @@ pub(crate) fn list_role_policies_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn list_roles_output_output_correct_errors(
-    mut builder: crate::operation::list_roles::builders::ListRolesOutputBuilder,
-) -> crate::operation::list_roles::builders::ListRolesOutputBuilder {
-    if builder.roles.is_none() {
-        builder.roles = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn list_role_tags_output_output_correct_errors(
     mut builder: crate::operation::list_role_tags::builders::ListRoleTagsOutputBuilder,
 ) -> crate::operation::list_role_tags::builders::ListRoleTagsOutputBuilder {
     if builder.tags.is_none() {
         builder.tags = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn list_roles_output_output_correct_errors(
+    mut builder: crate::operation::list_roles::builders::ListRolesOutputBuilder,
+) -> crate::operation::list_roles::builders::ListRolesOutputBuilder {
+    if builder.roles.is_none() {
+        builder.roles = Some(Default::default())
     }
     builder
 }
@@ -455,20 +455,20 @@ pub(crate) fn list_saml_provider_tags_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn list_server_certificates_output_output_correct_errors(
-    mut builder: crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder,
-) -> crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder {
-    if builder.server_certificate_metadata_list.is_none() {
-        builder.server_certificate_metadata_list = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn list_server_certificate_tags_output_output_correct_errors(
     mut builder: crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder,
 ) -> crate::operation::list_server_certificate_tags::builders::ListServerCertificateTagsOutputBuilder {
     if builder.tags.is_none() {
         builder.tags = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn list_server_certificates_output_output_correct_errors(
+    mut builder: crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder,
+) -> crate::operation::list_server_certificates::builders::ListServerCertificatesOutputBuilder {
+    if builder.server_certificate_metadata_list.is_none() {
+        builder.server_certificate_metadata_list = Some(Default::default())
     }
     builder
 }
@@ -491,20 +491,20 @@ pub(crate) fn list_user_policies_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn list_users_output_output_correct_errors(
-    mut builder: crate::operation::list_users::builders::ListUsersOutputBuilder,
-) -> crate::operation::list_users::builders::ListUsersOutputBuilder {
-    if builder.users.is_none() {
-        builder.users = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn list_user_tags_output_output_correct_errors(
     mut builder: crate::operation::list_user_tags::builders::ListUserTagsOutputBuilder,
 ) -> crate::operation::list_user_tags::builders::ListUserTagsOutputBuilder {
     if builder.tags.is_none() {
         builder.tags = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn list_users_output_output_correct_errors(
+    mut builder: crate::operation::list_users::builders::ListUsersOutputBuilder,
+) -> crate::operation::list_users::builders::ListUsersOutputBuilder {
+    if builder.users.is_none() {
+        builder.users = Some(Default::default())
     }
     builder
 }
@@ -753,6 +753,25 @@ pub(crate) fn tag_template_correct_errors(mut builder: crate::types::builders::T
     builder
 }
 
+pub(crate) fn ssh_public_key_correct_errors(mut builder: crate::types::builders::SshPublicKeyBuilder) -> crate::types::builders::SshPublicKeyBuilder {
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
+    }
+    if builder.ssh_public_key_id.is_none() {
+        builder.ssh_public_key_id = Some(Default::default())
+    }
+    if builder.fingerprint.is_none() {
+        builder.fingerprint = Some(Default::default())
+    }
+    if builder.ssh_public_key_body.is_none() {
+        builder.ssh_public_key_body = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    }
+    builder
+}
+
 pub(crate) fn server_certificate_correct_errors(
     mut builder: crate::types::builders::ServerCertificateBuilder,
 ) -> crate::types::builders::ServerCertificateBuilder {
@@ -826,25 +845,6 @@ pub(crate) fn entity_info_correct_errors(mut builder: crate::types::builders::En
     builder
 }
 
-pub(crate) fn ssh_public_key_correct_errors(mut builder: crate::types::builders::SshPublicKeyBuilder) -> crate::types::builders::SshPublicKeyBuilder {
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
-    }
-    if builder.ssh_public_key_id.is_none() {
-        builder.ssh_public_key_id = Some(Default::default())
-    }
-    if builder.fingerprint.is_none() {
-        builder.fingerprint = Some(Default::default())
-    }
-    if builder.ssh_public_key_body.is_none() {
-        builder.ssh_public_key_body = Some(Default::default())
-    }
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-    }
-    builder
-}
-
 pub(crate) fn mfa_device_correct_errors(mut builder: crate::types::builders::MfaDeviceBuilder) -> crate::types::builders::MfaDeviceBuilder {
     if builder.user_name.is_none() {
         builder.user_name = Some(Default::default())
@@ -866,6 +866,24 @@ pub(crate) fn policy_granting_service_access_correct_errors(
     }
     if builder.policy_type.is_none() {
         builder.policy_type = "no value was set".parse::<crate::types::PolicyType>().ok()
+    }
+    builder
+}
+
+pub(crate) fn ssh_public_key_metadata_correct_errors(
+    mut builder: crate::types::builders::SshPublicKeyMetadataBuilder,
+) -> crate::types::builders::SshPublicKeyMetadataBuilder {
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
+    }
+    if builder.ssh_public_key_id.is_none() {
+        builder.ssh_public_key_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    }
+    if builder.upload_date.is_none() {
+        builder.upload_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }
@@ -905,24 +923,6 @@ pub(crate) fn signing_certificate_correct_errors(
     }
     if builder.status.is_none() {
         builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-    }
-    builder
-}
-
-pub(crate) fn ssh_public_key_metadata_correct_errors(
-    mut builder: crate::types::builders::SshPublicKeyMetadataBuilder,
-) -> crate::types::builders::SshPublicKeyMetadataBuilder {
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
-    }
-    if builder.ssh_public_key_id.is_none() {
-        builder.ssh_public_key_id = Some(Default::default())
-    }
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-    }
-    if builder.upload_date.is_none() {
-        builder.upload_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
     }
     builder
 }

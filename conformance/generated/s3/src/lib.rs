@@ -18,3 +18,4 @@ mod serde_util {
 mod lens {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/lens.rs"));
 }
+pub mod waiters;

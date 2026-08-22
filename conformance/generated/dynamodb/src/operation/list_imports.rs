@@ -84,5 +84,8 @@ pub type Output = ListImportsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/list_imports/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListImportsError = Error;
 pub type ListImportsFluentBuilder = builders::Builder;

@@ -92,5 +92,8 @@ pub mod builders {
         "/generated/dynamodb/src/operation/list_contributor_insights/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListContributorInsightsError = Error;
 pub type ListContributorInsightsFluentBuilder = builders::Builder;

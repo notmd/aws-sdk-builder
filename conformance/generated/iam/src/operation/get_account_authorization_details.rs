@@ -87,5 +87,8 @@ pub mod builders {
         "/generated/iam/src/operation/get_account_authorization_details/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type GetAccountAuthorizationDetailsError = Error;
 pub type GetAccountAuthorizationDetailsFluentBuilder = builders::Builder;

@@ -104,5 +104,8 @@ pub type Output = ListRetirableGrantsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_retirable_grants/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListRetirableGrantsError = Error;
 pub type ListRetirableGrantsFluentBuilder = builders::Builder;

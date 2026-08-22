@@ -97,5 +97,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_saml_provider_tags/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListSAMLProviderTagsError = Error;
 pub type ListSAMLProviderTagsFluentBuilder = builders::Builder;

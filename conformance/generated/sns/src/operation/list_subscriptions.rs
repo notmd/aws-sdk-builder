@@ -94,5 +94,8 @@ pub type Output = ListSubscriptionsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_subscriptions/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListSubscriptionsError = Error;
 pub type ListSubscriptionsFluentBuilder = builders::Builder;

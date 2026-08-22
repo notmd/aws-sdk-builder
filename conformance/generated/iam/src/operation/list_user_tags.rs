@@ -89,5 +89,8 @@ pub type Output = ListUserTagsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_user_tags/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListUserTagsError = Error;
 pub type ListUserTagsFluentBuilder = builders::Builder;

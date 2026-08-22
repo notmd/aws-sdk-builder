@@ -87,5 +87,8 @@ pub mod builders {
         "/generated/iam/src/operation/list_instance_profiles/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListInstanceProfilesError = Error;
 pub type ListInstanceProfilesFluentBuilder = builders::Builder;

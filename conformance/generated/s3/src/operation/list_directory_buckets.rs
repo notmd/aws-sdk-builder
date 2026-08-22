@@ -86,5 +86,8 @@ pub type Output = ListDirectoryBucketsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/list_directory_buckets/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListDirectoryBucketsError = Error;
 pub type ListDirectoryBucketsFluentBuilder = builders::Builder;

@@ -92,5 +92,8 @@ pub type Output = ListObjectsV2Output;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/list_objects_v2/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListObjectsV2Error = Error;
 pub type ListObjectsV2FluentBuilder = builders::Builder;

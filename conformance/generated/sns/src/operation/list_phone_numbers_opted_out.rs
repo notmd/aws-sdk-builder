@@ -102,5 +102,8 @@ pub mod builders {
         "/generated/sns/src/operation/list_phone_numbers_opted_out/builders.rs"
     ));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListPhoneNumbersOptedOutError = Error;
 pub type ListPhoneNumbersOptedOutFluentBuilder = builders::Builder;

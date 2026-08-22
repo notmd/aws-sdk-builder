@@ -78,5 +78,8 @@ pub type Output = ListRolesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_roles/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListRolesError = Error;
 pub type ListRolesFluentBuilder = builders::Builder;

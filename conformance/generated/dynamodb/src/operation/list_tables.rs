@@ -89,5 +89,8 @@ pub type Output = ListTablesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/list_tables/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListTablesError = Error;
 pub type ListTablesFluentBuilder = builders::Builder;

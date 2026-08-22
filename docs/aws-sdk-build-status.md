@@ -1,6 +1,6 @@
 # aws-sdk-build status and audit
 
-Updated 2026-08-22. `Prompt.md` is the project specification. Superseded checkpoint
+Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpoint
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
@@ -28,8 +28,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 2,590 exact, 1,435 mismatches, 2,436 missing,
-  and 123 extra (36.71% arithmetic-average match).
+  current report compares 6,462 files: 2,880 exact, 1,613 mismatches, 1,968 missing,
+  and 1 extra (40.47% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -55,6 +55,58 @@ inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silent
 change conformance inputs.
 
 ## Evidence
+
+### Checkpoint: 2026-08-23 — Generic waiter rendering
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now discovers waiters from
+  `smithy.waiters#waitable`, emits Smithy-RS-compatible waiter roots, matcher
+  modules, per-waiter fluent builders, model-derived documentation, acceptor
+  states, output-path matchers, and waiter timing. Matcher rendering covers
+  success, error-type, string/boolean output paths, list projections, and the
+  packaged filtered-list expression without service-name branches. Waiter
+  visitation follows Smithy-RS's operation and waiter-name ordering rules.
+  Consumer-prefixed services now also expose a generated `Waiters` trait and
+  lightweight waiter builders that reuse the existing operation runtime,
+  including consumer-correct module paths and modeled error predicates.
+- Evidence: inspected `/tmp/smithy-rs` waiter generators, including
+  `WaitableGenerator.kt`, `WaiterAcceptorGenerator.kt`, and
+  `RustWaiterMatcherGenerator.kt`. `cargo test --workspace`, `cargo clippy
+  --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`, and
+  `git diff --check` pass. `just conformance` regenerated 8 all-operation
+  snapshots, formatted 4,494 generated Rust files, and exited 1 as expected
+  because parity remains incomplete. Every newly materialized standalone waiter
+  root, matcher, and per-waiter file is exact against the pinned reference.
+- Conformance: overall `2,852/1,613/1,996/1` -> `2,880/1,613/1,968/1`; S3
+  `941/296/107/0` -> `947/296/101/0` (matched/mismatched/missing/extra).
+- Blocker: standalone generated client/runtime waiter integration, endpoint/
+  auth/retry/checksum, protocol, and the remaining reference source tree are
+  incomplete; the full conformance command still exits 1. Consumer waiters use
+  the repository's lightweight runtime until the shared Smithy-RS runtime is
+  ported.
+- Next action: port the generic standalone client-side `Waiters` trait and
+  shared waiter runtime integration, then rerun the full comparison.
+
+### Checkpoint: 2026-08-22 — Resource-bound operation discovery
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/model.rs` now discovers operations by walking
+  the service's directed shape closure, matching Smithy's `TopDownIndex` behavior.
+  This includes operations attached to resources when a service intentionally omits
+  them from its explicit `operations` array, while preserving explicit service
+  operations and keeping the selection generic across services.
+- Evidence: inspected the local `/tmp/smithy-rs` mirror, including the client and
+  server generators' `TopDownIndex.getContainedOperations` usage. The packaged
+  models select 568 operations across 8 services, including all 88 Lambda operations.
+  The focused packaged-model closure test passes. `just conformance` regenerated 8
+  all-operation snapshots, formatted 4,466 generated Rust files, and exited 1 as
+  expected because parity remains incomplete.
+- Conformance: overall `2,654/1,436/2,371/123` -> `2,852/1,613/1,996/1`;
+  Lambda `232/91/761/122` -> `436/262/386/0` (matched/mismatched/missing/extra).
+- Blocker: protocol/runtime, endpoint/auth/retry/checksum, presigning, waiter,
+  test/package-tree, and remaining generated-source parity are still incomplete.
+- Next action: continue the generic parity loop with the missing shared runtime and
+  protocol source tree, prioritizing reusable Smithy-RS ownership boundaries.
 
 ### Checkpoint: 2026-08-22 — Model-derived pagination lenses
 

@@ -59,6 +59,13 @@ impl Builder {
         self.input = self.input.set_optional_object_attributes(Some(value.into()));
         self
     }
+    /// Create a paginator for this request
+    ///
+    /// Paginators are used by calling [`send().await`](crate::operation::list_objects_v2::paginator::ListObjectsV2Paginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
+    pub fn into_paginator(self) -> crate::operation::list_objects_v2::paginator::ListObjectsV2Paginator {
+        crate::operation::list_objects_v2::paginator::ListObjectsV2Paginator::new(self.handle, self.inner)
+    }
+
     pub fn build(self) -> super::Input {
         self.input.build().expect("operation input builder cannot fail")
     }

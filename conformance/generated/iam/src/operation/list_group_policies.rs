@@ -89,5 +89,8 @@ pub type Output = ListGroupPoliciesOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_group_policies/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListGroupPoliciesError = Error;
 pub type ListGroupPoliciesFluentBuilder = builders::Builder;

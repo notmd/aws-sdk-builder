@@ -89,5 +89,8 @@ pub type Output = ListRoleTagsOutput;
 pub mod builders {
     include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_role_tags/builders.rs"));
 }
+
+/// Paginator for this operation
+pub mod paginator;
 pub type ListRoleTagsError = Error;
 pub type ListRoleTagsFluentBuilder = builders::Builder;

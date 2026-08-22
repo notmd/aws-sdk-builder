@@ -12,3 +12,7 @@ include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client.rs"));
 mod serde_util {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/serde_util.rs"));
 }
+mod lens {
+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/lens.rs"));
+}
+pub mod waiters;

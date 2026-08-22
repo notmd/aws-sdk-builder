@@ -1,4 +1,5 @@
 use serde_json::Value;
+use sha2::{Digest, Sha256};
 use std::{
     collections::{BTreeMap, BTreeSet, VecDeque},
     fmt::Write,
@@ -109,6 +110,22 @@ pub(crate) fn generate(
                 render_lens_file(&selected, consumer_namespace),
             ));
         }
+        if has_waiters(&selected) {
+            service_files.push((
+                "src/waiters.rs".to_owned(),
+                render_waiters_file(&selected, consumer_namespace),
+            ));
+            service_files.push((
+                "src/waiters/matchers.rs".to_owned(),
+                render_waiter_matchers_file(&selected, consumer_namespace),
+            ));
+            for (_, waiter_name, waiter) in waiter_specs(&selected) {
+                service_files.push((
+                    format!("src/waiters/{waiter_name}.rs"),
+                    render_waiter_file(&selected, &waiter_name, &waiter, consumer_namespace),
+                ));
+            }
+        }
         let mut operation_names = selected.operations.clone();
         operation_names.sort();
         for operation_name in operation_names {
@@ -129,6 +146,12 @@ pub(crate) fn generate(
                 format!("src/operation/{module}/builders.rs"),
                 render_operation_builder_file(&selected, &operation_name, consumer_namespace),
             ));
+            if operation_pagination_info(&selected, &operation_name).is_some() {
+                service_files.push((
+                    format!("src/operation/{module}/paginator.rs"),
+                    render_paginator_file(&selected, &operation_name, consumer_namespace),
+                ));
+            }
             service_files.push((
                 format!("src/client/{module}.rs"),
                 render_client_operation_file(&selected, &operation_name, consumer_namespace),
@@ -351,7 +374,47 @@ fn render_service_lib(
             .unwrap();
         }
     }
+    if has_waiters(selected) {
+        if consumer_namespace {
+            writeln!(
+                output,
+                "pub mod waiters {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/waiters.rs\"));\n}}"
+            )
+            .unwrap();
+        } else {
+            output.push_str("pub mod waiters;\n");
+        }
+        if consumer_namespace {
+            output.push('\n');
+            render_consumer_waiters_trait(&mut output, selected);
+        }
+    }
     output
+}
+
+fn render_consumer_waiters_trait(output: &mut String, selected: &SelectedModel) {
+    output.push_str(
+        "///\n/// Waiter functions for the client.\n///\n/// Import this trait to get `wait_until` methods on the client.\n///\n",
+    );
+    output.push_str("pub trait Waiters {\n");
+    for (_, waiter_name, _) in waiter_specs_by_name(selected) {
+        let waiter_type = rust_type_name(&waiter_name);
+        writeln!(
+            output,
+            "    /// Wait for `{waiter_name}`\n    fn wait_until_{waiter_name}(&self) -> waiters::{waiter_name}::{waiter_type}FluentBuilder;"
+        )
+        .unwrap();
+    }
+    output.push_str("}\nimpl Waiters for Client {\n");
+    for (_, waiter_name, _) in waiter_specs_by_name(selected) {
+        let waiter_type = rust_type_name(&waiter_name);
+        writeln!(
+            output,
+            "    fn wait_until_{waiter_name}(&self) -> waiters::{waiter_name}::{waiter_type}FluentBuilder {{\n        waiters::{waiter_name}::{waiter_type}FluentBuilder::new(self.clone())\n    }}"
+        )
+        .unwrap();
+    }
+    output.push_str("}\n");
 }
 
 fn render_serde_util_file(selected: &SelectedModel) -> String {
@@ -1956,6 +2019,17 @@ fn render_operation_file(
     )
     .unwrap();
     output.push_str("}\n");
+    if operation_pagination_info(selected, operation_name).is_some() {
+        if consumer_namespace {
+            writeln!(
+                output,
+                "\n/// Paginator for this operation\npub mod paginator {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/paginator.rs\"));\n}}\n"
+            )
+            .unwrap();
+        } else {
+            output.push_str("\n/// Paginator for this operation\npub mod paginator;\n");
+        }
+    }
     writeln!(
         output,
         "pub type {operation_symbol}Error = Error;\npub type {operation_symbol}FluentBuilder = builders::Builder;"
@@ -1987,8 +2061,11 @@ fn operation_is_paginated(operation: &Value) -> bool {
 
 #[derive(Clone, Debug)]
 struct PaginationInfo {
+    input_token: Vec<String>,
     output_token: Vec<String>,
+    page_size: Option<Vec<String>>,
     items: Option<Vec<String>>,
+    is_truncated: bool,
 }
 
 fn has_paginated_operations(selected: &SelectedModel) -> bool {
@@ -2009,10 +2086,25 @@ fn operation_pagination_info(
     if !operation_is_paginated(operation) {
         return None;
     }
-    let trait_value = operation
+    let operation_trait = operation
         .get("traits")
         .and_then(Value::as_object)
         .and_then(|traits| traits.get("smithy.api#paginated"))?;
+    let service_trait = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#paginated"));
+    let mut merged_trait = service_trait
+        .and_then(Value::as_object)
+        .cloned()
+        .unwrap_or_default();
+    if let Some(operation_trait) = operation_trait.as_object() {
+        merged_trait.extend(operation_trait.clone());
+    }
+    let trait_value = Value::Object(merged_trait);
     let input_token = smithy_path(trait_value.get("inputToken")?)?;
     let output_token = smithy_path(trait_value.get("outputToken")?)?;
     let items = trait_value.get("items").and_then(smithy_path);
@@ -2030,8 +2122,20 @@ fn operation_pagination_info(
     }
 
     Some(PaginationInfo {
+        input_token,
         output_token,
+        page_size,
         items,
+        is_truncated: operation
+            .get("output")
+            .and_then(target_value)
+            .and_then(|output_id| selected.model.shapes.get(output_id))
+            .is_some_and(|shape| {
+                has_trait(
+                    shape,
+                    "software.amazon.smithy.rust.codegen.client.smithy.traits#isTruncatedPaginatorTrait",
+                )
+            }),
     })
 }
 
@@ -2047,6 +2151,847 @@ fn smithy_path(value: &Value) -> Option<Vec<String>> {
         }
         _ => None,
     }
+}
+
+/// Return the waiters attached to selected operations in stable operation order.
+/// The waiter trait remains model data so this renderer is reusable across
+/// services rather than keyed to S3 operation names.
+fn waiter_specs(selected: &SelectedModel) -> Vec<(String, String, Value)> {
+    let mut specs = selected
+        .operations
+        .iter()
+        .flat_map(|operation_name| {
+            operation_shape(selected, operation_name)
+                .and_then(|operation| operation.get("traits"))
+                .and_then(Value::as_object)
+                .and_then(|traits| traits.get("smithy.waiters#waitable"))
+                .and_then(Value::as_object)
+                .into_iter()
+                .flat_map(move |waiters| {
+                    waiters.iter().map(move |(waiter_name, waiter)| {
+                        (
+                            operation_name.clone(),
+                            names::snake_case(waiter_name),
+                            waiter.clone(),
+                        )
+                    })
+                })
+        })
+        .collect::<Vec<_>>();
+    // Smithy-RS visits waitable operations in shape-ID order. The selected
+    // operation list is model-derived, but is not required to have that order
+    // (notably for Lambda's GetFunction and GetFunctionConfiguration waiters).
+    specs.sort_by(|left, right| left.0.cmp(&right.0).then_with(|| left.1.cmp(&right.1)));
+    specs
+}
+
+fn has_waiters(selected: &SelectedModel) -> bool {
+    !waiter_specs(selected).is_empty()
+}
+
+fn waiter_specs_by_name(selected: &SelectedModel) -> Vec<(String, String, Value)> {
+    let mut specs = waiter_specs(selected);
+    specs.sort_by(|left, right| left.1.cmp(&right.1).then_with(|| left.0.cmp(&right.0)));
+    specs
+}
+
+fn waiter_acceptors(waiter: &Value) -> Vec<(String, Value)> {
+    waiter
+        .get("acceptors")
+        .and_then(Value::as_array)
+        .into_iter()
+        .flat_map(|acceptors| acceptors.iter())
+        .filter_map(|acceptor| {
+            Some((
+                acceptor.get("state")?.as_str()?.to_owned(),
+                acceptor.get("matcher")?.clone(),
+            ))
+        })
+        .collect()
+}
+
+fn waiter_matcher_name(operation_name: &str, matcher: &Value) -> String {
+    let json = serde_json::to_string(matcher).expect("waiter matcher is serializable");
+    let digest = Sha256::digest(json.as_bytes());
+    let hash = digest
+        .iter()
+        .map(|byte| format!("{byte:02x}"))
+        .collect::<String>();
+    format!(
+        "match_{}_{}",
+        names::snake_case(operation_name),
+        &hash[..17]
+    )
+}
+
+fn waiter_state_name(state: &str) -> &'static str {
+    match state {
+        "success" => "Success",
+        "failure" => "Failure",
+        "retry" => "Retry",
+        _ => "NoAcceptorsMatched",
+    }
+}
+
+fn waiter_matcher_json(matcher: &Value) -> String {
+    serde_json::to_string(matcher).expect("waiter matcher is serializable")
+}
+
+/// Resolve the member paths used by the packaged waiter models. This covers
+/// Smithy's dotted output paths and list projections without tying generation
+/// to a service or operation name.
+type WaiterPathStep = (String, String, bool);
+
+fn waiter_output_path(
+    selected: &SelectedModel,
+    operation_name: &str,
+    path: &str,
+) -> Option<(Vec<WaiterPathStep>, String)> {
+    let operation = operation_shape(selected, operation_name)?;
+    let mut shape_id = operation.get("output").and_then(target_value)?.to_owned();
+    let mut steps = Vec::new();
+    for raw_segment in path.split('.') {
+        let is_array = raw_segment.ends_with("[]");
+        let member_name = raw_segment.trim_end_matches("[]");
+        let shape = selected.model.shapes.get(&shape_id)?;
+        let member = members(shape)
+            .into_iter()
+            .find(|(name, _)| name == member_name)
+            .map(|(_, member)| member)?;
+        let target = member_target(member)?.to_owned();
+        steps.push((
+            names::rust_identifier(member_name),
+            target.clone(),
+            is_array,
+        ));
+        shape_id = if is_array {
+            selected
+                .model
+                .shapes
+                .get(&target)
+                .and_then(|shape| shape.get("member"))
+                .and_then(member_target)?
+                .to_owned()
+        } else {
+            target
+        };
+    }
+    Some((steps, shape_id))
+}
+
+fn waiter_matcher_type(
+    selected: &SelectedModel,
+    target: &str,
+    operation_module: &str,
+    consumer_namespace: bool,
+) -> String {
+    if selected
+        .model
+        .shapes
+        .get(target)
+        .is_some_and(|shape| has_trait(shape, "smithy.api#enum"))
+    {
+        if consumer_namespace {
+            format!("super::super::types::{}", rust_type_name(terminal(target)))
+        } else {
+            format!("crate::types::{}", rust_type_name(terminal(target)))
+        }
+    } else {
+        let rendered = type_expr(
+            selected,
+            target,
+            Context::Operation {
+                module: operation_module.to_owned(),
+                input: false,
+                consumer_namespace,
+            },
+        );
+        if consumer_namespace {
+            rendered
+                .replace("super::super::super::types", "super::super::types")
+                .replace(
+                    "super::super::super::primitives",
+                    "super::super::primitives",
+                )
+        } else {
+            rendered
+        }
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+fn render_waiter_output_matcher(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    matcher: &Value,
+    operation_prefix: &str,
+    operation_module: &str,
+    operation_type: &str,
+    consumer_namespace: bool,
+) -> bool {
+    let Some(output_matcher) = matcher.get("output").and_then(Value::as_object) else {
+        return false;
+    };
+    let Some(path) = output_matcher.get("path").and_then(Value::as_str) else {
+        return false;
+    };
+    let Some(comparator) = output_matcher.get("comparator").and_then(Value::as_str) else {
+        return false;
+    };
+    let Some(expected) = output_matcher.get("expected").and_then(Value::as_str) else {
+        return false;
+    };
+    let resolution_path = path
+        .strip_prefix("length(")
+        .and_then(|path| path.split_once(')'))
+        .map(|(path, _)| path)
+        .unwrap_or(path);
+    let Some((steps, target)) = waiter_output_path(selected, operation_name, resolution_path)
+    else {
+        return false;
+    };
+    let output_path = format!("{operation_prefix}::{operation_module}::{operation_type}Output");
+    let target_type = waiter_matcher_type(selected, &target, operation_module, consumer_namespace);
+    if comparator == "stringEquals" && steps.iter().all(|(_, _, is_array)| !is_array) {
+        writeln!(
+            output,
+            "    fn path_traversal<'a>(\n        _output: &'a {output_path},\n    ) -> ::std::option::Option<&'a {target_type}> {{"
+        )
+        .unwrap();
+        for (index, (field, _, _)) in steps.iter().enumerate() {
+            let variable = format!("_fld_{}", index + 1);
+            let source = if index == 0 {
+                "_output".to_owned()
+            } else {
+                format!("_fld_{index}")
+            };
+            writeln!(
+                output,
+                "        let {variable} = {source}.{field}.as_ref()?;"
+            )
+            .unwrap();
+        }
+        writeln!(
+            output,
+            "        ::std::option::Option::Some(_fld_{})\n    }}",
+            steps.len()
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "    _result\n        .as_ref()\n        .ok()\n        .and_then(|output| path_traversal(output))\n        .map(|value| {{\n            let _tmp_2 = value.as_str();\n            let right = {expected:?};\n            let _cmp_1 = _tmp_2 == right;\n            _cmp_1\n        }})\n        .unwrap_or_default()"
+        )
+        .unwrap();
+        return true;
+    }
+    if comparator == "booleanEquals" && path.starts_with("length(") {
+        let Some((list_path, _)) = path
+            .strip_prefix("length(")
+            .and_then(|path| path.split_once(')'))
+        else {
+            return false;
+        };
+        let Some((list_field, list_target, _)) = steps.first() else {
+            return false;
+        };
+        let Some(list_shape) = selected.model.shapes.get(list_target) else {
+            return false;
+        };
+        let Some(element_target) = list_shape.get("member").and_then(member_target) else {
+            return false;
+        };
+        let Some(element_shape) = selected.model.shapes.get(element_target) else {
+            return false;
+        };
+        let Some(filter_field) = path
+            .split_once("[?")
+            .and_then(|(_, value)| value.split_once(" == "))
+            .map(|(field, _)| names::rust_identifier(field))
+        else {
+            return false;
+        };
+        let filter_values = path
+            .split("== '")
+            .skip(1)
+            .filter_map(|value| value.split_once('\'').map(|(value, _)| value.to_owned()))
+            .collect::<Vec<_>>();
+        let Some((_, filter_member)) = members(element_shape)
+            .into_iter()
+            .find(|(name, _)| names::rust_identifier(name) == filter_field)
+        else {
+            return false;
+        };
+        let _ = list_path;
+        if filter_values.len() != 2 || member_target(filter_member).is_none() {
+            return false;
+        }
+        let element_type = waiter_matcher_type(
+            selected,
+            element_target,
+            operation_module,
+            consumer_namespace,
+        );
+        writeln!(
+            output,
+            "    fn path_traversal<'a>(\n        _output: &'a {output_path},\n    ) -> ::std::option::Option<bool> {{\n        let _fld_2 = _output.{list_field}.as_ref()?;\n        let _ret_1 = _fld_2.len() as i64;\n        const _LIT_3: &f64 = &0.0;\n        let _tmp_19 = *_LIT_3;\n        let _tmp_20 = _tmp_19 as i64;\n        let _cmp_4 = _ret_1 > _tmp_20;\n        let _fld_6 = _output.{list_field}.as_ref()?;\n        let _fprj_14 = _fld_6\n            .iter()\n            .filter({{\n                fn filter(_v: &{element_type}) -> ::std::option::Option<bool> {{\n                    let _fld_7 = _v.{filter_field}.as_ref()?;\n                    let _tmp_21 = _fld_7.as_str();\n                    const _LIT_8: &str = {first:?};\n                    let _cmp_9 = _tmp_21 == _LIT_8;\n                    let _fld_10 = _v.{filter_field}.as_ref()?;\n                    let _tmp_22 = _fld_10.as_str();\n                    const _LIT_11: &str = {second:?};\n                    let _cmp_12 = _tmp_22 == _LIT_11;\n                    let _bo_13 = _cmp_9 || _cmp_12;\n                    ::std::option::Option::Some(_bo_13)\n                }}\n                |v| filter(v).unwrap_or_default()\n            }})\n            .collect::<::std::vec::Vec<_>>();\n        let _ret_5 = _fprj_14.len() as i64;\n        let _fld_16 = _output.{list_field}.as_ref()?;\n        let _ret_15 = _fld_16.len() as i64;\n        let _cmp_17 = _ret_5 == _ret_15;\n        let _bo_18 = _cmp_4 && _cmp_17;\n        ::std::option::Option::Some(_bo_18)\n    }}",
+            first = filter_values[0],
+            second = filter_values[1],
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "    _result\n        .as_ref()\n        .ok()\n        .and_then(|output| path_traversal(output))\n        .map(|value| {{\n            let right = true;\n            let _cmp_1 = value == right;\n            _cmp_1\n        }})\n        .unwrap_or_default()"
+        )
+        .unwrap();
+        return true;
+    }
+    if comparator == "booleanEquals" && steps.iter().all(|(_, _, is_array)| !is_array) {
+        let expected = match expected {
+            "true" => "true",
+            "false" => "false",
+            _ => return false,
+        };
+        writeln!(
+            output,
+            "    fn path_traversal<'a>(\n        _output: &'a {output_path},\n    ) -> ::std::option::Option<&'a {target_type}> {{"
+        )
+        .unwrap();
+        for (index, (field, _, _)) in steps.iter().enumerate() {
+            let variable = format!("_fld_{}", index + 1);
+            let source = if index == 0 {
+                "_output".to_owned()
+            } else {
+                format!("_fld_{index}")
+            };
+            writeln!(
+                output,
+                "        let {variable} = {source}.{field}.as_ref()?;"
+            )
+            .unwrap();
+        }
+        writeln!(
+            output,
+            "        ::std::option::Option::Some(_fld_{})\n    }}",
+            steps.len()
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "    _result\n        .as_ref()\n        .ok()\n        .and_then(|output| path_traversal(output))\n        .map(|value| {{\n            let right = {expected};\n            let _cmp_1 = value == right;\n            _cmp_1\n        }})\n        .unwrap_or_default()"
+        )
+        .unwrap();
+        return true;
+    }
+    if comparator == "anyStringEquals" {
+        let Some(array_index) = steps.iter().position(|(_, _, is_array)| *is_array) else {
+            return false;
+        };
+        if array_index + 2 != steps.len() {
+            return false;
+        }
+        let (array_field, array_target, _) = &steps[array_index];
+        let Some(list_shape) = selected.model.shapes.get(array_target) else {
+            return false;
+        };
+        let Some(element_target) = list_shape.get("member").and_then(member_target) else {
+            return false;
+        };
+        let element_type = waiter_matcher_type(
+            selected,
+            element_target,
+            operation_module,
+            consumer_namespace,
+        );
+        let (final_member, _, _) = &steps[array_index + 1];
+        writeln!(
+            output,
+            "    fn path_traversal<'a>(\n        _output: &'a {output_path},\n    ) -> ::std::option::Option<::std::vec::Vec<&'a {target_type}>> {{"
+        )
+        .unwrap();
+        for (index, (field, _, _)) in steps[..array_index].iter().enumerate() {
+            let variable = format!("_fld_{}", index + 1);
+            let source = if index == 0 {
+                "_output".to_owned()
+            } else {
+                format!("_fld_{index}")
+            };
+            writeln!(
+                output,
+                "        let {variable} = {source}.{field}.as_ref()?;"
+            )
+            .unwrap();
+        }
+        let array_variable = format!("_fld_{}", array_index + 1);
+        let array_source = if array_index == 0 {
+            "_output".to_owned()
+        } else {
+            format!("_fld_{array_index}")
+        };
+        writeln!(
+            output,
+            "        let {array_variable} = {array_source}.{array_field}.as_ref()?;\n        let _prj_3 = {array_variable}\n            .iter()\n            .flat_map(|v| {{\n                #[allow(clippy::let_and_return)]\n                fn map(_v: &{element_type}) -> ::std::option::Option<&{target_type}> {{\n                    let _fld_2 = _v.{final_member}.as_ref();\n                    _fld_2\n                }}\n                map(v)\n            }})\n            .collect::<::std::vec::Vec<_>>();\n        ::std::option::Option::Some(_prj_3)\n    }}"
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "    _result\n        .as_ref()\n        .ok()\n        .and_then(|output| path_traversal(output))\n        .map(|value| {{\n            value.iter().any(|value| {{\n                let _tmp_2 = value.as_str();\n                let right = {expected:?};\n                let _cmp_1 = _tmp_2 == right;\n                _cmp_1\n            }})\n        }})\n        .unwrap_or_default()"
+        )
+        .unwrap();
+        return true;
+    }
+    false
+}
+
+fn render_waiters_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let mut output = String::new();
+    header(&mut output);
+    for (_, waiter_name, _) in waiter_specs_by_name(selected) {
+        writeln!(
+            output,
+            "/// Supporting types for the `{waiter_name}` waiter."
+        )
+        .unwrap();
+        if consumer_namespace {
+            writeln!(
+                output,
+                "pub mod {waiter_name} {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{}/src/waiters/{waiter_name}.rs\"));\n}}\n",
+                selected.model.entry.key
+            )
+            .unwrap();
+        } else {
+            writeln!(output, "pub mod {waiter_name};\n").unwrap();
+        }
+    }
+    output.push_str("#[allow(clippy::needless_lifetimes)]\n#[allow(clippy::let_and_return)]\n");
+    if consumer_namespace {
+        writeln!(
+            output,
+            "pub(crate) mod matchers {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{}/src/waiters/matchers.rs\"));\n}}",
+            selected.model.entry.key
+        )
+        .unwrap();
+    } else {
+        output.push_str("pub(crate) mod matchers;\n");
+    }
+    output
+}
+
+fn render_waiter_matchers_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let mut output = String::new();
+    header(&mut output);
+    let operation_prefix = if consumer_namespace {
+        "super::super::operation"
+    } else {
+        "crate::operation"
+    };
+    let mut seen = BTreeSet::new();
+    for (operation_name, _, waiter) in waiter_specs_by_name(selected) {
+        let operation_module = names::snake_case(&operation_name);
+        let operation_type = rust_type_name(&operation_name);
+        for (_, matcher) in waiter_acceptors(&waiter) {
+            let matcher_json = waiter_matcher_json(&matcher);
+            if !seen.insert(format!("{operation_name}\0{matcher_json}")) {
+                continue;
+            }
+            let matcher_name = waiter_matcher_name(&operation_name, &matcher);
+            writeln!(output, "/// Matcher union: {matcher_json}").unwrap();
+            writeln!(
+                output,
+                "pub(crate) fn {matcher_name}(\n    _result: ::std::result::Result<&{operation_prefix}::{operation_module}::{operation_type}Output, &{operation_prefix}::{operation_module}::{operation_type}Error>,\n) -> bool {{"
+            )
+            .unwrap();
+            if let Some(success) = matcher.get("success").and_then(Value::as_bool) {
+                writeln!(
+                    output,
+                    "    _result.is_{}",
+                    if success { "ok()" } else { "err()" }
+                )
+                .unwrap();
+            } else if let Some(error_type) = matcher.get("errorType").and_then(Value::as_str) {
+                if consumer_namespace {
+                    render_consumer_error_matcher(
+                        &mut output,
+                        selected,
+                        &operation_name,
+                        error_type,
+                    );
+                } else {
+                    writeln!(
+                        output,
+                        "    if let ::std::result::Result::Err(err) = _result {{\n        if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {{\n            return code == {error_type:?};\n        }}\n    }}\n    false"
+                    )
+                    .unwrap();
+                }
+            } else if render_waiter_output_matcher(
+                &mut output,
+                selected,
+                &operation_name,
+                &matcher,
+                operation_prefix,
+                &operation_module,
+                &operation_type,
+                consumer_namespace,
+            ) {
+            } else {
+                output.push_str("    false\n");
+            }
+            output.push_str("}\n\n");
+        }
+    }
+    output
+}
+
+fn render_waiter_file(
+    selected: &SelectedModel,
+    waiter_name: &str,
+    waiter: &Value,
+    consumer_namespace: bool,
+) -> String {
+    if consumer_namespace {
+        return render_consumer_waiter_file(selected, waiter_name, waiter);
+    }
+    let (operation_name, _, _) = waiter_specs(selected)
+        .into_iter()
+        .find(|(_, name, _)| name == waiter_name)
+        .expect("waiter belongs to selected model");
+    let operation_module = names::snake_case(&operation_name);
+    let operation_type = rust_type_name(&operation_name);
+    let waiter_type = rust_type_name(waiter_name);
+    let operation_prefix = if consumer_namespace {
+        "super::super::operation"
+    } else {
+        "crate::operation"
+    };
+    let client_path = if consumer_namespace {
+        "super::super::client"
+    } else {
+        "crate::client"
+    };
+    let matcher_prefix = if consumer_namespace {
+        "super::matchers"
+    } else {
+        "crate::waiters::matchers"
+    };
+    let input_builder_path =
+        format!("{operation_prefix}::{operation_module}::builders::{operation_type}InputBuilder");
+    let mut output = String::new();
+    header(&mut output);
+    output.push_str(&format!(
+        "///\n/// Fluent builder for the `{waiter_name}` waiter.\n///\n/// This builder is intended to be used similar to the other fluent builders for\n/// normal operations on the client. However, instead of a `send` method, it has\n/// a `wait` method that takes a maximum amount of time to wait.\n///\n/// Construct this fluent builder using the client by importing the\n/// [`Waiters`](crate::client::Waiters) trait and calling the methods\n/// prefixed with `wait_until`.\n///\n"
+    ));
+    writeln!(
+        output,
+        "#[derive(::std::clone::Clone, ::std::fmt::Debug)]\npub struct {waiter_type}FluentBuilder {{\n    handle: ::std::sync::Arc<{client_path}::Handle>,\n    inner: {input_builder_path},\n}}"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "impl {waiter_type}FluentBuilder {{\n    /// Creates a new `{waiter_type}FluentBuilder`.\n    pub(crate) fn new(handle: ::std::sync::Arc<{client_path}::Handle>) -> Self {{\n        Self {{\n            handle,\n            inner: ::std::default::Default::default(),\n        }}\n    }}\n    /// Access the {operation_type} as a reference.\n    pub fn as_input(&self) -> &{input_builder_path} {{\n        &self.inner\n    }}"
+    )
+    .unwrap();
+
+    let min_delay = waiter.get("minDelay").and_then(Value::as_u64).unwrap_or(5);
+    let max_delay = waiter
+        .get("maxDelay")
+        .and_then(Value::as_u64)
+        .unwrap_or(120);
+    let waiter_module_path = if consumer_namespace {
+        format!("super::{waiter_name}")
+    } else {
+        format!("crate::waiters::{waiter_name}")
+    };
+    let waiter_documentation = waiter
+        .get("documentation")
+        .and_then(Value::as_str)
+        .map(normalize_model_documentation)
+        .map(|documentation| {
+            documentation
+                .lines()
+                .map(|line| format!("    /// {line}"))
+                .collect::<Vec<_>>()
+                .join("\n")
+        })
+        .unwrap_or_else(|| format!("    /// Wait for `{waiter_name}`"));
+    let input_methods = render_waiter_input_methods(
+        selected,
+        &operation_name,
+        &operation_module,
+        operation_prefix,
+        consumer_namespace,
+    );
+    writeln!(
+        output,
+        "{waiter_documentation}\n    pub async fn wait(\n        self,\n        max_wait: ::std::time::Duration,\n    ) -> ::std::result::Result<{waiter_module_path}::{waiter_type}FinalPoll, {waiter_module_path}::WaitUntil{waiter_type}Error> {{\n        let input = self.inner.build().map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;\n        let runtime_plugins = {operation_prefix}::{operation_module}::{operation_type}::operation_runtime_plugins(\n            self.handle.runtime_plugins.clone(),\n            &self.handle.conf,\n            ::std::option::Option::None,\n        )\n        .with_operation_plugin(crate::sdk_feature_tracker::waiter::WaiterFeatureTrackerRuntimePlugin::new());\n        let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();\n        let runtime_components_builder = runtime_plugins\n            .apply_client_configuration(&mut cfg)\n            .map_err(::aws_smithy_runtime_api::client::waiters::error::WaiterError::construction_failure)?;\n        let time_components = runtime_components_builder.into_time_components();\n        let sleep_impl = time_components.sleep_impl().expect(\"a sleep impl is required by waiters\");\n        let time_source = time_components.time_source().expect(\"a time source is required by waiters\");\n\n        let acceptor = move |result: ::std::result::Result<\n            &{operation_prefix}::{operation_module}::{operation_type}Output,\n            &{operation_prefix}::{operation_module}::{operation_type}Error,\n        >| {{\n{acceptors}            ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched\n        }};\n        let operation = move || {{\n            let input = input.clone();\n            let runtime_plugins = runtime_plugins.clone();\n            async move {{\n                {operation_prefix}::{operation_module}::{operation_type}::orchestrate(&runtime_plugins, input).await\n            }}\n        }};\n        let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()\n            .min_delay(::std::time::Duration::from_secs({min_delay}))\n            .max_delay(::std::time::Duration::from_secs({max_delay}))\n            .max_wait(max_wait)\n            .time_source(time_source)\n            .sleep_impl(sleep_impl)\n            .acceptor(acceptor)\n            .operation(operation)\n            .build();\n        ::aws_smithy_runtime::client::waiters::attach_waiter_tracing_span(orchestrator.orchestrate()).await\n    }}\n\n{input_methods}}}\n\n/// Successful return type for the `{waiter_name}` waiter.\npub type {waiter_type}FinalPoll = ::aws_smithy_runtime_api::client::waiters::FinalPoll<\n    {operation_prefix}::{operation_module}::{operation_type}Output,\n    ::aws_smithy_runtime_api::client::result::SdkError<\n        {operation_prefix}::{operation_module}::{operation_type}Error,\n        ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n    >,\n>;\n\n/// Error type for the `{waiter_name}` waiter.\npub type WaitUntil{waiter_type}Error = ::aws_smithy_runtime_api::client::waiters::error::WaiterError<\n    {operation_prefix}::{operation_module}::{operation_type}Output,\n    {operation_prefix}::{operation_module}::{operation_type}Error,\n>;"
+    , acceptors = render_waiter_acceptors(
+            selected,
+            &operation_name,
+            waiter,
+            matcher_prefix,
+            operation_prefix,
+            &operation_module,
+            &operation_type,
+        )
+    )
+    .unwrap();
+    // FluentBuilderGenerator places input helpers immediately after the
+    // overridden wait method; keep the doc comment adjacent to the method as
+    // rustfmt does in Smithy-RS output.
+    output.replace("\n\n    ///", "\n    ///")
+}
+
+fn render_consumer_error_matcher(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    error_type: &str,
+) {
+    let error_name = terminal(error_type);
+    let modeled = operation_shape(selected, operation_name)
+        .and_then(|operation| operation.get("errors"))
+        .and_then(Value::as_array)
+        .into_iter()
+        .flatten()
+        .filter_map(target_value)
+        .any(|target| terminal(target) == error_name);
+    if modeled {
+        let predicate = names::snake_case(error_name);
+        writeln!(
+            output,
+            "    if let ::std::result::Result::Err(err) = _result {{\n        return err.is_{predicate}();\n    }}\n    false"
+        )
+        .unwrap();
+    } else {
+        output.push_str("    false\n");
+    }
+}
+
+fn render_consumer_waiter_file(
+    selected: &SelectedModel,
+    waiter_name: &str,
+    waiter: &Value,
+) -> String {
+    let (operation_name, _, _) = waiter_specs(selected)
+        .into_iter()
+        .find(|(_, name, _)| name == waiter_name)
+        .expect("waiter belongs to selected model");
+    let operation_module = names::snake_case(&operation_name);
+    let operation_type = rust_type_name(&operation_name);
+    let waiter_type = rust_type_name(waiter_name);
+    let operation_prefix = "super::super::operation";
+    let matcher_prefix = "super::matchers";
+    let input_builder_path = format!("{operation_prefix}::{operation_module}::builders::Builder");
+    let min_delay = waiter.get("minDelay").and_then(Value::as_u64).unwrap_or(5);
+    let max_delay = waiter
+        .get("maxDelay")
+        .and_then(Value::as_u64)
+        .unwrap_or(120);
+    let waiter_module_path = format!("super::{waiter_name}");
+    let waiter_documentation = waiter
+        .get("documentation")
+        .and_then(Value::as_str)
+        .map(normalize_model_documentation)
+        .map(|documentation| {
+            documentation
+                .lines()
+                .map(|line| format!("    /// {line}"))
+                .collect::<Vec<_>>()
+                .join("\n")
+        })
+        .unwrap_or_else(|| format!("    /// Wait for `{waiter_name}`"));
+    let input_methods =
+        render_consumer_waiter_input_methods(selected, &operation_name, &operation_module);
+    let acceptors =
+        render_consumer_waiter_acceptors(selected, &operation_name, waiter, matcher_prefix);
+    let mut output = String::new();
+    header(&mut output);
+    writeln!(
+        output,
+        "///\n/// Fluent builder for the `{waiter_name}` waiter.\n///\n/// This builder uses the lightweight consumer operation runtime.\n///\n#[derive(::std::clone::Clone, ::std::fmt::Debug)]\npub struct {waiter_type}FluentBuilder {{\n    inner: {input_builder_path},\n}}\nimpl {waiter_type}FluentBuilder {{\n    /// Creates a new `{waiter_type}FluentBuilder`.\n    pub(crate) fn new(handle: super::super::Client) -> Self {{\n        let inner = handle.{operation_module}();\n        Self {{ inner }}\n    }}\n    /// Access the {operation_type} as a reference.\n    pub fn as_input(&self) -> &{input_builder_path} {{\n        &self.inner\n    }}"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "{waiter_documentation}\n    pub async fn wait(\n        self,\n        max_wait: ::std::time::Duration,\n    ) -> ::std::result::Result<{waiter_module_path}::{waiter_type}FinalPoll, {waiter_module_path}::WaitUntil{waiter_type}Error> {{\n        let deadline = ::std::time::Instant::now().checked_add(max_wait);\n        let mut delay = ::std::time::Duration::from_secs({min_delay});\n        loop {{\n            let result = self.inner.clone().send().await;\n            let state = match &result {{\n                ::std::result::Result::Ok(output) => {{\n{acceptors_ok}                }}\n                ::std::result::Result::Err(error) => {{\n{acceptors_err}                }}\n            }};\n            match (state, result) {{\n                (ConsumerWaiterAcceptorState::Success, ::std::result::Result::Ok(output)) => return Ok(output),\n                (ConsumerWaiterAcceptorState::Failure, ::std::result::Result::Err(error)) => return Err(error),\n                (ConsumerWaiterAcceptorState::Retry, result) => {{\n                    if deadline.is_some_and(|deadline| ::std::time::Instant::now() >= deadline) {{\n                        return result;\n                    }}\n                    ::std::thread::sleep(delay);\n                    delay = delay.saturating_mul(2).min(::std::time::Duration::from_secs({max_delay}));\n                }}\n                (_, result) => return result,\n            }}\n        }}\n    }}\n\n{input_methods}}}\n\n/// Successful return type for the `{waiter_name}` waiter.\npub type {waiter_type}FinalPoll = {operation_prefix}::{operation_module}::{operation_type}Output;\n\n/// Error type for the `{waiter_name}` waiter.\npub type WaitUntil{waiter_type}Error = {operation_prefix}::{operation_module}::{operation_type}Error;",
+        acceptors_ok = acceptors.replace(
+            "{RESULT}",
+            "::std::result::Result::Ok(output)",
+        ),
+        acceptors_err = acceptors.replace(
+            "{RESULT}",
+            "::std::result::Result::Err(error)",
+        ),
+    )
+    .unwrap();
+    output.push_str(
+        "\n#[derive(Clone, Copy, Debug, PartialEq, Eq)]\nenum ConsumerWaiterAcceptorState {\n    Success,\n    Failure,\n    Retry,\n    NoAcceptorsMatched,\n}\n",
+    );
+    output.replace("\n\n    ///", "\n    ///")
+}
+
+fn render_consumer_waiter_acceptors(
+    _selected: &SelectedModel,
+    operation_name: &str,
+    waiter: &Value,
+    matcher_prefix: &str,
+) -> String {
+    let mut output =
+        "                    ConsumerWaiterAcceptorState::NoAcceptorsMatched".to_owned();
+    for (state, matcher) in waiter_acceptors(waiter).into_iter().rev() {
+        let matcher_name = waiter_matcher_name(operation_name, &matcher);
+        output = format!(
+            "                    if {matcher_prefix}::{matcher_name}({{RESULT}}) {{\n                        ConsumerWaiterAcceptorState::{}\n                    }} else {{\n{output}\n                    }}",
+            waiter_state_name(&state)
+        );
+    }
+    output
+}
+
+fn render_consumer_waiter_input_methods(
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation_module: &str,
+) -> String {
+    let mut output = String::new();
+    let input_id = operation_shape(selected, operation_name)
+        .and_then(|operation| operation.get("input"))
+        .and_then(target_value);
+    let Some(input_shape) = input_id.and_then(|id| selected.model.shapes.get(id)) else {
+        return output;
+    };
+    for (member_name, member) in members(input_shape) {
+        let field = names::rust_identifier(&member_name);
+        let field_method = field.strip_prefix("r#").unwrap_or(&field);
+        let target_id = member_target(member).unwrap_or("smithy.api#String");
+        let target = consumer_waiter_type_expr(selected, target_id, operation_module);
+        let argument = builder_argument_type(selected, target_id, &target);
+        let documentation = modeled_member_documentation(selected, member).unwrap_or_default();
+        writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
+        writeln!(
+            output,
+            "    pub fn {field_method}(mut self, input: {argument}) -> Self {{\n        self.inner = self.inner.{field_method}(input);\n        self\n    }}"
+        )
+        .unwrap();
+        writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
+        writeln!(
+            output,
+            "    pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{\n        self.inner = self.inner.set_{field_method}(input);\n        self\n    }}"
+        )
+        .unwrap();
+        writeln!(output, "    {}", documentation_lines(documentation)).unwrap();
+        writeln!(
+            output,
+            "    pub fn get_{field_method}(&self) -> &::std::option::Option<{target}> {{\n        self.inner.get_{field_method}()\n    }}"
+        )
+        .unwrap();
+    }
+    output
+}
+
+fn consumer_waiter_type_expr(
+    selected: &SelectedModel,
+    target: &str,
+    operation_module: &str,
+) -> String {
+    type_expr(
+        selected,
+        target,
+        Context::Builder {
+            module: operation_module.to_owned(),
+            input: true,
+            consumer_namespace: true,
+        },
+    )
+    .replace("super::super::super::types", "super::super::types")
+    .replace(
+        "super::super::super::primitives",
+        "super::super::primitives",
+    )
+}
+
+fn render_waiter_input_methods(
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation_module: &str,
+    operation_prefix: &str,
+    consumer_namespace: bool,
+) -> String {
+    let mut output = String::new();
+    let input_id = operation_shape(selected, operation_name)
+        .and_then(|operation| operation.get("input"))
+        .and_then(target_value);
+    let Some(input_shape) = input_id.and_then(|id| selected.model.shapes.get(id)) else {
+        return output;
+    };
+    for (member_name, member) in members(input_shape) {
+        let field = names::rust_identifier(&member_name);
+        let field_method = field.strip_prefix("r#").unwrap_or(&field);
+        let target_id = member_target(member).unwrap_or("smithy.api#String");
+        let target = type_expr(
+            selected,
+            target_id,
+            Context::Builder {
+                module: operation_module.to_owned(),
+                input: true,
+                consumer_namespace,
+            },
+        );
+        let argument = builder_argument_type(selected, target_id, &target);
+        let value = builder_argument_value(&argument, "input");
+        let documentation = modeled_member_documentation(selected, member).unwrap_or_default();
+        writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
+        writeln!(
+            output,
+            "    pub fn {field_method}(mut self, input: {argument}) -> Self {{\n        self.inner = self.inner.{field_method}({value});\n        self\n    }}"
+        )
+        .unwrap();
+        writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
+        writeln!(
+            output,
+            "    pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{\n        self.inner = self.inner.set_{field_method}(input);\n        self\n    }}"
+        )
+        .unwrap();
+        writeln!(output, "    {}", documentation_lines(documentation)).unwrap();
+        writeln!(
+            output,
+            "    pub fn get_{field_method}(&self) -> &::std::option::Option<{target}> {{\n        self.inner.get_{field_method}()\n    }}"
+        )
+        .unwrap();
+    }
+    let _ = operation_prefix;
+    output
+}
+
+fn render_waiter_acceptors(
+    selected: &SelectedModel,
+    operation_name: &str,
+    waiter: &Value,
+    matcher_prefix: &str,
+    operation_prefix: &str,
+    operation_module: &str,
+    operation_type: &str,
+) -> String {
+    let mut output = String::new();
+    for (state, matcher) in waiter_acceptors(waiter) {
+        let matcher_name = waiter_matcher_name(operation_name, &matcher);
+        writeln!(
+            output,
+            "            // Matches: {}\n            if {matcher_prefix}::{matcher_name}(result) {{\n                return ::aws_smithy_runtime::client::waiters::AcceptorState::{};\n            }}",
+            waiter_matcher_json(&matcher),
+            waiter_state_name(&state)
+        )
+        .unwrap();
+    }
+    let _ = (selected, operation_prefix, operation_module, operation_type);
+    output
+}
+
+fn documentation_lines(documentation: String) -> String {
+    documentation
+        .lines()
+        .map(|line| format!("/// {line}"))
+        .collect::<Vec<_>>()
+        .join("\n")
 }
 
 fn find_member_path<'a>(
@@ -2150,6 +3095,256 @@ fn render_lens_file(selected: &SelectedModel, consumer_namespace: bool) -> Strin
         output.push_str("    ::std::option::Option::Some(input)\n}\n\n");
     }
     output
+}
+
+fn render_paginator_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+    consumer_namespace: bool,
+) -> String {
+    if consumer_namespace {
+        return render_consumer_paginator_file(selected, operation_name);
+    }
+
+    let info = operation_pagination_info(selected, operation_name)
+        .expect("paginator file only exists for paginated operations");
+    let operation_module = names::snake_case(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let operation_symbol = operation_name;
+    let paginator_name = format!("{operation_type}Paginator");
+    let operation_path = format!("crate::operation::{operation_module}");
+    let output_token_suffix = info
+        .output_token
+        .iter()
+        .map(|name| names::snake_case(name))
+        .collect::<Vec<_>>()
+        .join("_");
+    let output_token_lens =
+        format!("crate::lens::reflens_{operation_module}_output_output_{output_token_suffix}");
+    let input_token = names::rust_identifier(
+        info.input_token
+            .last()
+            .expect("pagination input token path is not empty"),
+    );
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "/// Paginator for [`{operation_name}`]({operation_path}::{operation_type})\npub struct {paginator_name} {{\n    handle: std::sync::Arc<crate::client::Handle>,\n    builder: {operation_path}::builders::{operation_type}InputBuilder,\n    stop_on_duplicate_token: bool,\n}}\n\nimpl {paginator_name} {{\n    /// Create a new paginator-wrapper\n    pub(crate) fn new(\n        handle: std::sync::Arc<crate::client::Handle>,\n        builder: {operation_path}::builders::{operation_type}InputBuilder,\n    ) -> Self {{\n        Self {{\n            handle,\n            builder,\n            stop_on_duplicate_token: true,\n        }}\n    }}\n"
+    )
+    .unwrap();
+
+    if let Some(page_size_path) = info.page_size.as_ref() {
+        let page_size_member = names::rust_identifier(
+            page_size_path
+                .last()
+                .expect("pagination page size path is not empty"),
+        );
+        let input_id = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .expect("paginated operation input exists");
+        let (page_size_target, _) = find_member_path(selected, input_id, page_size_path)
+            .expect("paginated page size exists");
+        let page_size_type = type_expr(
+            selected,
+            &page_size_target,
+            Context::Operation {
+                module: operation_module.clone(),
+                input: true,
+                consumer_namespace: false,
+            },
+        );
+        writeln!(
+            output,
+            "    /// Set the page size\n    ///\n    /// _Note: this method will override any previously set value for `{page_size_member}`_\n    pub fn page_size(mut self, limit: {page_size_type}) -> Self {{\n        self.builder.{page_size_member} = ::std::option::Option::Some(limit);\n        self\n    }}\n"
+        )
+        .unwrap();
+    }
+
+    if let Some(items_path) = info.items.as_ref() {
+        let item_paginator_name = format!("{paginator_name}Items");
+        let documented_path = items_path
+            .iter()
+            .map(|name| names::rust_identifier(name))
+            .collect::<Vec<_>>()
+            .join(".");
+        writeln!(
+            output,
+            "    /// Create a flattened paginator\n    ///\n    /// This paginator automatically flattens results using `{documented_path}`. Queries to the underlying service\n    /// are dispatched lazily.\n    pub fn items(self) -> {operation_path}::paginator::{item_paginator_name} {{\n        {operation_path}::paginator::{item_paginator_name}(self)\n    }}\n"
+        )
+        .unwrap();
+    }
+
+    output.push_str(
+        "    /// Stop paginating when the service returns the same pagination token twice in a row.\n    ///\n    /// Defaults to true.\n    ///\n    /// For certain operations, it may be useful to continue on duplicate token. For example,\n    /// if an operation is for tailing a log file in real-time, then continuing may be desired.\n    /// This option can be set to `false` to accommodate these use cases.\n    pub fn stop_on_duplicate_token(mut self, stop_on_duplicate_token: bool) -> Self {\n        self.stop_on_duplicate_token = stop_on_duplicate_token;\n        self\n    }\n\n",
+    );
+
+    let output_type = format!("{operation_path}::{operation_type}Output");
+    let error_type = format!("{operation_path}::{operation_symbol}Error");
+    let is_empty = if info.is_truncated {
+        "                                // Pagination is exhausted when `is_truncated` is false\n                                let is_empty = !resp.is_truncated.unwrap_or(false);"
+    } else {
+        "                                // Pagination is exhausted when the next token is an empty string\n                                let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);"
+    };
+    writeln!(
+        output,
+        "    /// Create the pagination stream\n    ///\n    /// _Note:_ No requests will be dispatched until the stream is used\n    /// (e.g. with the [`.next().await`](aws_smithy_async::future::pagination_stream::PaginationStream::next) method).\n    pub fn send(\n        self,\n    ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<\n        ::std::result::Result<\n            {output_type},\n            ::aws_smithy_runtime_api::client::result::SdkError<\n                {error_type},\n                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n            >,\n        >,\n    > {{\n        // Move individual fields out of self for the borrow checker\n        let builder = self.builder;\n        let handle = self.handle;\n        let runtime_plugins = {operation_path}::{operation_type}::operation_runtime_plugins(\n            handle.runtime_plugins.clone(),\n            &handle.conf,\n            ::std::option::Option::None,\n        )\n        .with_operation_plugin(crate::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());\n        ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(\n            move |tx| {{\n                ::std::boxed::Box::pin(async move {{\n                    // Build the input for the first time. If required fields are missing, this is where we'll produce an early error.\n                    let mut input = match builder\n                        .build()\n                        .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)\n                    {{\n                        ::std::result::Result::Ok(input) => input,\n                        ::std::result::Result::Err(e) => {{\n                            let _ = tx.send(::std::result::Result::Err(e)).await;\n                            return;\n                        }}\n                    }};\n                    loop {{\n                        let resp = {operation_path}::{operation_type}::orchestrate(&runtime_plugins, input.clone()).await;\n                        // If the input member is None or it was an error\n                        let done = match resp {{\n                            ::std::result::Result::Ok(ref resp) => {{\n                                let new_token = {output_token_lens}(resp);\n{is_empty}\n                                if !is_empty && new_token == input.{input_token}.as_ref() && self.stop_on_duplicate_token {{\n                                    true\n                                }} else {{\n                                    input.{input_token} = new_token.cloned();\n                                    is_empty\n                                }}\n                            }}\n                            ::std::result::Result::Err(_) => true,\n                        }};\n                        if tx.send(resp).await.is_err() {{\n                            // receiving end was dropped\n                            return;\n                        }}\n                        if done {{\n                            return;\n                        }}\n                    }}\n                }})\n            }},\n        ))\n    }}\n}}\n"
+    )
+    .unwrap();
+
+    if let Some(items_path) = info.items.as_ref() {
+        let output_id = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("output"))
+            .and_then(target_value)
+            .expect("paginated operation output exists");
+        let (items_target, _) =
+            find_member_path(selected, output_id, items_path).expect("paginated items exists");
+        let item_type = paginator_item_type(selected, &items_target, false);
+        let items_suffix = items_path
+            .iter()
+            .map(|name| names::snake_case(name))
+            .collect::<Vec<_>>()
+            .join("_");
+        let item_paginator_name = format!("{paginator_name}Items");
+        let item_lens =
+            format!("crate::lens::lens_{operation_module}_output_output_{items_suffix}");
+        writeln!(
+            output,
+            "/// Flattened paginator for `{paginator_name}`\n///\n/// This is created with [`.items()`]({paginator_name}::items)\npub struct {item_paginator_name}({paginator_name});\n\nimpl {item_paginator_name} {{\n    /// Create the pagination stream\n    ///\n    /// _Note_: No requests will be dispatched until the stream is used\n    /// (e.g. with the [`.next().await`](aws_smithy_async::future::pagination_stream::PaginationStream::next) method).\n    ///\n    /// To read the entirety of the paginator, use [`.collect::<Result<Vec<_>, _>()`](aws_smithy_async::future::pagination_stream::PaginationStream::collect).\n    pub fn send(\n        self,\n    ) -> ::aws_smithy_async::future::pagination_stream::PaginationStream<\n        ::std::result::Result<\n            {item_type},\n            ::aws_smithy_runtime_api::client::result::SdkError<\n                {error_type},\n                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n            >,\n        >,\n    > {{\n        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())\n            .flat_map(|page| {item_lens}(page).unwrap_or_default().into_iter())\n    }}\n}}\n"
+        )
+        .unwrap();
+    }
+
+    if operation_type != operation_symbol {
+        output = output.replace(
+            &format!("{operation_path}::{operation_type}"),
+            &format!("{operation_path}::{operation_symbol}"),
+        );
+        output = output.replace(
+            &format!("{operation_path}::{operation_symbol}Output"),
+            &format!("{operation_path}::{operation_type}Output"),
+        );
+    }
+    output
+}
+
+fn render_consumer_paginator_file(selected: &SelectedModel, operation_name: &str) -> String {
+    let info = operation_pagination_info(selected, operation_name)
+        .expect("paginator file only exists for paginated operations");
+    let operation_module = names::snake_case(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let paginator_name = format!("{operation_type}Paginator");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "/// Paginator for [`{operation_name}`](super::{operation_type})\npub struct {paginator_name} {{\n    builder: super::builders::Builder,\n    stop_on_duplicate_token: bool,\n}}\n\nimpl {paginator_name} {{\n    pub(crate) fn new(builder: super::builders::Builder) -> Self {{\n        Self {{ builder, stop_on_duplicate_token: true }}\n    }}\n"
+    )
+    .unwrap();
+    if let Some(page_size_path) = info.page_size.as_ref() {
+        let page_size_member = names::rust_identifier(
+            page_size_path
+                .last()
+                .expect("pagination page size path is not empty"),
+        );
+        let input_id = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .expect("paginated operation input exists");
+        let (page_size_target, _) = find_member_path(selected, input_id, page_size_path)
+            .expect("paginated page size exists");
+        let page_size_type = type_expr(
+            selected,
+            &page_size_target,
+            Context::Builder {
+                module: operation_module.clone(),
+                input: true,
+                consumer_namespace: true,
+            },
+        );
+        writeln!(
+            output,
+            "    pub fn page_size(mut self, limit: {page_size_type}) -> Self {{\n        self.builder = self.builder.{page_size_member}(limit);\n        self\n    }}\n"
+        )
+        .unwrap();
+    }
+    if info.items.is_some() {
+        let item_paginator_name = format!("{paginator_name}Items");
+        writeln!(
+            output,
+            "    pub fn items(self) -> super::{item_paginator_name} {{\n        super::{item_paginator_name}(self)\n    }}\n"
+        )
+        .unwrap();
+    }
+    output.push_str(
+        "    pub fn stop_on_duplicate_token(mut self, stop_on_duplicate_token: bool) -> Self {\n        self.stop_on_duplicate_token = stop_on_duplicate_token;\n        self\n    }\n\n",
+    );
+    writeln!(
+        output,
+        "    pub fn send(self) -> impl ::std::future::Future<Output = ::std::result::Result<super::{operation_type}Output, super::{operation_type}Error>> {{\n        self.builder.send()\n    }}\n}}\n"
+    )
+    .unwrap();
+
+    if let Some(items_path) = info.items.as_ref() {
+        let output_id = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("output"))
+            .and_then(target_value)
+            .expect("paginated operation output exists");
+        let (items_target, _) =
+            find_member_path(selected, output_id, items_path).expect("paginated items exists");
+        let item_type = paginator_item_type(selected, &items_target, true);
+        let items_suffix = items_path
+            .iter()
+            .map(|name| names::snake_case(name))
+            .collect::<Vec<_>>()
+            .join("_");
+        let item_lens = format!(
+            "super::super::super::lens::lens_{operation_module}_output_output_{items_suffix}"
+        );
+        let item_paginator_name = format!("{paginator_name}Items");
+        writeln!(
+            output,
+            "pub struct {item_paginator_name}({paginator_name});\n\nimpl {item_paginator_name} {{\n    pub fn send(self) -> impl ::std::future::Future<Output = ::std::result::Result<::std::vec::Vec<{item_type}>, super::{operation_type}Error>> {{\n        async move {{\n            self.0.send().await.map(|page| {item_lens}(page).unwrap_or_default())\n        }}\n    }}\n}}\n"
+        )
+        .unwrap();
+    }
+    output
+}
+
+fn paginator_item_type(selected: &SelectedModel, target: &str, consumer_namespace: bool) -> String {
+    let Some(shape) = selected.model.shapes.get(target) else {
+        return lens_type_expr(selected, target, consumer_namespace);
+    };
+    let type_expr = |target: &str| {
+        let type_name = lens_type_expr(selected, target, consumer_namespace);
+        if consumer_namespace {
+            type_name.replace("super::types", "super::super::super::types")
+        } else {
+            type_name
+        }
+    };
+    match shape.get("type").and_then(Value::as_str) {
+        Some("list") => shape
+            .get("member")
+            .and_then(member_target)
+            .map(type_expr)
+            .unwrap_or_else(|| "::std::string::String".to_owned()),
+        Some("map") => {
+            let key = shape
+                .get("key")
+                .and_then(member_target)
+                .map(&type_expr)
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            let value = shape
+                .get("value")
+                .and_then(member_target)
+                .map(type_expr)
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            format!("({key}, {value})")
+        }
+        _ => type_expr(target),
+    }
 }
 
 fn lens_type_expr(selected: &SelectedModel, target: &str, consumer_namespace: bool) -> String {
@@ -2474,6 +3669,28 @@ fn render_operation_builder_file(
             writeln!(
                 output,
                 "    pub fn {field}(mut self, value: impl ::std::convert::Into<{target}>) -> Self {{ {assignment}; self }}"
+            )
+            .unwrap();
+            if consumer_namespace {
+                writeln!(
+                    output,
+                    "    pub fn set_{field}(mut self, value: ::std::option::Option<{target}>) -> Self {{ self.input.{field} = value; self }}\n    pub fn get_{field}(&self) -> &::std::option::Option<{target}> {{ &self.input.{field} }}"
+                )
+                .unwrap();
+            }
+        }
+    }
+    if operation_pagination_info(selected, operation_name).is_some() {
+        if consumer_namespace {
+            writeln!(
+                output,
+                "    pub fn into_paginator(self) -> super::paginator::{rust_operation}Paginator {{\n        super::paginator::{rust_operation}Paginator::new(self)\n    }}\n"
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "    /// Create a paginator for this request\n    ///\n    /// Paginators are used by calling [`send().await`](crate::operation::{module}::paginator::{rust_operation}Paginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).\n    pub fn into_paginator(self) -> crate::operation::{module}::paginator::{rust_operation}Paginator {{\n        crate::operation::{module}::paginator::{rust_operation}Paginator::new(self.handle, self.inner)\n    }}\n"
             )
             .unwrap();
         }

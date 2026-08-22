@@ -15,3 +15,4 @@ mod serde_util {
 mod lens {
     include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/lens.rs"));
 }
+pub mod waiters;
