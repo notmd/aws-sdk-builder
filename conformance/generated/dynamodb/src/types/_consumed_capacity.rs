@@ -152,9 +152,9 @@ impl ConsumedCapacityBuilder {
     ///
     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
     pub fn local_secondary_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::Capacity) -> Self {
-        let mut map = self.local_secondary_indexes.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.local_secondary_indexes = ::std::option::Option::Some(map);
+        let mut hash_map = self.local_secondary_indexes.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.local_secondary_indexes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
@@ -175,9 +175,9 @@ impl ConsumedCapacityBuilder {
     ///
     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
     pub fn global_secondary_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::Capacity) -> Self {
-        let mut map = self.global_secondary_indexes.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.global_secondary_indexes = ::std::option::Option::Some(map);
+        let mut hash_map = self.global_secondary_indexes.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.global_secondary_indexes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
@@ -198,9 +198,9 @@ impl ConsumedCapacityBuilder {
     ///
     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
     pub fn vector_indexes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::VectorCapacity) -> Self {
-        let mut map = self.vector_indexes.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.vector_indexes = ::std::option::Option::Some(map);
+        let mut hash_map = self.vector_indexes.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.vector_indexes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>

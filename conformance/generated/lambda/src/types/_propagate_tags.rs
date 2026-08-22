@@ -54,9 +54,9 @@ impl PropagateTagsBuilder {
     ///
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
     pub fn explicit_tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut map = self.explicit_tags.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.explicit_tags = ::std::option::Option::Some(map);
+        let mut hash_map = self.explicit_tags.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.explicit_tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>

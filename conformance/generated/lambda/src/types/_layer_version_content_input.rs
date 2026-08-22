@@ -2,7 +2,7 @@
 
 /// <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. You can specify either an Amazon S3 location, or upload a layer archive directly.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct LayerVersionContentInput {
     /// <p>The Amazon S3 bucket of the layer archive.</p>
     pub s3_bucket: ::std::option::Option<::std::string::String>,
@@ -49,6 +49,17 @@ impl LayerVersionContentInput {
         self.zip_file.as_ref()
     }
 }
+impl ::std::fmt::Debug for LayerVersionContentInput {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("LayerVersionContentInput");
+        formatter.field("s3_bucket", &self.s3_bucket);
+        formatter.field("s3_key", &self.s3_key);
+        formatter.field("s3_object_version", &self.s3_object_version);
+        formatter.field("s3_object_storage_mode", &self.s3_object_storage_mode);
+        formatter.field("zip_file", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl LayerVersionContentInput {
     /// Creates a new builder-style object to manufacture [`LayerVersionContentInput`](crate::types::LayerVersionContentInput).
     pub fn builder() -> crate::types::builders::LayerVersionContentInputBuilder {
@@ -57,7 +68,7 @@ impl LayerVersionContentInput {
 }
 
 /// A builder for [`LayerVersionContentInput`](crate::types::LayerVersionContentInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct LayerVersionContentInputBuilder {
     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
@@ -164,5 +175,16 @@ impl LayerVersionContentInputBuilder {
             s3_object_storage_mode: self.s3_object_storage_mode,
             zip_file: self.zip_file,
         }
+    }
+}
+impl ::std::fmt::Debug for LayerVersionContentInputBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("LayerVersionContentInputBuilder");
+        formatter.field("s3_bucket", &self.s3_bucket);
+        formatter.field("s3_key", &self.s3_key);
+        formatter.field("s3_object_version", &self.s3_object_version);
+        formatter.field("s3_object_storage_mode", &self.s3_object_storage_mode);
+        formatter.field("zip_file", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

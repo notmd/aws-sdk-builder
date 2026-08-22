@@ -2,7 +2,7 @@
 
 /// <p>Contains details about an error that occurred when Lambda attempted to retrieve a function's deployment package.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct FunctionCodeLocationError {
     /// <p>The error code that identifies why Lambda failed to retrieve the deployment package.</p>
     pub error_code: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl FunctionCodeLocationError {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Debug for FunctionCodeLocationError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FunctionCodeLocationError");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl FunctionCodeLocationError {
     /// Creates a new builder-style object to manufacture [`FunctionCodeLocationError`](crate::types::FunctionCodeLocationError).
     pub fn builder() -> crate::types::builders::FunctionCodeLocationErrorBuilder {
@@ -27,7 +35,7 @@ impl FunctionCodeLocationError {
 }
 
 /// A builder for [`FunctionCodeLocationError`](crate::types::FunctionCodeLocationError).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct FunctionCodeLocationErrorBuilder {
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl FunctionCodeLocationErrorBuilder {
             error_code: self.error_code,
             message: self.message,
         }
+    }
+}
+impl ::std::fmt::Debug for FunctionCodeLocationErrorBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FunctionCodeLocationErrorBuilder");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

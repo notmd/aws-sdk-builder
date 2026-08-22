@@ -71,9 +71,9 @@ impl DeleteBuilder {
     ///
     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.key.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.key = ::std::option::Option::Some(map);
+        let mut hash_map = self.key.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.key = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
@@ -124,9 +124,9 @@ impl DeleteBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut map = self.expression_attribute_names.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.expression_attribute_names = ::std::option::Option::Some(map);
+        let mut hash_map = self.expression_attribute_names.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.expression_attribute_names = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
@@ -149,9 +149,9 @@ impl DeleteBuilder {
     ///
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.expression_attribute_values.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.expression_attribute_values = ::std::option::Option::Some(map);
+        let mut hash_map = self.expression_attribute_values.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.expression_attribute_values = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>One or more values that can be substituted in an expression.</p>

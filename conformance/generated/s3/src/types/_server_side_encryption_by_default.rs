@@ -11,7 +11,7 @@
 /// </ul>
 /// </note>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ServerSideEncryptionByDefault {
     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
@@ -84,6 +84,14 @@ impl ServerSideEncryptionByDefault {
         self.kms_master_key_id.as_deref()
     }
 }
+impl ::std::fmt::Debug for ServerSideEncryptionByDefault {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ServerSideEncryptionByDefault");
+        formatter.field("sse_algorithm", &self.sse_algorithm);
+        formatter.field("kms_master_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ServerSideEncryptionByDefault {
     /// Creates a new builder-style object to manufacture [`ServerSideEncryptionByDefault`](crate::types::ServerSideEncryptionByDefault).
     pub fn builder() -> crate::types::builders::ServerSideEncryptionByDefaultBuilder {
@@ -92,7 +100,7 @@ impl ServerSideEncryptionByDefault {
 }
 
 /// A builder for [`ServerSideEncryptionByDefault`](crate::types::ServerSideEncryptionByDefault).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ServerSideEncryptionByDefaultBuilder {
     pub(crate) sse_algorithm: ::std::option::Option<crate::types::ServerSideEncryption>,
@@ -225,5 +233,13 @@ impl ServerSideEncryptionByDefaultBuilder {
             })?,
             kms_master_key_id: self.kms_master_key_id,
         })
+    }
+}
+impl ::std::fmt::Debug for ServerSideEncryptionByDefaultBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ServerSideEncryptionByDefaultBuilder");
+        formatter.field("sse_algorithm", &self.sse_algorithm);
+        formatter.field("kms_master_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

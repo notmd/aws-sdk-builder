@@ -54,9 +54,9 @@ impl PlatformApplicationBuilder {
     ///
     /// <p>Attributes for platform application object.</p>
     pub fn attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut map = self.attributes.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.attributes = ::std::option::Option::Some(map);
+        let mut hash_map = self.attributes.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.attributes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Attributes for platform application object.</p>

@@ -1,5 +1,11 @@
 use serde_json::Value;
-use std::{collections::BTreeMap, fmt::Write, fs, path::Path, process::Command};
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    fmt::Write,
+    fs,
+    path::Path,
+    process::Command,
+};
 
 use crate::{
     config::ServiceSelection,
@@ -1409,10 +1415,10 @@ fn render_operation_shape_file(
     let module = names::snake_case(operation_name);
     let mut output = String::new();
     header(&mut output);
+    // Smithy emits operation input/output modules directly after the header;
+    // the standalone modeled type files retain the separating blank line.
+    output.pop();
     if let Some(shape) = shape {
-        if !input && members(shape).is_empty() && output.ends_with("\n\n") {
-            output.pop();
-        }
         render_structure_at_indent(
             &mut output,
             selected,
@@ -1514,9 +1520,21 @@ fn render_operation_builder_file(
     let rust_operation = rust_type_name(operation_name);
     let mut output = String::new();
     header(&mut output);
-    output.push_str(
-        "#[derive(Clone, Debug, Default)]\npub struct Builder {\n    input: super::Input,\n    client: super::super::super::Client,\n}\nimpl Builder {\n    pub fn new() -> Self { Self::default() }\n    pub fn with_client(client: super::super::super::Client) -> Self {\n        Self { input: super::Input::default(), client }\n    }\n",
-    );
+    let input_has_streaming_member = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|input_id| selected.model.shapes.get(input_id))
+        .is_some_and(structure_has_streaming_member);
+    let builder_derives = if input_has_streaming_member {
+        "Debug, Default"
+    } else {
+        "Clone, Debug, Default"
+    };
+    writeln!(
+        output,
+        "#[derive({builder_derives})]\npub struct Builder {{\n    input: super::Input,\n    client: super::super::super::Client,\n}}\nimpl Builder {{\n    pub fn new() -> Self {{ Self::default() }}\n    pub fn with_client(client: super::super::super::Client) -> Self {{\n        Self {{ input: super::Input::default(), client }}\n    }}"
+    )
+    .unwrap();
     if let Some(input_id) = operation.get("input").and_then(target_value)
         && let Some(shape) = selected.model.shapes.get(input_id)
     {
@@ -2645,6 +2663,74 @@ fn member_is_effectively_required(selected: &SelectedModel, member: &Value, targ
             != Some("structure")
 }
 
+fn has_trait(value: &Value, trait_id: &str) -> bool {
+    value
+        .get("traits")
+        .and_then(Value::as_object)
+        .is_some_and(|traits| traits.contains_key(trait_id))
+}
+
+fn value_should_redact(
+    selected: &SelectedModel,
+    value: &Value,
+    seen: &mut BTreeSet<String>,
+) -> bool {
+    has_trait(value, "smithy.api#sensitive")
+        || member_target(value).is_some_and(|target| shape_should_redact(selected, target, seen))
+}
+
+fn shape_should_redact(
+    selected: &SelectedModel,
+    target: &str,
+    seen: &mut BTreeSet<String>,
+) -> bool {
+    if !seen.insert(target.to_owned()) {
+        return false;
+    }
+    let Some(shape) = selected.model.shapes.get(target) else {
+        return false;
+    };
+    if has_trait(shape, "smithy.api#sensitive") {
+        return true;
+    }
+    match shape.get("type").and_then(Value::as_str) {
+        Some("list") => shape
+            .get("member")
+            .is_some_and(|member| value_should_redact(selected, member, seen)),
+        Some("map") => {
+            shape
+                .get("key")
+                .is_some_and(|key| value_should_redact(selected, key, seen))
+                || shape
+                    .get("value")
+                    .is_some_and(|value| value_should_redact(selected, value, seen))
+        }
+        _ => false,
+    }
+}
+
+fn structure_has_sensitive_member(selected: &SelectedModel, shape: &Value) -> bool {
+    has_trait(shape, "smithy.api#sensitive")
+        || members(shape)
+            .iter()
+            .any(|(_, member)| value_should_redact(selected, member, &mut BTreeSet::new()))
+}
+
+fn structure_has_streaming_member(shape: &Value) -> bool {
+    members(shape).iter().any(|(_, member)| {
+        has_trait(member, "smithy.api#streaming")
+            || member_target(member).is_some_and(is_streaming_target)
+    })
+}
+
+fn filter_derives(derives: &str, excluded: &[&str]) -> String {
+    derives
+        .split(", ")
+        .filter(|derive| !excluded.contains(derive))
+        .collect::<Vec<_>>()
+        .join(", ")
+}
+
 fn builder_member_is_required(
     selected: &SelectedModel,
     member: &Value,
@@ -2756,23 +2842,37 @@ fn render_structure_at_indent(
     } else {
         "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug"
     };
+    let mut excluded_derives = Vec::new();
+    if structure_has_streaming_member(shape) {
+        excluded_derives.extend(["::std::clone::Clone", "::std::cmp::PartialEq"]);
+    }
+    if structure_has_sensitive_member(selected, shape) {
+        excluded_derives.push("::std::fmt::Debug");
+    }
+    let derives = filter_derives(derives, &excluded_derives);
     if members(shape).is_empty()
         && !is_error
         && !request_id_plan.standard
         && !request_id_plan.extended
     {
-        writeln!(output, "{padding}#[derive({derives})]").unwrap();
+        if !derives.is_empty() {
+            writeln!(output, "{padding}#[derive({derives})]").unwrap();
+        }
         writeln!(output, "{padding}pub struct {} {{}}", rust_type_name(name)).unwrap();
         return;
     }
-    writeln!(
-        output,
-        "{}#[derive({derives})]\n{}pub struct {} {{",
-        padding,
-        padding,
-        rust_type_name(name)
-    )
-    .unwrap();
+    if !derives.is_empty() {
+        writeln!(
+            output,
+            "{}#[derive({derives})]\n{}pub struct {} {{",
+            padding,
+            padding,
+            rust_type_name(name)
+        )
+        .unwrap();
+    } else {
+        writeln!(output, "{padding}pub struct {} {{", rust_type_name(name)).unwrap();
+    }
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         if let Some(member_doc) = modeled_member_documentation(selected, member) {
@@ -2934,6 +3034,9 @@ fn render_structure_accessors(
         writeln!(output, "{padding}    }}").unwrap();
         writeln!(output, "{padding}}}").unwrap();
     }
+    if structure_has_sensitive_member(selected, shape) {
+        render_sensitive_debug_impl(output, selected, shape, name, &context, indent);
+    }
     if request_id_plan.extended && !is_error {
         let trait_path = if context.consumer_namespace() {
             "super::super::super::s3_request_id::RequestIdExt"
@@ -2955,6 +3058,68 @@ fn render_structure_accessors(
         )
         .unwrap();
     }
+}
+
+fn render_sensitive_debug_impl(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: &Context,
+    indent: usize,
+) {
+    let padding = " ".repeat(indent);
+    let request_id_plan = output_request_id_plan(selected, context);
+    let shape_sensitive = has_trait(shape, "smithy.api#sensitive");
+    writeln!(
+        output,
+        "{padding}impl ::std::fmt::Debug for {} {{",
+        rust_type_name(name)
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "{padding}    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "{padding}        let mut formatter = f.debug_struct({:?});",
+        rust_type_name(name)
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        let field = names::rust_identifier(&member_name);
+        let debug_field = field.strip_prefix("r#").unwrap_or(&field);
+        let value =
+            if shape_sensitive || value_should_redact(selected, member, &mut BTreeSet::new()) {
+                "&\"*** Sensitive Data Redacted ***\"".to_owned()
+            } else {
+                format!("&self.{field}")
+            };
+        writeln!(
+            output,
+            "{padding}        formatter.field({debug_field:?}, {value});"
+        )
+        .unwrap();
+    }
+    if request_id_plan.extended {
+        writeln!(
+            output,
+            "{padding}        formatter.field(\"_extended_request_id\", &self._extended_request_id);"
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(
+            output,
+            "{padding}        formatter.field(\"_request_id\", &self._request_id);"
+        )
+        .unwrap();
+    }
+    writeln!(output, "{padding}        formatter.finish()").unwrap();
+    writeln!(output, "{padding}    }}").unwrap();
+    writeln!(output, "{padding}}}").unwrap();
 }
 
 fn render_error_impls(
@@ -3060,11 +3225,17 @@ fn render_type_builder(
         "{padding}/// A builder for [`{rust_name}`]({value_path})."
     )
     .unwrap();
-    writeln!(
-        output,
-        "{padding}#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]"
-    )
-    .unwrap();
+    let builder_derives =
+        "::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug";
+    let mut excluded_derives = Vec::new();
+    if structure_has_streaming_member(shape) {
+        excluded_derives.extend(["::std::clone::Clone", "::std::cmp::PartialEq"]);
+    }
+    if structure_has_sensitive_member(selected, shape) {
+        excluded_derives.push("::std::fmt::Debug");
+    }
+    let builder_derives = filter_derives(builder_derives, &excluded_derives);
+    writeln!(output, "{padding}#[derive({builder_derives})]").unwrap();
     writeln!(output, "{padding}#[non_exhaustive]").unwrap();
     if members(shape).is_empty()
         && !is_error
@@ -3171,7 +3342,7 @@ fn render_type_builder(
             render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
-                "{inner}pub fn {field}(mut self, k: {key_argument}, v: {value_argument}) -> Self {{\n{inner}    let mut map = self.{field}.unwrap_or_default();\n{inner}    map.insert({}, {});\n{inner}    self.{field} = ::std::option::Option::Some(map);\n{inner}    self\n{inner}}}",
+                "{inner}pub fn {field}(mut self, k: {key_argument}, v: {value_argument}) -> Self {{\n{inner}    let mut hash_map = self.{field}.unwrap_or_default();\n{inner}    hash_map.insert({}, {});\n{inner}    self.{field} = ::std::option::Option::Some(hash_map);\n{inner}    self\n{inner}}}",
                 builder_argument_value(&key_argument, "k"),
                 builder_argument_value(&value_argument, "v")
             )
@@ -3352,6 +3523,72 @@ fn render_type_builder(
         writeln!(output, "{inner}    }})").unwrap();
         writeln!(output, "{inner}}}").unwrap();
     }
+    writeln!(output, "{padding}}}").unwrap();
+    if structure_has_sensitive_member(selected, shape) {
+        render_sensitive_debug_impl_for_builder(
+            output, selected, shape, &rust_name, &context, indent,
+        );
+    }
+}
+
+fn render_sensitive_debug_impl_for_builder(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: &Context,
+    indent: usize,
+) {
+    let padding = " ".repeat(indent);
+    let request_id_plan = output_request_id_plan(selected, context);
+    let shape_sensitive = has_trait(shape, "smithy.api#sensitive");
+    let builder_name = format!("{name}Builder");
+    writeln!(
+        output,
+        "{padding}impl ::std::fmt::Debug for {builder_name} {{"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "{padding}    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "{padding}        let mut formatter = f.debug_struct({builder_name:?});"
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        let field = names::rust_identifier(&member_name);
+        let debug_field = field.strip_prefix("r#").unwrap_or(&field);
+        let value =
+            if shape_sensitive || value_should_redact(selected, member, &mut BTreeSet::new()) {
+                "&\"*** Sensitive Data Redacted ***\"".to_owned()
+            } else {
+                format!("&self.{field}")
+            };
+        writeln!(
+            output,
+            "{padding}        formatter.field({debug_field:?}, {value});"
+        )
+        .unwrap();
+    }
+    if request_id_plan.extended {
+        writeln!(
+            output,
+            "{padding}        formatter.field(\"_extended_request_id\", &self._extended_request_id);"
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(
+            output,
+            "{padding}        formatter.field(\"_request_id\", &self._request_id);"
+        )
+        .unwrap();
+    }
+    writeln!(output, "{padding}        formatter.finish()").unwrap();
+    writeln!(output, "{padding}    }}").unwrap();
     writeln!(output, "{padding}}}").unwrap();
 }
 

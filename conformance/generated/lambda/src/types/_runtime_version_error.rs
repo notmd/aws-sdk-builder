@@ -2,7 +2,7 @@
 
 /// <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct RuntimeVersionError {
     /// <p>The error code.</p>
     pub error_code: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl RuntimeVersionError {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Debug for RuntimeVersionError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("RuntimeVersionError");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl RuntimeVersionError {
     /// Creates a new builder-style object to manufacture [`RuntimeVersionError`](crate::types::RuntimeVersionError).
     pub fn builder() -> crate::types::builders::RuntimeVersionErrorBuilder {
@@ -27,7 +35,7 @@ impl RuntimeVersionError {
 }
 
 /// A builder for [`RuntimeVersionError`](crate::types::RuntimeVersionError).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct RuntimeVersionErrorBuilder {
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl RuntimeVersionErrorBuilder {
             error_code: self.error_code,
             message: self.message,
         }
+    }
+}
+impl ::std::fmt::Debug for RuntimeVersionErrorBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("RuntimeVersionErrorBuilder");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

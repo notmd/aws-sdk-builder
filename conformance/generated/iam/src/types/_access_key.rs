@@ -5,7 +5,7 @@
 /// <p>The <code>SecretAccessKey</code> value is returned only in response to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html">CreateAccessKey</a>. You can get a secret access key only when you first create an access key; you cannot recover the secret access key later. If you lose a secret access key, you must create a new access key.</p>
 /// </note>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct AccessKey {
     /// <p>The name of the IAM user that the access key is associated with.</p>
     pub user_name: ::std::string::String,
@@ -43,6 +43,17 @@ impl AccessKey {
         self.create_date.as_ref()
     }
 }
+impl ::std::fmt::Debug for AccessKey {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("AccessKey");
+        formatter.field("user_name", &self.user_name);
+        formatter.field("access_key_id", &self.access_key_id);
+        formatter.field("status", &self.status);
+        formatter.field("secret_access_key", &"*** Sensitive Data Redacted ***");
+        formatter.field("create_date", &self.create_date);
+        formatter.finish()
+    }
+}
 impl AccessKey {
     /// Creates a new builder-style object to manufacture [`AccessKey`](crate::types::AccessKey).
     pub fn builder() -> crate::types::builders::AccessKeyBuilder {
@@ -51,7 +62,7 @@ impl AccessKey {
 }
 
 /// A builder for [`AccessKey`](crate::types::AccessKey).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct AccessKeyBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
@@ -169,5 +180,16 @@ impl AccessKeyBuilder {
             })?,
             create_date: self.create_date,
         })
+    }
+}
+impl ::std::fmt::Debug for AccessKeyBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("AccessKeyBuilder");
+        formatter.field("user_name", &self.user_name);
+        formatter.field("access_key_id", &self.access_key_id);
+        formatter.field("status", &self.status);
+        formatter.field("secret_access_key", &"*** Sensitive Data Redacted ***");
+        formatter.field("create_date", &self.create_date);
+        formatter.finish()
     }
 }

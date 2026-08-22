@@ -71,9 +71,9 @@ impl PutBuilder {
     ///
     /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
     pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.item.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.item = ::std::option::Option::Some(map);
+        let mut hash_map = self.item.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.item = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
@@ -127,9 +127,9 @@ impl PutBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut map = self.expression_attribute_names.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.expression_attribute_names = ::std::option::Option::Some(map);
+        let mut hash_map = self.expression_attribute_names.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.expression_attribute_names = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
@@ -152,9 +152,9 @@ impl PutBuilder {
     ///
     /// <p>One or more values that can be substituted in an expression.</p>
     pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.expression_attribute_values.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.expression_attribute_values = ::std::option::Option::Some(map);
+        let mut hash_map = self.expression_attribute_values.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.expression_attribute_values = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>One or more values that can be substituted in an expression.</p>

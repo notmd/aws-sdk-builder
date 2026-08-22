@@ -2,7 +2,7 @@
 
 /// <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ChainedInvokeDetails {
     /// <p>The response payload from the chained invocation.</p>
     pub result: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl ChainedInvokeDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ChainedInvokeDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeDetails");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
+    }
+}
 impl ChainedInvokeDetails {
     /// Creates a new builder-style object to manufacture [`ChainedInvokeDetails`](crate::types::ChainedInvokeDetails).
     pub fn builder() -> crate::types::builders::ChainedInvokeDetailsBuilder {
@@ -27,7 +35,7 @@ impl ChainedInvokeDetails {
 }
 
 /// A builder for [`ChainedInvokeDetails`](crate::types::ChainedInvokeDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ChainedInvokeDetailsBuilder {
     pub(crate) result: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl ChainedInvokeDetailsBuilder {
             result: self.result,
             error: self.error,
         }
+    }
+}
+impl ::std::fmt::Debug for ChainedInvokeDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ChainedInvokeDetailsBuilder");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
     }
 }

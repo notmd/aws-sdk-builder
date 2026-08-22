@@ -55,9 +55,9 @@ impl GetBuilder {
     ///
     /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.key.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.key = ::std::option::Option::Some(map);
+        let mut hash_map = self.key.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.key = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
@@ -108,9 +108,9 @@ impl GetBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut map = self.expression_attribute_names.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.expression_attribute_names = ::std::option::Option::Some(map);
+        let mut hash_map = self.expression_attribute_names.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.expression_attribute_names = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>

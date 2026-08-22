@@ -2,7 +2,7 @@
 
 /// <p>An update to be applied to an operation during checkpointing.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct OperationUpdate {
     /// <p>The unique identifier for this operation.</p>
     pub id: ::std::string::String,
@@ -86,6 +86,25 @@ impl OperationUpdate {
         self.chained_invoke_options.as_ref()
     }
 }
+impl ::std::fmt::Debug for OperationUpdate {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("OperationUpdate");
+        formatter.field("id", &self.id);
+        formatter.field("parent_id", &self.parent_id);
+        formatter.field("name", &self.name);
+        formatter.field("type", &self.r#type);
+        formatter.field("sub_type", &self.sub_type);
+        formatter.field("action", &self.action);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.field("context_options", &self.context_options);
+        formatter.field("step_options", &self.step_options);
+        formatter.field("wait_options", &self.wait_options);
+        formatter.field("callback_options", &self.callback_options);
+        formatter.field("chained_invoke_options", &self.chained_invoke_options);
+        formatter.finish()
+    }
+}
 impl OperationUpdate {
     /// Creates a new builder-style object to manufacture [`OperationUpdate`](crate::types::OperationUpdate).
     pub fn builder() -> crate::types::builders::OperationUpdateBuilder {
@@ -94,7 +113,7 @@ impl OperationUpdate {
 }
 
 /// A builder for [`OperationUpdate`](crate::types::OperationUpdate).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct OperationUpdateBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
@@ -333,5 +352,24 @@ impl OperationUpdateBuilder {
             callback_options: self.callback_options,
             chained_invoke_options: self.chained_invoke_options,
         })
+    }
+}
+impl ::std::fmt::Debug for OperationUpdateBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("OperationUpdateBuilder");
+        formatter.field("id", &self.id);
+        formatter.field("parent_id", &self.parent_id);
+        formatter.field("name", &self.name);
+        formatter.field("type", &self.r#type);
+        formatter.field("sub_type", &self.sub_type);
+        formatter.field("action", &self.action);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.field("context_options", &self.context_options);
+        formatter.field("step_options", &self.step_options);
+        formatter.field("wait_options", &self.wait_options);
+        formatter.field("callback_options", &self.callback_options);
+        formatter.field("chained_invoke_options", &self.chained_invoke_options);
+        formatter.finish()
     }
 }

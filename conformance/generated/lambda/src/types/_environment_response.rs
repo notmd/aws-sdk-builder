@@ -2,7 +2,7 @@
 
 /// <p>The results of an operation to update or read environment variables. If the operation succeeds, the response contains the environment variables. If it fails, the response contains details about the error.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct EnvironmentResponse {
     /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
     pub variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -19,6 +19,14 @@ impl EnvironmentResponse {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for EnvironmentResponse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EnvironmentResponse");
+        formatter.field("variables", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
+    }
+}
 impl EnvironmentResponse {
     /// Creates a new builder-style object to manufacture [`EnvironmentResponse`](crate::types::EnvironmentResponse).
     pub fn builder() -> crate::types::builders::EnvironmentResponseBuilder {
@@ -27,7 +35,7 @@ impl EnvironmentResponse {
 }
 
 /// A builder for [`EnvironmentResponse`](crate::types::EnvironmentResponse).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct EnvironmentResponseBuilder {
     pub(crate) variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -40,9 +48,9 @@ impl EnvironmentResponseBuilder {
     ///
     /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
     pub fn variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut map = self.variables.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.variables = ::std::option::Option::Some(map);
+        let mut hash_map = self.variables.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.variables = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
@@ -74,5 +82,13 @@ impl EnvironmentResponseBuilder {
             variables: self.variables,
             error: self.error,
         }
+    }
+}
+impl ::std::fmt::Debug for EnvironmentResponseBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EnvironmentResponseBuilder");
+        formatter.field("variables", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
     }
 }

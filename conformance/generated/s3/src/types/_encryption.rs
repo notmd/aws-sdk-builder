@@ -2,7 +2,7 @@
 
 /// <p>Contains the type of server-side encryption used.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct Encryption {
     /// <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, <code>aws:kms</code>).</p>
     pub encryption_type: crate::types::ServerSideEncryption,
@@ -25,6 +25,15 @@ impl Encryption {
         self.kms_context.as_deref()
     }
 }
+impl ::std::fmt::Debug for Encryption {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("Encryption");
+        formatter.field("encryption_type", &self.encryption_type);
+        formatter.field("kms_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("kms_context", &self.kms_context);
+        formatter.finish()
+    }
+}
 impl Encryption {
     /// Creates a new builder-style object to manufacture [`Encryption`](crate::types::Encryption).
     pub fn builder() -> crate::types::builders::EncryptionBuilder {
@@ -33,7 +42,7 @@ impl Encryption {
 }
 
 /// A builder for [`Encryption`](crate::types::Encryption).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct EncryptionBuilder {
     pub(crate) encryption_type: ::std::option::Option<crate::types::ServerSideEncryption>,
@@ -98,5 +107,14 @@ impl EncryptionBuilder {
             kms_key_id: self.kms_key_id,
             kms_context: self.kms_context,
         })
+    }
+}
+impl ::std::fmt::Debug for EncryptionBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EncryptionBuilder");
+        formatter.field("encryption_type", &self.encryption_type);
+        formatter.field("kms_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("kms_context", &self.kms_context);
+        formatter.finish()
     }
 }

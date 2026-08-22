@@ -3,7 +3,7 @@
 /// <p>KMS uses the authentication credential to sign requests that it sends to the external key store proxy (XKS proxy) on your behalf. You establish these credentials on your external key store proxy and report them to KMS.</p>
 /// <p>The <code>XksProxyAuthenticationCredential</code> includes two required elements.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct XksProxyAuthenticationCredentialType {
     /// <p>A unique identifier for the raw secret access key.</p>
     pub access_key_id: ::std::string::String,
@@ -22,6 +22,14 @@ impl XksProxyAuthenticationCredentialType {
         self.raw_secret_access_key.deref()
     }
 }
+impl ::std::fmt::Debug for XksProxyAuthenticationCredentialType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("XksProxyAuthenticationCredentialType");
+        formatter.field("access_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("raw_secret_access_key", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl XksProxyAuthenticationCredentialType {
     /// Creates a new builder-style object to manufacture [`XksProxyAuthenticationCredentialType`](crate::types::XksProxyAuthenticationCredentialType).
     pub fn builder() -> crate::types::builders::XksProxyAuthenticationCredentialTypeBuilder {
@@ -30,7 +38,7 @@ impl XksProxyAuthenticationCredentialType {
 }
 
 /// A builder for [`XksProxyAuthenticationCredentialType`](crate::types::XksProxyAuthenticationCredentialType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct XksProxyAuthenticationCredentialTypeBuilder {
     pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
@@ -88,5 +96,13 @@ impl XksProxyAuthenticationCredentialTypeBuilder {
                 )
             })?,
         })
+    }
+}
+impl ::std::fmt::Debug for XksProxyAuthenticationCredentialTypeBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("XksProxyAuthenticationCredentialTypeBuilder");
+        formatter.field("access_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("raw_secret_access_key", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

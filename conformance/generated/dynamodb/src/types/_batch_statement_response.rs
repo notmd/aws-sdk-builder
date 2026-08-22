@@ -75,9 +75,9 @@ impl BatchStatementResponseBuilder {
     ///
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
     pub fn item(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.item.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.item = ::std::option::Option::Some(map);
+        let mut hash_map = self.item.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.item = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>

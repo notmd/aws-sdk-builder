@@ -209,7 +209,6 @@ impl Builder {
         output.content_language = response.header("Content-Language").map(str::to_owned);
         output.content_range = response.header("Content-Range").map(str::to_owned);
         output.content_type = response.header("Content-Type").map(str::to_owned);
-        output.expires_string = response.header("ExpiresString").map(str::to_owned);
         output.website_redirect_location = response.header("x-amz-website-redirect-location").map(str::to_owned);
         output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
         output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
@@ -219,6 +218,7 @@ impl Builder {
             .and_then(|value| value.parse().ok());
         output.parts_count = response.header("x-amz-mp-parts-count").and_then(|value| value.parse().ok());
         output.tag_count = response.header("x-amz-tagging-count").and_then(|value| value.parse().ok());
+        output.expires_string = response.header("ExpiresString").map(str::to_owned);
         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
         Ok(output.build())

@@ -30,8 +30,8 @@ Updated 2026-08-22. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 1,403 exact matches (21.12% arithmetic average),
-  with 2,195 mismatches, 2,863 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 1,554 exact matches (22.78% arithmetic average),
+  with 2,044 mismatches, 2,863 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -50,6 +50,39 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Smithy formatter, sensitive Debug, streaming derives, and operation headers
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now matches Smithy Rust's
+  model-driven sensitive-data behavior: sensitive shape/member/collection targets
+  remove derived `Debug`, structures and builders receive manual redacting
+  implementations, and Rust member names are used as debug field labels. Root
+  structures with streaming members also remove `Clone` and `PartialEq`, matching
+  `StreamingShapeMetadataProvider`. Map helpers use Smithy's `hash_map` variable
+  name, and operation input/output snapshots no longer insert a blank line after
+  the generated-file header. The existing model-driven `Expires` decorator keeps
+  transformed S3 members in Smithy's appended order.
+- Formatter audit: `/tmp/smithy-rs` at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` confirms that
+  `codegen-client/.../ClientCodegenVisitor.kt` finalizes generated crates with
+  `cargo fmt -- --config max_width=150`. The local snapshot path uses
+  `rustfmt --edition 2021 --config max_width=150,skip_children=true` because
+  snapshots have no temporary Cargo manifest.
+- Evidence: `just conformance` regenerated all 8 all-operation snapshots
+  (496 operations) and compared 6,584 files; it intentionally exits 1 while
+  parity remains incomplete. `cargo check -p aws-sdk-build` passed during the
+  conformance runs; the full workspace checks are run below before commit.
+- Conformance: the previous checkpoint had `1,403` exact, `2,195` mismatches,
+  `2,863` missing, and `123` extra files overall; this checkpoint has `1,554`
+  exact, `2,044` mismatches, `2,863` missing, and `123` extra. S3 increased from
+  `375` exact / `457` mismatches / `512` missing / `0` extra to
+  `445` exact / `387` mismatches / `512` missing / `0` extra. Exact coverage
+  increased by 151 files overall and 70 files for S3.
+- Blocker: the missing protocol/runtime source tree, endpoint/auth/retry/checksum
+  support, pagination/waiters, and full operation semantics remain.
+- Next action: port the next shared protocol serialization/runtime boundary while
+  preserving the verified Smithy formatter, streaming, and redaction rules.
 
 ### Checkpoint: 2026-08-22 — Smithy HTML documentation and builder parity
 

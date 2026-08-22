@@ -2,7 +2,7 @@
 
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InvocationResponse {
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
     pub status_code: ::std::option::Option<i32>,
@@ -43,6 +43,18 @@ impl InvocationResponse {
         self.durable_execution_arn.as_deref()
     }
 }
+impl ::std::fmt::Debug for InvocationResponse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvocationResponse");
+        formatter.field("status_code", &self.status_code);
+        formatter.field("function_error", &self.function_error);
+        formatter.field("log_result", &self.log_result);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("executed_version", &self.executed_version);
+        formatter.field("durable_execution_arn", &self.durable_execution_arn);
+        formatter.finish()
+    }
+}
 impl InvocationResponse {
     /// Creates a new builder-style object to manufacture [`InvocationResponse`](crate::types::InvocationResponse).
     pub fn builder() -> crate::types::builders::InvocationResponseBuilder {
@@ -51,7 +63,7 @@ impl InvocationResponse {
 }
 
 /// A builder for [`InvocationResponse`](crate::types::InvocationResponse).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InvocationResponseBuilder {
     pub(crate) status_code: ::std::option::Option<i32>,
@@ -156,5 +168,17 @@ impl InvocationResponseBuilder {
             executed_version: self.executed_version,
             durable_execution_arn: self.durable_execution_arn,
         }
+    }
+}
+impl ::std::fmt::Debug for InvocationResponseBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvocationResponseBuilder");
+        formatter.field("status_code", &self.status_code);
+        formatter.field("function_error", &self.function_error);
+        formatter.field("log_result", &self.log_result);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("executed_version", &self.executed_version);
+        formatter.field("durable_execution_arn", &self.durable_execution_arn);
+        formatter.finish()
     }
 }

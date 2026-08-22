@@ -151,9 +151,9 @@ impl ResourceSpecificResultBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: crate::types::PolicyEvaluationDecisionType,
     ) -> Self {
-        let mut map = self.eval_decision_details.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.eval_decision_details = ::std::option::Option::Some(map);
+        let mut hash_map = self.eval_decision_details.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.eval_decision_details = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>

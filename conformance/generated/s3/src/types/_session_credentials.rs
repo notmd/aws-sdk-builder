@@ -4,7 +4,7 @@
 /// <p><b>Directory buckets</b> - These session credentials are only supported for the authentication and authorization of Zonal endpoint API operations on directory buckets.</p>
 /// </note>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct SessionCredentials {
     /// <p>A unique identifier that's associated with a secret access key. The access key ID and the secret access key are used together to sign programmatic Amazon Web Services requests cryptographically.</p>
     pub access_key_id: ::std::string::String,
@@ -36,6 +36,16 @@ impl SessionCredentials {
         &self.expiration
     }
 }
+impl ::std::fmt::Debug for SessionCredentials {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("SessionCredentials");
+        formatter.field("access_key_id", &self.access_key_id);
+        formatter.field("secret_access_key", &"*** Sensitive Data Redacted ***");
+        formatter.field("session_token", &"*** Sensitive Data Redacted ***");
+        formatter.field("expiration", &self.expiration);
+        formatter.finish()
+    }
+}
 impl SessionCredentials {
     /// Creates a new builder-style object to manufacture [`SessionCredentials`](crate::types::SessionCredentials).
     pub fn builder() -> crate::types::builders::SessionCredentialsBuilder {
@@ -44,7 +54,7 @@ impl SessionCredentials {
 }
 
 /// A builder for [`SessionCredentials`](crate::types::SessionCredentials).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct SessionCredentialsBuilder {
     pub(crate) access_key_id: ::std::option::Option<::std::string::String>,
@@ -146,5 +156,15 @@ impl SessionCredentialsBuilder {
                 )
             })?,
         })
+    }
+}
+impl ::std::fmt::Debug for SessionCredentialsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("SessionCredentialsBuilder");
+        formatter.field("access_key_id", &self.access_key_id);
+        formatter.field("secret_access_key", &"*** Sensitive Data Redacted ***");
+        formatter.field("session_token", &"*** Sensitive Data Redacted ***");
+        formatter.field("expiration", &self.expiration);
+        formatter.finish()
     }
 }

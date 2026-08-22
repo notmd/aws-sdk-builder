@@ -62,9 +62,9 @@ impl GrantConstraintsBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut map = self.encryption_context_subset.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.encryption_context_subset = ::std::option::Option::Some(map);
+        let mut hash_map = self.encryption_context_subset.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.encryption_context_subset = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.</p>
@@ -89,9 +89,9 @@ impl GrantConstraintsBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut map = self.encryption_context_equals.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.encryption_context_equals = ::std::option::Option::Some(map);
+        let mut hash_map = self.encryption_context_equals.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.encryption_context_equals = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operation</a> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.</p>

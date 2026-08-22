@@ -2,7 +2,7 @@
 
 /// <p>Error messages for environment variables that couldn't be applied.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct EnvironmentError {
     /// <p>The error code.</p>
     pub error_code: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl EnvironmentError {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Debug for EnvironmentError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EnvironmentError");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl EnvironmentError {
     /// Creates a new builder-style object to manufacture [`EnvironmentError`](crate::types::EnvironmentError).
     pub fn builder() -> crate::types::builders::EnvironmentErrorBuilder {
@@ -27,7 +35,7 @@ impl EnvironmentError {
 }
 
 /// A builder for [`EnvironmentError`](crate::types::EnvironmentError).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct EnvironmentErrorBuilder {
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl EnvironmentErrorBuilder {
             error_code: self.error_code,
             message: self.message,
         }
+    }
+}
+impl ::std::fmt::Debug for EnvironmentErrorBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EnvironmentErrorBuilder");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

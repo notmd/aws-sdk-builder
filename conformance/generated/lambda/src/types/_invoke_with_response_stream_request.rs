@@ -2,7 +2,7 @@
 
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InvokeWithResponseStreamRequest {
     /// <p>The name or ARN of the Lambda function.</p>
     /// <p class="title"><b>Name formats</b></p>
@@ -84,6 +84,19 @@ impl InvokeWithResponseStreamRequest {
         self.invocation_type.as_ref()
     }
 }
+impl ::std::fmt::Debug for InvokeWithResponseStreamRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvokeWithResponseStreamRequest");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("log_type", &self.log_type);
+        formatter.field("client_context", &self.client_context);
+        formatter.field("qualifier", &self.qualifier);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("tenant_id", &self.tenant_id);
+        formatter.field("invocation_type", &self.invocation_type);
+        formatter.finish()
+    }
+}
 impl InvokeWithResponseStreamRequest {
     /// Creates a new builder-style object to manufacture [`InvokeWithResponseStreamRequest`](crate::types::InvokeWithResponseStreamRequest).
     pub fn builder() -> crate::types::builders::InvokeWithResponseStreamRequestBuilder {
@@ -92,7 +105,7 @@ impl InvokeWithResponseStreamRequest {
 }
 
 /// A builder for [`InvokeWithResponseStreamRequest`](crate::types::InvokeWithResponseStreamRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InvokeWithResponseStreamRequestBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -272,5 +285,18 @@ impl InvokeWithResponseStreamRequestBuilder {
             tenant_id: self.tenant_id,
             invocation_type: self.invocation_type,
         })
+    }
+}
+impl ::std::fmt::Debug for InvokeWithResponseStreamRequestBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvokeWithResponseStreamRequestBuilder");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("log_type", &self.log_type);
+        formatter.field("client_context", &self.client_context);
+        formatter.field("qualifier", &self.qualifier);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("tenant_id", &self.tenant_id);
+        formatter.field("invocation_type", &self.invocation_type);
+        formatter.finish()
     }
 }

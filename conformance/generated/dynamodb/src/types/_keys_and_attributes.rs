@@ -230,9 +230,9 @@ impl KeysAndAttributesBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: impl ::std::convert::Into<::std::string::String>,
     ) -> Self {
-        let mut map = self.expression_attribute_names.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.expression_attribute_names = ::std::option::Option::Some(map);
+        let mut hash_map = self.expression_attribute_names.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.expression_attribute_names = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>

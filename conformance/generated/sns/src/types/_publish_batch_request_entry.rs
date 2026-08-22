@@ -253,9 +253,9 @@ impl PublishBatchRequestEntryBuilder {
     ///
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>
     pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::MessageAttributeValue) -> Self {
-        let mut map = self.message_attributes.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.message_attributes = ::std::option::Option::Some(map);
+        let mut hash_map = self.message_attributes.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.message_attributes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in the Amazon SNS Developer Guide.</p>

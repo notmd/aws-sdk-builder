@@ -2,7 +2,7 @@
 
 /// <p>If <code>SSEKMS</code> is specified for <code>ObjectEncryption</code>, this data type specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use and whether to use an S3 Bucket Key for server-side encryption using Key Management Service (KMS) keys (SSE-KMS).</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct SsekmsEncryption {
     /// <p>Specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use for the updated server-side encryption type. Required if <code>ObjectEncryption</code> specifies <code>SSEKMS</code>.</p><note>
     /// <p>You must specify the full Amazon Web Services KMS key ARN. The KMS key ID and KMS key alias aren't supported.</p>
@@ -28,6 +28,14 @@ impl SsekmsEncryption {
         self.bucket_key_enabled
     }
 }
+impl ::std::fmt::Debug for SsekmsEncryption {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("SsekmsEncryption");
+        formatter.field("kms_key_arn", &"*** Sensitive Data Redacted ***");
+        formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
+        formatter.finish()
+    }
+}
 impl SsekmsEncryption {
     /// Creates a new builder-style object to manufacture [`SsekmsEncryption`](crate::types::SsekmsEncryption).
     pub fn builder() -> crate::types::builders::SsekmsEncryptionBuilder {
@@ -36,7 +44,7 @@ impl SsekmsEncryption {
 }
 
 /// A builder for [`SsekmsEncryption`](crate::types::SsekmsEncryption).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct SsekmsEncryptionBuilder {
     pub(crate) kms_key_arn: ::std::option::Option<::std::string::String>,
@@ -97,5 +105,13 @@ impl SsekmsEncryptionBuilder {
             })?,
             bucket_key_enabled: self.bucket_key_enabled,
         })
+    }
+}
+impl ::std::fmt::Debug for SsekmsEncryptionBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("SsekmsEncryptionBuilder");
+        formatter.field("kms_key_arn", &"*** Sensitive Data Redacted ***");
+        formatter.field("bucket_key_enabled", &self.bucket_key_enabled);
+        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct FunctionCode {
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
     pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
@@ -61,6 +61,19 @@ impl FunctionCode {
         self.source_kms_key_arn.as_deref()
     }
 }
+impl ::std::fmt::Debug for FunctionCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FunctionCode");
+        formatter.field("zip_file", &"*** Sensitive Data Redacted ***");
+        formatter.field("s3_bucket", &self.s3_bucket);
+        formatter.field("s3_key", &self.s3_key);
+        formatter.field("s3_object_version", &self.s3_object_version);
+        formatter.field("s3_object_storage_mode", &self.s3_object_storage_mode);
+        formatter.field("image_uri", &self.image_uri);
+        formatter.field("source_kms_key_arn", &self.source_kms_key_arn);
+        formatter.finish()
+    }
+}
 impl FunctionCode {
     /// Creates a new builder-style object to manufacture [`FunctionCode`](crate::types::FunctionCode).
     pub fn builder() -> crate::types::builders::FunctionCodeBuilder {
@@ -69,7 +82,7 @@ impl FunctionCode {
 }
 
 /// A builder for [`FunctionCode`](crate::types::FunctionCode).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct FunctionCodeBuilder {
     pub(crate) zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
@@ -208,5 +221,18 @@ impl FunctionCodeBuilder {
             image_uri: self.image_uri,
             source_kms_key_arn: self.source_kms_key_arn,
         }
+    }
+}
+impl ::std::fmt::Debug for FunctionCodeBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("FunctionCodeBuilder");
+        formatter.field("zip_file", &"*** Sensitive Data Redacted ***");
+        formatter.field("s3_bucket", &self.s3_bucket);
+        formatter.field("s3_key", &self.s3_key);
+        formatter.field("s3_object_version", &self.s3_object_version);
+        formatter.field("s3_object_storage_mode", &self.s3_object_storage_mode);
+        formatter.field("image_uri", &self.image_uri);
+        formatter.field("source_kms_key_arn", &self.source_kms_key_arn);
+        formatter.finish()
     }
 }

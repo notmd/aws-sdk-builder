@@ -256,9 +256,9 @@ impl EvaluationResultBuilder {
         k: impl ::std::convert::Into<::std::string::String>,
         v: crate::types::PolicyEvaluationDecisionType,
     ) -> Self {
-        let mut map = self.eval_decision_details.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.eval_decision_details = ::std::option::Option::Some(map);
+        let mut hash_map = self.eval_decision_details.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.eval_decision_details = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.</p>

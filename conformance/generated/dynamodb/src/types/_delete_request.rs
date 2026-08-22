@@ -33,9 +33,9 @@ impl DeleteRequestBuilder {
     ///
     /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
     pub fn key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.key.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.key = ::std::option::Option::Some(map);
+        let mut hash_map = self.key.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.key = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>

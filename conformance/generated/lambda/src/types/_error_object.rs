@@ -2,7 +2,7 @@
 
 /// <p>An object that contains error information.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ErrorObject {
     /// <p>A human-readable error message.</p>
     pub error_message: ::std::option::Option<::std::string::String>,
@@ -33,6 +33,16 @@ impl ErrorObject {
         self.stack_trace.as_deref().unwrap_or_default()
     }
 }
+impl ::std::fmt::Debug for ErrorObject {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ErrorObject");
+        formatter.field("error_message", &"*** Sensitive Data Redacted ***");
+        formatter.field("error_type", &"*** Sensitive Data Redacted ***");
+        formatter.field("error_data", &"*** Sensitive Data Redacted ***");
+        formatter.field("stack_trace", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ErrorObject {
     /// Creates a new builder-style object to manufacture [`ErrorObject`](crate::types::ErrorObject).
     pub fn builder() -> crate::types::builders::ErrorObjectBuilder {
@@ -41,7 +51,7 @@ impl ErrorObject {
 }
 
 /// A builder for [`ErrorObject`](crate::types::ErrorObject).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ErrorObjectBuilder {
     pub(crate) error_message: ::std::option::Option<::std::string::String>,
@@ -120,5 +130,15 @@ impl ErrorObjectBuilder {
             error_data: self.error_data,
             stack_trace: self.stack_trace,
         }
+    }
+}
+impl ::std::fmt::Debug for ErrorObjectBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ErrorObjectBuilder");
+        formatter.field("error_message", &"*** Sensitive Data Redacted ***");
+        formatter.field("error_type", &"*** Sensitive Data Redacted ***");
+        formatter.field("error_data", &"*** Sensitive Data Redacted ***");
+        formatter.field("stack_trace", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

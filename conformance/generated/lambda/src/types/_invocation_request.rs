@@ -2,7 +2,7 @@
 
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InvocationRequest {
     /// <p>The name or ARN of the Lambda function, version, or alias.</p>
     /// <p class="title"><b>Name formats</b></p>
@@ -96,6 +96,20 @@ impl InvocationRequest {
         self.tenant_id.as_deref()
     }
 }
+impl ::std::fmt::Debug for InvocationRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvocationRequest");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("invocation_type", &self.invocation_type);
+        formatter.field("log_type", &self.log_type);
+        formatter.field("client_context", &self.client_context);
+        formatter.field("durable_execution_name", &self.durable_execution_name);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("qualifier", &self.qualifier);
+        formatter.field("tenant_id", &self.tenant_id);
+        formatter.finish()
+    }
+}
 impl InvocationRequest {
     /// Creates a new builder-style object to manufacture [`InvocationRequest`](crate::types::InvocationRequest).
     pub fn builder() -> crate::types::builders::InvocationRequestBuilder {
@@ -104,7 +118,7 @@ impl InvocationRequest {
 }
 
 /// A builder for [`InvocationRequest`](crate::types::InvocationRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InvocationRequestBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -309,5 +323,19 @@ impl InvocationRequestBuilder {
             qualifier: self.qualifier,
             tenant_id: self.tenant_id,
         })
+    }
+}
+impl ::std::fmt::Debug for InvocationRequestBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("InvocationRequestBuilder");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("invocation_type", &self.invocation_type);
+        formatter.field("log_type", &self.log_type);
+        formatter.field("client_context", &self.client_context);
+        formatter.field("durable_execution_name", &self.durable_execution_name);
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("qualifier", &self.qualifier);
+        formatter.field("tenant_id", &self.tenant_id);
+        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ExecutionDetails {
     /// <p>The original input payload provided for the durable execution.</p>
     pub input_payload: ::std::option::Option<::std::string::String>,
@@ -13,6 +13,13 @@ impl ExecutionDetails {
         self.input_payload.as_deref()
     }
 }
+impl ::std::fmt::Debug for ExecutionDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionDetails");
+        formatter.field("input_payload", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ExecutionDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionDetails`](crate::types::ExecutionDetails).
     pub fn builder() -> crate::types::builders::ExecutionDetailsBuilder {
@@ -21,7 +28,7 @@ impl ExecutionDetails {
 }
 
 /// A builder for [`ExecutionDetails`](crate::types::ExecutionDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ExecutionDetailsBuilder {
     pub(crate) input_payload: ::std::option::Option<::std::string::String>,
@@ -46,5 +53,12 @@ impl ExecutionDetailsBuilder {
         crate::types::ExecutionDetails {
             input_payload: self.input_payload,
         }
+    }
+}
+impl ::std::fmt::Debug for ExecutionDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ExecutionDetailsBuilder");
+        formatter.field("input_payload", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

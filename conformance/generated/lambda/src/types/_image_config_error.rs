@@ -2,7 +2,7 @@
 
 /// <p>Error response to <code>GetFunctionConfiguration</code>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ImageConfigError {
     /// <p>Error code.</p>
     pub error_code: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl ImageConfigError {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Debug for ImageConfigError {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ImageConfigError");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
+    }
+}
 impl ImageConfigError {
     /// Creates a new builder-style object to manufacture [`ImageConfigError`](crate::types::ImageConfigError).
     pub fn builder() -> crate::types::builders::ImageConfigErrorBuilder {
@@ -27,7 +35,7 @@ impl ImageConfigError {
 }
 
 /// A builder for [`ImageConfigError`](crate::types::ImageConfigError).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ImageConfigErrorBuilder {
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl ImageConfigErrorBuilder {
             error_code: self.error_code,
             message: self.message,
         }
+    }
+}
+impl ::std::fmt::Debug for ImageConfigErrorBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ImageConfigErrorBuilder");
+        formatter.field("error_code", &self.error_code);
+        formatter.field("message", &"*** Sensitive Data Redacted ***");
+        formatter.finish()
     }
 }

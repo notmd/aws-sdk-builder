@@ -2,7 +2,7 @@
 
 /// <p>Contains information about a virtual MFA device.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct VirtualMfaDevice {
     /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
     pub serial_number: ::std::string::String,
@@ -46,6 +46,18 @@ impl VirtualMfaDevice {
         self.tags.as_deref().unwrap_or_default()
     }
 }
+impl ::std::fmt::Debug for VirtualMfaDevice {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("VirtualMfaDevice");
+        formatter.field("serial_number", &self.serial_number);
+        formatter.field("base32_string_seed", &"*** Sensitive Data Redacted ***");
+        formatter.field("qr_code_png", &"*** Sensitive Data Redacted ***");
+        formatter.field("user", &self.user);
+        formatter.field("enable_date", &self.enable_date);
+        formatter.field("tags", &self.tags);
+        formatter.finish()
+    }
+}
 impl VirtualMfaDevice {
     /// Creates a new builder-style object to manufacture [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
     pub fn builder() -> crate::types::builders::VirtualMfaDeviceBuilder {
@@ -54,7 +66,7 @@ impl VirtualMfaDevice {
 }
 
 /// A builder for [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct VirtualMfaDeviceBuilder {
     pub(crate) serial_number: ::std::option::Option<::std::string::String>,
@@ -173,5 +185,17 @@ impl VirtualMfaDeviceBuilder {
             enable_date: self.enable_date,
             tags: self.tags,
         })
+    }
+}
+impl ::std::fmt::Debug for VirtualMfaDeviceBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("VirtualMfaDeviceBuilder");
+        formatter.field("serial_number", &self.serial_number);
+        formatter.field("base32_string_seed", &"*** Sensitive Data Redacted ***");
+        formatter.field("qr_code_png", &"*** Sensitive Data Redacted ***");
+        formatter.field("user", &self.user);
+        formatter.field("enable_date", &self.enable_date);
+        formatter.field("tags", &self.tags);
+        formatter.finish()
     }
 }

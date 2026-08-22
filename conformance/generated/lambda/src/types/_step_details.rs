@@ -2,7 +2,7 @@
 
 /// <p>Details about a step operation.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct StepDetails {
     /// <p>The current attempt number for this step.</p>
     pub attempt: ::std::option::Option<i32>,
@@ -31,6 +31,16 @@ impl StepDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for StepDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("StepDetails");
+        formatter.field("attempt", &self.attempt);
+        formatter.field("next_attempt_timestamp", &self.next_attempt_timestamp);
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
+    }
+}
 impl StepDetails {
     /// Creates a new builder-style object to manufacture [`StepDetails`](crate::types::StepDetails).
     pub fn builder() -> crate::types::builders::StepDetailsBuilder {
@@ -39,7 +49,7 @@ impl StepDetails {
 }
 
 /// A builder for [`StepDetails`](crate::types::StepDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct StepDetailsBuilder {
     pub(crate) attempt: ::std::option::Option<i32>,
@@ -112,5 +122,15 @@ impl StepDetailsBuilder {
             result: self.result,
             error: self.error,
         }
+    }
+}
+impl ::std::fmt::Debug for StepDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("StepDetailsBuilder");
+        formatter.field("attempt", &self.attempt);
+        formatter.field("next_attempt_timestamp", &self.next_attempt_timestamp);
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
     }
 }

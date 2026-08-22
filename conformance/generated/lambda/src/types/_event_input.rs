@@ -2,7 +2,7 @@
 
 /// <p>Input information for an event.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct EventInput {
     /// <p>The input payload.</p>
     pub payload: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl EventInput {
         self.truncated
     }
 }
+impl ::std::fmt::Debug for EventInput {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EventInput");
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("truncated", &self.truncated);
+        formatter.finish()
+    }
+}
 impl EventInput {
     /// Creates a new builder-style object to manufacture [`EventInput`](crate::types::EventInput).
     pub fn builder() -> crate::types::builders::EventInputBuilder {
@@ -27,7 +35,7 @@ impl EventInput {
 }
 
 /// A builder for [`EventInput`](crate::types::EventInput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct EventInputBuilder {
     pub(crate) payload: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl EventInputBuilder {
             payload: self.payload,
             truncated: self.truncated,
         }
+    }
+}
+impl ::std::fmt::Debug for EventInputBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EventInputBuilder");
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("truncated", &self.truncated);
+        formatter.finish()
     }
 }

@@ -184,9 +184,9 @@ impl MessageBuilder {
     /// </ul>
     /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     pub fn attributes(mut self, k: crate::types::MessageSystemAttributeName, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut map = self.attributes.unwrap_or_default();
-        map.insert(k, v.into());
-        self.attributes = ::std::option::Option::Some(map);
+        let mut hash_map = self.attributes.unwrap_or_default();
+        hash_map.insert(k, v.into());
+        self.attributes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A map of the attributes requested in <code> <code>ReceiveMessage</code> </code> to their respective values. Supported attributes:</p>
@@ -257,9 +257,9 @@ impl MessageBuilder {
     ///
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::MessageAttributeValue) -> Self {
-        let mut map = self.message_attributes.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.message_attributes = ::std::option::Option::Some(map);
+        let mut hash_map = self.message_attributes.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.message_attributes = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>

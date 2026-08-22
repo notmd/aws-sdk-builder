@@ -2,7 +2,7 @@
 
 /// <p>Contains the details of a service-specific credential.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ServiceSpecificCredential {
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
     pub create_date: ::aws_smithy_types::DateTime,
@@ -70,6 +70,22 @@ impl ServiceSpecificCredential {
         &self.status
     }
 }
+impl ::std::fmt::Debug for ServiceSpecificCredential {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ServiceSpecificCredential");
+        formatter.field("create_date", &self.create_date);
+        formatter.field("expiration_date", &self.expiration_date);
+        formatter.field("service_name", &self.service_name);
+        formatter.field("service_user_name", &self.service_user_name);
+        formatter.field("service_password", &"*** Sensitive Data Redacted ***");
+        formatter.field("service_credential_alias", &self.service_credential_alias);
+        formatter.field("service_credential_secret", &"*** Sensitive Data Redacted ***");
+        formatter.field("service_specific_credential_id", &self.service_specific_credential_id);
+        formatter.field("user_name", &self.user_name);
+        formatter.field("status", &self.status);
+        formatter.finish()
+    }
+}
 impl ServiceSpecificCredential {
     /// Creates a new builder-style object to manufacture [`ServiceSpecificCredential`](crate::types::ServiceSpecificCredential).
     pub fn builder() -> crate::types::builders::ServiceSpecificCredentialBuilder {
@@ -78,7 +94,7 @@ impl ServiceSpecificCredential {
 }
 
 /// A builder for [`ServiceSpecificCredential`](crate::types::ServiceSpecificCredential).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ServiceSpecificCredentialBuilder {
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
@@ -283,5 +299,21 @@ impl ServiceSpecificCredentialBuilder {
                 )
             })?,
         })
+    }
+}
+impl ::std::fmt::Debug for ServiceSpecificCredentialBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ServiceSpecificCredentialBuilder");
+        formatter.field("create_date", &self.create_date);
+        formatter.field("expiration_date", &self.expiration_date);
+        formatter.field("service_name", &self.service_name);
+        formatter.field("service_user_name", &self.service_user_name);
+        formatter.field("service_password", &"*** Sensitive Data Redacted ***");
+        formatter.field("service_credential_alias", &self.service_credential_alias);
+        formatter.field("service_credential_secret", &"*** Sensitive Data Redacted ***");
+        formatter.field("service_specific_credential_id", &self.service_specific_credential_id);
+        formatter.field("user_name", &self.user_name);
+        formatter.field("status", &self.status);
+        formatter.finish()
     }
 }

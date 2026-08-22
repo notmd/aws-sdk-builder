@@ -2,7 +2,7 @@
 
 /// <p>The response from the GetDurableExecution operation, containing detailed information about the durable execution.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct GetDurableExecutionResponse {
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
     pub durable_execution_arn: ::std::string::String,
@@ -88,6 +88,25 @@ impl GetDurableExecutionResponse {
         self.durable_config.as_ref()
     }
 }
+impl ::std::fmt::Debug for GetDurableExecutionResponse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("GetDurableExecutionResponse");
+        formatter.field("durable_execution_arn", &self.durable_execution_arn);
+        formatter.field("durable_execution_name", &self.durable_execution_name);
+        formatter.field("function_arn", &self.function_arn);
+        formatter.field("input_payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.field("start_timestamp", &self.start_timestamp);
+        formatter.field("status", &self.status);
+        formatter.field("end_timestamp", &self.end_timestamp);
+        formatter.field("version", &self.version);
+        formatter.field("trace_header", &self.trace_header);
+        formatter.field("execution_data_included", &self.execution_data_included);
+        formatter.field("durable_config", &self.durable_config);
+        formatter.finish()
+    }
+}
 impl GetDurableExecutionResponse {
     /// Creates a new builder-style object to manufacture [`GetDurableExecutionResponse`](crate::types::GetDurableExecutionResponse).
     pub fn builder() -> crate::types::builders::GetDurableExecutionResponseBuilder {
@@ -96,7 +115,7 @@ impl GetDurableExecutionResponse {
 }
 
 /// A builder for [`GetDurableExecutionResponse`](crate::types::GetDurableExecutionResponse).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct GetDurableExecutionResponseBuilder {
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
@@ -349,5 +368,24 @@ impl GetDurableExecutionResponseBuilder {
             execution_data_included: self.execution_data_included,
             durable_config: self.durable_config,
         })
+    }
+}
+impl ::std::fmt::Debug for GetDurableExecutionResponseBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("GetDurableExecutionResponseBuilder");
+        formatter.field("durable_execution_arn", &self.durable_execution_arn);
+        formatter.field("durable_execution_name", &self.durable_execution_name);
+        formatter.field("function_arn", &self.function_arn);
+        formatter.field("input_payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.field("start_timestamp", &self.start_timestamp);
+        formatter.field("status", &self.status);
+        formatter.field("end_timestamp", &self.end_timestamp);
+        formatter.field("version", &self.version);
+        formatter.field("trace_header", &self.trace_header);
+        formatter.field("execution_data_included", &self.execution_data_included);
+        formatter.field("durable_config", &self.durable_config);
+        formatter.finish()
     }
 }

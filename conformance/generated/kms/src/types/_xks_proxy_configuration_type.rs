@@ -2,7 +2,7 @@
 
 /// <p>Detailed information about the external key store proxy (XKS proxy). Your external key store proxy translates KMS requests into a format that your external key manager can understand. These fields appear in a <code>DescribeCustomKeyStores</code> response only when the <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct XksProxyConfigurationType {
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
     pub connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
@@ -47,6 +47,18 @@ impl XksProxyConfigurationType {
         self.vpc_endpoint_service_owner.as_deref()
     }
 }
+impl ::std::fmt::Debug for XksProxyConfigurationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("XksProxyConfigurationType");
+        formatter.field("connectivity", &self.connectivity);
+        formatter.field("access_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("uri_endpoint", &self.uri_endpoint);
+        formatter.field("uri_path", &self.uri_path);
+        formatter.field("vpc_endpoint_service_name", &self.vpc_endpoint_service_name);
+        formatter.field("vpc_endpoint_service_owner", &self.vpc_endpoint_service_owner);
+        formatter.finish()
+    }
+}
 impl XksProxyConfigurationType {
     /// Creates a new builder-style object to manufacture [`XksProxyConfigurationType`](crate::types::XksProxyConfigurationType).
     pub fn builder() -> crate::types::builders::XksProxyConfigurationTypeBuilder {
@@ -55,7 +67,7 @@ impl XksProxyConfigurationType {
 }
 
 /// A builder for [`XksProxyConfigurationType`](crate::types::XksProxyConfigurationType).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct XksProxyConfigurationTypeBuilder {
     pub(crate) connectivity: ::std::option::Option<crate::types::XksProxyConnectivityType>,
@@ -166,5 +178,17 @@ impl XksProxyConfigurationTypeBuilder {
             vpc_endpoint_service_name: self.vpc_endpoint_service_name,
             vpc_endpoint_service_owner: self.vpc_endpoint_service_owner,
         }
+    }
+}
+impl ::std::fmt::Debug for XksProxyConfigurationTypeBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("XksProxyConfigurationTypeBuilder");
+        formatter.field("connectivity", &self.connectivity);
+        formatter.field("access_key_id", &"*** Sensitive Data Redacted ***");
+        formatter.field("uri_endpoint", &self.uri_endpoint);
+        formatter.field("uri_path", &self.uri_path);
+        formatter.field("vpc_endpoint_service_name", &self.vpc_endpoint_service_name);
+        formatter.field("vpc_endpoint_service_owner", &self.vpc_endpoint_service_owner);
+        formatter.finish()
     }
 }

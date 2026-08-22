@@ -695,9 +695,9 @@ impl CreateEventSourceMappingRequestBuilder {
     ///
     /// <p>A list of tags to apply to the event source mapping.</p>
     pub fn tags(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut map = self.tags.unwrap_or_default();
-        map.insert(k.into(), v.into());
-        self.tags = ::std::option::Option::Some(map);
+        let mut hash_map = self.tags.unwrap_or_default();
+        hash_map.insert(k.into(), v.into());
+        self.tags = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>A list of tags to apply to the event source mapping.</p>

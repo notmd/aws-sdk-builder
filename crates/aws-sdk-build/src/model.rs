@@ -433,19 +433,14 @@ fn apply_model_customizations(shapes: &mut Map<String, Value>) {
         let old_members = std::mem::take(members);
         let mut new_members = Map::new();
         for (name, member) in old_members {
-            let is_expires = name == expires_name;
-            new_members.insert(
-                name,
-                if is_expires {
-                    updated_member.clone()
-                } else {
-                    member
-                },
-            );
-            if is_expires {
-                new_members.insert(format!("{expires_name}String"), synthetic_member.clone());
+            if name != expires_name {
+                new_members.insert(name, member);
             }
         }
+        // Smithy's S3 decorator removes Expires and appends the transformed
+        // Expires/ExpiresString pair after the original output members.
+        new_members.insert(expires_name.clone(), updated_member);
+        new_members.insert(format!("{expires_name}String"), synthetic_member);
         *members = new_members;
     }
 }

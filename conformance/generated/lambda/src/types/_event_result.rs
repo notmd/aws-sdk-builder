@@ -2,7 +2,7 @@
 
 /// <p>Result information for an event.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct EventResult {
     /// <p>The result payload.</p>
     pub payload: ::std::option::Option<::std::string::String>,
@@ -19,6 +19,14 @@ impl EventResult {
         self.truncated
     }
 }
+impl ::std::fmt::Debug for EventResult {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EventResult");
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("truncated", &self.truncated);
+        formatter.finish()
+    }
+}
 impl EventResult {
     /// Creates a new builder-style object to manufacture [`EventResult`](crate::types::EventResult).
     pub fn builder() -> crate::types::builders::EventResultBuilder {
@@ -27,7 +35,7 @@ impl EventResult {
 }
 
 /// A builder for [`EventResult`](crate::types::EventResult).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct EventResultBuilder {
     pub(crate) payload: ::std::option::Option<::std::string::String>,
@@ -68,5 +76,13 @@ impl EventResultBuilder {
             payload: self.payload,
             truncated: self.truncated,
         }
+    }
+}
+impl ::std::fmt::Debug for EventResultBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("EventResultBuilder");
+        formatter.field("payload", &"*** Sensitive Data Redacted ***");
+        formatter.field("truncated", &self.truncated);
+        formatter.finish()
     }
 }

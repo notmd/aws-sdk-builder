@@ -2,7 +2,7 @@
 
 #[allow(missing_docs)] // documentation missing in model
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct UpdateFunctionCodeRequest {
     /// <p>The name or ARN of the Lambda function.</p>
     /// <p class="title"><b>Name formats</b></p>
@@ -120,6 +120,25 @@ impl UpdateFunctionCodeRequest {
         self.source_kms_key_arn.as_deref()
     }
 }
+impl ::std::fmt::Debug for UpdateFunctionCodeRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("UpdateFunctionCodeRequest");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("zip_file", &"*** Sensitive Data Redacted ***");
+        formatter.field("s3_bucket", &self.s3_bucket);
+        formatter.field("s3_key", &self.s3_key);
+        formatter.field("s3_object_version", &self.s3_object_version);
+        formatter.field("s3_object_storage_mode", &self.s3_object_storage_mode);
+        formatter.field("image_uri", &self.image_uri);
+        formatter.field("architectures", &self.architectures);
+        formatter.field("publish", &self.publish);
+        formatter.field("publish_to", &self.publish_to);
+        formatter.field("dry_run", &self.dry_run);
+        formatter.field("revision_id", &self.revision_id);
+        formatter.field("source_kms_key_arn", &self.source_kms_key_arn);
+        formatter.finish()
+    }
+}
 impl UpdateFunctionCodeRequest {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionCodeRequest`](crate::types::UpdateFunctionCodeRequest).
     pub fn builder() -> crate::types::builders::UpdateFunctionCodeRequestBuilder {
@@ -128,7 +147,7 @@ impl UpdateFunctionCodeRequest {
 }
 
 /// A builder for [`UpdateFunctionCodeRequest`](crate::types::UpdateFunctionCodeRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct UpdateFunctionCodeRequestBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
@@ -407,5 +426,24 @@ impl UpdateFunctionCodeRequestBuilder {
             revision_id: self.revision_id,
             source_kms_key_arn: self.source_kms_key_arn,
         })
+    }
+}
+impl ::std::fmt::Debug for UpdateFunctionCodeRequestBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("UpdateFunctionCodeRequestBuilder");
+        formatter.field("function_name", &self.function_name);
+        formatter.field("zip_file", &"*** Sensitive Data Redacted ***");
+        formatter.field("s3_bucket", &self.s3_bucket);
+        formatter.field("s3_key", &self.s3_key);
+        formatter.field("s3_object_version", &self.s3_object_version);
+        formatter.field("s3_object_storage_mode", &self.s3_object_storage_mode);
+        formatter.field("image_uri", &self.image_uri);
+        formatter.field("architectures", &self.architectures);
+        formatter.field("publish", &self.publish);
+        formatter.field("publish_to", &self.publish_to);
+        formatter.field("dry_run", &self.dry_run);
+        formatter.field("revision_id", &self.revision_id);
+        formatter.field("source_kms_key_arn", &self.source_kms_key_arn);
+        formatter.finish()
     }
 }

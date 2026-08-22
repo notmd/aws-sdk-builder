@@ -44,9 +44,9 @@ impl ItemCollectionMetricsBuilder {
     ///
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
     pub fn item_collection_key(mut self, k: impl ::std::convert::Into<::std::string::String>, v: crate::types::AttributeValue) -> Self {
-        let mut map = self.item_collection_key.unwrap_or_default();
-        map.insert(k.into(), v);
-        self.item_collection_key = ::std::option::Option::Some(map);
+        let mut hash_map = self.item_collection_key.unwrap_or_default();
+        hash_map.insert(k.into(), v);
+        self.item_collection_key = ::std::option::Option::Some(hash_map);
         self
     }
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>

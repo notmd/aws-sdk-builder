@@ -2,7 +2,7 @@
 
 /// <p>Details about a durable execution context.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct ContextDetails {
     /// <p>Whether the state data of child operations of this completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
     pub replay_children: ::std::option::Option<bool>,
@@ -25,6 +25,15 @@ impl ContextDetails {
         self.error.as_ref()
     }
 }
+impl ::std::fmt::Debug for ContextDetails {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ContextDetails");
+        formatter.field("replay_children", &self.replay_children);
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
+    }
+}
 impl ContextDetails {
     /// Creates a new builder-style object to manufacture [`ContextDetails`](crate::types::ContextDetails).
     pub fn builder() -> crate::types::builders::ContextDetailsBuilder {
@@ -33,7 +42,7 @@ impl ContextDetails {
 }
 
 /// A builder for [`ContextDetails`](crate::types::ContextDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct ContextDetailsBuilder {
     pub(crate) replay_children: ::std::option::Option<bool>,
@@ -90,5 +99,14 @@ impl ContextDetailsBuilder {
             result: self.result,
             error: self.error,
         }
+    }
+}
+impl ::std::fmt::Debug for ContextDetailsBuilder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let mut formatter = f.debug_struct("ContextDetailsBuilder");
+        formatter.field("replay_children", &self.replay_children);
+        formatter.field("result", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
+        formatter.finish()
     }
 }
