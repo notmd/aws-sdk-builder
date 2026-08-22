@@ -68,25 +68,26 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
     collect_rust_files(root, &mut files)?;
     files.sort();
 
-    for path in &files {
-        let output = Command::new("rustfmt")
-            .args([
-                "--edition",
-                "2021",
-                "--config",
-                "max_width=150,skip_children=true",
-            ])
-            .arg(path)
-            .output()
-            .map_err(|error| format!("failed to run rustfmt for {}: {error}", path.display()))?;
-        if output.status.success() {
-            continue;
-        }
+    if files.is_empty() {
+        return Ok(0);
+    }
+
+    let output = Command::new("rustfmt")
+        .args([
+            "--edition",
+            "2021",
+            "--config",
+            "max_width=150,skip_children=true",
+        ])
+        .args(&files)
+        .output()
+        .map_err(|error| format!("failed to run rustfmt: {error}"))?;
+    if !output.status.success() {
         let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
         if message.trim().is_empty() {
             message = format!("rustfmt exited with {}", output.status);
         }
-        return Err(format!("rustfmt failed for {}: {message}", path.display()));
+        return Err(format!("rustfmt failed for generated sources: {message}"));
     }
 
     Ok(files.len())
