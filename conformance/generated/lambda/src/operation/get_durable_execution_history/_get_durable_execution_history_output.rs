@@ -2,7 +2,7 @@
 
 /// <p>The response from the GetDurableExecutionHistory operation, containing the execution history and events.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetDurableExecutionHistoryOutput {
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
     pub events: ::std::vec::Vec<crate::types::Event>,
@@ -21,15 +21,6 @@ impl GetDurableExecutionHistoryOutput {
         self.next_marker.as_deref()
     }
 }
-impl ::std::fmt::Debug for GetDurableExecutionHistoryOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("GetDurableExecutionHistoryOutput");
-        formatter.field("events", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_marker", &self.next_marker);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
-    }
-}
 impl ::aws_types::request_id::RequestId for GetDurableExecutionHistoryOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -43,7 +34,7 @@ impl GetDurableExecutionHistoryOutput {
 }
 
 /// A builder for [`GetDurableExecutionHistoryOutput`](crate::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDurableExecutionHistoryOutputBuilder {
     pub(crate) events: ::std::option::Option<::std::vec::Vec<crate::types::Event>>,
@@ -113,14 +104,5 @@ impl GetDurableExecutionHistoryOutputBuilder {
             next_marker: self.next_marker,
             _request_id: self._request_id,
         })
-    }
-}
-impl ::std::fmt::Debug for GetDurableExecutionHistoryOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("GetDurableExecutionHistoryOutputBuilder");
-        formatter.field("events", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_marker", &self.next_marker);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

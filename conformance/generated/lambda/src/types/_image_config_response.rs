@@ -2,7 +2,7 @@
 
 /// <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ImageConfigResponse {
     /// <p>Configuration values that override the container image Dockerfile.</p>
     pub image_config: ::std::option::Option<crate::types::ImageConfig>,
@@ -19,14 +19,6 @@ impl ImageConfigResponse {
         self.error.as_ref()
     }
 }
-impl ::std::fmt::Debug for ImageConfigResponse {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ImageConfigResponse");
-        formatter.field("image_config", &self.image_config);
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl ImageConfigResponse {
     /// Creates a new builder-style object to manufacture [`ImageConfigResponse`](crate::types::ImageConfigResponse).
     pub fn builder() -> crate::types::builders::ImageConfigResponseBuilder {
@@ -35,7 +27,7 @@ impl ImageConfigResponse {
 }
 
 /// A builder for [`ImageConfigResponse`](crate::types::ImageConfigResponse).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ImageConfigResponseBuilder {
     pub(crate) image_config: ::std::option::Option<crate::types::ImageConfig>,
@@ -76,13 +68,5 @@ impl ImageConfigResponseBuilder {
             image_config: self.image_config,
             error: self.error,
         }
-    }
-}
-impl ::std::fmt::Debug for ImageConfigResponseBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ImageConfigResponseBuilder");
-        formatter.field("image_config", &self.image_config);
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

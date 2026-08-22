@@ -524,6 +524,50 @@ fn synthetic_operation_shape(
 /// packaged Smithy model alone. The predicates intentionally inspect shape
 /// relationships and traits instead of service or operation names.
 fn apply_model_customizations(shapes: &mut Map<String, Value>) {
+    // Some AWS models use a `Credentials` aggregate whose member-level
+    // sensitivity is promoted to the aggregate by an AWS decorator. Express
+    // that transform from the shape graph so the renderer can keep Smithy-RS's
+    // non-recursive structure redaction predicate.
+    let sensitive_targets = shapes
+        .iter()
+        .filter(|(_, shape)| {
+            shape
+                .get("traits")
+                .and_then(Value::as_object)
+                .is_some_and(|traits| traits.contains_key("smithy.api#sensitive"))
+        })
+        .map(|(id, _)| id.clone())
+        .collect::<BTreeSet<_>>();
+    let credential_shapes = shapes
+        .iter()
+        .filter(|(id, shape)| {
+            terminal_name(id) == "Credentials"
+                && shape.get("type").and_then(Value::as_str) == Some("structure")
+                && shape
+                    .get("members")
+                    .and_then(Value::as_object)
+                    .is_some_and(|members| {
+                        members
+                            .values()
+                            .filter_map(member_target)
+                            .any(|target| sensitive_targets.contains(target))
+                    })
+        })
+        .map(|(id, _)| id.clone())
+        .collect::<Vec<_>>();
+    for id in credential_shapes {
+        let shape = shapes
+            .get_mut(&id)
+            .and_then(Value::as_object_mut)
+            .expect("credential shape must remain an object");
+        shape
+            .entry("traits".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()))
+            .as_object_mut()
+            .expect("shape traits must be an object")
+            .insert("smithy.api#sensitive".to_owned(), Value::Object(Map::new()));
+    }
+
     // Smithy-RS's AWS decorator marks CopyObject as incompatible with stalled
     // stream protection because its response can legitimately pause while the
     // service performs the copy.
@@ -937,6 +981,22 @@ mod tests {
         assert_eq!(
             synthetic_output,
             Some("com.amazonaws.s3#NotificationConfiguration")
+        );
+    }
+
+    #[test]
+    fn credential_aggregates_inherit_member_sensitivity() {
+        let entry = crate::registry::lookup("sts").unwrap();
+        let model = Model::load(entry).unwrap();
+        let selected = model.select(&[], true).unwrap();
+        assert!(
+            selected
+                .model
+                .shapes
+                .get("com.amazonaws.sts#Credentials")
+                .and_then(|shape| shape.get("traits"))
+                .and_then(Value::as_object)
+                .is_some_and(|traits| traits.contains_key("smithy.api#sensitive"))
         );
     }
 

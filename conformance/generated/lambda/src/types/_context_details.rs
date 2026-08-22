@@ -30,7 +30,7 @@ impl ::std::fmt::Debug for ContextDetails {
         let mut formatter = f.debug_struct("ContextDetails");
         formatter.field("replay_children", &self.replay_children);
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.finish()
     }
 }
@@ -106,7 +106,7 @@ impl ::std::fmt::Debug for ContextDetailsBuilder {
         let mut formatter = f.debug_struct("ContextDetailsBuilder");
         formatter.field("replay_children", &self.replay_children);
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.finish()
     }
 }

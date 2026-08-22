@@ -2,7 +2,7 @@
 
 /// <p>Details about a function's deployment package.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct FunctionCodeLocation {
     /// <p>The service that's hosting the file.</p>
     pub repository_type: ::std::option::Option<::std::string::String>,
@@ -49,19 +49,6 @@ impl FunctionCodeLocation {
         self.error.as_ref()
     }
 }
-impl ::std::fmt::Debug for FunctionCodeLocation {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("FunctionCodeLocation");
-        formatter.field("repository_type", &self.repository_type);
-        formatter.field("location", &self.location);
-        formatter.field("image_uri", &self.image_uri);
-        formatter.field("resolved_image_uri", &self.resolved_image_uri);
-        formatter.field("resolved_s3_object", &self.resolved_s3_object);
-        formatter.field("source_kms_key_arn", &self.source_kms_key_arn);
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl FunctionCodeLocation {
     /// Creates a new builder-style object to manufacture [`FunctionCodeLocation`](crate::types::FunctionCodeLocation).
     pub fn builder() -> crate::types::builders::FunctionCodeLocationBuilder {
@@ -70,7 +57,7 @@ impl FunctionCodeLocation {
 }
 
 /// A builder for [`FunctionCodeLocation`](crate::types::FunctionCodeLocation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct FunctionCodeLocationBuilder {
     pub(crate) repository_type: ::std::option::Option<::std::string::String>,
@@ -191,18 +178,5 @@ impl FunctionCodeLocationBuilder {
             source_kms_key_arn: self.source_kms_key_arn,
             error: self.error,
         }
-    }
-}
-impl ::std::fmt::Debug for FunctionCodeLocationBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("FunctionCodeLocationBuilder");
-        formatter.field("repository_type", &self.repository_type);
-        formatter.field("location", &self.location);
-        formatter.field("image_uri", &self.image_uri);
-        formatter.field("resolved_image_uri", &self.resolved_image_uri);
-        formatter.field("resolved_s3_object", &self.resolved_s3_object);
-        formatter.field("source_kms_key_arn", &self.source_kms_key_arn);
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

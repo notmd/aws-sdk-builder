@@ -2,7 +2,7 @@
 
 /// <p>Details about a wait operation that was cancelled.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct WaitCancelledDetails {
     /// <p>Details about why the wait operation was cancelled.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,13 +13,6 @@ impl WaitCancelledDetails {
         self.error.as_ref()
     }
 }
-impl ::std::fmt::Debug for WaitCancelledDetails {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("WaitCancelledDetails");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl WaitCancelledDetails {
     /// Creates a new builder-style object to manufacture [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
     pub fn builder() -> crate::types::builders::WaitCancelledDetailsBuilder {
@@ -28,7 +21,7 @@ impl WaitCancelledDetails {
 }
 
 /// A builder for [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct WaitCancelledDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -51,12 +44,5 @@ impl WaitCancelledDetailsBuilder {
     /// Consumes the builder and constructs a [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
     pub fn build(self) -> crate::types::WaitCancelledDetails {
         crate::types::WaitCancelledDetails { error: self.error }
-    }
-}
-impl ::std::fmt::Debug for WaitCancelledDetailsBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("WaitCancelledDetailsBuilder");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

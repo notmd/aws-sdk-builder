@@ -2,7 +2,7 @@
 
 /// <p>Details about a step that succeeded.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct StepSucceededDetails {
     /// <p>The response payload from the successful operation.</p>
     pub result: ::std::option::Option<crate::types::EventResult>,
@@ -19,14 +19,6 @@ impl StepSucceededDetails {
         self.retry_details.as_ref()
     }
 }
-impl ::std::fmt::Debug for StepSucceededDetails {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("StepSucceededDetails");
-        formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("retry_details", &self.retry_details);
-        formatter.finish()
-    }
-}
 impl StepSucceededDetails {
     /// Creates a new builder-style object to manufacture [`StepSucceededDetails`](crate::types::StepSucceededDetails).
     pub fn builder() -> crate::types::builders::StepSucceededDetailsBuilder {
@@ -35,7 +27,7 @@ impl StepSucceededDetails {
 }
 
 /// A builder for [`StepSucceededDetails`](crate::types::StepSucceededDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct StepSucceededDetailsBuilder {
     pub(crate) result: ::std::option::Option<crate::types::EventResult>,
@@ -78,13 +70,5 @@ impl StepSucceededDetailsBuilder {
             result: self.result,
             retry_details: self.retry_details,
         }
-    }
-}
-impl ::std::fmt::Debug for StepSucceededDetailsBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("StepSucceededDetailsBuilder");
-        formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("retry_details", &self.retry_details);
-        formatter.finish()
     }
 }

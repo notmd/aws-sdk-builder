@@ -2,7 +2,7 @@
 
 /// <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html">CreateAccessKey</a> request.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateAccessKeyOutput {
     /// <p>A structure with details about the access key.</p>
     pub access_key: ::std::option::Option<crate::types::AccessKey>,
@@ -12,14 +12,6 @@ impl CreateAccessKeyOutput {
     /// <p>A structure with details about the access key.</p>
     pub fn access_key(&self) -> ::std::option::Option<&crate::types::AccessKey> {
         self.access_key.as_ref()
-    }
-}
-impl ::std::fmt::Debug for CreateAccessKeyOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CreateAccessKeyOutput");
-        formatter.field("access_key", &"*** Sensitive Data Redacted ***");
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }
 impl ::aws_types::request_id::RequestId for CreateAccessKeyOutput {
@@ -35,7 +27,7 @@ impl CreateAccessKeyOutput {
 }
 
 /// A builder for [`CreateAccessKeyOutput`](crate::operation::create_access_key::CreateAccessKeyOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateAccessKeyOutputBuilder {
     pub(crate) access_key: ::std::option::Option<crate::types::AccessKey>,
@@ -72,13 +64,5 @@ impl CreateAccessKeyOutputBuilder {
             access_key: self.access_key,
             _request_id: self._request_id,
         }
-    }
-}
-impl ::std::fmt::Debug for CreateAccessKeyOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CreateAccessKeyOutputBuilder");
-        formatter.field("access_key", &"*** Sensitive Data Redacted ***");
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

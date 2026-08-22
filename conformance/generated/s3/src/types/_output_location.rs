@@ -2,7 +2,7 @@
 
 /// <p>Describes the location where the restore job's output is stored.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct OutputLocation {
     /// <p>Describes an S3 location that will receive the results of the restore request.</p>
     pub s3: ::std::option::Option<crate::types::S3Location>,
@@ -13,13 +13,6 @@ impl OutputLocation {
         self.s3.as_ref()
     }
 }
-impl ::std::fmt::Debug for OutputLocation {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("OutputLocation");
-        formatter.field("s3", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl OutputLocation {
     /// Creates a new builder-style object to manufacture [`OutputLocation`](crate::types::OutputLocation).
     pub fn builder() -> crate::types::builders::OutputLocationBuilder {
@@ -28,7 +21,7 @@ impl OutputLocation {
 }
 
 /// A builder for [`OutputLocation`](crate::types::OutputLocation).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct OutputLocationBuilder {
     pub(crate) s3: ::std::option::Option<crate::types::S3Location>,
@@ -51,12 +44,5 @@ impl OutputLocationBuilder {
     /// Consumes the builder and constructs a [`OutputLocation`](crate::types::OutputLocation).
     pub fn build(self) -> crate::types::OutputLocation {
         crate::types::OutputLocation { s3: self.s3 }
-    }
-}
-impl ::std::fmt::Debug for OutputLocationBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("OutputLocationBuilder");
-        formatter.field("s3", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

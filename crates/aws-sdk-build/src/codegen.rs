@@ -9896,9 +9896,6 @@ fn shape_should_redact(
                     .get("value")
                     .is_some_and(|value| value_should_redact(selected, value, seen))
         }
-        Some("structure") => members(shape)
-            .iter()
-            .any(|(_, member)| value_should_redact(selected, member, seen)),
         _ => false,
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>Details about a failed <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ExecutionFailedDetails {
     /// <p>Details about the execution failure.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,13 +13,6 @@ impl ExecutionFailedDetails {
         self.error.as_ref()
     }
 }
-impl ::std::fmt::Debug for ExecutionFailedDetails {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ExecutionFailedDetails");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl ExecutionFailedDetails {
     /// Creates a new builder-style object to manufacture [`ExecutionFailedDetails`](crate::types::ExecutionFailedDetails).
     pub fn builder() -> crate::types::builders::ExecutionFailedDetailsBuilder {
@@ -28,7 +21,7 @@ impl ExecutionFailedDetails {
 }
 
 /// A builder for [`ExecutionFailedDetails`](crate::types::ExecutionFailedDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecutionFailedDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -52,12 +45,5 @@ impl ExecutionFailedDetailsBuilder {
     /// Consumes the builder and constructs a [`ExecutionFailedDetails`](crate::types::ExecutionFailedDetails).
     pub fn build(self) -> crate::types::ExecutionFailedDetails {
         crate::types::ExecutionFailedDetails { error: self.error }
-    }
-}
-impl ::std::fmt::Debug for ExecutionFailedDetailsBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ExecutionFailedDetailsBuilder");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

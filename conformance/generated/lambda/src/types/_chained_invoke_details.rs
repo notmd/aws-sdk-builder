@@ -23,7 +23,7 @@ impl ::std::fmt::Debug for ChainedInvokeDetails {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("ChainedInvokeDetails");
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.finish()
     }
 }
@@ -82,7 +82,7 @@ impl ::std::fmt::Debug for ChainedInvokeDetailsBuilder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let mut formatter = f.debug_struct("ChainedInvokeDetailsBuilder");
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.finish()
     }
 }

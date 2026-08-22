@@ -2,7 +2,7 @@
 
 /// <p>Contains operations that have been updated since the last checkpoint, such as completed asynchronous work like timers or callbacks.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CheckpointUpdatedExecutionState {
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
     pub operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
@@ -21,14 +21,6 @@ impl CheckpointUpdatedExecutionState {
         self.next_marker.as_deref()
     }
 }
-impl ::std::fmt::Debug for CheckpointUpdatedExecutionState {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CheckpointUpdatedExecutionState");
-        formatter.field("operations", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_marker", &self.next_marker);
-        formatter.finish()
-    }
-}
 impl CheckpointUpdatedExecutionState {
     /// Creates a new builder-style object to manufacture [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
     pub fn builder() -> crate::types::builders::CheckpointUpdatedExecutionStateBuilder {
@@ -37,7 +29,7 @@ impl CheckpointUpdatedExecutionState {
 }
 
 /// A builder for [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CheckpointUpdatedExecutionStateBuilder {
     pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
@@ -84,13 +76,5 @@ impl CheckpointUpdatedExecutionStateBuilder {
             operations: self.operations,
             next_marker: self.next_marker,
         }
-    }
-}
-impl ::std::fmt::Debug for CheckpointUpdatedExecutionStateBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CheckpointUpdatedExecutionStateBuilder");
-        formatter.field("operations", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_marker", &self.next_marker);
-        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CallbackTimedOutDetails {
     /// <p>Details about the callback timeout.</p>
     pub error: ::std::option::Option<crate::types::EventError>,
@@ -13,13 +13,6 @@ impl CallbackTimedOutDetails {
         self.error.as_ref()
     }
 }
-impl ::std::fmt::Debug for CallbackTimedOutDetails {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CallbackTimedOutDetails");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl CallbackTimedOutDetails {
     /// Creates a new builder-style object to manufacture [`CallbackTimedOutDetails`](crate::types::CallbackTimedOutDetails).
     pub fn builder() -> crate::types::builders::CallbackTimedOutDetailsBuilder {
@@ -28,7 +21,7 @@ impl CallbackTimedOutDetails {
 }
 
 /// A builder for [`CallbackTimedOutDetails`](crate::types::CallbackTimedOutDetails).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CallbackTimedOutDetailsBuilder {
     pub(crate) error: ::std::option::Option<crate::types::EventError>,
@@ -52,12 +45,5 @@ impl CallbackTimedOutDetailsBuilder {
     /// Consumes the builder and constructs a [`CallbackTimedOutDetails`](crate::types::CallbackTimedOutDetails).
     pub fn build(self) -> crate::types::CallbackTimedOutDetails {
         crate::types::CallbackTimedOutDetails { error: self.error }
-    }
-}
-impl ::std::fmt::Debug for CallbackTimedOutDetailsBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CallbackTimedOutDetailsBuilder");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

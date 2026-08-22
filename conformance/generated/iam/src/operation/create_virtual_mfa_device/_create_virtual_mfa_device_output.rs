@@ -2,7 +2,7 @@
 
 /// <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html">CreateVirtualMFADevice</a> request.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateVirtualMfaDeviceOutput {
     /// <p>A structure containing details about the new virtual MFA device.</p>
     pub virtual_mfa_device: ::std::option::Option<crate::types::VirtualMfaDevice>,
@@ -12,14 +12,6 @@ impl CreateVirtualMfaDeviceOutput {
     /// <p>A structure containing details about the new virtual MFA device.</p>
     pub fn virtual_mfa_device(&self) -> ::std::option::Option<&crate::types::VirtualMfaDevice> {
         self.virtual_mfa_device.as_ref()
-    }
-}
-impl ::std::fmt::Debug for CreateVirtualMfaDeviceOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CreateVirtualMfaDeviceOutput");
-        formatter.field("virtual_mfa_device", &"*** Sensitive Data Redacted ***");
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }
 impl ::aws_types::request_id::RequestId for CreateVirtualMfaDeviceOutput {
@@ -35,7 +27,7 @@ impl CreateVirtualMfaDeviceOutput {
 }
 
 /// A builder for [`CreateVirtualMfaDeviceOutput`](crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CreateVirtualMfaDeviceOutputBuilder {
     pub(crate) virtual_mfa_device: ::std::option::Option<crate::types::VirtualMfaDevice>,
@@ -72,13 +64,5 @@ impl CreateVirtualMfaDeviceOutputBuilder {
             virtual_mfa_device: self.virtual_mfa_device,
             _request_id: self._request_id,
         }
-    }
-}
-impl ::std::fmt::Debug for CreateVirtualMfaDeviceOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CreateVirtualMfaDeviceOutputBuilder");
-        formatter.field("virtual_mfa_device", &"*** Sensitive Data Redacted ***");
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

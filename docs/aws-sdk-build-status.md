@@ -4,6 +4,28 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Match Smithy-RS sensitivity propagation
+
+- State: in progress
+- Changed: `codegen.rs` now follows Smithy-RS `Shape.shouldRedact`: sensitivity
+  recurses through member targets and list/map elements, but not through arbitrary
+  nested structures. `model.rs` adds the AWS decorator's model-derived promotion for
+  a `Credentials` aggregate containing sensitive members, with a focused transform
+  test. This removes custom Debug implementations from containing S3 and operation
+  structures while preserving full STS credential redaction.
+- Evidence: inspected Smithy-RS `Smithy.kt`, `StructureGenerator.kt`, and the pinned
+  AWS `STSDecorator.kt` under `/tmp/smithy-rs`. `just conformance` regenerated 8
+  snapshots and formatted 4,575 generated Rust files; it exits 1 because parity
+  remains incomplete. Workspace tests (17), Clippy with `-D warnings`, formatting,
+  and `git diff --check` pass.
+- Conformance: overall `3,539/1,035/1,887/1` -> `3,603/971/1,887/1`;
+  S3 `1,175/82/87/0` -> `1,188/69/87/0`; STS `73/23/56/0` -> `74/22/56/0`
+  (matched/mismatched/missing/extra).
+- Blocker: shared client/config/protocol/runtime source and reference package/test
+  trees remain incomplete; no unresolved regression remains from this checkpoint.
+- Next action: compare the remaining S3 protocol and shared runtime mismatches to the
+  pinned Smithy-RS serializer/deserializer helper ownership and ordering.
+
 ### Checkpoint: 2026-08-23 — Normalize raw identifiers in Rustdoc links
 
 - State: in progress

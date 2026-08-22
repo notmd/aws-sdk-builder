@@ -2,7 +2,7 @@
 
 /// <p>The response from the GetDurableExecutionState operation, containing the current execution state for replay.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetDurableExecutionStateOutput {
     /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
     pub operations: ::std::vec::Vec<crate::types::Operation>,
@@ -21,15 +21,6 @@ impl GetDurableExecutionStateOutput {
         self.next_marker.as_deref()
     }
 }
-impl ::std::fmt::Debug for GetDurableExecutionStateOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("GetDurableExecutionStateOutput");
-        formatter.field("operations", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_marker", &self.next_marker);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
-    }
-}
 impl ::aws_types::request_id::RequestId for GetDurableExecutionStateOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -43,7 +34,7 @@ impl GetDurableExecutionStateOutput {
 }
 
 /// A builder for [`GetDurableExecutionStateOutput`](crate::operation::get_durable_execution_state::GetDurableExecutionStateOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetDurableExecutionStateOutputBuilder {
     pub(crate) operations: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>,
@@ -113,14 +104,5 @@ impl GetDurableExecutionStateOutputBuilder {
             next_marker: self.next_marker,
             _request_id: self._request_id,
         })
-    }
-}
-impl ::std::fmt::Debug for GetDurableExecutionStateOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("GetDurableExecutionStateOutputBuilder");
-        formatter.field("operations", &"*** Sensitive Data Redacted ***");
-        formatter.field("next_marker", &self.next_marker);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

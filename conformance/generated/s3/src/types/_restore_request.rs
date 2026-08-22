@@ -2,7 +2,7 @@
 
 /// <p>Container for restore job parameters.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RestoreRequest {
     /// <p>Lifetime of the active copy in days. Do not use with restores that specify <code>OutputLocation</code>.</p>
     /// <p>The Days element is required for regular restores, and must not be provided for select requests.</p>
@@ -63,19 +63,6 @@ impl RestoreRequest {
         self.output_location.as_ref()
     }
 }
-impl ::std::fmt::Debug for RestoreRequest {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("RestoreRequest");
-        formatter.field("days", &self.days);
-        formatter.field("glacier_job_parameters", &self.glacier_job_parameters);
-        formatter.field("type", &self.r#type);
-        formatter.field("tier", &self.tier);
-        formatter.field("description", &self.description);
-        formatter.field("select_parameters", &self.select_parameters);
-        formatter.field("output_location", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl RestoreRequest {
     /// Creates a new builder-style object to manufacture [`RestoreRequest`](crate::types::RestoreRequest).
     pub fn builder() -> crate::types::builders::RestoreRequestBuilder {
@@ -84,7 +71,7 @@ impl RestoreRequest {
 }
 
 /// A builder for [`RestoreRequest`](crate::types::RestoreRequest).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RestoreRequestBuilder {
     pub(crate) days: ::std::option::Option<i32>,
@@ -226,18 +213,5 @@ impl RestoreRequestBuilder {
             select_parameters: self.select_parameters,
             output_location: self.output_location,
         }
-    }
-}
-impl ::std::fmt::Debug for RestoreRequestBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("RestoreRequestBuilder");
-        formatter.field("days", &self.days);
-        formatter.field("glacier_job_parameters", &self.glacier_job_parameters);
-        formatter.field("type", &self.r#type);
-        formatter.field("tier", &self.tier);
-        formatter.field("description", &self.description);
-        formatter.field("select_parameters", &self.select_parameters);
-        formatter.field("output_location", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

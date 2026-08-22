@@ -2,7 +2,7 @@
 
 /// <p>The ARN of the runtime and any errors that occured.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RuntimeVersionConfig {
     /// <p>The ARN of the runtime version you want the function to use.</p>
     pub runtime_version_arn: ::std::option::Option<::std::string::String>,
@@ -19,14 +19,6 @@ impl RuntimeVersionConfig {
         self.error.as_ref()
     }
 }
-impl ::std::fmt::Debug for RuntimeVersionConfig {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("RuntimeVersionConfig");
-        formatter.field("runtime_version_arn", &self.runtime_version_arn);
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl RuntimeVersionConfig {
     /// Creates a new builder-style object to manufacture [`RuntimeVersionConfig`](crate::types::RuntimeVersionConfig).
     pub fn builder() -> crate::types::builders::RuntimeVersionConfigBuilder {
@@ -35,7 +27,7 @@ impl RuntimeVersionConfig {
 }
 
 /// A builder for [`RuntimeVersionConfig`](crate::types::RuntimeVersionConfig).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RuntimeVersionConfigBuilder {
     pub(crate) runtime_version_arn: ::std::option::Option<::std::string::String>,
@@ -76,13 +68,5 @@ impl RuntimeVersionConfigBuilder {
             runtime_version_arn: self.runtime_version_arn,
             error: self.error,
         }
-    }
-}
-impl ::std::fmt::Debug for RuntimeVersionConfigBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("RuntimeVersionConfigBuilder");
-        formatter.field("runtime_version_arn", &self.runtime_version_arn);
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

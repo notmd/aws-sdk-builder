@@ -2,7 +2,7 @@
 
 /// <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html">ListVirtualMFADevices</a> request.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListVirtualMfaDevicesOutput {
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
     pub virtual_mfa_devices: ::std::vec::Vec<crate::types::VirtualMfaDevice>,
@@ -27,16 +27,6 @@ impl ListVirtualMfaDevicesOutput {
         self.marker.as_deref()
     }
 }
-impl ::std::fmt::Debug for ListVirtualMfaDevicesOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ListVirtualMfaDevicesOutput");
-        formatter.field("virtual_mfa_devices", &"*** Sensitive Data Redacted ***");
-        formatter.field("is_truncated", &self.is_truncated);
-        formatter.field("marker", &self.marker);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
-    }
-}
 impl ::aws_types::request_id::RequestId for ListVirtualMfaDevicesOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -50,7 +40,7 @@ impl ListVirtualMfaDevicesOutput {
 }
 
 /// A builder for [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListVirtualMfaDevicesOutputBuilder {
     pub(crate) virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<crate::types::VirtualMfaDevice>>,
@@ -136,15 +126,5 @@ impl ListVirtualMfaDevicesOutputBuilder {
             marker: self.marker,
             _request_id: self._request_id,
         })
-    }
-}
-impl ::std::fmt::Debug for ListVirtualMfaDevicesOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("ListVirtualMfaDevicesOutputBuilder");
-        formatter.field("virtual_mfa_devices", &"*** Sensitive Data Redacted ***");
-        formatter.field("is_truncated", &self.is_truncated);
-        formatter.field("marker", &self.marker);
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `760` matched · `338` mismatches · `533` missing · `0` extra · `46.60%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `764` matched · `334` mismatches · `533` missing · `0` extra · `46.84%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -4871,65 +4871,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/create_access_key/_create_access_key_output.rs`
-
-```diff
---- reference/src/operation/create_access_key/_create_access_key_output.rs
-+++ generated/src/operation/create_access_key/_create_access_key_output.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html">CreateAccessKey</a> request.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct CreateAccessKeyOutput {
-     /// <p>A structure with details about the access key.</p>
-     pub access_key: ::std::option::Option<crate::types::AccessKey>,
-@@ -14,6 +14,14 @@
-         self.access_key.as_ref()
-     }
- }
-+impl ::std::fmt::Debug for CreateAccessKeyOutput {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("CreateAccessKeyOutput");
-+        formatter.field("access_key", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for CreateAccessKeyOutput {
-     fn request_id(&self) -> Option<&str> {
-         self._request_id.as_deref()
-@@ -27,7 +35,7 @@
- }
-
- /// A builder for [`CreateAccessKeyOutput`](crate::operation::create_access_key::CreateAccessKeyOutput).
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct CreateAccessKeyOutputBuilder {
-     pub(crate) access_key: ::std::option::Option<crate::types::AccessKey>,
-@@ -66,3 +74,11 @@
-         }
-     }
- }
-+impl ::std::fmt::Debug for CreateAccessKeyOutputBuilder {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("CreateAccessKeyOutputBuilder");
-+        formatter.field("access_key", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
-```
-
 ### `src/operation/create_access_key.rs`
 
 ```diff
 --- reference/src/operation/create_access_key.rs
 +++ generated/src/operation/create_access_key.rs
-@@ -105,9 +105,9 @@
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+@@ -102,12 +102,11 @@
+                 .expect("required fields set"),
+         ));
+
+-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateAccessKey", "IAM"));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
 -        signing_options.double_uri_encode = true;
@@ -4941,7 +4892,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +139,15 @@
+@@ -139,9 +138,15 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::create_access_key::CreateAccessKeyError,
              >::new())
@@ -4960,7 +4911,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -248,13 +254,12 @@
+@@ -248,13 +253,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4978,7 +4929,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,10 +292,10 @@
+@@ -287,10 +291,10 @@
              .ok_or("failed to downcast to CreateAccessKeyInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -4991,7 +4942,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -421,6 +426,11 @@
+@@ -421,6 +425,11 @@
          })
      }
  }
@@ -6347,64 +6298,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs`
-
-```diff
---- reference/src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs
-+++ generated/src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs
-@@ -1,7 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- #[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct CreateServiceSpecificCredentialOutput {
-     /// <p>A structure that contains information about the newly created service-specific credential.</p><important>
-     /// <p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p>
-@@ -17,6 +17,14 @@
-         self.service_specific_credential.as_ref()
-     }
- }
-+impl ::std::fmt::Debug for CreateServiceSpecificCredentialOutput {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("CreateServiceSpecificCredentialOutput");
-+        formatter.field("service_specific_credential", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for CreateServiceSpecificCredentialOutput {
-     fn request_id(&self) -> Option<&str> {
-         self._request_id.as_deref()
-@@ -30,7 +38,7 @@
- }
-
- /// A builder for [`CreateServiceSpecificCredentialOutput`](crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialOutput).
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct CreateServiceSpecificCredentialOutputBuilder {
-     pub(crate) service_specific_credential: ::std::option::Option<crate::types::ServiceSpecificCredential>,
-@@ -74,3 +82,11 @@
-         }
-     }
- }
-+impl ::std::fmt::Debug for CreateServiceSpecificCredentialOutputBuilder {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("CreateServiceSpecificCredentialOutputBuilder");
-+        formatter.field("service_specific_credential", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
-```
-
 ### `src/operation/create_service_specific_credential.rs`
 
 ```diff
 --- reference/src/operation/create_service_specific_credential.rs
 +++ generated/src/operation/create_service_specific_credential.rs
-@@ -114,9 +114,9 @@
+@@ -108,15 +108,14 @@
+                 .expect("required fields set"),
+         ));
+
+-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+             "CreateServiceSpecificCredential",
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -6417,7 +6322,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +148,17 @@
+@@ -148,9 +147,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
              >::new())
@@ -6438,7 +6343,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -264,12 +272,11 @@
+@@ -264,12 +271,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6453,7 +6358,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -303,10 +310,10 @@
+@@ -303,10 +309,10 @@
              .ok_or("failed to downcast to CreateServiceSpecificCredentialInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -6466,7 +6371,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -437,6 +444,11 @@
+@@ -437,6 +443,11 @@
          })
      }
  }
@@ -6557,58 +6462,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::create_user::CreateUserError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/create_virtual_mfa_device/_create_virtual_mfa_device_output.rs`
-
-```diff
---- reference/src/operation/create_virtual_mfa_device/_create_virtual_mfa_device_output.rs
-+++ generated/src/operation/create_virtual_mfa_device/_create_virtual_mfa_device_output.rs
-@@ -2,7 +2,7 @@
-
- /// <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html">CreateVirtualMFADevice</a> request.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct CreateVirtualMfaDeviceOutput {
-     /// <p>A structure containing details about the new virtual MFA device.</p>
-     pub virtual_mfa_device: ::std::option::Option<crate::types::VirtualMfaDevice>,
-@@ -14,6 +14,14 @@
-         self.virtual_mfa_device.as_ref()
-     }
- }
-+impl ::std::fmt::Debug for CreateVirtualMfaDeviceOutput {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("CreateVirtualMfaDeviceOutput");
-+        formatter.field("virtual_mfa_device", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for CreateVirtualMfaDeviceOutput {
-     fn request_id(&self) -> Option<&str> {
-         self._request_id.as_deref()
-@@ -27,7 +35,7 @@
- }
-
- /// A builder for [`CreateVirtualMfaDeviceOutput`](crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput).
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct CreateVirtualMfaDeviceOutputBuilder {
-     pub(crate) virtual_mfa_device: ::std::option::Option<crate::types::VirtualMfaDevice>,
-@@ -66,3 +74,11 @@
-         }
-     }
- }
-+impl ::std::fmt::Debug for CreateVirtualMfaDeviceOutputBuilder {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("CreateVirtualMfaDeviceOutputBuilder");
-+        formatter.field("virtual_mfa_device", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
 ```
 
 ### `src/operation/create_virtual_mfa_device/builders.rs`
@@ -6755,7 +6608,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -108,9 +108,9 @@
+@@ -102,15 +102,14 @@
+                 .expect("required fields set"),
+         ));
+
+-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+             "CreateVirtualMFADevice",
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -6768,7 +6627,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,34 @@
+@@ -126,25 +125,34 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -6822,7 +6681,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -151,12 +160,12 @@
+@@ -151,12 +159,12 @@
  }
 
  #[derive(Debug)]
@@ -6838,7 +6697,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -256,12 +265,11 @@
+@@ -256,12 +264,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6853,7 +6712,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -271,12 +279,12 @@
+@@ -271,12 +278,12 @@
      }
  }
  #[derive(Debug)]
@@ -6869,7 +6728,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -295,10 +303,10 @@
+@@ -295,10 +302,10 @@
              .ok_or("failed to downcast to CreateVirtualMfaDeviceInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -6882,7 +6741,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -449,6 +457,11 @@
+@@ -449,6 +456,11 @@
          })
      }
  }
@@ -21090,13 +20949,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_virtual_mfa_devices/_list_virtual_mfa_devices_output.rs
 +++ generated/src/operation/list_virtual_mfa_devices/_list_virtual_mfa_devices_output.rs
-@@ -2,12 +2,12 @@
-
- /// <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html">ListVirtualMFADevices</a> request.</p>
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct ListVirtualMfaDevicesOutput {
+@@ -7,7 +7,7 @@
      /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
      pub virtual_mfa_devices: ::std::vec::Vec<crate::types::VirtualMfaDevice>,
      /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
@@ -21114,33 +20967,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.is_truncated
      }
      /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-@@ -27,6 +27,16 @@
-         self.marker.as_deref()
-     }
- }
-+impl ::std::fmt::Debug for ListVirtualMfaDevicesOutput {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("ListVirtualMfaDevicesOutput");
-+        formatter.field("virtual_mfa_devices", &"*** Sensitive Data Redacted ***");
-+        formatter.field("is_truncated", &self.is_truncated);
-+        formatter.field("marker", &self.marker);
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for ListVirtualMfaDevicesOutput {
-     fn request_id(&self) -> Option<&str> {
-         self._request_id.as_deref()
-@@ -40,7 +50,7 @@
- }
-
- /// A builder for [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct ListVirtualMfaDevicesOutputBuilder {
-     pub(crate) virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<crate::types::VirtualMfaDevice>>,
-@@ -122,9 +132,19 @@
+@@ -122,7 +122,7 @@
                      "virtual_mfa_devices was not specified but it is required when building ListVirtualMfaDevicesOutput",
                  )
              })?,
@@ -21149,18 +20976,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              marker: self.marker,
              _request_id: self._request_id,
          })
-     }
- }
-+impl ::std::fmt::Debug for ListVirtualMfaDevicesOutputBuilder {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("ListVirtualMfaDevicesOutputBuilder");
-+        formatter.field("virtual_mfa_devices", &"*** Sensitive Data Redacted ***");
-+        formatter.field("is_truncated", &self.is_truncated);
-+        formatter.field("marker", &self.marker);
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
 ```
 
 ### `src/operation/list_virtual_mfa_devices/builders.rs`
@@ -21307,7 +21122,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -108,9 +108,9 @@
+@@ -102,15 +102,14 @@
+                 .expect("required fields set"),
+         ));
+
+-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+             "ListVirtualMFADevices",
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -21320,7 +21141,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,34 @@
+@@ -126,25 +125,34 @@
          _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
      ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
          #[allow(unused_mut)]
@@ -21374,7 +21195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -151,12 +160,12 @@
+@@ -151,12 +159,12 @@
  }
 
  #[derive(Debug)]
@@ -21390,7 +21211,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +260,11 @@
+@@ -251,12 +259,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21405,7 +21226,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -266,12 +274,12 @@
+@@ -266,12 +273,12 @@
      }
  }
  #[derive(Debug)]
@@ -21421,7 +21242,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -290,10 +298,10 @@
+@@ -290,10 +297,10 @@
              .ok_or("failed to downcast to ListVirtualMfaDevicesInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -21434,7 +21255,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -394,6 +402,11 @@
+@@ -394,6 +401,11 @@
          })
      }
  }
@@ -22516,64 +22337,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs`
-
-```diff
---- reference/src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs
-+++ generated/src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs
-@@ -1,7 +1,7 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- #[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct ResetServiceSpecificCredentialOutput {
-     /// <p>A structure with details about the updated service-specific credential, including the new password.</p><important>
-     /// <p>This is the <b>only</b> time that you can access the password. You cannot recover the password later, but you can reset it again.</p>
-@@ -17,6 +17,14 @@
-         self.service_specific_credential.as_ref()
-     }
- }
-+impl ::std::fmt::Debug for ResetServiceSpecificCredentialOutput {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("ResetServiceSpecificCredentialOutput");
-+        formatter.field("service_specific_credential", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for ResetServiceSpecificCredentialOutput {
-     fn request_id(&self) -> Option<&str> {
-         self._request_id.as_deref()
-@@ -30,7 +38,7 @@
- }
-
- /// A builder for [`ResetServiceSpecificCredentialOutput`](crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialOutput).
--#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
-+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct ResetServiceSpecificCredentialOutputBuilder {
-     pub(crate) service_specific_credential: ::std::option::Option<crate::types::ServiceSpecificCredential>,
-@@ -74,3 +82,11 @@
-         }
-     }
- }
-+impl ::std::fmt::Debug for ResetServiceSpecificCredentialOutputBuilder {
-+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-+        let mut formatter = f.debug_struct("ResetServiceSpecificCredentialOutputBuilder");
-+        formatter.field("service_specific_credential", &"*** Sensitive Data Redacted ***");
-+        formatter.field("_request_id", &self._request_id);
-+        formatter.finish()
-+    }
-+}
-```
-
 ### `src/operation/reset_service_specific_credential.rs`
 
 ```diff
 --- reference/src/operation/reset_service_specific_credential.rs
 +++ generated/src/operation/reset_service_specific_credential.rs
-@@ -114,9 +114,9 @@
+@@ -108,15 +108,14 @@
+                 .expect("required fields set"),
+         ));
+
+-        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
+         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
+             "ResetServiceSpecificCredential",
              "IAM",
          ));
          let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
@@ -22586,7 +22361,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          signing_options.payload_override = None;
 
          cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +148,17 @@
+@@ -148,9 +147,17 @@
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                  crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
              >::new())
@@ -22607,7 +22382,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -262,12 +270,11 @@
+@@ -262,12 +269,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22622,7 +22397,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -301,10 +308,10 @@
+@@ -301,10 +307,10 @@
              .ok_or("failed to downcast to ResetServiceSpecificCredentialInput")?;
 
          let params = crate::config::endpoint::Params::builder()
@@ -22635,7 +22410,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              .build()
              .map_err(|err| {
                  ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +422,11 @@
+@@ -415,6 +421,11 @@
          })
      }
  }
@@ -31672,7 +31447,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/attach_role_policy.rs`
 - `src/operation/attach_user_policy.rs`
 - `src/operation/change_password.rs`
-- `src/operation/create_access_key/_create_access_key_output.rs`
 - `src/operation/create_access_key.rs`
 - `src/operation/create_account_alias.rs`
 - `src/operation/create_delegation_request.rs`
@@ -31687,10 +31461,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_saml_provider/builders.rs`
 - `src/operation/create_saml_provider.rs`
 - `src/operation/create_service_linked_role.rs`
-- `src/operation/create_service_specific_credential/_create_service_specific_credential_output.rs`
 - `src/operation/create_service_specific_credential.rs`
 - `src/operation/create_user.rs`
-- `src/operation/create_virtual_mfa_device/_create_virtual_mfa_device_output.rs`
 - `src/operation/create_virtual_mfa_device/builders.rs`
 - `src/operation/create_virtual_mfa_device.rs`
 - `src/operation/deactivate_mfa_device/builders.rs`
@@ -31867,7 +31639,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/remove_client_id_from_open_id_connect_provider.rs`
 - `src/operation/remove_role_from_instance_profile.rs`
 - `src/operation/remove_user_from_group.rs`
-- `src/operation/reset_service_specific_credential/_reset_service_specific_credential_output.rs`
 - `src/operation/reset_service_specific_credential.rs`
 - `src/operation/resync_mfa_device/builders.rs`
 - `src/operation/resync_mfa_device.rs`

@@ -37,7 +37,7 @@ impl ::std::fmt::Debug for StepDetails {
         formatter.field("attempt", &self.attempt);
         formatter.field("next_attempt_timestamp", &self.next_attempt_timestamp);
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.finish()
     }
 }
@@ -130,7 +130,7 @@ impl ::std::fmt::Debug for StepDetailsBuilder {
         formatter.field("attempt", &self.attempt);
         formatter.field("next_attempt_timestamp", &self.next_attempt_timestamp);
         formatter.field("result", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.finish()
     }
 }

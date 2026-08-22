@@ -2,7 +2,7 @@
 
 /// <p>The response from the CheckpointDurableExecution operation.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CheckpointDurableExecutionOutput {
     /// <p>A new checkpoint token to use for the next checkpoint operation. This token replaces the one provided in the request and must be used for subsequent checkpoints to maintain proper ordering.</p>
     pub checkpoint_token: ::std::option::Option<::std::string::String>,
@@ -20,15 +20,6 @@ impl CheckpointDurableExecutionOutput {
         self.new_execution_state.as_ref()
     }
 }
-impl ::std::fmt::Debug for CheckpointDurableExecutionOutput {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CheckpointDurableExecutionOutput");
-        formatter.field("checkpoint_token", &self.checkpoint_token);
-        formatter.field("new_execution_state", &"*** Sensitive Data Redacted ***");
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
-    }
-}
 impl ::aws_types::request_id::RequestId for CheckpointDurableExecutionOutput {
     fn request_id(&self) -> Option<&str> {
         self._request_id.as_deref()
@@ -42,7 +33,7 @@ impl CheckpointDurableExecutionOutput {
 }
 
 /// A builder for [`CheckpointDurableExecutionOutput`](crate::operation::checkpoint_durable_execution::CheckpointDurableExecutionOutput).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CheckpointDurableExecutionOutputBuilder {
     pub(crate) checkpoint_token: ::std::option::Option<::std::string::String>,
@@ -95,14 +86,5 @@ impl CheckpointDurableExecutionOutputBuilder {
             new_execution_state: self.new_execution_state,
             _request_id: self._request_id,
         }
-    }
-}
-impl ::std::fmt::Debug for CheckpointDurableExecutionOutputBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("CheckpointDurableExecutionOutputBuilder");
-        formatter.field("checkpoint_token", &self.checkpoint_token);
-        formatter.field("new_execution_state", &"*** Sensitive Data Redacted ***");
-        formatter.field("_request_id", &self._request_id);
-        formatter.finish()
     }
 }

@@ -2,7 +2,7 @@
 
 /// <p>An event that occurred during the execution of a durable function.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Event {
     /// <p>The type of event that occurred.</p>
     pub event_type: ::std::option::Option<crate::types::EventType>,
@@ -193,43 +193,6 @@ impl Event {
         self.invocation_completed_details.as_ref()
     }
 }
-impl ::std::fmt::Debug for Event {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("Event");
-        formatter.field("event_type", &self.event_type);
-        formatter.field("sub_type", &self.sub_type);
-        formatter.field("event_id", &self.event_id);
-        formatter.field("id", &self.id);
-        formatter.field("name", &self.name);
-        formatter.field("event_timestamp", &self.event_timestamp);
-        formatter.field("parent_id", &self.parent_id);
-        formatter.field("execution_started_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_timed_out_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_stopped_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("context_started_details", &self.context_started_details);
-        formatter.field("context_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("context_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("wait_started_details", &self.wait_started_details);
-        formatter.field("wait_succeeded_details", &self.wait_succeeded_details);
-        formatter.field("wait_cancelled_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("step_started_details", &self.step_started_details);
-        formatter.field("step_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("step_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_started_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_timed_out_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_stopped_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("callback_started_details", &self.callback_started_details);
-        formatter.field("callback_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("callback_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("callback_timed_out_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("invocation_completed_details", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
-    }
-}
 impl Event {
     /// Creates a new builder-style object to manufacture [`Event`](crate::types::Event).
     pub fn builder() -> crate::types::builders::EventBuilder {
@@ -238,7 +201,7 @@ impl Event {
 }
 
 /// A builder for [`Event`](crate::types::Event).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventBuilder {
     pub(crate) event_type: ::std::option::Option<crate::types::EventType>,
@@ -743,42 +706,5 @@ impl EventBuilder {
             callback_timed_out_details: self.callback_timed_out_details,
             invocation_completed_details: self.invocation_completed_details,
         }
-    }
-}
-impl ::std::fmt::Debug for EventBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("EventBuilder");
-        formatter.field("event_type", &self.event_type);
-        formatter.field("sub_type", &self.sub_type);
-        formatter.field("event_id", &self.event_id);
-        formatter.field("id", &self.id);
-        formatter.field("name", &self.name);
-        formatter.field("event_timestamp", &self.event_timestamp);
-        formatter.field("parent_id", &self.parent_id);
-        formatter.field("execution_started_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_timed_out_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("execution_stopped_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("context_started_details", &self.context_started_details);
-        formatter.field("context_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("context_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("wait_started_details", &self.wait_started_details);
-        formatter.field("wait_succeeded_details", &self.wait_succeeded_details);
-        formatter.field("wait_cancelled_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("step_started_details", &self.step_started_details);
-        formatter.field("step_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("step_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_started_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_timed_out_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("chained_invoke_stopped_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("callback_started_details", &self.callback_started_details);
-        formatter.field("callback_succeeded_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("callback_failed_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("callback_timed_out_details", &"*** Sensitive Data Redacted ***");
-        formatter.field("invocation_completed_details", &"*** Sensitive Data Redacted ***");
-        formatter.finish()
     }
 }

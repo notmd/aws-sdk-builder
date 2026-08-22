@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `152/152` files compared · `73` matched · `23` mismatches · `56` missing · `0` extra · `48.03%` match (100.00% means fully matched)
+**Progress:** `152/152` files compared · `74` matched · `22` mismatches · `56` missing · `0` extra · `48.68%` match (100.00% means fully matched)
 
 ### `src/client/assume_role.rs`
 
@@ -3546,41 +3546,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  ) -> crate::types::builders::FederatedUserBuilder {
 ```
 
-### `src/types/_credentials.rs`
-
-```diff
---- reference/src/types/_credentials.rs
-+++ generated/src/types/_credentials.rs
-@@ -37,10 +37,10 @@
- impl ::std::fmt::Debug for Credentials {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-         let mut formatter = f.debug_struct("Credentials");
--        formatter.field("access_key_id", &"*** Sensitive Data Redacted ***");
-+        formatter.field("access_key_id", &self.access_key_id);
-         formatter.field("secret_access_key", &"*** Sensitive Data Redacted ***");
--        formatter.field("session_token", &"*** Sensitive Data Redacted ***");
--        formatter.field("expiration", &"*** Sensitive Data Redacted ***");
-+        formatter.field("session_token", &self.session_token);
-+        formatter.field("expiration", &self.expiration);
-         formatter.finish()
-     }
- }
-@@ -159,10 +159,10 @@
- impl ::std::fmt::Debug for CredentialsBuilder {
-     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-         let mut formatter = f.debug_struct("CredentialsBuilder");
--        formatter.field("access_key_id", &"*** Sensitive Data Redacted ***");
-+        formatter.field("access_key_id", &self.access_key_id);
-         formatter.field("secret_access_key", &"*** Sensitive Data Redacted ***");
--        formatter.field("session_token", &"*** Sensitive Data Redacted ***");
--        formatter.field("expiration", &"*** Sensitive Data Redacted ***");
-+        formatter.field("session_token", &self.session_token);
-+        formatter.field("expiration", &self.expiration);
-         formatter.finish()
-     }
- }
-```
-
 ### `src/types/error/_idp_communication_error_exception.rs`
 
 ```diff
@@ -3720,7 +3685,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_web_identity_token.rs`
 - `src/operation.rs`
 - `src/serde_util.rs`
-- `src/types/_credentials.rs`
 - `src/types/error/_idp_communication_error_exception.rs`
 - `src/types/error/_idp_rejected_claim_exception.rs`
 - `src/types/error/_jwt_payload_size_exceeded_exception.rs`

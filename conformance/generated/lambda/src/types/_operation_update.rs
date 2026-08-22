@@ -96,7 +96,7 @@ impl ::std::fmt::Debug for OperationUpdate {
         formatter.field("sub_type", &self.sub_type);
         formatter.field("action", &self.action);
         formatter.field("payload", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.field("context_options", &self.context_options);
         formatter.field("step_options", &self.step_options);
         formatter.field("wait_options", &self.wait_options);
@@ -364,7 +364,7 @@ impl ::std::fmt::Debug for OperationUpdateBuilder {
         formatter.field("sub_type", &self.sub_type);
         formatter.field("action", &self.action);
         formatter.field("payload", &"*** Sensitive Data Redacted ***");
-        formatter.field("error", &"*** Sensitive Data Redacted ***");
+        formatter.field("error", &self.error);
         formatter.field("context_options", &self.context_options);
         formatter.field("step_options", &self.step_options);
         formatter.field("wait_options", &self.wait_options);

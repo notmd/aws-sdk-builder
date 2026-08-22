@@ -2,7 +2,7 @@
 
 /// <p>Error information for an event.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EventError {
     /// <p>The error payload.</p>
     pub payload: ::std::option::Option<crate::types::ErrorObject>,
@@ -19,14 +19,6 @@ impl EventError {
         self.truncated
     }
 }
-impl ::std::fmt::Debug for EventError {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("EventError");
-        formatter.field("payload", &"*** Sensitive Data Redacted ***");
-        formatter.field("truncated", &self.truncated);
-        formatter.finish()
-    }
-}
 impl EventError {
     /// Creates a new builder-style object to manufacture [`EventError`](crate::types::EventError).
     pub fn builder() -> crate::types::builders::EventErrorBuilder {
@@ -35,7 +27,7 @@ impl EventError {
 }
 
 /// A builder for [`EventError`](crate::types::EventError).
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct EventErrorBuilder {
     pub(crate) payload: ::std::option::Option<crate::types::ErrorObject>,
@@ -76,13 +68,5 @@ impl EventErrorBuilder {
             payload: self.payload,
             truncated: self.truncated,
         }
-    }
-}
-impl ::std::fmt::Debug for EventErrorBuilder {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let mut formatter = f.debug_struct("EventErrorBuilder");
-        formatter.field("payload", &"*** Sensitive Data Redacted ***");
-        formatter.field("truncated", &self.truncated);
-        formatter.finish()
     }
 }
