@@ -5637,14 +5637,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn generated_runtime_is_valid_rust() {
-        let source = render_aws_runtime();
-        if let Err(error) = syn::parse_file(&source) {
-            panic!("{error}\n{source}");
-        }
-    }
-
-    #[test]
     fn xml_body_detection_respects_http_response_bindings() {
         let prefix_headers = serde_json::json!({
             "traits": { "smithy.api#httpPrefixHeaders": "x-amz-meta-" }

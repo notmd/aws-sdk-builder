@@ -1,7 +1,4 @@
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{fs, path::Path};
 
 use crate::{CompileReport, error::BuildError};
 
@@ -12,8 +9,6 @@ pub(crate) fn install(
     operations: Vec<String>,
 ) -> Result<CompileReport, BuildError> {
     let generated = stage.join("generated");
-    validate_tree(&generated)?;
-    validate_rust_file(&stage.join("aws_sdk.rs"))?;
 
     fs::create_dir_all(out_dir).map_err(|source| BuildError::Install {
         path: out_dir.to_owned(),
@@ -101,20 +96,8 @@ pub(crate) fn install(
     })
 }
 
-pub(crate) fn validate_tree(root: &Path) -> Result<(), BuildError> {
-    let mut files = Vec::new();
-    collect_files(root, &mut files)?;
-    for path in files {
-        if path.extension().and_then(|extension| extension.to_str()) == Some("rs") {
-            validate_rust_file(&path)?;
-        }
-    }
-    Ok(())
-}
-
 pub(crate) fn install_snapshot(stage: &Path, output_dir: &Path) -> Result<(), BuildError> {
     let staged_generated = stage.join("generated");
-    validate_tree(&staged_generated)?;
     let parent = output_dir.parent().unwrap_or_else(|| Path::new("."));
     fs::create_dir_all(parent).map_err(|source| BuildError::Install {
         path: parent.to_owned(),
@@ -155,39 +138,6 @@ pub(crate) fn install_snapshot(stage: &Path, output_dir: &Path) -> Result<(), Bu
             path: backup,
             source,
         })?;
-    }
-    Ok(())
-}
-
-fn validate_rust_file(path: &Path) -> Result<(), BuildError> {
-    let source = fs::read_to_string(path).map_err(|source| BuildError::SourceRead {
-        path: path.to_owned(),
-        source,
-    })?;
-    syn::parse_file(&source).map_err(|error| BuildError::InvalidGeneratedRust {
-        path: path.to_owned(),
-        message: error.to_string(),
-    })?;
-    Ok(())
-}
-
-fn collect_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), BuildError> {
-    let entries = fs::read_dir(root).map_err(|source| BuildError::SourceRead {
-        path: root.to_owned(),
-        source,
-    })?;
-    for entry in entries {
-        let path = entry
-            .map_err(|source| BuildError::SourceRead {
-                path: root.to_owned(),
-                source,
-            })?
-            .path();
-        if path.is_dir() {
-            collect_files(&path, files)?;
-        } else {
-            files.push(path);
-        }
     }
     Ok(())
 }

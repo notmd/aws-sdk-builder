@@ -11,7 +11,7 @@ publish = false
 aws-sdk-build = { path = "../aws-sdk-build" }
 diffy = { version = "0.5.1", features = ["std"] }
 quote = "1"
-syn = { version = "2", features = ["full", "parsing"] }
+syn = { version = "3", features = ["full", "parsing"] }
 
 [dev-dependencies]
 tempfile = "3"

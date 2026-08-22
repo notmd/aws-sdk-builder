@@ -6,6 +6,12 @@ members = [
 ]
 resolver = "2"
 
+[profile.dev.package.syn]
+opt-level = 3
+
+[profile.dev.package.diffy]
+opt-level = 3
+
 [workspace.package]
 edition = "2024"
 license = "Apache-2.0"

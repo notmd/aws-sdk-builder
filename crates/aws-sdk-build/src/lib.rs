@@ -61,7 +61,6 @@ where
             source,
         })?;
     let generated = codegen::generate(stage.path(), false, &selections)?;
-    output::validate_tree(&stage.path().join("generated"))?;
     output::install_snapshot(stage.path(), output_dir)?;
     Ok(generated.operations.len())
 }

@@ -10,7 +10,6 @@ include = ["Cargo.toml", "src/**", "models/**", "models-manifest.json", "README.
 [dependencies]
 serde_json = { version = "1", features = ["preserve_order"] }
 sha2 = "0.10"
-syn = { version = "2", features = ["full", "parsing"] }
 tempfile = "3"
 thiserror = "2"
 

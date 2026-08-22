@@ -38,8 +38,6 @@ pub enum BuildError {
     SourceRead { path: PathBuf, source: io::Error },
     #[error("failed to write generated output {path}: {source}")]
     OutputWrite { path: PathBuf, source: io::Error },
-    #[error("generated Rust source {path} is invalid: {message}")]
-    InvalidGeneratedRust { path: PathBuf, message: String },
     #[error("failed to install generated output {path}: {source}")]
     Install { path: PathBuf, source: io::Error },
 }
