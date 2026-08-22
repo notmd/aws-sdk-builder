@@ -73,5 +73,5 @@ and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
   Do not stop at compilation or partial S3 support. Completion requires exact parity
   with conformance/reference and a passing conformance command.
 
-  For now target s3 sdk only
+  For now focus on s3 sdk only
 ```
