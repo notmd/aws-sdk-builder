@@ -5,14 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetObjectTorrentOutput {
     /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    pub body: crate::primitives::ByteStream,
+    pub body: ::aws_smithy_types::byte_stream::ByteStream,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetObjectTorrentOutput {
     /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    pub fn body(&self) -> &crate::primitives::ByteStream {
+    pub fn body(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
         &self.body
     }
     pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
@@ -40,23 +40,23 @@ impl GetObjectTorrentOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectTorrentOutputBuilder {
-    pub(crate) body: ::std::option::Option<crate::primitives::ByteStream>,
+    pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetObjectTorrentOutputBuilder {
     /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    pub fn body(mut self, input: crate::primitives::ByteStream) -> Self {
+    pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+    pub fn set_body(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.body = input;
         self
     }
     /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+    pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.body
     }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {

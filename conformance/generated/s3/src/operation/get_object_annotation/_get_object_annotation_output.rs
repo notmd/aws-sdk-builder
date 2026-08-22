@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetObjectAnnotationOutput {
     /// <p>The annotation payload.</p>
-    pub annotation_payload: crate::primitives::ByteStream,
+    pub annotation_payload: ::aws_smithy_types::byte_stream::ByteStream,
     /// <p>The version ID of the object that the annotation is attached to.</p>
     pub object_version_id: ::std::option::Option<::std::string::String>,
     /// <p>The date and time the annotation was last modified.</p>
@@ -46,7 +46,7 @@ pub struct GetObjectAnnotationOutput {
 }
 impl GetObjectAnnotationOutput {
     /// <p>The annotation payload.</p>
-    pub fn annotation_payload(&self) -> &crate::primitives::ByteStream {
+    pub fn annotation_payload(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
         &self.annotation_payload
     }
     /// <p>The version ID of the object that the annotation is attached to.</p>
@@ -142,7 +142,7 @@ impl GetObjectAnnotationOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectAnnotationOutputBuilder {
-    pub(crate) annotation_payload: ::std::option::Option<crate::primitives::ByteStream>,
+    pub(crate) annotation_payload: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) object_version_id: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) content_length: ::std::option::Option<i64>,
@@ -166,16 +166,16 @@ pub struct GetObjectAnnotationOutputBuilder {
 }
 impl GetObjectAnnotationOutputBuilder {
     /// <p>The annotation payload.</p>
-    pub fn annotation_payload(mut self, input: crate::primitives::ByteStream) -> Self {
+    pub fn annotation_payload(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
         self.annotation_payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_annotation_payload(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+    pub fn set_annotation_payload(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.annotation_payload = input;
         self
     }
     /// <p>The annotation payload.</p>
-    pub fn get_annotation_payload(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+    pub fn get_annotation_payload(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.annotation_payload
     }
     /// <p>The version ID of the object that the annotation is attached to.</p>

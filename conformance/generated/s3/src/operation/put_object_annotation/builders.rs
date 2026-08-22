@@ -31,7 +31,7 @@ impl Builder {
         self.input.annotation_name = Some(value.into());
         self
     }
-    pub fn annotation_payload(mut self, value: impl ::std::convert::Into<crate::primitives::ByteStream>) -> Self {
+    pub fn annotation_payload(mut self, value: impl ::std::convert::Into<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.input.annotation_payload = value.into();
         self
     }

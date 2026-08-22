@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetObjectOutput {
     /// <p>Object data.</p>
-    pub body: crate::primitives::ByteStream,
+    pub body: ::aws_smithy_types::byte_stream::ByteStream,
     /// <p>Indicates whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p><note><ul><li><p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was deleted and includes <code>x-amz-delete-marker: true</code> in the response.</p></li><li><p>If the specified version in the request is a delete marker, the response returns a <code>405 Method Not Allowed</code> error and the <code>Last-Modified: timestamp</code> response header.</p></li></ul></note>
     pub delete_marker: ::std::option::Option<bool>,
     /// <p>Indicates that a range of bytes was specified in the request.</p>
@@ -127,7 +127,7 @@ pub struct GetObjectOutput {
 }
 impl GetObjectOutput {
     /// <p>Object data.</p>
-    pub fn body(&self) -> &crate::primitives::ByteStream {
+    pub fn body(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
         &self.body
     }
     /// <p>Indicates whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p><note><ul><li><p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was deleted and includes <code>x-amz-delete-marker: true</code> in the response.</p></li><li><p>If the specified version in the request is a delete marker, the response returns a <code>405 Method Not Allowed</code> error and the <code>Last-Modified: timestamp</code> response header.</p></li></ul></note>
@@ -354,7 +354,7 @@ impl GetObjectOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetObjectOutputBuilder {
-    pub(crate) body: ::std::option::Option<crate::primitives::ByteStream>,
+    pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) delete_marker: ::std::option::Option<bool>,
     pub(crate) accept_ranges: ::std::option::Option<::std::string::String>,
     pub(crate) expiration: ::std::option::Option<::std::string::String>,
@@ -403,16 +403,16 @@ pub struct GetObjectOutputBuilder {
 }
 impl GetObjectOutputBuilder {
     /// <p>Object data.</p>
-    pub fn body(mut self, input: crate::primitives::ByteStream) -> Self {
+    pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+    pub fn set_body(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.body = input;
         self
     }
     /// <p>Object data.</p>
-    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+    pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.body
     }
     /// <p>Indicates whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p><note><ul><li><p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was deleted and includes <code>x-amz-delete-marker: true</code> in the response.</p></li><li><p>If the specified version in the request is a delete marker, the response returns a <code>405 Method Not Allowed</code> error and the <code>Last-Modified: timestamp</code> response header.</p></li></ul></note>

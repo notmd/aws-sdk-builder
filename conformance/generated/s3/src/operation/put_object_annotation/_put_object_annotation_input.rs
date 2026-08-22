@@ -14,7 +14,7 @@ pub struct PutObjectAnnotationInput {
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     pub annotation_name: ::std::option::Option<::std::string::String>,
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
-    pub annotation_payload: crate::primitives::ByteStream,
+    pub annotation_payload: ::aws_smithy_types::byte_stream::ByteStream,
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
     pub object_if_match: ::std::option::Option<::std::string::String>,
     /// <p>The checksum algorithm to use. Supported values: <code>CRC32</code>, <code>CRC32C</code>, <code>CRC64NVME</code>, <code>SHA1</code>, <code>SHA256</code>, <code>SHA512</code>, <code>MD5</code>, <code>XXHASH64</code>, <code>XXHASH3</code>, <code>XXHASH128</code>.</p>
@@ -64,7 +64,7 @@ impl PutObjectAnnotationInput {
         self.annotation_name.as_deref()
     }
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
-    pub fn annotation_payload(&self) -> &crate::primitives::ByteStream {
+    pub fn annotation_payload(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
         &self.annotation_payload
     }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
@@ -142,7 +142,7 @@ pub struct PutObjectAnnotationInputBuilder {
     pub(crate) key: ::std::option::Option<::std::string::String>,
     pub(crate) version_id: ::std::option::Option<::std::string::String>,
     pub(crate) annotation_name: ::std::option::Option<::std::string::String>,
-    pub(crate) annotation_payload: ::std::option::Option<crate::primitives::ByteStream>,
+    pub(crate) annotation_payload: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) object_if_match: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     pub(crate) checksum_crc32: ::std::option::Option<::std::string::String>,
@@ -219,16 +219,16 @@ impl PutObjectAnnotationInputBuilder {
     }
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
     /// This field is required.
-    pub fn annotation_payload(mut self, input: crate::primitives::ByteStream) -> Self {
+    pub fn annotation_payload(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
         self.annotation_payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_annotation_payload(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+    pub fn set_annotation_payload(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.annotation_payload = input;
         self
     }
     /// <p>The annotation payload. Must be between 1 byte and 1 MiB in size, and must be valid UTF-8 encoded text. If the payload contains invalid UTF-8 bytes, the request fails with HTTP 415 (Unsupported Media Type). To store binary data, encode the payload using Base64 before uploading.</p>
-    pub fn get_annotation_payload(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+    pub fn get_annotation_payload(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.annotation_payload
     }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>

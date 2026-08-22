@@ -23,7 +23,7 @@ impl Builder {
         self.input.request_token = Some(value.into());
         self
     }
-    pub fn body(mut self, value: impl ::std::convert::Into<crate::primitives::ByteStream>) -> Self {
+    pub fn body(mut self, value: impl ::std::convert::Into<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.input.body = value.into();
         self
     }

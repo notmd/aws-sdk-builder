@@ -1,6 +1,6 @@
 # aws-sdk-build status and audit
 
-Updated 2026-08-21. Prompt.md is the project specification.
+Updated 2026-08-22. Prompt.md is the project specification.
 
 ## Current implementation
 
@@ -30,8 +30,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 929 exact matches (14.27% arithmetic average),
-  with 2,654 mismatches, 2,878 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 952 exact matches (14.83% arithmetic average),
+  with 2,646 mismatches, 2,863 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -50,6 +50,38 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Model-driven primitive module closure and formatter audit
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now emits standalone primitive
+  reexports and child modules from selected model closure data: streaming models
+  receive the `ByteStream` aliases and event-stream module contents, while enum
+  models receive `sealed_enum_unknown`. Standalone streaming fields resolve to
+  `::aws_smithy_types::byte_stream::ByteStream`; consumer generation retains its
+  local primitive shim. Generated primitive files now match every corresponding
+  pinned reference file exactly.
+- Formatter audit: the pinned Smithy `ClientCodegenVisitor.execute()` finalizes a
+  generated crate with `cargo fmt -- --config max_width=150`. This implementation
+  uses `rustfmt --edition 2021 --config max_width=150,skip_children=true` per
+  snapshot file because conformance snapshots do not include a temporary Cargo
+  manifest; the resulting primitive files were byte-compared against the Smithy
+  output and matched exactly. The Smithy source was verified at
+  `/tmp/smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: `cargo fmt --all`, `cargo fmt --all -- --check`,
+  `cargo check -p aws-sdk-build`, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, `git diff --check`,
+  and `just conformance` completed. Conformance intentionally exits 1 because
+  parity remains incomplete.
+- Conformance: the previous checkpoint had `940` exact, `2,658` mismatches,
+  `2,863` missing, and `124` extra files overall; this checkpoint has `952`
+  exact, `2,646` mismatches, `2,863` missing, and `123` extra. S3 remains at
+  `247` exact / `585` mismatches / `512` missing / `0` extra. Exact coverage
+  increased by 12 files overall.
+- Blocker: modeled protocol behavior, endpoint/auth/retry/checksum support, and
+  the remaining missing source tree are still incomplete.
+- Next action: port the next shared modeled protocol/runtime source boundary while
+  preserving the Smithy-compatible formatter and model-driven primitive closure.
 
 ### Checkpoint: 2026-08-21 — Smithy rustfmt parity and modeled-error ordering
 

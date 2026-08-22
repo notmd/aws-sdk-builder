@@ -9,7 +9,7 @@ pub struct WriteGetObjectResponseInput {
     /// <p>A single use encrypted token that maps <code>WriteGetObjectResponse</code> to the end user <code>GetObject</code> request.</p>
     pub request_token: ::std::option::Option<::std::string::String>,
     /// <p>The object data.</p>
-    pub body: crate::primitives::ByteStream,
+    pub body: ::aws_smithy_types::byte_stream::ByteStream,
     /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
     pub status_code: ::std::option::Option<i32>,
     /// <p>A string that uniquely identifies an error condition. Returned in the <Code>tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
@@ -114,7 +114,7 @@ impl WriteGetObjectResponseInput {
         self.request_token.as_deref()
     }
     /// <p>The object data.</p>
-    pub fn body(&self) -> &crate::primitives::ByteStream {
+    pub fn body(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
         &self.body
     }
     /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>
@@ -310,7 +310,7 @@ impl WriteGetObjectResponseInput {
 pub struct WriteGetObjectResponseInputBuilder {
     pub(crate) request_route: ::std::option::Option<::std::string::String>,
     pub(crate) request_token: ::std::option::Option<::std::string::String>,
-    pub(crate) body: ::std::option::Option<crate::primitives::ByteStream>,
+    pub(crate) body: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
     pub(crate) status_code: ::std::option::Option<i32>,
     pub(crate) error_code: ::std::option::Option<::std::string::String>,
     pub(crate) error_message: ::std::option::Option<::std::string::String>,
@@ -385,16 +385,16 @@ impl WriteGetObjectResponseInputBuilder {
         &self.request_token
     }
     /// <p>The object data.</p>
-    pub fn body(mut self, input: crate::primitives::ByteStream) -> Self {
+    pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+    pub fn set_body(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.body = input;
         self
     }
     /// <p>The object data.</p>
-    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+    pub fn get_body(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         &self.body
     }
     /// <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request. The following is a list of status codes.</p><ul><li><p><code>200 - OK</code></p></li><li><p><code>206 - Partial Content</code></p></li><li><p><code>304 - Not Modified</code></p></li><li><p><code>400 - Bad Request</code></p></li><li><p><code>401 - Unauthorized</code></p></li><li><p><code>403 - Forbidden</code></p></li><li><p><code>404 - Not Found</code></p></li><li><p><code>405 - Method Not Allowed</code></p></li><li><p><code>409 - Conflict</code></p></li><li><p><code>411 - Length Required</code></p></li><li><p><code>412 - Precondition Failed</code></p></li><li><p><code>416 - Range Not Satisfiable</code></p></li><li><p><code>500 - Internal Server Error</code></p></li><li><p><code>503 - Service Unavailable</code></p></li></ul>

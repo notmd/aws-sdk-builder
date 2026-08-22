@@ -98,7 +98,7 @@ impl Builder {
             ));
         }
         let mut output = super::_get_object_annotation_output::GetObjectAnnotationOutputBuilder::default();
-        output.annotation_payload = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
+        output.annotation_payload = Some(::aws_smithy_types::byte_stream::ByteStream::from(response.body().to_vec()));
         output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
         output.content_length = response.header("Content-Length").and_then(|value| value.parse().ok());
         output.e_tag = response.header("ETag").map(str::to_owned);

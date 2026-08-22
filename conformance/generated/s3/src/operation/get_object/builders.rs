@@ -184,7 +184,7 @@ impl Builder {
             ));
         }
         let mut output = super::_get_object_output::GetObjectOutputBuilder::default();
-        output.body = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
+        output.body = Some(::aws_smithy_types::byte_stream::ByteStream::from(response.body().to_vec()));
         output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
         output.accept_ranges = response.header("accept-ranges").map(str::to_owned);
         output.expiration = response.header("x-amz-expiration").map(str::to_owned);

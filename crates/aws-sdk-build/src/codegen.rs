@@ -49,7 +49,10 @@ pub(crate) fn generate(
                 "src/lib.rs".to_owned(),
                 render_service_lib(entry.key, &selected),
             ),
-            ("src/primitives.rs".to_owned(), render_primitives()),
+            (
+                "src/primitives.rs".to_owned(),
+                render_primitives(&selected, consumer_namespace),
+            ),
             ("src/config.rs".to_owned(), render_config_file()),
             ("src/error.rs".to_owned(), render_error_file()),
             ("src/meta.rs".to_owned(), render_meta(entry.key)),
@@ -74,6 +77,18 @@ pub(crate) fn generate(
                 render_client_file(entry.key, &selected),
             ),
         ];
+        if !consumer_namespace {
+            service_files.push((
+                "src/primitives/event_stream.rs".to_owned(),
+                render_event_stream_primitives(model_has_streaming(&selected)),
+            ));
+            if model_has_enum(&selected) {
+                service_files.push((
+                    "src/primitives/sealed_enum_unknown.rs".to_owned(),
+                    render_sealed_enum_unknown(),
+                ));
+            }
+        }
         if request_id_plan.extended {
             service_files.push(("src/s3_request_id.rs".to_owned(), render_s3_request_id()));
         }
@@ -238,7 +253,12 @@ fn normalize_source(source: &str) -> String {
 /// rustfmt configuration.
 fn format_rust_file(path: &Path) -> Result<(), BuildError> {
     let output = Command::new("rustfmt")
-        .args(["--edition", "2021", "--config", "max_width=150"])
+        .args([
+            "--edition",
+            "2021",
+            "--config",
+            "max_width=150,skip_children=true",
+        ])
         .arg(path)
         .output()
         .map_err(|error| BuildError::Rustfmt {
@@ -473,7 +493,36 @@ mod test {
     )
 }
 
-fn render_primitives() -> String {
+fn render_primitives(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    if !consumer_namespace {
+        let mut output = String::new();
+        client_operation_header(&mut output);
+        if model_has_streaming(selected) {
+            output.push_str(
+                "pub use ::aws_smithy_types::body::SdkBody;\n\
+                 pub use ::aws_smithy_types::byte_stream::error::Error as ByteStreamError;\n\
+                 pub use ::aws_smithy_types::byte_stream::AggregatedBytes;\n\
+                 pub use ::aws_smithy_types::byte_stream::ByteStream;\n\
+                 #[cfg(feature = \"rt-tokio\")]\n\
+                 pub use ::aws_smithy_types::byte_stream::FsBuilder;\n\
+                 #[cfg(feature = \"rt-tokio\")]\n\
+                 pub use ::aws_smithy_types::byte_stream::Length;\n\
+                 ",
+            );
+        }
+        output.push_str(
+            "pub use ::aws_smithy_types::date_time::Format as DateTimeFormat;\n\
+             pub use ::aws_smithy_types::Blob;\n\
+             pub use ::aws_smithy_types::DateTime;\n\
+             \n\
+             /// Event stream related primitives such as `Message` or `Header`.\n\
+             pub mod event_stream;\n",
+        );
+        if model_has_enum(selected) {
+            output.push_str("\npub(crate) mod sealed_enum_unknown;\n");
+        }
+        return output;
+    }
     let mut output = String::new();
     header(&mut output);
     output.push_str(
@@ -514,6 +563,66 @@ fn render_primitives() -> String {
                  }\n\
              }\n\
          }\n\n",
+    );
+    output
+}
+
+fn render_event_stream_primitives(has_streaming: bool) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    if has_streaming {
+        output.push_str(
+            "pub use crate::event_receiver::EventReceiver;\n\
+             pub use ::aws_smithy_http::event_stream::EventStreamSender;\n\
+             pub use ::aws_smithy_types::event_stream::Header;\n\
+             pub use ::aws_smithy_types::event_stream::HeaderValue;\n\
+             pub use ::aws_smithy_types::event_stream::Message;\n\
+             pub use ::aws_smithy_types::str_bytes::StrBytes;\n",
+        );
+    }
+    output
+}
+
+fn model_has_streaming(selected: &SelectedModel) -> bool {
+    selected.model.shapes.values().any(|shape| {
+        shape
+            .get("traits")
+            .and_then(Value::as_object)
+            .is_some_and(|traits| traits.contains_key("smithy.api#streaming"))
+    })
+}
+
+fn model_has_enum(selected: &SelectedModel) -> bool {
+    selected
+        .model
+        .shapes
+        .values()
+        .any(|shape| shape.get("type").and_then(Value::as_str) == Some("enum"))
+}
+
+fn render_sealed_enum_unknown() -> String {
+    let mut output = String::new();
+    header(&mut output);
+    output.push_str(
+        "/// Opaque struct used as inner data for the `Unknown` variant defined in enums in\n\
+         /// the crate.\n\
+         ///\n\
+         /// This is not intended to be used directly.\n\
+         #[non_exhaustive]\n\
+         #[derive(\n\
+             ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,\n\
+         )]\n\
+         pub struct UnknownVariantValue(pub(crate) ::std::string::String);\n\
+         impl UnknownVariantValue {\n\
+             pub(crate) fn as_str(&self) -> &str {\n\
+                 &self.0\n\
+             }\n\
+         }\n\
+         impl ::std::fmt::Display for UnknownVariantValue {\n\
+             fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {\n\
+                 write!(f, \"{}\", self.0)\n\
+             }\n\
+         }\n",
     );
     output
 }
@@ -1945,6 +2054,11 @@ fn render_response_decode(
 ) {
     let rust_operation = rust_type_name(operation_name);
     let request_id_plan = request_id_plan(selected);
+    let byte_stream_type = if consumer_namespace {
+        "super::super::super::primitives::ByteStream"
+    } else {
+        "::aws_smithy_types::byte_stream::ByteStream"
+    };
     let output_builder = format!(
         "super::_{}_output::{}OutputBuilder",
         names::snake_case(operation_name),
@@ -2058,7 +2172,7 @@ fn render_response_decode(
             {
                 if target_name == "StreamingBlob" {
                     output.push_str(&format!(
-                        "                         output.{field} = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));\n"
+                        "                         output.{field} = Some({byte_stream_type}::from(response.body().to_vec()));\n"
                     ));
                 } else if protocol == crate::model::ProtocolKind::RestXml {
                     render_xml_member_decode(
@@ -4139,14 +4253,14 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                 if consumer_namespace {
                     "super::primitives::ByteStream".to_owned()
                 } else {
-                    "crate::primitives::ByteStream".to_owned()
+                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
                 }
             }
             Context::Error { consumer_namespace } => {
                 if consumer_namespace {
                     "super::super::primitives::ByteStream".to_owned()
                 } else {
-                    "crate::primitives::ByteStream".to_owned()
+                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
                 }
             }
             Context::Operation {
@@ -4158,7 +4272,7 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                 if consumer_namespace {
                     "super::super::super::primitives::ByteStream".to_owned()
                 } else {
-                    "crate::primitives::ByteStream".to_owned()
+                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
                 }
             }
         };
@@ -4219,7 +4333,7 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
             if consumer_namespace {
                 "super::primitives::ByteStream".to_owned()
             } else {
-                "crate::primitives::ByteStream".to_owned()
+                "::aws_smithy_types::byte_stream::ByteStream".to_owned()
             }
         }
         Context::Types { .. } => {
@@ -4241,7 +4355,7 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                 if consumer_namespace {
                     "super::super::super::primitives::ByteStream".to_owned()
                 } else {
-                    "crate::primitives::ByteStream".to_owned()
+                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
                 }
             } else if name.ends_with("Input") {
                 if consumer_namespace {
@@ -4268,7 +4382,7 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
                 if consumer_namespace {
                     "super::super::super::primitives::ByteStream".to_owned()
                 } else {
-                    "crate::primitives::ByteStream".to_owned()
+                    "::aws_smithy_types::byte_stream::ByteStream".to_owned()
                 }
             } else if name.ends_with("Input") {
                 if consumer_namespace {

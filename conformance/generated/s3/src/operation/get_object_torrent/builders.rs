@@ -74,7 +74,7 @@ impl Builder {
             ));
         }
         let mut output = super::_get_object_torrent_output::GetObjectTorrentOutputBuilder::default();
-        output.body = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
+        output.body = Some(::aws_smithy_types::byte_stream::ByteStream::from(response.body().to_vec()));
         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
         Ok(output.build())
