@@ -88,6 +88,26 @@ pub(crate) fn generate(
                 render_client_customize_internal_file(&selected),
             ),
             (
+                "src/config/http.rs".to_owned(),
+                include_str!("../assets/config_http.rs").to_owned(),
+            ),
+            (
+                "src/config/interceptors.rs".to_owned(),
+                include_str!("../assets/config_interceptors.rs").to_owned(),
+            ),
+            (
+                "src/config/retry.rs".to_owned(),
+                include_str!("../assets/config_retry.rs").to_owned(),
+            ),
+            (
+                "src/config/timeout.rs".to_owned(),
+                include_str!("../assets/config_timeout.rs").to_owned(),
+            ),
+            (
+                "src/sdk_feature_tracker.rs".to_owned(),
+                include_str!("../assets/sdk_feature_tracker.rs").to_owned(),
+            ),
+            (
                 "src/serde_util.rs".to_owned(),
                 render_serde_util_file(&selected),
             ),
@@ -106,6 +126,17 @@ pub(crate) fn generate(
         }
         if request_id_plan.extended {
             service_files.push(("src/s3_request_id.rs".to_owned(), render_s3_request_id()));
+        }
+        if has_presignable_operations(&selected) {
+            service_files.push(("src/presigning.rs".to_owned(), render_presigning_file()));
+            service_files.push((
+                "src/presigning_interceptors.rs".to_owned(),
+                render_presigning_interceptors_file(),
+            ));
+            service_files.push((
+                "src/serialization_settings.rs".to_owned(),
+                render_serialization_settings_file(),
+            ));
         }
         if protocol == crate::model::ProtocolKind::RestXml {
             let (protocol_module, protocol_shape_files) = render_protocol_serde_files(&selected);
@@ -10888,6 +10919,27 @@ fn render_client_customize_file(selected: &SelectedModel) -> String {
             &format!("{presigned_method}\n}}\n\npub(crate) mod internal;"),
         );
     }
+    output
+}
+
+fn render_presigning_file() -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str(include_str!("../assets/presigning.rs"));
+    output
+}
+
+fn render_presigning_interceptors_file() -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str(include_str!("../assets/presigning_interceptors.rs"));
+    output
+}
+
+fn render_serialization_settings_file() -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str(include_str!("../assets/serialization_settings.rs"));
     output
 }
 

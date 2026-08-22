@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `489` matched · `219` mismatches · `376` missing · `0` extra · `45.11%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `494` matched · `219` mismatches · `371` missing · `0` extra · `45.57%` match (100.00% means fully matched)
 
 ### `src/client/create_function.rs`
 
@@ -17147,10 +17147,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client_idempotency_token.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
-- `src/config/http.rs`
-- `src/config/interceptors.rs`
-- `src/config/retry.rs`
-- `src/config/timeout.rs`
 - `src/endpoint_lib/bdd_interpreter.rs`
 - `src/endpoint_lib/diagnostic.rs`
 - `src/endpoint_lib/host.rs`
@@ -17510,7 +17506,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_wait_started_details.rs`
 - `src/protocol_serde/shape_wait_succeeded_details.rs`
 - `src/protocol_serde.rs`
-- `src/sdk_feature_tracker.rs`
 - `src/serialization_settings.rs`
 - `tests/blns/LICENSE`
 - `tests/blns/blns.txt`

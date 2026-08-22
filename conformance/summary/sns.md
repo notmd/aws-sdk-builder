@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `203` matched · `82` mismatches · `164` missing · `0` extra · `45.21%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `208` matched · `82` mismatches · `159` missing · `0` extra · `46.33%` match (100.00% means fully matched)
 
 ### `src/client/check_if_phone_number_is_opted_out.rs`
 
@@ -9618,10 +9618,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `README.md`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
-- `src/config/http.rs`
-- `src/config/interceptors.rs`
-- `src/config/retry.rs`
-- `src/config/timeout.rs`
 - `src/endpoint_lib/bdd_interpreter.rs`
 - `src/endpoint_lib/diagnostic.rs`
 - `src/endpoint_lib/host.rs`
@@ -9774,7 +9770,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_verify_sms_sandbox_phone_number_input.rs`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
-- `src/sdk_feature_tracker.rs`
 - `src/serialization_settings.rs`
 - `tests/endpoint_tests.rs`
 

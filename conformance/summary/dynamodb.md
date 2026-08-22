@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `903/903` files compared · `444` matched · `82` mismatches · `377` missing · `0` extra · `49.17%` match (100.00% means fully matched)
+**Progress:** `903/903` files compared · `449` matched · `82` mismatches · `372` missing · `0` extra · `49.72%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -10275,10 +10275,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client_idempotency_token.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
-- `src/config/http.rs`
-- `src/config/interceptors.rs`
-- `src/config/retry.rs`
-- `src/config/timeout.rs`
 - `src/endpoint_lib/arn.rs`
 - `src/endpoint_lib/bdd_interpreter.rs`
 - `src/endpoint_lib/coalesce.rs`
@@ -10625,7 +10621,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_write_request.rs`
 - `src/protocol_serde/shape_write_requests.rs`
 - `src/protocol_serde.rs`
-- `src/sdk_feature_tracker.rs`
 - `src/serialization_settings.rs`
 - `tests/account-based-endpoints.rs`
 - `tests/auth_scheme_error.rs`

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `129` matched · `48` mismatches · `122` missing · `0` extra · `43.14%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `134` matched · `48` mismatches · `117` missing · `0` extra · `44.82%` match (100.00% means fully matched)
 
 ### `src/client/cancel_message_move_task.rs`
 
@@ -5390,10 +5390,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/aws_query_compatible_errors.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
-- `src/config/http.rs`
-- `src/config/interceptors.rs`
-- `src/config/retry.rs`
-- `src/config/timeout.rs`
 - `src/endpoint_lib/bdd_interpreter.rs`
 - `src/endpoint_lib/diagnostic.rs`
 - `src/endpoint_lib/host.rs`
@@ -5502,7 +5498,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_untag_queue.rs`
 - `src/protocol_serde/shape_untag_queue_input.rs`
 - `src/protocol_serde.rs`
-- `src/sdk_feature_tracker.rs`
 - `src/serialization_settings.rs`
 - `tests/endpoint_tests.rs`
 - `tests/long-polling.rs`

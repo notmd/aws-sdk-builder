@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `152/152` files compared · `65` matched · `24` mismatches · `63` missing · `0` extra · `42.76%` match (100.00% means fully matched)
+**Progress:** `152/152` files compared · `70` matched · `24` mismatches · `58` missing · `0` extra · `46.05%` match (100.00% means fully matched)
 
 ### `src/client/assume_role.rs`
 
@@ -3879,10 +3879,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `README.md`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
-- `src/config/http.rs`
-- `src/config/interceptors.rs`
-- `src/config/retry.rs`
-- `src/config/timeout.rs`
 - `src/endpoint_lib/bdd_interpreter.rs`
 - `src/endpoint_lib/diagnostic.rs`
 - `src/endpoint_lib/host.rs`
@@ -3932,7 +3928,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_tag.rs`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
-- `src/sdk_feature_tracker.rs`
 - `src/serialization_settings.rs`
 - `tests/endpoint_tests.rs`
 - `tests/retry_idp_comms_err.rs`
