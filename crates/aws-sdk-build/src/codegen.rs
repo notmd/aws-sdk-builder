@@ -13306,7 +13306,11 @@ fn normalize_client_documentation(value: &str) -> String {
             continue;
         }
         if !whitespace_since_previous {
-            output.push_str(&documentation_implicit_gap(token, &stack));
+            output.push_str(&documentation_implicit_gap(
+                token,
+                &stack,
+                previous.as_ref(),
+            ));
         }
         match token {
             DocumentationToken::Tag(tag) => {
@@ -13315,9 +13319,18 @@ fn normalize_client_documentation(value: &str) -> String {
                         && let Some(opening_index) =
                             stack.iter().rposition(|current| current == &name)
                     {
+                        let mut auto_closed = false;
                         while stack.len() > opening_index + 1 {
+                            let pseudo_depth = stack
+                                .iter()
+                                .filter(|name| !documentation_known_tag(name))
+                                .count();
+                            if auto_closed && pseudo_depth > 0 {
+                                output.push_str(&" ".repeat(pseudo_depth + 4));
+                            }
                             let unclosed = stack.pop().expect("opening tag exists");
                             output.push_str(&format!("</{unclosed}>"));
+                            auto_closed = true;
                         }
                     }
                     output.push_str(&lowercase_documentation_tag(tag));
@@ -13380,6 +13393,12 @@ fn documentation_gap(
         return " ".to_owned();
     };
     if documentation_pseudo_parent(stack) {
+        if matches!(next, DocumentationToken::Text(_))
+            && previous.starts_with("</")
+            && documentation_is_inline(&previous_name)
+        {
+            return " ".to_owned();
+        }
         return match next {
             DocumentationToken::Tag(tag) if tag.starts_with("</") => " ".repeat(stack.len()),
             _ => " ".repeat(stack.len() + 1),
@@ -13464,8 +13483,29 @@ fn documentation_gap(
     }
 }
 
-fn documentation_implicit_gap(token: &DocumentationToken, stack: &[String]) -> String {
+fn documentation_implicit_gap(
+    token: &DocumentationToken,
+    stack: &[String],
+    previous: Option<&DocumentationToken>,
+) -> String {
     if !documentation_pseudo_parent(stack) {
+        return String::new();
+    }
+    if matches!(token, DocumentationToken::Tag(tag) if tag.starts_with("</"))
+        && previous.is_some_and(|previous| {
+            matches!(previous, DocumentationToken::Tag(previous) if !previous.starts_with("</")
+                && documentation_tag_name(previous)
+                    .is_some_and(|name| !documentation_known_tag(&name)))
+        })
+    {
+        return String::new();
+    }
+    if matches!(token, DocumentationToken::Text(_))
+        && previous.is_some_and(|previous| {
+            matches!(previous, DocumentationToken::Tag(tag) if tag.starts_with("</")
+                && documentation_tag_name(tag).is_some_and(|name| documentation_is_inline(&name)))
+        })
+    {
         return String::new();
     }
     match token {

@@ -4,6 +4,24 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Refine malformed inline HTML spacing
+
+- State: in progress
+- Changed: `codegen.rs` now suppresses duplicate indentation after a closed inline tag
+  inside a malformed pseudo-tag and emits Jsoup-style spacing while auto-closing nested
+  pseudo-tags. The rules remain model-driven and generic. Regenerated all eight
+  all-operation snapshots and conformance reports.
+- Evidence: compared the remaining S3 `Message` and pseudo-tag outputs with the pinned
+  Smithy-RS `RustWriter.kt` behavior at `/tmp/smithy-rs` commit `f1b64a9c0`; the latest
+  `just conformance` regenerated 8 snapshots and formatted 4,575 files.
+- Conformance: overall `3,881/693/1,887/1` -> `3,882/692/1,887/1`; S3
+  `1,248/9/87/0` -> `1,249/8/87/0` (matched/mismatched/missing/extra). Average
+  match increased to `56.07%`.
+- Blocker: shared service config/auth/endpoint runtime files, reference test/package
+  trees, and remaining nested-note/pseudo-tag spacing differences are still open.
+- Next action: run the verification suite, commit this normalizer refinement, then
+  begin the generic model-driven endpoint/auth/config runtime gap.
+
 ### Checkpoint: 2026-08-23 — Normalize malformed client HTML
 
 - State: in progress
