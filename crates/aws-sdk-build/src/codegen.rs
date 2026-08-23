@@ -45,6 +45,11 @@ pub(crate) fn generate(
         let request_id_plan = request_id_plan(&selected);
         let service_dir = generated.join(entry.key);
         let mut service_files = vec![
+            ("README.md".to_owned(), render_service_readme(&selected)),
+            (
+                "LICENSE".to_owned(),
+                include_str!("../assets/LICENSE").to_owned(),
+            ),
             (
                 "src/lib.rs".to_owned(),
                 render_service_lib(entry.key, &selected, consumer_namespace),
@@ -592,6 +597,60 @@ fn render_standalone_service_lib(selected: &SelectedModel) -> String {
 
     render_standalone_extra_modules(&mut output, selected, protocol);
     output.push_str("\n#[doc(inline)]\npub use client::Client;\n");
+    output
+}
+
+fn render_service_readme(selected: &SelectedModel) -> String {
+    let service = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .expect("selected service shape exists");
+    let crate_name = selected.model.entry.crate_name;
+    let module_name = selected.model.entry.module_name;
+    let module_alias = module_name.strip_prefix("aws_sdk_").unwrap_or(module_name);
+    let sdk_version = selected.model.entry.sdk_version.unwrap_or("0.0.0");
+    let description = service_crate_documentation(service)
+        .unwrap_or_else(|| service_title(selected))
+        .trim()
+        .to_owned();
+    let example_mode = if has_trait(service, "aws.auth#sigv4a") {
+        "ignore"
+    } else {
+        "no_run"
+    };
+    let mut output = String::new();
+    writeln!(output, "# {crate_name}\n").unwrap();
+    output.push_str(&description);
+    output.push_str(
+        "\n\n## Getting Started\n\n> Examples are available for many services and operations, check out the\n> [usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1).\n\nThe SDK provides one crate per AWS service. You must add [Tokio](https://crates.io/crates/tokio)\nas a dependency within your Rust project to execute asynchronous code. To add `",
+    );
+    output.push_str(crate_name);
+    output.push_str(
+        "` to\nyour project, add the following to your **Cargo.toml** file:\n\n```toml\n[dependencies]\naws-config = { version = \"1.1.7\", features = [\"behavior-version-latest\"] }\n",
+    );
+    writeln!(output, "{crate_name} = \"{sdk_version}\"\ntokio = {{ version = \"1\", features = [\"full\"] }}\n```").unwrap();
+    output.push_str("\nThen in code, a client can be created with the following:\n\n```rust,");
+    output.push_str(example_mode);
+    output.push_str("\nuse ");
+    output.push_str(module_name);
+    output.push_str(" as ");
+    output.push_str(module_alias);
+    output.push_str(";\n\n#[::tokio::main]\nasync fn main() -> Result<(), ");
+    output.push_str(module_alias);
+    output.push_str(
+        "::Error> {\n    let config = aws_config::load_from_env().await;\n    let client = ",
+    );
+    output.push_str(module_name);
+    output.push_str(
+        "::Client::new(&config);\n\n    // ... make some calls with the client\n\n    Ok(())\n}\n```\n\nSee the [client documentation](https://docs.rs/",
+    );
+    output.push_str(crate_name);
+    output.push_str("/latest/");
+    output.push_str(module_name);
+    output.push_str(
+        "/client/struct.Client.html)\nfor information on what calls can be made, and the inputs and outputs for each of those calls.\n\n## Using the SDK\n\nUntil the SDK is released, we will be adding information about using the SDK to the\n[Developer Guide](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/welcome.html). Feel free to suggest\nadditional sections for the guide by opening an issue and describing what you are trying to do.\n\n## Getting Help\n\n* [GitHub discussions](https://github.com/awslabs/aws-sdk-rust/discussions) - For ideas, RFCs & general questions\n* [GitHub issues](https://github.com/awslabs/aws-sdk-rust/issues/new/choose) - For bug reports & feature requests\n* [Generated Docs (latest version)](https://awslabs.github.io/aws-sdk-rust/)\n* [Usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1)\n\n## License\n\nThis project is licensed under the Apache-2.0 License.\n",
+    );
     output
 }
 

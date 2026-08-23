@@ -4,6 +4,28 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Emit generic package README and license metadata
+
+- State: in progress
+- Changed: `codegen.rs` now emits the model-derived service README and shared Apache
+  license asset for every standalone generated crate. README crate names, versions,
+  descriptions, module aliases, and SigV4a example mode come from the selected model
+  and registry metadata; no service-name branch was added.
+- Evidence: the license asset is byte-identical to the pinned reference license;
+  `just conformance` regenerated 8 all-operation snapshots and formatted 4,653
+  generated Rust files. All 16 generated README/LICENSE files are exact.
+- Conformance: overall `3,978/674/1,809/1` -> `3,994/674/1,793/1`; S3
+  `1,281/0/63/0` -> `1,283/0/61/0` (matched/mismatched/missing/extra). The combined
+  mismatch-plus-missing diff shrank from 2,483 to 2,467 files.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance
+  generation and comparison completed; the recipe still exits 1 because parity remains
+  incomplete.
+- Blocker: generated package manifests and the reference test/data tree remain missing;
+  S3 has no source mismatches after this checkpoint.
+- Next action: commit this metadata checkpoint, then implement generic
+  model/capability-driven `Cargo.toml` rendering.
+
 ### Checkpoint: 2026-08-23 — Add model-driven standalone runtime modules
 
 - State: in progress

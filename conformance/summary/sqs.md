@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `156` matched · `35` mismatches · `108` missing · `0` extra · `52.17%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `158` matched · `35` mismatches · `106` missing · `0` extra · `52.84%` match (100.00% means fully matched)
 
 ### `src/client/change_message_visibility.rs`
 
@@ -2250,8 +2250,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Missing reference files
 
 - `Cargo.toml`
-- `LICENSE`
-- `README.md`
 - `src/aws_query_compatible_errors.rs`
 - `src/json_errors.rs`
 - `src/long_polling.rs`

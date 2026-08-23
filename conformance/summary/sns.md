@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `236` matched · `63` mismatches · `150` missing · `0` extra · `52.56%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `238` matched · `63` mismatches · `148` missing · `0` extra · `53.01%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -5366,8 +5366,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Missing reference files
 
 - `Cargo.toml`
-- `LICENSE`
-- `README.md`
 - `src/protocol_serde/shape_add_permission.rs`
 - `src/protocol_serde/shape_add_permission_input.rs`
 - `src/protocol_serde/shape_authorization_error_exception.rs`
