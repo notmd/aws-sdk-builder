@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `865` matched · `234` mismatches · `532` missing · `0` extra · `53.03%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `867` matched · `232` mismatches · `532` missing · `0` extra · `53.16%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -8113,28 +8113,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/disable_organizations_root_credentials_management/builders.rs`
-
-```diff
---- reference/src/operation/disable_organizations_root_credentials_management/builders.rs
-+++ generated/src/operation/disable_organizations_root_credentials_management/builders.rs
-@@ -85,10 +85,10 @@
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-         let runtime_plugins = crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagement::operation_runtime_plugins(
--                            self.handle.runtime_plugins.clone(),
--                            &self.handle.conf,
--                            self.config_override,
--                        );
-+            self.handle.runtime_plugins.clone(),
-+            &self.handle.conf,
-+            self.config_override,
-+        );
-         crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagement::orchestrate(
-             &runtime_plugins,
-             input,
-```
-
 ### `src/operation/disable_organizations_root_credentials_management.rs`
 
 ```diff
@@ -8806,28 +8784,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::enable_mfa_device::EnableMFADeviceError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/enable_organizations_root_credentials_management/builders.rs`
-
-```diff
---- reference/src/operation/enable_organizations_root_credentials_management/builders.rs
-+++ generated/src/operation/enable_organizations_root_credentials_management/builders.rs
-@@ -91,10 +91,10 @@
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-         let runtime_plugins = crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagement::operation_runtime_plugins(
--                            self.handle.runtime_plugins.clone(),
--                            &self.handle.conf,
--                            self.config_override,
--                        );
-+            self.handle.runtime_plugins.clone(),
-+            &self.handle.conf,
-+            self.config_override,
-+        );
-         crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagement::orchestrate(
-             &runtime_plugins,
-             input,
 ```
 
 ### `src/operation/enable_organizations_root_credentials_management.rs`

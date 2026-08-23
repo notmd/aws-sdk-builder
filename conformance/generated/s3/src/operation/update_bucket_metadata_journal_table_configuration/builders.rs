@@ -106,10 +106,10 @@ impl UpdateBucketMetadataJournalTableConfigurationFluentBuilder {
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
         let runtime_plugins = crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfiguration::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
         crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfiguration::orchestrate(
             &runtime_plugins,
             input,

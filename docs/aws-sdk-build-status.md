@@ -4,6 +4,31 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Match long operation-builder templates
+
+- State: in progress
+- Changed: `codegen.rs` now derives Smithy-RS long-template indentation from rendered
+  field and runtime-plugin expression widths. Builder fields whose modeled input path
+  crosses the 150-column threshold and runtime-plugin calls whose rendered path is
+  long now retain the pinned writer's continuation and closing indentation. No
+  service- or operation-name branch was added. Regenerated all eight all-operation
+  snapshots.
+- Evidence: compared the rule with the pinned Smithy-RS checkout at `/tmp/smithy-rs`
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance` generated 8
+  snapshots and formatted 4,583 Rust files. All five affected S3/IAM builder files
+  are now exact.
+- Conformance: overall `3,897/685/1,879/1` -> `3,902/680/1,879/1`; S3
+  `1,254/4/86/0` -> `1,257/1/86/0` (matched/mismatched/missing/extra). Average
+  match increased from `56.38%` to `56.43%`. The recipe still exits 1 because
+  parity remains incomplete.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Blocker: S3 `src/config.rs` remains the only S3 mismatch; shared config/endpoint/
+  runtime surfaces, reference package/test trees, and broader missing files remain.
+- Next action: compare the generic `render_config_file` output with the pinned
+  Smithy-RS config/runtime generators and implement the first model-driven shared
+  config layer.
+
 ### Checkpoint: 2026-08-23 — Match nested custom-tag documentation gaps
 
 - State: in progress

@@ -85,10 +85,10 @@ impl DisableOrganizationsRootCredentialsManagementFluentBuilder {
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
         let runtime_plugins = crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagement::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+                            self.handle.runtime_plugins.clone(),
+                            &self.handle.conf,
+                            self.config_override,
+                        );
         crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagement::orchestrate(
             &runtime_plugins,
             input,

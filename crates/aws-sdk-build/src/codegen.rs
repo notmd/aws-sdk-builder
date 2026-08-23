@@ -6780,6 +6780,26 @@ fn render_standalone_fluent_operation_builder_file(
         format!("crate::operation::{module}::builders::{operation_type}InputBuilder");
     let output_path = format!("crate::operation::{module}::{operation_type}Output");
     let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let long_builder_field = 4 + "inner: ".len() + input_builder_path.len() + 1 > 150;
+    let (field_indent, config_indent, struct_close_indent) = if long_builder_field {
+        ("                ", "", "            ")
+    } else {
+        ("    ", "    ", "")
+    };
+    let operation_runtime_plugins_path =
+        format!("crate::operation::{module}::{operation_type}::operation_runtime_plugins");
+    let long_runtime_plugin_call =
+        format!("        let runtime_plugins = {operation_runtime_plugins_path}(").len() > 150;
+    let runtime_plugin_argument_indent = if long_runtime_plugin_call {
+        "                            "
+    } else {
+        "            "
+    };
+    let runtime_plugin_close_indent = if long_runtime_plugin_call {
+        "                        "
+    } else {
+        "        "
+    };
     let input_shape = operation
         .get("input")
         .and_then(target_value)
@@ -6814,7 +6834,7 @@ fn render_standalone_fluent_operation_builder_file(
     }
     writeln!(
         output,
-        "pub struct {operation_type}FluentBuilder {{\n    handle: ::std::sync::Arc<crate::client::Handle>,\n    inner: {input_builder_path},\n    config_override: ::std::option::Option<crate::config::Builder>,\n}}"
+        "pub struct {operation_type}FluentBuilder {{\n{field_indent}handle: ::std::sync::Arc<crate::client::Handle>,\n{field_indent}inner: {input_builder_path},\n{config_indent}config_override: ::std::option::Option<crate::config::Builder>,\n{struct_close_indent}}}"
     )
     .unwrap();
     writeln!(
@@ -6832,7 +6852,7 @@ fn render_standalone_fluent_operation_builder_file(
     );
     writeln!(
         output,
-        "        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let input = self\n            .inner\n            .build()\n            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;\n        let runtime_plugins = crate::operation::{module}::{operation_type}::operation_runtime_plugins(\n            self.handle.runtime_plugins.clone(),\n            &self.handle.conf,\n            self.config_override,\n        );\n        crate::operation::{module}::{operation_type}::orchestrate(&runtime_plugins, input).await\n    }}\n\n    /// Consumes this builder, creating a customizable operation that can be modified before being sent.\n    pub fn customize(\n        self,\n    ) -> crate::client::customize::CustomizableOperation<\n        {output_path},\n        {error_path},\n        Self,\n    > {{\n        crate::client::customize::CustomizableOperation::new(self)\n    }}\n    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {{\n        self.set_config_override(::std::option::Option::Some(config_override.into()));\n        self\n    }}\n\n    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {{\n        self.config_override = config_override;\n        self\n    }}"
+        "        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let input = self\n            .inner\n            .build()\n            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;\n        let runtime_plugins = {operation_runtime_plugins_path}(\n{runtime_plugin_argument_indent}self.handle.runtime_plugins.clone(),\n{runtime_plugin_argument_indent}&self.handle.conf,\n{runtime_plugin_argument_indent}self.config_override,\n{runtime_plugin_argument_indent});\n        crate::operation::{module}::{operation_type}::orchestrate(&runtime_plugins, input).await\n    }}\n\n    /// Consumes this builder, creating a customizable operation that can be modified before being sent.\n    pub fn customize(\n        self,\n    ) -> crate::client::customize::CustomizableOperation<\n        {output_path},\n        {error_path},\n        Self,\n    > {{\n        crate::client::customize::CustomizableOperation::new(self)\n    }}\n    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {{\n        self.set_config_override(::std::option::Option::Some(config_override.into()));\n        self\n    }}\n\n    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {{\n        self.config_override = config_override;\n        self\n    }}"
     )
     .unwrap();
     if operation_pagination_info(selected, operation_name).is_some() {
@@ -6857,6 +6877,15 @@ fn render_standalone_fluent_operation_builder_file(
         }
     }
     output.push_str("}\n");
+    if long_runtime_plugin_call {
+        let call_suffix = format!(
+            "{runtime_plugin_argument_indent});\n        crate::operation::{module}::{operation_type}::orchestrate"
+        );
+        let corrected_suffix = format!(
+            "{runtime_plugin_close_indent});\n        crate::operation::{module}::{operation_type}::orchestrate"
+        );
+        output = output.replacen(&call_suffix, &corrected_suffix, 1);
+    }
     if operation_is_presignable(selected, operation) {
         writeln!(
             output,
