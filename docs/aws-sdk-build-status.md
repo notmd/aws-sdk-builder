@@ -4,6 +4,29 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Match correction dependency waves
+
+- State: in progress
+- Changed: `codegen.rs` now models Smithy-RS inline correction discovery with
+  model-derived protocol role waves. It keeps operation-output corrections first,
+  preserves required nested correction dependencies, filters shared corrections to
+  deserializer-reachable structures, retains both serialize/deserialize states while
+  discovering lazy dependencies, and deduplicates repeated correction names such as
+  SNS validation exceptions.
+- Evidence: inspected the pinned Smithy-RS `ProtocolFunctions.kt`,
+  `CodegenDelegator.kt`, `ErrorCorrection.kt`, and `ClientBuilderInstantiator.kt`.
+  `just conformance` regenerated 8 all-operation snapshots and formatted 4,575
+  generated Rust files; it exits 1 because broader parity remains incomplete.
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  formatting, and `git diff --check` pass.
+- Conformance: overall `3,697/877/1,887/1` -> `3,702/872/1,887/1`; S3
+  `1,230/27/87/0` -> `1,231/26/87/0` (matched/mismatched/missing/extra).
+  DynamoDB, S3, SNS, SQS, and STS serde-util snapshots are now exact.
+- Blocker: shared client/runtime/package-tree gaps and remaining IAM/Lambda serde
+  ordering plus unrelated source mismatches remain.
+- Next action: reconcile the remaining generic IAM/Lambda correction ordering without
+  regressing the five services whose serde-util snapshots are now exact.
+
 ### Checkpoint: 2026-08-23 — Match Rest XML lazy protocol dependency ordering
 
 - State: in progress

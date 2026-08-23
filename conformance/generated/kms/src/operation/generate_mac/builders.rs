@@ -118,19 +118,19 @@ impl GenerateMacFluentBuilder {
     }
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn message(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn message(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.message(input);
         self
     }
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_message(input);
         self
     }
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_message(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_message()
     }
     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>

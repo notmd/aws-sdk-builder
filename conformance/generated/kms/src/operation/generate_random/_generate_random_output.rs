@@ -5,21 +5,21 @@
 pub struct GenerateRandomOutput {
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
-    pub plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     _request_id: Option<String>,
 }
 impl GenerateRandomOutput {
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
-    pub fn plaintext(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn plaintext(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.plaintext.as_ref()
     }
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.ciphertext_for_recipient.as_ref()
     }
 }
@@ -48,43 +48,43 @@ impl GenerateRandomOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct GenerateRandomOutputBuilder {
-    pub(crate) plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     _request_id: Option<String>,
 }
 impl GenerateRandomOutputBuilder {
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
-    pub fn plaintext(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn plaintext(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.plaintext = ::std::option::Option::Some(input);
         self
     }
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
-    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.plaintext = input;
         self
     }
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>
-    pub fn get_plaintext(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_plaintext(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.plaintext
     }
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn ciphertext_for_recipient(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn ciphertext_for_recipient(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.ciphertext_for_recipient = ::std::option::Option::Some(input);
         self
     }
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_for_recipient = input;
         self
     }
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.ciphertext_for_recipient
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

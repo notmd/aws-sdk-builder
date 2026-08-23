@@ -7,9 +7,9 @@ pub struct VirtualMfaDevice {
     /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
     pub serial_number: ::std::string::String,
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub base32_string_seed: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub base32_string_seed: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub qr_code_png: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub qr_code_png: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The IAM user associated with this virtual MFA device.</p>
     pub user: ::std::option::Option<crate::types::User>,
     /// <p>The date and time on which the virtual MFA device was enabled.</p>
@@ -24,11 +24,11 @@ impl VirtualMfaDevice {
         self.serial_number.deref()
     }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub fn base32_string_seed(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn base32_string_seed(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.base32_string_seed.as_ref()
     }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub fn qr_code_png(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn qr_code_png(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.qr_code_png.as_ref()
     }
     /// <p>The IAM user associated with this virtual MFA device.</p>
@@ -70,8 +70,8 @@ impl VirtualMfaDevice {
 #[non_exhaustive]
 pub struct VirtualMfaDeviceBuilder {
     pub(crate) serial_number: ::std::option::Option<::std::string::String>,
-    pub(crate) base32_string_seed: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) qr_code_png: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) base32_string_seed: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) qr_code_png: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) user: ::std::option::Option<crate::types::User>,
     pub(crate) enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
@@ -93,31 +93,31 @@ impl VirtualMfaDeviceBuilder {
         &self.serial_number
     }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub fn base32_string_seed(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn base32_string_seed(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.base32_string_seed = ::std::option::Option::Some(input);
         self
     }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.base32_string_seed = input;
         self
     }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub fn get_base32_string_seed(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_base32_string_seed(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.base32_string_seed
     }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub fn qr_code_png(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn qr_code_png(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.qr_code_png = ::std::option::Option::Some(input);
         self
     }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.qr_code_png = input;
         self
     }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub fn get_qr_code_png(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_qr_code_png(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.qr_code_png
     }
     /// <p>The IAM user associated with this virtual MFA device.</p>

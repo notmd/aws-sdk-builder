@@ -13,7 +13,7 @@ pub struct SignOutput {
     /// <p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>. This is the most commonly used signature format and is appropriate for most uses.</p></li>
     /// </ul>
     /// <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub signature: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub signature: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The signing algorithm that was used to sign the message.</p>
     pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
     _request_id: Option<String>,
@@ -31,7 +31,7 @@ impl SignOutput {
     /// <p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>. This is the most commonly used signature format and is appropriate for most uses.</p></li>
     /// </ul>
     /// <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn signature(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn signature(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.signature.as_ref()
     }
     /// <p>The signing algorithm that was used to sign the message.</p>
@@ -56,7 +56,7 @@ impl SignOutput {
 #[non_exhaustive]
 pub struct SignOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) signature: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) signature: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
     _request_id: Option<String>,
 }
@@ -83,7 +83,7 @@ impl SignOutputBuilder {
     /// <p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>. This is the most commonly used signature format and is appropriate for most uses.</p></li>
     /// </ul>
     /// <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn signature(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn signature(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.signature = ::std::option::Option::Some(input);
         self
     }
@@ -95,7 +95,7 @@ impl SignOutputBuilder {
     /// <p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>. This is the most commonly used signature format and is appropriate for most uses.</p></li>
     /// </ul>
     /// <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_signature(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_signature(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.signature = input;
         self
     }
@@ -107,7 +107,7 @@ impl SignOutputBuilder {
     /// <p>When used with the <code>ECDSA_SHA_256</code>, <code>ECDSA_SHA_384</code>, or <code>ECDSA_SHA_512</code> signing algorithms, this value is a DER-encoded object as defined by ANSI X9.62–2005 and <a href="https://tools.ietf.org/html/rfc3279#section-2.2.3">RFC 3279 Section 2.2.3</a>. This is the most commonly used signature format and is appropriate for most uses.</p></li>
     /// </ul>
     /// <p>When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn get_signature(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_signature(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.signature
     }
     /// <p>The signing algorithm that was used to sign the message.</p>

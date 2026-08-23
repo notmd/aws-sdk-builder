@@ -5,7 +5,7 @@
 pub struct DecryptInput {
     /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p>
     /// <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -49,7 +49,7 @@ pub struct DecryptInput {
 impl DecryptInput {
     /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn ciphertext_blob(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn ciphertext_blob(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.ciphertext_blob.as_ref()
     }
     /// <p>Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p>
@@ -121,7 +121,7 @@ impl DecryptInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DecryptInputBuilder {
-    pub(crate) ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
@@ -133,19 +133,19 @@ pub struct DecryptInputBuilder {
 impl DecryptInputBuilder {
     /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn ciphertext_blob(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn ciphertext_blob(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
     /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_blob = input;
         self
     }
     /// <p>Ciphertext to be decrypted. The blob includes metadata.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.ciphertext_blob
     }
     /// Adds a key-value pair to `encryption_context`.

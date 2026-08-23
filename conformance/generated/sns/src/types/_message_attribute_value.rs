@@ -10,7 +10,7 @@ pub struct MessageAttributeValue {
     /// <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
     pub string_value: ::std::option::Option<::std::string::String>,
     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
-    pub binary_value: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub binary_value: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl MessageAttributeValue {
     /// <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
@@ -23,7 +23,7 @@ impl MessageAttributeValue {
         self.string_value.as_deref()
     }
     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
-    pub fn binary_value(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn binary_value(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.binary_value.as_ref()
     }
 }
@@ -40,7 +40,7 @@ impl MessageAttributeValue {
 pub struct MessageAttributeValueBuilder {
     pub(crate) data_type: ::std::option::Option<::std::string::String>,
     pub(crate) string_value: ::std::option::Option<::std::string::String>,
-    pub(crate) binary_value: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) binary_value: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl MessageAttributeValueBuilder {
     /// <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
@@ -73,17 +73,17 @@ impl MessageAttributeValueBuilder {
         &self.string_value
     }
     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
-    pub fn binary_value(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn binary_value(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.binary_value = ::std::option::Option::Some(input);
         self
     }
     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
-    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.binary_value = input;
         self
     }
     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
-    pub fn get_binary_value(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_binary_value(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.binary_value
     }
     /// Consumes the builder and constructs a [`MessageAttributeValue`](crate::types::MessageAttributeValue).

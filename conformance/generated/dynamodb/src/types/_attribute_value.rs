@@ -8,13 +8,13 @@
 pub enum AttributeValue {
     /// <p>An attribute of type Binary. For example:</p>
     /// <p><code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code></p>
-    B(::std::vec::Vec<u8>),
+    B(::aws_smithy_types::Blob),
     /// <p>An attribute of type Boolean. For example:</p>
     /// <p><code>"BOOL": true</code></p>
     Bool(bool),
     /// <p>An attribute of type Binary Set. For example:</p>
     /// <p><code>"BS": \["U3Vubnk=", "UmFpbnk=", "U25vd3k="\]</code></p>
-    Bs(::std::vec::Vec<::std::vec::Vec<u8>>),
+    Bs(::std::vec::Vec<::aws_smithy_types::Blob>),
     /// <p>An attribute of type List. For example:</p>
     /// <p><code>"L": \[ {"S": "Cookies"} , {"S": "Coffee"}, {"N": "3.14159"}\]</code></p>
     L(::std::vec::Vec<crate::types::AttributeValue>),
@@ -49,9 +49,9 @@ pub enum AttributeValue {
     Unknown,
 }
 impl AttributeValue {
-    /// Tries to convert the enum instance into [`B`](crate::types::AttributeValue::B), extracting the inner [`Blob`](::std::vec::Vec<u8>).
+    /// Tries to convert the enum instance into [`B`](crate::types::AttributeValue::B), extracting the inner [`Blob`](::aws_smithy_types::Blob).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_b(&self) -> ::std::result::Result<&::std::vec::Vec<u8>, &Self> {
+    pub fn as_b(&self) -> ::std::result::Result<&::aws_smithy_types::Blob, &Self> {
         if let AttributeValue::B(val) = &self {
             ::std::result::Result::Ok(val)
         } else {
@@ -75,9 +75,9 @@ impl AttributeValue {
     pub fn is_bool(&self) -> bool {
         self.as_bool().is_ok()
     }
-    /// Tries to convert the enum instance into [`Bs`](crate::types::AttributeValue::Bs), extracting the inner [`Vec::<Blob>`](::std::vec::Vec<::std::vec::Vec<u8>>).
+    /// Tries to convert the enum instance into [`Bs`](crate::types::AttributeValue::Bs), extracting the inner [`Vec::<Blob>`](::std::vec::Vec<::aws_smithy_types::Blob>).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_bs(&self) -> ::std::result::Result<&::std::vec::Vec<::std::vec::Vec<u8>>, &Self> {
+    pub fn as_bs(&self) -> ::std::result::Result<&::std::vec::Vec<::aws_smithy_types::Blob>, &Self> {
         if let AttributeValue::Bs(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

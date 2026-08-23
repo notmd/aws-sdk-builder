@@ -170,19 +170,19 @@ impl SignFluentBuilder {
     }
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub fn message(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn message(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.message(input);
         self
     }
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_message(input);
         self
     }
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_message(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_message()
     }
     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>

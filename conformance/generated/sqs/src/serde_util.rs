@@ -44,15 +44,6 @@ pub(crate) fn send_message_batch_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn change_message_visibility_batch_result_entry_correct_errors(
-    mut builder: crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder,
-) -> crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder {
-    if builder.id.is_none() {
-        builder.id = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn batch_result_error_entry_correct_errors(
     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
 ) -> crate::types::builders::BatchResultErrorEntryBuilder {
@@ -68,20 +59,20 @@ pub(crate) fn batch_result_error_entry_correct_errors(
     builder
 }
 
-pub(crate) fn delete_message_batch_result_entry_correct_errors(
-    mut builder: crate::types::builders::DeleteMessageBatchResultEntryBuilder,
-) -> crate::types::builders::DeleteMessageBatchResultEntryBuilder {
+pub(crate) fn change_message_visibility_batch_result_entry_correct_errors(
+    mut builder: crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder,
+) -> crate::types::builders::ChangeMessageVisibilityBatchResultEntryBuilder {
     if builder.id.is_none() {
         builder.id = Some(Default::default())
     }
     builder
 }
 
-pub(crate) fn message_attribute_value_correct_errors(
-    mut builder: crate::types::builders::MessageAttributeValueBuilder,
-) -> crate::types::builders::MessageAttributeValueBuilder {
-    if builder.data_type.is_none() {
-        builder.data_type = Some(Default::default())
+pub(crate) fn delete_message_batch_result_entry_correct_errors(
+    mut builder: crate::types::builders::DeleteMessageBatchResultEntryBuilder,
+) -> crate::types::builders::DeleteMessageBatchResultEntryBuilder {
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
     }
     builder
 }
@@ -97,6 +88,15 @@ pub(crate) fn send_message_batch_result_entry_correct_errors(
     }
     if builder.md5_of_message_body.is_none() {
         builder.md5_of_message_body = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn message_attribute_value_correct_errors(
+    mut builder: crate::types::builders::MessageAttributeValueBuilder,
+) -> crate::types::builders::MessageAttributeValueBuilder {
+    if builder.data_type.is_none() {
+        builder.data_type = Some(Default::default())
     }
     builder
 }

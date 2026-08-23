@@ -10,7 +10,7 @@ pub struct InvokeOutput {
     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
     pub log_result: ::std::option::Option<::std::string::String>,
     /// <p>The response from the function, or an error object.</p>
-    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub executed_version: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.</p>
@@ -31,7 +31,7 @@ impl InvokeOutput {
         self.log_result.as_deref()
     }
     /// <p>The response from the function, or an error object.</p>
-    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.payload.as_ref()
     }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
@@ -75,7 +75,7 @@ pub struct InvokeOutputBuilder {
     pub(crate) status_code: ::std::option::Option<i32>,
     pub(crate) function_error: ::std::option::Option<::std::string::String>,
     pub(crate) log_result: ::std::option::Option<::std::string::String>,
-    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -124,17 +124,17 @@ impl InvokeOutputBuilder {
         &self.log_result
     }
     /// <p>The response from the function, or an error object.</p>
-    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The response from the function, or an error object.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.payload = input;
         self
     }
     /// <p>The response from the function, or an error object.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.payload
     }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>

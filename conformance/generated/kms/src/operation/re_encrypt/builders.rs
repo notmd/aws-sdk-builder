@@ -141,19 +141,19 @@ impl ReEncryptFluentBuilder {
     }
     /// <p>Ciphertext of the data to reencrypt.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn ciphertext_blob(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn ciphertext_blob(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.ciphertext_blob(input);
         self
     }
     /// <p>Ciphertext of the data to reencrypt.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_ciphertext_blob(input);
         self
     }
     /// <p>Ciphertext of the data to reencrypt.</p>
     /// <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>
-    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_ciphertext_blob()
     }
     ///

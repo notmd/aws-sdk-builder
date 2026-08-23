@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetCredentialReportOutput {
     /// <p>Contains the credential report. The report is Base64-encoded.</p>
-    pub content: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub content: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The format (MIME type) of the credential report.</p>
     pub report_format: ::std::option::Option<crate::types::ReportFormatType>,
     /// <p>The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
@@ -14,7 +14,7 @@ pub struct GetCredentialReportOutput {
 }
 impl GetCredentialReportOutput {
     /// <p>Contains the credential report. The report is Base64-encoded.</p>
-    pub fn content(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn content(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.content.as_ref()
     }
     /// <p>The format (MIME type) of the credential report.</p>
@@ -42,24 +42,24 @@ impl GetCredentialReportOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetCredentialReportOutputBuilder {
-    pub(crate) content: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) content: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) report_format: ::std::option::Option<crate::types::ReportFormatType>,
     pub(crate) generated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     _request_id: Option<String>,
 }
 impl GetCredentialReportOutputBuilder {
     /// <p>Contains the credential report. The report is Base64-encoded.</p>
-    pub fn content(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn content(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.content = ::std::option::Option::Some(input);
         self
     }
     /// <p>Contains the credential report. The report is Base64-encoded.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_content(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.content = input;
         self
     }
     /// <p>Contains the credential report. The report is Base64-encoded.</p>
-    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_content(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.content
     }
     /// <p>The format (MIME type) of the credential report.</p>

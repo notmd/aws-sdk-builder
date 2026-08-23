@@ -5,7 +5,7 @@
 pub struct GenerateMacInput {
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub message: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub message: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
     /// <p>To identify an HMAC KMS key, use the <code>DescribeKey</code> operation and see the <code>KeySpec</code> field in the response.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
@@ -22,7 +22,7 @@ pub struct GenerateMacInput {
 impl GenerateMacInput {
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn message(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn message(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.message.as_ref()
     }
     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
@@ -70,7 +70,7 @@ impl GenerateMacInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct GenerateMacInputBuilder {
-    pub(crate) message: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) message: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -80,19 +80,19 @@ impl GenerateMacInputBuilder {
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
     /// This field is required.
-    pub fn message(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn message(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.message = ::std::option::Option::Some(input);
         self
     }
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.message = input;
         self
     }
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <code>VerifyMac</code> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_message(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.message
     }
     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>

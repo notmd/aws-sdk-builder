@@ -8,7 +8,7 @@ pub struct GetPublicKeyOutput {
     /// <p>The exported public key.</p>
     /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p></p>
-    pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
     #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
@@ -37,7 +37,7 @@ impl GetPublicKeyOutput {
     /// <p>The exported public key.</p>
     /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p></p>
-    pub fn public_key(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn public_key(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.public_key.as_ref()
     }
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
@@ -94,7 +94,7 @@ impl GetPublicKeyOutput {
 #[non_exhaustive]
 pub struct GetPublicKeyOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) public_key: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) customer_master_key_spec: ::std::option::Option<crate::types::CustomerMasterKeySpec>,
     pub(crate) key_spec: ::std::option::Option<crate::types::KeySpec>,
     pub(crate) key_usage: ::std::option::Option<crate::types::KeyUsageType>,
@@ -121,21 +121,21 @@ impl GetPublicKeyOutputBuilder {
     /// <p>The exported public key.</p>
     /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p></p>
-    pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn public_key(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
     /// <p>The exported public key.</p>
     /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p></p>
-    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.public_key = input;
         self
     }
     /// <p>The exported public key.</p>
     /// <p>The value is a DER-encoded X.509 public key, also known as <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p></p>
-    pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_public_key(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.public_key
     }
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>

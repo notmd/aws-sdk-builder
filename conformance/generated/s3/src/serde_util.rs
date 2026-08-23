@@ -47,13 +47,6 @@ pub(crate) fn session_credentials_correct_errors(
     builder
 }
 
-pub(crate) fn grantee_correct_errors(mut builder: crate::types::builders::GranteeBuilder) -> crate::types::builders::GranteeBuilder {
-    if builder.r#type.is_none() {
-        builder.r#type = "no value was set".parse::<crate::types::Type>().ok()
-    }
-    builder
-}
-
 pub(crate) fn analytics_configuration_correct_errors(
     mut builder: crate::types::builders::AnalyticsConfigurationBuilder,
 ) -> crate::types::builders::AnalyticsConfigurationBuilder {
@@ -69,55 +62,6 @@ pub(crate) fn analytics_configuration_correct_errors(
     builder
 }
 
-pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
-    if builder.key.is_none() {
-        builder.key = Some(Default::default())
-    }
-    if builder.value.is_none() {
-        builder.value = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn storage_class_analysis_data_export_correct_errors(
-    mut builder: crate::types::builders::StorageClassAnalysisDataExportBuilder,
-) -> crate::types::builders::StorageClassAnalysisDataExportBuilder {
-    if builder.output_schema_version.is_none() {
-        builder.output_schema_version = "no value was set".parse::<crate::types::StorageClassAnalysisSchemaVersion>().ok()
-    }
-    if builder.destination.is_none() {
-        builder.destination = {
-            let builder = crate::types::builders::AnalyticsExportDestinationBuilder::default();
-            Some(crate::serde_util::analytics_export_destination_correct_errors(builder).build())
-        }
-    }
-    builder
-}
-
-pub(crate) fn analytics_export_destination_correct_errors(
-    mut builder: crate::types::builders::AnalyticsExportDestinationBuilder,
-) -> crate::types::builders::AnalyticsExportDestinationBuilder {
-    if builder.s3_bucket_destination.is_none() {
-        builder.s3_bucket_destination = {
-            let builder = crate::types::builders::AnalyticsS3BucketDestinationBuilder::default();
-            crate::serde_util::analytics_s3_bucket_destination_correct_errors(builder).build().ok()
-        }
-    }
-    builder
-}
-
-pub(crate) fn analytics_s3_bucket_destination_correct_errors(
-    mut builder: crate::types::builders::AnalyticsS3BucketDestinationBuilder,
-) -> crate::types::builders::AnalyticsS3BucketDestinationBuilder {
-    if builder.format.is_none() {
-        builder.format = "no value was set".parse::<crate::types::AnalyticsS3ExportFileFormat>().ok()
-    }
-    if builder.bucket.is_none() {
-        builder.bucket = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn cors_rule_correct_errors(mut builder: crate::types::builders::CorsRuleBuilder) -> crate::types::builders::CorsRuleBuilder {
     if builder.allowed_methods.is_none() {
         builder.allowed_methods = Some(Default::default())
@@ -128,20 +72,20 @@ pub(crate) fn cors_rule_correct_errors(mut builder: crate::types::builders::Cors
     builder
 }
 
-pub(crate) fn server_side_encryption_configuration_correct_errors(
-    mut builder: crate::types::builders::ServerSideEncryptionConfigurationBuilder,
-) -> crate::types::builders::ServerSideEncryptionConfigurationBuilder {
-    if builder.rules.is_none() {
-        builder.rules = Some(Default::default())
+pub(crate) fn error_document_correct_errors(
+    mut builder: crate::types::builders::ErrorDocumentBuilder,
+) -> crate::types::builders::ErrorDocumentBuilder {
+    if builder.key.is_none() {
+        builder.key = Some(Default::default())
     }
     builder
 }
 
-pub(crate) fn server_side_encryption_by_default_correct_errors(
-    mut builder: crate::types::builders::ServerSideEncryptionByDefaultBuilder,
-) -> crate::types::builders::ServerSideEncryptionByDefaultBuilder {
-    if builder.sse_algorithm.is_none() {
-        builder.sse_algorithm = "no value was set".parse::<crate::types::ServerSideEncryption>().ok()
+pub(crate) fn index_document_correct_errors(
+    mut builder: crate::types::builders::IndexDocumentBuilder,
+) -> crate::types::builders::IndexDocumentBuilder {
+    if builder.suffix.is_none() {
+        builder.suffix = Some(Default::default())
     }
     builder
 }
@@ -157,16 +101,6 @@ pub(crate) fn intelligent_tiering_configuration_correct_errors(
     }
     if builder.tierings.is_none() {
         builder.tierings = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn tiering_correct_errors(mut builder: crate::types::builders::TieringBuilder) -> crate::types::builders::TieringBuilder {
-    if builder.days.is_none() {
-        builder.days = Some(Default::default())
-    }
-    if builder.access_tier.is_none() {
-        builder.access_tier = "no value was set".parse::<crate::types::IntelligentTieringAccessTier>().ok()
     }
     builder
 }
@@ -198,51 +132,14 @@ pub(crate) fn inventory_configuration_correct_errors(
     builder
 }
 
-pub(crate) fn inventory_destination_correct_errors(
-    mut builder: crate::types::builders::InventoryDestinationBuilder,
-) -> crate::types::builders::InventoryDestinationBuilder {
-    if builder.s3_bucket_destination.is_none() {
-        builder.s3_bucket_destination = {
-            let builder = crate::types::builders::InventoryS3BucketDestinationBuilder::default();
-            crate::serde_util::inventory_s3_bucket_destination_correct_errors(builder).build().ok()
-        }
+pub(crate) fn lambda_function_configuration_correct_errors(
+    mut builder: crate::types::builders::LambdaFunctionConfigurationBuilder,
+) -> crate::types::builders::LambdaFunctionConfigurationBuilder {
+    if builder.lambda_function_arn.is_none() {
+        builder.lambda_function_arn = Some(Default::default())
     }
-    builder
-}
-
-pub(crate) fn inventory_s3_bucket_destination_correct_errors(
-    mut builder: crate::types::builders::InventoryS3BucketDestinationBuilder,
-) -> crate::types::builders::InventoryS3BucketDestinationBuilder {
-    if builder.bucket.is_none() {
-        builder.bucket = Some(Default::default())
-    }
-    if builder.format.is_none() {
-        builder.format = "no value was set".parse::<crate::types::InventoryFormat>().ok()
-    }
-    builder
-}
-
-pub(crate) fn ssekms_correct_errors(mut builder: crate::types::builders::SsekmsBuilder) -> crate::types::builders::SsekmsBuilder {
-    if builder.key_id.is_none() {
-        builder.key_id = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn inventory_filter_correct_errors(
-    mut builder: crate::types::builders::InventoryFilterBuilder,
-) -> crate::types::builders::InventoryFilterBuilder {
-    if builder.prefix.is_none() {
-        builder.prefix = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn inventory_schedule_correct_errors(
-    mut builder: crate::types::builders::InventoryScheduleBuilder,
-) -> crate::types::builders::InventoryScheduleBuilder {
-    if builder.frequency.is_none() {
-        builder.frequency = "no value was set".parse::<crate::types::InventoryFrequency>().ok()
+    if builder.events.is_none() {
+        builder.events = Some(Default::default())
     }
     builder
 }
@@ -268,6 +165,63 @@ pub(crate) fn logging_enabled_correct_errors(
     builder
 }
 
+pub(crate) fn metrics_configuration_correct_errors(
+    mut builder: crate::types::builders::MetricsConfigurationBuilder,
+) -> crate::types::builders::MetricsConfigurationBuilder {
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn queue_configuration_correct_errors(
+    mut builder: crate::types::builders::QueueConfigurationBuilder,
+) -> crate::types::builders::QueueConfigurationBuilder {
+    if builder.queue_arn.is_none() {
+        builder.queue_arn = Some(Default::default())
+    }
+    if builder.events.is_none() {
+        builder.events = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn redirect_all_requests_to_correct_errors(
+    mut builder: crate::types::builders::RedirectAllRequestsToBuilder,
+) -> crate::types::builders::RedirectAllRequestsToBuilder {
+    if builder.host_name.is_none() {
+        builder.host_name = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn topic_configuration_correct_errors(
+    mut builder: crate::types::builders::TopicConfigurationBuilder,
+) -> crate::types::builders::TopicConfigurationBuilder {
+    if builder.topic_arn.is_none() {
+        builder.topic_arn = Some(Default::default())
+    }
+    if builder.events.is_none() {
+        builder.events = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn annotation_entry_correct_errors(
+    mut builder: crate::types::builders::AnnotationEntryBuilder,
+) -> crate::types::builders::AnnotationEntryBuilder {
+    if builder.annotation_name.is_none() {
+        builder.annotation_name = Some(Default::default())
+    }
+    if builder.last_modified.is_none() {
+        builder.last_modified = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.size.is_none() {
+        builder.size = Some(Default::default())
+    }
+    builder
+}
+
 pub(crate) fn get_bucket_metadata_configuration_result_correct_errors(
     mut builder: crate::types::builders::GetBucketMetadataConfigurationResultBuilder,
 ) -> crate::types::builders::GetBucketMetadataConfigurationResultBuilder {
@@ -276,63 +230,6 @@ pub(crate) fn get_bucket_metadata_configuration_result_correct_errors(
             let builder = crate::types::builders::MetadataConfigurationResultBuilder::default();
             Some(crate::serde_util::metadata_configuration_result_correct_errors(builder).build())
         }
-    }
-    builder
-}
-
-pub(crate) fn metadata_configuration_result_correct_errors(
-    mut builder: crate::types::builders::MetadataConfigurationResultBuilder,
-) -> crate::types::builders::MetadataConfigurationResultBuilder {
-    if builder.destination_result.is_none() {
-        builder.destination_result = {
-            let builder = crate::types::builders::DestinationResultBuilder::default();
-            Some(builder.build())
-        }
-    }
-    builder
-}
-
-pub(crate) fn journal_table_configuration_result_correct_errors(
-    mut builder: crate::types::builders::JournalTableConfigurationResultBuilder,
-) -> crate::types::builders::JournalTableConfigurationResultBuilder {
-    if builder.table_status.is_none() {
-        builder.table_status = Some(Default::default())
-    }
-    if builder.table_name.is_none() {
-        builder.table_name = Some(Default::default())
-    }
-    if builder.record_expiration.is_none() {
-        builder.record_expiration = {
-            let builder = crate::types::builders::RecordExpirationBuilder::default();
-            crate::serde_util::record_expiration_correct_errors(builder).build().ok()
-        }
-    }
-    builder
-}
-
-pub(crate) fn record_expiration_correct_errors(
-    mut builder: crate::types::builders::RecordExpirationBuilder,
-) -> crate::types::builders::RecordExpirationBuilder {
-    if builder.expiration.is_none() {
-        builder.expiration = "no value was set".parse::<crate::types::ExpirationState>().ok()
-    }
-    builder
-}
-
-pub(crate) fn inventory_table_configuration_result_correct_errors(
-    mut builder: crate::types::builders::InventoryTableConfigurationResultBuilder,
-) -> crate::types::builders::InventoryTableConfigurationResultBuilder {
-    if builder.configuration_state.is_none() {
-        builder.configuration_state = "no value was set".parse::<crate::types::InventoryConfigurationState>().ok()
-    }
-    builder
-}
-
-pub(crate) fn annotation_table_configuration_result_correct_errors(
-    mut builder: crate::types::builders::AnnotationTableConfigurationResultBuilder,
-) -> crate::types::builders::AnnotationTableConfigurationResultBuilder {
-    if builder.configuration_state.is_none() {
-        builder.configuration_state = "no value was set".parse::<crate::types::AnnotationConfigurationState>().ok()
     }
     builder
 }
@@ -352,6 +249,127 @@ pub(crate) fn get_bucket_metadata_table_configuration_result_correct_errors(
     builder
 }
 
+pub(crate) fn inventory_destination_correct_errors(
+    mut builder: crate::types::builders::InventoryDestinationBuilder,
+) -> crate::types::builders::InventoryDestinationBuilder {
+    if builder.s3_bucket_destination.is_none() {
+        builder.s3_bucket_destination = {
+            let builder = crate::types::builders::InventoryS3BucketDestinationBuilder::default();
+            crate::serde_util::inventory_s3_bucket_destination_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn inventory_filter_correct_errors(
+    mut builder: crate::types::builders::InventoryFilterBuilder,
+) -> crate::types::builders::InventoryFilterBuilder {
+    if builder.prefix.is_none() {
+        builder.prefix = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn inventory_schedule_correct_errors(
+    mut builder: crate::types::builders::InventoryScheduleBuilder,
+) -> crate::types::builders::InventoryScheduleBuilder {
+    if builder.frequency.is_none() {
+        builder.frequency = "no value was set".parse::<crate::types::InventoryFrequency>().ok()
+    }
+    builder
+}
+
+pub(crate) fn ownership_controls_correct_errors(
+    mut builder: crate::types::builders::OwnershipControlsBuilder,
+) -> crate::types::builders::OwnershipControlsBuilder {
+    if builder.rules.is_none() {
+        builder.rules = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn replication_configuration_correct_errors(
+    mut builder: crate::types::builders::ReplicationConfigurationBuilder,
+) -> crate::types::builders::ReplicationConfigurationBuilder {
+    if builder.role.is_none() {
+        builder.role = Some(Default::default())
+    }
+    if builder.rules.is_none() {
+        builder.rules = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn routing_rule_correct_errors(mut builder: crate::types::builders::RoutingRuleBuilder) -> crate::types::builders::RoutingRuleBuilder {
+    if builder.redirect.is_none() {
+        builder.redirect = {
+            let builder = crate::types::builders::RedirectBuilder::default();
+            Some(builder.build())
+        }
+    }
+    builder
+}
+
+pub(crate) fn server_side_encryption_configuration_correct_errors(
+    mut builder: crate::types::builders::ServerSideEncryptionConfigurationBuilder,
+) -> crate::types::builders::ServerSideEncryptionConfigurationBuilder {
+    if builder.rules.is_none() {
+        builder.rules = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
+    if builder.key.is_none() {
+        builder.key = Some(Default::default())
+    }
+    if builder.value.is_none() {
+        builder.value = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn tiering_correct_errors(mut builder: crate::types::builders::TieringBuilder) -> crate::types::builders::TieringBuilder {
+    if builder.days.is_none() {
+        builder.days = Some(Default::default())
+    }
+    if builder.access_tier.is_none() {
+        builder.access_tier = "no value was set".parse::<crate::types::IntelligentTieringAccessTier>().ok()
+    }
+    builder
+}
+
+pub(crate) fn grantee_correct_errors(mut builder: crate::types::builders::GranteeBuilder) -> crate::types::builders::GranteeBuilder {
+    if builder.r#type.is_none() {
+        builder.r#type = "no value was set".parse::<crate::types::Type>().ok()
+    }
+    builder
+}
+
+pub(crate) fn inventory_s3_bucket_destination_correct_errors(
+    mut builder: crate::types::builders::InventoryS3BucketDestinationBuilder,
+) -> crate::types::builders::InventoryS3BucketDestinationBuilder {
+    if builder.bucket.is_none() {
+        builder.bucket = Some(Default::default())
+    }
+    if builder.format.is_none() {
+        builder.format = "no value was set".parse::<crate::types::InventoryFormat>().ok()
+    }
+    builder
+}
+
+pub(crate) fn metadata_configuration_result_correct_errors(
+    mut builder: crate::types::builders::MetadataConfigurationResultBuilder,
+) -> crate::types::builders::MetadataConfigurationResultBuilder {
+    if builder.destination_result.is_none() {
+        builder.destination_result = {
+            let builder = crate::types::builders::DestinationResultBuilder::default();
+            Some(builder.build())
+        }
+    }
+    builder
+}
+
 pub(crate) fn metadata_table_configuration_result_correct_errors(
     mut builder: crate::types::builders::MetadataTableConfigurationResultBuilder,
 ) -> crate::types::builders::MetadataTableConfigurationResultBuilder {
@@ -359,6 +377,109 @@ pub(crate) fn metadata_table_configuration_result_correct_errors(
         builder.s3_tables_destination_result = {
             let builder = crate::types::builders::S3TablesDestinationResultBuilder::default();
             crate::serde_util::s3_tables_destination_result_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn ownership_controls_rule_correct_errors(
+    mut builder: crate::types::builders::OwnershipControlsRuleBuilder,
+) -> crate::types::builders::OwnershipControlsRuleBuilder {
+    if builder.object_ownership.is_none() {
+        builder.object_ownership = "no value was set".parse::<crate::types::ObjectOwnership>().ok()
+    }
+    builder
+}
+
+pub(crate) fn replication_rule_correct_errors(
+    mut builder: crate::types::builders::ReplicationRuleBuilder,
+) -> crate::types::builders::ReplicationRuleBuilder {
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::ReplicationRuleStatus>().ok()
+    }
+    if builder.destination.is_none() {
+        builder.destination = {
+            let builder = crate::types::builders::DestinationBuilder::default();
+            crate::serde_util::destination_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn storage_class_analysis_data_export_correct_errors(
+    mut builder: crate::types::builders::StorageClassAnalysisDataExportBuilder,
+) -> crate::types::builders::StorageClassAnalysisDataExportBuilder {
+    if builder.output_schema_version.is_none() {
+        builder.output_schema_version = "no value was set".parse::<crate::types::StorageClassAnalysisSchemaVersion>().ok()
+    }
+    if builder.destination.is_none() {
+        builder.destination = {
+            let builder = crate::types::builders::AnalyticsExportDestinationBuilder::default();
+            Some(crate::serde_util::analytics_export_destination_correct_errors(builder).build())
+        }
+    }
+    builder
+}
+
+pub(crate) fn analytics_export_destination_correct_errors(
+    mut builder: crate::types::builders::AnalyticsExportDestinationBuilder,
+) -> crate::types::builders::AnalyticsExportDestinationBuilder {
+    if builder.s3_bucket_destination.is_none() {
+        builder.s3_bucket_destination = {
+            let builder = crate::types::builders::AnalyticsS3BucketDestinationBuilder::default();
+            crate::serde_util::analytics_s3_bucket_destination_correct_errors(builder).build().ok()
+        }
+    }
+    builder
+}
+
+pub(crate) fn annotation_table_configuration_result_correct_errors(
+    mut builder: crate::types::builders::AnnotationTableConfigurationResultBuilder,
+) -> crate::types::builders::AnnotationTableConfigurationResultBuilder {
+    if builder.configuration_state.is_none() {
+        builder.configuration_state = "no value was set".parse::<crate::types::AnnotationConfigurationState>().ok()
+    }
+    builder
+}
+
+pub(crate) fn destination_correct_errors(mut builder: crate::types::builders::DestinationBuilder) -> crate::types::builders::DestinationBuilder {
+    if builder.bucket.is_none() {
+        builder.bucket = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn existing_object_replication_correct_errors(
+    mut builder: crate::types::builders::ExistingObjectReplicationBuilder,
+) -> crate::types::builders::ExistingObjectReplicationBuilder {
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::ExistingObjectReplicationStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn inventory_table_configuration_result_correct_errors(
+    mut builder: crate::types::builders::InventoryTableConfigurationResultBuilder,
+) -> crate::types::builders::InventoryTableConfigurationResultBuilder {
+    if builder.configuration_state.is_none() {
+        builder.configuration_state = "no value was set".parse::<crate::types::InventoryConfigurationState>().ok()
+    }
+    builder
+}
+
+pub(crate) fn journal_table_configuration_result_correct_errors(
+    mut builder: crate::types::builders::JournalTableConfigurationResultBuilder,
+) -> crate::types::builders::JournalTableConfigurationResultBuilder {
+    if builder.table_status.is_none() {
+        builder.table_status = Some(Default::default())
+    }
+    if builder.table_name.is_none() {
+        builder.table_name = Some(Default::default())
+    }
+    if builder.record_expiration.is_none() {
+        builder.record_expiration = {
+            let builder = crate::types::builders::RecordExpirationBuilder::default();
+            crate::serde_util::record_expiration_correct_errors(builder).build().ok()
         }
     }
     builder
@@ -382,126 +503,11 @@ pub(crate) fn s3_tables_destination_result_correct_errors(
     builder
 }
 
-pub(crate) fn metrics_configuration_correct_errors(
-    mut builder: crate::types::builders::MetricsConfigurationBuilder,
-) -> crate::types::builders::MetricsConfigurationBuilder {
-    if builder.id.is_none() {
-        builder.id = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn topic_configuration_correct_errors(
-    mut builder: crate::types::builders::TopicConfigurationBuilder,
-) -> crate::types::builders::TopicConfigurationBuilder {
-    if builder.topic_arn.is_none() {
-        builder.topic_arn = Some(Default::default())
-    }
-    if builder.events.is_none() {
-        builder.events = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn queue_configuration_correct_errors(
-    mut builder: crate::types::builders::QueueConfigurationBuilder,
-) -> crate::types::builders::QueueConfigurationBuilder {
-    if builder.queue_arn.is_none() {
-        builder.queue_arn = Some(Default::default())
-    }
-    if builder.events.is_none() {
-        builder.events = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn lambda_function_configuration_correct_errors(
-    mut builder: crate::types::builders::LambdaFunctionConfigurationBuilder,
-) -> crate::types::builders::LambdaFunctionConfigurationBuilder {
-    if builder.lambda_function_arn.is_none() {
-        builder.lambda_function_arn = Some(Default::default())
-    }
-    if builder.events.is_none() {
-        builder.events = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn ownership_controls_correct_errors(
-    mut builder: crate::types::builders::OwnershipControlsBuilder,
-) -> crate::types::builders::OwnershipControlsBuilder {
-    if builder.rules.is_none() {
-        builder.rules = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn ownership_controls_rule_correct_errors(
-    mut builder: crate::types::builders::OwnershipControlsRuleBuilder,
-) -> crate::types::builders::OwnershipControlsRuleBuilder {
-    if builder.object_ownership.is_none() {
-        builder.object_ownership = "no value was set".parse::<crate::types::ObjectOwnership>().ok()
-    }
-    builder
-}
-
-pub(crate) fn replication_configuration_correct_errors(
-    mut builder: crate::types::builders::ReplicationConfigurationBuilder,
-) -> crate::types::builders::ReplicationConfigurationBuilder {
-    if builder.role.is_none() {
-        builder.role = Some(Default::default())
-    }
-    if builder.rules.is_none() {
-        builder.rules = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn replication_rule_correct_errors(
-    mut builder: crate::types::builders::ReplicationRuleBuilder,
-) -> crate::types::builders::ReplicationRuleBuilder {
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::ReplicationRuleStatus>().ok()
-    }
-    if builder.destination.is_none() {
-        builder.destination = {
-            let builder = crate::types::builders::DestinationBuilder::default();
-            crate::serde_util::destination_correct_errors(builder).build().ok()
-        }
-    }
-    builder
-}
-
-pub(crate) fn sse_kms_encrypted_objects_correct_errors(
-    mut builder: crate::types::builders::SseKmsEncryptedObjectsBuilder,
-) -> crate::types::builders::SseKmsEncryptedObjectsBuilder {
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::SseKmsEncryptedObjectsStatus>().ok()
-    }
-    builder
-}
-
-pub(crate) fn replica_modifications_correct_errors(
-    mut builder: crate::types::builders::ReplicaModificationsBuilder,
-) -> crate::types::builders::ReplicaModificationsBuilder {
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::ReplicaModificationsStatus>().ok()
-    }
-    builder
-}
-
-pub(crate) fn existing_object_replication_correct_errors(
-    mut builder: crate::types::builders::ExistingObjectReplicationBuilder,
-) -> crate::types::builders::ExistingObjectReplicationBuilder {
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::ExistingObjectReplicationStatus>().ok()
-    }
-    builder
-}
-
-pub(crate) fn destination_correct_errors(mut builder: crate::types::builders::DestinationBuilder) -> crate::types::builders::DestinationBuilder {
-    if builder.bucket.is_none() {
-        builder.bucket = Some(Default::default())
+pub(crate) fn server_side_encryption_by_default_correct_errors(
+    mut builder: crate::types::builders::ServerSideEncryptionByDefaultBuilder,
+) -> crate::types::builders::ServerSideEncryptionByDefaultBuilder {
+    if builder.sse_algorithm.is_none() {
+        builder.sse_algorithm = "no value was set".parse::<crate::types::ServerSideEncryption>().ok()
     }
     builder
 }
@@ -511,6 +517,43 @@ pub(crate) fn access_control_translation_correct_errors(
 ) -> crate::types::builders::AccessControlTranslationBuilder {
     if builder.owner.is_none() {
         builder.owner = "no value was set".parse::<crate::types::OwnerOverride>().ok()
+    }
+    builder
+}
+
+pub(crate) fn analytics_s3_bucket_destination_correct_errors(
+    mut builder: crate::types::builders::AnalyticsS3BucketDestinationBuilder,
+) -> crate::types::builders::AnalyticsS3BucketDestinationBuilder {
+    if builder.format.is_none() {
+        builder.format = "no value was set".parse::<crate::types::AnalyticsS3ExportFileFormat>().ok()
+    }
+    if builder.bucket.is_none() {
+        builder.bucket = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn metrics_correct_errors(mut builder: crate::types::builders::MetricsBuilder) -> crate::types::builders::MetricsBuilder {
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::MetricsStatus>().ok()
+    }
+    builder
+}
+
+pub(crate) fn record_expiration_correct_errors(
+    mut builder: crate::types::builders::RecordExpirationBuilder,
+) -> crate::types::builders::RecordExpirationBuilder {
+    if builder.expiration.is_none() {
+        builder.expiration = "no value was set".parse::<crate::types::ExpirationState>().ok()
+    }
+    builder
+}
+
+pub(crate) fn replica_modifications_correct_errors(
+    mut builder: crate::types::builders::ReplicaModificationsBuilder,
+) -> crate::types::builders::ReplicaModificationsBuilder {
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::ReplicaModificationsStatus>().ok()
     }
     builder
 }
@@ -530,61 +573,18 @@ pub(crate) fn replication_time_correct_errors(
     builder
 }
 
-pub(crate) fn metrics_correct_errors(mut builder: crate::types::builders::MetricsBuilder) -> crate::types::builders::MetricsBuilder {
+pub(crate) fn sse_kms_encrypted_objects_correct_errors(
+    mut builder: crate::types::builders::SseKmsEncryptedObjectsBuilder,
+) -> crate::types::builders::SseKmsEncryptedObjectsBuilder {
     if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::MetricsStatus>().ok()
+        builder.status = "no value was set".parse::<crate::types::SseKmsEncryptedObjectsStatus>().ok()
     }
     builder
 }
 
-pub(crate) fn redirect_all_requests_to_correct_errors(
-    mut builder: crate::types::builders::RedirectAllRequestsToBuilder,
-) -> crate::types::builders::RedirectAllRequestsToBuilder {
-    if builder.host_name.is_none() {
-        builder.host_name = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn index_document_correct_errors(
-    mut builder: crate::types::builders::IndexDocumentBuilder,
-) -> crate::types::builders::IndexDocumentBuilder {
-    if builder.suffix.is_none() {
-        builder.suffix = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn error_document_correct_errors(
-    mut builder: crate::types::builders::ErrorDocumentBuilder,
-) -> crate::types::builders::ErrorDocumentBuilder {
-    if builder.key.is_none() {
-        builder.key = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn routing_rule_correct_errors(mut builder: crate::types::builders::RoutingRuleBuilder) -> crate::types::builders::RoutingRuleBuilder {
-    if builder.redirect.is_none() {
-        builder.redirect = {
-            let builder = crate::types::builders::RedirectBuilder::default();
-            Some(builder.build())
-        }
-    }
-    builder
-}
-
-pub(crate) fn annotation_entry_correct_errors(
-    mut builder: crate::types::builders::AnnotationEntryBuilder,
-) -> crate::types::builders::AnnotationEntryBuilder {
-    if builder.annotation_name.is_none() {
-        builder.annotation_name = Some(Default::default())
-    }
-    if builder.last_modified.is_none() {
-        builder.last_modified = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-    }
-    if builder.size.is_none() {
-        builder.size = Some(Default::default())
+pub(crate) fn ssekms_correct_errors(mut builder: crate::types::builders::SsekmsBuilder) -> crate::types::builders::SsekmsBuilder {
+    if builder.key_id.is_none() {
+        builder.key_id = Some(Default::default())
     }
     builder
 }

@@ -161,19 +161,19 @@ impl VerifyFluentBuilder {
     }
     /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
     /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
-    pub fn message(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn message(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.message(input);
         self
     }
     /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
     /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
-    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_message(input);
         self
     }
     /// <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the <code>MessageType</code> parameter with a value of <code>DIGEST</code>.</p>
     /// <p>If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_message(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_message()
     }
     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
@@ -275,17 +275,17 @@ impl VerifyFluentBuilder {
         self.inner.get_message_type()
     }
     /// <p>The signature that the <code>Sign</code> operation generated.</p>
-    pub fn signature(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn signature(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.signature(input);
         self
     }
     /// <p>The signature that the <code>Sign</code> operation generated.</p>
-    pub fn set_signature(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_signature(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_signature(input);
         self
     }
     /// <p>The signature that the <code>Sign</code> operation generated.</p>
-    pub fn get_signature(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_signature(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_signature()
     }
     /// <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>

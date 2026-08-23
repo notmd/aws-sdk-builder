@@ -124,17 +124,17 @@ impl SendDurableExecutionCallbackSuccessFluentBuilder {
         self.inner.get_callback_id()
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn result(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn result(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.result(input);
         self
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_result(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_result(input);
         self
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn get_result(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_result(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_result()
     }
 }

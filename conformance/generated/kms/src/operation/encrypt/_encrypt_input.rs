@@ -19,7 +19,7 @@ pub struct EncryptInput {
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>. To get the alias name and alias ARN, use <code>ListAliases</code>.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>Data to be encrypted.</p>
-    pub plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Specifies the encryption context that will be used to encrypt the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p><important>
     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
     /// </important>
@@ -56,7 +56,7 @@ impl EncryptInput {
         self.key_id.as_deref()
     }
     /// <p>Data to be encrypted.</p>
-    pub fn plaintext(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn plaintext(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.plaintext.as_ref()
     }
     /// <p>Specifies the encryption context that will be used to encrypt the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p><important>
@@ -110,7 +110,7 @@ impl EncryptInput {
 #[non_exhaustive]
 pub struct EncryptInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) encryption_context: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
@@ -173,17 +173,17 @@ impl EncryptInputBuilder {
     }
     /// <p>Data to be encrypted.</p>
     /// This field is required.
-    pub fn plaintext(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn plaintext(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.plaintext = ::std::option::Option::Some(input);
         self
     }
     /// <p>Data to be encrypted.</p>
-    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.plaintext = input;
         self
     }
     /// <p>Data to be encrypted.</p>
-    pub fn get_plaintext(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_plaintext(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.plaintext
     }
     /// Adds a key-value pair to `encryption_context`.

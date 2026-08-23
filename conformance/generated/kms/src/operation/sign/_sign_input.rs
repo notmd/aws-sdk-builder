@@ -20,7 +20,7 @@ pub struct SignInput {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub message: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub message: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
     /// <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>, KMS skips the hashing step in the signing algorithm. When the value is <code>EXTERNAL_MU</code> KMS skips the concatenated hashing of the public key hash and the message done in the ML-DSA signing algorithm.</p><important>
     /// <p>Use the <code>DIGEST</code> or <code>EXTERNAL_MU</code> value only when the value of the <code>Message</code> parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed message, the security of the signing operation can be compromised.</p>
@@ -81,7 +81,7 @@ impl SignInput {
     }
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub fn message(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn message(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.message.as_ref()
     }
     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>
@@ -158,7 +158,7 @@ impl SignInput {
 #[non_exhaustive]
 pub struct SignInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) message: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) message: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) message_type: ::std::option::Option<crate::types::MessageType>,
     pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
@@ -222,19 +222,19 @@ impl SignInputBuilder {
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
     /// This field is required.
-    pub fn message(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn message(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.message = ::std::option::Option::Some(input);
         self
     }
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_message(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.message = input;
         self
     }
     /// <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide a message digest.</p>
     /// <p>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_message(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.message
     }
     /// <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use <code>DIGEST</code> for message digests, which are already hashed; use <code>EXTERNAL_MU</code> for 64-byte representative μ used in ML-DSA signing as defined in NIST FIPS 204 Section 6.2.</p>

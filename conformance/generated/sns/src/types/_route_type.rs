@@ -38,9 +38,9 @@
 /// - It might inadvertently shadow other intended match arms.
 ///
 /// Enum listing out all supported route types. The following enum values are supported.
-///         1. Transactional : Non-marketing traffic
-///         2. Promotional : Marketing
-///         3. Premium : Premium routes for OTP delivery to the carriers
+/// 1. Transactional : Non-marketing traffic
+/// 2. Promotional : Marketing
+/// 3. Premium : Premium routes for OTP delivery to the carriers
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,

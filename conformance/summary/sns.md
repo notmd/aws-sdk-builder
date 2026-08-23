@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `213` matched · `79` mismatches · `157` missing · `0` extra · `47.44%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `217` matched · `75` mismatches · `157` missing · `0` extra · `48.33%` match (100.00% means fully matched)
 
 ### `src/client/check_if_phone_number_is_opted_out.rs`
 
@@ -8158,69 +8158,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/serde_util.rs`
-
-```diff
---- reference/src/serde_util.rs
-+++ generated/src/serde_util.rs
-@@ -26,6 +26,24 @@
-     builder
- }
-
-+pub(crate) fn validation_exception_correct_errors(
-+    mut builder: crate::types::error::builders::ValidationExceptionBuilder,
-+) -> crate::types::error::builders::ValidationExceptionBuilder {
-+    if builder.message.is_none() {
-+        builder.message = Some(Default::default())
-+    }
-+    builder
-+}
-+
-+pub(crate) fn validation_exception_correct_errors(
-+    mut builder: crate::types::error::builders::ValidationExceptionBuilder,
-+) -> crate::types::error::builders::ValidationExceptionBuilder {
-+    if builder.message.is_none() {
-+        builder.message = Some(Default::default())
-+    }
-+    builder
-+}
-+
- pub(crate) fn verification_exception_correct_errors(
-     mut builder: crate::types::error::builders::VerificationExceptionBuilder,
- ) -> crate::types::error::builders::VerificationExceptionBuilder {
-@@ -38,6 +56,16 @@
-     builder
- }
-
-+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
-+    if builder.key.is_none() {
-+        builder.key = Some(Default::default())
-+    }
-+    if builder.value.is_none() {
-+        builder.value = Some(Default::default())
-+    }
-+    builder
-+}
-+
- pub(crate) fn batch_result_error_entry_correct_errors(
-     mut builder: crate::types::builders::BatchResultErrorEntryBuilder,
- ) -> crate::types::builders::BatchResultErrorEntryBuilder {
-@@ -52,13 +80,3 @@
-     }
-     builder
- }
--
--pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
--    if builder.key.is_none() {
--        builder.key = Some(Default::default())
--    }
--    if builder.value.is_none() {
--        builder.value = Some(Default::default())
--    }
--    builder
--}
-```
-
 ### `src/types/_batch_result_error_entry.rs`
 
 ```diff
@@ -8248,101 +8185,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-```
-
-### `src/types/_message_attribute_value.rs`
-
-```diff
---- reference/src/types/_message_attribute_value.rs
-+++ generated/src/types/_message_attribute_value.rs
-@@ -10,7 +10,7 @@
-     /// <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
-     pub string_value: ::std::option::Option<::std::string::String>,
-     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
--    pub binary_value: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub binary_value: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl MessageAttributeValue {
-     /// <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
-@@ -23,7 +23,7 @@
-         self.string_value.as_deref()
-     }
-     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
--    pub fn binary_value(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn binary_value(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.binary_value.as_ref()
-     }
- }
-@@ -40,7 +40,7 @@
- pub struct MessageAttributeValueBuilder {
-     pub(crate) data_type: ::std::option::Option<::std::string::String>,
-     pub(crate) string_value: ::std::option::Option<::std::string::String>,
--    pub(crate) binary_value: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) binary_value: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl MessageAttributeValueBuilder {
-     /// <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
-@@ -73,17 +73,17 @@
-         &self.string_value
-     }
-     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
--    pub fn binary_value(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn binary_value(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.binary_value = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
--    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.binary_value = input;
-         self
-     }
-     /// <p>Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.</p>
--    pub fn get_binary_value(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_binary_value(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.binary_value
-     }
-     /// Consumes the builder and constructs a [`MessageAttributeValue`](crate::types::MessageAttributeValue).
-```
-
-### `src/types/_route_type.rs`
-
-```diff
---- reference/src/types/_route_type.rs
-+++ generated/src/types/_route_type.rs
-@@ -38,9 +38,9 @@
- /// - It might inadvertently shadow other intended match arms.
- ///
- /// Enum listing out all supported route types. The following enum values are supported.
--/// 1. Transactional : Non-marketing traffic
--/// 2. Promotional : Marketing
--/// 3. Premium : Premium routes for OTP delivery to the carriers
-+///         1. Transactional : Non-marketing traffic
-+///         2. Promotional : Marketing
-+///         3. Premium : Premium routes for OTP delivery to the carriers
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-```
-
-### `src/types/_sms_sandbox_phone_number_verification_status.rs`
-
-```diff
---- reference/src/types/_sms_sandbox_phone_number_verification_status.rs
-+++ generated/src/types/_sms_sandbox_phone_number_verification_status.rs
-@@ -37,9 +37,9 @@
- /// - It might inadvertently shadow other intended match arms.
- ///
- /// Enum listing out all supported destination phone number verification statuses. The following enum values are
--/// supported.
--/// 1. PENDING : The destination phone number is pending verification.
--/// 2. VERIFIED : The destination phone number is verified.
-+///         supported.
-+///         1. PENDING : The destination phone number is pending verification.
-+///         2. VERIFIED : The destination phone number is verified.
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
 ```
 
 ### `src/types/error/_kms_access_denied_exception.rs`
@@ -8727,11 +8569,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/verify_sms_sandbox_phone_number/builders.rs`
 - `src/operation/verify_sms_sandbox_phone_number.rs`
 - `src/operation.rs`
-- `src/serde_util.rs`
 - `src/types/_batch_result_error_entry.rs`
-- `src/types/_message_attribute_value.rs`
-- `src/types/_route_type.rs`
-- `src/types/_sms_sandbox_phone_number_verification_status.rs`
 - `src/types/error/_kms_access_denied_exception.rs`
 - `src/types/error/_kms_disabled_exception.rs`
 - `src/types/error/_kms_invalid_state_exception.rs`

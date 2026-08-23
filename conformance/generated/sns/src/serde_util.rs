@@ -26,24 +26,6 @@ pub(crate) fn list_sms_sandbox_phone_numbers_output_output_correct_errors(
     builder
 }
 
-pub(crate) fn validation_exception_correct_errors(
-    mut builder: crate::types::error::builders::ValidationExceptionBuilder,
-) -> crate::types::error::builders::ValidationExceptionBuilder {
-    if builder.message.is_none() {
-        builder.message = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn validation_exception_correct_errors(
-    mut builder: crate::types::error::builders::ValidationExceptionBuilder,
-) -> crate::types::error::builders::ValidationExceptionBuilder {
-    if builder.message.is_none() {
-        builder.message = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn verification_exception_correct_errors(
     mut builder: crate::types::error::builders::VerificationExceptionBuilder,
 ) -> crate::types::error::builders::VerificationExceptionBuilder {
@@ -52,16 +34,6 @@ pub(crate) fn verification_exception_correct_errors(
     }
     if builder.status.is_none() {
         builder.status = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
-    if builder.key.is_none() {
-        builder.key = Some(Default::default())
-    }
-    if builder.value.is_none() {
-        builder.value = Some(Default::default())
     }
     builder
 }
@@ -77,6 +49,16 @@ pub(crate) fn batch_result_error_entry_correct_errors(
     }
     if builder.sender_fault.is_none() {
         builder.sender_fault = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
+    if builder.key.is_none() {
+        builder.key = Some(Default::default())
+    }
+    if builder.value.is_none() {
+        builder.value = Some(Default::default())
     }
     builder
 }

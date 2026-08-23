@@ -5,7 +5,7 @@
 pub struct GenerateMacOutput {
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
-    pub mac: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub mac: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
     pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
     /// <p>The HMAC KMS key used in the operation.</p>
@@ -15,7 +15,7 @@ pub struct GenerateMacOutput {
 impl GenerateMacOutput {
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
-    pub fn mac(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn mac(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.mac.as_ref()
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>
@@ -43,7 +43,7 @@ impl GenerateMacOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateMacOutputBuilder {
-    pub(crate) mac: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) mac: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -51,19 +51,19 @@ pub struct GenerateMacOutputBuilder {
 impl GenerateMacOutputBuilder {
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
-    pub fn mac(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn mac(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.mac = ::std::option::Option::Some(input);
         self
     }
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
-    pub fn set_mac(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_mac(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.mac = input;
         self
     }
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
     /// <p>This is the standard, raw HMAC defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
-    pub fn get_mac(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_mac(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.mac
     }
     /// <p>The MAC algorithm that was used to generate the HMAC.</p>

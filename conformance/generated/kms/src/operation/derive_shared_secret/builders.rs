@@ -217,7 +217,7 @@ impl DeriveSharedSecretFluentBuilder {
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
-    pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn public_key(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.public_key(input);
         self
     }
@@ -227,7 +227,7 @@ impl DeriveSharedSecretFluentBuilder {
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
-    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_public_key(input);
         self
     }
@@ -237,7 +237,7 @@ impl DeriveSharedSecretFluentBuilder {
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
-    pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_public_key(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_public_key()
     }
     ///

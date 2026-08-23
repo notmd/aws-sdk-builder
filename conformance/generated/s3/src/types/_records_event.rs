@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RecordsEvent {
     /// <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might split the same record across multiple record frames instead of aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior by default. In those cases, you must aggregate the results on the client side and parse the response.</p>
-    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl RecordsEvent {
     /// <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might split the same record across multiple record frames instead of aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior by default. In those cases, you must aggregate the results on the client side and parse the response.</p>
-    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.payload.as_ref()
     }
 }
@@ -24,21 +24,21 @@ impl RecordsEvent {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct RecordsEventBuilder {
-    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl RecordsEventBuilder {
     /// <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might split the same record across multiple record frames instead of aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior by default. In those cases, you must aggregate the results on the client side and parse the response.</p>
-    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might split the same record across multiple record frames instead of aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior by default. In those cases, you must aggregate the results on the client side and parse the response.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.payload = input;
         self
     }
     /// <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might split the same record across multiple record frames instead of aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior by default. In those cases, you must aggregate the results on the client side and parse the response.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.payload
     }
     /// Consumes the builder and constructs a [`RecordsEvent`](crate::types::RecordsEvent).

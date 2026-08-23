@@ -19,7 +19,7 @@ pub struct LayerVersionContentInput {
     /// </ul>
     pub s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-    pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl LayerVersionContentInput {
     /// <p>The Amazon S3 bucket of the layer archive.</p>
@@ -45,7 +45,7 @@ impl LayerVersionContentInput {
         self.s3_object_storage_mode.as_ref()
     }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-    pub fn zip_file(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn zip_file(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.zip_file.as_ref()
     }
 }
@@ -75,7 +75,7 @@ pub struct LayerVersionContentInputBuilder {
     pub(crate) s3_key: ::std::option::Option<::std::string::String>,
     pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
     pub(crate) s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
-    pub(crate) zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl LayerVersionContentInputBuilder {
     /// <p>The Amazon S3 bucket of the layer archive.</p>
@@ -153,17 +153,17 @@ impl LayerVersionContentInputBuilder {
         &self.s3_object_storage_mode
     }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.zip_file = ::std::option::Option::Some(input);
         self
     }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.zip_file = input;
         self
     }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.zip_file
     }
     /// Consumes the builder and constructs a [`LayerVersionContentInput`](crate::types::LayerVersionContentInput).

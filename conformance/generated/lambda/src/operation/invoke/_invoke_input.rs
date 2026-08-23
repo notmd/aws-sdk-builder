@@ -34,7 +34,7 @@ pub struct InvokeInput {
     pub durable_execution_name: ::std::option::Option<::std::string::String>,
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Specify a version or alias to invoke a published version of the function.</p>
     pub qualifier: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
@@ -82,7 +82,7 @@ impl InvokeInput {
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.payload.as_ref()
     }
     /// <p>Specify a version or alias to invoke a published version of the function.</p>
@@ -124,7 +124,7 @@ pub struct InvokeInputBuilder {
     pub(crate) log_type: ::std::option::Option<crate::types::LogType>,
     pub(crate) client_context: ::std::option::Option<::std::string::String>,
     pub(crate) durable_execution_name: ::std::option::Option<::std::string::String>,
-    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
 }
@@ -259,19 +259,19 @@ impl InvokeInputBuilder {
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.payload = input;
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.payload
     }
     /// <p>Specify a version or alias to invoke a published version of the function.</p>

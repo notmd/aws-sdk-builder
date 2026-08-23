@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `764` matched · `334` mismatches · `533` missing · `0` extra · `46.84%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `767` matched · `331` mismatches · `533` missing · `0` extra · `47.03%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -12327,61 +12327,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/get_credential_report/_get_credential_report_output.rs`
-
-```diff
---- reference/src/operation/get_credential_report/_get_credential_report_output.rs
-+++ generated/src/operation/get_credential_report/_get_credential_report_output.rs
-@@ -5,7 +5,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct GetCredentialReportOutput {
-     /// <p>Contains the credential report. The report is Base64-encoded.</p>
--    pub content: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub content: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>The format (MIME type) of the credential report.</p>
-     pub report_format: ::std::option::Option<crate::types::ReportFormatType>,
-     /// <p>The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
-@@ -14,7 +14,7 @@
- }
- impl GetCredentialReportOutput {
-     /// <p>Contains the credential report. The report is Base64-encoded.</p>
--    pub fn content(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn content(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.content.as_ref()
-     }
-     /// <p>The format (MIME type) of the credential report.</p>
-@@ -42,7 +42,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct GetCredentialReportOutputBuilder {
--    pub(crate) content: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) content: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) report_format: ::std::option::Option<crate::types::ReportFormatType>,
-     pub(crate) generated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
-     _request_id: Option<String>,
-@@ -49,17 +49,17 @@
- }
- impl GetCredentialReportOutputBuilder {
-     /// <p>Contains the credential report. The report is Base64-encoded.</p>
--    pub fn content(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn content(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.content = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Contains the credential report. The report is Base64-encoded.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.content = input;
-         self
-     }
-     /// <p>Contains the credential report. The report is Base64-encoded.</p>
--    pub fn get_content(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.content
-     }
-     /// <p>The format (MIME type) of the credential report.</p>
 ```
 
 ### `src/operation/get_credential_report.rs`
@@ -29229,202 +29174,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -549,6 +549,28 @@
+@@ -642,6 +642,24 @@
      builder
  }
 
-+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
-+    if builder.key.is_none() {
-+        builder.key = Some(Default::default())
-+    }
-+    if builder.value.is_none() {
-+        builder.value = Some(Default::default())
-+    }
-+    builder
-+}
-+
-+pub(crate) fn source_role_template_correct_errors(
-+    mut builder: crate::types::builders::SourceRoleTemplateBuilder,
-+) -> crate::types::builders::SourceRoleTemplateBuilder {
-+    if builder.template_arn.is_none() {
-+        builder.template_arn = Some(Default::default())
-+    }
-+    if builder.template_minor_version.is_none() {
-+        builder.template_minor_version = Some(Default::default())
-+    }
-+    builder
-+}
-+
- pub(crate) fn access_key_correct_errors(mut builder: crate::types::builders::AccessKeyBuilder) -> crate::types::builders::AccessKeyBuilder {
-     if builder.user_name.is_none() {
-         builder.user_name = Some(Default::default())
-@@ -618,26 +640,23 @@
-     builder
- }
-
--pub(crate) fn virtual_mfa_device_correct_errors(
--    mut builder: crate::types::builders::VirtualMfaDeviceBuilder,
--) -> crate::types::builders::VirtualMfaDeviceBuilder {
--    if builder.serial_number.is_none() {
--        builder.serial_number = Some(Default::default())
-+pub(crate) fn service_specific_credential_correct_errors(
-+    mut builder: crate::types::builders::ServiceSpecificCredentialBuilder,
-+) -> crate::types::builders::ServiceSpecificCredentialBuilder {
-+    if builder.create_date.is_none() {
-+        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-     }
--    builder
--}
--
--pub(crate) fn server_certificate_correct_errors(
--    mut builder: crate::types::builders::ServerCertificateBuilder,
--) -> crate::types::builders::ServerCertificateBuilder {
--    if builder.server_certificate_metadata.is_none() {
--        builder.server_certificate_metadata = {
--            let builder = crate::types::builders::ServerCertificateMetadataBuilder::default();
--            crate::serde_util::server_certificate_metadata_correct_errors(builder).build().ok()
--        }
-+    if builder.service_name.is_none() {
-+        builder.service_name = Some(Default::default())
-+    }
-+    if builder.service_specific_credential_id.is_none() {
-+        builder.service_specific_credential_id = Some(Default::default())
-+    }
-+    if builder.user_name.is_none() {
-+        builder.user_name = Some(Default::default())
-     }
--    if builder.certificate_body.is_none() {
--        builder.certificate_body = Some(Default::default())
-+    if builder.status.is_none() {
-+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-     }
-     builder
- }
-@@ -661,20 +680,11 @@
-     builder
- }
-
--pub(crate) fn signing_certificate_correct_errors(
--    mut builder: crate::types::builders::SigningCertificateBuilder,
--) -> crate::types::builders::SigningCertificateBuilder {
--    if builder.user_name.is_none() {
--        builder.user_name = Some(Default::default())
--    }
--    if builder.certificate_id.is_none() {
--        builder.certificate_id = Some(Default::default())
--    }
--    if builder.certificate_body.is_none() {
--        builder.certificate_body = Some(Default::default())
--    }
--    if builder.status.is_none() {
--        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-+pub(crate) fn virtual_mfa_device_correct_errors(
-+    mut builder: crate::types::builders::VirtualMfaDeviceBuilder,
-+) -> crate::types::builders::VirtualMfaDeviceBuilder {
-+    if builder.serial_number.is_none() {
-+        builder.serial_number = Some(Default::default())
-     }
-     builder
- }
-@@ -691,6 +701,16 @@
-     builder
- }
-
-+pub(crate) fn access_detail_correct_errors(mut builder: crate::types::builders::AccessDetailBuilder) -> crate::types::builders::AccessDetailBuilder {
-+    if builder.service_name.is_none() {
-+        builder.service_name = Some(Default::default())
-+    }
-+    if builder.service_namespace.is_none() {
-+        builder.service_namespace = Some(Default::default())
-+    }
-+    builder
-+}
-+
- pub(crate) fn error_details_correct_errors(mut builder: crate::types::builders::ErrorDetailsBuilder) -> crate::types::builders::ErrorDetailsBuilder {
-     if builder.message.is_none() {
-         builder.message = Some(Default::default())
-@@ -701,41 +721,34 @@
-     builder
- }
-
--pub(crate) fn server_certificate_metadata_correct_errors(
--    mut builder: crate::types::builders::ServerCertificateMetadataBuilder,
--) -> crate::types::builders::ServerCertificateMetadataBuilder {
--    if builder.path.is_none() {
--        builder.path = Some(Default::default())
-+pub(crate) fn inline_policy_correct_errors(mut builder: crate::types::builders::InlinePolicyBuilder) -> crate::types::builders::InlinePolicyBuilder {
-+    if builder.policy_name.is_none() {
-+        builder.policy_name = Some(Default::default())
-     }
--    if builder.server_certificate_name.is_none() {
--        builder.server_certificate_name = Some(Default::default())
-+    if builder.policy_document.is_none() {
-+        builder.policy_document = Some(Default::default())
-     }
--    if builder.server_certificate_id.is_none() {
--        builder.server_certificate_id = Some(Default::default())
-+    builder
-+}
-+
-+pub(crate) fn parameter_definition_correct_errors(
-+    mut builder: crate::types::builders::ParameterDefinitionBuilder,
-+) -> crate::types::builders::ParameterDefinitionBuilder {
-+    if builder.name.is_none() {
-+        builder.name = Some(Default::default())
-     }
--    if builder.arn.is_none() {
--        builder.arn = Some(Default::default())
-+    if builder.r#type.is_none() {
-+        builder.r#type = "no value was set".parse::<crate::types::ParameterTypeType>().ok()
-     }
-     builder
- }
-
--pub(crate) fn service_specific_credential_correct_errors(
--    mut builder: crate::types::builders::ServiceSpecificCredentialBuilder,
--) -> crate::types::builders::ServiceSpecificCredentialBuilder {
--    if builder.create_date.is_none() {
--        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
--    }
--    if builder.service_name.is_none() {
--        builder.service_name = Some(Default::default())
-+pub(crate) fn tag_template_correct_errors(mut builder: crate::types::builders::TagTemplateBuilder) -> crate::types::builders::TagTemplateBuilder {
-+    if builder.key.is_none() {
-+        builder.key = Some(Default::default())
-     }
--    if builder.service_specific_credential_id.is_none() {
--        builder.service_specific_credential_id = Some(Default::default())
--    }
--    if builder.user_name.is_none() {
--        builder.user_name = Some(Default::default())
--    }
--    if builder.status.is_none() {
--        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-+    if builder.value.is_none() {
-+        builder.value = Some(Default::default())
-     }
-     builder
- }
-@@ -759,7 +772,42 @@
-     builder
- }
-
--pub(crate) fn access_detail_correct_errors(mut builder: crate::types::builders::AccessDetailBuilder) -> crate::types::builders::AccessDetailBuilder {
-+pub(crate) fn server_certificate_correct_errors(
-+    mut builder: crate::types::builders::ServerCertificateBuilder,
-+) -> crate::types::builders::ServerCertificateBuilder {
-+    if builder.server_certificate_metadata.is_none() {
-+        builder.server_certificate_metadata = {
-+            let builder = crate::types::builders::ServerCertificateMetadataBuilder::default();
-+            crate::serde_util::server_certificate_metadata_correct_errors(builder).build().ok()
-+        }
-+    }
-+    if builder.certificate_body.is_none() {
-+        builder.certificate_body = Some(Default::default())
-+    }
-+    builder
-+}
-+
 +pub(crate) fn server_certificate_metadata_correct_errors(
 +    mut builder: crate::types::builders::ServerCertificateMetadataBuilder,
 +) -> crate::types::builders::ServerCertificateMetadataBuilder {
@@ -29443,197 +29196,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    builder
 +}
 +
-+pub(crate) fn service_last_accessed_correct_errors(
-+    mut builder: crate::types::builders::ServiceLastAccessedBuilder,
-+) -> crate::types::builders::ServiceLastAccessedBuilder {
-     if builder.service_name.is_none() {
-         builder.service_name = Some(Default::default())
-     }
-@@ -781,14 +829,18 @@
+ pub(crate) fn user_correct_errors(mut builder: crate::types::builders::UserBuilder) -> crate::types::builders::UserBuilder {
+     if builder.path.is_none() {
+         builder.path = Some(Default::default())
+@@ -701,24 +719,6 @@
      builder
  }
 
--pub(crate) fn evaluation_result_correct_errors(
--    mut builder: crate::types::builders::EvaluationResultBuilder,
--) -> crate::types::builders::EvaluationResultBuilder {
--    if builder.eval_action_name.is_none() {
--        builder.eval_action_name = Some(Default::default())
-+pub(crate) fn entity_info_correct_errors(mut builder: crate::types::builders::EntityInfoBuilder) -> crate::types::builders::EntityInfoBuilder {
-+    if builder.arn.is_none() {
-+        builder.arn = Some(Default::default())
-+    }
-+    if builder.name.is_none() {
-+        builder.name = Some(Default::default())
-+    }
-+    if builder.r#type.is_none() {
-+        builder.r#type = "no value was set".parse::<crate::types::PolicyOwnerEntityType>().ok()
-     }
--    if builder.eval_decision.is_none() {
--        builder.eval_decision = "no value was set".parse::<crate::types::PolicyEvaluationDecisionType>().ok()
-+    if builder.id.is_none() {
-+        builder.id = Some(Default::default())
-     }
-     builder
- }
-@@ -806,47 +858,14 @@
-     builder
- }
-
--pub(crate) fn service_last_accessed_correct_errors(
--    mut builder: crate::types::builders::ServiceLastAccessedBuilder,
--) -> crate::types::builders::ServiceLastAccessedBuilder {
--    if builder.service_name.is_none() {
--        builder.service_name = Some(Default::default())
+-pub(crate) fn server_certificate_metadata_correct_errors(
+-    mut builder: crate::types::builders::ServerCertificateMetadataBuilder,
+-) -> crate::types::builders::ServerCertificateMetadataBuilder {
+-    if builder.path.is_none() {
+-        builder.path = Some(Default::default())
 -    }
--    if builder.service_namespace.is_none() {
--        builder.service_namespace = Some(Default::default())
+-    if builder.server_certificate_name.is_none() {
+-        builder.server_certificate_name = Some(Default::default())
 -    }
--    builder
--}
--
--pub(crate) fn service_specific_credential_metadata_correct_errors(
--    mut builder: crate::types::builders::ServiceSpecificCredentialMetadataBuilder,
--) -> crate::types::builders::ServiceSpecificCredentialMetadataBuilder {
--    if builder.user_name.is_none() {
--        builder.user_name = Some(Default::default())
+-    if builder.server_certificate_id.is_none() {
+-        builder.server_certificate_id = Some(Default::default())
 -    }
--    if builder.status.is_none() {
--        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
--    }
--    if builder.create_date.is_none() {
--        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
--    }
--    if builder.service_specific_credential_id.is_none() {
--        builder.service_specific_credential_id = Some(Default::default())
--    }
--    if builder.service_name.is_none() {
--        builder.service_name = Some(Default::default())
--    }
--    builder
--}
--
--pub(crate) fn source_role_template_correct_errors(
--    mut builder: crate::types::builders::SourceRoleTemplateBuilder,
--) -> crate::types::builders::SourceRoleTemplateBuilder {
--    if builder.template_arn.is_none() {
--        builder.template_arn = Some(Default::default())
-+pub(crate) fn policy_granting_service_access_correct_errors(
-+    mut builder: crate::types::builders::PolicyGrantingServiceAccessBuilder,
-+) -> crate::types::builders::PolicyGrantingServiceAccessBuilder {
-+    if builder.policy_name.is_none() {
-+        builder.policy_name = Some(Default::default())
-     }
--    if builder.template_minor_version.is_none() {
--        builder.template_minor_version = Some(Default::default())
-+    if builder.policy_type.is_none() {
-+        builder.policy_type = "no value was set".parse::<crate::types::PolicyType>().ok()
-     }
-     builder
- }
-@@ -869,72 +888,53 @@
-     builder
- }
-
--pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
--    if builder.key.is_none() {
--        builder.key = Some(Default::default())
-+pub(crate) fn service_specific_credential_metadata_correct_errors(
-+    mut builder: crate::types::builders::ServiceSpecificCredentialMetadataBuilder,
-+) -> crate::types::builders::ServiceSpecificCredentialMetadataBuilder {
-+    if builder.user_name.is_none() {
-+        builder.user_name = Some(Default::default())
-     }
--    if builder.value.is_none() {
--        builder.value = Some(Default::default())
-+    if builder.status.is_none() {
-+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-     }
--    builder
--}
--
--pub(crate) fn entity_info_correct_errors(mut builder: crate::types::builders::EntityInfoBuilder) -> crate::types::builders::EntityInfoBuilder {
 -    if builder.arn.is_none() {
 -        builder.arn = Some(Default::default())
 -    }
--    if builder.name.is_none() {
--        builder.name = Some(Default::default())
-+    if builder.create_date.is_none() {
-+        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-     }
--    if builder.r#type.is_none() {
--        builder.r#type = "no value was set".parse::<crate::types::PolicyOwnerEntityType>().ok()
-+    if builder.service_specific_credential_id.is_none() {
-+        builder.service_specific_credential_id = Some(Default::default())
-     }
--    if builder.id.is_none() {
--        builder.id = Some(Default::default())
-+    if builder.service_name.is_none() {
-+        builder.service_name = Some(Default::default())
-     }
-     builder
- }
-
--pub(crate) fn inline_policy_correct_errors(mut builder: crate::types::builders::InlinePolicyBuilder) -> crate::types::builders::InlinePolicyBuilder {
--    if builder.policy_name.is_none() {
--        builder.policy_name = Some(Default::default())
-+pub(crate) fn signing_certificate_correct_errors(
-+    mut builder: crate::types::builders::SigningCertificateBuilder,
-+) -> crate::types::builders::SigningCertificateBuilder {
-+    if builder.user_name.is_none() {
-+        builder.user_name = Some(Default::default())
-     }
--    if builder.policy_document.is_none() {
--        builder.policy_document = Some(Default::default())
-+    if builder.certificate_id.is_none() {
-+        builder.certificate_id = Some(Default::default())
-     }
 -    builder
 -}
 -
--pub(crate) fn parameter_definition_correct_errors(
--    mut builder: crate::types::builders::ParameterDefinitionBuilder,
--) -> crate::types::builders::ParameterDefinitionBuilder {
--    if builder.name.is_none() {
--        builder.name = Some(Default::default())
--    }
--    if builder.r#type.is_none() {
--        builder.r#type = "no value was set".parse::<crate::types::ParameterTypeType>().ok()
--    }
--    builder
--}
--
--pub(crate) fn tag_template_correct_errors(mut builder: crate::types::builders::TagTemplateBuilder) -> crate::types::builders::TagTemplateBuilder {
--    if builder.key.is_none() {
--        builder.key = Some(Default::default())
-+    if builder.certificate_body.is_none() {
-+        builder.certificate_body = Some(Default::default())
-     }
--    if builder.value.is_none() {
--        builder.value = Some(Default::default())
-+    if builder.status.is_none() {
-+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-     }
-     builder
- }
-
--pub(crate) fn policy_granting_service_access_correct_errors(
--    mut builder: crate::types::builders::PolicyGrantingServiceAccessBuilder,
--) -> crate::types::builders::PolicyGrantingServiceAccessBuilder {
--    if builder.policy_name.is_none() {
--        builder.policy_name = Some(Default::default())
-+pub(crate) fn evaluation_result_correct_errors(
-+    mut builder: crate::types::builders::EvaluationResultBuilder,
-+) -> crate::types::builders::EvaluationResultBuilder {
-+    if builder.eval_action_name.is_none() {
-+        builder.eval_action_name = Some(Default::default())
-     }
--    if builder.policy_type.is_none() {
--        builder.policy_type = "no value was set".parse::<crate::types::PolicyType>().ok()
-+    if builder.eval_decision.is_none() {
-+        builder.eval_decision = "no value was set".parse::<crate::types::PolicyEvaluationDecisionType>().ok()
-     }
-     builder
- }
+ pub(crate) fn service_specific_credential_correct_errors(
+     mut builder: crate::types::builders::ServiceSpecificCredentialBuilder,
+ ) -> crate::types::builders::ServiceSpecificCredentialBuilder {
 ```
 
 ### `src/types/_access_detail.rs`
@@ -30250,26 +29840,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              update_date: self.update_date,
 ```
 
-### `src/types/_policy_usage_type.rs`
-
-```diff
---- reference/src/types/_policy_usage_type.rs
-+++ generated/src/types/_policy_usage_type.rs
-@@ -37,9 +37,9 @@
- /// - It might inadvertently shadow other intended match arms.
- ///
- /// <p>The policy usage type that indicates whether the policy is used as a permissions policy
--/// or as the permissions boundary for an entity.</p>
--/// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
--/// identities </a> in the <i>IAM User Guide</i>.</p>
-+///          or as the permissions boundary for an entity.</p>
-+///          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
-+///             identities </a> in the <i>IAM User Guide</i>.</p>
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-```
-
 ### `src/types/_policy_version.rs`
 
 ```diff
@@ -30668,88 +30238,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
      pub fn get_last_accessed_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
          &self.last_accessed_time
-```
-
-### `src/types/_virtual_mfa_device.rs`
-
-```diff
---- reference/src/types/_virtual_mfa_device.rs
-+++ generated/src/types/_virtual_mfa_device.rs
-@@ -7,9 +7,9 @@
-     /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
-     pub serial_number: ::std::string::String,
-     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
--    pub base32_string_seed: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub base32_string_seed: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
--    pub qr_code_png: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub qr_code_png: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>The IAM user associated with this virtual MFA device.</p>
-     pub user: ::std::option::Option<crate::types::User>,
-     /// <p>The date and time on which the virtual MFA device was enabled.</p>
-@@ -24,11 +24,11 @@
-         self.serial_number.deref()
-     }
-     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
--    pub fn base32_string_seed(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn base32_string_seed(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.base32_string_seed.as_ref()
-     }
-     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
--    pub fn qr_code_png(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn qr_code_png(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.qr_code_png.as_ref()
-     }
-     /// <p>The IAM user associated with this virtual MFA device.</p>
-@@ -70,8 +70,8 @@
- #[non_exhaustive]
- pub struct VirtualMfaDeviceBuilder {
-     pub(crate) serial_number: ::std::option::Option<::std::string::String>,
--    pub(crate) base32_string_seed: ::std::option::Option<::aws_smithy_types::Blob>,
--    pub(crate) qr_code_png: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) base32_string_seed: ::std::option::Option<::std::vec::Vec<u8>>,
-+    pub(crate) qr_code_png: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) user: ::std::option::Option<crate::types::User>,
-     pub(crate) enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-@@ -93,31 +93,31 @@
-         &self.serial_number
-     }
-     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
--    pub fn base32_string_seed(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn base32_string_seed(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.base32_string_seed = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
--    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.base32_string_seed = input;
-         self
-     }
-     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
--    pub fn get_base32_string_seed(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_base32_string_seed(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.base32_string_seed
-     }
-     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
--    pub fn qr_code_png(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn qr_code_png(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.qr_code_png = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
--    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.qr_code_png = input;
-         self
-     }
-     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
--    pub fn get_qr_code_png(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_qr_code_png(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.qr_code_png
-     }
-     /// <p>The IAM user associated with this virtual MFA device.</p>
 ```
 
 ### `src/types/error/_duplicate_ssh_public_key_exception.rs`
@@ -31489,7 +30977,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_account_summary.rs`
 - `src/operation/get_context_keys_for_custom_policy.rs`
 - `src/operation/get_context_keys_for_principal_policy.rs`
-- `src/operation/get_credential_report/_get_credential_report_output.rs`
 - `src/operation/get_credential_report.rs`
 - `src/operation/get_delegation_request.rs`
 - `src/operation/get_group/_get_group_output.rs`
@@ -31680,7 +31167,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_password_policy.rs`
 - `src/types/_permissions_boundary_decision_detail.rs`
 - `src/types/_policy.rs`
-- `src/types/_policy_usage_type.rs`
 - `src/types/_policy_version.rs`
 - `src/types/_position.rs`
 - `src/types/_role_last_used.rs`
@@ -31689,7 +31175,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_service_specific_credential.rs`
 - `src/types/_service_specific_credential_metadata.rs`
 - `src/types/_tracked_action_last_accessed.rs`
-- `src/types/_virtual_mfa_device.rs`
 - `src/types/error/_duplicate_ssh_public_key_exception.rs`
 - `src/types/error/builders.rs`
 - `src/types/error.rs`

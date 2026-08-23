@@ -16,7 +16,7 @@ pub struct InvokeAsyncInput {
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub invoke_args: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub invoke_args: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl InvokeAsyncInput {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -34,7 +34,7 @@ impl InvokeAsyncInput {
         self.function_name.as_deref()
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn invoke_args(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn invoke_args(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.invoke_args.as_ref()
     }
 }
@@ -50,7 +50,7 @@ impl InvokeAsyncInput {
 #[non_exhaustive]
 pub struct InvokeAsyncInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
-    pub(crate) invoke_args: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) invoke_args: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl InvokeAsyncInputBuilder {
     /// <p>The name or ARN of the Lambda function.</p>
@@ -100,17 +100,17 @@ impl InvokeAsyncInputBuilder {
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
     /// This field is required.
-    pub fn invoke_args(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn invoke_args(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.invoke_args = ::std::option::Option::Some(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn set_invoke_args(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.invoke_args = input;
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn get_invoke_args(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.invoke_args
     }
     /// Consumes the builder and constructs a [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).

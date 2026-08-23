@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GenerateDataKeyWithoutPlaintextOutput {
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the key material used to encrypt the data key.</p>
@@ -13,7 +13,7 @@ pub struct GenerateDataKeyWithoutPlaintextOutput {
 }
 impl GenerateDataKeyWithoutPlaintextOutput {
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn ciphertext_blob(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn ciphertext_blob(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.ciphertext_blob.as_ref()
     }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
@@ -41,24 +41,24 @@ impl GenerateDataKeyWithoutPlaintextOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GenerateDataKeyWithoutPlaintextOutputBuilder {
-    pub(crate) ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GenerateDataKeyWithoutPlaintextOutputBuilder {
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn ciphertext_blob(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn ciphertext_blob(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_blob = input;
         self
     }
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.ciphertext_blob
     }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>

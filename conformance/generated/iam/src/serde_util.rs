@@ -549,28 +549,6 @@ pub(crate) fn role_correct_errors(mut builder: crate::types::builders::RoleBuild
     builder
 }
 
-pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
-    if builder.key.is_none() {
-        builder.key = Some(Default::default())
-    }
-    if builder.value.is_none() {
-        builder.value = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn source_role_template_correct_errors(
-    mut builder: crate::types::builders::SourceRoleTemplateBuilder,
-) -> crate::types::builders::SourceRoleTemplateBuilder {
-    if builder.template_arn.is_none() {
-        builder.template_arn = Some(Default::default())
-    }
-    if builder.template_minor_version.is_none() {
-        builder.template_minor_version = Some(Default::default())
-    }
-    builder
-}
-
 pub(crate) fn access_key_correct_errors(mut builder: crate::types::builders::AccessKeyBuilder) -> crate::types::builders::AccessKeyBuilder {
     if builder.user_name.is_none() {
         builder.user_name = Some(Default::default())
@@ -640,134 +618,11 @@ pub(crate) fn login_profile_correct_errors(mut builder: crate::types::builders::
     builder
 }
 
-pub(crate) fn service_specific_credential_correct_errors(
-    mut builder: crate::types::builders::ServiceSpecificCredentialBuilder,
-) -> crate::types::builders::ServiceSpecificCredentialBuilder {
-    if builder.create_date.is_none() {
-        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-    }
-    if builder.service_name.is_none() {
-        builder.service_name = Some(Default::default())
-    }
-    if builder.service_specific_credential_id.is_none() {
-        builder.service_specific_credential_id = Some(Default::default())
-    }
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
-    }
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-    }
-    builder
-}
-
-pub(crate) fn user_correct_errors(mut builder: crate::types::builders::UserBuilder) -> crate::types::builders::UserBuilder {
-    if builder.path.is_none() {
-        builder.path = Some(Default::default())
-    }
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
-    }
-    if builder.user_id.is_none() {
-        builder.user_id = Some(Default::default())
-    }
-    if builder.arn.is_none() {
-        builder.arn = Some(Default::default())
-    }
-    if builder.create_date.is_none() {
-        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-    }
-    builder
-}
-
 pub(crate) fn virtual_mfa_device_correct_errors(
     mut builder: crate::types::builders::VirtualMfaDeviceBuilder,
 ) -> crate::types::builders::VirtualMfaDeviceBuilder {
     if builder.serial_number.is_none() {
         builder.serial_number = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn access_key_last_used_correct_errors(
-    mut builder: crate::types::builders::AccessKeyLastUsedBuilder,
-) -> crate::types::builders::AccessKeyLastUsedBuilder {
-    if builder.service_name.is_none() {
-        builder.service_name = Some(Default::default())
-    }
-    if builder.region.is_none() {
-        builder.region = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn access_detail_correct_errors(mut builder: crate::types::builders::AccessDetailBuilder) -> crate::types::builders::AccessDetailBuilder {
-    if builder.service_name.is_none() {
-        builder.service_name = Some(Default::default())
-    }
-    if builder.service_namespace.is_none() {
-        builder.service_namespace = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn error_details_correct_errors(mut builder: crate::types::builders::ErrorDetailsBuilder) -> crate::types::builders::ErrorDetailsBuilder {
-    if builder.message.is_none() {
-        builder.message = Some(Default::default())
-    }
-    if builder.code.is_none() {
-        builder.code = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn inline_policy_correct_errors(mut builder: crate::types::builders::InlinePolicyBuilder) -> crate::types::builders::InlinePolicyBuilder {
-    if builder.policy_name.is_none() {
-        builder.policy_name = Some(Default::default())
-    }
-    if builder.policy_document.is_none() {
-        builder.policy_document = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn parameter_definition_correct_errors(
-    mut builder: crate::types::builders::ParameterDefinitionBuilder,
-) -> crate::types::builders::ParameterDefinitionBuilder {
-    if builder.name.is_none() {
-        builder.name = Some(Default::default())
-    }
-    if builder.r#type.is_none() {
-        builder.r#type = "no value was set".parse::<crate::types::ParameterTypeType>().ok()
-    }
-    builder
-}
-
-pub(crate) fn tag_template_correct_errors(mut builder: crate::types::builders::TagTemplateBuilder) -> crate::types::builders::TagTemplateBuilder {
-    if builder.key.is_none() {
-        builder.key = Some(Default::default())
-    }
-    if builder.value.is_none() {
-        builder.value = Some(Default::default())
-    }
-    builder
-}
-
-pub(crate) fn ssh_public_key_correct_errors(mut builder: crate::types::builders::SshPublicKeyBuilder) -> crate::types::builders::SshPublicKeyBuilder {
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
-    }
-    if builder.ssh_public_key_id.is_none() {
-        builder.ssh_public_key_id = Some(Default::default())
-    }
-    if builder.fingerprint.is_none() {
-        builder.fingerprint = Some(Default::default())
-    }
-    if builder.ssh_public_key_body.is_none() {
-        builder.ssh_public_key_body = Some(Default::default())
-    }
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
     }
     builder
 }
@@ -805,9 +660,106 @@ pub(crate) fn server_certificate_metadata_correct_errors(
     builder
 }
 
-pub(crate) fn service_last_accessed_correct_errors(
-    mut builder: crate::types::builders::ServiceLastAccessedBuilder,
-) -> crate::types::builders::ServiceLastAccessedBuilder {
+pub(crate) fn user_correct_errors(mut builder: crate::types::builders::UserBuilder) -> crate::types::builders::UserBuilder {
+    if builder.path.is_none() {
+        builder.path = Some(Default::default())
+    }
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
+    }
+    if builder.user_id.is_none() {
+        builder.user_id = Some(Default::default())
+    }
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.create_date.is_none() {
+        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn signing_certificate_correct_errors(
+    mut builder: crate::types::builders::SigningCertificateBuilder,
+) -> crate::types::builders::SigningCertificateBuilder {
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
+    }
+    if builder.certificate_id.is_none() {
+        builder.certificate_id = Some(Default::default())
+    }
+    if builder.certificate_body.is_none() {
+        builder.certificate_body = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    }
+    builder
+}
+
+pub(crate) fn access_key_last_used_correct_errors(
+    mut builder: crate::types::builders::AccessKeyLastUsedBuilder,
+) -> crate::types::builders::AccessKeyLastUsedBuilder {
+    if builder.service_name.is_none() {
+        builder.service_name = Some(Default::default())
+    }
+    if builder.region.is_none() {
+        builder.region = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn error_details_correct_errors(mut builder: crate::types::builders::ErrorDetailsBuilder) -> crate::types::builders::ErrorDetailsBuilder {
+    if builder.message.is_none() {
+        builder.message = Some(Default::default())
+    }
+    if builder.code.is_none() {
+        builder.code = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn service_specific_credential_correct_errors(
+    mut builder: crate::types::builders::ServiceSpecificCredentialBuilder,
+) -> crate::types::builders::ServiceSpecificCredentialBuilder {
+    if builder.create_date.is_none() {
+        builder.create_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    if builder.service_name.is_none() {
+        builder.service_name = Some(Default::default())
+    }
+    if builder.service_specific_credential_id.is_none() {
+        builder.service_specific_credential_id = Some(Default::default())
+    }
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    }
+    builder
+}
+
+pub(crate) fn ssh_public_key_correct_errors(mut builder: crate::types::builders::SshPublicKeyBuilder) -> crate::types::builders::SshPublicKeyBuilder {
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
+    }
+    if builder.ssh_public_key_id.is_none() {
+        builder.ssh_public_key_id = Some(Default::default())
+    }
+    if builder.fingerprint.is_none() {
+        builder.fingerprint = Some(Default::default())
+    }
+    if builder.ssh_public_key_body.is_none() {
+        builder.ssh_public_key_body = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    }
+    builder
+}
+
+pub(crate) fn access_detail_correct_errors(mut builder: crate::types::builders::AccessDetailBuilder) -> crate::types::builders::AccessDetailBuilder {
     if builder.service_name.is_none() {
         builder.service_name = Some(Default::default())
     }
@@ -829,18 +781,14 @@ pub(crate) fn entity_details_correct_errors(
     builder
 }
 
-pub(crate) fn entity_info_correct_errors(mut builder: crate::types::builders::EntityInfoBuilder) -> crate::types::builders::EntityInfoBuilder {
-    if builder.arn.is_none() {
-        builder.arn = Some(Default::default())
+pub(crate) fn evaluation_result_correct_errors(
+    mut builder: crate::types::builders::EvaluationResultBuilder,
+) -> crate::types::builders::EvaluationResultBuilder {
+    if builder.eval_action_name.is_none() {
+        builder.eval_action_name = Some(Default::default())
     }
-    if builder.name.is_none() {
-        builder.name = Some(Default::default())
-    }
-    if builder.r#type.is_none() {
-        builder.r#type = "no value was set".parse::<crate::types::PolicyOwnerEntityType>().ok()
-    }
-    if builder.id.is_none() {
-        builder.id = Some(Default::default())
+    if builder.eval_decision.is_none() {
+        builder.eval_decision = "no value was set".parse::<crate::types::PolicyEvaluationDecisionType>().ok()
     }
     builder
 }
@@ -858,32 +806,14 @@ pub(crate) fn mfa_device_correct_errors(mut builder: crate::types::builders::Mfa
     builder
 }
 
-pub(crate) fn policy_granting_service_access_correct_errors(
-    mut builder: crate::types::builders::PolicyGrantingServiceAccessBuilder,
-) -> crate::types::builders::PolicyGrantingServiceAccessBuilder {
-    if builder.policy_name.is_none() {
-        builder.policy_name = Some(Default::default())
+pub(crate) fn service_last_accessed_correct_errors(
+    mut builder: crate::types::builders::ServiceLastAccessedBuilder,
+) -> crate::types::builders::ServiceLastAccessedBuilder {
+    if builder.service_name.is_none() {
+        builder.service_name = Some(Default::default())
     }
-    if builder.policy_type.is_none() {
-        builder.policy_type = "no value was set".parse::<crate::types::PolicyType>().ok()
-    }
-    builder
-}
-
-pub(crate) fn ssh_public_key_metadata_correct_errors(
-    mut builder: crate::types::builders::SshPublicKeyMetadataBuilder,
-) -> crate::types::builders::SshPublicKeyMetadataBuilder {
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
-    }
-    if builder.ssh_public_key_id.is_none() {
-        builder.ssh_public_key_id = Some(Default::default())
-    }
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
-    }
-    if builder.upload_date.is_none() {
-        builder.upload_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    if builder.service_namespace.is_none() {
+        builder.service_namespace = Some(Default::default())
     }
     builder
 }
@@ -909,32 +839,102 @@ pub(crate) fn service_specific_credential_metadata_correct_errors(
     builder
 }
 
-pub(crate) fn signing_certificate_correct_errors(
-    mut builder: crate::types::builders::SigningCertificateBuilder,
-) -> crate::types::builders::SigningCertificateBuilder {
-    if builder.user_name.is_none() {
-        builder.user_name = Some(Default::default())
+pub(crate) fn source_role_template_correct_errors(
+    mut builder: crate::types::builders::SourceRoleTemplateBuilder,
+) -> crate::types::builders::SourceRoleTemplateBuilder {
+    if builder.template_arn.is_none() {
+        builder.template_arn = Some(Default::default())
     }
-    if builder.certificate_id.is_none() {
-        builder.certificate_id = Some(Default::default())
-    }
-    if builder.certificate_body.is_none() {
-        builder.certificate_body = Some(Default::default())
-    }
-    if builder.status.is_none() {
-        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    if builder.template_minor_version.is_none() {
+        builder.template_minor_version = Some(Default::default())
     }
     builder
 }
 
-pub(crate) fn evaluation_result_correct_errors(
-    mut builder: crate::types::builders::EvaluationResultBuilder,
-) -> crate::types::builders::EvaluationResultBuilder {
-    if builder.eval_action_name.is_none() {
-        builder.eval_action_name = Some(Default::default())
+pub(crate) fn ssh_public_key_metadata_correct_errors(
+    mut builder: crate::types::builders::SshPublicKeyMetadataBuilder,
+) -> crate::types::builders::SshPublicKeyMetadataBuilder {
+    if builder.user_name.is_none() {
+        builder.user_name = Some(Default::default())
     }
-    if builder.eval_decision.is_none() {
-        builder.eval_decision = "no value was set".parse::<crate::types::PolicyEvaluationDecisionType>().ok()
+    if builder.ssh_public_key_id.is_none() {
+        builder.ssh_public_key_id = Some(Default::default())
+    }
+    if builder.status.is_none() {
+        builder.status = "no value was set".parse::<crate::types::StatusType>().ok()
+    }
+    if builder.upload_date.is_none() {
+        builder.upload_date = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
+    }
+    builder
+}
+
+pub(crate) fn tag_correct_errors(mut builder: crate::types::builders::TagBuilder) -> crate::types::builders::TagBuilder {
+    if builder.key.is_none() {
+        builder.key = Some(Default::default())
+    }
+    if builder.value.is_none() {
+        builder.value = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn entity_info_correct_errors(mut builder: crate::types::builders::EntityInfoBuilder) -> crate::types::builders::EntityInfoBuilder {
+    if builder.arn.is_none() {
+        builder.arn = Some(Default::default())
+    }
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.r#type.is_none() {
+        builder.r#type = "no value was set".parse::<crate::types::PolicyOwnerEntityType>().ok()
+    }
+    if builder.id.is_none() {
+        builder.id = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn inline_policy_correct_errors(mut builder: crate::types::builders::InlinePolicyBuilder) -> crate::types::builders::InlinePolicyBuilder {
+    if builder.policy_name.is_none() {
+        builder.policy_name = Some(Default::default())
+    }
+    if builder.policy_document.is_none() {
+        builder.policy_document = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn parameter_definition_correct_errors(
+    mut builder: crate::types::builders::ParameterDefinitionBuilder,
+) -> crate::types::builders::ParameterDefinitionBuilder {
+    if builder.name.is_none() {
+        builder.name = Some(Default::default())
+    }
+    if builder.r#type.is_none() {
+        builder.r#type = "no value was set".parse::<crate::types::ParameterTypeType>().ok()
+    }
+    builder
+}
+
+pub(crate) fn tag_template_correct_errors(mut builder: crate::types::builders::TagTemplateBuilder) -> crate::types::builders::TagTemplateBuilder {
+    if builder.key.is_none() {
+        builder.key = Some(Default::default())
+    }
+    if builder.value.is_none() {
+        builder.value = Some(Default::default())
+    }
+    builder
+}
+
+pub(crate) fn policy_granting_service_access_correct_errors(
+    mut builder: crate::types::builders::PolicyGrantingServiceAccessBuilder,
+) -> crate::types::builders::PolicyGrantingServiceAccessBuilder {
+    if builder.policy_name.is_none() {
+        builder.policy_name = Some(Default::default())
+    }
+    if builder.policy_type.is_none() {
+        builder.policy_type = "no value was set".parse::<crate::types::PolicyType>().ok()
     }
     builder
 }

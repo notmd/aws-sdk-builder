@@ -159,17 +159,17 @@ impl UpdateFunctionCodeFluentBuilder {
         self.inner.get_function_name()
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.zip_file(input);
         self
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_zip_file(input);
         self
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_zip_file()
     }
     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>

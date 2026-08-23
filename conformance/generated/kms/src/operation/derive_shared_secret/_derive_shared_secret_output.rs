@@ -7,10 +7,10 @@ pub struct DeriveSharedSecretOutput {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
-    pub shared_secret: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub shared_secret: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
     pub key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
     /// <p>The source of the key material for the specified KMS key.</p>
@@ -26,12 +26,12 @@ impl DeriveSharedSecretOutput {
     }
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
-    pub fn shared_secret(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn shared_secret(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.shared_secret.as_ref()
     }
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.ciphertext_for_recipient.as_ref()
     }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
@@ -74,8 +74,8 @@ impl DeriveSharedSecretOutput {
 #[non_exhaustive]
 pub struct DeriveSharedSecretOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) shared_secret: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) shared_secret: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_agreement_algorithm: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>,
     pub(crate) key_origin: ::std::option::Option<crate::types::OriginType>,
     _request_id: Option<String>,
@@ -97,36 +97,36 @@ impl DeriveSharedSecretOutputBuilder {
     }
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
-    pub fn shared_secret(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn shared_secret(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.shared_secret = ::std::option::Option::Some(input);
         self
     }
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
-    pub fn set_shared_secret(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_shared_secret(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.shared_secret = input;
         self
     }
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
-    pub fn get_shared_secret(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_shared_secret(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.shared_secret
     }
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn ciphertext_for_recipient(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn ciphertext_for_recipient(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.ciphertext_for_recipient = ::std::option::Option::Some(input);
         self
     }
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_for_recipient = input;
         self
     }
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.ciphertext_for_recipient
     }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>

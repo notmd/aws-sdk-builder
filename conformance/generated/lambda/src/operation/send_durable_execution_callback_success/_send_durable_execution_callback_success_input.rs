@@ -6,7 +6,7 @@ pub struct SendDurableExecutionCallbackSuccessInput {
     /// <p>The unique identifier for the callback operation.</p>
     pub callback_id: ::std::option::Option<::std::string::String>,
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub result: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub result: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl SendDurableExecutionCallbackSuccessInput {
     /// <p>The unique identifier for the callback operation.</p>
@@ -14,7 +14,7 @@ impl SendDurableExecutionCallbackSuccessInput {
         self.callback_id.as_deref()
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn result(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn result(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.result.as_ref()
     }
 }
@@ -38,7 +38,7 @@ impl SendDurableExecutionCallbackSuccessInput {
 #[non_exhaustive]
 pub struct SendDurableExecutionCallbackSuccessInputBuilder {
     pub(crate) callback_id: ::std::option::Option<::std::string::String>,
-    pub(crate) result: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) result: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl SendDurableExecutionCallbackSuccessInputBuilder {
     /// <p>The unique identifier for the callback operation.</p>
@@ -57,17 +57,17 @@ impl SendDurableExecutionCallbackSuccessInputBuilder {
         &self.callback_id
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn result(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn result(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.result = ::std::option::Option::Some(input);
         self
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_result(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.result = input;
         self
     }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn get_result(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_result(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.result
     }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackSuccessInput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput).

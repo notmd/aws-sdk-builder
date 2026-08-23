@@ -23,7 +23,7 @@ pub struct InvokeWithResponseStreamInput {
     pub qualifier: ::std::option::Option<::std::string::String>,
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
     pub tenant_id: ::std::option::Option<::std::string::String>,
     /// <p>Use one of the following options:</p>
@@ -64,7 +64,7 @@ impl InvokeWithResponseStreamInput {
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.payload.as_ref()
     }
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
@@ -110,7 +110,7 @@ pub struct InvokeWithResponseStreamInputBuilder {
     pub(crate) log_type: ::std::option::Option<crate::types::LogType>,
     pub(crate) client_context: ::std::option::Option<::std::string::String>,
     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
-    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
     pub(crate) invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
 }
@@ -204,19 +204,19 @@ impl InvokeWithResponseStreamInputBuilder {
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.payload = input;
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.payload
     }
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>

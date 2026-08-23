@@ -8,11 +8,11 @@ pub struct MessageSystemAttributeValue {
     /// <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
     pub string_value: ::std::option::Option<::std::string::String>,
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub binary_value: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub binary_value: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>Not implemented. Reserved for future use.</p>
     pub string_list_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Not implemented. Reserved for future use.</p>
-    pub binary_list_values: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>,
+    pub binary_list_values: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>>,
     /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
     /// <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     pub data_type: ::std::string::String,
@@ -23,7 +23,7 @@ impl MessageSystemAttributeValue {
         self.string_value.as_deref()
     }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub fn binary_value(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn binary_value(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.binary_value.as_ref()
     }
     /// <p>Not implemented. Reserved for future use.</p>
@@ -35,7 +35,7 @@ impl MessageSystemAttributeValue {
     /// <p>Not implemented. Reserved for future use.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.binary_list_values.is_none()`.
-    pub fn binary_list_values(&self) -> &[::std::vec::Vec<u8>] {
+    pub fn binary_list_values(&self) -> &[::aws_smithy_types::Blob] {
         self.binary_list_values.as_deref().unwrap_or_default()
     }
     /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
@@ -57,9 +57,9 @@ impl MessageSystemAttributeValue {
 #[non_exhaustive]
 pub struct MessageSystemAttributeValueBuilder {
     pub(crate) string_value: ::std::option::Option<::std::string::String>,
-    pub(crate) binary_value: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) binary_value: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) string_list_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) binary_list_values: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>,
+    pub(crate) binary_list_values: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>>,
     pub(crate) data_type: ::std::option::Option<::std::string::String>,
 }
 impl MessageSystemAttributeValueBuilder {
@@ -78,17 +78,17 @@ impl MessageSystemAttributeValueBuilder {
         &self.string_value
     }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub fn binary_value(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn binary_value(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.binary_value = ::std::option::Option::Some(input);
         self
     }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_binary_value(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.binary_value = input;
         self
     }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub fn get_binary_value(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_binary_value(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.binary_value
     }
     /// Appends an item to `string_list_values`.
@@ -116,19 +116,19 @@ impl MessageSystemAttributeValueBuilder {
     /// To override the contents of this collection use [`set_binary_list_values`](Self::set_binary_list_values).
     ///
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn binary_list_values(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn binary_list_values(mut self, input: ::aws_smithy_types::Blob) -> Self {
         let mut v = self.binary_list_values.unwrap_or_default();
         v.push(input);
         self.binary_list_values = ::std::option::Option::Some(v);
         self
     }
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>) -> Self {
+    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>>) -> Self {
         self.binary_list_values = input;
         self
     }
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>> {
+    pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::aws_smithy_types::Blob>> {
         &self.binary_list_values
     }
     /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>

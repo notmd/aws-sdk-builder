@@ -16,9 +16,9 @@ pub struct ImportKeyMaterialInput {
     /// <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
-    pub import_token: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub import_token: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    pub encrypted_key_material: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub encrypted_key_material: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
     /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
     /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
@@ -61,11 +61,11 @@ impl ImportKeyMaterialInput {
         self.key_id.as_deref()
     }
     /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
-    pub fn import_token(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn import_token(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.import_token.as_ref()
     }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    pub fn encrypted_key_material(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn encrypted_key_material(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.encrypted_key_material.as_ref()
     }
     /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
@@ -116,8 +116,8 @@ impl ImportKeyMaterialInput {
 #[non_exhaustive]
 pub struct ImportKeyMaterialInputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) import_token: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) encrypted_key_material: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) import_token: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) encrypted_key_material: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) expiration_model: ::std::option::Option<crate::types::ExpirationModelType>,
     pub(crate) import_type: ::std::option::Option<crate::types::ImportType>,
@@ -172,32 +172,32 @@ impl ImportKeyMaterialInputBuilder {
     }
     /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
     /// This field is required.
-    pub fn import_token(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn import_token(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.import_token = ::std::option::Option::Some(input);
         self
     }
     /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
-    pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_import_token(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.import_token = input;
         self
     }
     /// <p>The import token that you received in the response to a previous <code>GetParametersForImport</code> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
-    pub fn get_import_token(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_import_token(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.import_token
     }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
     /// This field is required.
-    pub fn encrypted_key_material(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn encrypted_key_material(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.encrypted_key_material = ::std::option::Option::Some(input);
         self
     }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.encrypted_key_material = input;
         self
     }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <code>GetParametersForImport</code> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    pub fn get_encrypted_key_material(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_encrypted_key_material(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.encrypted_key_material
     }
     /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>

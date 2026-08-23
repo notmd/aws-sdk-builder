@@ -37,9 +37,9 @@
 /// - It might inadvertently shadow other intended match arms.
 ///
 /// <p>The policy usage type that indicates whether the policy is used as a permissions policy
-///          or as the permissions boundary for an entity.</p>
-///          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
-///             identities </a> in the <i>IAM User Guide</i>.</p>
+/// or as the permissions boundary for an entity.</p>
+/// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
+/// identities </a> in the <i>IAM User Guide</i>.</p>
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,

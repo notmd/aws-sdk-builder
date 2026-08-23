@@ -37,9 +37,9 @@
 /// - It might inadvertently shadow other intended match arms.
 ///
 /// Enum listing out all supported destination phone number verification statuses. The following enum values are
-///         supported.
-///         1. PENDING : The destination phone number is pending verification.
-///         2. VERIFIED : The destination phone number is verified.
+/// supported.
+/// 1. PENDING : The destination phone number is pending verification.
+/// 2. VERIFIED : The destination phone number is verified.
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,

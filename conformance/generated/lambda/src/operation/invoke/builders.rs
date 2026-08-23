@@ -231,19 +231,19 @@ impl InvokeFluentBuilder {
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.payload(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_payload(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_payload()
     }
     /// <p>Specify a version or alias to invoke a published version of the function.</p>

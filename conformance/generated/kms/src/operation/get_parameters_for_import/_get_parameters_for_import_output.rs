@@ -6,9 +6,9 @@ pub struct GetParametersForImportOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <code>ImportKeyMaterial</code> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
-    pub import_token: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub import_token: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
-    pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub parameters_valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
     _request_id: Option<String>,
@@ -19,11 +19,11 @@ impl GetParametersForImportOutput {
         self.key_id.as_deref()
     }
     /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
-    pub fn import_token(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn import_token(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.import_token.as_ref()
     }
     /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
-    pub fn public_key(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn public_key(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.public_key.as_ref()
     }
     /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
@@ -59,8 +59,8 @@ impl GetParametersForImportOutput {
 #[non_exhaustive]
 pub struct GetParametersForImportOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
-    pub(crate) import_token: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) public_key: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) import_token: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) parameters_valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
     _request_id: Option<String>,
 }
@@ -80,31 +80,31 @@ impl GetParametersForImportOutputBuilder {
         &self.key_id
     }
     /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
-    pub fn import_token(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn import_token(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.import_token = ::std::option::Option::Some(input);
         self
     }
     /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
-    pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_import_token(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.import_token = input;
         self
     }
     /// <p>The import token to send in a subsequent <code>ImportKeyMaterial</code> request.</p>
-    pub fn get_import_token(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_import_token(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.import_token
     }
     /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
-    pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn public_key(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
     /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
-    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.public_key = input;
         self
     }
     /// <p>The public key to use to encrypt the key material before importing it with <code>ImportKeyMaterial</code>.</p>
-    pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_public_key(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.public_key
     }
     /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <code>ImportKeyMaterial</code> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>

@@ -207,17 +207,17 @@ impl EncryptFluentBuilder {
         self.inner.get_key_id()
     }
     /// <p>Data to be encrypted.</p>
-    pub fn plaintext(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn plaintext(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.inner = self.inner.plaintext(input);
         self
     }
     /// <p>Data to be encrypted.</p>
-    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.inner = self.inner.set_plaintext(input);
         self
     }
     /// <p>Data to be encrypted.</p>
-    pub fn get_plaintext(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_plaintext(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         self.inner.get_plaintext()
     }
     ///

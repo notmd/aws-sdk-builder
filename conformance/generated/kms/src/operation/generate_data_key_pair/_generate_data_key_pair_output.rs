@@ -4,35 +4,35 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct GenerateDataKeyPairOutput {
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub private_key_ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub private_key_ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
-    pub private_key_plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub private_key_plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The type of data key pair that was generated.</p>
     pub key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>The identifier of the key material used to encrypt the private key.</p>
     pub key_material_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GenerateDataKeyPairOutput {
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn private_key_ciphertext_blob(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn private_key_ciphertext_blob(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.private_key_ciphertext_blob.as_ref()
     }
     /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
-    pub fn private_key_plaintext(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn private_key_plaintext(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.private_key_plaintext.as_ref()
     }
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn public_key(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn public_key(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.public_key.as_ref()
     }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
@@ -45,7 +45,7 @@ impl GenerateDataKeyPairOutput {
     }
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.ciphertext_for_recipient.as_ref()
     }
     /// <p>The identifier of the key material used to encrypt the private key.</p>
@@ -83,59 +83,59 @@ impl GenerateDataKeyPairOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct GenerateDataKeyPairOutputBuilder {
-    pub(crate) private_key_ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) private_key_plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
-    pub(crate) public_key: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) private_key_ciphertext_blob: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) private_key_plaintext: ::std::option::Option<::aws_smithy_types::Blob>,
+    pub(crate) public_key: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
-    pub(crate) ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) ciphertext_for_recipient: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl GenerateDataKeyPairOutputBuilder {
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn private_key_ciphertext_blob(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn private_key_ciphertext_blob(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.private_key_ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_private_key_ciphertext_blob(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.private_key_ciphertext_blob = input;
         self
     }
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn get_private_key_ciphertext_blob(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_private_key_ciphertext_blob(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.private_key_ciphertext_blob
     }
     /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
-    pub fn private_key_plaintext(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn private_key_plaintext(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.private_key_plaintext = ::std::option::Option::Some(input);
         self
     }
     /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
-    pub fn set_private_key_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_private_key_plaintext(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.private_key_plaintext = input;
         self
     }
     /// <p>The plaintext copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>PrivateKeyPlaintext</code> field is null or empty.</p>
-    pub fn get_private_key_plaintext(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_private_key_plaintext(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.private_key_plaintext
     }
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn public_key(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.public_key = ::std::option::Option::Some(input);
         self
     }
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.public_key = input;
         self
     }
     /// <p>The public key (in plaintext). When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_public_key(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.public_key
     }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the private key.</p>
@@ -168,19 +168,19 @@ impl GenerateDataKeyPairOutputBuilder {
     }
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn ciphertext_for_recipient(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn ciphertext_for_recipient(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.ciphertext_for_recipient = ::std::option::Option::Some(input);
         self
     }
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.ciphertext_for_recipient = input;
         self
     }
     /// <p>The plaintext private data key encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.ciphertext_for_recipient
     }
     /// <p>The identifier of the key material used to encrypt the private key.</p>

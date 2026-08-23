@@ -16,7 +16,7 @@ pub struct UpdateFunctionCodeInput {
     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
     pub function_name: ::std::option::Option<::std::string::String>,
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
     pub s3_bucket: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
@@ -62,7 +62,7 @@ impl UpdateFunctionCodeInput {
         self.function_name.as_deref()
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn zip_file(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn zip_file(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.zip_file.as_ref()
     }
     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
@@ -149,7 +149,7 @@ impl UpdateFunctionCodeInput {
 #[non_exhaustive]
 pub struct UpdateFunctionCodeInputBuilder {
     pub(crate) function_name: ::std::option::Option<::std::string::String>,
-    pub(crate) zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
     pub(crate) s3_key: ::std::option::Option<::std::string::String>,
     pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
@@ -209,17 +209,17 @@ impl UpdateFunctionCodeInputBuilder {
         &self.function_name
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.zip_file = ::std::option::Option::Some(input);
         self
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.zip_file = input;
         self
     }
     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
-    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.zip_file
     }
     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>

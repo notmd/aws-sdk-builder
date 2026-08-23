@@ -488,8 +488,9 @@ fn render_consumer_waiters_trait(output: &mut String, selected: &SelectedModel) 
 fn render_serde_util_file(selected: &SelectedModel) -> String {
     let mut output = String::new();
     client_operation_header(&mut output);
-    let mut type_order = Vec::new();
-    let mut seen_types = BTreeSet::new();
+    let mut nested_order = Vec::new();
+    let mut nested_seen = BTreeSet::new();
+    let mut emitted = BTreeSet::new();
 
     // Operation output and error corrections are emitted while Smithy walks
     // operation schemas. This is intentionally separate from modeled shape
@@ -504,12 +505,21 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
         {
             let module = names::rust_module_name(operation_name);
             let operation_type = rust_type_name(operation_name);
-            render_serde_util_correction(
-                &mut output,
+            let function_name = format!("{module}_output_output_correct_errors");
+            if emitted.insert(function_name.clone()) {
+                render_serde_util_correction(
+                    &mut output,
+                    selected,
+                    shape,
+                    &function_name,
+                    &format!("crate::operation::{module}::builders::{operation_type}OutputBuilder"),
+                );
+            }
+            serde_util_walk_correction_dependencies(
                 selected,
-                shape,
-                &format!("{module}_output_output_correct_errors"),
-                &format!("crate::operation::{module}::builders::{operation_type}OutputBuilder"),
+                output_id,
+                &mut nested_seen,
+                &mut nested_order,
             );
         }
         if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
@@ -519,57 +529,34 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
                 };
                 if serde_util_shape_needs_correction(shape) {
                     let name = rust_type_name(terminal(error_id));
-                    render_serde_util_correction(
-                        &mut output,
+                    let function_name = format!(
+                        "{}_correct_errors",
+                        names::rust_module_name(terminal(error_id))
+                    );
+                    if emitted.insert(function_name.clone()) {
+                        render_serde_util_correction(
+                            &mut output,
+                            selected,
+                            shape,
+                            &function_name,
+                            &format!("crate::types::error::builders::{name}Builder"),
+                        );
+                    }
+                    serde_util_walk_correction_dependencies(
                         selected,
-                        shape,
-                        &format!(
-                            "{}_correct_errors",
-                            names::rust_module_name(terminal(error_id))
-                        ),
-                        &format!("crate::types::error::builders::{name}Builder"),
+                        error_id,
+                        &mut nested_seen,
+                        &mut nested_order,
                     );
                 }
             }
         }
     }
 
-    for operation_name in &selected.operations {
-        let Some(operation) = operation_shape(selected, operation_name) else {
-            continue;
-        };
-        if let Some(output_shape) = operation
-            .get("output")
-            .and_then(target_value)
-            .and_then(|id| selected.model.shapes.get(id))
-        {
-            for (_, member) in members(output_shape) {
-                if is_xml_body_member(member)
-                    && let Some(target) = member_target(member)
-                {
-                    serde_util_walk_shape(selected, target, &mut seen_types, &mut type_order);
-                }
-            }
-        }
-        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-            for error_id in errors.iter().filter_map(target_value) {
-                if let Some(shape) = selected.model.shapes.get(error_id) {
-                    for (_, member) in members(shape) {
-                        if let Some(target) = member_target(member) {
-                            serde_util_walk_shape(
-                                selected,
-                                target,
-                                &mut seen_types,
-                                &mut type_order,
-                            );
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    for shape_id in type_order {
+    for shape_id in nested_order
+        .into_iter()
+        .chain(serde_util_protocol_correction_order(selected))
+    {
         let Some(shape) = selected.model.shapes.get(&shape_id) else {
             continue;
         };
@@ -580,61 +567,72 @@ fn render_serde_util_file(selected: &SelectedModel) -> String {
             } else {
                 format!("crate::types::builders::{name}Builder")
             };
-            render_serde_util_correction(
-                &mut output,
-                selected,
-                shape,
-                &format!(
-                    "{}_correct_errors",
-                    names::rust_module_name(terminal(&shape_id))
-                ),
-                &builder_path,
+            let function_name = format!(
+                "{}_correct_errors",
+                names::rust_module_name(terminal(&shape_id))
             );
+            if emitted.insert(function_name.clone()) {
+                render_serde_util_correction(
+                    &mut output,
+                    selected,
+                    shape,
+                    &function_name,
+                    &builder_path,
+                );
+            }
         }
     }
     output
 }
 
-fn serde_util_walk_shape(
+fn serde_util_walk_correction_dependencies(
     selected: &SelectedModel,
     shape_id: &str,
     seen: &mut BTreeSet<String>,
     order: &mut Vec<String>,
 ) {
-    if !seen.insert(shape_id.to_owned()) {
-        return;
-    }
     let Some(shape) = selected.model.shapes.get(shape_id) else {
         return;
     };
-    if matches!(
-        shape.get("type").and_then(Value::as_str),
-        Some("structure" | "union" | "list" | "map")
-    ) {
-        order.push(shape_id.to_owned());
+    for (_, member) in members(shape) {
+        if !member_is_required(member) {
+            continue;
+        }
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        if !selected
+            .model
+            .shapes
+            .get(target)
+            .is_some_and(serde_util_shape_needs_correction)
+        {
+            continue;
+        }
+        if seen.insert(target.to_owned()) {
+            order.push(target.to_owned());
+            serde_util_walk_correction_dependencies(selected, target, seen, order);
+        }
     }
-    match shape.get("type").and_then(Value::as_str) {
-        Some("structure" | "union") => {
-            for (_, member) in members(shape) {
-                if let Some(target) = member_target(member) {
-                    serde_util_walk_shape(selected, target, seen, order);
-                }
+}
+
+fn serde_util_protocol_correction_order(selected: &SelectedModel) -> Vec<String> {
+    let roles = protocol_serde_roles(selected);
+    let mut order = Vec::new();
+    for wave in protocol_serde_shape_waves(selected, &roles) {
+        for (shape_id, role) in wave {
+            if !matches!(role, ProtocolSerdeRole::Deserialize) {
+                continue;
+            }
+            let Some(shape) = selected.model.shapes.get(&shape_id) else {
+                continue;
+            };
+            if serde_util_shape_needs_correction(shape) {
+                order.push(shape_id);
             }
         }
-        Some("list") => {
-            if let Some(target) = shape.get("member").and_then(member_target) {
-                serde_util_walk_shape(selected, target, seen, order);
-            }
-        }
-        Some("map") => {
-            for member in [shape.get("key"), shape.get("value")].into_iter().flatten() {
-                if let Some(target) = member_target(member) {
-                    serde_util_walk_shape(selected, target, seen, order);
-                }
-            }
-        }
-        _ => {}
     }
+    order
 }
 
 fn serde_util_shape_needs_correction(shape: &Value) -> bool {
@@ -6938,7 +6936,7 @@ fn render_protocol_operation_output_parser(
         {
             writeln!(
                 output,
-                "    if !start_el.matches({root:?}) {{\n        return Err(\n            ::aws_smithy_xml::decode::XmlDecodeError::custom(\n                format!(\"encountered invalid XML root: expected {root} but got {{start_el:?}}. This is likely a bug in the SDK.\")\n            )\n        );\n    }}"
+                "    if !start_el.matches({root:?}) {{\n        return Err(\n                                ::aws_smithy_xml::decode::XmlDecodeError::custom(\n                                    format!(\"encountered invalid XML root: expected {root} but got {{start_el:?}}. This is likely a bug in the SDK.\")\n                                )\n                            );\n    }}"
             )
             .unwrap();
         }
@@ -7197,6 +7195,18 @@ fn protocol_serde_shape_order(
     selected: &SelectedModel,
     roles: &BTreeMap<String, ProtocolSerdeRoles>,
 ) -> Vec<(String, ProtocolSerdeRole)> {
+    let mut seen = BTreeSet::new();
+    protocol_serde_shape_waves(selected, roles)
+        .into_iter()
+        .flatten()
+        .filter(|(shape_id, _)| seen.insert(names::rust_module_name(terminal(shape_id))))
+        .collect()
+}
+
+fn protocol_serde_shape_waves(
+    selected: &SelectedModel,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+) -> Vec<Vec<(String, ProtocolSerdeRole)>> {
     let mut phase_one = Vec::new();
     let mut phase_two = Vec::new();
     for operation_name in &selected.operations {
@@ -7283,7 +7293,6 @@ fn protocol_serde_shape_order(
     }
 
     let mut state_seen = BTreeSet::new();
-    let mut module_seen = BTreeSet::new();
     let (initial_rendered, initial_intermediates) = phase_one
         .into_iter()
         .map(|(shape_id, role)| (shape_id.to_owned(), role))
@@ -7298,10 +7307,10 @@ fn protocol_serde_shape_order(
         .filter(|(shape_id, role)| protocol_role_enabled(roles, shape_id, *role))
         .map(|(shape_id, role)| (shape_id.to_owned(), role))
         .collect::<Vec<_>>();
-    let mut ordered = Vec::new();
+    let mut ordered_waves = Vec::new();
 
     while !current.is_empty() {
-        let first_level = ordered.is_empty();
+        let first_level = ordered_waves.is_empty();
         current.retain(|state| state_seen.insert((state.0.clone(), protocol_role_key(state.1))));
         if current.is_empty() {
             break;
@@ -7312,14 +7321,11 @@ fn protocol_serde_shape_order(
                 if !protocol_role_enabled(roles, shape_id, *role) {
                     return None;
                 }
-                let module = names::rust_module_name(terminal(shape_id));
-                module_seen
-                    .insert(module)
-                    .then_some((shape_id.clone(), *role))
+                Some((shape_id.clone(), *role))
             })
             .collect::<Vec<_>>();
         level.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
-        ordered.extend(level);
+        ordered_waves.push(level);
 
         let mut next = Vec::new();
         for (shape_id, role) in &current {
@@ -7331,9 +7337,14 @@ fn protocol_serde_shape_order(
         current = next;
     }
 
+    let state_modules = ordered_waves
+        .iter()
+        .flatten()
+        .map(|(shape_id, _)| names::rust_module_name(terminal(shape_id)))
+        .collect::<BTreeSet<_>>();
     let mut remainder = roles
         .keys()
-        .filter(|shape_id| !module_seen.contains(&names::rust_module_name(terminal(shape_id))))
+        .filter(|shape_id| !state_modules.contains(&names::rust_module_name(terminal(shape_id))))
         .filter_map(|shape_id| {
             roles
                 .get(shape_id)
@@ -7342,8 +7353,10 @@ fn protocol_serde_shape_order(
         })
         .collect::<Vec<_>>();
     remainder.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
-    ordered.extend(remainder);
-    ordered
+    if !remainder.is_empty() {
+        ordered_waves.push(remainder);
+    }
+    ordered_waves
 }
 
 fn protocol_role_key(role: ProtocolSerdeRole) -> bool {
@@ -11457,7 +11470,7 @@ fn render_enum(
             .and_then(Value::as_str)
         {
             for line in documentation.lines() {
-                writeln!(output, "    /// {line}").unwrap();
+                writeln!(output, "    /// {}", line.trim_start()).unwrap();
             }
         }
     } else {
@@ -12831,11 +12844,16 @@ fn primitive_type(name: &str) -> String {
 }
 
 fn primitive_type_for_namespace(name: &str, consumer_namespace: bool) -> String {
-    if !consumer_namespace && matches!(name, "Timestamp" | "timestamp") {
-        "::aws_smithy_types::DateTime".to_owned()
+    if !consumer_namespace {
+        match name {
+            "Timestamp" | "timestamp" => return "::aws_smithy_types::DateTime".to_owned(),
+            "Blob" | "blob" => return "::aws_smithy_types::Blob".to_owned(),
+            _ => {}
+        }
     } else {
-        primitive_type(name)
+        return primitive_type(name);
     }
+    primitive_type(name)
 }
 
 fn rust_type_name(value: &str) -> String {

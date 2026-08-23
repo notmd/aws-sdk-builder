@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InvokeResponseStreamUpdate {
     /// <p>Data returned by your Lambda function.</p>
-    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl InvokeResponseStreamUpdate {
     /// <p>Data returned by your Lambda function.</p>
-    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
+    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
         self.payload.as_ref()
     }
 }
@@ -31,21 +31,21 @@ impl InvokeResponseStreamUpdate {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
 #[non_exhaustive]
 pub struct InvokeResponseStreamUpdateBuilder {
-    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
+    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
 }
 impl InvokeResponseStreamUpdateBuilder {
     /// <p>Data returned by your Lambda function.</p>
-    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
+    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
     /// <p>Data returned by your Lambda function.</p>
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
         self.payload = input;
         self
     }
     /// <p>Data returned by your Lambda function.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
         &self.payload
     }
     /// Consumes the builder and constructs a [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `540` matched · `177` mismatches · `367` missing · `0` extra · `49.82%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `551` matched · `166` mismatches · `367` missing · `0` extra · `50.83%` match (100.00% means fully matched)
 
 ### `src/client/create_function.rs`
 
@@ -6716,69 +6716,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/invoke/_invoke_input.rs`
-
-```diff
---- reference/src/operation/invoke/_invoke_input.rs
-+++ generated/src/operation/invoke/_invoke_input.rs
-@@ -34,7 +34,7 @@
-     pub durable_execution_name: ::std::option::Option<::std::string::String>,
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>Specify a version or alias to invoke a published version of the function.</p>
-     pub qualifier: ::std::option::Option<::std::string::String>,
-     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
-@@ -82,7 +82,7 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.payload.as_ref()
-     }
-     /// <p>Specify a version or alias to invoke a published version of the function.</p>
-@@ -124,7 +124,7 @@
-     pub(crate) log_type: ::std::option::Option<crate::types::LogType>,
-     pub(crate) client_context: ::std::option::Option<::std::string::String>,
-     pub(crate) durable_execution_name: ::std::option::Option<::std::string::String>,
--    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
-     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
- }
-@@ -259,19 +259,19 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.payload = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.payload = input;
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.payload
-     }
-     /// <p>Specify a version or alias to invoke a published version of the function.</p>
-```
-
 ### `src/operation/invoke/_invoke_output.rs`
 
 ```diff
 --- reference/src/operation/invoke/_invoke_output.rs
 +++ generated/src/operation/invoke/_invoke_output.rs
-@@ -4,13 +4,13 @@
+@@ -4,7 +4,7 @@
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
  pub struct InvokeOutput {
      /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
@@ -6787,13 +6730,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
      pub function_error: ::std::option::Option<::std::string::String>,
      /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
-     pub log_result: ::std::option::Option<::std::string::String>,
-     /// <p>The response from the function, or an error object.</p>
--    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-     pub executed_version: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.</p>
 @@ -19,7 +19,7 @@
  }
  impl InvokeOutput {
@@ -6803,45 +6739,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.status_code
      }
      /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
-@@ -31,7 +31,7 @@
-         self.log_result.as_deref()
-     }
-     /// <p>The response from the function, or an error object.</p>
--    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.payload.as_ref()
-     }
-     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-@@ -75,7 +75,7 @@
-     pub(crate) status_code: ::std::option::Option<i32>,
-     pub(crate) function_error: ::std::option::Option<::std::string::String>,
-     pub(crate) log_result: ::std::option::Option<::std::string::String>,
--    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) executed_version: ::std::option::Option<::std::string::String>,
-     pub(crate) durable_execution_arn: ::std::option::Option<::std::string::String>,
-     _request_id: Option<String>,
-@@ -124,17 +124,17 @@
-         &self.log_result
-     }
-     /// <p>The response from the function, or an error object.</p>
--    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.payload = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The response from the function, or an error object.</p>
--    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.payload = input;
-         self
-     }
-     /// <p>The response from the function, or an error object.</p>
--    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.payload
-     }
-     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
 @@ -177,7 +177,7 @@
      /// Consumes the builder and constructs a [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
      pub fn build(self) -> crate::operation::invoke::InvokeOutput {
@@ -6851,36 +6748,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              function_error: self.function_error,
              log_result: self.log_result,
              payload: self.payload,
-```
-
-### `src/operation/invoke/builders.rs`
-
-```diff
---- reference/src/operation/invoke/builders.rs
-+++ generated/src/operation/invoke/builders.rs
-@@ -231,19 +231,19 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.inner = self.inner.payload(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.inner = self.inner.set_payload(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         self.inner.get_payload()
-     }
-     /// <p>Specify a version or alias to invoke a published version of the function.</p>
 ```
 
 ### `src/operation/invoke.rs`
@@ -6971,7 +6838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub function_name: ::std::option::Option<::std::string::String>,
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub invoke_args: ::aws_smithy_types::byte_stream::ByteStream,
-+    pub invoke_args: ::std::option::Option<::std::vec::Vec<u8>>,
++    pub invoke_args: ::std::option::Option<::aws_smithy_types::Blob>,
  }
  impl InvokeAsyncInput {
      /// <p>The name or ARN of the Lambda function.</p>
@@ -6981,7 +6848,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub fn invoke_args(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
 -        &self.invoke_args
-+    pub fn invoke_args(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
++    pub fn invoke_args(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
 +        self.invoke_args.as_ref()
      }
  }
@@ -6991,7 +6858,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct InvokeAsyncInputBuilder {
      pub(crate) function_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) invoke_args: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
-+    pub(crate) invoke_args: ::std::option::Option<::std::vec::Vec<u8>>,
++    pub(crate) invoke_args: ::std::option::Option<::aws_smithy_types::Blob>,
  }
  impl InvokeAsyncInputBuilder {
      /// <p>The name or ARN of the Lambda function.</p>
@@ -7000,19 +6867,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
      /// This field is required.
 -    pub fn invoke_args(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
-+    pub fn invoke_args(mut self, input: ::std::vec::Vec<u8>) -> Self {
++    pub fn invoke_args(mut self, input: ::aws_smithy_types::Blob) -> Self {
          self.invoke_args = ::std::option::Option::Some(input);
          self
      }
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
-+    pub fn set_invoke_args(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
++    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
          self.invoke_args = input;
          self
      }
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
-+    pub fn get_invoke_args(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
++    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
          &self.invoke_args
      }
      /// Consumes the builder and constructs a [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).
@@ -7073,19 +6940,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub fn invoke_args(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
-+    pub fn invoke_args(mut self, input: ::std::vec::Vec<u8>) -> Self {
++    pub fn invoke_args(mut self, input: ::aws_smithy_types::Blob) -> Self {
          self.inner = self.inner.invoke_args(input);
          self
      }
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
-+    pub fn set_invoke_args(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
++    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
          self.inner = self.inner.set_invoke_args(input);
          self
      }
      /// <p>The JSON that you want to provide to your Lambda function as input.</p>
 -    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
-+    pub fn get_invoke_args(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
++    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
          self.inner.get_invoke_args()
      }
  }
@@ -7173,63 +7040,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/invoke_with_response_stream/_invoke_with_response_stream_input.rs`
-
-```diff
---- reference/src/operation/invoke_with_response_stream/_invoke_with_response_stream_input.rs
-+++ generated/src/operation/invoke_with_response_stream/_invoke_with_response_stream_input.rs
-@@ -23,7 +23,7 @@
-     pub qualifier: ::std::option::Option<::std::string::String>,
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
-     pub tenant_id: ::std::option::Option<::std::string::String>,
-     /// <p>Use one of the following options:</p>
-@@ -64,7 +64,7 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.payload.as_ref()
-     }
-     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
-@@ -110,7 +110,7 @@
-     pub(crate) log_type: ::std::option::Option<crate::types::LogType>,
-     pub(crate) client_context: ::std::option::Option<::std::string::String>,
-     pub(crate) qualifier: ::std::option::Option<::std::string::String>,
--    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) tenant_id: ::std::option::Option<::std::string::String>,
-     pub(crate) invocation_type: ::std::option::Option<crate::types::ResponseStreamingInvocationType>,
- }
-@@ -204,19 +204,19 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.payload = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.payload = input;
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.payload
-     }
-     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
-```
-
 ### `src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs`
 
 ```diff
@@ -7262,36 +7072,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              executed_version: self.executed_version,
              event_stream: self.event_stream.ok_or_else(|| {
                  ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/operation/invoke_with_response_stream/builders.rs`
-
-```diff
---- reference/src/operation/invoke_with_response_stream/builders.rs
-+++ generated/src/operation/invoke_with_response_stream/builders.rs
-@@ -197,19 +197,19 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.inner = self.inner.payload(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.inner = self.inner.set_payload(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
--    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         self.inner.get_payload()
-     }
-     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
 ```
 
 ### `src/operation/invoke_with_response_stream.rs`
@@ -9808,89 +9588,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/send_durable_execution_callback_success/_send_durable_execution_callback_success_input.rs`
-
-```diff
---- reference/src/operation/send_durable_execution_callback_success/_send_durable_execution_callback_success_input.rs
-+++ generated/src/operation/send_durable_execution_callback_success/_send_durable_execution_callback_success_input.rs
-@@ -6,7 +6,7 @@
-     /// <p>The unique identifier for the callback operation.</p>
-     pub callback_id: ::std::option::Option<::std::string::String>,
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub result: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub result: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl SendDurableExecutionCallbackSuccessInput {
-     /// <p>The unique identifier for the callback operation.</p>
-@@ -14,7 +14,7 @@
-         self.callback_id.as_deref()
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn result(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn result(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.result.as_ref()
-     }
- }
-@@ -38,7 +38,7 @@
- #[non_exhaustive]
- pub struct SendDurableExecutionCallbackSuccessInputBuilder {
-     pub(crate) callback_id: ::std::option::Option<::std::string::String>,
--    pub(crate) result: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) result: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl SendDurableExecutionCallbackSuccessInputBuilder {
-     /// <p>The unique identifier for the callback operation.</p>
-@@ -57,17 +57,17 @@
-         &self.callback_id
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn result(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn result(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.result = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn set_result(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.result = input;
-         self
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn get_result(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_result(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.result
-     }
-     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackSuccessInput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput).
-```
-
-### `src/operation/send_durable_execution_callback_success/builders.rs`
-
-```diff
---- reference/src/operation/send_durable_execution_callback_success/builders.rs
-+++ generated/src/operation/send_durable_execution_callback_success/builders.rs
-@@ -124,17 +124,17 @@
-         self.inner.get_callback_id()
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn result(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn result(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.inner = self.inner.result(input);
-         self
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn set_result(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.inner = self.inner.set_result(input);
-         self
-     }
-     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
--    pub fn get_result(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_result(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         self.inner.get_result()
-     }
- }
-```
-
 ### `src/operation/send_durable_execution_callback_success.rs`
 
 ```diff
@@ -10526,61 +10223,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/update_function_code/_update_function_code_input.rs`
-
-```diff
---- reference/src/operation/update_function_code/_update_function_code_input.rs
-+++ generated/src/operation/update_function_code/_update_function_code_input.rs
-@@ -16,7 +16,7 @@
-     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-     pub function_name: ::std::option::Option<::std::string::String>,
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
-     pub s3_bucket: ::std::option::Option<::std::string::String>,
-     /// <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
-@@ -62,7 +62,7 @@
-         self.function_name.as_deref()
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn zip_file(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn zip_file(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.zip_file.as_ref()
-     }
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
-@@ -149,7 +149,7 @@
- #[non_exhaustive]
- pub struct UpdateFunctionCodeInputBuilder {
-     pub(crate) function_name: ::std::option::Option<::std::string::String>,
--    pub(crate) zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
-     pub(crate) s3_key: ::std::option::Option<::std::string::String>,
-     pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
-@@ -209,17 +209,17 @@
-         &self.function_name
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.zip_file = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.zip_file = input;
-         self
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.zip_file
-     }
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
-```
-
 ### `src/operation/update_function_code/_update_function_code_output.rs`
 
 ```diff
@@ -10613,34 +10255,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              description: self.description,
              timeout: self.timeout,
              memory_size: self.memory_size,
-```
-
-### `src/operation/update_function_code/builders.rs`
-
-```diff
---- reference/src/operation/update_function_code/builders.rs
-+++ generated/src/operation/update_function_code/builders.rs
-@@ -159,17 +159,17 @@
-         self.inner.get_function_name()
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.inner = self.inner.zip_file(input);
-         self
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.inner = self.inner.set_zip_file(input);
-         self
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
--    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         self.inner.get_zip_file()
-     }
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
 ```
 
 ### `src/operation/update_function_code.rs`
@@ -11630,30 +11244,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -269,6 +269,22 @@
-     builder
- }
-
-+pub(crate) fn operation_correct_errors(mut builder: crate::types::builders::OperationBuilder) -> crate::types::builders::OperationBuilder {
-+    if builder.id.is_none() {
-+        builder.id = Some(Default::default())
-+    }
-+    if builder.r#type.is_none() {
-+        builder.r#type = "no value was set".parse::<crate::types::OperationType>().ok()
-+    }
-+    if builder.start_timestamp.is_none() {
-+        builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-+    }
-+    if builder.status.is_none() {
-+        builder.status = "no value was set".parse::<crate::types::OperationStatus>().ok()
-+    }
-+    builder
-+}
-+
- pub(crate) fn capacity_provider_correct_errors(
-     mut builder: crate::types::builders::CapacityProviderBuilder,
- ) -> crate::types::builders::CapacityProviderBuilder {
-@@ -295,6 +311,39 @@
+@@ -295,6 +295,27 @@
      builder
  }
 
@@ -11678,35 +11269,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    builder
 +}
 +
-+pub(crate) fn target_tracking_scaling_policy_correct_errors(
-+    mut builder: crate::types::builders::TargetTrackingScalingPolicyBuilder,
-+) -> crate::types::builders::TargetTrackingScalingPolicyBuilder {
-+    if builder.predefined_metric_type.is_none() {
-+        builder.predefined_metric_type = "no value was set".parse::<crate::types::CapacityProviderPredefinedMetricType>().ok()
-+    }
-+    if builder.target_value.is_none() {
-+        builder.target_value = Some(Default::default())
-+    }
-+    builder
-+}
-+
  pub(crate) fn code_signing_config_correct_errors(
      mut builder: crate::types::builders::CodeSigningConfigBuilder,
  ) -> crate::types::builders::CodeSigningConfigBuilder {
-@@ -322,16 +371,23 @@
+@@ -322,6 +343,15 @@
      builder
  }
 
--pub(crate) fn capacity_provider_config_correct_errors(
--    mut builder: crate::types::builders::CapacityProviderConfigBuilder,
--) -> crate::types::builders::CapacityProviderConfigBuilder {
--    if builder.lambda_managed_instances_capacity_provider_config.is_none() {
--        builder.lambda_managed_instances_capacity_provider_config = {
--            let builder = crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default();
--            crate::serde_util::lambda_managed_instances_capacity_provider_config_correct_errors(builder)
--                .build()
--                .ok()
--        }
 +pub(crate) fn allowed_publishers_correct_errors(
 +    mut builder: crate::types::builders::AllowedPublishersBuilder,
 +) -> crate::types::builders::AllowedPublishersBuilder {
@@ -11716,35 +11285,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    builder
 +}
 +
-+pub(crate) fn file_system_config_correct_errors(
-+    mut builder: crate::types::builders::FileSystemConfigBuilder,
-+) -> crate::types::builders::FileSystemConfigBuilder {
-+    if builder.arn.is_none() {
-+        builder.arn = Some(Default::default())
-+    }
-+    if builder.local_mount_path.is_none() {
-+        builder.local_mount_path = Some(Default::default())
-     }
-     builder
- }
-@@ -345,16 +401,6 @@
-     builder
- }
-
--pub(crate) fn tags_error_correct_errors(mut builder: crate::types::builders::TagsErrorBuilder) -> crate::types::builders::TagsErrorBuilder {
--    if builder.error_code.is_none() {
--        builder.error_code = Some(Default::default())
--    }
--    if builder.message.is_none() {
--        builder.message = Some(Default::default())
--    }
--    builder
--}
--
- pub(crate) fn tenancy_config_correct_errors(
-     mut builder: crate::types::builders::TenancyConfigBuilder,
- ) -> crate::types::builders::TenancyConfigBuilder {
-@@ -364,128 +410,95 @@
+ pub(crate) fn capacity_provider_config_correct_errors(
+     mut builder: crate::types::builders::CapacityProviderConfigBuilder,
+ ) -> crate::types::builders::CapacityProviderConfigBuilder {
+@@ -364,36 +394,6 @@
      builder
  }
 
@@ -11765,484 +11309,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -) -> crate::types::builders::CapacityProviderPermissionsConfigBuilder {
 -    if builder.capacity_provider_operator_role_arn.is_none() {
 -        builder.capacity_provider_operator_role_arn = Some(Default::default())
-+pub(crate) fn capacity_provider_config_correct_errors(
-+    mut builder: crate::types::builders::CapacityProviderConfigBuilder,
-+) -> crate::types::builders::CapacityProviderConfigBuilder {
-+    if builder.lambda_managed_instances_capacity_provider_config.is_none() {
-+        builder.lambda_managed_instances_capacity_provider_config = {
-+            let builder = crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder::default();
-+            crate::serde_util::lambda_managed_instances_capacity_provider_config_correct_errors(builder)
-+                .build()
-+                .ok()
-+        }
-     }
-     builder
- }
-
+-    }
+-    builder
+-}
+-
 -pub(crate) fn allowed_publishers_correct_errors(
 -    mut builder: crate::types::builders::AllowedPublishersBuilder,
 -) -> crate::types::builders::AllowedPublishersBuilder {
 -    if builder.signing_profile_version_arns.is_none() {
 -        builder.signing_profile_version_arns = Some(Default::default())
-+pub(crate) fn lambda_managed_instances_capacity_provider_config_correct_errors(
-+    mut builder: crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder,
-+) -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
-+    if builder.capacity_provider_arn.is_none() {
-+        builder.capacity_provider_arn = Some(Default::default())
-     }
-     builder
- }
-
--pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::ExecutionBuilder) -> crate::types::builders::ExecutionBuilder {
--    if builder.durable_execution_arn.is_none() {
--        builder.durable_execution_arn = Some(Default::default())
--    }
--    if builder.durable_execution_name.is_none() {
--        builder.durable_execution_name = Some(Default::default())
-+pub(crate) fn execution_started_details_correct_errors(
-+    mut builder: crate::types::builders::ExecutionStartedDetailsBuilder,
-+) -> crate::types::builders::ExecutionStartedDetailsBuilder {
-+    if builder.input.is_none() {
-+        builder.input = {
-+            let builder = crate::types::builders::EventInputBuilder::default();
-+            Some(builder.build())
-+        }
-     }
--    if builder.function_arn.is_none() {
--        builder.function_arn = Some(Default::default())
--    }
--    if builder.status.is_none() {
--        builder.status = "no value was set".parse::<crate::types::ExecutionStatus>().ok()
--    }
--    if builder.start_timestamp.is_none() {
--        builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-+    if builder.execution_timeout.is_none() {
-+        builder.execution_timeout = Some(Default::default())
-     }
-     builder
- }
-
--pub(crate) fn file_system_config_correct_errors(
--    mut builder: crate::types::builders::FileSystemConfigBuilder,
--) -> crate::types::builders::FileSystemConfigBuilder {
--    if builder.arn.is_none() {
--        builder.arn = Some(Default::default())
--    }
--    if builder.local_mount_path.is_none() {
--        builder.local_mount_path = Some(Default::default())
-+pub(crate) fn execution_succeeded_details_correct_errors(
-+    mut builder: crate::types::builders::ExecutionSucceededDetailsBuilder,
-+) -> crate::types::builders::ExecutionSucceededDetailsBuilder {
-+    if builder.result.is_none() {
-+        builder.result = {
-+            let builder = crate::types::builders::EventResultBuilder::default();
-+            Some(builder.build())
-+        }
-     }
-     builder
- }
-
--pub(crate) fn function_url_config_correct_errors(
--    mut builder: crate::types::builders::FunctionUrlConfigBuilder,
--) -> crate::types::builders::FunctionUrlConfigBuilder {
--    if builder.function_url.is_none() {
--        builder.function_url = Some(Default::default())
--    }
--    if builder.function_arn.is_none() {
--        builder.function_arn = Some(Default::default())
--    }
--    if builder.creation_time.is_none() {
--        builder.creation_time = Some(Default::default())
-+pub(crate) fn execution_failed_details_correct_errors(
-+    mut builder: crate::types::builders::ExecutionFailedDetailsBuilder,
-+) -> crate::types::builders::ExecutionFailedDetailsBuilder {
-+    if builder.error.is_none() {
-+        builder.error = {
-+            let builder = crate::types::builders::EventErrorBuilder::default();
-+            Some(builder.build())
-+        }
-     }
--    if builder.last_modified_time.is_none() {
--        builder.last_modified_time = Some(Default::default())
--    }
--    if builder.auth_type.is_none() {
--        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
--    }
-     builder
- }
-
--pub(crate) fn function_versions_by_capacity_provider_list_item_correct_errors(
--    mut builder: crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder,
--) -> crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
--    if builder.function_arn.is_none() {
--        builder.function_arn = Some(Default::default())
--    }
--    if builder.state.is_none() {
--        builder.state = "no value was set".parse::<crate::types::State>().ok()
-+pub(crate) fn execution_stopped_details_correct_errors(
-+    mut builder: crate::types::builders::ExecutionStoppedDetailsBuilder,
-+) -> crate::types::builders::ExecutionStoppedDetailsBuilder {
-+    if builder.error.is_none() {
-+        builder.error = {
-+            let builder = crate::types::builders::EventErrorBuilder::default();
-+            Some(builder.build())
-+        }
-     }
-     builder
- }
-
--pub(crate) fn lambda_managed_instances_capacity_provider_config_correct_errors(
--    mut builder: crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder,
--) -> crate::types::builders::LambdaManagedInstancesCapacityProviderConfigBuilder {
--    if builder.capacity_provider_arn.is_none() {
--        builder.capacity_provider_arn = Some(Default::default())
-+pub(crate) fn context_succeeded_details_correct_errors(
-+    mut builder: crate::types::builders::ContextSucceededDetailsBuilder,
-+) -> crate::types::builders::ContextSucceededDetailsBuilder {
-+    if builder.result.is_none() {
-+        builder.result = {
-+            let builder = crate::types::builders::EventResultBuilder::default();
-+            Some(builder.build())
-+        }
-     }
-     builder
- }
-
--pub(crate) fn operation_correct_errors(mut builder: crate::types::builders::OperationBuilder) -> crate::types::builders::OperationBuilder {
--    if builder.id.is_none() {
--        builder.id = Some(Default::default())
--    }
--    if builder.r#type.is_none() {
--        builder.r#type = "no value was set".parse::<crate::types::OperationType>().ok()
--    }
--    if builder.start_timestamp.is_none() {
--        builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
--    }
--    if builder.status.is_none() {
--        builder.status = "no value was set".parse::<crate::types::OperationStatus>().ok()
 -    }
 -    builder
 -}
 -
--pub(crate) fn callback_failed_details_correct_errors(
--    mut builder: crate::types::builders::CallbackFailedDetailsBuilder,
--) -> crate::types::builders::CallbackFailedDetailsBuilder {
-+pub(crate) fn context_failed_details_correct_errors(
-+    mut builder: crate::types::builders::ContextFailedDetailsBuilder,
-+) -> crate::types::builders::ContextFailedDetailsBuilder {
-     if builder.error.is_none() {
-         builder.error = {
-             let builder = crate::types::builders::EventErrorBuilder::default();
-@@ -495,18 +508,21 @@
-     builder
- }
-
--pub(crate) fn callback_started_details_correct_errors(
--    mut builder: crate::types::builders::CallbackStartedDetailsBuilder,
--) -> crate::types::builders::CallbackStartedDetailsBuilder {
--    if builder.callback_id.is_none() {
--        builder.callback_id = Some(Default::default())
-+pub(crate) fn wait_started_details_correct_errors(
-+    mut builder: crate::types::builders::WaitStartedDetailsBuilder,
-+) -> crate::types::builders::WaitStartedDetailsBuilder {
-+    if builder.duration.is_none() {
-+        builder.duration = Some(Default::default())
-+    }
-+    if builder.scheduled_end_timestamp.is_none() {
-+        builder.scheduled_end_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-     }
-     builder
- }
-
--pub(crate) fn callback_succeeded_details_correct_errors(
--    mut builder: crate::types::builders::CallbackSucceededDetailsBuilder,
--) -> crate::types::builders::CallbackSucceededDetailsBuilder {
-+pub(crate) fn step_succeeded_details_correct_errors(
-+    mut builder: crate::types::builders::StepSucceededDetailsBuilder,
-+) -> crate::types::builders::StepSucceededDetailsBuilder {
-     if builder.result.is_none() {
-         builder.result = {
-             let builder = crate::types::builders::EventResultBuilder::default();
-@@ -513,12 +529,18 @@
-             Some(builder.build())
-         }
-     }
-+    if builder.retry_details.is_none() {
-+        builder.retry_details = {
-+            let builder = crate::types::builders::RetryDetailsBuilder::default();
-+            Some(builder.build())
-+        }
-+    }
-     builder
- }
-
--pub(crate) fn callback_timed_out_details_correct_errors(
--    mut builder: crate::types::builders::CallbackTimedOutDetailsBuilder,
--) -> crate::types::builders::CallbackTimedOutDetailsBuilder {
-+pub(crate) fn step_failed_details_correct_errors(
-+    mut builder: crate::types::builders::StepFailedDetailsBuilder,
-+) -> crate::types::builders::StepFailedDetailsBuilder {
-     if builder.error.is_none() {
-         builder.error = {
-             let builder = crate::types::builders::EventErrorBuilder::default();
-@@ -525,15 +547,9 @@
-             Some(builder.build())
-         }
-     }
--    builder
--}
--
--pub(crate) fn chained_invoke_failed_details_correct_errors(
--    mut builder: crate::types::builders::ChainedInvokeFailedDetailsBuilder,
--) -> crate::types::builders::ChainedInvokeFailedDetailsBuilder {
--    if builder.error.is_none() {
--        builder.error = {
--            let builder = crate::types::builders::EventErrorBuilder::default();
-+    if builder.retry_details.is_none() {
-+        builder.retry_details = {
-+            let builder = crate::types::builders::RetryDetailsBuilder::default();
-             Some(builder.build())
-         }
-     }
-@@ -549,18 +565,6 @@
-     builder
- }
-
--pub(crate) fn chained_invoke_stopped_details_correct_errors(
--    mut builder: crate::types::builders::ChainedInvokeStoppedDetailsBuilder,
--) -> crate::types::builders::ChainedInvokeStoppedDetailsBuilder {
--    if builder.error.is_none() {
--        builder.error = {
--            let builder = crate::types::builders::EventErrorBuilder::default();
--            Some(builder.build())
--        }
--    }
--    builder
--}
--
- pub(crate) fn chained_invoke_succeeded_details_correct_errors(
-     mut builder: crate::types::builders::ChainedInvokeSucceededDetailsBuilder,
- ) -> crate::types::builders::ChainedInvokeSucceededDetailsBuilder {
-@@ -573,9 +577,9 @@
-     builder
- }
-
--pub(crate) fn chained_invoke_timed_out_details_correct_errors(
--    mut builder: crate::types::builders::ChainedInvokeTimedOutDetailsBuilder,
--) -> crate::types::builders::ChainedInvokeTimedOutDetailsBuilder {
-+pub(crate) fn chained_invoke_failed_details_correct_errors(
-+    mut builder: crate::types::builders::ChainedInvokeFailedDetailsBuilder,
-+) -> crate::types::builders::ChainedInvokeFailedDetailsBuilder {
-     if builder.error.is_none() {
-         builder.error = {
-             let builder = crate::types::builders::EventErrorBuilder::default();
-@@ -585,9 +589,9 @@
-     builder
- }
-
--pub(crate) fn context_failed_details_correct_errors(
--    mut builder: crate::types::builders::ContextFailedDetailsBuilder,
--) -> crate::types::builders::ContextFailedDetailsBuilder {
-+pub(crate) fn chained_invoke_timed_out_details_correct_errors(
-+    mut builder: crate::types::builders::ChainedInvokeTimedOutDetailsBuilder,
-+) -> crate::types::builders::ChainedInvokeTimedOutDetailsBuilder {
-     if builder.error.is_none() {
-         builder.error = {
-             let builder = crate::types::builders::EventErrorBuilder::default();
-@@ -597,12 +601,12 @@
-     builder
- }
-
--pub(crate) fn context_succeeded_details_correct_errors(
--    mut builder: crate::types::builders::ContextSucceededDetailsBuilder,
--) -> crate::types::builders::ContextSucceededDetailsBuilder {
--    if builder.result.is_none() {
--        builder.result = {
--            let builder = crate::types::builders::EventResultBuilder::default();
-+pub(crate) fn chained_invoke_stopped_details_correct_errors(
-+    mut builder: crate::types::builders::ChainedInvokeStoppedDetailsBuilder,
-+) -> crate::types::builders::ChainedInvokeStoppedDetailsBuilder {
-+    if builder.error.is_none() {
-+        builder.error = {
-+            let builder = crate::types::builders::EventErrorBuilder::default();
-             Some(builder.build())
-         }
-     }
-@@ -609,36 +613,30 @@
-     builder
- }
-
--pub(crate) fn execution_failed_details_correct_errors(
--    mut builder: crate::types::builders::ExecutionFailedDetailsBuilder,
--) -> crate::types::builders::ExecutionFailedDetailsBuilder {
--    if builder.error.is_none() {
--        builder.error = {
--            let builder = crate::types::builders::EventErrorBuilder::default();
--            Some(builder.build())
--        }
-+pub(crate) fn callback_started_details_correct_errors(
-+    mut builder: crate::types::builders::CallbackStartedDetailsBuilder,
-+) -> crate::types::builders::CallbackStartedDetailsBuilder {
-+    if builder.callback_id.is_none() {
-+        builder.callback_id = Some(Default::default())
-     }
-     builder
- }
-
--pub(crate) fn execution_started_details_correct_errors(
--    mut builder: crate::types::builders::ExecutionStartedDetailsBuilder,
--) -> crate::types::builders::ExecutionStartedDetailsBuilder {
--    if builder.input.is_none() {
--        builder.input = {
--            let builder = crate::types::builders::EventInputBuilder::default();
-+pub(crate) fn callback_succeeded_details_correct_errors(
-+    mut builder: crate::types::builders::CallbackSucceededDetailsBuilder,
-+) -> crate::types::builders::CallbackSucceededDetailsBuilder {
-+    if builder.result.is_none() {
-+        builder.result = {
-+            let builder = crate::types::builders::EventResultBuilder::default();
-             Some(builder.build())
-         }
-     }
--    if builder.execution_timeout.is_none() {
--        builder.execution_timeout = Some(Default::default())
--    }
-     builder
- }
-
--pub(crate) fn execution_stopped_details_correct_errors(
--    mut builder: crate::types::builders::ExecutionStoppedDetailsBuilder,
--) -> crate::types::builders::ExecutionStoppedDetailsBuilder {
-+pub(crate) fn callback_failed_details_correct_errors(
-+    mut builder: crate::types::builders::CallbackFailedDetailsBuilder,
-+) -> crate::types::builders::CallbackFailedDetailsBuilder {
-     if builder.error.is_none() {
-         builder.error = {
-             let builder = crate::types::builders::EventErrorBuilder::default();
-@@ -648,12 +646,12 @@
-     builder
- }
-
--pub(crate) fn execution_succeeded_details_correct_errors(
--    mut builder: crate::types::builders::ExecutionSucceededDetailsBuilder,
--) -> crate::types::builders::ExecutionSucceededDetailsBuilder {
--    if builder.result.is_none() {
--        builder.result = {
--            let builder = crate::types::builders::EventResultBuilder::default();
-+pub(crate) fn callback_timed_out_details_correct_errors(
-+    mut builder: crate::types::builders::CallbackTimedOutDetailsBuilder,
-+) -> crate::types::builders::CallbackTimedOutDetailsBuilder {
-+    if builder.error.is_none() {
-+        builder.error = {
-+            let builder = crate::types::builders::EventErrorBuilder::default();
-             Some(builder.build())
-         }
-     }
-@@ -675,62 +673,64 @@
-     builder
- }
-
--pub(crate) fn step_failed_details_correct_errors(
--    mut builder: crate::types::builders::StepFailedDetailsBuilder,
--) -> crate::types::builders::StepFailedDetailsBuilder {
--    if builder.error.is_none() {
--        builder.error = {
--            let builder = crate::types::builders::EventErrorBuilder::default();
--            Some(builder.build())
--        }
-+pub(crate) fn tags_error_correct_errors(mut builder: crate::types::builders::TagsErrorBuilder) -> crate::types::builders::TagsErrorBuilder {
-+    if builder.error_code.is_none() {
-+        builder.error_code = Some(Default::default())
-     }
--    if builder.retry_details.is_none() {
--        builder.retry_details = {
--            let builder = crate::types::builders::RetryDetailsBuilder::default();
--            Some(builder.build())
--        }
-+    if builder.message.is_none() {
-+        builder.message = Some(Default::default())
-     }
-     builder
- }
-
--pub(crate) fn step_succeeded_details_correct_errors(
--    mut builder: crate::types::builders::StepSucceededDetailsBuilder,
--) -> crate::types::builders::StepSucceededDetailsBuilder {
--    if builder.result.is_none() {
--        builder.result = {
--            let builder = crate::types::builders::EventResultBuilder::default();
--            Some(builder.build())
--        }
-+pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::ExecutionBuilder) -> crate::types::builders::ExecutionBuilder {
-+    if builder.durable_execution_arn.is_none() {
-+        builder.durable_execution_arn = Some(Default::default())
-+    }
-+    if builder.durable_execution_name.is_none() {
-+        builder.durable_execution_name = Some(Default::default())
-+    }
-+    if builder.function_arn.is_none() {
-+        builder.function_arn = Some(Default::default())
-     }
--    if builder.retry_details.is_none() {
--        builder.retry_details = {
--            let builder = crate::types::builders::RetryDetailsBuilder::default();
--            Some(builder.build())
--        }
-+    if builder.status.is_none() {
-+        builder.status = "no value was set".parse::<crate::types::ExecutionStatus>().ok()
-+    }
-+    if builder.start_timestamp.is_none() {
-+        builder.start_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-     }
-     builder
- }
-
--pub(crate) fn wait_started_details_correct_errors(
--    mut builder: crate::types::builders::WaitStartedDetailsBuilder,
--) -> crate::types::builders::WaitStartedDetailsBuilder {
--    if builder.duration.is_none() {
--        builder.duration = Some(Default::default())
-+pub(crate) fn function_url_config_correct_errors(
-+    mut builder: crate::types::builders::FunctionUrlConfigBuilder,
-+) -> crate::types::builders::FunctionUrlConfigBuilder {
-+    if builder.function_url.is_none() {
-+        builder.function_url = Some(Default::default())
-     }
--    if builder.scheduled_end_timestamp.is_none() {
--        builder.scheduled_end_timestamp = Some(::aws_smithy_types::DateTime::from_fractional_secs(0, 0_f64))
-+    if builder.function_arn.is_none() {
-+        builder.function_arn = Some(Default::default())
-+    }
-+    if builder.creation_time.is_none() {
-+        builder.creation_time = Some(Default::default())
-+    }
-+    if builder.last_modified_time.is_none() {
-+        builder.last_modified_time = Some(Default::default())
-     }
-+    if builder.auth_type.is_none() {
-+        builder.auth_type = "no value was set".parse::<crate::types::FunctionUrlAuthType>().ok()
-+    }
-     builder
- }
-
--pub(crate) fn target_tracking_scaling_policy_correct_errors(
--    mut builder: crate::types::builders::TargetTrackingScalingPolicyBuilder,
--) -> crate::types::builders::TargetTrackingScalingPolicyBuilder {
--    if builder.predefined_metric_type.is_none() {
--        builder.predefined_metric_type = "no value was set".parse::<crate::types::CapacityProviderPredefinedMetricType>().ok()
-+pub(crate) fn function_versions_by_capacity_provider_list_item_correct_errors(
-+    mut builder: crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder,
-+) -> crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder {
-+    if builder.function_arn.is_none() {
-+        builder.function_arn = Some(Default::default())
-     }
--    if builder.target_value.is_none() {
--        builder.target_value = Some(Default::default())
-+    if builder.state.is_none() {
-+        builder.state = "no value was set".parse::<crate::types::State>().ok()
-     }
-     builder
- }
+ pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::ExecutionBuilder) -> crate::types::builders::ExecutionBuilder {
+     if builder.durable_execution_arn.is_none() {
+         builder.durable_execution_arn = Some(Default::default())
 ```
 
 ### `src/types/_account_limit.rs`
@@ -12480,61 +11562,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              event_timestamp: self.event_timestamp,
 ```
 
-### `src/types/_function_code.rs`
-
-```diff
---- reference/src/types/_function_code.rs
-+++ generated/src/types/_function_code.rs
-@@ -5,7 +5,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct FunctionCode {
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
--    pub zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
-     pub s3_bucket: ::std::option::Option<::std::string::String>,
-     /// <p>The Amazon S3 key of the deployment package.</p>
-@@ -27,7 +27,7 @@
- }
- impl FunctionCode {
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
--    pub fn zip_file(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn zip_file(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.zip_file.as_ref()
-     }
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
-@@ -85,7 +85,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct FunctionCodeBuilder {
--    pub(crate) zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
-     pub(crate) s3_bucket: ::std::option::Option<::std::string::String>,
-     pub(crate) s3_key: ::std::option::Option<::std::string::String>,
-     pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
-@@ -95,17 +95,17 @@
- }
- impl FunctionCodeBuilder {
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
--    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.zip_file = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
--    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.zip_file = input;
-         self
-     }
-     /// <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
--    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.zip_file
-     }
-     /// <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
-```
-
 ### `src/types/_function_configuration.rs`
 
 ```diff
@@ -12580,53 +11607,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-```
-
-### `src/types/_invoke_response_stream_update.rs`
-
-```diff
---- reference/src/types/_invoke_response_stream_update.rs
-+++ generated/src/types/_invoke_response_stream_update.rs
-@@ -5,11 +5,11 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct InvokeResponseStreamUpdate {
-     /// <p>Data returned by your Lambda function.</p>
--    pub payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub payload: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl InvokeResponseStreamUpdate {
-     /// <p>Data returned by your Lambda function.</p>
--    pub fn payload(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn payload(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.payload.as_ref()
-     }
- }
-@@ -31,21 +31,21 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
- #[non_exhaustive]
- pub struct InvokeResponseStreamUpdateBuilder {
--    pub(crate) payload: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) payload: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl InvokeResponseStreamUpdateBuilder {
-     /// <p>Data returned by your Lambda function.</p>
--    pub fn payload(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.payload = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Data returned by your Lambda function.</p>
--    pub fn set_payload(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.payload = input;
-         self
-     }
-     /// <p>Data returned by your Lambda function.</p>
--    pub fn get_payload(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.payload
-     }
-     /// Consumes the builder and constructs a [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
 ```
 
 ### `src/types/_lambda_managed_instances_capacity_provider_config.rs`
@@ -12731,61 +11711,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              signing_profile_version_arn: self.signing_profile_version_arn,
              signing_job_arn: self.signing_job_arn,
          }
-```
-
-### `src/types/_layer_version_content_input.rs`
-
-```diff
---- reference/src/types/_layer_version_content_input.rs
-+++ generated/src/types/_layer_version_content_input.rs
-@@ -19,7 +19,7 @@
-     /// </ul>
-     pub s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
-     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
--    pub zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl LayerVersionContentInput {
-     /// <p>The Amazon S3 bucket of the layer archive.</p>
-@@ -45,7 +45,7 @@
-         self.s3_object_storage_mode.as_ref()
-     }
-     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
--    pub fn zip_file(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    pub fn zip_file(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
-         self.zip_file.as_ref()
-     }
- }
-@@ -75,7 +75,7 @@
-     pub(crate) s3_key: ::std::option::Option<::std::string::String>,
-     pub(crate) s3_object_version: ::std::option::Option<::std::string::String>,
-     pub(crate) s3_object_storage_mode: ::std::option::Option<crate::types::S3ObjectStorageMode>,
--    pub(crate) zip_file: ::std::option::Option<::aws_smithy_types::Blob>,
-+    pub(crate) zip_file: ::std::option::Option<::std::vec::Vec<u8>>,
- }
- impl LayerVersionContentInputBuilder {
-     /// <p>The Amazon S3 bucket of the layer archive.</p>
-@@ -153,17 +153,17 @@
-         &self.s3_object_storage_mode
-     }
-     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
--    pub fn zip_file(mut self, input: ::aws_smithy_types::Blob) -> Self {
-+    pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
-         self.zip_file = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
--    pub fn set_zip_file(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
-         self.zip_file = input;
-         self
-     }
-     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
--    pub fn get_zip_file(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
-         &self.zip_file
-     }
-     /// Consumes the builder and constructs a [`LayerVersionContentInput`](crate::types::LayerVersionContentInput).
 ```
 
 ### `src/types/_layer_version_content_output.rs`
@@ -14234,17 +13159,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_provisioned_concurrency_config.rs`
 - `src/operation/get_resource_policy.rs`
 - `src/operation/get_runtime_management_config.rs`
-- `src/operation/invoke/_invoke_input.rs`
 - `src/operation/invoke/_invoke_output.rs`
-- `src/operation/invoke/builders.rs`
 - `src/operation/invoke.rs`
 - `src/operation/invoke_async/_invoke_async_input.rs`
 - `src/operation/invoke_async/_invoke_async_output.rs`
 - `src/operation/invoke_async/builders.rs`
 - `src/operation/invoke_async.rs`
-- `src/operation/invoke_with_response_stream/_invoke_with_response_stream_input.rs`
 - `src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs`
-- `src/operation/invoke_with_response_stream/builders.rs`
 - `src/operation/invoke_with_response_stream.rs`
 - `src/operation/list_aliases.rs`
 - `src/operation/list_capacity_providers.rs`
@@ -14279,8 +13200,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/remove_permission.rs`
 - `src/operation/send_durable_execution_callback_failure.rs`
 - `src/operation/send_durable_execution_callback_heartbeat.rs`
-- `src/operation/send_durable_execution_callback_success/_send_durable_execution_callback_success_input.rs`
-- `src/operation/send_durable_execution_callback_success/builders.rs`
 - `src/operation/send_durable_execution_callback_success.rs`
 - `src/operation/stop_durable_execution.rs`
 - `src/operation/tag_resource.rs`
@@ -14289,9 +13208,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/update_capacity_provider.rs`
 - `src/operation/update_code_signing_config.rs`
 - `src/operation/update_event_source_mapping.rs`
-- `src/operation/update_function_code/_update_function_code_input.rs`
 - `src/operation/update_function_code/_update_function_code_output.rs`
-- `src/operation/update_function_code/builders.rs`
 - `src/operation/update_function_code.rs`
 - `src/operation/update_function_configuration/_update_function_configuration_output.rs`
 - `src/operation/update_function_configuration.rs`
@@ -14304,12 +13221,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_callback_options.rs`
 - `src/types/_capacity_provider_logging_config.rs`
 - `src/types/_event.rs`
-- `src/types/_function_code.rs`
 - `src/types/_function_configuration.rs`
-- `src/types/_invoke_response_stream_update.rs`
 - `src/types/_lambda_managed_instances_capacity_provider_config.rs`
 - `src/types/_layer.rs`
-- `src/types/_layer_version_content_input.rs`
 - `src/types/_layer_version_content_output.rs`
 - `src/types/_layer_versions_list_item.rs`
 - `src/types/_logging_config.rs`
