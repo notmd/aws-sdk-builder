@@ -149,6 +149,14 @@ pub(crate) fn generate(
             if let Some(source) = endpoint_test_source {
                 service_files.push(("tests/endpoint_tests.rs".to_owned(), source));
             }
+            if let Some(integration_tests) = entry.integration_tests {
+                for asset in integration_tests {
+                    service_files.push((
+                        asset.path.to_owned(),
+                        String::from_utf8_lossy(asset.bytes).into_owned(),
+                    ));
+                }
+            }
         }
         if has_idempotency_operations(&selected) {
             service_files.push((

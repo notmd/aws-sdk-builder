@@ -72,15 +72,6 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
         return Ok(0);
     }
 
-    // Smithy-RS's endpoint integration tests in the pinned reference were
-    // formatted by an older rustfmt. Their macro-layout quirks are part of
-    // the byte-level conformance fixture, so the generator owns their exact
-    // formatting and they are excluded from this current-rustfmt pass.
-    let rustfmt_files = files
-        .iter()
-        .filter(|path| !path.ends_with(Path::new("tests/endpoint_tests.rs")))
-        .cloned()
-        .collect::<Vec<_>>();
     let output = Command::new("rustfmt")
         .args([
             "--edition",
@@ -88,7 +79,7 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
             "--config",
             "max_width=150,skip_children=true",
         ])
-        .args(&rustfmt_files)
+        .args(&files)
         .output()
         .map_err(|error| format!("failed to run rustfmt: {error}"))?;
     if !output.status.success() {
@@ -99,7 +90,7 @@ fn format_generated_sources(root: &Path) -> Result<usize, String> {
         return Err(format!("rustfmt failed for generated sources: {message}"));
     }
 
-    Ok(rustfmt_files.len())
+    Ok(files.len())
 }
 
 fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), String> {

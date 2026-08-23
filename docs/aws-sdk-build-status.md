@@ -4,6 +4,31 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Package model-selected S3 test fixtures
+- State: in progress
+- Changed: added a generic registry-backed integration-asset plan. The selected model
+  can contribute pinned non-Rust test fixtures to standalone snapshots without a
+  service- or operation-name branch; the S3 plan packages the 17 Smithy-RS fixtures
+  under `tests/blns`, `tests/data`, and `tests/select-object-content.json`. The crate
+  package include list now carries the asset tree. The conformance formatter now
+  formats every generated Rust file; the prior endpoint-test exclusion was removed.
+- Evidence: compared every imported fixture with the pinned Smithy-RS checkout at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; all 17 are exact
+  in the generated snapshot. `just conformance` completed generation, formatting,
+  and comparison.
+- Conformance: overall `4,002/674/1,785/1` -> `4,019/674/1,768/1`; S3
+  `1,285/0/59/0` -> `1,302/0/42/0` (matched/mismatched/missing/extra). The combined
+  mismatch-plus-missing-plus-extra diff shrank from 2,460 to 2,443 files.
+- Verification: `cargo fmt --all -- --check`, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, and `git diff --check`
+  pass. Conformance still exits 1 because 42 S3 handwritten Rust integration tests
+  and broader service parity remain incomplete.
+- Blocker: the remaining S3 test sources are handwritten Smithy-RS integration tests;
+  formatting their copied bytes with the current required rustfmt creates mismatches,
+  so they need a generated-test design rather than another formatter exclusion.
+- Next action: derive a reusable model/capability-driven renderer for the first S3
+  integration-test family, starting with request/response fixture tests.
+
 ### Checkpoint: 2026-08-23 — Generate model-driven endpoint operation tests
 
 - State: in progress

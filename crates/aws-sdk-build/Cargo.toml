@@ -5,7 +5,15 @@ edition.workspace = true
 license.workspace = true
 repository.workspace = true
 description = "Rust-native build-time generation of modular AWS SDK clients."
-include = ["Cargo.toml", "src/**", "models/**", "models-manifest.json", "README.md", "LICENSE*"]
+include = [
+    "Cargo.toml",
+    "src/**",
+    "models/**",
+    "assets/**",
+    "models-manifest.json",
+    "README.md",
+    "LICENSE*",
+]
 
 [dependencies]
 serde_json = { version = "1", features = ["preserve_order"] }

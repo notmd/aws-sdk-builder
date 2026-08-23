@@ -7,6 +7,12 @@ pub const SMITHY_CODEGEN_VERSION: &str = "8c50a50e36736f932bd51898f14ee0fa84d47c
 pub const REGISTRY_SOURCE: &str = "aws-sdk-build/models-manifest.json";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct IntegrationTestAsset {
+    pub path: &'static str,
+    pub bytes: &'static [u8],
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ModelEntry {
     pub key: &'static str,
     pub service_shape_id: &'static str,
@@ -20,6 +26,7 @@ pub struct ModelEntry {
     pub sdk_version: Option<&'static str>,
     pub bytes: &'static [u8],
     pub protocol_tests: Option<&'static [u8]>,
+    pub integration_tests: Option<&'static [IntegrationTestAsset]>,
 }
 
 macro_rules! entry {
@@ -33,6 +40,7 @@ macro_rules! entry {
             sdk_version: None,
             bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
             protocol_tests: None,
+            integration_tests: None,
         }
     };
 }
@@ -48,12 +56,13 @@ macro_rules! entry_with_sdk_version {
             sdk_version: Some($version),
             bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
             protocol_tests: None,
+            integration_tests: None,
         }
     };
 }
 
-macro_rules! entry_with_protocol_tests_and_sdk_version {
-    ($key:literal, $shape:literal, $file:literal, $crate_name:literal, $module:literal, $tests:literal, $version:literal) => {
+macro_rules! entry_with_protocol_tests_sdk_version_and_integration_tests {
+    ($key:literal, $shape:literal, $file:literal, $crate_name:literal, $module:literal, $tests:literal, $version:literal, $integration_tests:ident) => {
         ModelEntry {
             key: $key,
             service_shape_id: $shape,
@@ -67,9 +76,50 @@ macro_rules! entry_with_protocol_tests_and_sdk_version {
                 "/models/",
                 $tests
             ))),
+            integration_tests: Some($integration_tests),
         }
     };
 }
+
+macro_rules! s3_integration_test {
+    ($path:literal) => {
+        IntegrationTestAsset {
+            path: $path,
+            bytes: include_bytes!(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "/assets/integration-tests/s3/",
+                $path
+            )),
+        }
+    };
+}
+
+static S3_INTEGRATION_TESTS: &[IntegrationTestAsset] = &[
+    // The list is declarative registry data. The renderer treats these as
+    // generic SDK integration assets and does not inspect service or
+    // operation names.
+    s3_integration_test!("tests/blns/LICENSE"),
+    s3_integration_test!("tests/blns/blns.txt"),
+    s3_integration_test!("tests/data/aws_chunked/chunk-signing.json"),
+    s3_integration_test!("tests/data/aws_chunked/custom-chunk-size.json"),
+    s3_integration_test!("tests/data/aws_chunked/no-chunking.json"),
+    s3_integration_test!("tests/data/content-length-enforcement/get-object-long.json"),
+    s3_integration_test!("tests/data/content-length-enforcement/get-object-short.json"),
+    s3_integration_test!("tests/data/content-length-enforcement/head-object.json"),
+    s3_integration_test!("tests/data/express/mixed-auths.json"),
+    s3_integration_test!("tests/data/no_auth/get-object.json"),
+    s3_integration_test!("tests/data/no_auth/head-object.json"),
+    s3_integration_test!("tests/data/no_auth/list-objects-v2.json"),
+    s3_integration_test!("tests/data/no_auth/list-objects.json"),
+    s3_integration_test!(
+        "tests/data/request-information-headers/slow-network-and-late-client-clock.json"
+    ),
+    s3_integration_test!(
+        "tests/data/request-information-headers/three-retries_and-then-success.json"
+    ),
+    s3_integration_test!("tests/data/request-information-headers/three-successful-attempts.json"),
+    s3_integration_test!("tests/select-object-content.json"),
+];
 
 static ENTRIES: &[ModelEntry] = &[
     entry!(
@@ -272,14 +322,15 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-route53",
         "aws_sdk_route53"
     ),
-    entry_with_protocol_tests_and_sdk_version!(
+    entry_with_protocol_tests_sdk_version_and_integration_tests!(
         "s3",
         "com.amazonaws.s3#AmazonS3",
         "s3.json",
         "aws-sdk-s3",
         "aws_sdk_s3",
         "protocol-tests/s3.json",
-        "1.143.0"
+        "1.143.0",
+        S3_INTEGRATION_TESTS
     ),
     entry!(
         "secrets-manager",
