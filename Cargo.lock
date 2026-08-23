@@ -46,7 +46,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "aws-sdk-build"
+name = "aws-sdk-builder"
 version = "0.1.0"
 dependencies = [
  "serde_json",
@@ -56,10 +56,74 @@ dependencies = [
 ]
 
 [[package]]
+name = "aws-sdk-builder-dynamodb"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-iam"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-kms"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-lambda"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-s3"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-sns"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-sqs"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
+name = "aws-sdk-builder-sts"
+version = "0.1.0"
+dependencies = [
+ "aws-sdk-builder",
+]
+
+[[package]]
 name = "aws-sdk-conformance"
 version = "0.1.0"
 dependencies = [
- "aws-sdk-build",
+ "aws-sdk-builder",
+ "aws-sdk-builder-dynamodb",
+ "aws-sdk-builder-iam",
+ "aws-sdk-builder-kms",
+ "aws-sdk-builder-lambda",
+ "aws-sdk-builder-s3",
+ "aws-sdk-builder-sns",
+ "aws-sdk-builder-sqs",
+ "aws-sdk-builder-sts",
  "diffy",
  "quote",
  "syn 3.0.3",
@@ -617,11 +681,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
 
 [[package]]
+name = "multi_service"
+version = "0.1.0"
+dependencies = [
+ "aws-runtime",
+ "aws-sdk-builder",
+ "aws-sdk-builder-s3",
+ "aws-sdk-builder-sqs",
+ "aws-smithy-runtime-api",
+ "aws-smithy-types",
+ "aws-types",
+ "http 1.5.0",
+]
+
+[[package]]
 name = "my_aws_sdk"
 version = "0.1.0"
 dependencies = [
  "aws-runtime",
- "aws-sdk-build",
+ "aws-sdk-builder",
+ "aws-sdk-builder-s3",
  "aws-smithy-runtime-api",
  "aws-smithy-types",
  "aws-types",

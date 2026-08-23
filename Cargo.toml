@@ -1,9 +1,5 @@
 [workspace]
-members = [
-    "crates/aws-sdk-build",
-    "crates/aws-sdk-conformance",
-    "examples/my_aws_sdk",
-]
+members = ["crates/*", "examples/my_aws_sdk", "examples/multi_service"]
 resolver = "2"
 
 [profile.dev.package.syn]

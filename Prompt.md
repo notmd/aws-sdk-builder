@@ -14,13 +14,15 @@ low-difference report is useful intermediate evidence but is not completion.
 
 The Rust-only implementation is operational but far from exact AWS SDK parity:
 
-- `aws-sdk-build` exposes `configure().add(...).compile()` and the
-  `include_sdk!()` facade. It packages 38 Smithy JSON service models and supports
-  selected-operation and all-operation generation.
+- `aws-sdk-builder` exposes the shared compile machinery and the
+  `include_sdk!()` facade. The eight service provider crates package exactly one
+  Smithy JSON model each: DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
+  Build scripts call the relevant provider, such as
+  `aws_sdk_builder_s3::compile(["PutObject"])?`.
 - The generator emits deterministic Rust source, service/client/config,
   operation/builders/errors, model shapes, an initial local HTTP runtime, and atomic
   output installation. The generator version is
-  `aws-sdk-build-rust-native-0.2.0`.
+  `aws-sdk-builder-rust-native-0.2.0`.
 - The checked-in consumer fixture exercises the seven core S3 operations
   `CreateBucket`, `PutObject`, `HeadObject`, `GetObject`, `ListObjectsV2`,
   `DeleteObject`, and `DeleteBucket` against a deterministic in-process HTTP server.
@@ -36,7 +38,7 @@ The Rust-only implementation is operational but far from exact AWS SDK parity:
   serializers/deserializers, endpoint rules, SigV4 auth, retries, checksums,
   pagination, presigning, event streams, and complete streaming/error semantics.
 
-The status/audit log is [`docs/aws-sdk-build-status.md`](docs/aws-sdk-build-status.md).
+The status/audit log is [`docs/aws-sdk-builder-status.md`](docs/aws-sdk-builder-status.md).
 Update it whenever a milestone, conformance metric, limitation, or verification result
 changes. Never report the project as complete while the conformance report is
 non-zero.
@@ -75,14 +77,14 @@ Constraints:
   as behavioral/reference implementations; port behavior to Rust rather than invoking
   Java, Kotlin, Smithy CLI, Gradle, Maven, or a network generator.
 - Work in small checkpoints. At the start of each checkpoint read Prompt.md,
-  docs/aws-sdk-build-status.md, git status, and the latest conformance summary.
+  docs/aws-sdk-builder-status.md, git status, and the latest conformance summary.
 - After every codegen-affecting change, regenerate the all-operation snapshots and run
   the conformance comparison. Verify that the exact-match count increases and the
   mismatch/missing/extra diff decreases; if it does not, diagnose the regression and
   repair or revert the checkpoint before continuing.
 - After each checkpoint run the relevant focused tests, then cargo fmt, cargo test
   --workspace, cargo clippy --workspace --all-targets -- -D warnings, and git diff --check.
-- Persist a concise checkpoint in docs/aws-sdk-build-status.md: what changed, files,
+- Persist a concise checkpoint in docs/aws-sdk-builder-status.md: what changed, files,
   commands, conformance counts, remaining blocker, and the exact next step. Do not
   claim completion merely because a command compiles or a session is ending.
 - Continue autonomously through safe local edits, generation, tests, and report review.
@@ -98,7 +100,7 @@ checkpoint and continue from the recorded next step instead of restarting.
 At every interruption or context compaction, leave a checkpoint before stopping:
 
 1. Record the current milestone, changed files, commands run, exact conformance
-   counts, and next smallest step in `docs/aws-sdk-build-status.md`.
+   counts, and next smallest step in `docs/aws-sdk-builder-status.md`.
 2. Leave generated snapshots and reports in their deterministic checked-in locations;
    do not summarize away failed comparisons.
 3. On resume, inspect the checkpoint, `git diff`, the latest report, and the current
@@ -116,7 +118,7 @@ run. The durable project memory is the repository:
 
 - `Prompt.md` is the immutable specification, constraints, trigger prompt, and
   completion definition.
-- `docs/aws-sdk-build-status.md` is the current checkpoint: milestone, completed
+- `docs/aws-sdk-builder-status.md` is the current checkpoint: milestone, completed
   work, evidence, conformance counts, blockers, and exactly one next action.
 - `conformance/manifest.json`, `conformance/summary.md`, and
   `conformance/summary/` are the reproducible parity evidence.
@@ -145,7 +147,7 @@ with the repository checkpoint, trust the repository and verify it with the code
 
 ## Goal
 
-Build a Rust-only `aws-sdk-build` build dependency that lets a consumer select AWS
+Build a Rust-only `aws-sdk-builder` build dependency that lets a consumer select AWS
 services and operations, then include generated modules that match the pinned AWS SDK
 Rust crates in `conformance/reference` exactly: public API, source tree, generated
 semantics, protocol behavior, runtime behavior, visibility, documentation, and
@@ -166,22 +168,19 @@ as reference implementations. Port their behavior to reusable Rust code; do not
 invoke their JVM build, use a Smithy executable, or copy service-specific output by
 hand.
 
-The consumer-facing workflow must be:
+The consumer-facing workflow is:
 
 ```rust
 // build.rs
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    aws_sdk_build::configure()
-        .add("s3", ["AbortMultipartUpload", "CompleteMultipartUpload"])
-        .add("dynamodb", ["GetItem"])
-        .compile()?;
+    aws_sdk_builder_s3::compile(["AbortMultipartUpload", "CompleteMultipartUpload"])?;
     Ok(())
 }
 ```
 
 ```rust
 // src/lib.rs
-aws_sdk_build::include_sdk!();
+aws_sdk_builder::include_sdk!();
 ```
 
 `include_sdk!()` is the preferred facade. It expands to the stable generated
@@ -189,13 +188,13 @@ aws_sdk_build::include_sdk!();
 build-output path. The generated include remains a stable implementation detail and
 is still tested directly by the conformance harness. Because a macro invoked from
 `src/` must be available to the normal dependency graph, the consumer declares
-`aws-sdk-build` in both `[dependencies]` and `[build-dependencies]` when it uses this
+`aws-sdk-builder` in both `[dependencies]` and `[build-dependencies]` when it uses this
 facade; the raw include fallback needs only the build dependency.
 
 There must be no consumer-supplied model path, service shape ID, Smithy executable,
 Maven coordinate, output directory, or codegen plugin configuration in this API.
-`compile()` obtains `OUT_DIR` from Cargo and uses the model and generator shipped by
-`aws-sdk-build`.
+Each service provider's `compile()` obtains `OUT_DIR` from Cargo and passes its
+packaged model to the shared generator in `aws-sdk-builder`.
 
 ## Fixed source snapshots
 
@@ -213,11 +212,11 @@ moving branch during tests.
 
 ## Hard constraints
 
-- The public library name is `aws_sdk_build`; the package name remains `aws-sdk-build`.
-- The only required consumer build-script configuration is repeated
-  `.add(service, operations)` calls followed by `.compile()`.
-- The `service` argument is the short AWS service key used by the packaged registry,
-  for example `"s3"`, `"dynamodb"`, or `"lambda"`.
+- The public library name is `aws_sdk_builder`; the package name remains `aws-sdk-builder`.
+- The only required consumer build-script configuration is a call to the selected
+  service provider's `compile(operations)` function.
+- The service provider package name identifies the service, for example
+  `aws-sdk-builder-s3`, `aws-sdk-builder-dynamodb`, or `aws-sdk-builder-lambda`.
 - Operation names are Smithy/AWS operation names, for example `"AbortMultipartUpload"`.
 - An empty operation iterator means all operations for that service. This is required
   by the all-operations conformance suite. A separate `.all_operations()` API is not
@@ -231,7 +230,8 @@ moving branch during tests.
 - No code path may invoke Smithy CLI, Java, Kotlin, Gradle, Maven, a shell, or a
   network downloader. A consumer build must need Cargo and the Rust toolchain only.
 - Generated output must not require the consumer to copy Smithy models into its source
-  tree. Models are packaged assets of `aws-sdk-build`.
+  tree. Each supported service model is a packaged asset of its matching
+  `aws-sdk-builder-*` provider crate.
 - Generated output must not depend on a generated `aws-sdk-*` service crate merely to
   provide the selected service API. Shared Rust runtime dependencies are allowed only
   when they are declared and documented as ordinary Rust dependencies.
@@ -247,22 +247,14 @@ The builder should expose the following shape (exact generic bounds may be refin
 without changing the call site):
 
 ```rust
-pub fn configure() -> Builder;
-
-impl Builder {
-    pub fn add<I, S>(self, service: impl Into<String>, operations: I) -> Self
-    where
-        I: IntoIterator<Item = S>,
-        S: Into<String>;
-
-    pub fn compile(self) -> Result<CompileReport, BuildError>;
-}
+pub fn compile<O: OperationNames>(operations: O)
+    -> Result<CompileReport, BuildError>;
 ```
 
 `CompileReport` is for diagnostics and tests; the consumer does not need to inspect
-it. `add("s3", [])` is the all-operations form. The builder must infer the consumer
-crate name and output directory from Cargo rather than requiring `.out_dir(...)` or a
-consumer-provided crate-name argument.
+it. An empty operation array is the all-operations form. Each provider infers the
+consumer crate name and output directory from Cargo rather than requiring an output
+directory or a consumer-provided crate-name argument.
 
 ## Public namespace contract
 
@@ -295,19 +287,21 @@ Rules:
 
 ## Packaged model registry
 
-Move model ownership into `aws-sdk-build`:
+Move model ownership into service provider crates:
 
 ```text
-crates/aws-sdk-build/
-  models/
-    s3.json
-    dynamodb.json
-    ...
-  models-manifest.json
+crates/aws-sdk-builder-s3/
+  model.json
+  src/lib.rs
+crates/aws-sdk-builder-dynamodb/
+  model.json
+  src/lib.rs
+...
 ```
 
-The package must include the model assets when published. Loading a model means looking
-up a registry entry by service key; it must not accept an arbitrary consumer path.
+Each service package must include exactly its one model asset when published.
+The core registry contains metadata and checksums only; loading a model means using
+the provider selected by the build script, not an arbitrary consumer path.
 Model loading must support the AWS Smithy JSON AST used by the pinned AWS SDK snapshot,
 including shared/prelude shapes, traits, endpoint rules, auth traits, streaming
 shapes, event streams, and service-specific traits.
@@ -374,8 +368,8 @@ Suggested crate modules are guidance, not permission to duplicate logic:
 
 ```text
 src/
-  lib.rs                 # configure, add, compile
-  registry.rs            # packaged models and snapshot manifest
+  lib.rs                 # shared compile entry point and include macro
+  registry.rs            # service metadata and snapshot provenance
   smithy/
     ast.rs               # Smithy JSON AST
     shapes.rs            # shape graph and closure
@@ -388,7 +382,7 @@ src/
     auth.rs              # AWS auth and signing configuration
     retries.rs            # retry classifiers and modeled retry traits
     decorators.rs        # AWS-wide decorators
-    services/             # S3, DynamoDB, EC2, Glacier, Route 53, STS, etc.
+  services/             # model-driven rendering, not a service registry
   output.rs              # module facade and atomic install
 ```
 
@@ -432,7 +426,7 @@ rustfmt --edition 2021 --config max_width=150,skip_children=true <generated-file
 ```
 
 Run that normalization in the conformance crate before source comparison, rather than
-inside `aws-sdk-build`. `skip_children=true` prevents per-file formatting from
+inside `aws-sdk-builder`. `skip_children=true` prevents per-file formatting from
 following nested `mod` declarations that are compared as separate snapshot files.
 Formatting is normalization, not permission to ignore whitespace: after formatting,
 whitespace, imports, docs, ordering, and generated files remain exact-comparison
@@ -450,14 +444,14 @@ inputs.
 6. Atomically replace only the generator-owned output paths after every validation passes.
 
 The generated `OUT_DIR` output must contain only `aws_sdk.rs` and generated Rust source.
-Do not write `aws_sdk_build_manifest.json` or any other generated metadata file. The
+Do not write `aws_sdk_builder_manifest.json` or any other generated metadata file. The
 `CompileReport` may carry diagnostics such as the consumer crate name and selected
 operations in memory, but those values must not be persisted as generated files.
 
 The consumer’s handwritten integration is:
 
 ```rust
-aws_sdk_build::include_sdk!();
+aws_sdk_builder::include_sdk!();
 ```
 
 The macro expands to `include!(concat!(env!("OUT_DIR"), "/aws_sdk.rs"));`. If a
@@ -487,9 +481,7 @@ run locally and in CI with no external generator:
 For every service in the current priority tier, call:
 
 ```rust
-aws_sdk_build::configure()
-    .add("service-key", std::iter::empty::<&str>())
-    .compile()?;
+aws_sdk_builder_s3::compile(std::iter::empty::<&str>())?;
 ```
 
 The harness must enumerate the model’s complete operation list and assert that every
@@ -591,7 +583,7 @@ count must fall, or the checkpoint must include a concrete explanation and a rep
 before more work proceeds. A codegen change is not complete until both the selected
 consumer fixture and the all-operation `conformance/generated` tree have been
 regenerated. Record the before/after counts and the command result in
-`docs/aws-sdk-build-status.md`.
+`docs/aws-sdk-builder-status.md`.
 
 ### Compile and negative checks
 
@@ -656,26 +648,20 @@ The expected local emulator is a Docker container exposing port `4566`, for exam
 `docker compose up -d` or `docker run --rm -d --name floci -p 4566:4566 floci/floci:latest`.
 The smoke launcher must not start, stop, or delete the user’s container.
 
-The script may skip only when explicitly requested with `AWS_SDK_BUILD_SKIP_FLOCI=1`.
+The script may skip only when explicitly requested with `AWS_SDK_BUILDER_SKIP_FLOCI=1`.
 An ordinary missing or unhealthy Floci instance is a failed local smoke test, not a
 passing test. Floci documents `http://localhost:4566` as its default endpoint and lists
 S3, including multipart upload support, among its local services; keep this check to
 basic operations so it stays fast and deterministic.
 
-## Initial AWS SDK priority queue
+## Supported AWS services
 
-This is an engineering priority queue, not an AWS-published popularity ranking. The
-ordering uses broad application usage, frequency in AWS SDK examples and production
-architectures, infrastructure centrality, and how well a service exercises distinct
-codegen paths. Re-score it when usage data becomes available, but keep the snapshot
-and rationale in version control.
+The refactor intentionally keeps only these eight service providers. No other AWS
+service is registered in the core or included in the workspace.
 
-| Tier | Service keys, in priority order | Why |
+| Tier | Service keys | Why |
 | --- | --- | --- |
-| P0 | `s3`, `dynamodb`, `lambda`, `sqs`, `sns`, `sts`, `iam`, `kms` | Core application, storage, identity, messaging, and serverless APIs; broadest initial user value |
-| P1 | `cloudwatch`, `cloudwatch-logs`, `ec2`, `ecr`, `ecs`, `eks`, `eventbridge`, `secrets-manager`, `ssm`, `rds` | Common deployment, observability, container, event, secret, parameter, and database workflows |
-| P2 | `cloudfront`, `route-53`, `sfn`, `kinesis`, `firehose`, `athena`, `glue`, `redshift`, `cognito-identity-provider`, `sesv2` | High-use delivery, workflow, streaming, analytics, identity, and email services |
-| P3 | `bedrock`, `bedrock-runtime`, `textract`, `rekognition`, `opensearch`, `wafv2`, `backup`, `appconfig`, `autoscaling`, `elasticache` | Important emerging, security, AI, and platform services with valuable specialized customizations |
+| P0 | `s3`, `dynamodb`, `lambda`, `sqs`, `sns`, `sts`, `iam`, `kms` | Core application, storage, identity, messaging, and serverless APIs |
 
 For each tier, record the exact model filename and official crate/module mapping. For
 example:
@@ -685,8 +671,11 @@ example:
 | `s3` | `s3.json` | `aws_sdk_s3` | `aws_sdk_s3::operation::abort_multipart_upload::AbortMultipartUpload` |
 | `dynamodb` | `dynamodb.json` | `aws_sdk_dynamodb` | `aws_sdk_dynamodb::operation::get_item::GetItem` |
 | `lambda` | `lambda.json` | `aws_sdk_lambda` | `aws_sdk_lambda::operation::invoke::Invoke` |
-| `cloudwatch-logs` | `cloudwatch-logs.json` | `aws_sdk_cloudwatchlogs` | `aws_sdk_cloudwatchlogs::operation::put_log_events::PutLogEvents` |
-| `secrets-manager` | `secrets-manager.json` | `aws_sdk_secretsmanager` | `aws_sdk_secretsmanager::operation::get_secret_value::GetSecretValue` |
+| `iam` | `model.json` | `aws_sdk_iam` | `aws_sdk_iam::operation::create_role::CreateRole` |
+| `kms` | `model.json` | `aws_sdk_kms` | `aws_sdk_kms::operation::describe_key::DescribeKey` |
+| `sns` | `model.json` | `aws_sdk_sns` | `aws_sdk_sns::operation::publish::Publish` |
+| `sqs` | `model.json` | `aws_sdk_sqs` | `aws_sdk_sqs::operation::send_message::SendMessage` |
+| `sts` | `model.json` | `aws_sdk_sts` | `aws_sdk_sts::operation::get_caller_identity::GetCallerIdentity` |
 
 Do not claim a tier is complete until its all-operation golden comparison and clean
 Rust-only consumer compile pass.
@@ -696,12 +685,12 @@ Rust-only consumer compile pass.
 Work in small checkpoints. After each checkpoint, run its validation, repair failures,
 and update the status/audit markdown before moving on.
 
-- [x] M1 — Replace the public API. Remove `.model`, `.service`, `.operations`,
-  `.out_dir`, `.smithy`, and `.rust_client_codegen`; implement repeated `.add()` and
-  `compile()` with Cargo environment discovery and typed diagnostics.
-- [x] M2 — Package the model registry for the current 38-service tier. Snapshot
-  metadata/checksums, service and operation lookup, all-operation selection, and no
-  consumer model inputs are implemented.
+- [x] M1 — Split the public API into the shared `aws-sdk-builder` core and one
+  model-provider crate per supported service. Providers expose typed `compile()`
+  calls with Cargo environment discovery and deterministic selection merging.
+- [x] M2 — Package exactly one model in each of the eight service crates. The core
+  registry stores metadata/checksums and the service packages contain no conformance
+  fixtures or unrelated models.
 - [ ] M3 — Port the generic Smithy Rust generator. The current renderer covers a
   useful subset of AST names, shapes, operation modules, client/config, builders, and
   deterministic output, but it still requires broad generic expansion and exact

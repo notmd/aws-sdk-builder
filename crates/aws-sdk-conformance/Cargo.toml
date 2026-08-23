@@ -8,7 +8,15 @@ description = "All-operation AWS SDK snapshot generation and deterministic sourc
 publish = false
 
 [dependencies]
-aws-sdk-build = { path = "../aws-sdk-build" }
+aws-sdk-builder = { path = "../aws-sdk-builder" }
+aws-sdk-builder-dynamodb = { path = "../aws-sdk-builder-dynamodb" }
+aws-sdk-builder-iam = { path = "../aws-sdk-builder-iam" }
+aws-sdk-builder-kms = { path = "../aws-sdk-builder-kms" }
+aws-sdk-builder-lambda = { path = "../aws-sdk-builder-lambda" }
+aws-sdk-builder-s3 = { path = "../aws-sdk-builder-s3" }
+aws-sdk-builder-sns = { path = "../aws-sdk-builder-sns" }
+aws-sdk-builder-sqs = { path = "../aws-sdk-builder-sqs" }
+aws-sdk-builder-sts = { path = "../aws-sdk-builder-sts" }
 diffy = { version = "0.5.1", features = ["std"] }
 quote = "1"
 syn = { version = "3", features = ["full", "parsing"] }

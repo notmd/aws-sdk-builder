@@ -1,0 +1,35 @@
+//! Build-time model provider for dynamodb AWS service.
+
+pub const MODEL: &[u8] = include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/model.json"));
+
+pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceMetadata {
+    key: "dynamodb",
+    service_shape_id: "com.amazonaws.dynamodb#DynamoDB_20120810",
+    filename: "model.json",
+    crate_name: "aws-sdk-dynamodb",
+    module_name: "aws_sdk_dynamodb",
+    sdk_version: Some("1.122.0"),
+    model_sha256: "7e9436596b667e2e0600de9c086205b38960012028bcd625ee786a5126d0f63e",
+};
+
+pub fn model() -> &'static [u8] {
+    MODEL
+}
+
+pub fn source() -> aws_sdk_builder::ServiceSource {
+    aws_sdk_builder::ServiceSource::new(METADATA, MODEL)
+}
+
+pub fn compile<O: aws_sdk_builder::OperationNames>(
+    operations: O,
+) -> Result<aws_sdk_builder::CompileReport, aws_sdk_builder::BuildError> {
+    aws_sdk_builder::compile(METADATA, MODEL, operations)
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn packaged_model_is_valid() {
+        aws_sdk_builder::validate_model(super::METADATA, super::MODEL).unwrap();
+    }
+}

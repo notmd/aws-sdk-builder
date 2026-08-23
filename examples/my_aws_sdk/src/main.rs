@@ -1,4 +1,6 @@
-aws_sdk_build::include_sdk!();
+#![allow(warnings)]
+
+aws_sdk_builder::include_sdk!();
 
 fn main() {}
 

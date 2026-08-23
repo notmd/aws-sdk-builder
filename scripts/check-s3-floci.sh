@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 
-if [ "${AWS_SDK_BUILD_SKIP_FLOCI:-0}" = "1" ]; then
-    echo "S3 Floci smoke test skipped by AWS_SDK_BUILD_SKIP_FLOCI=1"
+if [ "${AWS_SDK_BUILDER_SKIP_FLOCI:-0}" = "1" ]; then
+    echo "S3 Floci smoke test skipped by AWS_SDK_BUILDER_SKIP_FLOCI=1"
     exit 0
 fi
 

@@ -1,17 +1,12 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    aws_sdk_build::configure()
-        .add(
-            "s3",
-            [
-                "CreateBucket",
-                "PutObject",
-                "HeadObject",
-                "GetObject",
-                "ListObjectsV2",
-                "DeleteObject",
-                "DeleteBucket",
-            ],
-        )
-        .compile()?;
+    aws_sdk_builder_s3::compile([
+        "CreateBucket",
+        "PutObject",
+        "HeadObject",
+        "GetObject",
+        "ListObjectsV2",
+        "DeleteObject",
+        "DeleteBucket",
+    ])?;
     Ok(())
 }

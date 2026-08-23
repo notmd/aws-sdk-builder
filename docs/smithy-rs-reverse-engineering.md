@@ -1,6 +1,6 @@
 # Smithy Rust reverse-engineering notes
 
-This is a concrete behavior ledger for future work on `aws-sdk-build`. It records what
+This is a concrete behavior ledger for future work on `aws-sdk-builder`. It records what
 current Smithy Rust code does, where behavior lives, and how each rule maps to the Rust
 port. It complements [`smithy-codegen-design.md`](smithy-codegen-design.md), which is the
 architecture summary.
@@ -483,7 +483,7 @@ contract. It must not emit references to unavailable upstream runtime crates by 
 ### Dependencies outside this repository
 
 If `that repository` means this `better_aws` checkout, upstream has a much larger
-runtime surface. `crates/aws-sdk-build/Cargo.toml` only depends directly on
+runtime surface. `crates/aws-sdk-builder/Cargo.toml` only depends directly on
 `serde_json`, `sha2`, `tempfile`, and `thiserror`. The consumer fixture adds a small
 runtime subset: `aws-runtime`, `aws-types`, `aws-smithy-runtime-api`,
 `aws-smithy-types`, `http`, and Tokio.
@@ -516,14 +516,14 @@ mirror's `gradle/libs.versions.toml` and module `build.gradle.kts` files.
 
 Current Rust files combine several upstream responsibilities:
 
-- `crates/aws-sdk-build/src/model.rs`: packaged model load, checksum validation,
+- `crates/aws-sdk-builder/src/model.rs`: packaged model load, checksum validation,
   operation selection, directed shape-reference closure, protocol trait selection, and
   a small model customization pass.
-- `crates/aws-sdk-build/src/names.rs`: Rust module/type naming.
-- `crates/aws-sdk-build/src/codegen.rs`: service facade, types/builders/errors, client,
+- `crates/aws-sdk-builder/src/names.rs`: Rust module/type naming.
+- `crates/aws-sdk-builder/src/codegen.rs`: service facade, types/builders/errors, client,
   operation builders, request binding, Rest XML serialization/parsing, and documentation.
-- `crates/aws-sdk-build/src/output.rs`: staging, validation, and atomic installation.
-- `crates/aws-sdk-build/src/config.rs`: deterministic service/operation selection.
+- `crates/aws-sdk-builder/src/output.rs`: staging, validation, and atomic installation.
+- `crates/aws-sdk-builder/src/config.rs`: deterministic service/operation selection.
 
 Current `model.rs` already uses `BTreeMap`/`BTreeSet` closure and model-derived protocol
 selection. Current `codegen.rs` sorts selected operations and shapes before writing. These
@@ -559,7 +559,7 @@ For each conformance mismatch:
 5. Add a reusable Rust rule and focused test; do not patch one operation literal.
 6. Regenerate all-operation snapshots.
 7. Run `just conformance` and compare matched/mismatched/missing/extra counts.
-8. Record the checkpoint in `docs/aws-sdk-build-status.md`.
+8. Record the checkpoint in `docs/aws-sdk-builder-status.md`.
 
 Useful targeted reads in `/tmp/smithy-rs`:
 

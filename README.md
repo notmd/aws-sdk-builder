@@ -1,43 +1,42 @@
-# aws-sdk-build
+# aws-sdk-builder
 
-aws-sdk-build is a Rust-only build dependency for generating a selected,
-consumer-prefixed AWS SDK module from packaged Smithy JSON snapshots.
+`aws-sdk-builder` is the core Rust-only generator. Service models are shipped in
+small, build-time provider crates for the eight supported services:
+DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
+
+For example, a consumer selects operations in `build.rs` through the service
+crate and includes the one aggregate facade from its source:
 
     [dependencies]
-    aws-sdk-build = "0.1"
+    aws-sdk-builder = "0.1"
 
     [build-dependencies]
-    aws-sdk-build = "0.1"
+    aws-sdk-builder-s3 = "0.1"
 
     // build.rs
     fn main() -> Result<(), Box<dyn std::error::Error>> {
-        aws_sdk_build::configure()
-            .add("s3", ["AbortMultipartUpload", "CompleteMultipartUpload"])
-            .add("dynamodb", ["GetItem"])
-            .compile()?;
+        aws_sdk_builder_s3::compile(["CreateBucket", "PutObject"])?;
         Ok(())
     }
 
     // src/lib.rs
-    aws_sdk_build::include_sdk!();
+    aws_sdk_builder::include_sdk!();
 
-compile() discovers OUT_DIR and CARGO_PKG_NAME from Cargo. Service models are
-immutable packaged assets selected by short service key; consumers do not
-provide model paths, shape IDs, output directories, Smithy executables, or
-codegen plugins. Empty operation iterators select all operations. Repeated
-service entries are merged deterministically.
+Each service crate packages exactly one `model.json`. An empty operation array
+selects all operations, and repeated calls for the same service merge their
+selections deterministically. The generated facade and service modules are
+installed atomically below Cargo's `OUT_DIR`.
 
 The generated facade exposes paths such as
 consumer_crate_name::aws_sdk_s3::operation::abort_multipart_upload::AbortMultipartUpload.
-Generated output includes a deterministic manifest and is installed atomically,
-so a failed build cannot replace a previous result.
+Generated output is installed atomically, so a failed build cannot replace a
+previous result.
 
 Generated clients use the AWS runtime contract supplied by the downstream
-consumer. The generated manifest records `aws-runtime` as the required runtime
-crate; `aws-sdk-build` itself remains codegen-only.
+consumer; `aws-sdk-builder` and the service provider crates remain codegen-only.
 
-The pinned snapshot metadata and model checksums are in
-crates/aws-sdk-build/models-manifest.json. The conformance harness is invoked
+The pinned snapshot metadata and model checksums are in the core registry
+(`crates/aws-sdk-builder/src/registry.rs`). The conformance harness is invoked
 with:
 
     cargo run -p aws-sdk-conformance -- \
@@ -60,7 +59,7 @@ and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
 /goal
   Continue the Rust-native AWS SDK codegen parity project in this repository.
 
-  Read Prompt.md and docs/aws-sdk-build-status.md first. Continue from the current
+  Read Prompt.md and docs/aws-sdk-builder-status.md first. Continue from the current
   repository state. Keep codegen generic and driven by packaged Smithy JSON models.
   Use the pinned AWS SDK Rust and smithy-rs implementations as references. Refactor current codegen to follow smithy codegen design patterns. See `docs/smithy-codegen-design.md` and `docs/smithy-rs-reverse-engineering.md`.
 
@@ -68,7 +67,7 @@ and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
   1. Regenerate all-operation snapshots.
   2. Run conformance and verify the diff shrinks.
   3. Run tests, clippy, formatting, and git diff --check.
-  4. Record a checkpoint in docs/aws-sdk-build-status.md and commit the change.
+  4. Record a checkpoint in docs/aws-sdk-builder-status.md and commit the change.
 
   Do not stop at compilation or partial S3 support. Completion requires exact parity
   with conformance/reference and a passing conformance command.

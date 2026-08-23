@@ -4,15 +4,15 @@
   "reference_snapshot_date": "2026-08-21",
   "reference_root": "conformance/reference",
   "generated_root": "conformance/generated",
-  "generator": "aws-sdk-build-rust-native-0.2.0",
+  "generator": "aws-sdk-builder-rust-native-0.2.0",
   "services": [
-    {"service_key": "dynamodb", "reference_files": 903, "generated_files": 641},
-    {"service_key": "iam", "reference_files": 1631, "generated_files": 994},
-    {"service_key": "kms", "reference_files": 599, "generated_files": 369},
-    {"service_key": "lambda", "reference_files": 1084, "generated_files": 624},
-    {"service_key": "s3", "reference_files": 1344, "generated_files": 940},
-    {"service_key": "sns", "reference_files": 449, "generated_files": 267},
-    {"service_key": "sqs", "reference_files": 299, "generated_files": 170},
-    {"service_key": "sts", "reference_files": 152, "generated_files": 130}
+    {"service_key": "dynamodb", "reference_files": 903, "generated_files": 884},
+    {"service_key": "iam", "reference_files": 1631, "generated_files": 1109},
+    {"service_key": "kms", "reference_files": 599, "generated_files": 594},
+    {"service_key": "lambda", "reference_files": 1084, "generated_files": 1130},
+    {"service_key": "s3", "reference_files": 1344, "generated_files": 1344},
+    {"service_key": "sns", "reference_files": 449, "generated_files": 303},
+    {"service_key": "sqs", "reference_files": 299, "generated_files": 295},
+    {"service_key": "sts", "reference_files": 152, "generated_files": 107}
   ]
 }

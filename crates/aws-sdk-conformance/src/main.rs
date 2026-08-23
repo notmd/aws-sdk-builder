@@ -5,6 +5,8 @@ use std::{
     process::{Command, ExitCode},
 };
 
+mod fixtures;
+
 #[allow(dead_code)]
 mod report;
 
@@ -41,7 +43,8 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
     let output = required_path(&arguments, "--output")?;
     let snapshot = optional_string(&arguments, "--snapshot")?;
     let services = service_names(&reference)?;
-    let operation_count = aws_sdk_build::generate_all(&generated, &services)?;
+    let operation_count =
+        aws_sdk_builder::generate_all(&generated, conformance_sources(&services)?)?;
     eprintln!(
         "generated {} all-operation service snapshot(s), {} operation(s)",
         services.len(),
@@ -61,6 +64,28 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         report.total_files()
     );
     Ok(report.has_differences())
+}
+
+fn conformance_sources(services: &[String]) -> Result<Vec<aws_sdk_builder::ServiceSource>, String> {
+    services
+        .iter()
+        .map(|service| match service.as_str() {
+            "dynamodb" => Ok(aws_sdk_builder_dynamodb::source()),
+            "iam" => Ok(aws_sdk_builder_iam::source()),
+            "kms" => Ok(aws_sdk_builder_kms::source()),
+            "lambda" => Ok(aws_sdk_builder_lambda::source()),
+            "s3" => Ok(aws_sdk_builder_s3::source().with_fixtures(
+                Some(fixtures::S3_PROTOCOL_TESTS),
+                fixtures::S3_INTEGRATION_TESTS,
+            )),
+            "sns" => Ok(aws_sdk_builder_sns::source()),
+            "sqs" => Ok(aws_sdk_builder_sqs::source()),
+            "sts" => Ok(aws_sdk_builder_sts::source()),
+            other => Err(format!(
+                "reference service `{other}` has no registered builder crate"
+            )),
+        })
+        .collect()
 }
 
 fn format_generated_sources(root: &Path) -> Result<usize, String> {
