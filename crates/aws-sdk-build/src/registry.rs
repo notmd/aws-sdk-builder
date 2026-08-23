@@ -3,6 +3,7 @@ use crate::error::BuildError;
 pub const AWS_SDK_RUST_SNAPSHOT: &str = "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db";
 pub const SMITHY_RS_SNAPSHOT: &str = "f1b64a9c0dd001d4bac4277fec4041da59c1f48d";
 pub const GENERATOR_VERSION: &str = "aws-sdk-build-rust-native-0.2.0";
+pub const SMITHY_CODEGEN_VERSION: &str = "8c50a50e36736f932bd51898f14ee0fa84d47c09";
 pub const REGISTRY_SOURCE: &str = "aws-sdk-build/models-manifest.json";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

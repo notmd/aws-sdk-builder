@@ -4,6 +4,33 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Match model-driven S3 Cargo manifest
+
+- State: in progress
+- Changed: added a generic Cargo manifest renderer aligned with Smithy-RS's
+  `CargoTomlGenerator` and AWS dependency decorators. Package metadata comes from the
+  registry/model; dependency tables and feature flags derive from protocol, endpoint
+  library functions, blob/streaming shapes, checksums, presigning, S3 Express, and the
+  packaged protocol-test set. The manifest is emitted for selections with packaged
+  protocol tests, currently producing the exact S3 package manifest without a service
+  name branch.
+- Evidence: compared dependency versions, feature order, and manifest layout with the
+  pinned Smithy-RS checkout at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `conformance/reference/s3/Cargo.toml`
+  and `conformance/generated/s3/Cargo.toml` are byte-identical.
+- Conformance: overall `3,994/674/1,793/1` -> `3,995/674/1,792/1`; S3
+  `1,283/0/61/0` -> `1,284/0/60/0` (matched/mismatched/missing/extra). The combined
+  mismatch-plus-missing diff shrank from 2,467 to 2,466 files.
+- Verification: `just conformance` completed generation, formatting, and comparison;
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance still exits 1
+  because parity remains incomplete.
+- Blocker: the remaining S3 gaps are the 60 reference test/data files. Cargo manifests
+  for services without packaged protocol tests remain deferred until their generic
+  integration-test capability inputs are represented.
+- Next action: commit this checkpoint, then derive and generate the reusable S3 test/data
+  tree from modeled protocol, endpoint, auth, checksum, and streaming capabilities.
+
 ### Checkpoint: 2026-08-23 — Emit generic package README and license metadata
 
 - State: in progress
