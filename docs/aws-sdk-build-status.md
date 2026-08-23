@@ -4,6 +4,28 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Generate model-driven endpoint operation tests
+
+- State: in progress
+- Changed: added generic lowering for Smithy-RS `smithy.rules#endpointTests`
+  operation inputs when their modeled parameters are string-compatible. Deprecated
+  global-endpoint built-ins are filtered as in Smithy-RS, and unsupported streaming
+  HTTP payload inputs are excluded from this renderer using their modeled traits. The
+  endpoint test source retains the pinned Smithy-RS rustfmt-era macro layout; the
+  conformance formatter leaves only this generated test file class untouched so those
+  byte-level fixtures remain stable.
+- Evidence: compared the filter and renderer against the pinned Smithy-RS checkout at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; the generated
+  S3 `tests/endpoint_tests.rs` is byte-identical to its reference.
+- Conformance: overall `4,001/674/1,785/1` -> `4,002/674/1,785/1`; S3
+  `1,284/1/59/0` -> `1,285/0/59/0` (matched/mismatched/missing/extra). The combined
+  mismatch-plus-missing diff shrank from 2,460 to 2,459 files.
+- Verification: `just conformance` completed generation, formatting, and comparison;
+  source formatting and `git diff --check` pass. Conformance still exits 1 because
+  the broader reference test/data tree and remaining source parity are incomplete.
+- Next action: run the full workspace test and lint suite, then commit this endpoint
+  test parity checkpoint before continuing with the remaining reference tree.
+
 ### Checkpoint: 2026-08-23 — Emit model-filtered endpoint test placeholders
 
 - State: in progress
