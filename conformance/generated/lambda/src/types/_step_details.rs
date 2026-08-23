@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct StepDetails {
     /// <p>The current attempt number for this step.</p>
-    pub attempt: ::std::option::Option<i32>,
+    pub attempt: i32,
     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
     pub next_attempt_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The JSON response payload from the step operation.</p>
@@ -15,7 +15,7 @@ pub struct StepDetails {
 }
 impl StepDetails {
     /// <p>The current attempt number for this step.</p>
-    pub fn attempt(&self) -> ::std::option::Option<i32> {
+    pub fn attempt(&self) -> i32 {
         self.attempt
     }
     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
@@ -117,7 +117,7 @@ impl StepDetailsBuilder {
     /// Consumes the builder and constructs a [`StepDetails`](crate::types::StepDetails).
     pub fn build(self) -> crate::types::StepDetails {
         crate::types::StepDetails {
-            attempt: self.attempt,
+            attempt: self.attempt.unwrap_or_default(),
             next_attempt_timestamp: self.next_attempt_timestamp,
             result: self.result,
             error: self.error,

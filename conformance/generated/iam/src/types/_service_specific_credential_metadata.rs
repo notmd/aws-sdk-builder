@@ -9,7 +9,7 @@ pub struct ServiceSpecificCredentialMetadata {
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     pub status: crate::types::StatusType,
     /// <p>The generated user name for the service-specific credential.</p>
-    pub service_user_name: ::std::option::Option<::std::string::String>,
+    pub service_user_name: ::std::string::String,
     /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
     pub service_credential_alias: ::std::option::Option<::std::string::String>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
@@ -32,8 +32,9 @@ impl ServiceSpecificCredentialMetadata {
         &self.status
     }
     /// <p>The generated user name for the service-specific credential.</p>
-    pub fn service_user_name(&self) -> ::std::option::Option<&str> {
-        self.service_user_name.as_deref()
+    pub fn service_user_name(&self) -> &str {
+        use std::ops::Deref;
+        self.service_user_name.deref()
     }
     /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
     pub fn service_credential_alias(&self) -> ::std::option::Option<&str> {
@@ -217,7 +218,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
                     "status was not specified but it is required when building ServiceSpecificCredentialMetadata",
                 )
             })?,
-            service_user_name: self.service_user_name,
+            service_user_name: self.service_user_name.unwrap_or_default(),
             service_credential_alias: self.service_credential_alias,
             create_date: self.create_date.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

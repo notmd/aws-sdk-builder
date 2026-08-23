@@ -923,7 +923,7 @@ impl CreateKeyInputBuilder {
             key_spec: self.key_spec,
             origin: self.origin,
             custom_key_store_id: self.custom_key_store_id,
-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
             tags: self.tags,
             multi_region: self.multi_region,
             xks_key_id: self.xks_key_id,

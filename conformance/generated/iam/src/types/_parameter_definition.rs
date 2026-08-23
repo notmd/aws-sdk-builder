@@ -13,11 +13,11 @@ pub struct ParameterDefinition {
     /// <p>A description of the parameter.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether you must supply a value for the parameter when you create a role from the template.</p>
-    pub is_required: ::std::option::Option<bool>,
+    pub is_required: bool,
     /// <p>The value that the service uses for the parameter when you do not supply one.</p>
     pub default_value: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether you can change the parameter value after you create the role.</p>
-    pub immutable: ::std::option::Option<bool>,
+    pub immutable: bool,
 }
 impl ParameterDefinition {
     /// <p>The name of the parameter.</p>
@@ -38,7 +38,7 @@ impl ParameterDefinition {
         self.description.as_deref()
     }
     /// <p>Specifies whether you must supply a value for the parameter when you create a role from the template.</p>
-    pub fn is_required(&self) -> ::std::option::Option<bool> {
+    pub fn is_required(&self) -> bool {
         self.is_required
     }
     /// <p>The value that the service uses for the parameter when you do not supply one.</p>
@@ -46,7 +46,7 @@ impl ParameterDefinition {
         self.default_value.as_deref()
     }
     /// <p>Specifies whether you can change the parameter value after you create the role.</p>
-    pub fn immutable(&self) -> ::std::option::Option<bool> {
+    pub fn immutable(&self) -> bool {
         self.immutable
     }
 }
@@ -190,9 +190,9 @@ impl ParameterDefinitionBuilder {
             })?,
             sub_type: self.sub_type,
             description: self.description,
-            is_required: self.is_required,
+            is_required: self.is_required.unwrap_or_default(),
             default_value: self.default_value,
-            immutable: self.immutable,
+            immutable: self.immutable.unwrap_or_default(),
         })
     }
 }

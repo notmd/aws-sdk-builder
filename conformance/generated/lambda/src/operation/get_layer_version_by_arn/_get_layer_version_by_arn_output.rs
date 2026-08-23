@@ -14,7 +14,7 @@ pub struct GetLayerVersionByArnOutput {
     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub created_date: ::std::option::Option<::std::string::String>,
     /// <p>The version number.</p>
-    pub version: ::std::option::Option<i64>,
+    pub version: i64,
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
     /// <p>The layer's compatible runtimes.</p>
@@ -47,7 +47,7 @@ impl GetLayerVersionByArnOutput {
         self.created_date.as_deref()
     }
     /// <p>The version number.</p>
-    pub fn version(&self) -> ::std::option::Option<i64> {
+    pub fn version(&self) -> i64 {
         self.version
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
@@ -258,7 +258,7 @@ impl GetLayerVersionByArnOutputBuilder {
             layer_version_arn: self.layer_version_arn,
             description: self.description,
             created_date: self.created_date,
-            version: self.version,
+            version: self.version.unwrap_or_default(),
             compatible_architectures: self.compatible_architectures,
             compatible_runtimes: self.compatible_runtimes,
             license_info: self.license_info,

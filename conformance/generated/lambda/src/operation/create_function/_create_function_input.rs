@@ -768,7 +768,7 @@ impl CreateFunctionInputBuilder {
             description: self.description,
             timeout: self.timeout,
             memory_size: self.memory_size,
-            publish: self.publish,
+            publish: self.publish.unwrap_or_default(),
             publish_to: self.publish_to,
             vpc_config: self.vpc_config,
             package_type: self.package_type,

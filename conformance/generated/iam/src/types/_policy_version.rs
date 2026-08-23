@@ -14,7 +14,7 @@ pub struct PolicyVersion {
     /// <p>Policy version identifiers always begin with <code>v</code> (always lowercase). When a policy is created, the first policy version is <code>v1</code>.</p>
     pub version_id: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether the policy version is set as the policy's default version.</p>
-    pub is_default_version: ::std::option::Option<bool>,
+    pub is_default_version: bool,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy version was created.</p>
     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -31,7 +31,7 @@ impl PolicyVersion {
         self.version_id.as_deref()
     }
     /// <p>Specifies whether the policy version is set as the policy's default version.</p>
-    pub fn is_default_version(&self) -> ::std::option::Option<bool> {
+    pub fn is_default_version(&self) -> bool {
         self.is_default_version
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy version was created.</p>
@@ -126,7 +126,7 @@ impl PolicyVersionBuilder {
         crate::types::PolicyVersion {
             document: self.document,
             version_id: self.version_id,
-            is_default_version: self.is_default_version,
+            is_default_version: self.is_default_version.unwrap_or_default(),
             create_date: self.create_date,
         }
     }

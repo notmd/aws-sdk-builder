@@ -69,7 +69,7 @@ impl GetLayerVersionInputBuilder {
     ) -> ::std::result::Result<crate::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_layer_version::GetLayerVersionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number,
+            version_number: self.version_number.unwrap_or_default(),
         })
     }
 }

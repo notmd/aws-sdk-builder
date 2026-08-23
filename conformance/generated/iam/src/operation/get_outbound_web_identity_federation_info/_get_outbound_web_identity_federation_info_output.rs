@@ -6,7 +6,7 @@ pub struct GetOutboundWebIdentityFederationInfoOutput {
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
     pub issuer_identifier: ::std::option::Option<::std::string::String>,
     /// <p>Indicates whether outbound identity federation is currently enabled for your Amazon Web Services account. When true, IAM principals in the account can call the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services.</p>
-    pub jwt_vending_enabled: ::std::option::Option<bool>,
+    pub jwt_vending_enabled: bool,
     _request_id: Option<String>,
 }
 impl GetOutboundWebIdentityFederationInfoOutput {
@@ -15,7 +15,7 @@ impl GetOutboundWebIdentityFederationInfoOutput {
         self.issuer_identifier.as_deref()
     }
     /// <p>Indicates whether outbound identity federation is currently enabled for your Amazon Web Services account. When true, IAM principals in the account can call the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services.</p>
-    pub fn jwt_vending_enabled(&self) -> ::std::option::Option<bool> {
+    pub fn jwt_vending_enabled(&self) -> bool {
         self.jwt_vending_enabled
     }
 }
@@ -81,7 +81,7 @@ impl GetOutboundWebIdentityFederationInfoOutputBuilder {
     pub fn build(self) -> crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput {
         crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput {
             issuer_identifier: self.issuer_identifier,
-            jwt_vending_enabled: self.jwt_vending_enabled,
+            jwt_vending_enabled: self.jwt_vending_enabled.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

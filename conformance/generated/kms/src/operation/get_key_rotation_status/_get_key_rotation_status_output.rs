@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetKeyRotationStatusOutput {
     /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
-    pub key_rotation_enabled: ::std::option::Option<bool>,
+    pub key_rotation_enabled: bool,
     /// <p>Identifies the specified symmetric encryption KMS key.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The number of days between each automatic rotation. The default value is 365 days.</p>
@@ -18,7 +18,7 @@ pub struct GetKeyRotationStatusOutput {
 }
 impl GetKeyRotationStatusOutput {
     /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
-    pub fn key_rotation_enabled(&self) -> ::std::option::Option<bool> {
+    pub fn key_rotation_enabled(&self) -> bool {
         self.key_rotation_enabled
     }
     /// <p>Identifies the specified symmetric encryption KMS key.</p>
@@ -148,7 +148,7 @@ impl GetKeyRotationStatusOutputBuilder {
     /// Consumes the builder and constructs a [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
     pub fn build(self) -> crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
         crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
-            key_rotation_enabled: self.key_rotation_enabled,
+            key_rotation_enabled: self.key_rotation_enabled.unwrap_or_default(),
             key_id: self.key_id,
             rotation_period_in_days: self.rotation_period_in_days,
             next_rotation_date: self.next_rotation_date,

@@ -34,7 +34,7 @@ impl crate::operation::select_object_content::builders::SelectObjectContentInput
 /// Permissions
 /// </dt>
 /// <dd>
-/// <p>You must have the <code>s3:GetObject</code> permission for this operation. Amazon S3 Select does not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
+/// <p>You must have the <code>s3:GetObject</code> permission for this operation.&nbsp;Amazon S3 Select does not support anonymous access. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
 /// </dd>
 /// <dt>
 /// Object Data Formats

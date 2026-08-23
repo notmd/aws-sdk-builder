@@ -70,7 +70,7 @@ impl DeleteLayerVersionInputBuilder {
     {
         ::std::result::Result::Ok(crate::operation::delete_layer_version::DeleteLayerVersionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number,
+            version_number: self.version_number.unwrap_or_default(),
         })
     }
 }

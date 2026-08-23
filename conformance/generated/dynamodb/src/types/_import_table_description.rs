@@ -17,7 +17,7 @@ pub struct ImportTableDescription {
     /// <p>Values for the S3 bucket the source file is imported from. Includes bucket name (required), key prefix (optional) and bucket account owner ID (optional).</p>
     pub s3_bucket_source: ::std::option::Option<crate::types::S3BucketSource>,
     /// <p>The number of errors occurred on importing the source file into the target table.</p>
-    pub error_count: ::std::option::Option<i64>,
+    pub error_count: i64,
     /// <p>The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the target table.</p>
     pub cloud_watch_log_group_arn: ::std::option::Option<::std::string::String>,
     /// <p>The format of the source data going into the target table.</p>
@@ -35,9 +35,9 @@ pub struct ImportTableDescription {
     /// <p>The total size of data processed from the source file, in Bytes.</p>
     pub processed_size_bytes: ::std::option::Option<i64>,
     /// <p>The total number of items processed from the source file.</p>
-    pub processed_item_count: ::std::option::Option<i64>,
+    pub processed_item_count: i64,
     /// <p>The number of items successfully imported into the new table.</p>
-    pub imported_item_count: ::std::option::Option<i64>,
+    pub imported_item_count: i64,
     /// <p>The error code corresponding to the failure that the import job ran into during execution.</p>
     pub failure_code: ::std::option::Option<::std::string::String>,
     /// <p>The error message corresponding to the failure that the import job ran into during execution.</p>
@@ -69,7 +69,7 @@ impl ImportTableDescription {
         self.s3_bucket_source.as_ref()
     }
     /// <p>The number of errors occurred on importing the source file into the target table.</p>
-    pub fn error_count(&self) -> ::std::option::Option<i64> {
+    pub fn error_count(&self) -> i64 {
         self.error_count
     }
     /// <p>The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the target table.</p>
@@ -105,11 +105,11 @@ impl ImportTableDescription {
         self.processed_size_bytes
     }
     /// <p>The total number of items processed from the source file.</p>
-    pub fn processed_item_count(&self) -> ::std::option::Option<i64> {
+    pub fn processed_item_count(&self) -> i64 {
         self.processed_item_count
     }
     /// <p>The number of items successfully imported into the new table.</p>
-    pub fn imported_item_count(&self) -> ::std::option::Option<i64> {
+    pub fn imported_item_count(&self) -> i64 {
         self.imported_item_count
     }
     /// <p>The error code corresponding to the failure that the import job ran into during execution.</p>
@@ -428,7 +428,7 @@ impl ImportTableDescriptionBuilder {
             table_id: self.table_id,
             client_token: self.client_token,
             s3_bucket_source: self.s3_bucket_source,
-            error_count: self.error_count,
+            error_count: self.error_count.unwrap_or_default(),
             cloud_watch_log_group_arn: self.cloud_watch_log_group_arn,
             input_format: self.input_format,
             input_format_options: self.input_format_options,
@@ -437,8 +437,8 @@ impl ImportTableDescriptionBuilder {
             start_time: self.start_time,
             end_time: self.end_time,
             processed_size_bytes: self.processed_size_bytes,
-            processed_item_count: self.processed_item_count,
-            imported_item_count: self.imported_item_count,
+            processed_item_count: self.processed_item_count.unwrap_or_default(),
+            imported_item_count: self.imported_item_count.unwrap_or_default(),
             failure_code: self.failure_code,
             failure_message: self.failure_message,
         }

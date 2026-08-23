@@ -9,10 +9,10 @@ pub struct ScanOutput {
     /// <p>The number of items in the response.</p>
     /// <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the number of items returned after the filter was applied, and <code>ScannedCount</code> is the number of matching items before the filter was applied.</p>
     /// <p>If you did not use a filter in the request, then <code>Count</code> is the same as <code>ScannedCount</code>.</p>
-    pub count: ::std::option::Option<i32>,
+    pub count: i32,
     /// <p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient <code>Scan</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as <code>Count</code>.</p>
-    pub scanned_count: ::std::option::Option<i32>,
+    pub scanned_count: i32,
     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
     /// <p>If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved.</p>
     /// <p>If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
@@ -31,12 +31,12 @@ impl ScanOutput {
     /// <p>The number of items in the response.</p>
     /// <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the number of items returned after the filter was applied, and <code>ScannedCount</code> is the number of matching items before the filter was applied.</p>
     /// <p>If you did not use a filter in the request, then <code>Count</code> is the same as <code>ScannedCount</code>.</p>
-    pub fn count(&self) -> ::std::option::Option<i32> {
+    pub fn count(&self) -> i32 {
         self.count
     }
     /// <p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high <code>ScannedCount</code> value with few, or no, <code>Count</code> results indicates an inefficient <code>Scan</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same as <code>Count</code>.</p>
-    pub fn scanned_count(&self) -> ::std::option::Option<i32> {
+    pub fn scanned_count(&self) -> i32 {
         self.scanned_count
     }
     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
@@ -192,8 +192,8 @@ impl ScanOutputBuilder {
     pub fn build(self) -> crate::operation::scan::ScanOutput {
         crate::operation::scan::ScanOutput {
             items: self.items,
-            count: self.count,
-            scanned_count: self.scanned_count,
+            count: self.count.unwrap_or_default(),
+            scanned_count: self.scanned_count.unwrap_or_default(),
             last_evaluated_key: self.last_evaluated_key,
             consumed_capacity: self.consumed_capacity,
             _request_id: self._request_id,

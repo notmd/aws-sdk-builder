@@ -8,7 +8,7 @@ pub struct DescribeCustomKeyStoresOutput {
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-    pub truncated: ::std::option::Option<bool>,
+    pub truncated: bool,
     _request_id: Option<String>,
 }
 impl DescribeCustomKeyStoresOutput {
@@ -23,7 +23,7 @@ impl DescribeCustomKeyStoresOutput {
         self.next_marker.as_deref()
     }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-    pub fn truncated(&self) -> ::std::option::Option<bool> {
+    pub fn truncated(&self) -> bool {
         self.truncated
     }
 }
@@ -111,7 +111,7 @@ impl DescribeCustomKeyStoresOutputBuilder {
         crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput {
             custom_key_stores: self.custom_key_stores,
             next_marker: self.next_marker,
-            truncated: self.truncated,
+            truncated: self.truncated.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

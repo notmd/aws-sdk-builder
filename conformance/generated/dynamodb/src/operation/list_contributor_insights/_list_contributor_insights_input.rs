@@ -92,7 +92,7 @@ impl ListContributorInsightsInputBuilder {
         ::std::result::Result::Ok(crate::operation::list_contributor_insights::ListContributorInsightsInput {
             table_name: self.table_name,
             next_token: self.next_token,
-            max_results: self.max_results,
+            max_results: self.max_results.unwrap_or_default(),
         })
     }
 }

@@ -5,17 +5,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CallbackOptions {
     /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
-    pub timeout_seconds: ::std::option::Option<i32>,
+    pub timeout_seconds: i32,
     /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
-    pub heartbeat_timeout_seconds: ::std::option::Option<i32>,
+    pub heartbeat_timeout_seconds: i32,
 }
 impl CallbackOptions {
     /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
-    pub fn timeout_seconds(&self) -> ::std::option::Option<i32> {
+    pub fn timeout_seconds(&self) -> i32 {
         self.timeout_seconds
     }
     /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
-    pub fn heartbeat_timeout_seconds(&self) -> ::std::option::Option<i32> {
+    pub fn heartbeat_timeout_seconds(&self) -> i32 {
         self.heartbeat_timeout_seconds
     }
 }
@@ -65,8 +65,8 @@ impl CallbackOptionsBuilder {
     /// Consumes the builder and constructs a [`CallbackOptions`](crate::types::CallbackOptions).
     pub fn build(self) -> crate::types::CallbackOptions {
         crate::types::CallbackOptions {
-            timeout_seconds: self.timeout_seconds,
-            heartbeat_timeout_seconds: self.heartbeat_timeout_seconds,
+            timeout_seconds: self.timeout_seconds.unwrap_or_default(),
+            heartbeat_timeout_seconds: self.heartbeat_timeout_seconds.unwrap_or_default(),
         }
     }
 }

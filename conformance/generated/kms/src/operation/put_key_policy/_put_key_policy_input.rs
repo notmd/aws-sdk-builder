@@ -288,7 +288,7 @@ impl PutKeyPolicyInputBuilder {
             key_id: self.key_id,
             policy_name: self.policy_name,
             policy: self.policy,
-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
         })
     }
 }

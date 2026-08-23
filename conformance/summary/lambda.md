@@ -3,39 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `551` matched · `166` mismatches · `367` missing · `0` extra · `50.83%` match (100.00% means fully matched)
-
-### `src/client/create_function.rs`
-
-```diff
---- reference/src/client/create_function.rs
-+++ generated/src/client/create_function.rs
-@@ -37,7 +37,7 @@
-     ///   - [`runtime(Option<Runtime>)`](crate::operation::create_function::CreateFunctionOutput::runtime): <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`role(Option<String>)`](crate::operation::create_function::CreateFunctionOutput::role): <p>The function's execution role.</p>
-     ///   - [`handler(Option<String>)`](crate::operation::create_function::CreateFunctionOutput::handler): <p>The function that Lambda calls to begin running your function.</p>
--    ///   - [`code_size(i64)`](crate::operation::create_function::CreateFunctionOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-+    ///   - [`code_size(Option<i64>)`](crate::operation::create_function::CreateFunctionOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-     ///   - [`description(Option<String>)`](crate::operation::create_function::CreateFunctionOutput::description): <p>The function's description.</p>
-     ///   - [`timeout(Option<i32>)`](crate::operation::create_function::CreateFunctionOutput::timeout): <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-     ///   - [`memory_size(Option<i32>)`](crate::operation::create_function::CreateFunctionOutput::memory_size): <p>The amount of memory available to the function at runtime.</p>
-```
-
-### `src/client/delete_function.rs`
-
-```diff
---- reference/src/client/delete_function.rs
-+++ generated/src/client/delete_function.rs
-@@ -6,7 +6,7 @@
-     ///   - [`function_name(impl Into<String>)`](crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::function_name) / [`set_function_name(Option<String>)`](crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::set_function_name):<br>required: **true**<br><p>The name or ARN of the Lambda function or version.</p> <p class="title"><b>Name formats</b></p> <ul>  <li>   <p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p></li>  <li>   <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>  <li>   <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p><br>
-     ///   - [`qualifier(impl Into<String>)`](crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::qualifier) / [`set_qualifier(Option<String>)`](crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::set_qualifier):<br>required: **false**<br><p>Specify a version to delete. You can't delete a version that an alias references.</p><br>
-     /// - On success, responds with [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput) with field(s):
--    ///   - [`status_code(i32)`](crate::operation::delete_function::DeleteFunctionOutput::status_code): <p>The HTTP status code returned by the operation.</p>
-+    ///   - [`status_code(Option<i32>)`](crate::operation::delete_function::DeleteFunctionOutput::status_code): <p>The HTTP status code returned by the operation.</p>
-     /// - On failure, responds with [`SdkError<DeleteFunctionError>`](crate::operation::delete_function::DeleteFunctionError)
-     pub fn delete_function(&self) -> crate::operation::delete_function::builders::DeleteFunctionFluentBuilder {
-         crate::operation::delete_function::builders::DeleteFunctionFluentBuilder::new(self.handle.clone())
-```
+**Progress:** `1084/1084` files compared · `573` matched · `144` mismatches · `367` missing · `0` extra · `52.86%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -51,22 +19,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On success, responds with [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput)
      /// - On failure, responds with [`SdkError<DeleteResourcePolicyError>`](crate::operation::delete_resource_policy::DeleteResourcePolicyError)
      pub fn delete_resource_policy(&self) -> crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
-```
-
-### `src/client/get_function_configuration.rs`
-
-```diff
---- reference/src/client/get_function_configuration.rs
-+++ generated/src/client/get_function_configuration.rs
-@@ -11,7 +11,7 @@
-     ///   - [`runtime(Option<Runtime>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::runtime): <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`role(Option<String>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::role): <p>The function's execution role.</p>
-     ///   - [`handler(Option<String>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::handler): <p>The function that Lambda calls to begin running your function.</p>
--    ///   - [`code_size(i64)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-+    ///   - [`code_size(Option<i64>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-     ///   - [`description(Option<String>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::description): <p>The function's description.</p>
-     ///   - [`timeout(Option<i32>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::timeout): <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-     ///   - [`memory_size(Option<i32>)`](crate::operation::get_function_configuration::GetFunctionConfigurationOutput::memory_size): <p>The amount of memory available to the function at runtime.</p>
 ```
 
 ### `src/client/get_function_event_invoke_config.rs`
@@ -101,38 +53,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self,
 ```
 
-### `src/client/get_layer_version.rs`
-
-```diff
---- reference/src/client/get_layer_version.rs
-+++ generated/src/client/get_layer_version.rs
-@@ -11,7 +11,7 @@
-     ///   - [`layer_version_arn(Option<String>)`](crate::operation::get_layer_version::GetLayerVersionOutput::layer_version_arn): <p>The ARN of the layer version.</p>
-     ///   - [`description(Option<String>)`](crate::operation::get_layer_version::GetLayerVersionOutput::description): <p>The description of the version.</p>
-     ///   - [`created_date(Option<String>)`](crate::operation::get_layer_version::GetLayerVersionOutput::created_date): <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
--    ///   - [`version(i64)`](crate::operation::get_layer_version::GetLayerVersionOutput::version): <p>The version number.</p>
-+    ///   - [`version(Option<i64>)`](crate::operation::get_layer_version::GetLayerVersionOutput::version): <p>The version number.</p>
-     ///   - [`compatible_architectures(Option<Vec::<Architecture>>)`](crate::operation::get_layer_version::GetLayerVersionOutput::compatible_architectures): <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     ///   - [`compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::get_layer_version::GetLayerVersionOutput::compatible_runtimes): <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`license_info(Option<String>)`](crate::operation::get_layer_version::GetLayerVersionOutput::license_info): <p>The layer's software license.</p>
-```
-
-### `src/client/get_layer_version_by_arn.rs`
-
-```diff
---- reference/src/client/get_layer_version_by_arn.rs
-+++ generated/src/client/get_layer_version_by_arn.rs
-@@ -10,7 +10,7 @@
-     ///   - [`layer_version_arn(Option<String>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::layer_version_arn): <p>The ARN of the layer version.</p>
-     ///   - [`description(Option<String>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::description): <p>The description of the version.</p>
-     ///   - [`created_date(Option<String>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::created_date): <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
--    ///   - [`version(i64)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::version): <p>The version number.</p>
-+    ///   - [`version(Option<i64>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::version): <p>The version number.</p>
-     ///   - [`compatible_architectures(Option<Vec::<Architecture>>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::compatible_architectures): <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     ///   - [`compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::compatible_runtimes): <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`license_info(Option<String>)`](crate::operation::get_layer_version_by_arn::GetLayerVersionByArnOutput::license_info): <p>The layer's software license.</p>
-```
-
 ### `src/client/get_resource_policy.rs`
 
 ```diff
@@ -149,59 +69,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
 ```
 
-### `src/client/invoke.rs`
-
-```diff
---- reference/src/client/invoke.rs
-+++ generated/src/client/invoke.rs
-@@ -12,7 +12,7 @@
-     ///   - [`qualifier(impl Into<String>)`](crate::operation::invoke::builders::InvokeFluentBuilder::qualifier) / [`set_qualifier(Option<String>)`](crate::operation::invoke::builders::InvokeFluentBuilder::set_qualifier):<br>required: **false**<br><p>Specify a version or alias to invoke a published version of the function.</p><br>
-     ///   - [`tenant_id(impl Into<String>)`](crate::operation::invoke::builders::InvokeFluentBuilder::tenant_id) / [`set_tenant_id(Option<String>)`](crate::operation::invoke::builders::InvokeFluentBuilder::set_tenant_id):<br>required: **false**<br><p>The identifier of the tenant in a multi-tenant Lambda function.</p><br>
-     /// - On success, responds with [`InvokeOutput`](crate::operation::invoke::InvokeOutput) with field(s):
--    ///   - [`status_code(i32)`](crate::operation::invoke::InvokeOutput::status_code): <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
-+    ///   - [`status_code(Option<i32>)`](crate::operation::invoke::InvokeOutput::status_code): <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
-     ///   - [`function_error(Option<String>)`](crate::operation::invoke::InvokeOutput::function_error): <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
-     ///   - [`log_result(Option<String>)`](crate::operation::invoke::InvokeOutput::log_result): <p>The last 4 KB of the execution log, which is base64-encoded.</p>
-     ///   - [`payload(Option<Blob>)`](crate::operation::invoke::InvokeOutput::payload): <p>The response from the function, or an error object.</p>
-```
-
-### `src/client/invoke_async.rs`
-
-```diff
---- reference/src/client/invoke_async.rs
-+++ generated/src/client/invoke_async.rs
-@@ -4,11 +4,10 @@
-     ///
-     /// - The fluent builder is configurable:
-     ///   - [`function_name(impl Into<String>)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::function_name) / [`set_function_name(Option<String>)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::set_function_name):<br>required: **true**<br><p>The name or ARN of the Lambda function.</p> <p class="title"><b>Name formats</b></p> <ul>  <li>   <p><b>Function name</b> – <code>my-function</code>.</p></li>  <li>   <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>  <li>   <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p><br>
--    ///   - [`invoke_args(ByteStream)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::invoke_args) / [`set_invoke_args(ByteStream)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::set_invoke_args):<br>required: **true**<br><p>The JSON that you want to provide to your Lambda function as input.</p><br>
-+    ///   - [`invoke_args(Blob)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::invoke_args) / [`set_invoke_args(Option<Blob>)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::set_invoke_args):<br>required: **true**<br><p>The JSON that you want to provide to your Lambda function as input.</p><br>
-     /// - On success, responds with [`InvokeAsyncOutput`](crate::operation::invoke_async::InvokeAsyncOutput) with field(s):
--    ///   - [`status(i32)`](crate::operation::invoke_async::InvokeAsyncOutput::status): <p>The status code.</p>
-+    ///   - [`status(Option<i32>)`](crate::operation::invoke_async::InvokeAsyncOutput::status): <p>The status code.</p>
-     /// - On failure, responds with [`SdkError<InvokeAsyncError>`](crate::operation::invoke_async::InvokeAsyncError)
--    #[deprecated]
-     pub fn invoke_async(&self) -> crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder {
-         crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::new(self.handle.clone())
-     }
-```
-
-### `src/client/invoke_with_response_stream.rs`
-
-```diff
---- reference/src/client/invoke_with_response_stream.rs
-+++ generated/src/client/invoke_with_response_stream.rs
-@@ -11,7 +11,7 @@
-     ///   - [`tenant_id(impl Into<String>)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::tenant_id) / [`set_tenant_id(Option<String>)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::set_tenant_id):<br>required: **false**<br><p>The identifier of the tenant in a multi-tenant Lambda function.</p><br>
-     ///   - [`invocation_type(ResponseStreamingInvocationType)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::invocation_type) / [`set_invocation_type(Option<ResponseStreamingInvocationType>)`](crate::operation::invoke_with_response_stream::builders::InvokeWithResponseStreamFluentBuilder::set_invocation_type):<br>required: **false**<br><p>Use one of the following options:</p> <ul>  <li>   <p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p></li>  <li>   <p><code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p></li> </ul><br>
-     /// - On success, responds with [`InvokeWithResponseStreamOutput`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput) with field(s):
--    ///   - [`status_code(i32)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::status_code): <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
-+    ///   - [`status_code(Option<i32>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::status_code): <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
-     ///   - [`executed_version(Option<String>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::executed_version): <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-     ///   - [`event_stream(EventReceiver<InvokeWithResponseStreamResponseEvent, InvokeWithResponseStreamResponseEventError>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::event_stream): <p>The stream of response payloads.</p>
-     ///   - [`response_stream_content_type(Option<String>)`](crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput::response_stream_content_type): <p>The type of data the stream is returning.</p>
-```
-
 ### `src/client/publish_layer_version.rs`
 
 ```diff
@@ -216,15 +83,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`license_info(impl Into<String>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::license_info) / [`set_license_info(Option<String>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_license_info):<br>required: **false**<br><p>The layer's software license. It can be any of the following:</p> <ul>  <li>   <p>An <a href="https://spdx.org/licenses/">SPDX license identifier</a>. For example, <code>MIT</code>.</p></li>  <li>   <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p></li>  <li>   <p>The full text of the license.</p></li> </ul><br>
      /// - On success, responds with [`PublishLayerVersionOutput`](crate::operation::publish_layer_version::PublishLayerVersionOutput) with field(s):
      ///   - [`content(Option<LayerVersionContentOutput>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::content): <p>Details about the layer version.</p>
-@@ -15,7 +15,7 @@
-     ///   - [`layer_version_arn(Option<String>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::layer_version_arn): <p>The ARN of the layer version.</p>
-     ///   - [`description(Option<String>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::description): <p>The description of the version.</p>
-     ///   - [`created_date(Option<String>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::created_date): <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
--    ///   - [`version(i64)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::version): <p>The version number.</p>
-+    ///   - [`version(Option<i64>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::version): <p>The version number.</p>
-     ///   - [`compatible_architectures(Option<Vec::<Architecture>>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::compatible_architectures): <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     ///   - [`compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::compatible_runtimes): <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`license_info(Option<String>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::license_info): <p>The layer's software license.</p>
 ```
 
 ### `src/client/publish_version.rs`
@@ -241,15 +99,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`description(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::description) / [`set_description(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_description):<br>required: **false**<br><p>A description for the version to override the description in the function configuration.</p><br>
      ///   - [`revision_id(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_revision_id):<br>required: **false**<br><p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p><br>
      ///   - [`publish_to(FunctionVersionLatestPublished)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::publish_to) / [`set_publish_to(Option<FunctionVersionLatestPublished>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_publish_to):<br>required: **false**<br><p>Specifies where to publish the function version or configuration.</p><br>
-@@ -14,7 +14,7 @@
-     ///   - [`runtime(Option<Runtime>)`](crate::operation::publish_version::PublishVersionOutput::runtime): <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`role(Option<String>)`](crate::operation::publish_version::PublishVersionOutput::role): <p>The function's execution role.</p>
-     ///   - [`handler(Option<String>)`](crate::operation::publish_version::PublishVersionOutput::handler): <p>The function that Lambda calls to begin running your function.</p>
--    ///   - [`code_size(i64)`](crate::operation::publish_version::PublishVersionOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-+    ///   - [`code_size(Option<i64>)`](crate::operation::publish_version::PublishVersionOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-     ///   - [`description(Option<String>)`](crate::operation::publish_version::PublishVersionOutput::description): <p>The function's description.</p>
-     ///   - [`timeout(Option<i32>)`](crate::operation::publish_version::PublishVersionOutput::timeout): <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-     ///   - [`memory_size(Option<i32>)`](crate::operation::publish_version::PublishVersionOutput::memory_size): <p>The amount of memory available to the function at runtime.</p>
 ```
 
 ### `src/client/put_function_event_invoke_config.rs`
@@ -305,31 +154,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`publish_to(FunctionVersionLatestPublished)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::publish_to) / [`set_publish_to(Option<FunctionVersionLatestPublished>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_publish_to):<br>required: **false**<br><p>Specifies where to publish the function version or configuration.</p><br>
      ///   - [`dry_run(bool)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::dry_run) / [`set_dry_run(Option<bool>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_dry_run):<br>required: **false**<br><p>Set to true to validate the request parameters and access permissions without modifying the function code.</p><br>
      ///   - [`revision_id(impl Into<String>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_revision_id):<br>required: **false**<br><p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p><br>
-@@ -22,7 +22,7 @@
-     ///   - [`runtime(Option<Runtime>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::runtime): <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`role(Option<String>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::role): <p>The function's execution role.</p>
-     ///   - [`handler(Option<String>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::handler): <p>The function that Lambda calls to begin running your function.</p>
--    ///   - [`code_size(i64)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-+    ///   - [`code_size(Option<i64>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-     ///   - [`description(Option<String>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::description): <p>The function's description.</p>
-     ///   - [`timeout(Option<i32>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::timeout): <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-     ///   - [`memory_size(Option<i32>)`](crate::operation::update_function_code::UpdateFunctionCodeOutput::memory_size): <p>The amount of memory available to the function at runtime.</p>
-```
-
-### `src/client/update_function_configuration.rs`
-
-```diff
---- reference/src/client/update_function_configuration.rs
-+++ generated/src/client/update_function_configuration.rs
-@@ -30,7 +30,7 @@
-     ///   - [`runtime(Option<Runtime>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::runtime): <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-     ///   - [`role(Option<String>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::role): <p>The function's execution role.</p>
-     ///   - [`handler(Option<String>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::handler): <p>The function that Lambda calls to begin running your function.</p>
--    ///   - [`code_size(i64)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-+    ///   - [`code_size(Option<i64>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::code_size): <p>The size of the function's deployment package, in bytes.</p>
-     ///   - [`description(Option<String>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::description): <p>The function's description.</p>
-     ///   - [`timeout(Option<i32>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::timeout): <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-     ///   - [`memory_size(Option<i32>)`](crate::operation::update_function_configuration::UpdateFunctionConfigurationOutput::memory_size): <p>The amount of memory available to the function at runtime.</p>
 ```
 
 ### `src/client/update_function_event_invoke_config.rs`
@@ -353,764 +177,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<UpdateFunctionEventInvokeConfigError>`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError)
      pub fn update_function_event_invoke_config(
          &self,
-```
-
-### `src/client.rs`
-
-```diff
---- reference/src/client.rs
-+++ generated/src/client.rs
-@@ -1,394 +1,379 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--#[derive(Debug)]
--pub(crate) struct Handle {
--    pub(crate) conf: crate::Config,
--    #[allow(dead_code)] // unused when a service does not provide any operations
--    pub(crate) runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
--}
-
--/// Client for AWS Lambda
--///
--/// Client for invoking operations on AWS Lambda. Each operation on AWS Lambda is a method on this
--/// this struct. `.send()` MUST be invoked on the generated operations to dispatch the request to the service.
--/// ## Constructing a `Client`
--///
--/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]
--/// crate should be used to automatically resolve this config using
--/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared
--/// across multiple different AWS SDK clients. This config resolution process can be customized
--/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses
--/// the [builder pattern] to customize the default config.
--///
--/// In the simplest case, creating a client looks as follows:
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let config = aws_config::load_from_env().await;
--/// let client = aws_sdk_lambda::Client::new(&config);
--/// # }
--/// ```
--///
--/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that
--/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.
--/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be
--/// done as follows:
--///
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let sdk_config = ::aws_config::load_from_env().await;
--/// let config = aws_sdk_lambda::config::Builder::from(&sdk_config)
--/// # /*
--///     .some_service_specific_setting("value")
--/// # */
--///     .build();
--/// # }
--/// ```
--///
--/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.
--///
--/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should
--/// be done once at application start-up.
--///
--/// [`Config`]: crate::Config
--/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html
--/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html
--/// [`aws-config` docs]: https://docs.rs/aws-config/*
--/// [`aws-config`]: https://crates.io/crates/aws-config
--/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html
--/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html
--/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder
--/// # Using the `Client`
--///
--/// A client has a function for every operation that can be performed by the service.
--/// For example, the [`AddLayerVersionPermission`](crate::operation::add_layer_version_permission) operation has
--/// a [`Client::add_layer_version_permission`], function which returns a builder for that operation.
--/// The fluent builder ultimately has a `send()` function that returns an async future that
--/// returns a result, as illustrated below:
--///
--/// ```rust,ignore
--/// let result = client.add_layer_version_permission()
--///     .layer_name("example")
--///     .send()
--///     .await;
--/// ```
--///
--/// The underlying HTTP requests that get made by this can be modified with the `customize_operation`
--/// function on the fluent builder. See the [`customize`](crate::client::customize) module for more
--/// information.
--/// # Waiters
--///
--/// This client provides `wait_until` methods behind the [`Waiters`](crate::client::Waiters) trait.
--/// To use them, simply import the trait, and then call one of the `wait_until` methods. This will
--/// return a waiter fluent builder that takes various parameters, which are documented on the builder
--/// type. Once parameters have been provided, the `wait` method can be called to initiate waiting.
--///
--/// For example, if there was a `wait_until_thing` method, it could look like:
--/// ```rust,ignore
--/// let result = client.wait_until_thing()
--///     .thing_id("someId")
--///     .wait(Duration::from_secs(120))
--///     .await;
--/// ```
--#[derive(::std::clone::Clone, ::std::fmt::Debug)]
--pub struct Client {
--    handle: ::std::sync::Arc<Handle>,
--}
-+#[allow(dead_code)]
-+pub(crate) mod transport {
-+    use ::std::collections::BTreeMap;
-+    use ::std::fmt;
-+    use ::std::io::{Read, Write};
-+    use ::std::net::TcpStream;
-+
-+    #[derive(Clone, Copy, Debug)]
-+    pub(crate) enum Method {
-+        Get,
-+        Put,
-+        Post,
-+        Delete,
-+        Head,
-+        Patch,
-+    }
-+
-+    impl Method {
-+        fn as_str(self) -> &'static str {
-+            match self {
-+                Self::Get => "GET",
-+                Self::Put => "PUT",
-+                Self::Post => "POST",
-+                Self::Delete => "DELETE",
-+                Self::Head => "HEAD",
-+                Self::Patch => "PATCH",
-+            }
-+        }
-+    }
-+
-+    #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-+    pub(crate) struct StatusCode(u16);
-+
-+    impl StatusCode {
-+        pub(crate) const CONFLICT: Self = Self(409);
-+        pub(crate) fn is_success(self) -> bool {
-+            (200..300).contains(&self.0)
-+        }
-+    }
-+
-+    impl fmt::Display for StatusCode {
-+        fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-+            self.0.fmt(formatter)
-+        }
-+    }
-+
-+    #[derive(Clone, Debug)]
-+    pub(crate) struct Response {
-+        status: StatusCode,
-+        headers: BTreeMap<String, String>,
-+        body: Vec<u8>,
-+    }
-+
-+    impl Response {
-+        pub(crate) fn status(&self) -> StatusCode {
-+            self.status
-+        }
-+        pub(crate) fn header(&self, name: &str) -> Option<&str> {
-+            self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
-+        }
-+        pub(crate) fn body(&self) -> &[u8] {
-+            &self.body
-+        }
-+        pub(crate) async fn text(&self) -> Result<String, String> {
-+            String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
-+        }
-+    }
-+
-+    #[derive(Clone, Debug, Default)]
-+    pub(crate) struct HttpClient;
-
--impl Client {
--    /// Creates a new client from the service [`Config`](crate::Config).
--    ///
--    /// # Panics
--    ///
--    /// This method will panic in the following cases:
--    ///
--    /// - Retries or timeouts are enabled without a `sleep_impl` configured.
--    /// - Identity caching is enabled without a `sleep_impl` and `time_source` configured.
--    /// - No `behavior_version` is provided.
--    ///
--    /// The panic message for each of these will have instructions on how to resolve them.
--    #[track_caller]
--    pub fn from_conf(conf: crate::Config) -> Self {
--        let handle = Handle {
--            conf: conf.clone(),
--            runtime_plugins: crate::config::base_client_runtime_plugins(conf),
--        };
--        if let Err(err) = Self::validate_config(&handle) {
--            panic!("Invalid client configuration: {err}");
-+    impl HttpClient {
-+        pub(crate) fn new() -> Self {
-+            Self
-         }
--        Self {
--            handle: ::std::sync::Arc::new(handle),
-+        pub(crate) async fn request(&self, method: Method, url: &str, headers: &[(&str, &str)], body: &[u8]) -> Result<Response, String> {
-+            let (host, port, path) = parse_http_url(url)?;
-+            let mut stream = TcpStream::connect((host.as_str(), port)).map_err(|error| format!("failed to connect to {host}:{port}: {error}"))?;
-+            let mut request = format!(
-+                "{} {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\nContent-Length: {}\r\n",
-+                method.as_str(),
-+                path,
-+                host,
-+                body.len()
-+            );
-+            for (name, value) in headers {
-+                request.push_str(name);
-+                request.push_str(": ");
-+                request.push_str(value);
-+                request.push_str("\r\n");
-+            }
-+            request.push_str("\r\n");
-+            let mut request_bytes = request.into_bytes();
-+            request_bytes.extend_from_slice(body);
-+            stream
-+                .write_all(&request_bytes)
-+                .map_err(|error| format!("failed to write HTTP request: {error}"))?;
-+            let mut bytes = Vec::new();
-+            stream
-+                .read_to_end(&mut bytes)
-+                .map_err(|error| format!("failed to read HTTP response: {error}"))?;
-+            parse_response(&bytes)
-         }
-     }
-
--    /// Returns the client's configuration.
--    pub fn config(&self) -> &crate::Config {
--        &self.handle.conf
-+    fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {
-+        let authority_and_path = url
-+            .strip_prefix("http://")
-+            .ok_or_else(|| format!("only http:// endpoints are supported: {url}"))?;
-+        let (authority, path) = authority_and_path
-+            .split_once('/')
-+            .map_or((authority_and_path, "/"), |(authority, _path)| {
-+                (authority, &authority_and_path[authority.len()..])
-+            });
-+        if authority.is_empty() {
-+            return Err(format!("endpoint has no host: {url}"));
-+        }
-+        let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {
-+            let port = port.parse::<u16>().map_err(|error| format!("invalid endpoint port in {url}: {error}"))?;
-+            (host.to_owned(), port)
-+        } else {
-+            (authority.to_owned(), 80)
-+        };
-+        Ok((host, port, path.to_owned()))
-     }
-
--    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
--        let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
--        handle
--            .runtime_plugins
--            .apply_client_configuration(&mut cfg)?
--            .validate_base_client_config(&cfg)?;
--        Ok(())
-+    fn parse_response(bytes: &[u8]) -> Result<Response, String> {
-+        let header_end = bytes
-+            .windows(4)
-+            .position(|window| window == b"\r\n\r\n")
-+            .ok_or_else(|| "HTTP response did not contain a header terminator".to_owned())?;
-+        let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!("HTTP response headers were not UTF-8: {error}"))?;
-+        let status = header
-+            .lines()
-+            .next()
-+            .and_then(|line| line.split_whitespace().nth(1))
-+            .ok_or_else(|| "HTTP response did not contain a status code".to_owned())?
-+            .parse::<u16>()
-+            .map_err(|error| format!("HTTP response status was invalid: {error}"))?;
-+        let mut headers = BTreeMap::new();
-+        for line in header.lines().skip(1) {
-+            if let Some((name, value)) = line.split_once(':') {
-+                headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());
-+            }
-+        }
-+        Ok(Response {
-+            status: StatusCode(status),
-+            headers,
-+            body: bytes[header_end + 4..].to_vec(),
-+        })
-     }
--}
-
--///
--/// Waiter functions for the client.
--///
--/// Import this trait to get `wait_until` methods on the client.
--///
--pub trait Waiters {
--    /// Waits for the function's State to be Active. This waiter uses GetFunction API. This should be used after new function creation.
--    fn wait_until_function_active_v2(&self) -> crate::waiters::function_active_v2::FunctionActiveV2FluentBuilder;
--    /// Wait for `function_exists`
--    fn wait_until_function_exists(&self) -> crate::waiters::function_exists::FunctionExistsFluentBuilder;
--    /// Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunction API. This should be used after function updates.
--    fn wait_until_function_updated_v2(&self) -> crate::waiters::function_updated_v2::FunctionUpdatedV2FluentBuilder;
--    /// Waits for the function's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new function creation.
--    fn wait_until_function_active(&self) -> crate::waiters::function_active::FunctionActiveFluentBuilder;
--    /// Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunctionConfiguration API. This should be used after function updates.
--    fn wait_until_function_updated(&self) -> crate::waiters::function_updated::FunctionUpdatedFluentBuilder;
--    /// Waits for the published version's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new version is published.
--    fn wait_until_published_version_active(&self) -> crate::waiters::published_version_active::PublishedVersionActiveFluentBuilder;
--}
--impl Waiters for Client {
--    fn wait_until_function_active_v2(&self) -> crate::waiters::function_active_v2::FunctionActiveV2FluentBuilder {
--        crate::waiters::function_active_v2::FunctionActiveV2FluentBuilder::new(self.handle.clone())
-+    pub(crate) fn encode_path(value: &str) -> String {
-+        value.bytes().fold(String::new(), |mut result, byte| {
-+            if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {
-+                result.push(byte as char);
-+            } else {
-+                result.push('%');
-+                result.push(hex(byte >> 4));
-+                result.push(hex(byte & 0x0f));
-+            }
-+            result
-+        })
-     }
--    fn wait_until_function_exists(&self) -> crate::waiters::function_exists::FunctionExistsFluentBuilder {
--        crate::waiters::function_exists::FunctionExistsFluentBuilder::new(self.handle.clone())
-+    fn hex(value: u8) -> char {
-+        match value {
-+            0..=9 => (b'0' + value) as char,
-+            _ => (b'A' + value - 10) as char,
-+        }
-     }
--    fn wait_until_function_updated_v2(&self) -> crate::waiters::function_updated_v2::FunctionUpdatedV2FluentBuilder {
--        crate::waiters::function_updated_v2::FunctionUpdatedV2FluentBuilder::new(self.handle.clone())
-+    pub(crate) fn xml_escape(value: &str) -> String {
-+        value
-+            .replace('&', "&amp;")
-+            .replace('<', "&lt;")
-+            .replace('>', "&gt;")
-+            .replace('\"', "&quot;")
-+            .replace('\'', "&apos;")
-     }
--    fn wait_until_function_active(&self) -> crate::waiters::function_active::FunctionActiveFluentBuilder {
--        crate::waiters::function_active::FunctionActiveFluentBuilder::new(self.handle.clone())
-+    pub(crate) fn xml_unescape(value: &str) -> String {
-+        value
-+            .replace("&lt;", "<")
-+            .replace("&gt;", ">")
-+            .replace("&apos;", "'")
-+            .replace("&amp;", "&")
-     }
--    fn wait_until_function_updated(&self) -> crate::waiters::function_updated::FunctionUpdatedFluentBuilder {
--        crate::waiters::function_updated::FunctionUpdatedFluentBuilder::new(self.handle.clone())
-+    pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
-+        xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
-     }
--    fn wait_until_published_version_active(&self) -> crate::waiters::published_version_active::PublishedVersionActiveFluentBuilder {
--        crate::waiters::published_version_active::PublishedVersionActiveFluentBuilder::new(self.handle.clone())
-+    pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
-+        let open = format!("<{tag}>");
-+        let close = format!("</{tag}>");
-+        let mut values = Vec::new();
-+        let mut remaining = xml;
-+        while let Some(start) = remaining.find(&open) {
-+            let value_start = start + open.len();
-+            let Some(end) = remaining[value_start..].find(&close) else { break };
-+            values.push(remaining[value_start..value_start + end].to_owned());
-+            remaining = &remaining[value_start + end + close.len()..];
-+        }
-+        values
-     }
- }
-
-+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-+
-+#[derive(Clone, Debug, Default)]
-+pub struct Client {
-+    config: Config,
-+    http: transport::HttpClient,
-+}
- impl Client {
--    /// Creates a new client from an [SDK Config](::aws_types::sdk_config::SdkConfig).
--    ///
--    /// # Panics
--    ///
--    /// - This method will panic if the `sdk_config` is missing an async sleep implementation. If you experience this panic, set
--    ///   the `sleep_impl` on the Config passed into this function to fix it.
--    /// - This method will panic if the `sdk_config` is missing an HTTP connector. If you experience this panic, set the
--    ///   `http_connector` on the Config passed into this function to fix it.
--    /// - This method will panic if no `BehaviorVersion` is provided. If you experience this panic, set `behavior_version` on the Config or enable the `behavior-version-latest` Cargo feature.
--    #[track_caller]
--    pub fn new(sdk_config: &::aws_types::sdk_config::SdkConfig) -> Self {
--        Self::from_conf(sdk_config.into())
-+    pub fn new(config: &Config) -> Self {
-+        Self {
-+            config: config.clone(),
-+            http: transport::HttpClient::new(),
-+        }
-+    }
-+    pub fn config(&self) -> &Config {
-+        &self.config
-     }
-+    pub(crate) async fn request(
-+        &self,
-+        method: transport::Method,
-+        path: &str,
-+        headers: &[(&str, &str)],
-+        body: &[u8],
-+    ) -> ::std::result::Result<transport::Response, ::std::string::String> {
-+        let url = format!("{}{}", self.config.endpoint_url.trim_end_matches('/'), path);
-+        self.http.request(method, &url, headers, body).await
-+    }
- }
-
--mod add_layer_version_permission;
--
--mod add_permission;
--
--mod checkpoint_durable_execution;
--
--mod create_alias;
--
--mod create_capacity_provider;
--
--mod create_code_signing_config;
--
--mod create_event_source_mapping;
--
--mod create_function;
--
--mod create_function_url_config;
--
--/// Operation customization and supporting types.
--///
--/// The underlying HTTP requests made during an operation can be customized
--/// by calling the `customize()` method on the builder returned from a client
--/// operation call. For example, this can be used to add an additional HTTP header:
--///
--/// ```ignore
--/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_lambda::Error> {
--/// # let client: aws_sdk_lambda::Client = unimplemented!();
--/// use ::http_1x::header::{HeaderName, HeaderValue};
--///
--/// let result = client.add_layer_version_permission()
--///     .customize()
--///     .mutate_request(|req| {
--///         // Add `x-example-header` with value
--///         req.headers_mut()
--///             .insert(
--///                 HeaderName::from_static("x-example-header"),
--///                 HeaderValue::from_static("1"),
--///             );
--///     })
--///     .send()
--///     .await;
--/// # }
--/// ```
--pub mod customize;
--
--mod delete_alias;
--
--mod delete_capacity_provider;
--
--mod delete_code_signing_config;
--
--mod delete_event_source_mapping;
--
--mod delete_function;
--
--mod delete_function_code_signing_config;
--
--mod delete_function_concurrency;
--
--mod delete_function_event_invoke_config;
--
--mod delete_function_url_config;
--
--mod delete_layer_version;
--
--mod delete_provisioned_concurrency_config;
--
--mod delete_resource_policy;
--
--mod get_account_settings;
--
--mod get_alias;
--
--mod get_capacity_provider;
--
--mod get_code_signing_config;
--
--mod get_durable_execution;
--
--mod get_durable_execution_history;
--
--mod get_durable_execution_state;
--
--mod get_event_source_mapping;
--
--mod get_function;
--
--mod get_function_code_signing_config;
--
--mod get_function_concurrency;
--
--mod get_function_configuration;
--
--mod get_function_event_invoke_config;
--
--mod get_function_recursion_config;
--
--mod get_function_scaling_config;
--
--mod get_function_url_config;
--
--mod get_layer_version;
--
--mod get_layer_version_by_arn;
--
--mod get_layer_version_policy;
--
--mod get_policy;
--
--mod get_provisioned_concurrency_config;
--
--mod get_resource_policy;
--
--mod get_runtime_management_config;
--
--mod invoke;
--
--mod invoke_async;
--
--mod invoke_with_response_stream;
--
--mod list_aliases;
--
--mod list_capacity_providers;
--
--mod list_code_signing_configs;
--
--mod list_durable_executions_by_function;
--
--mod list_event_source_mappings;
--
--mod list_function_event_invoke_configs;
--
--mod list_function_url_configs;
--
--mod list_function_versions_by_capacity_provider;
--
--mod list_functions;
--
--mod list_functions_by_code_signing_config;
--
--mod list_layer_versions;
--
--mod list_layers;
--
--mod list_provisioned_concurrency_configs;
--
--mod list_tags;
--
--mod list_versions_by_function;
--
--mod publish_layer_version;
--
--mod publish_version;
--
--mod put_function_code_signing_config;
--
--mod put_function_concurrency;
--
--mod put_function_event_invoke_config;
--
--mod put_function_recursion_config;
--
--mod put_function_scaling_config;
--
--mod put_provisioned_concurrency_config;
--
--mod put_resource_policy;
--
--mod put_runtime_management_config;
--
--mod remove_layer_version_permission;
--
--mod remove_permission;
--
--mod send_durable_execution_callback_failure;
--
--mod send_durable_execution_callback_heartbeat;
--
--mod send_durable_execution_callback_success;
--
--mod stop_durable_execution;
--
--mod tag_resource;
--
--mod untag_resource;
--
--mod update_alias;
--
--mod update_capacity_provider;
--
--mod update_code_signing_config;
--
--mod update_event_source_mapping;
--
--mod update_function_code;
--
--mod update_function_configuration;
--
--mod update_function_event_invoke_config;
--
--mod update_function_url_config;
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/add_layer_version_permission.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/add_permission.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/checkpoint_durable_execution.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_capacity_provider.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_code_signing_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_event_source_mapping.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_function.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/create_function_url_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_capacity_provider.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_code_signing_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_event_source_mapping.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/delete_function_code_signing_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function_concurrency.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/delete_function_event_invoke_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function_url_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_layer_version.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/delete_provisioned_concurrency_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_resource_policy.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_account_settings.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_capacity_provider.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_code_signing_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_durable_execution.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_durable_execution_history.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_durable_execution_state.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_event_source_mapping.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/get_function_code_signing_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_concurrency.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_configuration.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/get_function_event_invoke_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_recursion_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_scaling_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_url_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_layer_version.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_layer_version_by_arn.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_layer_version_policy.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_policy.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/get_provisioned_concurrency_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_resource_policy.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_runtime_management_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/invoke.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/invoke_async.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/invoke_with_response_stream.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_aliases.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_capacity_providers.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_code_signing_configs.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/list_durable_executions_by_function.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_event_source_mappings.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/list_function_event_invoke_configs.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_function_url_configs.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/list_function_versions_by_capacity_provider.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_functions.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/list_functions_by_code_signing_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_layer_versions.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_layers.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/list_provisioned_concurrency_configs.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_tags.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_versions_by_function.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/publish_layer_version.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/publish_version.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/put_function_code_signing_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_concurrency.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/put_function_event_invoke_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_recursion_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_scaling_config.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/put_provisioned_concurrency_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_resource_policy.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_runtime_management_config.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/remove_layer_version_permission.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/remove_permission.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/send_durable_execution_callback_failure.rs"
-+));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/send_durable_execution_callback_heartbeat.rs"
-+));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/send_durable_execution_callback_success.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/stop_durable_execution.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/tag_resource.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/untag_resource.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_capacity_provider.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_code_signing_config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_event_source_mapping.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_code.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_configuration.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/lambda/src/client/update_function_event_invoke_config.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_url_config.rs"));
 ```
 
 ### `src/config.rs`
@@ -2883,289 +1949,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub mod auth;
 ```
 
-### `src/lib.rs`
+### `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
 
 ```diff
---- reference/src/lib.rs
-+++ generated/src/lib.rs
-@@ -1,261 +1,22 @@
--#![allow(deprecated)]
--#![allow(unknown_lints)]
--#![allow(clippy::module_inception)]
--#![allow(clippy::upper_case_acronyms)]
--#![allow(clippy::large_enum_variant)]
--#![allow(clippy::wrong_self_convention)]
--#![allow(clippy::should_implement_trait)]
--#![allow(clippy::disallowed_names)]
--#![allow(clippy::vec_init_then_push)]
--#![allow(clippy::type_complexity)]
--#![allow(clippy::needless_return)]
--#![allow(clippy::derive_partial_eq_without_eq)]
--#![allow(clippy::result_large_err)]
--#![allow(clippy::unnecessary_map_on_constructor)]
--#![allow(clippy::useless_conversion)]
--#![allow(clippy::deprecated_semver)]
--#![allow(rustdoc::bare_urls)]
--#![allow(rustdoc::redundant_explicit_links)]
--#![allow(rustdoc::broken_intra_doc_links)]
--#![allow(rustdoc::invalid_html_tags)]
--#![forbid(unsafe_code)]
--#![warn(missing_docs)]
--#![cfg_attr(docsrs, feature(doc_cfg))]
--//! __Overview__
--//!
--//! Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs your code on a high-availability compute infrastructure and performs all of the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any type of application or backend service. For more information about the Lambda service, see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) in the __Lambda Developer Guide__.
--//!
--//! The _Lambda API Reference_ provides information about each of the API methods, including details about the parameters in each API request and response.
--//!
--//! You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools to access the API. For installation instructions, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
--//!
--//! For a list of Region-specific endpoints that Lambda supports, see [Lambda endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lambda-service.html) in the _Amazon Web Services General Reference._.
--//!
--//! When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the _Amazon Web Services General Reference._.
--//!
--//! __CA certificates__
--//!
--//! Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate environment and do not manage your own computer, you might need to ask an administrator to assist with the update process. The following list shows minimum operating system and Java versions:
--//!   - Microsoft Windows versions that have updates from January 2005 or later installed contain at least one of the required CAs in their trust list.
--//!   - Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5 (October 2007), and later versions contain at least one of the required CAs in their trust list.
--//!   - Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the required CAs in their default trusted CA list.
--//!   - Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including Java 6 (December 2006), 7, and 8, contain at least one of the required CAs in their default trusted CA list.
--//!
--//! When accessing the Lambda management console or Lambda API endpoints, whether through browsers or programmatically, you will need to ensure your client machines support any of the following CAs:
--//!   - Amazon Root CA 1
--//!   - Starfield Services Root Certificate Authority - G2
--//!   - Starfield Class 2 Certification Authority
--//!
--//! Root certificates from the first two authorities are available from [Amazon trust services](https://www.amazontrust.com/repository/), but keeping your computer up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see [Amazon Web Services Certificate Manager FAQs.](http://aws.amazon.com/certificate-manager/faqs/#certificates)
--//!
--//! ## Getting Started
--//!
--//! > Examples are available for many services and operations, check out the
--//! > [usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1).
--//!
--//! The SDK provides one crate per AWS service. You must add [Tokio](https://crates.io/crates/tokio)
--//! as a dependency within your Rust project to execute asynchronous code. To add `aws-sdk-lambda` to
--//! your project, add the following to your **Cargo.toml** file:
--//!
--//! ```toml
--//! [dependencies]
--//! aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
--//! aws-sdk-lambda = "1.140.0"
--//! tokio = { version = "1", features = ["full"] }
--//! ```
--//!
--//! Then in code, a client can be created with the following:
--//!
--//! ```rust,no_run
--//! use aws_sdk_lambda as lambda;
--//!
--//! #[::tokio::main]
--//! async fn main() -> Result<(), lambda::Error> {
--//!     let config = aws_config::load_from_env().await;
--//!     let client = aws_sdk_lambda::Client::new(&config);
--//!
--//!     // ... make some calls with the client
--//!
--//!     Ok(())
--//! }
--//! ```
--//!
--//! See the [client documentation](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html)
--//! for information on what calls can be made, and the inputs and outputs for each of those calls.
--//!
--//! ## Using the SDK
--//!
--//! Until the SDK is released, we will be adding information about using the SDK to the
--//! [Developer Guide](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/welcome.html). Feel free to suggest
--//! additional sections for the guide by opening an issue and describing what you are trying to do.
--//!
--//! ## Getting Help
--//!
--//! * [GitHub discussions](https://github.com/awslabs/aws-sdk-rust/discussions) - For ideas, RFCs & general questions
--//! * [GitHub issues](https://github.com/awslabs/aws-sdk-rust/issues/new/choose) - For bug reports & feature requests
--//! * [Generated Docs (latest version)](https://awslabs.github.io/aws-sdk-rust/)
--//! * [Usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1)
--//!
--//!
--//! # Crate Organization
--//!
--//! The entry point for most customers will be [`Client`], which exposes one method for each API
--//! offered by AWS Lambda. The return value of each of these methods is a "fluent builder",
--//! where the different inputs for that API are added by builder-style function call chaining,
--//! followed by calling `send()` to get a [`Future`](std::future::Future) that will result in
--//! either a successful output or a [`SdkError`](crate::error::SdkError).
--//!
--//! Some of these API inputs may be structs or enums to provide more complex structured information.
--//! These structs and enums live in [`types`](crate::types). There are some simpler types for
--//! representing data such as date times or binary blobs that live in [`primitives`](crate::primitives).
--//!
--//! All types required to configure a client via the [`Config`](crate::Config) struct live
--//! in [`config`](crate::config).
--//!
--//! The [`operation`](crate::operation) module has a submodule for every API, and in each submodule
--//! is the input, output, and error type for that API, as well as builders to construct each of those.
--//!
--//! There is a top-level [`Error`](crate::Error) type that encompasses all the errors that the
--//! client can return. Any other error type can be converted to this `Error` type via the
--//! [`From`](std::convert::From) trait.
--//!
--//! The other modules within this crate are not required for normal usage.
--
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--pub use error_meta::Error;
-
--#[doc(inline)]
--pub use config::Config;
--
--/// Client for calling AWS Lambda.
--/// ## Constructing a `Client`
--///
--/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]
--/// crate should be used to automatically resolve this config using
--/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared
--/// across multiple different AWS SDK clients. This config resolution process can be customized
--/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses
--/// the [builder pattern] to customize the default config.
--///
--/// In the simplest case, creating a client looks as follows:
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let config = aws_config::load_from_env().await;
--/// let client = aws_sdk_lambda::Client::new(&config);
--/// # }
--/// ```
--///
--/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that
--/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.
--/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be
--/// done as follows:
--///
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let sdk_config = ::aws_config::load_from_env().await;
--/// let config = aws_sdk_lambda::config::Builder::from(&sdk_config)
--/// # /*
--///     .some_service_specific_setting("value")
--/// # */
--///     .build();
--/// # }
--/// ```
--///
--/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.
--///
--/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should
--/// be done once at application start-up.
--///
--/// [`Config`]: crate::Config
--/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html
--/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html
--/// [`aws-config` docs]: https://docs.rs/aws-config/*
--/// [`aws-config`]: https://crates.io/crates/aws-config
--/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html
--/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html
--/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder
--/// # Using the `Client`
--///
--/// A client has a function for every operation that can be performed by the service.
--/// For example, the [`AddLayerVersionPermission`](crate::operation::add_layer_version_permission) operation has
--/// a [`Client::add_layer_version_permission`], function which returns a builder for that operation.
--/// The fluent builder ultimately has a `send()` function that returns an async future that
--/// returns a result, as illustrated below:
--///
--/// ```rust,ignore
--/// let result = client.add_layer_version_permission()
--///     .layer_name("example")
--///     .send()
--///     .await;
--/// ```
--///
--/// The underlying HTTP requests that get made by this can be modified with the `customize_operation`
--/// function on the fluent builder. See the [`customize`](crate::client::customize) module for more
--/// information.
--/// # Waiters
--///
--/// This client provides `wait_until` methods behind the [`Waiters`](crate::client::Waiters) trait.
--/// To use them, simply import the trait, and then call one of the `wait_until` methods. This will
--/// return a waiter fluent builder that takes various parameters, which are documented on the builder
--/// type. Once parameters have been provided, the `wait` method can be called to initiate waiting.
--///
--/// For example, if there was a `wait_until_thing` method, it could look like:
--/// ```rust,ignore
--/// let result = client.wait_until_thing()
--///     .thing_id("someId")
--///     .wait(Duration::from_secs(120))
--///     .await;
--/// ```
--pub mod client;
--
--/// Configuration for AWS Lambda.
--pub mod config;
-+pub use error_meta::Error;
-
--/// Common errors and error handling utilities.
--pub mod error;
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/primitives.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/error.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/meta.rs"));
-+pub mod types {
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types.rs"));
-+}
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client.rs"));
-
- mod error_meta;
--
--/// Information about this crate.
--pub mod meta;
--
--/// All operations that this crate can perform.
--pub mod operation;
--
--/// Primitives such as `Blob` or `DateTime` used by other types.
--pub mod primitives;
--
--/// Data structures used by operation inputs/outputs.
--pub mod types;
--
--pub(crate) mod client_idempotency_token;
--
--mod event_receiver;
--
--mod idempotency_token;
--
--mod observability_feature;
--
--pub(crate) mod protocol_serde;
--
--mod sdk_feature_tracker;
--
--mod serialization_settings;
--
--mod endpoint_lib;
--
--mod lens;
--
--mod serde_util;
--
--/// Supporting types for waiters.
--///
--/// Note: to use waiters, import the [`Waiters`](crate::client::Waiters) trait, which adds methods prefixed with `wait_until` to the client.
-+mod serde_util {
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/serde_util.rs"));
-+}
-+mod lens {
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/lens.rs"));
-+}
- pub mod waiters;
--
--mod event_stream_serde;
--
--mod json_errors;
--
--#[doc(inline)]
--pub use client::Client;
+--- reference/src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs
++++ generated/src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs
+@@ -180,7 +180,7 @@
+     > {
+         ::std::result::Result::Ok(crate::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
+             layer_name: self.layer_name,
+-            version_number: self.version_number,
++            version_number: self.version_number.unwrap_or_default(),
+             statement_id: self.statement_id,
+             action: self.action,
+             principal: self.principal,
 ```
 
 ### `src/operation/add_layer_version_permission.rs`
@@ -3744,38 +2541,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/create_function/_create_function_output.rs`
+### `src/operation/create_function/_create_function_input.rs`
 
 ```diff
---- reference/src/operation/create_function/_create_function_output.rs
-+++ generated/src/operation/create_function/_create_function_output.rs
-@@ -17,7 +17,7 @@
-     /// <p>The function that Lambda calls to begin running your function.</p>
-     pub handler: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The function's description.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-@@ -123,7 +123,7 @@
-         self.handler.as_deref()
-     }
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The function's description.</p>
-@@ -973,7 +973,7 @@
-             runtime: self.runtime,
-             role: self.role,
-             handler: self.handler,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
+--- reference/src/operation/create_function/_create_function_input.rs
++++ generated/src/operation/create_function/_create_function_input.rs
+@@ -768,7 +768,7 @@
              description: self.description,
              timeout: self.timeout,
              memory_size: self.memory_size,
+-            publish: self.publish,
++            publish: self.publish.unwrap_or_default(),
+             publish_to: self.publish_to,
+             vpc_config: self.vpc_config,
+             package_type: self.package_type,
 ```
 
 ### `src/operation/create_function.rs`
@@ -4212,37 +2991,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/delete_function/_delete_function_output.rs`
-
-```diff
---- reference/src/operation/delete_function/_delete_function_output.rs
-+++ generated/src/operation/delete_function/_delete_function_output.rs
-@@ -4,12 +4,12 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct DeleteFunctionOutput {
-     /// <p>The HTTP status code returned by the operation.</p>
--    pub status_code: i32,
-+    pub status_code: ::std::option::Option<i32>,
-     _request_id: Option<String>,
- }
- impl DeleteFunctionOutput {
-     /// <p>The HTTP status code returned by the operation.</p>
--    pub fn status_code(&self) -> i32 {
-+    pub fn status_code(&self) -> ::std::option::Option<i32> {
-         self.status_code
-     }
- }
-@@ -59,7 +59,7 @@
-     /// Consumes the builder and constructs a [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput).
-     pub fn build(self) -> crate::operation::delete_function::DeleteFunctionOutput {
-         crate::operation::delete_function::DeleteFunctionOutput {
--            status_code: self.status_code.unwrap_or_default(),
-+            status_code: self.status_code,
-             _request_id: self._request_id,
-         }
-     }
-```
-
 ### `src/operation/delete_function.rs`
 
 ```diff
@@ -4554,6 +3302,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::delete_function_url_config::DeleteFunctionUrlConfigError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/delete_layer_version/_delete_layer_version_input.rs`
+
+```diff
+--- reference/src/operation/delete_layer_version/_delete_layer_version_input.rs
++++ generated/src/operation/delete_layer_version/_delete_layer_version_input.rs
+@@ -70,7 +70,7 @@
+     {
+         ::std::result::Result::Ok(crate::operation::delete_layer_version::DeleteLayerVersionInput {
+             layer_name: self.layer_name,
+-            version_number: self.version_number,
++            version_number: self.version_number.unwrap_or_default(),
+         })
+     }
+ }
 ```
 
 ### `src/operation/delete_layer_version.rs`
@@ -5127,6 +3891,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
+### `src/operation/get_durable_execution/_get_durable_execution_input.rs`
+
+```diff
+--- reference/src/operation/get_durable_execution/_get_durable_execution_input.rs
++++ generated/src/operation/get_durable_execution/_get_durable_execution_input.rs
+@@ -69,7 +69,7 @@
+     {
+         ::std::result::Result::Ok(crate::operation::get_durable_execution::GetDurableExecutionInput {
+             durable_execution_arn: self.durable_execution_arn,
+-            include_execution_data: self.include_execution_data,
++            include_execution_data: self.include_execution_data.unwrap_or_default(),
+         })
+     }
+ }
+```
+
 ### `src/operation/get_durable_execution.rs`
 
 ```diff
@@ -5206,6 +3986,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
+### `src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs`
+
+```diff
+--- reference/src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs
++++ generated/src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs
+@@ -135,7 +135,7 @@
+         ::std::result::Result::Ok(crate::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
+             durable_execution_arn: self.durable_execution_arn,
+             include_execution_data: self.include_execution_data,
+-            max_items: self.max_items,
++            max_items: self.max_items.unwrap_or_default(),
+             marker: self.marker,
+             reverse_order: self.reverse_order,
+         })
+```
+
 ### `src/operation/get_durable_execution_history.rs`
 
 ```diff
@@ -5267,6 +4063,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::get_durable_execution_history::GetDurableExecutionHistoryError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs`
+
+```diff
+--- reference/src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs
++++ generated/src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs
+@@ -116,7 +116,7 @@
+             durable_execution_arn: self.durable_execution_arn,
+             checkpoint_token: self.checkpoint_token,
+             marker: self.marker,
+-            max_items: self.max_items,
++            max_items: self.max_items.unwrap_or_default(),
+         })
+     }
+ }
 ```
 
 ### `src/operation/get_durable_execution_state.rs`
@@ -5648,40 +4460,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/get_function_configuration/_get_function_configuration_output.rs`
-
-```diff
---- reference/src/operation/get_function_configuration/_get_function_configuration_output.rs
-+++ generated/src/operation/get_function_configuration/_get_function_configuration_output.rs
-@@ -17,7 +17,7 @@
-     /// <p>The function that Lambda calls to begin running your function.</p>
-     pub handler: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The function's description.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-@@ -123,7 +123,7 @@
-         self.handler.as_deref()
-     }
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The function's description.</p>
-@@ -973,7 +973,7 @@
-             runtime: self.runtime,
-             role: self.role,
-             handler: self.handler,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             description: self.description,
-             timeout: self.timeout,
-             memory_size: self.memory_size,
-```
-
 ### `src/operation/get_function_configuration.rs`
 
 ```diff
@@ -6013,6 +4791,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
+### `src/operation/get_layer_version/_get_layer_version_input.rs`
+
+```diff
+--- reference/src/operation/get_layer_version/_get_layer_version_input.rs
++++ generated/src/operation/get_layer_version/_get_layer_version_input.rs
+@@ -69,7 +69,7 @@
+     ) -> ::std::result::Result<crate::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
+         ::std::result::Result::Ok(crate::operation::get_layer_version::GetLayerVersionInput {
+             layer_name: self.layer_name,
+-            version_number: self.version_number,
++            version_number: self.version_number.unwrap_or_default(),
+         })
+     }
+ }
+```
+
 ### `src/operation/get_layer_version/_get_layer_version_output.rs`
 
 ```diff
@@ -6027,15 +4821,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The ARN of the layer.</p>
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the layer version.</p>
-@@ -14,7 +14,7 @@
-     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub created_date: ::std::option::Option<::std::string::String>,
-     /// <p>The version number.</p>
--    pub version: i64,
-+    pub version: ::std::option::Option<i64>,
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-     /// <p>The layer's compatible runtimes.</p>
 @@ -27,7 +27,7 @@
  }
  impl GetLayerVersionOutput {
@@ -6045,15 +4830,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.content.as_ref()
      }
      /// <p>The ARN of the layer.</p>
-@@ -47,7 +47,7 @@
-         self.created_date.as_deref()
-     }
-     /// <p>The version number.</p>
--    pub fn version(&self) -> i64 {
-+    pub fn version(&self) -> ::std::option::Option<i64> {
-         self.version
-     }
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
 @@ -85,7 +85,7 @@
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
@@ -6084,15 +4860,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.content
      }
      /// <p>The ARN of the layer.</p>
-@@ -258,7 +258,7 @@
-             layer_version_arn: self.layer_version_arn,
-             description: self.description,
-             created_date: self.created_date,
--            version: self.version.unwrap_or_default(),
-+            version: self.version,
-             compatible_architectures: self.compatible_architectures,
-             compatible_runtimes: self.compatible_runtimes,
-             license_info: self.license_info,
 ```
 
 ### `src/operation/get_layer_version.rs`
@@ -6180,15 +4947,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The ARN of the layer.</p>
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the layer version.</p>
-@@ -14,7 +14,7 @@
-     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub created_date: ::std::option::Option<::std::string::String>,
-     /// <p>The version number.</p>
--    pub version: i64,
-+    pub version: ::std::option::Option<i64>,
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-     /// <p>The layer's compatible runtimes.</p>
 @@ -27,7 +27,7 @@
  }
  impl GetLayerVersionByArnOutput {
@@ -6198,15 +4956,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.content.as_ref()
      }
      /// <p>The ARN of the layer.</p>
-@@ -47,7 +47,7 @@
-         self.created_date.as_deref()
-     }
-     /// <p>The version number.</p>
--    pub fn version(&self) -> i64 {
-+    pub fn version(&self) -> ::std::option::Option<i64> {
-         self.version
-     }
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
 @@ -85,7 +85,7 @@
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
@@ -6237,15 +4986,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.content
      }
      /// <p>The ARN of the layer.</p>
-@@ -258,7 +258,7 @@
-             layer_version_arn: self.layer_version_arn,
-             description: self.description,
-             created_date: self.created_date,
--            version: self.version.unwrap_or_default(),
-+            version: self.version,
-             compatible_architectures: self.compatible_architectures,
-             compatible_runtimes: self.compatible_runtimes,
-             license_info: self.license_info,
 ```
 
 ### `src/operation/get_layer_version_by_arn.rs`
@@ -6342,6 +5082,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::get_layer_version_by_arn::GetLayerVersionByArnError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs`
+
+```diff
+--- reference/src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs
++++ generated/src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs
+@@ -70,7 +70,7 @@
+     {
+         ::std::result::Result::Ok(crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
+             layer_name: self.layer_name,
+-            version_number: self.version_number,
++            version_number: self.version_number.unwrap_or_default(),
+         })
+     }
+ }
 ```
 
 ### `src/operation/get_layer_version_policy.rs`
@@ -6716,40 +5472,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/invoke/_invoke_output.rs`
-
-```diff
---- reference/src/operation/invoke/_invoke_output.rs
-+++ generated/src/operation/invoke/_invoke_output.rs
-@@ -4,7 +4,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct InvokeOutput {
-     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
--    pub status_code: i32,
-+    pub status_code: ::std::option::Option<i32>,
-     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
-     pub function_error: ::std::option::Option<::std::string::String>,
-     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
-@@ -19,7 +19,7 @@
- }
- impl InvokeOutput {
-     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
--    pub fn status_code(&self) -> i32 {
-+    pub fn status_code(&self) -> ::std::option::Option<i32> {
-         self.status_code
-     }
-     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
-@@ -177,7 +177,7 @@
-     /// Consumes the builder and constructs a [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
-     pub fn build(self) -> crate::operation::invoke::InvokeOutput {
-         crate::operation::invoke::InvokeOutput {
--            status_code: self.status_code.unwrap_or_default(),
-+            status_code: self.status_code,
-             function_error: self.function_error,
-             log_result: self.log_result,
-             payload: self.payload,
-```
-
 ### `src/operation/invoke.rs`
 
 ```diff
@@ -6819,143 +5541,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::invoke::InvokeError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/invoke_async/_invoke_async_input.rs`
-
-```diff
---- reference/src/operation/invoke_async/_invoke_async_input.rs
-+++ generated/src/operation/invoke_async/_invoke_async_input.rs
-@@ -1,6 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
- #[allow(missing_docs)] // documentation missing in model
--#[deprecated]
- #[non_exhaustive]
- #[derive(::std::fmt::Debug)]
- pub struct InvokeAsyncInput {
-@@ -17,7 +16,7 @@
-     /// <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-     pub function_name: ::std::option::Option<::std::string::String>,
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub invoke_args: ::aws_smithy_types::byte_stream::ByteStream,
-+    pub invoke_args: ::std::option::Option<::aws_smithy_types::Blob>,
- }
- impl InvokeAsyncInput {
-     /// <p>The name or ARN of the Lambda function.</p>
-@@ -35,8 +34,8 @@
-         self.function_name.as_deref()
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub fn invoke_args(&self) -> &::aws_smithy_types::byte_stream::ByteStream {
--        &self.invoke_args
-+    pub fn invoke_args(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+        self.invoke_args.as_ref()
-     }
- }
- impl InvokeAsyncInput {
-@@ -51,7 +50,7 @@
- #[non_exhaustive]
- pub struct InvokeAsyncInputBuilder {
-     pub(crate) function_name: ::std::option::Option<::std::string::String>,
--    pub(crate) invoke_args: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>,
-+    pub(crate) invoke_args: ::std::option::Option<::aws_smithy_types::Blob>,
- }
- impl InvokeAsyncInputBuilder {
-     /// <p>The name or ARN of the Lambda function.</p>
-@@ -101,17 +100,17 @@
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-     /// This field is required.
--    pub fn invoke_args(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
-+    pub fn invoke_args(mut self, input: ::aws_smithy_types::Blob) -> Self {
-         self.invoke_args = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
-+    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-         self.invoke_args = input;
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
-+    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-         &self.invoke_args
-     }
-     /// Consumes the builder and constructs a [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).
-@@ -118,7 +117,7 @@
-     pub fn build(self) -> ::std::result::Result<crate::operation::invoke_async::InvokeAsyncInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(crate::operation::invoke_async::InvokeAsyncInput {
-             function_name: self.function_name,
--            invoke_args: self.invoke_args.unwrap_or_default(),
-+            invoke_args: self.invoke_args,
-         })
-     }
- }
-```
-
-### `src/operation/invoke_async/_invoke_async_output.rs`
-
-```diff
---- reference/src/operation/invoke_async/_invoke_async_output.rs
-+++ generated/src/operation/invoke_async/_invoke_async_output.rs
-@@ -1,17 +1,16 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
- /// <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
--#[deprecated]
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct InvokeAsyncOutput {
-     /// <p>The status code.</p>
--    pub status: i32,
-+    pub status: ::std::option::Option<i32>,
-     _request_id: Option<String>,
- }
- impl InvokeAsyncOutput {
-     /// <p>The status code.</p>
--    pub fn status(&self) -> i32 {
-+    pub fn status(&self) -> ::std::option::Option<i32> {
-         self.status
-     }
- }
-@@ -61,7 +60,7 @@
-     /// Consumes the builder and constructs a [`InvokeAsyncOutput`](crate::operation::invoke_async::InvokeAsyncOutput).
-     pub fn build(self) -> crate::operation::invoke_async::InvokeAsyncOutput {
-         crate::operation::invoke_async::InvokeAsyncOutput {
--            status: self.status.unwrap_or_default(),
-+            status: self.status,
-             _request_id: self._request_id,
-         }
-     }
-```
-
-### `src/operation/invoke_async/builders.rs`
-
-```diff
---- reference/src/operation/invoke_async/builders.rs
-+++ generated/src/operation/invoke_async/builders.rs
-@@ -161,17 +161,17 @@
-         self.inner.get_function_name()
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub fn invoke_args(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
-+    pub fn invoke_args(mut self, input: ::aws_smithy_types::Blob) -> Self {
-         self.inner = self.inner.invoke_args(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
-+    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-         self.inner = self.inner.set_invoke_args(input);
-         self
-     }
-     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
--    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
-+    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-         self.inner.get_invoke_args()
-     }
- }
 ```
 
 ### `src/operation/invoke_async.rs`
@@ -7045,33 +5630,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs
 +++ generated/src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs
-@@ -4,7 +4,7 @@
- #[derive(::std::fmt::Debug)]
- pub struct InvokeWithResponseStreamOutput {
-     /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
--    pub status_code: i32,
-+    pub status_code: ::std::option::Option<i32>,
-     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-     pub executed_version: ::std::option::Option<::std::string::String>,
-     /// <p>The stream of response payloads.</p>
-@@ -18,7 +18,7 @@
- }
- impl InvokeWithResponseStreamOutput {
-     /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
--    pub fn status_code(&self) -> i32 {
-+    pub fn status_code(&self) -> ::std::option::Option<i32> {
-         self.status_code
-     }
-     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-@@ -163,7 +163,7 @@
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
+@@ -165,12 +165,7 @@
          ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
--            status_code: self.status_code.unwrap_or_default(),
-+            status_code: self.status_code,
+             status_code: self.status_code.unwrap_or_default(),
              executed_version: self.executed_version,
-             event_stream: self.event_stream.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+-            event_stream: self.event_stream.ok_or_else(|| {
+-                ::aws_smithy_types::error::operation::BuildError::missing_field(
+-                    "event_stream",
+-                    "event_stream was not specified but it is required when building InvokeWithResponseStreamOutput",
+-                )
+-            })?,
++            event_stream: self.event_stream.unwrap_or_default(),
+             response_stream_content_type: self.response_stream_content_type,
+             _request_id: self._request_id,
+         })
 ```
 
 ### `src/operation/invoke_with_response_stream.rs`
@@ -7396,6 +5968,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::list_code_signing_configs::ListCodeSigningConfigsError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs`
+
+```diff
+--- reference/src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs
++++ generated/src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs
+@@ -234,7 +234,7 @@
+                 started_before: self.started_before,
+                 reverse_order: self.reverse_order,
+                 marker: self.marker,
+-                max_items: self.max_items,
++                max_items: self.max_items.unwrap_or_default(),
+             },
+         )
+     }
 ```
 
 ### `src/operation/list_durable_executions_by_function.rs`
@@ -8353,15 +6941,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The ARN of the layer.</p>
      pub layer_arn: ::std::option::Option<::std::string::String>,
      /// <p>The ARN of the layer version.</p>
-@@ -14,7 +14,7 @@
-     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-     pub created_date: ::std::option::Option<::std::string::String>,
-     /// <p>The version number.</p>
--    pub version: i64,
-+    pub version: ::std::option::Option<i64>,
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>,
-     /// <p>The layer's compatible runtimes.</p>
 @@ -27,7 +27,7 @@
  }
  impl PublishLayerVersionOutput {
@@ -8371,15 +6950,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.content.as_ref()
      }
      /// <p>The ARN of the layer.</p>
-@@ -47,7 +47,7 @@
-         self.created_date.as_deref()
-     }
-     /// <p>The version number.</p>
--    pub fn version(&self) -> i64 {
-+    pub fn version(&self) -> ::std::option::Option<i64> {
-         self.version
-     }
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
 @@ -85,7 +85,7 @@
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
  #[non_exhaustive]
@@ -8410,15 +6980,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.content
      }
      /// <p>The ARN of the layer.</p>
-@@ -258,7 +258,7 @@
-             layer_version_arn: self.layer_version_arn,
-             description: self.description,
-             created_date: self.created_date,
--            version: self.version.unwrap_or_default(),
-+            version: self.version,
-             compatible_architectures: self.compatible_architectures,
-             compatible_runtimes: self.compatible_runtimes,
-             license_info: self.license_info,
 ```
 
 ### `src/operation/publish_layer_version/builders.rs`
@@ -8543,40 +7104,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::publish_layer_version::PublishLayerVersionError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/publish_version/_publish_version_output.rs`
-
-```diff
---- reference/src/operation/publish_version/_publish_version_output.rs
-+++ generated/src/operation/publish_version/_publish_version_output.rs
-@@ -17,7 +17,7 @@
-     /// <p>The function that Lambda calls to begin running your function.</p>
-     pub handler: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The function's description.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-@@ -123,7 +123,7 @@
-         self.handler.as_deref()
-     }
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The function's description.</p>
-@@ -973,7 +973,7 @@
-             runtime: self.runtime,
-             role: self.role,
-             handler: self.handler,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             description: self.description,
-             timeout: self.timeout,
-             memory_size: self.memory_size,
 ```
 
 ### `src/operation/publish_version.rs`
@@ -9317,6 +7844,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::put_runtime_management_config::PutRuntimeManagementConfigError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs`
+
+```diff
+--- reference/src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs
++++ generated/src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs
+@@ -115,7 +115,7 @@
+     > {
+         ::std::result::Result::Ok(crate::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
+             layer_name: self.layer_name,
+-            version_number: self.version_number,
++            version_number: self.version_number.unwrap_or_default(),
+             statement_id: self.statement_id,
+             revision_id: self.revision_id,
+         })
 ```
 
 ### `src/operation/remove_layer_version_permission.rs`
@@ -10223,38 +8766,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/update_function_code/_update_function_code_output.rs`
+### `src/operation/update_function_code/_update_function_code_input.rs`
 
 ```diff
---- reference/src/operation/update_function_code/_update_function_code_output.rs
-+++ generated/src/operation/update_function_code/_update_function_code_output.rs
-@@ -17,7 +17,7 @@
-     /// <p>The function that Lambda calls to begin running your function.</p>
-     pub handler: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The function's description.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-@@ -123,7 +123,7 @@
-         self.handler.as_deref()
-     }
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The function's description.</p>
-@@ -973,7 +973,7 @@
-             runtime: self.runtime,
-             role: self.role,
-             handler: self.handler,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             description: self.description,
-             timeout: self.timeout,
-             memory_size: self.memory_size,
+--- reference/src/operation/update_function_code/_update_function_code_input.rs
++++ generated/src/operation/update_function_code/_update_function_code_input.rs
+@@ -414,9 +414,9 @@
+             s3_object_storage_mode: self.s3_object_storage_mode,
+             image_uri: self.image_uri,
+             architectures: self.architectures,
+-            publish: self.publish,
++            publish: self.publish.unwrap_or_default(),
+             publish_to: self.publish_to,
+-            dry_run: self.dry_run,
++            dry_run: self.dry_run.unwrap_or_default(),
+             revision_id: self.revision_id,
+             source_kms_key_arn: self.source_kms_key_arn,
+         })
 ```
 
 ### `src/operation/update_function_code.rs`
@@ -10350,40 +8878,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::update_function_code::UpdateFunctionCodeError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/update_function_configuration/_update_function_configuration_output.rs`
-
-```diff
---- reference/src/operation/update_function_configuration/_update_function_configuration_output.rs
-+++ generated/src/operation/update_function_configuration/_update_function_configuration_output.rs
-@@ -17,7 +17,7 @@
-     /// <p>The function that Lambda calls to begin running your function.</p>
-     pub handler: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The function's description.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-@@ -123,7 +123,7 @@
-         self.handler.as_deref()
-     }
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The function's description.</p>
-@@ -973,7 +973,7 @@
-             runtime: self.runtime,
-             role: self.role,
-             handler: self.handler,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             description: self.description,
-             timeout: self.timeout,
-             memory_size: self.memory_size,
 ```
 
 ### `src/operation/update_function_configuration.rs`
@@ -10617,628 +9111,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation.rs`
-
-```diff
---- reference/src/operation.rs
-+++ generated/src/operation.rs
-@@ -1,266 +1,351 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--pub use ::aws_types::request_id::RequestId;
--
--/// Types for the `AddLayerVersionPermission` operation.
--pub mod add_layer_version_permission;
--
--/// Types for the `AddPermission` operation.
--pub mod add_permission;
--
--/// Types for the `CheckpointDurableExecution` operation.
--pub mod checkpoint_durable_execution;
-
--/// Types for the `CreateAlias` operation.
--pub mod create_alias;
--
--/// Types for the `CreateCapacityProvider` operation.
--pub mod create_capacity_provider;
--
--/// Types for the `CreateCodeSigningConfig` operation.
--pub mod create_code_signing_config;
--
--/// Types for the `CreateEventSourceMapping` operation.
--pub mod create_event_source_mapping;
--
--/// Types for the `CreateFunction` operation.
--pub mod create_function;
--
--/// Types for the `CreateFunctionUrlConfig` operation.
--pub mod create_function_url_config;
--
--/// Types for the `DeleteAlias` operation.
--pub mod delete_alias;
--
--/// Types for the `DeleteCapacityProvider` operation.
--pub mod delete_capacity_provider;
--
--/// Types for the `DeleteCodeSigningConfig` operation.
--pub mod delete_code_signing_config;
--
--/// Types for the `DeleteEventSourceMapping` operation.
--pub mod delete_event_source_mapping;
--
--/// Types for the `DeleteFunction` operation.
--pub mod delete_function;
--
--/// Types for the `DeleteFunctionCodeSigningConfig` operation.
--pub mod delete_function_code_signing_config;
--
--/// Types for the `DeleteFunctionConcurrency` operation.
--pub mod delete_function_concurrency;
--
--/// Types for the `DeleteFunctionEventInvokeConfig` operation.
--pub mod delete_function_event_invoke_config;
--
--/// Types for the `DeleteFunctionUrlConfig` operation.
--pub mod delete_function_url_config;
--
--/// Types for the `DeleteLayerVersion` operation.
--pub mod delete_layer_version;
--
--/// Types for the `DeleteProvisionedConcurrencyConfig` operation.
--pub mod delete_provisioned_concurrency_config;
--
--/// Types for the `DeleteResourcePolicy` operation.
--pub mod delete_resource_policy;
--
--/// Types for the `GetAccountSettings` operation.
--pub mod get_account_settings;
--
--/// Types for the `GetAlias` operation.
--pub mod get_alias;
--
--/// Types for the `GetCapacityProvider` operation.
--pub mod get_capacity_provider;
--
--/// Types for the `GetCodeSigningConfig` operation.
--pub mod get_code_signing_config;
--
--/// Types for the `GetDurableExecution` operation.
--pub mod get_durable_execution;
-+pub use ::aws_types::request_id::RequestId;
-
--/// Types for the `GetDurableExecutionHistory` operation.
--pub mod get_durable_execution_history;
--
--/// Types for the `GetDurableExecutionState` operation.
--pub mod get_durable_execution_state;
--
--/// Types for the `GetEventSourceMapping` operation.
--pub mod get_event_source_mapping;
--
--/// Types for the `GetFunction` operation.
--pub mod get_function;
--
--/// Types for the `GetFunctionCodeSigningConfig` operation.
--pub mod get_function_code_signing_config;
--
--/// Types for the `GetFunctionConcurrency` operation.
--pub mod get_function_concurrency;
--
--/// Types for the `GetFunctionConfiguration` operation.
--pub mod get_function_configuration;
--
--/// Types for the `GetFunctionEventInvokeConfig` operation.
--pub mod get_function_event_invoke_config;
--
--/// Types for the `GetFunctionRecursionConfig` operation.
--pub mod get_function_recursion_config;
--
--/// Types for the `GetFunctionScalingConfig` operation.
--pub mod get_function_scaling_config;
--
--/// Types for the `GetFunctionUrlConfig` operation.
--pub mod get_function_url_config;
--
--/// Types for the `GetLayerVersion` operation.
--pub mod get_layer_version;
--
--/// Types for the `GetLayerVersionByArn` operation.
--pub mod get_layer_version_by_arn;
--
--/// Types for the `GetLayerVersionPolicy` operation.
--pub mod get_layer_version_policy;
--
--/// Types for the `GetPolicy` operation.
--pub mod get_policy;
--
--/// Types for the `GetProvisionedConcurrencyConfig` operation.
--pub mod get_provisioned_concurrency_config;
--
--/// Types for the `GetResourcePolicy` operation.
--pub mod get_resource_policy;
--
--/// Types for the `GetRuntimeManagementConfig` operation.
--pub mod get_runtime_management_config;
--
--/// Types for the `Invoke` operation.
--pub mod invoke;
--
--/// Types for the `InvokeAsync` operation.
--pub mod invoke_async;
--
--/// Types for the `InvokeWithResponseStream` operation.
--pub mod invoke_with_response_stream;
--
--/// Types for the `ListAliases` operation.
--pub mod list_aliases;
--
--/// Types for the `ListCapacityProviders` operation.
--pub mod list_capacity_providers;
--
--/// Types for the `ListCodeSigningConfigs` operation.
--pub mod list_code_signing_configs;
--
--/// Types for the `ListDurableExecutionsByFunction` operation.
--pub mod list_durable_executions_by_function;
--
--/// Types for the `ListEventSourceMappings` operation.
--pub mod list_event_source_mappings;
--
--/// Types for the `ListFunctionEventInvokeConfigs` operation.
--pub mod list_function_event_invoke_configs;
--
--/// Types for the `ListFunctionUrlConfigs` operation.
--pub mod list_function_url_configs;
--
--/// Types for the `ListFunctionVersionsByCapacityProvider` operation.
--pub mod list_function_versions_by_capacity_provider;
--
--/// Types for the `ListFunctions` operation.
--pub mod list_functions;
--
--/// Types for the `ListFunctionsByCodeSigningConfig` operation.
--pub mod list_functions_by_code_signing_config;
--
--/// Types for the `ListLayerVersions` operation.
--pub mod list_layer_versions;
--
--/// Types for the `ListLayers` operation.
--pub mod list_layers;
--
--/// Types for the `ListProvisionedConcurrencyConfigs` operation.
--pub mod list_provisioned_concurrency_configs;
--
--/// Types for the `ListTags` operation.
--pub mod list_tags;
--
--/// Types for the `ListVersionsByFunction` operation.
--pub mod list_versions_by_function;
--
--/// Types for the `PublishLayerVersion` operation.
--pub mod publish_layer_version;
--
--/// Types for the `PublishVersion` operation.
--pub mod publish_version;
--
--/// Types for the `PutFunctionCodeSigningConfig` operation.
--pub mod put_function_code_signing_config;
--
--/// Types for the `PutFunctionConcurrency` operation.
--pub mod put_function_concurrency;
--
--/// Types for the `PutFunctionEventInvokeConfig` operation.
--pub mod put_function_event_invoke_config;
--
--/// Types for the `PutFunctionRecursionConfig` operation.
--pub mod put_function_recursion_config;
--
--/// Types for the `PutFunctionScalingConfig` operation.
--pub mod put_function_scaling_config;
--
--/// Types for the `PutProvisionedConcurrencyConfig` operation.
--pub mod put_provisioned_concurrency_config;
--
--/// Types for the `PutResourcePolicy` operation.
--pub mod put_resource_policy;
--
--/// Types for the `PutRuntimeManagementConfig` operation.
--pub mod put_runtime_management_config;
--
--/// Types for the `RemoveLayerVersionPermission` operation.
--pub mod remove_layer_version_permission;
--
--/// Types for the `RemovePermission` operation.
--pub mod remove_permission;
--
--/// Types for the `SendDurableExecutionCallbackFailure` operation.
--pub mod send_durable_execution_callback_failure;
--
--/// Types for the `SendDurableExecutionCallbackHeartbeat` operation.
--pub mod send_durable_execution_callback_heartbeat;
--
--/// Types for the `SendDurableExecutionCallbackSuccess` operation.
--pub mod send_durable_execution_callback_success;
--
--/// Types for the `StopDurableExecution` operation.
--pub mod stop_durable_execution;
--
--/// Types for the `TagResource` operation.
--pub mod tag_resource;
--
--/// Types for the `UntagResource` operation.
--pub mod untag_resource;
--
--/// Types for the `UpdateAlias` operation.
--pub mod update_alias;
--
--/// Types for the `UpdateCapacityProvider` operation.
--pub mod update_capacity_provider;
--
--/// Types for the `UpdateCodeSigningConfig` operation.
--pub mod update_code_signing_config;
--
--/// Types for the `UpdateEventSourceMapping` operation.
--pub mod update_event_source_mapping;
--
--/// Types for the `UpdateFunctionCode` operation.
--pub mod update_function_code;
--
--/// Types for the `UpdateFunctionConfiguration` operation.
--pub mod update_function_configuration;
--
--/// Types for the `UpdateFunctionEventInvokeConfig` operation.
--pub mod update_function_event_invoke_config;
--
--/// Types for the `UpdateFunctionUrlConfig` operation.
--pub mod update_function_url_config;
-+pub mod operation {
-+    pub mod add_layer_version_permission {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/add_layer_version_permission.rs"
-+        ));
-+    }
-+    pub mod add_permission {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/add_permission.rs"));
-+    }
-+    pub mod checkpoint_durable_execution {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/checkpoint_durable_execution.rs"
-+        ));
-+    }
-+    pub mod create_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_alias.rs"));
-+    }
-+    pub mod create_capacity_provider {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_capacity_provider.rs"));
-+    }
-+    pub mod create_code_signing_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_code_signing_config.rs"));
-+    }
-+    pub mod create_event_source_mapping {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_event_source_mapping.rs"));
-+    }
-+    pub mod create_function {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_function.rs"));
-+    }
-+    pub mod create_function_url_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/create_function_url_config.rs"));
-+    }
-+    pub mod delete_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_alias.rs"));
-+    }
-+    pub mod delete_capacity_provider {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_capacity_provider.rs"));
-+    }
-+    pub mod delete_code_signing_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_code_signing_config.rs"));
-+    }
-+    pub mod delete_event_source_mapping {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_event_source_mapping.rs"));
-+    }
-+    pub mod delete_function {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function.rs"));
-+    }
-+    pub mod delete_function_code_signing_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/delete_function_code_signing_config.rs"
-+        ));
-+    }
-+    pub mod delete_function_concurrency {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function_concurrency.rs"));
-+    }
-+    pub mod delete_function_event_invoke_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/delete_function_event_invoke_config.rs"
-+        ));
-+    }
-+    pub mod delete_function_url_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function_url_config.rs"));
-+    }
-+    pub mod delete_layer_version {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_layer_version.rs"));
-+    }
-+    pub mod delete_provisioned_concurrency_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/delete_provisioned_concurrency_config.rs"
-+        ));
-+    }
-+    pub mod delete_resource_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_resource_policy.rs"));
-+    }
-+    pub mod get_account_settings {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_account_settings.rs"));
-+    }
-+    pub mod get_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_alias.rs"));
-+    }
-+    pub mod get_capacity_provider {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_capacity_provider.rs"));
-+    }
-+    pub mod get_code_signing_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_code_signing_config.rs"));
-+    }
-+    pub mod get_durable_execution {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_durable_execution.rs"));
-+    }
-+    pub mod get_durable_execution_history {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/get_durable_execution_history.rs"
-+        ));
-+    }
-+    pub mod get_durable_execution_state {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_durable_execution_state.rs"));
-+    }
-+    pub mod get_event_source_mapping {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_event_source_mapping.rs"));
-+    }
-+    pub mod get_function {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function.rs"));
-+    }
-+    pub mod get_function_code_signing_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/get_function_code_signing_config.rs"
-+        ));
-+    }
-+    pub mod get_function_concurrency {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_concurrency.rs"));
-+    }
-+    pub mod get_function_configuration {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_configuration.rs"));
-+    }
-+    pub mod get_function_event_invoke_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/get_function_event_invoke_config.rs"
-+        ));
-+    }
-+    pub mod get_function_recursion_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/get_function_recursion_config.rs"
-+        ));
-+    }
-+    pub mod get_function_scaling_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_scaling_config.rs"));
-+    }
-+    pub mod get_function_url_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_url_config.rs"));
-+    }
-+    pub mod get_layer_version {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_layer_version.rs"));
-+    }
-+    pub mod get_layer_version_by_arn {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_layer_version_by_arn.rs"));
-+    }
-+    pub mod get_layer_version_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_layer_version_policy.rs"));
-+    }
-+    pub mod get_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_policy.rs"));
-+    }
-+    pub mod get_provisioned_concurrency_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/get_provisioned_concurrency_config.rs"
-+        ));
-+    }
-+    pub mod get_resource_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_resource_policy.rs"));
-+    }
-+    pub mod get_runtime_management_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/get_runtime_management_config.rs"
-+        ));
-+    }
-+    pub mod invoke {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/invoke.rs"));
-+    }
-+    pub mod invoke_async {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/invoke_async.rs"));
-+    }
-+    pub mod invoke_with_response_stream {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/invoke_with_response_stream.rs"));
-+    }
-+    pub mod list_aliases {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_aliases.rs"));
-+    }
-+    pub mod list_capacity_providers {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_capacity_providers.rs"));
-+    }
-+    pub mod list_code_signing_configs {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_code_signing_configs.rs"));
-+    }
-+    pub mod list_durable_executions_by_function {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/list_durable_executions_by_function.rs"
-+        ));
-+    }
-+    pub mod list_event_source_mappings {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_event_source_mappings.rs"));
-+    }
-+    pub mod list_function_event_invoke_configs {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/list_function_event_invoke_configs.rs"
-+        ));
-+    }
-+    pub mod list_function_url_configs {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_function_url_configs.rs"));
-+    }
-+    pub mod list_function_versions_by_capacity_provider {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/list_function_versions_by_capacity_provider.rs"
-+        ));
-+    }
-+    pub mod list_functions {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_functions.rs"));
-+    }
-+    pub mod list_functions_by_code_signing_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/list_functions_by_code_signing_config.rs"
-+        ));
-+    }
-+    pub mod list_layer_versions {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_layer_versions.rs"));
-+    }
-+    pub mod list_layers {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_layers.rs"));
-+    }
-+    pub mod list_provisioned_concurrency_configs {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/list_provisioned_concurrency_configs.rs"
-+        ));
-+    }
-+    pub mod list_tags {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_tags.rs"));
-+    }
-+    pub mod list_versions_by_function {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_versions_by_function.rs"));
-+    }
-+    pub mod publish_layer_version {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/publish_layer_version.rs"));
-+    }
-+    pub mod publish_version {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/publish_version.rs"));
-+    }
-+    pub mod put_function_code_signing_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/put_function_code_signing_config.rs"
-+        ));
-+    }
-+    pub mod put_function_concurrency {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_function_concurrency.rs"));
-+    }
-+    pub mod put_function_event_invoke_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/put_function_event_invoke_config.rs"
-+        ));
-+    }
-+    pub mod put_function_recursion_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/put_function_recursion_config.rs"
-+        ));
-+    }
-+    pub mod put_function_scaling_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_function_scaling_config.rs"));
-+    }
-+    pub mod put_provisioned_concurrency_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/put_provisioned_concurrency_config.rs"
-+        ));
-+    }
-+    pub mod put_resource_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_resource_policy.rs"));
-+    }
-+    pub mod put_runtime_management_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/put_runtime_management_config.rs"
-+        ));
-+    }
-+    pub mod remove_layer_version_permission {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/remove_layer_version_permission.rs"
-+        ));
-+    }
-+    pub mod remove_permission {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/remove_permission.rs"));
-+    }
-+    pub mod send_durable_execution_callback_failure {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/send_durable_execution_callback_failure.rs"
-+        ));
-+    }
-+    pub mod send_durable_execution_callback_heartbeat {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/send_durable_execution_callback_heartbeat.rs"
-+        ));
-+    }
-+    pub mod send_durable_execution_callback_success {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/send_durable_execution_callback_success.rs"
-+        ));
-+    }
-+    pub mod stop_durable_execution {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/stop_durable_execution.rs"));
-+    }
-+    pub mod tag_resource {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/tag_resource.rs"));
-+    }
-+    pub mod untag_resource {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/untag_resource.rs"));
-+    }
-+    pub mod update_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_alias.rs"));
-+    }
-+    pub mod update_capacity_provider {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_capacity_provider.rs"));
-+    }
-+    pub mod update_code_signing_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_code_signing_config.rs"));
-+    }
-+    pub mod update_event_source_mapping {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_event_source_mapping.rs"));
-+    }
-+    pub mod update_function_code {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_function_code.rs"));
-+    }
-+    pub mod update_function_configuration {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/update_function_configuration.rs"
-+        ));
-+    }
-+    pub mod update_function_event_invoke_config {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/lambda/src/operation/update_function_event_invoke_config.rs"
-+        ));
-+    }
-+    pub mod update_function_url_config {
-+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_function_url_config.rs"));
-+    }
-+}
-```
-
 ### `src/serde_util.rs`
 
 ```diff
@@ -11325,148 +9197,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn execution_correct_errors(mut builder: crate::types::builders::ExecutionBuilder) -> crate::types::builders::ExecutionBuilder {
      if builder.durable_execution_arn.is_none() {
          builder.durable_execution_arn = Some(Default::default())
-```
-
-### `src/types/_account_limit.rs`
-
-```diff
---- reference/src/types/_account_limit.rs
-+++ generated/src/types/_account_limit.rs
-@@ -5,31 +5,31 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct AccountLimit {
-     /// <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
--    pub total_code_size: i64,
-+    pub total_code_size: ::std::option::Option<i64>,
-     /// <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
--    pub code_size_unzipped: i64,
-+    pub code_size_unzipped: ::std::option::Option<i64>,
-     /// <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.</p>
--    pub code_size_zipped: i64,
-+    pub code_size_zipped: ::std::option::Option<i64>,
-     /// <p>The maximum number of simultaneous function executions.</p>
--    pub concurrent_executions: i32,
-+    pub concurrent_executions: ::std::option::Option<i32>,
-     /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
-     pub unreserved_concurrent_executions: ::std::option::Option<i32>,
- }
- impl AccountLimit {
-     /// <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
--    pub fn total_code_size(&self) -> i64 {
-+    pub fn total_code_size(&self) -> ::std::option::Option<i64> {
-         self.total_code_size
-     }
-     /// <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
--    pub fn code_size_unzipped(&self) -> i64 {
-+    pub fn code_size_unzipped(&self) -> ::std::option::Option<i64> {
-         self.code_size_unzipped
-     }
-     /// <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.</p>
--    pub fn code_size_zipped(&self) -> i64 {
-+    pub fn code_size_zipped(&self) -> ::std::option::Option<i64> {
-         self.code_size_zipped
-     }
-     /// <p>The maximum number of simultaneous function executions.</p>
--    pub fn concurrent_executions(&self) -> i32 {
-+    pub fn concurrent_executions(&self) -> ::std::option::Option<i32> {
-         self.concurrent_executions
-     }
-     /// <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <code>PutFunctionConcurrency</code>.</p>
-@@ -128,10 +128,10 @@
-     /// Consumes the builder and constructs a [`AccountLimit`](crate::types::AccountLimit).
-     pub fn build(self) -> crate::types::AccountLimit {
-         crate::types::AccountLimit {
--            total_code_size: self.total_code_size.unwrap_or_default(),
--            code_size_unzipped: self.code_size_unzipped.unwrap_or_default(),
--            code_size_zipped: self.code_size_zipped.unwrap_or_default(),
--            concurrent_executions: self.concurrent_executions.unwrap_or_default(),
-+            total_code_size: self.total_code_size,
-+            code_size_unzipped: self.code_size_unzipped,
-+            code_size_zipped: self.code_size_zipped,
-+            concurrent_executions: self.concurrent_executions,
-             unreserved_concurrent_executions: self.unreserved_concurrent_executions,
+@@ -687,7 +687,7 @@
+     if builder.retry_details.is_none() {
+         builder.retry_details = {
+             let builder = crate::types::builders::RetryDetailsBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
          }
      }
-```
-
-### `src/types/_account_usage.rs`
-
-```diff
---- reference/src/types/_account_usage.rs
-+++ generated/src/types/_account_usage.rs
-@@ -5,17 +5,17 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct AccountUsage {
-     /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
--    pub total_code_size: i64,
-+    pub total_code_size: ::std::option::Option<i64>,
-     /// <p>The number of Lambda functions.</p>
--    pub function_count: i64,
-+    pub function_count: ::std::option::Option<i64>,
- }
- impl AccountUsage {
-     /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
--    pub fn total_code_size(&self) -> i64 {
-+    pub fn total_code_size(&self) -> ::std::option::Option<i64> {
-         self.total_code_size
-     }
-     /// <p>The number of Lambda functions.</p>
--    pub fn function_count(&self) -> i64 {
-+    pub fn function_count(&self) -> ::std::option::Option<i64> {
-         self.function_count
-     }
- }
-@@ -65,8 +65,8 @@
-     /// Consumes the builder and constructs a [`AccountUsage`](crate::types::AccountUsage).
-     pub fn build(self) -> crate::types::AccountUsage {
-         crate::types::AccountUsage {
--            total_code_size: self.total_code_size.unwrap_or_default(),
--            function_count: self.function_count.unwrap_or_default(),
-+            total_code_size: self.total_code_size,
-+            function_count: self.function_count,
+     builder
+@@ -705,7 +705,7 @@
+     if builder.retry_details.is_none() {
+         builder.retry_details = {
+             let builder = crate::types::builders::RetryDetailsBuilder::default();
+-            Some(builder.build())
++            builder.build().ok()
          }
      }
- }
-```
-
-### `src/types/_callback_options.rs`
-
-```diff
---- reference/src/types/_callback_options.rs
-+++ generated/src/types/_callback_options.rs
-@@ -5,17 +5,17 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct CallbackOptions {
-     /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
--    pub timeout_seconds: i32,
-+    pub timeout_seconds: ::std::option::Option<i32>,
-     /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
--    pub heartbeat_timeout_seconds: i32,
-+    pub heartbeat_timeout_seconds: ::std::option::Option<i32>,
- }
- impl CallbackOptions {
-     /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
--    pub fn timeout_seconds(&self) -> i32 {
-+    pub fn timeout_seconds(&self) -> ::std::option::Option<i32> {
-         self.timeout_seconds
-     }
-     /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
--    pub fn heartbeat_timeout_seconds(&self) -> i32 {
-+    pub fn heartbeat_timeout_seconds(&self) -> ::std::option::Option<i32> {
-         self.heartbeat_timeout_seconds
-     }
- }
-@@ -65,8 +65,8 @@
-     /// Consumes the builder and constructs a [`CallbackOptions`](crate::types::CallbackOptions).
-     pub fn build(self) -> crate::types::CallbackOptions {
-         crate::types::CallbackOptions {
--            timeout_seconds: self.timeout_seconds.unwrap_or_default(),
--            heartbeat_timeout_seconds: self.heartbeat_timeout_seconds.unwrap_or_default(),
-+            timeout_seconds: self.timeout_seconds,
-+            heartbeat_timeout_seconds: self.heartbeat_timeout_seconds,
-         }
-     }
- }
+     builder
 ```
 
 ### `src/types/_capacity_provider_logging_config.rs`
@@ -11515,98 +9263,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_concurrency.rs`
-
-```diff
---- reference/src/types/_concurrency.rs
-+++ generated/src/types/_concurrency.rs
-@@ -1,4 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-+
- #[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-```
-
 ### `src/types/_event.rs`
 
 ```diff
 --- reference/src/types/_event.rs
 +++ generated/src/types/_event.rs
-@@ -9,7 +9,7 @@
-     /// <p>The subtype of the event, providing additional categorization.</p>
-     pub sub_type: ::std::option::Option<::std::string::String>,
-     /// <p>The unique identifier for this event. Event IDs increment sequentially.</p>
--    pub event_id: i32,
-+    pub event_id: ::std::option::Option<i32>,
-     /// <p>The unique identifier for this operation.</p>
-     pub id: ::std::option::Option<::std::string::String>,
-     /// <p>The customer-provided name for this operation.</p>
-@@ -77,7 +77,7 @@
-         self.sub_type.as_deref()
-     }
-     /// <p>The unique identifier for this event. Event IDs increment sequentially.</p>
--    pub fn event_id(&self) -> i32 {
-+    pub fn event_id(&self) -> ::std::option::Option<i32> {
-         self.event_id
-     }
-     /// <p>The unique identifier for this operation.</p>
 @@ -676,7 +676,7 @@
          crate::types::Event {
              event_type: self.event_type,
              sub_type: self.sub_type,
 -            event_id: self.event_id.unwrap_or(1),
-+            event_id: self.event_id,
++            event_id: self.event_id.unwrap_or_default(),
              id: self.id,
              name: self.name,
              event_timestamp: self.event_timestamp,
-```
-
-### `src/types/_function_configuration.rs`
-
-```diff
---- reference/src/types/_function_configuration.rs
-+++ generated/src/types/_function_configuration.rs
-@@ -17,7 +17,7 @@
-     /// <p>The function that Lambda calls to begin running your function.</p>
-     pub handler: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The function's description.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
-@@ -122,7 +122,7 @@
-         self.handler.as_deref()
-     }
-     /// <p>The size of the function's deployment package, in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The function's description.</p>
-@@ -957,7 +957,7 @@
-             runtime: self.runtime,
-             role: self.role,
-             handler: self.handler,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             description: self.description,
-             timeout: self.timeout,
-             memory_size: self.memory_size,
-```
-
-### `src/types/_function_event_invoke_config.rs`
-
-```diff
---- reference/src/types/_function_event_invoke_config.rs
-+++ generated/src/types/_function_event_invoke_config.rs
-@@ -1,4 +1,5 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-+
- #[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 ```
 
 ### `src/types/_lambda_managed_instances_capacity_provider_config.rs`
@@ -11677,108 +9347,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
      }
  }
-```
-
-### `src/types/_layer.rs`
-
-```diff
---- reference/src/types/_layer.rs
-+++ generated/src/types/_layer.rs
-@@ -7,7 +7,7 @@
-     /// <p>The Amazon Resource Name (ARN) of the function layer.</p>
-     pub arn: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the layer archive in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-     pub signing_profile_version_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-@@ -19,7 +19,7 @@
-         self.arn.as_deref()
-     }
-     /// <p>The size of the layer archive in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-@@ -108,7 +108,7 @@
-     pub fn build(self) -> crate::types::Layer {
-         crate::types::Layer {
-             arn: self.arn,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             signing_profile_version_arn: self.signing_profile_version_arn,
-             signing_job_arn: self.signing_job_arn,
-         }
-```
-
-### `src/types/_layer_version_content_output.rs`
-
-```diff
---- reference/src/types/_layer_version_content_output.rs
-+++ generated/src/types/_layer_version_content_output.rs
-@@ -9,7 +9,7 @@
-     /// <p>The SHA-256 hash of the layer archive.</p>
-     pub code_sha256: ::std::option::Option<::std::string::String>,
-     /// <p>The size of the layer archive in bytes.</p>
--    pub code_size: i64,
-+    pub code_size: ::std::option::Option<i64>,
-     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-     pub signing_profile_version_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
-@@ -27,7 +27,7 @@
-         self.code_sha256.as_deref()
-     }
-     /// <p>The size of the layer archive in bytes.</p>
--    pub fn code_size(&self) -> i64 {
-+    pub fn code_size(&self) -> ::std::option::Option<i64> {
-         self.code_size
-     }
-     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
-@@ -151,7 +151,7 @@
-         crate::types::LayerVersionContentOutput {
-             location: self.location,
-             code_sha256: self.code_sha256,
--            code_size: self.code_size.unwrap_or_default(),
-+            code_size: self.code_size,
-             signing_profile_version_arn: self.signing_profile_version_arn,
-             signing_job_arn: self.signing_job_arn,
-             resolved_s3_object: self.resolved_s3_object,
-```
-
-### `src/types/_layer_versions_list_item.rs`
-
-```diff
---- reference/src/types/_layer_versions_list_item.rs
-+++ generated/src/types/_layer_versions_list_item.rs
-@@ -7,7 +7,7 @@
-     /// <p>The ARN of the layer version.</p>
-     pub layer_version_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The version number.</p>
--    pub version: i64,
-+    pub version: ::std::option::Option<i64>,
-     /// <p>The description of the version.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
-@@ -27,7 +27,7 @@
-         self.layer_version_arn.as_deref()
-     }
-     /// <p>The version number.</p>
--    pub fn version(&self) -> i64 {
-+    pub fn version(&self) -> ::std::option::Option<i64> {
-         self.version
-     }
-     /// <p>The description of the version.</p>
-@@ -197,7 +197,7 @@
-     pub fn build(self) -> crate::types::LayerVersionsListItem {
-         crate::types::LayerVersionsListItem {
-             layer_version_arn: self.layer_version_arn,
--            version: self.version.unwrap_or_default(),
-+            version: self.version,
-             description: self.description,
-             created_date: self.created_date,
-             compatible_architectures: self.compatible_architectures,
 ```
 
 ### `src/types/_logging_config.rs`
@@ -11869,38 +9437,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
 ```
 
-### `src/types/_retry_details.rs`
-
-```diff
---- reference/src/types/_retry_details.rs
-+++ generated/src/types/_retry_details.rs
-@@ -5,13 +5,13 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct RetryDetails {
-     /// <p>The current attempt number for this operation.</p>
--    pub current_attempt: i32,
-+    pub current_attempt: ::std::option::Option<i32>,
-     /// <p>The delay before the next retry attempt, in seconds.</p>
-     pub next_attempt_delay_seconds: ::std::option::Option<i32>,
- }
- impl RetryDetails {
-     /// <p>The current attempt number for this operation.</p>
--    pub fn current_attempt(&self) -> i32 {
-+    pub fn current_attempt(&self) -> ::std::option::Option<i32> {
-         self.current_attempt
-     }
-     /// <p>The delay before the next retry attempt, in seconds.</p>
-@@ -65,7 +65,7 @@
-     /// Consumes the builder and constructs a [`RetryDetails`](crate::types::RetryDetails).
-     pub fn build(self) -> crate::types::RetryDetails {
-         crate::types::RetryDetails {
--            current_attempt: self.current_attempt.unwrap_or_default(),
-+            current_attempt: self.current_attempt,
-             next_attempt_delay_seconds: self.next_attempt_delay_seconds,
-         }
-     }
-```
-
 ### `src/types/_s3_object_storage_mode.rs`
 
 ```diff
@@ -11916,40 +9452,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      Reference,
      /// `Unknown` contains new variants that have been added since this code was generated.
      #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-```
-
-### `src/types/_step_details.rs`
-
-```diff
---- reference/src/types/_step_details.rs
-+++ generated/src/types/_step_details.rs
-@@ -5,7 +5,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
- pub struct StepDetails {
-     /// <p>The current attempt number for this step.</p>
--    pub attempt: i32,
-+    pub attempt: ::std::option::Option<i32>,
-     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
-     pub next_attempt_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
-     /// <p>The JSON response payload from the step operation.</p>
-@@ -15,7 +15,7 @@
- }
- impl StepDetails {
-     /// <p>The current attempt number for this step.</p>
--    pub fn attempt(&self) -> i32 {
-+    pub fn attempt(&self) -> ::std::option::Option<i32> {
-         self.attempt
-     }
-     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
-@@ -117,7 +117,7 @@
-     /// Consumes the builder and constructs a [`StepDetails`](crate::types::StepDetails).
-     pub fn build(self) -> crate::types::StepDetails {
-         crate::types::StepDetails {
--            attempt: self.attempt.unwrap_or_default(),
-+            attempt: self.attempt,
-             next_attempt_timestamp: self.next_attempt_timestamp,
-             result: self.result,
-             error: self.error,
 ```
 
 ### `src/types/builders.rs`
@@ -13088,28 +10590,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ### Rust token differences
 
-- `src/client/create_function.rs`
-- `src/client/delete_function.rs`
 - `src/client/delete_resource_policy.rs`
-- `src/client/get_function_configuration.rs`
 - `src/client/get_function_event_invoke_config.rs`
 - `src/client/get_function_recursion_config.rs`
-- `src/client/get_layer_version.rs`
-- `src/client/get_layer_version_by_arn.rs`
 - `src/client/get_resource_policy.rs`
-- `src/client/invoke.rs`
-- `src/client/invoke_async.rs`
-- `src/client/invoke_with_response_stream.rs`
 - `src/client/publish_layer_version.rs`
 - `src/client/publish_version.rs`
 - `src/client/put_function_event_invoke_config.rs`
 - `src/client/put_resource_policy.rs`
 - `src/client/update_function_code.rs`
-- `src/client/update_function_configuration.rs`
 - `src/client/update_function_event_invoke_config.rs`
-- `src/client.rs`
 - `src/config.rs`
-- `src/lib.rs`
+- `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
 - `src/operation/add_layer_version_permission.rs`
 - `src/operation/add_permission.rs`
 - `src/operation/checkpoint_durable_execution.rs`
@@ -13117,19 +10609,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_capacity_provider.rs`
 - `src/operation/create_code_signing_config.rs`
 - `src/operation/create_event_source_mapping.rs`
-- `src/operation/create_function/_create_function_output.rs`
+- `src/operation/create_function/_create_function_input.rs`
 - `src/operation/create_function.rs`
 - `src/operation/create_function_url_config.rs`
 - `src/operation/delete_alias.rs`
 - `src/operation/delete_capacity_provider.rs`
 - `src/operation/delete_code_signing_config.rs`
 - `src/operation/delete_event_source_mapping.rs`
-- `src/operation/delete_function/_delete_function_output.rs`
 - `src/operation/delete_function.rs`
 - `src/operation/delete_function_code_signing_config.rs`
 - `src/operation/delete_function_concurrency.rs`
 - `src/operation/delete_function_event_invoke_config.rs`
 - `src/operation/delete_function_url_config.rs`
+- `src/operation/delete_layer_version/_delete_layer_version_input.rs`
 - `src/operation/delete_layer_version.rs`
 - `src/operation/delete_provisioned_concurrency_config.rs`
 - `src/operation/delete_resource_policy.rs`
@@ -13137,39 +10629,40 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_alias.rs`
 - `src/operation/get_capacity_provider.rs`
 - `src/operation/get_code_signing_config.rs`
+- `src/operation/get_durable_execution/_get_durable_execution_input.rs`
 - `src/operation/get_durable_execution.rs`
+- `src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs`
 - `src/operation/get_durable_execution_history.rs`
+- `src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs`
 - `src/operation/get_durable_execution_state.rs`
 - `src/operation/get_event_source_mapping.rs`
 - `src/operation/get_function.rs`
 - `src/operation/get_function_code_signing_config.rs`
 - `src/operation/get_function_concurrency.rs`
-- `src/operation/get_function_configuration/_get_function_configuration_output.rs`
 - `src/operation/get_function_configuration.rs`
 - `src/operation/get_function_event_invoke_config.rs`
 - `src/operation/get_function_recursion_config.rs`
 - `src/operation/get_function_scaling_config.rs`
 - `src/operation/get_function_url_config.rs`
+- `src/operation/get_layer_version/_get_layer_version_input.rs`
 - `src/operation/get_layer_version/_get_layer_version_output.rs`
 - `src/operation/get_layer_version.rs`
 - `src/operation/get_layer_version_by_arn/_get_layer_version_by_arn_output.rs`
 - `src/operation/get_layer_version_by_arn.rs`
+- `src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs`
 - `src/operation/get_layer_version_policy.rs`
 - `src/operation/get_policy.rs`
 - `src/operation/get_provisioned_concurrency_config.rs`
 - `src/operation/get_resource_policy.rs`
 - `src/operation/get_runtime_management_config.rs`
-- `src/operation/invoke/_invoke_output.rs`
 - `src/operation/invoke.rs`
-- `src/operation/invoke_async/_invoke_async_input.rs`
-- `src/operation/invoke_async/_invoke_async_output.rs`
-- `src/operation/invoke_async/builders.rs`
 - `src/operation/invoke_async.rs`
 - `src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs`
 - `src/operation/invoke_with_response_stream.rs`
 - `src/operation/list_aliases.rs`
 - `src/operation/list_capacity_providers.rs`
 - `src/operation/list_code_signing_configs.rs`
+- `src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs`
 - `src/operation/list_durable_executions_by_function.rs`
 - `src/operation/list_event_source_mappings.rs`
 - `src/operation/list_function_event_invoke_configs.rs`
@@ -13186,7 +10679,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/publish_layer_version/_publish_layer_version_output.rs`
 - `src/operation/publish_layer_version/builders.rs`
 - `src/operation/publish_layer_version.rs`
-- `src/operation/publish_version/_publish_version_output.rs`
 - `src/operation/publish_version.rs`
 - `src/operation/put_function_code_signing_config.rs`
 - `src/operation/put_function_concurrency.rs`
@@ -13196,6 +10688,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/put_provisioned_concurrency_config.rs`
 - `src/operation/put_resource_policy.rs`
 - `src/operation/put_runtime_management_config.rs`
+- `src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs`
 - `src/operation/remove_layer_version_permission.rs`
 - `src/operation/remove_permission.rs`
 - `src/operation/send_durable_execution_callback_failure.rs`
@@ -13208,30 +10701,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/update_capacity_provider.rs`
 - `src/operation/update_code_signing_config.rs`
 - `src/operation/update_event_source_mapping.rs`
-- `src/operation/update_function_code/_update_function_code_output.rs`
+- `src/operation/update_function_code/_update_function_code_input.rs`
 - `src/operation/update_function_code.rs`
-- `src/operation/update_function_configuration/_update_function_configuration_output.rs`
 - `src/operation/update_function_configuration.rs`
 - `src/operation/update_function_event_invoke_config.rs`
 - `src/operation/update_function_url_config.rs`
-- `src/operation.rs`
 - `src/serde_util.rs`
-- `src/types/_account_limit.rs`
-- `src/types/_account_usage.rs`
-- `src/types/_callback_options.rs`
 - `src/types/_capacity_provider_logging_config.rs`
 - `src/types/_event.rs`
-- `src/types/_function_configuration.rs`
 - `src/types/_lambda_managed_instances_capacity_provider_config.rs`
-- `src/types/_layer.rs`
-- `src/types/_layer_version_content_output.rs`
-- `src/types/_layer_versions_list_item.rs`
 - `src/types/_logging_config.rs`
 - `src/types/_operation_update.rs`
 - `src/types/_propagate_tags_mode.rs`
-- `src/types/_retry_details.rs`
 - `src/types/_s3_object_storage_mode.rs`
-- `src/types/_step_details.rs`
 - `src/types/builders.rs`
 - `src/types/error/_ec2_access_denied_exception.rs`
 - `src/types/error/_ec2_throttled_exception.rs`

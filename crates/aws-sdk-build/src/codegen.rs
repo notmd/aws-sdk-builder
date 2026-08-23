@@ -7,7 +7,12 @@ use std::{
     path::Path,
 };
 
-use crate::{config::ServiceSelection, error::BuildError, model::SelectedModel, names, registry};
+use crate::{
+    config::ServiceSelection,
+    error::BuildError,
+    model::{ProtocolKind, SelectedModel},
+    names, registry,
+};
 
 pub(crate) struct Generated {
     pub(crate) operations: Vec<String>,
@@ -80,7 +85,7 @@ pub(crate) fn generate(
             ),
             (
                 "src/client.rs".to_owned(),
-                render_client_file(entry.key, &selected),
+                render_client_file(entry.key, &selected, consumer_namespace),
             ),
             (
                 "src/client/customize.rs".to_owned(),
@@ -379,6 +384,9 @@ fn render_service_lib(
     selected: &SelectedModel,
     consumer_namespace: bool,
 ) -> String {
+    if !consumer_namespace {
+        return render_standalone_service_lib(selected);
+    }
     let mut output = String::new();
     header(&mut output);
     if !consumer_namespace {
@@ -458,6 +466,629 @@ fn render_service_lib(
         }
     }
     output
+}
+
+fn render_standalone_service_lib(selected: &SelectedModel) -> String {
+    let service = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .expect("selected service shape exists");
+    let protocol = selected.model.protocol().unwrap_or(ProtocolKind::RestJson1);
+    let service_title = service_title(selected);
+    let crate_name = selected.model.entry.crate_name;
+    let module_name = selected.model.entry.module_name;
+    let module_alias = module_name.strip_prefix("aws_sdk_").unwrap_or(module_name);
+    let sdk_version = selected.model.entry.sdk_version.unwrap_or("0.0.0");
+    let mut output = String::new();
+    output.push_str(
+        "#![allow(deprecated)]\n#![allow(unknown_lints)]\n#![allow(clippy::module_inception)]\n#![allow(clippy::upper_case_acronyms)]\n#![allow(clippy::large_enum_variant)]\n#![allow(clippy::wrong_self_convention)]\n#![allow(clippy::should_implement_trait)]\n#![allow(clippy::disallowed_names)]\n#![allow(clippy::vec_init_then_push)]\n#![allow(clippy::type_complexity)]\n#![allow(clippy::needless_return)]\n#![allow(clippy::derive_partial_eq_without_eq)]\n#![allow(clippy::result_large_err)]\n#![allow(clippy::unnecessary_map_on_constructor)]\n#![allow(clippy::useless_conversion)]\n#![allow(clippy::deprecated_semver)]\n#![allow(rustdoc::bare_urls)]\n#![allow(rustdoc::redundant_explicit_links)]\n#![allow(rustdoc::broken_intra_doc_links)]\n#![allow(rustdoc::invalid_html_tags)]\n#![forbid(unsafe_code)]\n#![warn(missing_docs)]\n#![cfg_attr(docsrs, feature(doc_cfg))]\n",
+    );
+    if let Some(documentation) = service_crate_documentation(service) {
+        for line in documentation.lines() {
+            writeln!(output, "//! {line}").unwrap();
+        }
+    } else {
+        writeln!(output, "//! {service_title}").unwrap();
+    }
+    output.push_str(
+        "//!\n//! ## Getting Started\n//!\n//! > Examples are available for many services and operations, check out the\n//! > [usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1).\n//!\n//! The SDK provides one crate per AWS service. You must add [Tokio](https://crates.io/crates/tokio)\n//! as a dependency within your Rust project to execute asynchronous code. To add [crate] to\n//! your project, add the following to your **Cargo.toml** file:\n//!\n//! ```toml\n//! [dependencies]\n//! aws-config = { version = \"1.1.7\", features = [\"behavior-version-latest\"] }\n",
+    );
+    output = output.replace("To add [crate] to", &format!("To add `{crate_name}` to"));
+    writeln!(
+        output,
+        "//! {crate_name} = \"{sdk_version}\"\n//! tokio = {{ version = \"1\", features = [\"full\"] }}\n//! ```\n//!\n//! Then in code, a client can be created with the following:\n//!\n//! ```rust{}\n//! use {module_name} as {module_alias};\n//!\n//! #[::tokio::main]\n//! async fn main() -> Result<(), {module_alias}::Error> {{\n//!     let config = aws_config::load_from_env().await;\n//!     let client = {module_name}::Client::new(&config);\n//!\n//!     // ... make some calls with the client\n//!\n//!     Ok(())\n//! }}\n//! ```\n//!\n//! See the [client documentation](https://docs.rs/{crate_name}/latest/{module_name}/client/struct.Client.html)\n//! for information on what calls can be made, and the inputs and outputs for each of those calls.\n//!\n//! ## Using the SDK\n//!\n//! Until the SDK is released, we will be adding information about using the SDK to the\n//! [Developer Guide](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/welcome.html). Feel free to suggest\n//! additional sections for the guide by opening an issue and describing what you are trying to do.\n//!\n//! ## Getting Help\n//!\n//! * [GitHub discussions](https://github.com/awslabs/aws-sdk-rust/discussions) - For ideas, RFCs & general questions\n//! * [GitHub issues](https://github.com/awslabs/aws-sdk-rust/issues/new/choose) - For bug reports & feature requests\n//! * [Generated Docs (latest version)](https://awslabs.github.io/aws-sdk-rust/)\n//! * [Usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1)\n//!\n//!\n//! # Crate Organization\n//!\n//! The entry point for most customers will be [`Client`], which exposes one method for each API\n//! offered by {service_title}. The return value of each of these methods is a \"fluent builder\",\n//! where the different inputs for that API are added by builder-style function call chaining,\n//! followed by calling `send()` to get a [`Future`](std::future::Future) that will result in\n//! either a successful output or a [`SdkError`](crate::error::SdkError).\n//!\n//! Some of these API inputs may be structs or enums to provide more complex structured information.\n//! These structs and enums live in [`types`](crate::types). There are some simpler types for\n//! representing data such as date times or binary blobs that live in [`primitives`](crate::primitives).\n//!\n//! All types required to configure a client via the [`Config`](crate::Config) struct live\n//! in [`config`](crate::config).\n//!\n//! The [`operation`](crate::operation) module has a submodule for every API, and in each submodule\n//! is the input, output, and error type for that API, as well as builders to construct each of those.\n//!\n//! There is a top-level [`Error`](crate::Error) type that encompasses all the errors that the\n//! client can return. Any other error type can be converted to this `Error` type via the\n//! [`From`](std::convert::From) trait.\n//!\n//! The other modules within this crate are not required for normal usage.\n\n",
+        if has_trait(service, "aws.auth#sigv4a") {
+            ",ignore"
+        } else {
+            ",no_run"
+        }
+    )
+    .unwrap();
+    output.push_str("// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.\npub use error_meta::Error;\n\n#[doc(inline)]\npub use config::Config;\n\n");
+    client_docs_for_standalone_lib(&mut output, selected, service, &service_title);
+
+    output.push_str("pub mod client;\n\n");
+    writeln!(output, "/// Configuration for {service_title}.").unwrap();
+    output.push_str("pub mod config;\n\n/// Common errors and error handling utilities.\npub mod error;\n\nmod error_meta;\n\n/// Information about this crate.\npub mod meta;\n\n/// All operations that this crate can perform.\npub mod operation;\n\n/// Primitives such as `Blob` or `DateTime` used by other types.\npub mod primitives;\n\n/// Data structures used by operation inputs/outputs.\npub mod types;\n");
+
+    render_standalone_extra_modules(&mut output, selected, protocol);
+    output.push_str("\n#[doc(inline)]\npub use client::Client;\n");
+    output
+}
+
+fn client_docs_for_standalone_lib(
+    output: &mut String,
+    selected: &SelectedModel,
+    service: &Value,
+    service_title: &str,
+) {
+    writeln!(output, "/// Client for calling {service_title}.").unwrap();
+    if !has_trait(service, "aws.auth#sigv4a") {
+        output.push_str(
+            "/// ## Constructing a `Client`\n///\n/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]\n/// crate should be used to automatically resolve this config using\n/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared\n/// across multiple different AWS SDK clients. This config resolution process can be customized\n/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses\n/// the [builder pattern] to customize the default config.\n///\n/// In the simplest case, creating a client looks as follows:\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
+        );
+        writeln!(
+            output,
+            "/// let config = aws_config::load_from_env().await;\n/// let client = {}::Client::new(&config);\n/// # }}\n/// ```\n///\n/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that\n/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.\n/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be\n/// done as follows:\n///\n/// ```rust,no_run\n/// # async fn wrapper() {{\n/// let sdk_config = ::aws_config::load_from_env().await;\n/// let config = {}::config::Builder::from(&sdk_config)\n/// # /*\n///     .some_service_specific_setting(\"value\")\n/// # */\n///     .build();\n/// # }}\n/// ```\n///\n/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.\n///\n/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should\n/// be done once at application start-up.\n///\n/// [`Config`]: crate::Config\n/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html\n/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html\n/// [`aws-config` docs]: https://docs.rs/aws-config/*\n/// [`aws-config`]: https://crates.io/crates/aws-config\n/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html\n/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html\n/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder\n",
+            selected.model.entry.module_name,
+            selected.model.entry.module_name
+        )
+        .unwrap();
+        output.pop();
+    }
+    if let Some((operation_name, member_name)) = client_usage_example(selected) {
+        let module = names::snake_case(&operation_name);
+        let field = names::rust_identifier(&member_name);
+        let field = field.strip_prefix("r#").unwrap_or(&field);
+        writeln!(
+            output,
+            "/// # Using the `Client`\n///\n/// A client has a function for every operation that can be performed by the service.\n/// For example, the [`{operation_name}`](crate::operation::{module}) operation has\n/// a [`Client::{module}`], function which returns a builder for that operation.\n/// The fluent builder ultimately has a `send()` function that returns an async future that\n/// returns a result, as illustrated below:\n///\n/// ```rust,ignore\n/// let result = client.{module}()\n///     .{field}(\"example\")\n///     .send()\n///     .await;\n/// ```\n///\n/// The underlying HTTP requests that get made by this can be modified with the `customize_operation`\n/// function on the fluent builder. See the [`customize`](crate::client::customize) module for more\n/// information."
+        )
+        .unwrap();
+    }
+    if has_waiters(selected) {
+        output.push_str(
+            "/// # Waiters\n///\n/// This client provides `wait_until` methods behind the [`Waiters`](crate::client::Waiters) trait.\n/// To use them, simply import the trait, and then call one of the `wait_until` methods. This will\n/// return a waiter fluent builder that takes various parameters, which are documented on the builder\n/// type. Once parameters have been provided, the `wait` method can be called to initiate waiting.\n///\n/// For example, if there was a `wait_until_thing` method, it could look like:\n/// ```rust,ignore\n/// let result = client.wait_until_thing()\n///     .thing_id(\"someId\")\n///     .wait(Duration::from_secs(120))\n///     .await;\n/// ```\n",
+        );
+    }
+}
+
+fn service_crate_documentation(service: &Value) -> Option<String> {
+    service
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#documentation"))
+        .and_then(Value::as_str)
+        .map(normalize_service_documentation)
+}
+
+#[derive(Debug)]
+struct ServiceDocumentationNode {
+    name: String,
+    tag: String,
+    children: Vec<ServiceDocumentationChild>,
+}
+
+#[derive(Debug)]
+enum ServiceDocumentationChild {
+    Element(ServiceDocumentationNode),
+    Text(String),
+}
+
+fn normalize_service_documentation(value: &str) -> String {
+    let root = parse_service_documentation(value);
+    let rendered = render_service_documentation_node(&root, 0);
+    normalize_service_documentation_whitespace(&rendered)
+}
+
+fn parse_service_documentation(value: &str) -> ServiceDocumentationNode {
+    let mut stack = vec![ServiceDocumentationNode {
+        name: "root".to_owned(),
+        tag: String::new(),
+        children: Vec::new(),
+    }];
+    for token in documentation_tokens(value) {
+        match token {
+            DocumentationToken::Whitespace(_) => {}
+            DocumentationToken::Text(text) => {
+                stack
+                    .last_mut()
+                    .expect("service documentation stack is non-empty")
+                    .children
+                    .push(ServiceDocumentationChild::Text(text));
+            }
+            DocumentationToken::Tag(tag) => {
+                let closing = tag.trim_start().starts_with("</");
+                let Some(name) = documentation_tag_name(&tag) else {
+                    continue;
+                };
+                if closing {
+                    if stack.len() > 1 {
+                        let node = stack.pop().expect("service documentation node exists");
+                        if node.name == name {
+                            stack
+                                .last_mut()
+                                .expect("service documentation parent exists")
+                                .children
+                                .push(ServiceDocumentationChild::Element(node));
+                        }
+                    }
+                    continue;
+                }
+                let node = ServiceDocumentationNode {
+                    name,
+                    tag: tag.clone(),
+                    children: Vec::new(),
+                };
+                if tag.trim_end().ends_with("/>")
+                    || matches!(node.name.as_str(), "br" | "hr" | "img" | "meta" | "link")
+                {
+                    stack
+                        .last_mut()
+                        .expect("service documentation stack is non-empty")
+                        .children
+                        .push(ServiceDocumentationChild::Element(node));
+                } else {
+                    stack.push(node);
+                }
+            }
+        }
+    }
+    while stack.len() > 1 {
+        let node = stack.pop().expect("service documentation node exists");
+        stack
+            .last_mut()
+            .expect("service documentation parent exists")
+            .children
+            .push(ServiceDocumentationChild::Element(node));
+    }
+    stack.pop().expect("service documentation root exists")
+}
+
+fn render_service_documentation_node(node: &ServiceDocumentationNode, list_depth: usize) -> String {
+    match node.name.as_str() {
+        "root" => render_service_documentation_children(&node.children, list_depth),
+        // Smithy-RS removes the entire note, not just the note wrapper.
+        "fullname" | "note" => String::new(),
+        "important" => render_service_documentation_children(&node.children, list_depth),
+        "b" => format!(
+            "__{}__",
+            render_service_documentation_children(&node.children, list_depth)
+        ),
+        "i" => format!(
+            "_{}_",
+            render_service_documentation_children(&node.children, list_depth)
+        ),
+        "a" => {
+            let text = render_service_documentation_children(&node.children, list_depth);
+            let text = text.trim();
+            let Some(href) = service_documentation_attribute(&node.tag, "href") else {
+                return text.to_owned();
+            };
+            if href.is_empty() {
+                text.to_owned()
+            } else {
+                format!("[{text}]({href})")
+            }
+        }
+        "br" => "\n".to_owned(),
+        "p" => {
+            let text = render_service_documentation_children(&node.children, list_depth);
+            format!("\n{}\n", text.trim())
+        }
+        "ul" | "ol" => render_service_documentation_list(node, list_depth + 1),
+        "dl" => render_service_documentation_description_list(node, list_depth),
+        _ => render_service_documentation_children(&node.children, list_depth),
+    }
+}
+
+fn render_service_documentation_children(
+    children: &[ServiceDocumentationChild],
+    list_depth: usize,
+) -> String {
+    children
+        .iter()
+        .map(|child| match child {
+            ServiceDocumentationChild::Element(node) => {
+                render_service_documentation_node(node, list_depth)
+            }
+            ServiceDocumentationChild::Text(text) => normalize_service_documentation_text(text),
+        })
+        .collect()
+}
+
+fn render_service_documentation_list(node: &ServiceDocumentationNode, list_depth: usize) -> String {
+    let prefix = if node.name == "ol" { "1. " } else { "- " };
+    let indent = " ".repeat(list_depth * 2);
+    let mut output = String::new();
+    if list_depth > 1 {
+        output.push('\n');
+    }
+    for child in &node.children {
+        let ServiceDocumentationChild::Element(item) = child else {
+            continue;
+        };
+        if item.name != "li" {
+            continue;
+        }
+        let text = item
+            .children
+            .iter()
+            .map(|child| match child {
+                ServiceDocumentationChild::Element(node) if node.name == "p" => {
+                    render_service_documentation_children(&node.children, list_depth)
+                }
+                ServiceDocumentationChild::Element(node) => {
+                    render_service_documentation_node(node, list_depth)
+                }
+                ServiceDocumentationChild::Text(text) => normalize_service_documentation_text(text),
+            })
+            .collect::<String>();
+        output.push_str(&indent);
+        output.push_str(prefix);
+        let has_nested_list = item.children.iter().any(|child| {
+            matches!(
+                child,
+                ServiceDocumentationChild::Element(node) if matches!(node.name.as_str(), "ul" | "ol")
+            )
+        });
+        output.push_str(text.trim());
+        if has_nested_list {
+            output.push('\n');
+        }
+        output.push('\n');
+    }
+    output
+}
+
+fn render_service_documentation_description_list(
+    node: &ServiceDocumentationNode,
+    list_depth: usize,
+) -> String {
+    let mut output = String::new();
+    for child in &node.children {
+        let ServiceDocumentationChild::Element(item) = child else {
+            continue;
+        };
+        match item.name.as_str() {
+            "dt" => {
+                let text = render_service_documentation_children(&item.children, list_depth);
+                output.push_str("\n__");
+                output.push_str(text.trim());
+                output.push_str("__\n");
+            }
+            "dd" => {
+                let text = render_service_documentation_children(&item.children, list_depth);
+                output.push('\n');
+                output.push_str(text.trim());
+                output.push('\n');
+            }
+            _ => {}
+        }
+    }
+    output.push('\n');
+    output
+}
+
+fn service_documentation_attribute(tag: &str, attribute: &str) -> Option<String> {
+    let name = documentation_tag_name(tag)?;
+    let start = tag.find(&name)? + name.len();
+    let mut rest = &tag[start..tag.len().saturating_sub(1)];
+    while !rest.is_empty() {
+        rest = rest.trim_start();
+        if rest.is_empty() {
+            break;
+        }
+        let end = rest
+            .find(|character: char| character.is_ascii_whitespace() || character == '=')
+            .unwrap_or(rest.len());
+        let current = &rest[..end];
+        rest = &rest[end..];
+        rest = rest.trim_start();
+        if !rest.starts_with('=') {
+            continue;
+        }
+        rest = rest[1..].trim_start();
+        let (value, consumed) =
+            if let Some(quote) = rest.chars().next().filter(|c| *c == '\'' || *c == '"') {
+                let rest_without_quote = &rest[quote.len_utf8()..];
+                let end = rest_without_quote
+                    .find(quote)
+                    .unwrap_or(rest_without_quote.len());
+                (
+                    &rest_without_quote[..end],
+                    (quote.len_utf8() + end + quote.len_utf8()).min(rest.len()),
+                )
+            } else {
+                let end = rest
+                    .find(|character: char| character.is_ascii_whitespace() || character == '>')
+                    .unwrap_or(rest.len());
+                (&rest[..end], end)
+            };
+        if current.eq_ignore_ascii_case(attribute) {
+            return Some(decode_service_documentation_entities(value));
+        }
+        rest = &rest[consumed.min(rest.len())..];
+    }
+    None
+}
+
+fn normalize_service_documentation_text(text: &str) -> String {
+    let decoded = decode_service_documentation_entities(text);
+    let mut output = String::new();
+    let mut whitespace = false;
+    for character in decoded.chars() {
+        if character.is_whitespace() {
+            whitespace = true;
+        } else {
+            if whitespace {
+                output.push(' ');
+            }
+            output.push(character);
+            whitespace = false;
+        }
+    }
+    if whitespace && !output.is_empty() {
+        output.push(' ');
+    }
+    output
+}
+
+fn decode_service_documentation_entities(value: &str) -> String {
+    let mut output = String::with_capacity(value.len());
+    let mut rest = value;
+    while let Some(start) = rest.find('&') {
+        output.push_str(&rest[..start]);
+        let Some(end_offset) = rest[start..].find(';') else {
+            output.push_str(&rest[start..]);
+            return output;
+        };
+        let end = start + end_offset;
+        let entity = &rest[start + 1..end];
+        let decoded = match entity {
+            "amp" => Some('&'),
+            "lt" => Some('<'),
+            "gt" => Some('>'),
+            "quot" => Some('"'),
+            "apos" => Some('\''),
+            "nbsp" => Some(' '),
+            _ if entity.starts_with("#x") || entity.starts_with("#X") => {
+                u32::from_str_radix(&entity[2..], 16)
+                    .ok()
+                    .and_then(char::from_u32)
+            }
+            _ if entity.starts_with('#') => {
+                entity[1..].parse::<u32>().ok().and_then(char::from_u32)
+            }
+            _ => None,
+        };
+        if let Some(character) = decoded {
+            output.push(character);
+        } else {
+            output.push_str(&rest[start..=end]);
+        }
+        rest = &rest[end + 1..];
+    }
+    output.push_str(rest);
+    output
+}
+
+fn normalize_service_documentation_whitespace(value: &str) -> String {
+    let mut lines = Vec::new();
+    for line in value.split('\n') {
+        let line = line.trim_end_matches([' ', '\t']);
+        let trimmed = line.trim_start_matches([' ', '\t']);
+        let line = if trimmed.starts_with('-') || trimmed.starts_with('1') {
+            line
+        } else {
+            trimmed
+        };
+        lines.push(line);
+    }
+    let mut output = String::new();
+    let mut blank_lines = 0;
+    for line in lines {
+        if line.is_empty() {
+            blank_lines += 1;
+            if blank_lines <= 1 {
+                output.push('\n');
+            }
+        } else {
+            blank_lines = 0;
+            output.push_str(line);
+            output.push('\n');
+        }
+    }
+    output.trim_matches('\n').to_owned()
+}
+
+fn render_standalone_extra_modules(
+    output: &mut String,
+    selected: &SelectedModel,
+    protocol: ProtocolKind,
+) {
+    let has_aws_chunked = model_has_aws_chunked_operations(selected);
+    let has_long_polling = model_has_long_polling_operations(selected);
+    let has_query_compatible = service_has_protocol(selected, ProtocolKind::AwsQueryCompatible);
+    let has_aws_query = service_has_protocol(selected, ProtocolKind::AwsQuery);
+    let has_rest_xml = service_has_protocol(selected, ProtocolKind::RestXml);
+    let has_json = service_has_protocol(selected, ProtocolKind::RestJson1)
+        || service_has_protocol(selected, ProtocolKind::AwsJson1_0)
+        || service_has_protocol(selected, ProtocolKind::AwsJson1_1);
+    let has_waiters = has_waiters(selected);
+    let has_paginators = has_paginated_operations(selected);
+    let has_event_stream = model_has_streaming(selected);
+    let has_wrapped_xml_errors = has_aws_query
+        || (has_rest_xml
+            && !selected
+                .model
+                .shapes
+                .get(selected.model.entry.service_shape_id)
+                .is_some_and(|service| {
+                    has_trait_value(service, "aws.protocols#restXml", "noErrorWrapping")
+                }));
+
+    if has_aws_chunked {
+        output.push_str("\npub(crate) mod aws_chunked;\n");
+    }
+    if has_long_polling {
+        output.push_str("\npub(crate) mod long_polling;\n");
+    }
+    if model_contains_string(selected, "AccountId") {
+        output.push_str("\nmod account_id_endpoint;\n");
+    }
+    if has_idempotency_operations(selected) {
+        output.push_str("\npub(crate) mod client_idempotency_token;\n");
+    }
+    if model_has_streaming(selected) {
+        output.push_str("\nmod event_receiver;\n");
+    }
+    if model_contains_trait(selected, "aws.protocols#httpChecksum") {
+        output.push_str(
+            "\npub(crate) mod http_request_checksum;\n\npub(crate) mod http_response_checksum;\n",
+        );
+    }
+    if has_idempotency_operations(selected) {
+        output.push_str("\nmod idempotency_token;\n");
+    }
+    output.push_str("\nmod observability_feature;\n");
+    if has_presignable_operations(selected) {
+        output.push_str("\npub mod presigning;\n\npub(crate) mod presigning_interceptors;\n");
+    }
+    output.push_str("\npub(crate) mod protocol_serde;\n");
+    if has_rest_xml
+        && selected
+            .model
+            .shapes
+            .get(selected.model.entry.service_shape_id)
+            .is_some_and(|service| {
+                has_trait_value(service, "aws.protocols#restXml", "noErrorWrapping")
+            })
+    {
+        output.push_str("\nmod rest_xml_unwrapped_errors;\n");
+    }
+    if selected
+        .operations
+        .iter()
+        .filter_map(|name| operation_shape(selected, name))
+        .any(|operation| operation_has_s3_expires_output(selected, operation))
+    {
+        output.push_str("\nmod s3_expires_interceptor;\n");
+    }
+    if service_supports_s3_express(selected) {
+        output.push_str("\nmod s3_express;\n");
+    }
+    if request_id_plan(selected).extended {
+        output.push_str("\nmod s3_request_id;\n");
+    }
+    output.push_str("\nmod sdk_feature_tracker;\n\nmod serialization_settings;\n");
+    if has_aws_chunked {
+        output.push_str("\npub(crate) mod endpoint_auth;\n");
+    }
+    output.push_str("\nmod endpoint_lib;\n");
+    if has_paginated_operations(selected) {
+        output.push_str("\nmod lens;\n");
+    }
+    if protocol == ProtocolKind::AwsJson1_1 && has_json {
+        output.push_str("\nmod json_errors;\n");
+    }
+    if has_wrapped_xml_errors && !has_waiters && !has_paginators {
+        output.push_str("\nmod rest_xml_wrapped_errors;\n");
+    }
+    output.push_str("\nmod serde_util;\n");
+    if has_waiters {
+        output.push_str("\n/// Supporting types for waiters.\n///\n/// Note: to use waiters, import the [`Waiters`](crate::client::Waiters) trait, which adds methods prefixed with `wait_until` to the client.\npub mod waiters;\n");
+    }
+    if has_wrapped_xml_errors && has_waiters {
+        output.push_str("\nmod rest_xml_wrapped_errors;\n");
+    }
+    if has_event_stream && !has_rest_xml {
+        output.push_str("\nmod event_stream_serde;\n");
+    }
+    if has_query_compatible {
+        output.push_str("\nmod aws_query_compatible_errors;\n");
+    }
+    if has_event_stream && has_rest_xml {
+        output.push_str("\nmod event_stream_serde;\n");
+    }
+    if (has_json || has_query_compatible) && protocol != ProtocolKind::AwsJson1_1 {
+        output.push_str("\nmod json_errors;\n");
+    }
+    if has_wrapped_xml_errors && !has_waiters && has_paginators {
+        output.push_str("\nmod rest_xml_wrapped_errors;\n");
+    }
+}
+
+fn service_has_protocol(selected: &SelectedModel, protocol: ProtocolKind) -> bool {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|service| service.get("traits"))
+        .and_then(Value::as_object)
+        .is_some_and(|traits| traits.contains_key(protocol.trait_id()))
+}
+
+fn model_has_aws_chunked_operations(selected: &SelectedModel) -> bool {
+    selected.operations.iter().any(|operation_name| {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            return false;
+        };
+        let input = operation
+            .get("input")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id));
+        operation_requires_aws_chunked(selected, operation, input)
+    })
+}
+
+fn model_has_long_polling_operations(selected: &SelectedModel) -> bool {
+    selected.operations.iter().any(|operation_name| {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            return false;
+        };
+        if has_trait(operation, "aws.api#longPoll") {
+            return true;
+        }
+        let Some(input) = operation
+            .get("input")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        else {
+            return false;
+        };
+        members(input)
+            .into_iter()
+            .any(|(name, _)| name.eq_ignore_ascii_case("waitTimeSeconds"))
+    })
+}
+
+fn model_contains_trait(selected: &SelectedModel, trait_id: &str) -> bool {
+    selected.model.shapes.values().any(|shape| {
+        has_trait(shape, trait_id)
+            || shape
+                .get("members")
+                .and_then(Value::as_object)
+                .is_some_and(|members| members.values().any(|member| has_trait(member, trait_id)))
+    })
+}
+
+fn model_contains_string(selected: &SelectedModel, needle: &str) -> bool {
+    selected
+        .model
+        .shapes
+        .values()
+        .any(|shape| value_contains_string(shape, needle))
+}
+
+fn has_trait_value(value: &Value, trait_id: &str, field: &str) -> bool {
+    value
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get(trait_id))
+        .and_then(Value::as_object)
+        .is_some_and(|fields| fields.contains_key(field))
 }
 
 fn render_consumer_waiters_trait(output: &mut String, selected: &SelectedModel) {
@@ -2120,6 +2751,12 @@ fn render_type_file(
         .expect("type module must have a closing brace");
     let mut output = String::new();
     header(&mut output);
+    if rendered[start..]
+        .trim_start()
+        .starts_with("#[allow(missing_docs)] // documentation missing in model")
+    {
+        output.pop();
+    }
     for line in rendered[start..end].trim_end().lines() {
         output.push_str(line.strip_prefix("    ").unwrap_or(line));
         output.push('\n');
@@ -2231,6 +2868,9 @@ fn render_operations_file(
     selected: &SelectedModel,
     consumer_namespace: bool,
 ) -> String {
+    if !consumer_namespace {
+        return render_standalone_operations_file(selected);
+    }
     let mut output = String::new();
     header(&mut output);
     let request_id_plan = request_id_plan(selected);
@@ -2260,6 +2900,28 @@ fn render_operations_file(
         output.push_str("    }\n");
     }
     output.push_str("}\n\n");
+    output
+}
+
+fn render_standalone_operations_file(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str("pub use ::aws_types::request_id::RequestId;\n\n");
+    if request_id_plan(selected).extended {
+        output.push_str("pub use crate::s3_request_id::RequestIdExt;\n\n");
+    }
+
+    let mut operations = selected.operations.clone();
+    operations.sort();
+    for operation_name in operations {
+        let module = names::snake_case(&operation_name);
+        writeln!(
+            output,
+            "/// Types for the `{operation_name}` operation.\npub mod {module};"
+        )
+        .unwrap();
+        output.push('\n');
+    }
     output
 }
 
@@ -9719,7 +10381,8 @@ fn render_response_decode(
     let output_requires_validation = shape.is_some_and(|shape| {
         members(shape).iter().any(|(_, member)| {
             let target = member_target(member).unwrap_or("smithy.api#String");
-            member_is_effectively_required(selected, member, target)
+            is_event_stream_target(selected, target)
+                || (member_is_required(member) && !has_trait(member, "smithy.api#default"))
         })
     });
     let has_decoded_values = shape
@@ -10269,7 +10932,10 @@ fn structure_member_type(
     context: &Context,
 ) -> String {
     let value_type = type_expr(selected, target, context.clone());
-    if is_streaming_target(target) || is_streaming_output_target(selected, target, context) {
+    if has_trait(member, "smithy.api#streaming")
+        || is_streaming_shape_target(selected, target)
+        || is_streaming_output_target(selected, target, context)
+    {
         value_type
     } else if operation_input(context) || !member_is_effectively_required(selected, member, target)
     {
@@ -10287,7 +10953,7 @@ fn operation_input(context: &Context) -> bool {
 }
 
 fn member_is_effectively_required(selected: &SelectedModel, member: &Value, target: &str) -> bool {
-    member_is_required(member)
+    (member_is_required(member) || has_trait(member, "smithy.api#default"))
         && selected
             .model
             .shapes
@@ -10443,7 +11109,9 @@ fn builder_member_is_required(
 ) -> bool {
     !operation_input(context)
         && (is_event_stream_target(selected, target)
-            || member_is_effectively_required(selected, member, target))
+            || (member_is_required(member)
+                && !has_trait(member, "smithy.api#default")
+                && member_is_effectively_required(selected, member, target)))
 }
 
 fn builder_argument_type(selected: &SelectedModel, target: &str, value_type: &str) -> String {
@@ -10542,6 +11210,7 @@ fn render_structure_at_indent(
         )
         .unwrap();
     }
+    render_deprecated_attribute(output, shape, indent);
     writeln!(output, "{padding}#[non_exhaustive]").unwrap();
     let derives = "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug";
     let mut excluded_derives = Vec::new();
@@ -10638,7 +11307,9 @@ fn render_structure_accessors(
                 .unwrap();
             }
             render_deprecated_attribute(output, member, indent + 4);
-            let required = is_streaming_target(target)
+            let required = has_trait(member, "smithy.api#streaming")
+                || is_streaming_shape_target(selected, target)
+                || is_streaming_target(target)
                 || is_streaming_output_target(selected, target, &context)
                 || (!operation_input(&context)
                     && member_is_effectively_required(selected, member, target));
@@ -11196,7 +11867,10 @@ fn render_type_builder(
             .map(|(_, member)| member)
             .expect("member exists");
         let target = member_target(member).unwrap_or("smithy.api#String");
-        if is_streaming_target(target) {
+        if has_trait(member, "smithy.api#streaming")
+            || is_streaming_shape_target(selected, target)
+            || has_trait(member, "smithy.api#default")
+        {
             writeln!(
                 output,
                 "{inner}        {field}: self.{field}.unwrap_or_default(),"
@@ -11476,6 +12150,7 @@ fn render_enum(
     } else {
         output.push_str("    #[allow(missing_docs)] // documentation missing in model\n");
     }
+    render_deprecated_attribute(output, shape, 4);
     output.push_str("    #[non_exhaustive]\n");
     output.push_str("    #[derive(\n");
     output.push_str(
@@ -11620,7 +12295,14 @@ fn enum_value(member: &Value, fallback: &str) -> String {
         .to_owned()
 }
 
-fn render_client_file(service_key: &str, selected: &SelectedModel) -> String {
+fn render_client_file(
+    service_key: &str,
+    selected: &SelectedModel,
+    consumer_namespace: bool,
+) -> String {
+    if !consumer_namespace {
+        return render_standalone_client_file(selected);
+    }
     let mut output = String::new();
     output.push_str(&render_aws_runtime());
     render_client(&mut output, service_key, selected);
@@ -11753,6 +12435,172 @@ fn render_client(output: &mut String, service_key: &str, selected: &SelectedMode
     }
 }
 
+fn render_standalone_client_file(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str(
+        "#[derive(Debug)]\n\
+         pub(crate) struct Handle {\n\
+             pub(crate) conf: crate::Config,\n\
+             #[allow(dead_code)] // unused when a service does not provide any operations\n\
+             pub(crate) runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,\n\
+         }\n\n",
+    );
+
+    let service_title = service_title(selected);
+    let module_name = selected.model.entry.module_name;
+    writeln!(output, "/// Client for {service_title}").unwrap();
+    writeln!(
+        output,
+        "///\n/// Client for invoking operations on {service_title}. Each operation on {service_title} is a method on this"
+    )
+    .unwrap();
+    output.push_str(
+        "/// this struct. `.send()` MUST be invoked on the generated operations to dispatch the request to the service.\n",
+    );
+    output.push_str(
+        "/// ## Constructing a `Client`\n///\n/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]\n/// crate should be used to automatically resolve this config using\n/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared\n/// across multiple different AWS SDK clients. This config resolution process can be customized\n/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses\n/// the [builder pattern] to customize the default config.\n///\n/// In the simplest case, creating a client looks as follows:\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
+    );
+    writeln!(
+        output,
+        "/// let config = aws_config::load_from_env().await;\n/// let client = {module_name}::Client::new(&config);"
+    )
+    .unwrap();
+    output.push_str(
+        "/// # }\n/// ```\n///\n/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that\n/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.\n/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be\n/// done as follows:\n///\n/// ```rust,no_run\n/// # async fn wrapper() {\n",
+    );
+    writeln!(
+        output,
+        "/// let sdk_config = ::aws_config::load_from_env().await;\n/// let config = {module_name}::config::Builder::from(&sdk_config)"
+    )
+    .unwrap();
+    output.push_str(
+        "/// # /*\n///     .some_service_specific_setting(\"value\")\n/// # */\n///     .build();\n/// # }\n/// ```\n///\n/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.\n///\n/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should\n/// be done once at application start-up.\n///\n/// [`Config`]: crate::Config\n/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html\n/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html\n/// [`aws-config` docs]: https://docs.rs/aws-config/*\n/// [`aws-config`]: https://crates.io/crates/aws-config\n/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html\n/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html\n/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder\n",
+    );
+
+    if let Some((operation_name, member_name)) = client_usage_example(selected) {
+        let module = names::snake_case(&operation_name);
+        let field = names::rust_identifier(&member_name);
+        let field = field.strip_prefix("r#").unwrap_or(&field);
+        writeln!(
+            output,
+            "/// # Using the `Client`\n///\n/// A client has a function for every operation that can be performed by the service.\n/// For example, the [`{operation_name}`](crate::operation::{module}) operation has\n/// a [`Client::{module}`], function which returns a builder for that operation.\n/// The fluent builder ultimately has a `send()` function that returns an async future that\n/// returns a result, as illustrated below:\n///\n/// ```rust,ignore\n/// let result = client.{module}()\n///     .{field}(\"example\")\n///     .send()\n///     .await;\n/// ```\n///\n/// The underlying HTTP requests that get made by this can be modified with the `customize_operation`\n/// function on the fluent builder. See the [`customize`](crate::client::customize) module for more\n/// information."
+        )
+        .unwrap();
+    }
+    if has_waiters(selected) {
+        output.push_str(
+            "/// # Waiters\n///\n/// This client provides `wait_until` methods behind the [`Waiters`](crate::client::Waiters) trait.\n/// To use them, simply import the trait, and then call one of the `wait_until` methods. This will\n/// return a waiter fluent builder that takes various parameters, which are documented on the builder\n/// type. Once parameters have been provided, the `wait` method can be called to initiate waiting.\n///\n/// For example, if there was a `wait_until_thing` method, it could look like:\n/// ```rust,ignore\n/// let result = client.wait_until_thing()\n///     .thing_id(\"someId\")\n///     .wait(Duration::from_secs(120))\n///     .await;\n/// ```\n",
+        );
+    }
+
+    output.push_str("#[derive(::std::clone::Clone, ::std::fmt::Debug)]\npub struct Client {\n    handle: ::std::sync::Arc<Handle>,\n}\n\n");
+    output.push_str(
+        "impl Client {\n    /// Creates a new client from the service [`Config`](crate::Config).\n    ///\n    /// # Panics\n    ///\n    /// This method will panic in the following cases:\n    ///\n    /// - Retries or timeouts are enabled without a `sleep_impl` configured.\n    /// - Identity caching is enabled without a `sleep_impl` and `time_source` configured.\n    /// - No `behavior_version` is provided.\n    ///\n    /// The panic message for each of these will have instructions on how to resolve them.\n    #[track_caller]\n    pub fn from_conf(conf: crate::Config) -> Self {\n        let handle = Handle {\n            conf: conf.clone(),\n            runtime_plugins: crate::config::base_client_runtime_plugins(conf),\n        };\n        if let Err(err) = Self::validate_config(&handle) {\n            panic!(\"Invalid client configuration: {err}\");\n        }\n        Self {\n            handle: ::std::sync::Arc::new(handle),\n        }\n    }\n\n    /// Returns the client's configuration.\n    pub fn config(&self) -> &crate::Config {\n        &self.handle.conf\n    }\n\n    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {\n        let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();\n        handle\n            .runtime_plugins\n            .apply_client_configuration(&mut cfg)?\n            .validate_base_client_config(&cfg)?;\n        Ok(())\n    }\n}\n",
+    );
+
+    if has_waiters(selected) {
+        output.push_str(
+            "\n///\n/// Waiter functions for the client.\n///\n/// Import this trait to get `wait_until` methods on the client.\n///\npub trait Waiters {\n",
+        );
+        for (_, waiter_name, waiter) in waiter_specs(selected) {
+            let waiter_type = rust_type_name(&waiter_name);
+            if let Some(documentation) = waiter.get("documentation").and_then(Value::as_str) {
+                writeln!(
+                    output,
+                    "    /// {documentation}\n    fn wait_until_{waiter_name}(&self) -> crate::waiters::{waiter_name}::{waiter_type}FluentBuilder;"
+                )
+                .unwrap();
+            } else {
+                writeln!(
+                    output,
+                    "    /// Wait for `{waiter_name}`\n    fn wait_until_{waiter_name}(&self) -> crate::waiters::{waiter_name}::{waiter_type}FluentBuilder;"
+                )
+                .unwrap();
+            }
+        }
+        output.push_str("}\nimpl Waiters for Client {\n");
+        for (_, waiter_name, _) in waiter_specs(selected) {
+            let waiter_type = rust_type_name(&waiter_name);
+            writeln!(
+                output,
+                "    fn wait_until_{waiter_name}(&self) -> crate::waiters::{waiter_name}::{waiter_type}FluentBuilder {{\n        crate::waiters::{waiter_name}::{waiter_type}FluentBuilder::new(self.handle.clone())\n    }}"
+            )
+            .unwrap();
+        }
+        output.push_str("}\n");
+    }
+
+    output.push_str(
+        "\nimpl Client {\n    /// Creates a new client from an [SDK Config](::aws_types::sdk_config::SdkConfig).\n    ///\n    /// # Panics\n    ///\n    /// - This method will panic if the `sdk_config` is missing an async sleep implementation. If you experience this panic, set\n    ///   the `sleep_impl` on the Config passed into this function to fix it.\n    /// - This method will panic if the `sdk_config` is missing an HTTP connector. If you experience this panic, set the\n    ///   `http_connector` on the Config passed into this function to fix it.\n    /// - This method will panic if no `BehaviorVersion` is provided. If you experience this panic, set `behavior_version` on the Config or enable the `behavior-version-latest` Cargo feature.\n    #[track_caller]\n    pub fn new(sdk_config: &::aws_types::sdk_config::SdkConfig) -> Self {\n        Self::from_conf(sdk_config.into())\n    }\n}\n",
+    );
+
+    output.push('\n');
+    let mut operations = selected.operations.clone();
+    operations.sort_by_key(|operation| names::snake_case(operation));
+    let mut customize_written = false;
+    for operation_name in operations {
+        let module = names::snake_case(&operation_name);
+        if !customize_written && "customize" < module.as_str() {
+            render_standalone_customize_module(&mut output, selected);
+            customize_written = true;
+        }
+        writeln!(output, "mod {module};\n").unwrap();
+    }
+    if !customize_written {
+        render_standalone_customize_module(&mut output, selected);
+    }
+    output
+}
+
+fn render_standalone_customize_module(output: &mut String, selected: &SelectedModel) {
+    let mut operations = selected.operations.clone();
+    operations.sort();
+    let operation = operations
+        .first()
+        .map(String::as_str)
+        .unwrap_or("operation");
+    let module = names::snake_case(operation);
+    let crate_name = selected.model.entry.module_name;
+    output.push_str(
+        "\n/// Operation customization and supporting types.\n///\n/// The underlying HTTP requests made during an operation can be customized\n/// by calling the `customize()` method on the builder returned from a client\n/// operation call. For example, this can be used to add an additional HTTP header:\n///\n/// ```ignore\n",
+    );
+    writeln!(
+        output,
+        "/// # async fn wrapper() -> ::std::result::Result<(), {crate_name}::Error> {{\n/// # let client: {crate_name}::Client = unimplemented!();"
+    )
+    .unwrap();
+    output.push_str(
+        "/// use ::http_1x::header::{HeaderName, HeaderValue};\n///\n/// let result = client.",
+    );
+    writeln!(output, "{module}()").unwrap();
+    output.push_str(
+        "///     .customize()\n///     .mutate_request(|req| {\n///         // Add `x-example-header` with value\n///         req.headers_mut()\n///             .insert(\n///                 HeaderName::from_static(\"x-example-header\"),\n///                 HeaderValue::from_static(\"1\"),\n///             );\n///     })\n///     .send()\n///     .await;\n/// # }\n/// ```\npub mod customize;\n\n",
+    );
+}
+
+fn client_usage_example(selected: &SelectedModel) -> Option<(String, String)> {
+    let mut operations = selected.operations.clone();
+    operations.sort();
+    operations.into_iter().find_map(|operation_name| {
+        let operation = operation_shape(selected, &operation_name)?;
+        let input_id = operation.get("input").and_then(target_value)?;
+        let input = selected.model.shapes.get(input_id)?;
+        members(input)
+            .into_iter()
+            .find_map(|(member_name, member)| {
+                let target = member_target(member)?;
+                let shape = selected.model.shapes.get(target);
+                let string_shape = is_string_type(target, shape)
+                    || shape
+                        .and_then(|shape| shape.get("type"))
+                        .and_then(Value::as_str)
+                        == Some("enum");
+                string_shape.then_some((operation_name.clone(), member_name))
+            })
+    })
+}
+
 fn render_client_operation_file(
     selected: &SelectedModel,
     operation: &str,
@@ -11805,9 +12653,14 @@ fn render_client_operation_file(
                 let argument = client_documentation_argument_types(selected, target_id);
                 let required = member_is_required(member);
                 let documentation = member_documentation(selected, member);
+                let setter_type = if is_streaming_shape_target(selected, target_id) {
+                    target.clone()
+                } else {
+                    format!("Option<{target}>")
+                };
                 writeln!(
                     output,
-                    "    ///   - [`{field_method}({argument})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::{field_method}) / [`set_{field_method}(Option<{target}>)`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::set_{field_method}):<br>required: **{required}**<br>{documentation}<br>"
+                    "    ///   - [`{field_method}({argument})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::{field_method}) / [`set_{field_method}({setter_type})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::set_{field_method}):<br>required: **{required}**<br>{documentation}<br>"
                 )
                 .unwrap();
             }
@@ -11858,6 +12711,7 @@ fn render_client_operation_file(
             "    /// - On failure, responds with [`SdkError<{operation_symbol}Error>`](crate::operation::{module}::{operation_symbol}Error)"
         )
         .unwrap();
+        render_deprecated_attribute(&mut output, operation_shape, 4);
         let fluent_builder_path =
             format!("crate::operation::{module}::builders::{operation_symbol}FluentBuilder");
         let method_signature = format!("    pub fn {module}(&self) -> {fluent_builder_path}");
@@ -11926,7 +12780,11 @@ fn client_documentation_type(selected: &SelectedModel, target: &str) -> String {
         "smithy.api#Long" => "i64".to_owned(),
         "smithy.api#Float" => "f32".to_owned(),
         "smithy.api#Double" => "f64".to_owned(),
-        _ if terminal(target) == "StreamingBlob" => "ByteStream".to_owned(),
+        _ if is_streaming_shape_target(selected, target)
+            && !is_event_stream_target(selected, target) =>
+        {
+            "ByteStream".to_owned()
+        }
         _ => {
             let Some(shape) = selected.model.shapes.get(target) else {
                 return rust_type_name(terminal(target));
@@ -12091,20 +12949,23 @@ fn normalize_model_documentation(value: &str) -> String {
                 let (normalized_tag, name) = normalize_documentation_tag(&tag, closing, &stack);
 
                 if closing {
-                    if let Some(opening_index) = stack.iter().rposition(|current| current == &name)
-                    {
-                        while stack.len() > opening_index + 1 {
-                            let unclosed = stack.pop().expect("opening tag exists");
-                            if !documentation_is_inline(&unclosed)
-                                && !previous_tag.as_ref().is_some_and(|(is_closing, previous)| {
-                                    !is_closing && previous == &unclosed
-                                })
-                            {
-                                documentation_newline(&mut output);
-                            }
-                            output.push_str(&format!("</{unclosed}>"));
-                            previous_tag = Some((true, unclosed));
+                    let Some(opening_index) = stack.iter().rposition(|current| current == &name)
+                    else {
+                        pending_whitespace = false;
+                        pending_newline = false;
+                        continue;
+                    };
+                    while stack.len() > opening_index + 1 {
+                        let unclosed = stack.pop().expect("opening tag exists");
+                        if !documentation_is_inline(&unclosed)
+                            && !previous_tag.as_ref().is_some_and(|(is_closing, previous)| {
+                                !is_closing && previous == &unclosed
+                            })
+                        {
+                            documentation_newline(&mut output);
                         }
+                        output.push_str(&format!("</{unclosed}>"));
+                        previous_tag = Some((true, unclosed));
                     }
                     if ((!documentation_known_tag(&name) || pending_newline)
                         && documentation_pseudo_tag_in_stack(&stack))
@@ -12128,6 +12989,11 @@ fn normalize_model_documentation(value: &str) -> String {
                     previous_tag = Some((true, name));
                 } else {
                     if documentation_block_tag(&name)
+                        || (pending_newline
+                            && documentation_custom_tag(&name)
+                            && previous_tag
+                                .as_ref()
+                                .is_some_and(|(closing, previous)| !closing && previous == "dd"))
                         || (pending_newline && documentation_pseudo_tag_in_stack(&stack))
                         || (!documentation_known_tag(&name)
                             && documentation_pseudo_tag_in_stack(&stack))
@@ -12157,11 +13023,14 @@ fn normalize_model_documentation(value: &str) -> String {
                 pending_newline = false;
             }
             DocumentationToken::Text(text) => {
-                let trimmed = text.split_whitespace().collect::<Vec<_>>().join(" ");
+                let trimmed = collapse_documentation_whitespace(&text);
                 if trimmed.is_empty() {
                     continue;
                 }
-                let has_leading_whitespace = text.chars().next().is_some_and(char::is_whitespace);
+                let has_leading_whitespace = text
+                    .chars()
+                    .next()
+                    .is_some_and(is_collapsible_documentation_whitespace);
                 if previous_tag
                     .as_ref()
                     .is_some_and(|(closing, name)| !closing && name == "dt")
@@ -12182,7 +13051,10 @@ fn normalize_model_documentation(value: &str) -> String {
                     documentation_space(&mut output);
                 }
                 output.push_str(&escape_documentation_text(&escape_doc_brackets(&trimmed)));
-                pending_whitespace = text.chars().last().is_some_and(char::is_whitespace);
+                pending_whitespace = text
+                    .chars()
+                    .last()
+                    .is_some_and(is_collapsible_documentation_whitespace);
                 pending_newline = text
                     .chars()
                     .last()
@@ -12207,8 +13079,9 @@ fn normalize_documentation_tag(tag: &str, closing: bool, stack: &[String]) -> (S
 }
 
 fn lowercase_documentation_tag(tag: &str) -> String {
+    let tag = compact_documentation_tag_whitespace(tag);
     let Some(name_start) = tag.find(|character: char| character.is_ascii_alphabetic()) else {
-        return tag.to_owned();
+        return tag;
     };
     let name_end = tag[name_start..]
         .find(|character: char| {
@@ -12220,7 +13093,7 @@ fn lowercase_documentation_tag(tag: &str) -> String {
         .chars()
         .all(|character| !character.is_ascii_uppercase())
     {
-        return tag.to_owned();
+        return tag;
     }
     format!(
         "{}{}{}",
@@ -12228,6 +13101,39 @@ fn lowercase_documentation_tag(tag: &str) -> String {
         original.to_ascii_lowercase(),
         &tag[name_end..]
     )
+}
+
+fn compact_documentation_tag_whitespace(tag: &str) -> String {
+    let mut output = String::with_capacity(tag.len());
+    let mut quoted = None;
+    let mut pending_whitespace = false;
+    for character in tag.chars() {
+        if let Some(quote) = quoted {
+            output.push(character);
+            if character == quote {
+                quoted = None;
+            }
+        } else if matches!(character, '\'' | '"') {
+            if pending_whitespace && !matches!(output.chars().last(), Some('<' | '/')) {
+                output.push(' ');
+            }
+            pending_whitespace = false;
+            output.push(character);
+            quoted = Some(character);
+        } else if character.is_whitespace() {
+            pending_whitespace = true;
+        } else {
+            if pending_whitespace
+                && !output.is_empty()
+                && !matches!(output.chars().last(), Some('<' | '/'))
+            {
+                output.push(' ');
+            }
+            pending_whitespace = false;
+            output.push(character);
+        }
+    }
+    output
 }
 
 fn documentation_pseudo_tag_in_stack(stack: &[String]) -> bool {
@@ -12355,6 +13261,27 @@ fn escape_doc_brackets(value: &str) -> String {
     value.replace('[', "\\[").replace(']', "\\]")
 }
 
+fn is_collapsible_documentation_whitespace(character: char) -> bool {
+    character.is_whitespace() && character != '\u{a0}'
+}
+
+fn collapse_documentation_whitespace(value: &str) -> String {
+    let mut output = String::new();
+    let mut pending_whitespace = false;
+    for character in value.chars() {
+        if is_collapsible_documentation_whitespace(character) {
+            pending_whitespace = true;
+        } else {
+            if pending_whitespace && !output.is_empty() {
+                output.push(' ');
+            }
+            output.push(character);
+            pending_whitespace = false;
+        }
+    }
+    output
+}
+
 fn normalize_client_documentation(value: &str) -> String {
     let tokens = documentation_tokens(value);
 
@@ -12378,7 +13305,7 @@ fn normalize_client_documentation(value: &str) -> String {
         }
         match token {
             DocumentationToken::Tag(tag) => {
-                output.push_str(tag);
+                output.push_str(&lowercase_documentation_tag(tag));
                 if let Some(name) = documentation_tag_name(tag) {
                     if tag.starts_with("</") {
                         if stack.last().is_some_and(|current| current == &name) {
@@ -12532,7 +13459,7 @@ fn normalize_documentation_text(
         });
         let mut whitespace = false;
         for character in text.chars() {
-            if character.is_whitespace() {
+            if character.is_whitespace() && character != '\u{a0}' {
                 whitespace = true;
             } else {
                 if whitespace
@@ -12563,7 +13490,7 @@ fn normalize_documentation_text(
     });
     let mut whitespace = false;
     for character in text.chars() {
-        if character.is_whitespace() {
+        if character.is_whitespace() && character != '\u{a0}' {
             whitespace = true;
         } else {
             if whitespace
@@ -12588,6 +13515,7 @@ fn normalize_documentation_text(
 fn escape_documentation_text(text: &str) -> String {
     text.chars().fold(String::new(), |mut output, character| {
         match character {
+            '\u{a0}' => output.push_str("&nbsp;"),
             '<' => output.push_str("&lt;"),
             '>' => output.push_str("&gt;"),
             '&' => output.push_str("&amp;"),
@@ -12666,7 +13594,7 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
         };
         return format!("crate::event_receiver::EventReceiver<{value_path}, {error_path}>");
     }
-    if terminal(target) == "StreamingBlob" {
+    if is_streaming_shape_target(selected, target) {
         return match context {
             Context::Types { consumer_namespace } => {
                 if consumer_namespace {

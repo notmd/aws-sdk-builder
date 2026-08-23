@@ -17,7 +17,7 @@ pub struct GetFunctionConfigurationOutput {
     /// <p>The function that Lambda calls to begin running your function.</p>
     pub handler: ::std::option::Option<::std::string::String>,
     /// <p>The size of the function's deployment package, in bytes.</p>
-    pub code_size: ::std::option::Option<i64>,
+    pub code_size: i64,
     /// <p>The function's description.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
@@ -123,7 +123,7 @@ impl GetFunctionConfigurationOutput {
         self.handler.as_deref()
     }
     /// <p>The size of the function's deployment package, in bytes.</p>
-    pub fn code_size(&self) -> ::std::option::Option<i64> {
+    pub fn code_size(&self) -> i64 {
         self.code_size
     }
     /// <p>The function's description.</p>
@@ -973,7 +973,7 @@ impl GetFunctionConfigurationOutputBuilder {
             runtime: self.runtime,
             role: self.role,
             handler: self.handler,
-            code_size: self.code_size,
+            code_size: self.code_size.unwrap_or_default(),
             description: self.description,
             timeout: self.timeout,
             memory_size: self.memory_size,

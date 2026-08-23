@@ -58,22 +58,10 @@ impl GetSmsSandboxAccountStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetSmsSandboxAccountStatusOutput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`is_in_sandbox`](crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusOutputBuilder::is_in_sandbox)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
-            is_in_sandbox: self.is_in_sandbox.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "is_in_sandbox",
-                    "is_in_sandbox was not specified but it is required when building GetSmsSandboxAccountStatusOutput",
-                )
-            })?,
+    pub fn build(self) -> crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
+        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
+            is_in_sandbox: self.is_in_sandbox.unwrap_or_default(),
             _request_id: self._request_id,
-        })
+        }
     }
 }

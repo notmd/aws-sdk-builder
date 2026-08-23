@@ -57,7 +57,8 @@ impl crate::operation::get_object_attributes::builders::GetObjectAttributesInput
 /// <dt>
 /// Encryption
 /// </dt>
-/// <dd><note>
+/// <dd>
+/// <note>
 /// <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not be sent for <code>HEAD</code> requests if your object uses server-side encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). The <code>x-amz-server-side-encryption</code> header is used when you <code>PUT</code> an object to S3 and want to specify the encryption method. If you include this header in a <code>GET</code> request for an object that uses these types of keys, you’ll get an HTTP <code>400 Bad Request</code> error. It's because the encryption method can't be changed when you retrieve the object.</p>
 /// </note>
 /// <p>If you encrypted an object when you stored the object in Amazon S3 by using server-side encryption with customer-provided encryption keys (SSE-C), then when you retrieve the metadata from the object, you must use the following headers. These headers provide the server with the encryption key required to retrieve the object's metadata. The headers are:</p>

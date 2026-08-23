@@ -11,7 +11,7 @@ pub struct CheckIfPhoneNumberIsOptedOutOutput {
     /// <li>
     /// <p><code>false</code> – The phone number is opted in, meaning you can publish SMS messages to it.</p></li>
     /// </ul>
-    pub is_opted_out: ::std::option::Option<bool>,
+    pub is_opted_out: bool,
     _request_id: Option<String>,
 }
 impl CheckIfPhoneNumberIsOptedOutOutput {
@@ -22,7 +22,7 @@ impl CheckIfPhoneNumberIsOptedOutOutput {
     /// <li>
     /// <p><code>false</code> – The phone number is opted in, meaning you can publish SMS messages to it.</p></li>
     /// </ul>
-    pub fn is_opted_out(&self) -> ::std::option::Option<bool> {
+    pub fn is_opted_out(&self) -> bool {
         self.is_opted_out
     }
 }
@@ -90,7 +90,7 @@ impl CheckIfPhoneNumberIsOptedOutOutputBuilder {
     /// Consumes the builder and constructs a [`CheckIfPhoneNumberIsOptedOutOutput`](crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput).
     pub fn build(self) -> crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput {
         crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutOutput {
-            is_opted_out: self.is_opted_out,
+            is_opted_out: self.is_opted_out.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

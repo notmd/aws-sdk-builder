@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeleteFunctionOutput {
     /// <p>The HTTP status code returned by the operation.</p>
-    pub status_code: ::std::option::Option<i32>,
+    pub status_code: i32,
     _request_id: Option<String>,
 }
 impl DeleteFunctionOutput {
     /// <p>The HTTP status code returned by the operation.</p>
-    pub fn status_code(&self) -> ::std::option::Option<i32> {
+    pub fn status_code(&self) -> i32 {
         self.status_code
     }
 }
@@ -59,7 +59,7 @@ impl DeleteFunctionOutputBuilder {
     /// Consumes the builder and constructs a [`DeleteFunctionOutput`](crate::operation::delete_function::DeleteFunctionOutput).
     pub fn build(self) -> crate::operation::delete_function::DeleteFunctionOutput {
         crate::operation::delete_function::DeleteFunctionOutput {
-            status_code: self.status_code,
+            status_code: self.status_code.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

@@ -11,7 +11,7 @@ pub struct ListResourceTagsOutput {
     /// <p>Do not assume or infer any information from this value.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-    pub truncated: ::std::option::Option<bool>,
+    pub truncated: bool,
     _request_id: Option<String>,
 }
 impl ListResourceTagsOutput {
@@ -29,7 +29,7 @@ impl ListResourceTagsOutput {
         self.next_marker.as_deref()
     }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-    pub fn truncated(&self) -> ::std::option::Option<bool> {
+    pub fn truncated(&self) -> bool {
         self.truncated
     }
 }
@@ -126,7 +126,7 @@ impl ListResourceTagsOutputBuilder {
         crate::operation::list_resource_tags::ListResourceTagsOutput {
             tags: self.tags,
             next_marker: self.next_marker,
-            truncated: self.truncated,
+            truncated: self.truncated.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

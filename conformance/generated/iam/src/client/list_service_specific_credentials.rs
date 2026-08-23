@@ -11,7 +11,7 @@ impl super::Client {
     /// - On success, responds with [`ListServiceSpecificCredentialsOutput`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput) with field(s):
     ///   - [`service_specific_credentials(Option<Vec::<ServiceSpecificCredentialMetadata>>)`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput::service_specific_credentials): <p>A list of structures that each contain details about a service-specific credential.</p>
     ///   - [`marker(Option<String>)`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput::marker): <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
-    ///   - [`is_truncated(Option<bool>)`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput::is_truncated): <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
+    ///   - [`is_truncated(bool)`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput::is_truncated): <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
     /// - On failure, responds with [`SdkError<ListServiceSpecificCredentialsError>`](crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError)
     pub fn list_service_specific_credentials(
         &self,

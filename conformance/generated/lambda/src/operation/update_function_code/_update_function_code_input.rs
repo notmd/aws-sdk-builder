@@ -414,9 +414,9 @@ impl UpdateFunctionCodeInputBuilder {
             s3_object_storage_mode: self.s3_object_storage_mode,
             image_uri: self.image_uri,
             architectures: self.architectures,
-            publish: self.publish,
+            publish: self.publish.unwrap_or_default(),
             publish_to: self.publish_to,
-            dry_run: self.dry_run,
+            dry_run: self.dry_run.unwrap_or_default(),
             revision_id: self.revision_id,
             source_kms_key_arn: self.source_kms_key_arn,
         })

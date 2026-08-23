@@ -7,7 +7,7 @@ pub struct VerifyMacOutput {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
-    pub mac_valid: ::std::option::Option<bool>,
+    pub mac_valid: bool,
     /// <p>The MAC algorithm used in the verification.</p>
     pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
     _request_id: Option<String>,
@@ -19,7 +19,7 @@ impl VerifyMacOutput {
     }
     /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
-    pub fn mac_valid(&self) -> ::std::option::Option<bool> {
+    pub fn mac_valid(&self) -> bool {
         self.mac_valid
     }
     /// <p>The MAC algorithm used in the verification.</p>
@@ -107,7 +107,7 @@ impl VerifyMacOutputBuilder {
     pub fn build(self) -> crate::operation::verify_mac::VerifyMacOutput {
         crate::operation::verify_mac::VerifyMacOutput {
             key_id: self.key_id,
-            mac_valid: self.mac_valid,
+            mac_valid: self.mac_valid.unwrap_or_default(),
             mac_algorithm: self.mac_algorithm,
             _request_id: self._request_id,
         }

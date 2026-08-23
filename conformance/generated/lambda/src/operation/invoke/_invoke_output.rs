@@ -4,7 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct InvokeOutput {
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
-    pub status_code: ::std::option::Option<i32>,
+    pub status_code: i32,
     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
     pub function_error: ::std::option::Option<::std::string::String>,
     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
@@ -19,7 +19,7 @@ pub struct InvokeOutput {
 }
 impl InvokeOutput {
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
-    pub fn status_code(&self) -> ::std::option::Option<i32> {
+    pub fn status_code(&self) -> i32 {
         self.status_code
     }
     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
@@ -177,7 +177,7 @@ impl InvokeOutputBuilder {
     /// Consumes the builder and constructs a [`InvokeOutput`](crate::operation::invoke::InvokeOutput).
     pub fn build(self) -> crate::operation::invoke::InvokeOutput {
         crate::operation::invoke::InvokeOutput {
-            status_code: self.status_code,
+            status_code: self.status_code.unwrap_or_default(),
             function_error: self.function_error,
             log_result: self.log_result,
             payload: self.payload,

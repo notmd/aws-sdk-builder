@@ -277,11 +277,11 @@ impl UpdateAccountPasswordPolicyInputBuilder {
     > {
         ::std::result::Result::Ok(crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
             minimum_password_length: self.minimum_password_length,
-            require_symbols: self.require_symbols,
-            require_numbers: self.require_numbers,
-            require_uppercase_characters: self.require_uppercase_characters,
-            require_lowercase_characters: self.require_lowercase_characters,
-            allow_users_to_change_password: self.allow_users_to_change_password,
+            require_symbols: self.require_symbols.unwrap_or_default(),
+            require_numbers: self.require_numbers.unwrap_or_default(),
+            require_uppercase_characters: self.require_uppercase_characters.unwrap_or_default(),
+            require_lowercase_characters: self.require_lowercase_characters.unwrap_or_default(),
+            allow_users_to_change_password: self.allow_users_to_change_password.unwrap_or_default(),
             max_password_age: self.max_password_age,
             password_reuse_prevention: self.password_reuse_prevention,
             hard_expiry: self.hard_expiry,

@@ -181,7 +181,7 @@ impl ListPoliciesInputBuilder {
     ) -> ::std::result::Result<crate::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_policies::ListPoliciesInput {
             scope: self.scope,
-            only_attached: self.only_attached,
+            only_attached: self.only_attached.unwrap_or_default(),
             path_prefix: self.path_prefix,
             policy_usage_filter: self.policy_usage_filter,
             marker: self.marker,

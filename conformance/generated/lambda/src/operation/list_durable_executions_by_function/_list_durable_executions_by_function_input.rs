@@ -234,7 +234,7 @@ impl ListDurableExecutionsByFunctionInputBuilder {
                 started_before: self.started_before,
                 reverse_order: self.reverse_order,
                 marker: self.marker,
-                max_items: self.max_items,
+                max_items: self.max_items.unwrap_or_default(),
             },
         )
     }

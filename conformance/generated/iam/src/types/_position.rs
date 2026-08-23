@@ -6,17 +6,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Position {
     /// <p>The line containing the specified position in the document.</p>
-    pub line: ::std::option::Option<i32>,
+    pub line: i32,
     /// <p>The column in the line containing the specified position in the document.</p>
-    pub column: ::std::option::Option<i32>,
+    pub column: i32,
 }
 impl Position {
     /// <p>The line containing the specified position in the document.</p>
-    pub fn line(&self) -> ::std::option::Option<i32> {
+    pub fn line(&self) -> i32 {
         self.line
     }
     /// <p>The column in the line containing the specified position in the document.</p>
-    pub fn column(&self) -> ::std::option::Option<i32> {
+    pub fn column(&self) -> i32 {
         self.column
     }
 }
@@ -66,8 +66,8 @@ impl PositionBuilder {
     /// Consumes the builder and constructs a [`Position`](crate::types::Position).
     pub fn build(self) -> crate::types::Position {
         crate::types::Position {
-            line: self.line,
-            column: self.column,
+            line: self.line.unwrap_or_default(),
+            column: self.column.unwrap_or_default(),
         }
     }
 }

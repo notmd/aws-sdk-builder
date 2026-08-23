@@ -4,10 +4,11 @@ impl super::Client {
     ///
     /// - The fluent builder is configurable:
     ///   - [`function_name(impl Into<String>)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::function_name) / [`set_function_name(Option<String>)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::set_function_name):<br>required: **true**<br><p>The name or ARN of the Lambda function.</p> <p class="title"><b>Name formats</b></p> <ul>  <li>   <p><b>Function name</b> – <code>my-function</code>.</p></li>  <li>   <p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li>  <li>   <p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p><br>
-    ///   - [`invoke_args(Blob)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::invoke_args) / [`set_invoke_args(Option<Blob>)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::set_invoke_args):<br>required: **true**<br><p>The JSON that you want to provide to your Lambda function as input.</p><br>
+    ///   - [`invoke_args(ByteStream)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::invoke_args) / [`set_invoke_args(ByteStream)`](crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::set_invoke_args):<br>required: **true**<br><p>The JSON that you want to provide to your Lambda function as input.</p><br>
     /// - On success, responds with [`InvokeAsyncOutput`](crate::operation::invoke_async::InvokeAsyncOutput) with field(s):
-    ///   - [`status(Option<i32>)`](crate::operation::invoke_async::InvokeAsyncOutput::status): <p>The status code.</p>
+    ///   - [`status(i32)`](crate::operation::invoke_async::InvokeAsyncOutput::status): <p>The status code.</p>
     /// - On failure, responds with [`SdkError<InvokeAsyncError>`](crate::operation::invoke_async::InvokeAsyncError)
+    #[deprecated]
     pub fn invoke_async(&self) -> crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder {
         crate::operation::invoke_async::builders::InvokeAsyncFluentBuilder::new(self.handle.clone())
     }

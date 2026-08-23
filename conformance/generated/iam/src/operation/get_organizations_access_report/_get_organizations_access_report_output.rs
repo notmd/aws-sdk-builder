@@ -17,7 +17,7 @@ pub struct GetOrganizationsAccessReportOutput {
     /// <p>An object that contains details about the most recent attempt to access the service.</p>
     pub access_details: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-    pub is_truncated: ::std::option::Option<bool>,
+    pub is_truncated: bool,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>Contains information about the reason that the operation failed.</p>
@@ -54,7 +54,7 @@ impl GetOrganizationsAccessReportOutput {
         self.access_details.as_deref().unwrap_or_default()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-    pub fn is_truncated(&self) -> ::std::option::Option<bool> {
+    pub fn is_truncated(&self) -> bool {
         self.is_truncated
     }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
@@ -271,7 +271,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
             number_of_services_accessible: self.number_of_services_accessible,
             number_of_services_not_accessed: self.number_of_services_not_accessed,
             access_details: self.access_details,
-            is_truncated: self.is_truncated,
+            is_truncated: self.is_truncated.unwrap_or_default(),
             marker: self.marker,
             error_details: self.error_details,
             _request_id: self._request_id,

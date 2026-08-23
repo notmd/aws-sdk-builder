@@ -116,7 +116,7 @@ impl GetDurableExecutionStateInputBuilder {
             durable_execution_arn: self.durable_execution_arn,
             checkpoint_token: self.checkpoint_token,
             marker: self.marker,
-            max_items: self.max_items,
+            max_items: self.max_items.unwrap_or_default(),
         })
     }
 }

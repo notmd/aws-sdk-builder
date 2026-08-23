@@ -14,7 +14,7 @@ pub struct KeyMetadata {
     /// <p>The date and time when the KMS key was created.</p>
     pub creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Specifies whether the KMS key is enabled. When <code>KeyState</code> is <code>Enabled</code> this value is true, otherwise it is false.</p>
-    pub enabled: ::std::option::Option<bool>,
+    pub enabled: bool,
     /// <p>The description of the KMS key.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key.</p>
@@ -96,7 +96,7 @@ impl KeyMetadata {
         self.creation_date.as_ref()
     }
     /// <p>Specifies whether the KMS key is enabled. When <code>KeyState</code> is <code>Enabled</code> this value is true, otherwise it is false.</p>
-    pub fn enabled(&self) -> ::std::option::Option<bool> {
+    pub fn enabled(&self) -> bool {
         self.enabled
     }
     /// <p>The description of the KMS key.</p>
@@ -710,7 +710,7 @@ impl KeyMetadataBuilder {
             })?,
             arn: self.arn,
             creation_date: self.creation_date,
-            enabled: self.enabled,
+            enabled: self.enabled.unwrap_or_default(),
             description: self.description,
             key_usage: self.key_usage,
             key_state: self.key_state,

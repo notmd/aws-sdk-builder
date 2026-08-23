@@ -5,17 +5,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct AccountUsage {
     /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
-    pub total_code_size: ::std::option::Option<i64>,
+    pub total_code_size: i64,
     /// <p>The number of Lambda functions.</p>
-    pub function_count: ::std::option::Option<i64>,
+    pub function_count: i64,
 }
 impl AccountUsage {
     /// <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
-    pub fn total_code_size(&self) -> ::std::option::Option<i64> {
+    pub fn total_code_size(&self) -> i64 {
         self.total_code_size
     }
     /// <p>The number of Lambda functions.</p>
-    pub fn function_count(&self) -> ::std::option::Option<i64> {
+    pub fn function_count(&self) -> i64 {
         self.function_count
     }
 }
@@ -65,8 +65,8 @@ impl AccountUsageBuilder {
     /// Consumes the builder and constructs a [`AccountUsage`](crate::types::AccountUsage).
     pub fn build(self) -> crate::types::AccountUsage {
         crate::types::AccountUsage {
-            total_code_size: self.total_code_size,
-            function_count: self.function_count,
+            total_code_size: self.total_code_size.unwrap_or_default(),
+            function_count: self.function_count.unwrap_or_default(),
         }
     }
 }

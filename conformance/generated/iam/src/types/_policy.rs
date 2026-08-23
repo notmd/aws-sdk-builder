@@ -25,7 +25,7 @@ pub struct Policy {
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities </a> in the <i>IAM User Guide</i>.</p>
     pub permissions_boundary_usage_count: ::std::option::Option<i32>,
     /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
-    pub is_attachable: ::std::option::Option<bool>,
+    pub is_attachable: bool,
     /// <p>A friendly description of the policy.</p>
     /// <p>This element is included in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a> operation. It is not included in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html">ListPolicies</a> operation.</p>
     pub description: ::std::option::Option<::std::string::String>,
@@ -71,7 +71,7 @@ impl Policy {
         self.permissions_boundary_usage_count
     }
     /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
-    pub fn is_attachable(&self) -> ::std::option::Option<bool> {
+    pub fn is_attachable(&self) -> bool {
         self.is_attachable
     }
     /// <p>A friendly description of the policy.</p>
@@ -322,7 +322,7 @@ impl PolicyBuilder {
             default_version_id: self.default_version_id,
             attachment_count: self.attachment_count,
             permissions_boundary_usage_count: self.permissions_boundary_usage_count,
-            is_attachable: self.is_attachable,
+            is_attachable: self.is_attachable.unwrap_or_default(),
             description: self.description,
             create_date: self.create_date,
             update_date: self.update_date,

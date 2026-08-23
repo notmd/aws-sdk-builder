@@ -10,7 +10,7 @@ pub struct LoginProfile {
     /// <p>The date when the password for the user was created.</p>
     pub create_date: ::aws_smithy_types::DateTime,
     /// <p>Specifies whether the user is required to set a new password on next sign-in.</p>
-    pub password_reset_required: ::std::option::Option<bool>,
+    pub password_reset_required: bool,
 }
 impl LoginProfile {
     /// <p>The name of the user, which can be used for signing in to the Amazon Web Services Management Console.</p>
@@ -23,7 +23,7 @@ impl LoginProfile {
         &self.create_date
     }
     /// <p>Specifies whether the user is required to set a new password on next sign-in.</p>
-    pub fn password_reset_required(&self) -> ::std::option::Option<bool> {
+    pub fn password_reset_required(&self) -> bool {
         self.password_reset_required
     }
 }
@@ -105,7 +105,7 @@ impl LoginProfileBuilder {
                     "create_date was not specified but it is required when building LoginProfile",
                 )
             })?,
-            password_reset_required: self.password_reset_required,
+            password_reset_required: self.password_reset_required.unwrap_or_default(),
         })
     }
 }

@@ -4,7 +4,7 @@
 #[derive(::std::fmt::Debug)]
 pub struct InvokeWithResponseStreamOutput {
     /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
-    pub status_code: ::std::option::Option<i32>,
+    pub status_code: i32,
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub executed_version: ::std::option::Option<::std::string::String>,
     /// <p>The stream of response payloads.</p>
@@ -18,7 +18,7 @@ pub struct InvokeWithResponseStreamOutput {
 }
 impl InvokeWithResponseStreamOutput {
     /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
-    pub fn status_code(&self) -> ::std::option::Option<i32> {
+    pub fn status_code(&self) -> i32 {
         self.status_code
     }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
@@ -163,14 +163,9 @@ impl InvokeWithResponseStreamOutputBuilder {
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
-            status_code: self.status_code,
+            status_code: self.status_code.unwrap_or_default(),
             executed_version: self.executed_version,
-            event_stream: self.event_stream.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "event_stream",
-                    "event_stream was not specified but it is required when building InvokeWithResponseStreamOutput",
-                )
-            })?,
+            event_stream: self.event_stream.unwrap_or_default(),
             response_stream_content_type: self.response_stream_content_type,
             _request_id: self._request_id,
         })

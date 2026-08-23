@@ -22,7 +22,7 @@ pub struct RoleTemplateVersion {
     /// <p>The identifier of the Amazon Web Services service that manages the role template.</p>
     pub managed_by_value: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether the role template is enabled. When a template is disabled, you cannot create roles from it.</p>
-    pub enabled: ::std::option::Option<bool>,
+    pub enabled: bool,
     /// <p>The minor version number of this role template version.</p>
     pub minor_version: ::std::option::Option<i32>,
     /// <p>The pattern that is used to generate the name of a role that is created from this template. The pattern can include <code>@{parameter}</code> placeholders that are replaced with the values you supply in the <code>ReplacementValues</code> parameter of <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
@@ -47,7 +47,7 @@ pub struct RoleTemplateVersion {
     /// <p>The maximum session duration (in seconds) for roles that are created from this template.</p>
     pub max_session_duration: ::std::option::Option<i32>,
     /// <p>Specifies whether this specific minor version of the role template is enabled.</p>
-    pub version_enabled: ::std::option::Option<bool>,
+    pub version_enabled: bool,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was created.</p>
     pub create_timestamp: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was last updated.</p>
@@ -88,7 +88,7 @@ impl RoleTemplateVersion {
         self.managed_by_value.as_deref()
     }
     /// <p>Specifies whether the role template is enabled. When a template is disabled, you cannot create roles from it.</p>
-    pub fn enabled(&self) -> ::std::option::Option<bool> {
+    pub fn enabled(&self) -> bool {
         self.enabled
     }
     /// <p>The minor version number of this role template version.</p>
@@ -145,7 +145,7 @@ impl RoleTemplateVersion {
         self.max_session_duration
     }
     /// <p>Specifies whether this specific minor version of the role template is enabled.</p>
-    pub fn version_enabled(&self) -> ::std::option::Option<bool> {
+    pub fn version_enabled(&self) -> bool {
         self.version_enabled
     }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was created.</p>
@@ -556,7 +556,7 @@ impl RoleTemplateVersionBuilder {
             default_minor_version: self.default_minor_version,
             managed_by_type: self.managed_by_type,
             managed_by_value: self.managed_by_value,
-            enabled: self.enabled,
+            enabled: self.enabled.unwrap_or_default(),
             minor_version: self.minor_version,
             role_name_pattern: self.role_name_pattern,
             role_path_pattern: self.role_path_pattern,
@@ -568,7 +568,7 @@ impl RoleTemplateVersionBuilder {
             parameters_definition: self.parameters_definition,
             role_tags_template: self.role_tags_template,
             max_session_duration: self.max_session_duration,
-            version_enabled: self.version_enabled,
+            version_enabled: self.version_enabled.unwrap_or_default(),
             create_timestamp: self.create_timestamp,
             update_timestamp: self.update_timestamp,
         }

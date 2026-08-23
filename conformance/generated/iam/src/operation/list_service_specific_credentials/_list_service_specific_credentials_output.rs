@@ -8,7 +8,7 @@ pub struct ListServiceSpecificCredentialsOutput {
     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
-    pub is_truncated: ::std::option::Option<bool>,
+    pub is_truncated: bool,
     _request_id: Option<String>,
 }
 impl ListServiceSpecificCredentialsOutput {
@@ -23,7 +23,7 @@ impl ListServiceSpecificCredentialsOutput {
         self.marker.as_deref()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
-    pub fn is_truncated(&self) -> ::std::option::Option<bool> {
+    pub fn is_truncated(&self) -> bool {
         self.is_truncated
     }
 }
@@ -114,7 +114,7 @@ impl ListServiceSpecificCredentialsOutputBuilder {
         crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsOutput {
             service_specific_credentials: self.service_specific_credentials,
             marker: self.marker,
-            is_truncated: self.is_truncated,
+            is_truncated: self.is_truncated.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

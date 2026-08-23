@@ -41,8 +41,7 @@ impl crate::operation::put_bucket_logging::builders::PutBucketLoggingInputBuilde
 /// <ul>
 /// <li>
 /// <p>By the person's ID:</p>
-/// <p><code><grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-/// xsi:type="CanonicalUser">
+/// <p><code><grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
 /// <id>
 /// &lt;&gt;ID&lt;&gt;
 /// </id>
@@ -53,8 +52,7 @@ impl crate::operation::put_bucket_logging::builders::PutBucketLoggingInputBuilde
 /// <p><code>DisplayName</code> is optional and ignored in the request.</p></li>
 /// <li>
 /// <p>By Email address:</p>
-/// <p><code> <grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-/// xsi:type="AmazonCustomerByEmail">
+/// <p><code> <grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail">
 /// <emailaddress>
 /// &lt;&gt;Grantees@email.com&lt;&gt;
 /// </emailaddress>
@@ -62,8 +60,7 @@ impl crate::operation::put_bucket_logging::builders::PutBucketLoggingInputBuilde
 /// <p>The grantee is resolved to the <code>CanonicalUser</code> and, in a response to a <code>GETObjectAcl</code> request, appears as the CanonicalUser.</p></li>
 /// <li>
 /// <p>By URI:</p>
-/// <p><code><grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-/// xsi:type="Group">
+/// <p><code><grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
 /// <uri>
 /// &lt;&gt;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&lt;&gt;
 /// </uri>

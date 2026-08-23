@@ -69,7 +69,7 @@ impl GetDurableExecutionInputBuilder {
     {
         ::std::result::Result::Ok(crate::operation::get_durable_execution::GetDurableExecutionInput {
             durable_execution_arn: self.durable_execution_arn,
-            include_execution_data: self.include_execution_data,
+            include_execution_data: self.include_execution_data.unwrap_or_default(),
         })
     }
 }

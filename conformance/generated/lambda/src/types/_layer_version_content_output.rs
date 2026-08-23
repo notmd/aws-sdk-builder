@@ -9,7 +9,7 @@ pub struct LayerVersionContentOutput {
     /// <p>The SHA-256 hash of the layer archive.</p>
     pub code_sha256: ::std::option::Option<::std::string::String>,
     /// <p>The size of the layer archive in bytes.</p>
-    pub code_size: ::std::option::Option<i64>,
+    pub code_size: i64,
     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
     pub signing_profile_version_arn: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of a signing job.</p>
@@ -27,7 +27,7 @@ impl LayerVersionContentOutput {
         self.code_sha256.as_deref()
     }
     /// <p>The size of the layer archive in bytes.</p>
-    pub fn code_size(&self) -> ::std::option::Option<i64> {
+    pub fn code_size(&self) -> i64 {
         self.code_size
     }
     /// <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
@@ -151,7 +151,7 @@ impl LayerVersionContentOutputBuilder {
         crate::types::LayerVersionContentOutput {
             location: self.location,
             code_sha256: self.code_sha256,
-            code_size: self.code_size,
+            code_size: self.code_size.unwrap_or_default(),
             signing_profile_version_arn: self.signing_profile_version_arn,
             signing_job_arn: self.signing_job_arn,
             resolved_s3_object: self.resolved_s3_object,

@@ -45,7 +45,7 @@ pub struct DelegationRequest {
     /// <p>Reasons for rejecting this delegation request, if this request was rejected. See also <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html">RejectDelegationRequest</a> API documentation.</p>
     pub rejection_reason: ::std::option::Option<::std::string::String>,
     /// <p>A flag indicating whether the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>
-    pub only_send_by_owner: ::std::option::Option<bool>,
+    pub only_send_by_owner: bool,
     /// <p>Last updated timestamp of the request.</p>
     pub updated_time: ::std::option::Option<::aws_smithy_types::DateTime>,
 }
@@ -129,7 +129,7 @@ impl DelegationRequest {
         self.rejection_reason.as_deref()
     }
     /// <p>A flag indicating whether the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html">SendDelegationToken</a> must be called by the owner of this delegation request. This is set by the requesting partner.</p>
-    pub fn only_send_by_owner(&self) -> ::std::option::Option<bool> {
+    pub fn only_send_by_owner(&self) -> bool {
         self.only_send_by_owner
     }
     /// <p>Last updated timestamp of the request.</p>
@@ -489,7 +489,7 @@ impl DelegationRequestBuilder {
             redirect_url: self.redirect_url,
             notes: self.notes,
             rejection_reason: self.rejection_reason,
-            only_send_by_owner: self.only_send_by_owner,
+            only_send_by_owner: self.only_send_by_owner.unwrap_or_default(),
             updated_time: self.updated_time,
         }
     }

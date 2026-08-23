@@ -9,17 +9,17 @@ pub struct PasswordPolicy {
     pub minimum_password_length: ::std::option::Option<i32>,
     /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
     /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-    pub require_symbols: ::std::option::Option<bool>,
+    pub require_symbols: bool,
     /// <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).</p>
-    pub require_numbers: ::std::option::Option<bool>,
+    pub require_numbers: bool,
     /// <p>Specifies whether IAM user passwords must contain at least one uppercase character (A to Z).</p>
-    pub require_uppercase_characters: ::std::option::Option<bool>,
+    pub require_uppercase_characters: bool,
     /// <p>Specifies whether IAM user passwords must contain at least one lowercase character (a to z).</p>
-    pub require_lowercase_characters: ::std::option::Option<bool>,
+    pub require_lowercase_characters: bool,
     /// <p>Specifies whether IAM users are allowed to change their own password. Gives IAM users permissions to <code>iam:ChangePassword</code> for only their user and to the <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a permissions policy to each user, rather the permissions are applied at the account-level for all users by IAM.</p>
-    pub allow_users_to_change_password: ::std::option::Option<bool>,
+    pub allow_users_to_change_password: bool,
     /// <p>Indicates whether passwords in the account expire. Returns true if <code>MaxPasswordAge</code> contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.</p>
-    pub expire_passwords: ::std::option::Option<bool>,
+    pub expire_passwords: bool,
     /// <p>The number of days that an IAM user password is valid.</p>
     pub max_password_age: ::std::option::Option<i32>,
     /// <p>Specifies the number of previous passwords that IAM users are prevented from reusing.</p>
@@ -34,27 +34,27 @@ impl PasswordPolicy {
     }
     /// <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
     /// <p>! @ # $ % ^ &amp; * ( ) _ + - = \[ \] { } | '</p>
-    pub fn require_symbols(&self) -> ::std::option::Option<bool> {
+    pub fn require_symbols(&self) -> bool {
         self.require_symbols
     }
     /// <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).</p>
-    pub fn require_numbers(&self) -> ::std::option::Option<bool> {
+    pub fn require_numbers(&self) -> bool {
         self.require_numbers
     }
     /// <p>Specifies whether IAM user passwords must contain at least one uppercase character (A to Z).</p>
-    pub fn require_uppercase_characters(&self) -> ::std::option::Option<bool> {
+    pub fn require_uppercase_characters(&self) -> bool {
         self.require_uppercase_characters
     }
     /// <p>Specifies whether IAM user passwords must contain at least one lowercase character (a to z).</p>
-    pub fn require_lowercase_characters(&self) -> ::std::option::Option<bool> {
+    pub fn require_lowercase_characters(&self) -> bool {
         self.require_lowercase_characters
     }
     /// <p>Specifies whether IAM users are allowed to change their own password. Gives IAM users permissions to <code>iam:ChangePassword</code> for only their user and to the <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a permissions policy to each user, rather the permissions are applied at the account-level for all users by IAM.</p>
-    pub fn allow_users_to_change_password(&self) -> ::std::option::Option<bool> {
+    pub fn allow_users_to_change_password(&self) -> bool {
         self.allow_users_to_change_password
     }
     /// <p>Indicates whether passwords in the account expire. Returns true if <code>MaxPasswordAge</code> contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.</p>
-    pub fn expire_passwords(&self) -> ::std::option::Option<bool> {
+    pub fn expire_passwords(&self) -> bool {
         self.expire_passwords
     }
     /// <p>The number of days that an IAM user password is valid.</p>
@@ -240,12 +240,12 @@ impl PasswordPolicyBuilder {
     pub fn build(self) -> crate::types::PasswordPolicy {
         crate::types::PasswordPolicy {
             minimum_password_length: self.minimum_password_length,
-            require_symbols: self.require_symbols,
-            require_numbers: self.require_numbers,
-            require_uppercase_characters: self.require_uppercase_characters,
-            require_lowercase_characters: self.require_lowercase_characters,
-            allow_users_to_change_password: self.allow_users_to_change_password,
-            expire_passwords: self.expire_passwords,
+            require_symbols: self.require_symbols.unwrap_or_default(),
+            require_numbers: self.require_numbers.unwrap_or_default(),
+            require_uppercase_characters: self.require_uppercase_characters.unwrap_or_default(),
+            require_lowercase_characters: self.require_lowercase_characters.unwrap_or_default(),
+            allow_users_to_change_password: self.allow_users_to_change_password.unwrap_or_default(),
+            expire_passwords: self.expire_passwords.unwrap_or_default(),
             max_password_age: self.max_password_age,
             password_reuse_prevention: self.password_reuse_prevention,
             hard_expiry: self.hard_expiry,

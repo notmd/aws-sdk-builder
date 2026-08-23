@@ -12,6 +12,11 @@ pub struct ModelEntry {
     pub filename: &'static str,
     pub crate_name: &'static str,
     pub module_name: &'static str,
+    /// Version recorded in the pinned AWS SDK source snapshot, when available.
+    ///
+    /// This is package metadata used only for generated crate documentation; it
+    /// is deliberately separate from the Smithy service version in the model.
+    pub sdk_version: Option<&'static str>,
     pub bytes: &'static [u8],
     pub protocol_tests: Option<&'static [u8]>,
 }
@@ -24,20 +29,37 @@ macro_rules! entry {
             filename: $file,
             crate_name: $crate_name,
             module_name: $module,
+            sdk_version: None,
             bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
             protocol_tests: None,
         }
     };
 }
 
-macro_rules! entry_with_protocol_tests {
-    ($key:literal, $shape:literal, $file:literal, $crate_name:literal, $module:literal, $tests:literal) => {
+macro_rules! entry_with_sdk_version {
+    ($key:literal, $shape:literal, $file:literal, $crate_name:literal, $module:literal, $version:literal) => {
         ModelEntry {
             key: $key,
             service_shape_id: $shape,
             filename: $file,
             crate_name: $crate_name,
             module_name: $module,
+            sdk_version: Some($version),
+            bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
+            protocol_tests: None,
+        }
+    };
+}
+
+macro_rules! entry_with_protocol_tests_and_sdk_version {
+    ($key:literal, $shape:literal, $file:literal, $crate_name:literal, $module:literal, $tests:literal, $version:literal) => {
+        ModelEntry {
+            key: $key,
+            service_shape_id: $shape,
+            filename: $file,
+            crate_name: $crate_name,
+            module_name: $module,
+            sdk_version: Some($version),
             bytes: include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/models/", $file)),
             protocol_tests: Some(include_bytes!(concat!(
                 env!("CARGO_MANIFEST_DIR"),
@@ -119,12 +141,13 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-cloudwatchlogs",
         "aws_sdk_cloudwatchlogs"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "dynamodb",
         "com.amazonaws.dynamodb#DynamoDB_20120810",
         "dynamodb.json",
         "aws-sdk-dynamodb",
-        "aws_sdk_dynamodb"
+        "aws_sdk_dynamodb",
+        "1.122.0"
     ),
     entry!(
         "ec2",
@@ -182,12 +205,13 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-glue",
         "aws_sdk_glue"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "iam",
         "com.amazonaws.iam#AWSIdentityManagementV20100508",
         "iam.json",
         "aws-sdk-iam",
-        "aws_sdk_iam"
+        "aws_sdk_iam",
+        "1.121.0"
     ),
     entry!(
         "kinesis",
@@ -196,19 +220,21 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-kinesis",
         "aws_sdk_kinesis"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "kms",
         "com.amazonaws.kms#TrentService",
         "kms.json",
         "aws-sdk-kms",
-        "aws_sdk_kms"
+        "aws_sdk_kms",
+        "1.116.0"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "lambda",
         "com.amazonaws.lambda#AWSGirApiService",
         "lambda.json",
         "aws-sdk-lambda",
-        "aws_sdk_lambda"
+        "aws_sdk_lambda",
+        "1.140.0"
     ),
     entry!(
         "opensearch",
@@ -245,13 +271,14 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-route53",
         "aws_sdk_route53"
     ),
-    entry_with_protocol_tests!(
+    entry_with_protocol_tests_and_sdk_version!(
         "s3",
         "com.amazonaws.s3#AmazonS3",
         "s3.json",
         "aws-sdk-s3",
         "aws_sdk_s3",
-        "protocol-tests/s3.json"
+        "protocol-tests/s3.json",
+        "1.143.0"
     ),
     entry!(
         "secrets-manager",
@@ -274,19 +301,21 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-sfn",
         "aws_sdk_sfn"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "sns",
         "com.amazonaws.sns#AmazonSimpleNotificationService",
         "sns.json",
         "aws-sdk-sns",
-        "aws_sdk_sns"
+        "aws_sdk_sns",
+        "1.109.0"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "sqs",
         "com.amazonaws.sqs#AmazonSQS",
         "sqs.json",
         "aws-sdk-sqs",
-        "aws_sdk_sqs"
+        "aws_sdk_sqs",
+        "1.107.0"
     ),
     entry!(
         "ssm",
@@ -295,12 +324,13 @@ static ENTRIES: &[ModelEntry] = &[
         "aws-sdk-ssm",
         "aws_sdk_ssm"
     ),
-    entry!(
+    entry_with_sdk_version!(
         "sts",
         "com.amazonaws.sts#AWSSecurityTokenServiceV20110615",
         "sts.json",
         "aws-sdk-sts",
-        "aws_sdk_sts"
+        "aws_sdk_sts",
+        "1.112.0"
     ),
     entry!(
         "textract",

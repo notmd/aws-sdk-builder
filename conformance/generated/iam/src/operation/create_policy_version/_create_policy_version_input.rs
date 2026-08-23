@@ -162,7 +162,7 @@ impl CreatePolicyVersionInputBuilder {
         ::std::result::Result::Ok(crate::operation::create_policy_version::CreatePolicyVersionInput {
             policy_arn: self.policy_arn,
             policy_document: self.policy_document,
-            set_as_default: self.set_as_default,
+            set_as_default: self.set_as_default.unwrap_or_default(),
         })
     }
 }

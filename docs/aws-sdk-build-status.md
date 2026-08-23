@@ -4,6 +4,84 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Align builder fallibility with rendered member symbols
+
+- State: in progress
+- Changed: `codegen.rs` now derives non-operation builder requiredness from the
+  model-resolved rendered member type, matching Smithy-RS `BuilderGenerator`: required
+  structure targets remain optional and infallible, while required scalar, collection,
+  and event-stream targets retain fallible builders. No service- or operation-specific
+  branch was added.
+- Evidence: inspected the pinned Smithy-RS `BuilderGenerator.kt` at
+  `/tmp/smithy-rs` commit `f1b64a9c0`; `just conformance` regenerated 8 all-operation
+  snapshots and formatted 4,575 generated Rust files. `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`,
+  and `git diff --check` pass.
+- Conformance: overall `3,795/779/1,887/1` -> `3,868/706/1,887/1`; S3
+  `1,223/34/87/0` -> `1,242/15/87/0` (matched/mismatched/missing/extra). Average
+  match increased from `54.98%` to `55.74%`.
+- Blocker: shared service config/auth/endpoint runtime files and reference test/package
+  trees remain incomplete; the full conformance recipe exits nonzero for those known
+  parity gaps.
+- Next action: compare the remaining S3 `src/config.rs` gap with the pinned generic
+  endpoint and auth generators, then add the next model-derived endpoint/config rule.
+
+### Checkpoint: 2026-08-23 — Match standalone service roots
+
+- State: in progress
+- Changed: standalone `lib.rs` generation now follows the pinned Smithy-RS crate-doc
+  HTML-to-Markdown normalization and model-derived inline-module dependency ordering.
+  Service protocol capabilities, checksum/streaming shapes, endpoint rules, waiter and
+  paginator presence, request IDs, S3 expiry support, and long-poll inputs determine
+  additional modules without service-name branches.
+- Evidence: inspected `AwsCrateDocsDecorator.kt`, `RustCrate`, and the relevant Smithy-RS
+  decorators in `/tmp/smithy-rs` at snapshot `f1b64a9c0`. `just conformance` regenerated
+  8 all-operation snapshots and formatted 4,575 generated Rust files.
+- Conformance: overall `3,787/787/1,887/1` -> `3,795/779/1,887/1`
+  (matched/mismatched/missing/extra); average match increased from `54.77%` to `54.98%`.
+  All eight standalone service `src/lib.rs` snapshots are now exact.
+- Next action: continue the generic parity loop with remaining shared client, protocol,
+  runtime, and package-tree gaps.
+
+### Checkpoint: 2026-08-23 — Match model defaults, deprecations, and streaming targets
+
+- State: in progress
+- Changed: modeled `smithy.api#default` members now use concrete Rust field types and
+  `unwrap_or_default()` builder construction while remaining non-required builder
+  inputs. Structure and operation deprecations are emitted from model traits. Streaming
+  target shapes and streaming members resolve to `ByteStream` across fields, accessors,
+  builders, and client documentation, while event-stream unions retain their
+  `EventReceiver` documentation.
+- Evidence: inspected Smithy-RS `SymbolVisitor`, `StructureGenerator`, serializer
+  nullability, and AWS decorator behavior in the pinned `/tmp/smithy-rs` checkout.
+  `just conformance` regenerated 8 all-operation snapshots and formatted 4,575
+  generated Rust files after each codegen-affecting patch. `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`,
+  and `git diff --check` pass.
+- Conformance: `3,732/842/1,887/1` -> `3,787/787/1,887/1`
+  (matched/mismatched/missing/extra); average match increased from `54.06%` to
+  `54.77%`. The corrected Lambda streaming operation and S3 event-stream documentation
+  are now exact.
+- Next action: continue with generic standalone `lib.rs` and `config.rs` parity.
+
+### Checkpoint: 2026-08-23 — Match standalone client operation ordering and waiter docs
+
+- State: in progress
+- Changed: standalone `operation.rs` declarations now use Smithy-RS-rendered module
+  ordering and documentation. Standalone `client.rs` now orders operation modules by
+  rendered snake-case names and derives waiter trait ordering and documentation from
+  the model. The client usage example also selects a modeled string or enum member
+  without service-specific logic.
+- Evidence: inspected the pinned Smithy-RS client and operation generators under
+  `/tmp/smithy-rs`. `just conformance` regenerated 8 all-operation snapshots and
+  formatted 4,575 generated Rust files; the two targeted IAM/Lambda client diffs are
+  now exact.
+- Conformance: overall `3,730/844/1,887/1` -> `3,732/842/1,887/1`; the report is
+  `54.06%` average match. IAM and Lambda each gained one exact standalone client
+  snapshot match.
+- Next action: run workspace tests, Clippy, formatting, and whitespace validation;
+  then continue with generic standalone `lib.rs` and `config.rs` parity.
+
 ### Checkpoint: 2026-08-23 — Match correction dependency waves
 
 - State: in progress

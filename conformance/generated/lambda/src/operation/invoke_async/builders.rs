@@ -161,17 +161,17 @@ impl InvokeAsyncFluentBuilder {
         self.inner.get_function_name()
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn invoke_args(mut self, input: ::aws_smithy_types::Blob) -> Self {
+    pub fn invoke_args(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
         self.inner = self.inner.invoke_args(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
+    pub fn set_invoke_args(mut self, input: ::std::option::Option<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
         self.inner = self.inner.set_invoke_args(input);
         self
     }
     /// <p>The JSON that you want to provide to your Lambda function as input.</p>
-    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
+    pub fn get_invoke_args(&self) -> &::std::option::Option<::aws_smithy_types::byte_stream::ByteStream> {
         self.inner.get_invoke_args()
     }
 }

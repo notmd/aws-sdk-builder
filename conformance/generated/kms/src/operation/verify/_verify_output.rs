@@ -6,7 +6,7 @@ pub struct VerifyOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
-    pub signature_valid: ::std::option::Option<bool>,
+    pub signature_valid: bool,
     /// <p>The signing algorithm that was used to verify the signature.</p>
     pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
     _request_id: Option<String>,
@@ -17,7 +17,7 @@ impl VerifyOutput {
         self.key_id.as_deref()
     }
     /// <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
-    pub fn signature_valid(&self) -> ::std::option::Option<bool> {
+    pub fn signature_valid(&self) -> bool {
         self.signature_valid
     }
     /// <p>The signing algorithm that was used to verify the signature.</p>
@@ -102,7 +102,7 @@ impl VerifyOutputBuilder {
     pub fn build(self) -> crate::operation::verify::VerifyOutput {
         crate::operation::verify::VerifyOutput {
             key_id: self.key_id,
-            signature_valid: self.signature_valid,
+            signature_valid: self.signature_valid.unwrap_or_default(),
             signing_algorithm: self.signing_algorithm,
             _request_id: self._request_id,
         }

@@ -383,7 +383,7 @@ impl ReplicateKeyInputBuilder {
             key_id: self.key_id,
             replica_region: self.replica_region,
             policy: self.policy,
-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
             description: self.description,
             tags: self.tags,
         })

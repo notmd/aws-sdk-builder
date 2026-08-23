@@ -7,7 +7,7 @@ pub struct SearchResultItem {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
     pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
-    pub score: ::std::option::Option<f64>,
+    pub score: f64,
 }
 impl SearchResultItem {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
@@ -15,7 +15,7 @@ impl SearchResultItem {
         self.item.as_ref()
     }
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
-    pub fn score(&self) -> ::std::option::Option<f64> {
+    pub fn score(&self) -> f64 {
         self.score
     }
 }
@@ -75,7 +75,7 @@ impl SearchResultItemBuilder {
     pub fn build(self) -> crate::types::SearchResultItem {
         crate::types::SearchResultItem {
             item: self.item,
-            score: self.score,
+            score: self.score.unwrap_or_default(),
         }
     }
 }

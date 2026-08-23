@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RetryDetails {
     /// <p>The current attempt number for this operation.</p>
-    pub current_attempt: ::std::option::Option<i32>,
+    pub current_attempt: i32,
     /// <p>The delay before the next retry attempt, in seconds.</p>
     pub next_attempt_delay_seconds: ::std::option::Option<i32>,
 }
 impl RetryDetails {
     /// <p>The current attempt number for this operation.</p>
-    pub fn current_attempt(&self) -> ::std::option::Option<i32> {
+    pub fn current_attempt(&self) -> i32 {
         self.current_attempt
     }
     /// <p>The delay before the next retry attempt, in seconds.</p>
@@ -65,7 +65,7 @@ impl RetryDetailsBuilder {
     /// Consumes the builder and constructs a [`RetryDetails`](crate::types::RetryDetails).
     pub fn build(self) -> crate::types::RetryDetails {
         crate::types::RetryDetails {
-            current_attempt: self.current_attempt,
+            current_attempt: self.current_attempt.unwrap_or_default(),
             next_attempt_delay_seconds: self.next_attempt_delay_seconds,
         }
     }

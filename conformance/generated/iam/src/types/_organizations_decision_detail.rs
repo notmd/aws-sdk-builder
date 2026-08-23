@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct OrganizationsDecisionDetail {
     /// <p>Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.</p>
-    pub allowed_by_organizations: ::std::option::Option<bool>,
+    pub allowed_by_organizations: bool,
 }
 impl OrganizationsDecisionDetail {
     /// <p>Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.</p>
-    pub fn allowed_by_organizations(&self) -> ::std::option::Option<bool> {
+    pub fn allowed_by_organizations(&self) -> bool {
         self.allowed_by_organizations
     }
 }
@@ -44,7 +44,7 @@ impl OrganizationsDecisionDetailBuilder {
     /// Consumes the builder and constructs a [`OrganizationsDecisionDetail`](crate::types::OrganizationsDecisionDetail).
     pub fn build(self) -> crate::types::OrganizationsDecisionDetail {
         crate::types::OrganizationsDecisionDetail {
-            allowed_by_organizations: self.allowed_by_organizations,
+            allowed_by_organizations: self.allowed_by_organizations.unwrap_or_default(),
         }
     }
 }

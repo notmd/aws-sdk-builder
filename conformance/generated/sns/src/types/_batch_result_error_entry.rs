@@ -113,7 +113,6 @@ impl BatchResultErrorEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::BatchResultErrorEntryBuilder::id)
     /// - [`code`](crate::types::builders::BatchResultErrorEntryBuilder::code)
-    /// - [`sender_fault`](crate::types::builders::BatchResultErrorEntryBuilder::sender_fault)
     pub fn build(self) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::BatchResultErrorEntry {
             id: self.id.ok_or_else(|| {
@@ -129,12 +128,7 @@ impl BatchResultErrorEntryBuilder {
                 )
             })?,
             message: self.message,
-            sender_fault: self.sender_fault.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "sender_fault",
-                    "sender_fault was not specified but it is required when building BatchResultErrorEntry",
-                )
-            })?,
+            sender_fault: self.sender_fault.unwrap_or_default(),
         })
     }
 }

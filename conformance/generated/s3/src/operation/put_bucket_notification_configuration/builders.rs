@@ -29,7 +29,7 @@ impl crate::operation::put_bucket_notification_configuration::builders::PutBucke
 /// <p>Using this API, you can replace an existing notification configuration. The configuration is an XML file that defines the event types that you want Amazon S3 to publish and the destination where you want Amazon S3 to publish an event notification when it detects an event of the specified type.</p>
 /// <p>By default, your bucket has no event notifications configured. That is, the notification configuration will be an empty <code>NotificationConfiguration</code>.</p>
 /// <p><code><notificationconfiguration></notificationconfiguration></code></p>
-/// <p><code></notificationconfiguration></code></p>
+/// <p><code></code></p>
 /// <p>This action replaces the existing notification configuration with the configuration you include in the request body.</p>
 /// <p>After Amazon S3 receives this request, it first verifies that any Amazon Simple Notification Service (Amazon SNS) or Amazon Simple Queue Service (Amazon SQS) destination exists, and that the bucket owner has permission to publish to it by sending a test notification. In the case of Lambda destinations, Amazon S3 verifies that the Lambda function permissions grant Amazon S3 permission to invoke the function from the Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Notifications for Amazon S3 Events</a>.</p>
 /// <p>You can disable notifications by adding the empty NotificationConfiguration element.</p>

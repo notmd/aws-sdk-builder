@@ -7,7 +7,7 @@ pub struct LayerVersionsListItem {
     /// <p>The ARN of the layer version.</p>
     pub layer_version_arn: ::std::option::Option<::std::string::String>,
     /// <p>The version number.</p>
-    pub version: ::std::option::Option<i64>,
+    pub version: i64,
     /// <p>The description of the version.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
@@ -27,7 +27,7 @@ impl LayerVersionsListItem {
         self.layer_version_arn.as_deref()
     }
     /// <p>The version number.</p>
-    pub fn version(&self) -> ::std::option::Option<i64> {
+    pub fn version(&self) -> i64 {
         self.version
     }
     /// <p>The description of the version.</p>
@@ -197,7 +197,7 @@ impl LayerVersionsListItemBuilder {
     pub fn build(self) -> crate::types::LayerVersionsListItem {
         crate::types::LayerVersionsListItem {
             layer_version_arn: self.layer_version_arn,
-            version: self.version,
+            version: self.version.unwrap_or_default(),
             description: self.description,
             created_date: self.created_date,
             compatible_architectures: self.compatible_architectures,

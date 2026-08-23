@@ -8,7 +8,7 @@ pub struct ListDelegationRequestsOutput {
     /// <p>When <code>isTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
-    pub is_truncated: ::std::option::Option<bool>,
+    pub is_truncated: bool,
     _request_id: Option<String>,
 }
 impl ListDelegationRequestsOutput {
@@ -23,7 +23,7 @@ impl ListDelegationRequestsOutput {
         self.marker.as_deref()
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
-    pub fn is_truncated(&self) -> ::std::option::Option<bool> {
+    pub fn is_truncated(&self) -> bool {
         self.is_truncated
     }
 }
@@ -111,7 +111,7 @@ impl ListDelegationRequestsOutputBuilder {
         crate::operation::list_delegation_requests::ListDelegationRequestsOutput {
             delegation_requests: self.delegation_requests,
             marker: self.marker,
-            is_truncated: self.is_truncated,
+            is_truncated: self.is_truncated.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

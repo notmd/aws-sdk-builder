@@ -274,7 +274,7 @@ impl CreateDelegationRequestInputBuilder {
             redirect_url: self.redirect_url,
             notification_channel: self.notification_channel,
             session_duration: self.session_duration,
-            only_send_by_owner: self.only_send_by_owner,
+            only_send_by_owner: self.only_send_by_owner.unwrap_or_default(),
         })
     }
 }

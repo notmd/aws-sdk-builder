@@ -9,7 +9,7 @@ pub struct Event {
     /// <p>The subtype of the event, providing additional categorization.</p>
     pub sub_type: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier for this event. Event IDs increment sequentially.</p>
-    pub event_id: ::std::option::Option<i32>,
+    pub event_id: i32,
     /// <p>The unique identifier for this operation.</p>
     pub id: ::std::option::Option<::std::string::String>,
     /// <p>The customer-provided name for this operation.</p>
@@ -77,7 +77,7 @@ impl Event {
         self.sub_type.as_deref()
     }
     /// <p>The unique identifier for this event. Event IDs increment sequentially.</p>
-    pub fn event_id(&self) -> ::std::option::Option<i32> {
+    pub fn event_id(&self) -> i32 {
         self.event_id
     }
     /// <p>The unique identifier for this operation.</p>
@@ -676,7 +676,7 @@ impl EventBuilder {
         crate::types::Event {
             event_type: self.event_type,
             sub_type: self.sub_type,
-            event_id: self.event_id,
+            event_id: self.event_id.unwrap_or_default(),
             id: self.id,
             name: self.name,
             event_timestamp: self.event_timestamp,

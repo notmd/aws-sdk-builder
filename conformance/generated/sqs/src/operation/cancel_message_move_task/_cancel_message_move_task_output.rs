@@ -4,12 +4,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CancelMessageMoveTaskOutput {
     /// <p>The approximate number of messages already moved to the destination queue.</p>
-    pub approximate_number_of_messages_moved: ::std::option::Option<i64>,
+    pub approximate_number_of_messages_moved: i64,
     _request_id: Option<String>,
 }
 impl CancelMessageMoveTaskOutput {
     /// <p>The approximate number of messages already moved to the destination queue.</p>
-    pub fn approximate_number_of_messages_moved(&self) -> ::std::option::Option<i64> {
+    pub fn approximate_number_of_messages_moved(&self) -> i64 {
         self.approximate_number_of_messages_moved
     }
 }
@@ -59,7 +59,7 @@ impl CancelMessageMoveTaskOutputBuilder {
     /// Consumes the builder and constructs a [`CancelMessageMoveTaskOutput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput).
     pub fn build(self) -> crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
         crate::operation::cancel_message_move_task::CancelMessageMoveTaskOutput {
-            approximate_number_of_messages_moved: self.approximate_number_of_messages_moved,
+            approximate_number_of_messages_moved: self.approximate_number_of_messages_moved.unwrap_or_default(),
             _request_id: self._request_id,
         }
     }

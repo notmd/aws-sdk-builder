@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `265` matched · `130` mismatches · `204` missing · `1` extra · `44.17%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `280` matched · `115` mismatches · `204` missing · `1` extra · `46.67%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -207,22 +207,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`grant_tokens(impl Into<String>)`](crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::grant_tokens) / [`set_grant_tokens(Option<Vec::<String>>)`](crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::set_grant_tokens):<br>required: **false**<br><p>A list of grant tokens.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
      ///   - [`dry_run(bool)`](crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::dry_run) / [`set_dry_run(Option<bool>)`](crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::set_dry_run):<br>required: **false**<br><p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p> <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
      ///   - [`recipient(RecipientInfo)`](crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::recipient) / [`set_recipient(Option<RecipientInfo>)`](crate::operation::derive_shared_secret::builders::DeriveSharedSecretFluentBuilder::set_recipient):<br>required: **false**<br><p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from an Amazon Web Services Nitro enclave or NitroTPM, and the encryption algorithm to use with the public key in the attestation document. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>.</p> <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM. To call DeriveSharedSecret generate an attestation document use either <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> for an Amazon Web Services Nitro Enclaves or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/attestation-get-doc.html">Amazon Web Services NitroTPM tools</a> for Amazon Web Services NitroTPM. Then use the Recipient parameter from any Amazon Web Services SDK to provide the attestation document for the attested environment.</p> <p>When you use this parameter, instead of returning a plaintext copy of the shared secret, KMS encrypts the plaintext shared secret under the public key in the attestation document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext can be decrypted only with the private key in the attested environment. The <code>CiphertextBlob</code> field in the response contains the encrypted shared secret derived from the KMS key specified by the <code>KeyId</code> parameter and public key specified by the <code>PublicKey</code> parameter. The <code>SharedSecret</code> field in the response is null or empty.</p> <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
-```
-
-### `src/client/describe_custom_key_stores.rs`
-
-```diff
---- reference/src/client/describe_custom_key_stores.rs
-+++ generated/src/client/describe_custom_key_stores.rs
-@@ -11,7 +11,7 @@
-     /// - On success, responds with [`DescribeCustomKeyStoresOutput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput) with field(s):
-     ///   - [`custom_key_stores(Option<Vec::<CustomKeyStoresListEntry>>)`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput::custom_key_stores): <p>Contains metadata about each custom key store.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<DescribeCustomKeyStoresError>`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError)
-     pub fn describe_custom_key_stores(&self) -> crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder {
-         crate::operation::describe_custom_key_stores::builders::DescribeCustomKeyStoresFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/describe_key.rs`
@@ -485,8 +469,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ///   - [`key_id(impl Into<String>)`](crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::key_id) / [`set_key_id(Option<String>)`](crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::set_key_id):<br>required: **true**<br><p>Gets the rotation status for the specified KMS key.</p> <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <code>ListKeys</code> or <code>DescribeKey</code>.</p><br>
 +    ///   - [`key_id(impl Into<String>)`](crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::key_id) / [`set_key_id(Option<String>)`](crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusFluentBuilder::set_key_id):<br>required: **true**<br><p>Gets the rotation status for the specified KMS key.</p> <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p> <p>For example:</p> <ul>  <li>   <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li>  <li>   <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><br>
      /// - On success, responds with [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput) with field(s):
--    ///   - [`key_rotation_enabled(bool)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::key_rotation_enabled): <p>A Boolean value that specifies whether key rotation is enabled.</p>
-+    ///   - [`key_rotation_enabled(Option<bool>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::key_rotation_enabled): <p>A Boolean value that specifies whether key rotation is enabled.</p>
+     ///   - [`key_rotation_enabled(bool)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::key_rotation_enabled): <p>A Boolean value that specifies whether key rotation is enabled.</p>
      ///   - [`key_id(Option<String>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::key_id): <p>Identifies the specified symmetric encryption KMS key.</p>
      ///   - [`rotation_period_in_days(Option<i32>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::rotation_period_in_days): <p>The number of days between each automatic rotation. The default value is 365 days.</p>
      ///   - [`next_rotation_date(Option<DateTime>)`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput::next_rotation_date): <p>The next date that KMS will automatically rotate the key material.</p>
@@ -572,7 +555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/client/list_aliases.rs
 +++ generated/src/client/list_aliases.rs
-@@ -4,13 +4,13 @@
+@@ -4,7 +4,7 @@
      /// This operation supports pagination; See [`into_paginator()`](crate::operation::list_aliases::builders::ListAliasesFluentBuilder::into_paginator).
      ///
      /// - The fluent builder is configurable:
@@ -581,13 +564,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`limit(i32)`](crate::operation::list_aliases::builders::ListAliasesFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::list_aliases::builders::ListAliasesFluentBuilder::set_limit):<br>required: **false**<br><p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p><br>
      ///   - [`marker(impl Into<String>)`](crate::operation::list_aliases::builders::ListAliasesFluentBuilder::marker) / [`set_marker(Option<String>)`](crate::operation::list_aliases::builders::ListAliasesFluentBuilder::set_marker):<br>required: **false**<br><p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p><br>
      /// - On success, responds with [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput) with field(s):
-     ///   - [`aliases(Option<Vec::<AliasListEntry>>)`](crate::operation::list_aliases::ListAliasesOutput::aliases): <p>A list of aliases.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_aliases::ListAliasesOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_aliases::ListAliasesOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_aliases::ListAliasesOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListAliasesError>`](crate::operation::list_aliases::ListAliasesError)
-     pub fn list_aliases(&self) -> crate::operation::list_aliases::builders::ListAliasesFluentBuilder {
-         crate::operation::list_aliases::builders::ListAliasesFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/list_grants.rs`
@@ -604,15 +580,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`grant_id(impl Into<String>)`](crate::operation::list_grants::builders::ListGrantsFluentBuilder::grant_id) / [`set_grant_id(Option<String>)`](crate::operation::list_grants::builders::ListGrantsFluentBuilder::set_grant_id):<br>required: **false**<br><p>Returns only the grant with the specified grant ID. The grant ID uniquely identifies the grant.</p><br>
      ///   - [`grantee_principal(impl Into<String>)`](crate::operation::list_grants::builders::ListGrantsFluentBuilder::grantee_principal) / [`set_grantee_principal(Option<String>)`](crate::operation::list_grants::builders::ListGrantsFluentBuilder::set_grantee_principal):<br>required: **false**<br><p>Returns only grants where the specified principal is the grantee principal for the grant.</p> <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p><br>
      ///   - [`grantee_service_principal(impl Into<String>)`](crate::operation::list_grants::builders::ListGrantsFluentBuilder::grantee_service_principal) / [`set_grantee_service_principal(Option<String>)`](crate::operation::list_grants::builders::ListGrantsFluentBuilder::set_grantee_service_principal):<br>required: **false**<br><p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p> <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p><br>
-@@ -13,7 +13,7 @@
-     /// - On success, responds with [`ListGrantsOutput`](crate::operation::list_grants::ListGrantsOutput) with field(s):
-     ///   - [`grants(Option<Vec::<GrantListEntry>>)`](crate::operation::list_grants::ListGrantsOutput::grants): <p>A list of grants.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_grants::ListGrantsOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_grants::ListGrantsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_grants::ListGrantsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListGrantsError>`](crate::operation::list_grants::ListGrantsError)
-     pub fn list_grants(&self) -> crate::operation::list_grants::builders::ListGrantsFluentBuilder {
-         crate::operation::list_grants::builders::ListGrantsFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/list_key_policies.rs`
@@ -620,7 +587,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/client/list_key_policies.rs
 +++ generated/src/client/list_key_policies.rs
-@@ -4,13 +4,13 @@
+@@ -4,7 +4,7 @@
      /// This operation supports pagination; See [`into_paginator()`](crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder::into_paginator).
      ///
      /// - The fluent builder is configurable:
@@ -629,13 +596,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`limit(i32)`](crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder::set_limit):<br>required: **false**<br><p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p> <p>Only one policy can be attached to a key.</p><br>
      ///   - [`marker(impl Into<String>)`](crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder::marker) / [`set_marker(Option<String>)`](crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder::set_marker):<br>required: **false**<br><p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p><br>
      /// - On success, responds with [`ListKeyPoliciesOutput`](crate::operation::list_key_policies::ListKeyPoliciesOutput) with field(s):
-     ///   - [`policy_names(Option<Vec::<String>>)`](crate::operation::list_key_policies::ListKeyPoliciesOutput::policy_names): <p>A list of key policy names. The only valid value is <code>default</code>.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_key_policies::ListKeyPoliciesOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_key_policies::ListKeyPoliciesOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_key_policies::ListKeyPoliciesOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListKeyPoliciesError>`](crate::operation::list_key_policies::ListKeyPoliciesError)
-     pub fn list_key_policies(&self) -> crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder {
-         crate::operation::list_key_policies::builders::ListKeyPoliciesFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/list_key_rotations.rs`
@@ -652,31 +612,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`include_key_material(IncludeKeyMaterial)`](crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::include_key_material) / [`set_include_key_material(Option<IncludeKeyMaterial>)`](crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::set_include_key_material):<br>required: **false**<br><p>Use this optional parameter to control which key materials associated with this key are listed in the response. The default value of this parameter is <code>ROTATIONS_ONLY</code>. If you omit this parameter, KMS returns information on the key materials created by automatic or on-demand key rotation. When you specify a value of <code>ALL_KEY_MATERIAL</code>, KMS adds the first key material and any imported key material pending rotation to the response. This parameter can only be used with KMS keys that support automatic or on-demand key rotation.</p><br>
      ///   - [`limit(i32)`](crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::set_limit):<br>required: **false**<br><p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p><br>
      ///   - [`marker(impl Into<String>)`](crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::marker) / [`set_marker(Option<String>)`](crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::set_marker):<br>required: **false**<br><p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p><br>
-@@ -11,7 +11,7 @@
-     /// - On success, responds with [`ListKeyRotationsOutput`](crate::operation::list_key_rotations::ListKeyRotationsOutput) with field(s):
-     ///   - [`rotations(Option<Vec::<RotationsListEntry>>)`](crate::operation::list_key_rotations::ListKeyRotationsOutput::rotations): <p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_key_rotations::ListKeyRotationsOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_key_rotations::ListKeyRotationsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_key_rotations::ListKeyRotationsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListKeyRotationsError>`](crate::operation::list_key_rotations::ListKeyRotationsError)
-     pub fn list_key_rotations(&self) -> crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder {
-         crate::operation::list_key_rotations::builders::ListKeyRotationsFluentBuilder::new(self.handle.clone())
-```
-
-### `src/client/list_keys.rs`
-
-```diff
---- reference/src/client/list_keys.rs
-+++ generated/src/client/list_keys.rs
-@@ -9,7 +9,7 @@
-     /// - On success, responds with [`ListKeysOutput`](crate::operation::list_keys::ListKeysOutput) with field(s):
-     ///   - [`keys(Option<Vec::<KeyListEntry>>)`](crate::operation::list_keys::ListKeysOutput::keys): <p>A list of KMS keys.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_keys::ListKeysOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_keys::ListKeysOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_keys::ListKeysOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListKeysError>`](crate::operation::list_keys::ListKeysError)
-     pub fn list_keys(&self) -> crate::operation::list_keys::builders::ListKeysFluentBuilder {
-         crate::operation::list_keys::builders::ListKeysFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/list_resource_tags.rs`
@@ -684,7 +619,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/client/list_resource_tags.rs
 +++ generated/src/client/list_resource_tags.rs
-@@ -4,13 +4,13 @@
+@@ -4,7 +4,7 @@
      /// This operation supports pagination; See [`into_paginator()`](crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::into_paginator).
      ///
      /// - The fluent builder is configurable:
@@ -693,13 +628,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`limit(i32)`](crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::set_limit):<br>required: **false**<br><p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 50, inclusive. If you do not include a value, it defaults to 50.</p><br>
      ///   - [`marker(impl Into<String>)`](crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::marker) / [`set_marker(Option<String>)`](crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::set_marker):<br>required: **false**<br><p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p> <p>Do not attempt to construct this value. Use only the value of <code>NextMarker</code> from the truncated response you just received.</p><br>
      /// - On success, responds with [`ListResourceTagsOutput`](crate::operation::list_resource_tags::ListResourceTagsOutput) with field(s):
-     ///   - [`tags(Option<Vec::<Tag>>)`](crate::operation::list_resource_tags::ListResourceTagsOutput::tags): <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>  <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p> </note>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_resource_tags::ListResourceTagsOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p> <p>Do not assume or infer any information from this value.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_resource_tags::ListResourceTagsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_resource_tags::ListResourceTagsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListResourceTagsError>`](crate::operation::list_resource_tags::ListResourceTagsError)
-     pub fn list_resource_tags(&self) -> crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder {
-         crate::operation::list_resource_tags::builders::ListResourceTagsFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/list_retirable_grants.rs`
@@ -707,7 +635,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/client/list_retirable_grants.rs
 +++ generated/src/client/list_retirable_grants.rs
-@@ -6,12 +6,12 @@
+@@ -6,7 +6,7 @@
      /// - The fluent builder is configurable:
      ///   - [`limit(i32)`](crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::set_limit):<br>required: **false**<br><p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p><br>
      ///   - [`marker(impl Into<String>)`](crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::marker) / [`set_marker(Option<String>)`](crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::set_marker):<br>required: **false**<br><p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p><br>
@@ -716,12 +644,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`retiring_service_principal(impl Into<String>)`](crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::retiring_service_principal) / [`set_retiring_service_principal(Option<String>)`](crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::set_retiring_service_principal):<br>required: **false**<br><p>The retiring service principal for which to list grants. This filter is only usable by callers in a service principal.</p> <p>You must specify either <code>RetiringPrincipal</code> or <code>RetiringServicePrincipal</code>, but not both.</p><br>
      /// - On success, responds with [`ListRetirableGrantsOutput`](crate::operation::list_retirable_grants::ListRetirableGrantsOutput) with field(s):
      ///   - [`grants(Option<Vec::<GrantListEntry>>)`](crate::operation::list_retirable_grants::ListRetirableGrantsOutput::grants): <p>A list of grants.</p>
-     ///   - [`next_marker(Option<String>)`](crate::operation::list_retirable_grants::ListRetirableGrantsOutput::next_marker): <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
--    ///   - [`truncated(bool)`](crate::operation::list_retirable_grants::ListRetirableGrantsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-+    ///   - [`truncated(Option<bool>)`](crate::operation::list_retirable_grants::ListRetirableGrantsOutput::truncated): <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-     /// - On failure, responds with [`SdkError<ListRetirableGrantsError>`](crate::operation::list_retirable_grants::ListRetirableGrantsError)
-     pub fn list_retirable_grants(&self) -> crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder {
-         crate::operation::list_retirable_grants::builders::ListRetirableGrantsFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/put_key_policy.rs`
@@ -991,15 +913,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`signature(Blob)`](crate::operation::verify::builders::VerifyFluentBuilder::signature) / [`set_signature(Option<Blob>)`](crate::operation::verify::builders::VerifyFluentBuilder::set_signature):<br>required: **true**<br><p>The signature that the <code>Sign</code> operation generated.</p><br>
      ///   - [`signing_algorithm(SigningAlgorithmSpec)`](crate::operation::verify::builders::VerifyFluentBuilder::signing_algorithm) / [`set_signing_algorithm(Option<SigningAlgorithmSpec>)`](crate::operation::verify::builders::VerifyFluentBuilder::set_signing_algorithm):<br>required: **true**<br><p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p><br>
      ///   - [`grant_tokens(impl Into<String>)`](crate::operation::verify::builders::VerifyFluentBuilder::grant_tokens) / [`set_grant_tokens(Option<Vec::<String>>)`](crate::operation::verify::builders::VerifyFluentBuilder::set_grant_tokens):<br>required: **false**<br><p>A list of grant tokens.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
-@@ -12,7 +12,7 @@
-     ///   - [`dry_run(bool)`](crate::operation::verify::builders::VerifyFluentBuilder::dry_run) / [`set_dry_run(Option<bool>)`](crate::operation::verify::builders::VerifyFluentBuilder::set_dry_run):<br>required: **false**<br><p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p> <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
-     /// - On success, responds with [`VerifyOutput`](crate::operation::verify::VerifyOutput) with field(s):
-     ///   - [`key_id(Option<String>)`](crate::operation::verify::VerifyOutput::key_id): <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
--    ///   - [`signature_valid(bool)`](crate::operation::verify::VerifyOutput::signature_valid): <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
-+    ///   - [`signature_valid(Option<bool>)`](crate::operation::verify::VerifyOutput::signature_valid): <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
-     ///   - [`signing_algorithm(Option<SigningAlgorithmSpec>)`](crate::operation::verify::VerifyOutput::signing_algorithm): <p>The signing algorithm that was used to verify the signature.</p>
-     /// - On failure, responds with [`SdkError<VerifyError>`](crate::operation::verify::VerifyError)
-     pub fn verify(&self) -> crate::operation::verify::builders::VerifyFluentBuilder {
 ```
 
 ### `src/client/verify_mac.rs`
@@ -1007,7 +920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/client/verify_mac.rs
 +++ generated/src/client/verify_mac.rs
-@@ -3,15 +3,15 @@
+@@ -3,10 +3,10 @@
      /// Constructs a fluent builder for the [`VerifyMac`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder) operation.
      ///
      /// - The fluent builder is configurable:
@@ -1020,566 +933,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`grant_tokens(impl Into<String>)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::grant_tokens) / [`set_grant_tokens(Option<Vec::<String>>)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::set_grant_tokens):<br>required: **false**<br><p>A list of grant tokens.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
      ///   - [`dry_run(bool)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::dry_run) / [`set_dry_run(Option<bool>)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::set_dry_run):<br>required: **false**<br><p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p> <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
      /// - On success, responds with [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput) with field(s):
-     ///   - [`key_id(Option<String>)`](crate::operation::verify_mac::VerifyMacOutput::key_id): <p>The HMAC KMS key used in the verification.</p>
--    ///   - [`mac_valid(bool)`](crate::operation::verify_mac::VerifyMacOutput::mac_valid): <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p> <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
-+    ///   - [`mac_valid(Option<bool>)`](crate::operation::verify_mac::VerifyMacOutput::mac_valid): <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p> <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
-     ///   - [`mac_algorithm(Option<MacAlgorithmSpec>)`](crate::operation::verify_mac::VerifyMacOutput::mac_algorithm): <p>The MAC algorithm used in the verification.</p>
-     /// - On failure, responds with [`SdkError<VerifyMacError>`](crate::operation::verify_mac::VerifyMacError)
-     pub fn verify_mac(&self) -> crate::operation::verify_mac::builders::VerifyMacFluentBuilder {
-```
-
-### `src/client.rs`
-
-```diff
---- reference/src/client.rs
-+++ generated/src/client.rs
-@@ -1,272 +1,294 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--#[derive(Debug)]
--pub(crate) struct Handle {
--    pub(crate) conf: crate::Config,
--    #[allow(dead_code)] // unused when a service does not provide any operations
--    pub(crate) runtime_plugins: ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugins,
--}
-
--/// Client for AWS Key Management Service
--///
--/// Client for invoking operations on AWS Key Management Service. Each operation on AWS Key Management Service is a method on this
--/// this struct. `.send()` MUST be invoked on the generated operations to dispatch the request to the service.
--/// ## Constructing a `Client`
--///
--/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]
--/// crate should be used to automatically resolve this config using
--/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared
--/// across multiple different AWS SDK clients. This config resolution process can be customized
--/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses
--/// the [builder pattern] to customize the default config.
--///
--/// In the simplest case, creating a client looks as follows:
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let config = aws_config::load_from_env().await;
--/// let client = aws_sdk_kms::Client::new(&config);
--/// # }
--/// ```
--///
--/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that
--/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.
--/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be
--/// done as follows:
--///
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let sdk_config = ::aws_config::load_from_env().await;
--/// let config = aws_sdk_kms::config::Builder::from(&sdk_config)
--/// # /*
--///     .some_service_specific_setting("value")
--/// # */
--///     .build();
--/// # }
--/// ```
--///
--/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.
--///
--/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should
--/// be done once at application start-up.
--///
--/// [`Config`]: crate::Config
--/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html
--/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html
--/// [`aws-config` docs]: https://docs.rs/aws-config/*
--/// [`aws-config`]: https://crates.io/crates/aws-config
--/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html
--/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html
--/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder
--/// # Using the `Client`
--///
--/// A client has a function for every operation that can be performed by the service.
--/// For example, the [`CancelKeyDeletion`](crate::operation::cancel_key_deletion) operation has
--/// a [`Client::cancel_key_deletion`], function which returns a builder for that operation.
--/// The fluent builder ultimately has a `send()` function that returns an async future that
--/// returns a result, as illustrated below:
--///
--/// ```rust,ignore
--/// let result = client.cancel_key_deletion()
--///     .key_id("example")
--///     .send()
--///     .await;
--/// ```
--///
--/// The underlying HTTP requests that get made by this can be modified with the `customize_operation`
--/// function on the fluent builder. See the [`customize`](crate::client::customize) module for more
--/// information.
--#[derive(::std::clone::Clone, ::std::fmt::Debug)]
--pub struct Client {
--    handle: ::std::sync::Arc<Handle>,
--}
-+#[allow(dead_code)]
-+pub(crate) mod transport {
-+    use ::std::collections::BTreeMap;
-+    use ::std::fmt;
-+    use ::std::io::{Read, Write};
-+    use ::std::net::TcpStream;
-+
-+    #[derive(Clone, Copy, Debug)]
-+    pub(crate) enum Method {
-+        Get,
-+        Put,
-+        Post,
-+        Delete,
-+        Head,
-+        Patch,
-+    }
-
--impl Client {
--    /// Creates a new client from the service [`Config`](crate::Config).
--    ///
--    /// # Panics
--    ///
--    /// This method will panic in the following cases:
--    ///
--    /// - Retries or timeouts are enabled without a `sleep_impl` configured.
--    /// - Identity caching is enabled without a `sleep_impl` and `time_source` configured.
--    /// - No `behavior_version` is provided.
--    ///
--    /// The panic message for each of these will have instructions on how to resolve them.
--    #[track_caller]
--    pub fn from_conf(conf: crate::Config) -> Self {
--        let handle = Handle {
--            conf: conf.clone(),
--            runtime_plugins: crate::config::base_client_runtime_plugins(conf),
--        };
--        if let Err(err) = Self::validate_config(&handle) {
--            panic!("Invalid client configuration: {err}");
-+    impl Method {
-+        fn as_str(self) -> &'static str {
-+            match self {
-+                Self::Get => "GET",
-+                Self::Put => "PUT",
-+                Self::Post => "POST",
-+                Self::Delete => "DELETE",
-+                Self::Head => "HEAD",
-+                Self::Patch => "PATCH",
-+            }
-         }
--        Self {
--            handle: ::std::sync::Arc::new(handle),
-+    }
-+
-+    #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-+    pub(crate) struct StatusCode(u16);
-+
-+    impl StatusCode {
-+        pub(crate) const CONFLICT: Self = Self(409);
-+        pub(crate) fn is_success(self) -> bool {
-+            (200..300).contains(&self.0)
-         }
-     }
-
--    /// Returns the client's configuration.
--    pub fn config(&self) -> &crate::Config {
--        &self.handle.conf
-+    impl fmt::Display for StatusCode {
-+        fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-+            self.0.fmt(formatter)
-+        }
-     }
-
--    fn validate_config(handle: &Handle) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
--        let mut cfg = ::aws_smithy_types::config_bag::ConfigBag::base();
--        handle
--            .runtime_plugins
--            .apply_client_configuration(&mut cfg)?
--            .validate_base_client_config(&cfg)?;
--        Ok(())
-+    #[derive(Clone, Debug)]
-+    pub(crate) struct Response {
-+        status: StatusCode,
-+        headers: BTreeMap<String, String>,
-+        body: Vec<u8>,
-     }
--}
-
--impl Client {
--    /// Creates a new client from an [SDK Config](::aws_types::sdk_config::SdkConfig).
--    ///
--    /// # Panics
--    ///
--    /// - This method will panic if the `sdk_config` is missing an async sleep implementation. If you experience this panic, set
--    ///   the `sleep_impl` on the Config passed into this function to fix it.
--    /// - This method will panic if the `sdk_config` is missing an HTTP connector. If you experience this panic, set the
--    ///   `http_connector` on the Config passed into this function to fix it.
--    /// - This method will panic if no `BehaviorVersion` is provided. If you experience this panic, set `behavior_version` on the Config or enable the `behavior-version-latest` Cargo feature.
--    #[track_caller]
--    pub fn new(sdk_config: &::aws_types::sdk_config::SdkConfig) -> Self {
--        Self::from_conf(sdk_config.into())
-+    impl Response {
-+        pub(crate) fn status(&self) -> StatusCode {
-+            self.status
-+        }
-+        pub(crate) fn header(&self, name: &str) -> Option<&str> {
-+            self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
-+        }
-+        pub(crate) fn body(&self) -> &[u8] {
-+            &self.body
-+        }
-+        pub(crate) async fn text(&self) -> Result<String, String> {
-+            String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
-+        }
-     }
--}
-
--mod cancel_key_deletion;
-+    #[derive(Clone, Debug, Default)]
-+    pub(crate) struct HttpClient;
-
--mod connect_custom_key_store;
-+    impl HttpClient {
-+        pub(crate) fn new() -> Self {
-+            Self
-+        }
-+        pub(crate) async fn request(&self, method: Method, url: &str, headers: &[(&str, &str)], body: &[u8]) -> Result<Response, String> {
-+            let (host, port, path) = parse_http_url(url)?;
-+            let mut stream = TcpStream::connect((host.as_str(), port)).map_err(|error| format!("failed to connect to {host}:{port}: {error}"))?;
-+            let mut request = format!(
-+                "{} {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\nContent-Length: {}\r\n",
-+                method.as_str(),
-+                path,
-+                host,
-+                body.len()
-+            );
-+            for (name, value) in headers {
-+                request.push_str(name);
-+                request.push_str(": ");
-+                request.push_str(value);
-+                request.push_str("\r\n");
-+            }
-+            request.push_str("\r\n");
-+            let mut request_bytes = request.into_bytes();
-+            request_bytes.extend_from_slice(body);
-+            stream
-+                .write_all(&request_bytes)
-+                .map_err(|error| format!("failed to write HTTP request: {error}"))?;
-+            let mut bytes = Vec::new();
-+            stream
-+                .read_to_end(&mut bytes)
-+                .map_err(|error| format!("failed to read HTTP response: {error}"))?;
-+            parse_response(&bytes)
-+        }
-+    }
-
--mod create_alias;
-+    fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {
-+        let authority_and_path = url
-+            .strip_prefix("http://")
-+            .ok_or_else(|| format!("only http:// endpoints are supported: {url}"))?;
-+        let (authority, path) = authority_and_path
-+            .split_once('/')
-+            .map_or((authority_and_path, "/"), |(authority, _path)| {
-+                (authority, &authority_and_path[authority.len()..])
-+            });
-+        if authority.is_empty() {
-+            return Err(format!("endpoint has no host: {url}"));
-+        }
-+        let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {
-+            let port = port.parse::<u16>().map_err(|error| format!("invalid endpoint port in {url}: {error}"))?;
-+            (host.to_owned(), port)
-+        } else {
-+            (authority.to_owned(), 80)
-+        };
-+        Ok((host, port, path.to_owned()))
-+    }
-
--mod create_custom_key_store;
--
--mod create_grant;
--
--mod create_key;
-+    fn parse_response(bytes: &[u8]) -> Result<Response, String> {
-+        let header_end = bytes
-+            .windows(4)
-+            .position(|window| window == b"\r\n\r\n")
-+            .ok_or_else(|| "HTTP response did not contain a header terminator".to_owned())?;
-+        let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!("HTTP response headers were not UTF-8: {error}"))?;
-+        let status = header
-+            .lines()
-+            .next()
-+            .and_then(|line| line.split_whitespace().nth(1))
-+            .ok_or_else(|| "HTTP response did not contain a status code".to_owned())?
-+            .parse::<u16>()
-+            .map_err(|error| format!("HTTP response status was invalid: {error}"))?;
-+        let mut headers = BTreeMap::new();
-+        for line in header.lines().skip(1) {
-+            if let Some((name, value)) = line.split_once(':') {
-+                headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());
-+            }
-+        }
-+        Ok(Response {
-+            status: StatusCode(status),
-+            headers,
-+            body: bytes[header_end + 4..].to_vec(),
-+        })
-+    }
-
--/// Operation customization and supporting types.
--///
--/// The underlying HTTP requests made during an operation can be customized
--/// by calling the `customize()` method on the builder returned from a client
--/// operation call. For example, this can be used to add an additional HTTP header:
--///
--/// ```ignore
--/// # async fn wrapper() -> ::std::result::Result<(), aws_sdk_kms::Error> {
--/// # let client: aws_sdk_kms::Client = unimplemented!();
--/// use ::http_1x::header::{HeaderName, HeaderValue};
--///
--/// let result = client.cancel_key_deletion()
--///     .customize()
--///     .mutate_request(|req| {
--///         // Add `x-example-header` with value
--///         req.headers_mut()
--///             .insert(
--///                 HeaderName::from_static("x-example-header"),
--///                 HeaderValue::from_static("1"),
--///             );
--///     })
--///     .send()
--///     .await;
--/// # }
--/// ```
--pub mod customize;
--
--mod decrypt;
--
--mod delete_alias;
--
--mod delete_custom_key_store;
--
--mod delete_imported_key_material;
--
--mod derive_shared_secret;
--
--mod describe_custom_key_stores;
--
--mod describe_key;
--
--mod disable_key;
--
--mod disable_key_rotation;
--
--mod disconnect_custom_key_store;
--
--mod enable_key;
--
--mod enable_key_rotation;
--
--mod encrypt;
--
--mod generate_data_key;
--
--mod generate_data_key_pair;
--
--mod generate_data_key_pair_without_plaintext;
--
--mod generate_data_key_without_plaintext;
--
--mod generate_mac;
--
--mod generate_random;
--
--mod get_key_last_usage;
--
--mod get_key_policy;
--
--mod get_key_rotation_status;
--
--mod get_parameters_for_import;
--
--mod get_public_key;
--
--mod import_key_material;
--
--mod list_aliases;
--
--mod list_grants;
--
--mod list_key_policies;
--
--mod list_key_rotations;
--
--mod list_keys;
--
--mod list_resource_tags;
--
--mod list_retirable_grants;
--
--mod put_key_policy;
--
--mod re_encrypt;
--
--mod replicate_key;
--
--mod retire_grant;
--
--mod revoke_grant;
--
--mod rotate_key_on_demand;
--
--mod schedule_key_deletion;
--
--mod sign;
--
--mod tag_resource;
--
--mod untag_resource;
--
--mod update_alias;
--
--mod update_custom_key_store;
--
--mod update_key_description;
-+    pub(crate) fn encode_path(value: &str) -> String {
-+        value.bytes().fold(String::new(), |mut result, byte| {
-+            if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {
-+                result.push(byte as char);
-+            } else {
-+                result.push('%');
-+                result.push(hex(byte >> 4));
-+                result.push(hex(byte & 0x0f));
-+            }
-+            result
-+        })
-+    }
-+    fn hex(value: u8) -> char {
-+        match value {
-+            0..=9 => (b'0' + value) as char,
-+            _ => (b'A' + value - 10) as char,
-+        }
-+    }
-+    pub(crate) fn xml_escape(value: &str) -> String {
-+        value
-+            .replace('&', "&amp;")
-+            .replace('<', "&lt;")
-+            .replace('>', "&gt;")
-+            .replace('\"', "&quot;")
-+            .replace('\'', "&apos;")
-+    }
-+    pub(crate) fn xml_unescape(value: &str) -> String {
-+        value
-+            .replace("&lt;", "<")
-+            .replace("&gt;", ">")
-+            .replace("&apos;", "'")
-+            .replace("&amp;", "&")
-+    }
-+    pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
-+        xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
-+    }
-+    pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
-+        let open = format!("<{tag}>");
-+        let close = format!("</{tag}>");
-+        let mut values = Vec::new();
-+        let mut remaining = xml;
-+        while let Some(start) = remaining.find(&open) {
-+            let value_start = start + open.len();
-+            let Some(end) = remaining[value_start..].find(&close) else { break };
-+            values.push(remaining[value_start..value_start + end].to_owned());
-+            remaining = &remaining[value_start + end + close.len()..];
-+        }
-+        values
-+    }
-+}
-
--mod update_primary_region;
-+// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-
--mod verify;
-+#[derive(Clone, Debug, Default)]
-+pub struct Client {
-+    config: Config,
-+    http: transport::HttpClient,
-+}
-+impl Client {
-+    pub fn new(config: &Config) -> Self {
-+        Self {
-+            config: config.clone(),
-+            http: transport::HttpClient::new(),
-+        }
-+    }
-+    pub fn config(&self) -> &Config {
-+        &self.config
-+    }
-+    pub(crate) async fn request(
-+        &self,
-+        method: transport::Method,
-+        path: &str,
-+        headers: &[(&str, &str)],
-+        body: &[u8],
-+    ) -> ::std::result::Result<transport::Response, ::std::string::String> {
-+        let url = format!("{}{}", self.config.endpoint_url.trim_end_matches('/'), path);
-+        self.http.request(method, &url, headers, body).await
-+    }
-+}
-
--mod verify_mac;
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/cancel_key_deletion.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/connect_custom_key_store.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/create_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/create_custom_key_store.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/create_grant.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/create_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/decrypt.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/delete_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/delete_custom_key_store.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/delete_imported_key_material.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/derive_shared_secret.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/describe_custom_key_stores.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/describe_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/disable_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/disable_key_rotation.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/disconnect_custom_key_store.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/enable_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/enable_key_rotation.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/encrypt.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/generate_data_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/generate_data_key_pair.rs"));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/kms/src/client/generate_data_key_pair_without_plaintext.rs"
-+));
-+include!(concat!(
-+    env!("OUT_DIR"),
-+    "/generated/kms/src/client/generate_data_key_without_plaintext.rs"
-+));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/generate_mac.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/generate_random.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/get_key_last_usage.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/get_key_policy.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/get_key_rotation_status.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/get_parameters_for_import.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/get_public_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/import_key_material.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_aliases.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_grants.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_key_policies.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_key_rotations.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_keys.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_resource_tags.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/list_retirable_grants.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/put_key_policy.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/re_encrypt.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/replicate_key.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/retire_grant.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/revoke_grant.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/rotate_key_on_demand.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/schedule_key_deletion.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/sign.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/tag_resource.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/untag_resource.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/update_alias.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/update_custom_key_store.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/update_key_description.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/update_primary_region.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/verify.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client/verify_mac.rs"));
 ```
 
 ### `src/config.rs`
@@ -3334,270 +2687,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub mod auth;
 ```
 
-### `src/lib.rs`
-
-```diff
---- reference/src/lib.rs
-+++ generated/src/lib.rs
-@@ -1,240 +1,21 @@
--#![allow(deprecated)]
--#![allow(unknown_lints)]
--#![allow(clippy::module_inception)]
--#![allow(clippy::upper_case_acronyms)]
--#![allow(clippy::large_enum_variant)]
--#![allow(clippy::wrong_self_convention)]
--#![allow(clippy::should_implement_trait)]
--#![allow(clippy::disallowed_names)]
--#![allow(clippy::vec_init_then_push)]
--#![allow(clippy::type_complexity)]
--#![allow(clippy::needless_return)]
--#![allow(clippy::derive_partial_eq_without_eq)]
--#![allow(clippy::result_large_err)]
--#![allow(clippy::unnecessary_map_on_constructor)]
--#![allow(clippy::useless_conversion)]
--#![allow(clippy::deprecated_semver)]
--#![allow(rustdoc::bare_urls)]
--#![allow(rustdoc::redundant_explicit_links)]
--#![allow(rustdoc::broken_intra_doc_links)]
--#![allow(rustdoc::invalid_html_tags)]
--#![forbid(unsafe_code)]
--#![warn(missing_docs)]
--#![cfg_attr(docsrs, feature(doc_cfg))]
--//! Key Management Service (KMS) is an encryption and key management web service. This guide describes the KMS operations that you can call programmatically. For general information about KMS, see the [_Key Management Service Developer Guide_](https://docs.aws.amazon.com/kms/latest/developerguide/).
--//!
--//! We recommend that you use the Amazon Web Services SDKs to make programmatic API calls to KMS.
--//!
--//! If you need to use FIPS 140-2 validated cryptographic modules when communicating with Amazon Web Services, use one of the FIPS endpoints in your preferred Amazon Web Services Region. If you need communicate over IPv6, use the dual-stack endpoint in your preferred Amazon Web Services Region. For more information see [Service endpoints](https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region) in the Key Management Service topic of the _Amazon Web Services General Reference_ and [Dual-stack endpoint support](https://docs.aws.amazon.com/kms/latest/developerguide/ipv6-kms.html) in the KMS Developer Guide.
--//!
--//! All KMS API calls must be signed and be transmitted using Transport Layer Security (TLS). KMS recommends you always use the latest supported TLS version. Clients must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and later support these modes.
--//!
--//! __Signing Requests__
--//!
--//! Requests must be signed using an access key ID and a secret access key. We strongly recommend that you do not use your Amazon Web Services account root access key ID and secret access key for everyday work. You can use the access key ID and secret access key for an IAM user or you can use the Security Token Service (STS) to generate temporary security credentials and use those to sign requests.
--//!
--//! All KMS requests must be signed with [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
--//!
--//! __Logging API Requests__
--//!
--//! KMS supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to KMS, who made the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find your log files, see the [CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
--//!
--//! __Additional Resources__
--//!
--//! For more information about credentials and request signing, see the following:
--//!   - [Amazon Web Services Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) - This topic provides general information about the types of credentials used to access Amazon Web Services.
--//!   - [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) - This section of the _IAM User Guide_ describes how to create and use temporary security credentials.
--//!   - [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) - This set of topics walks you through the process of signing a request using an access key ID and a secret access key.
--//!
--//! __Commonly Used API Operations__
--//!
--//! Of the API operations discussed in this guide, the following will prove the most useful for most applications. You will likely perform operations other than these, such as creating keys and assigning policies, by using the console.
--//!   - Encrypt
--//!   - Decrypt
--//!   - GenerateDataKey
--//!   - GenerateDataKeyWithoutPlaintext
--//!
--//! ## Getting Started
--//!
--//! > Examples are available for many services and operations, check out the
--//! > [usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1).
--//!
--//! The SDK provides one crate per AWS service. You must add [Tokio](https://crates.io/crates/tokio)
--//! as a dependency within your Rust project to execute asynchronous code. To add `aws-sdk-kms` to
--//! your project, add the following to your **Cargo.toml** file:
--//!
--//! ```toml
--//! [dependencies]
--//! aws-config = { version = "1.1.7", features = ["behavior-version-latest"] }
--//! aws-sdk-kms = "1.116.0"
--//! tokio = { version = "1", features = ["full"] }
--//! ```
--//!
--//! Then in code, a client can be created with the following:
--//!
--//! ```rust,no_run
--//! use aws_sdk_kms as kms;
--//!
--//! #[::tokio::main]
--//! async fn main() -> Result<(), kms::Error> {
--//!     let config = aws_config::load_from_env().await;
--//!     let client = aws_sdk_kms::Client::new(&config);
--//!
--//!     // ... make some calls with the client
--//!
--//!     Ok(())
--//! }
--//! ```
--//!
--//! See the [client documentation](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html)
--//! for information on what calls can be made, and the inputs and outputs for each of those calls.
--//!
--//! ## Using the SDK
--//!
--//! Until the SDK is released, we will be adding information about using the SDK to the
--//! [Developer Guide](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/welcome.html). Feel free to suggest
--//! additional sections for the guide by opening an issue and describing what you are trying to do.
--//!
--//! ## Getting Help
--//!
--//! * [GitHub discussions](https://github.com/awslabs/aws-sdk-rust/discussions) - For ideas, RFCs & general questions
--//! * [GitHub issues](https://github.com/awslabs/aws-sdk-rust/issues/new/choose) - For bug reports & feature requests
--//! * [Generated Docs (latest version)](https://awslabs.github.io/aws-sdk-rust/)
--//! * [Usage examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1)
--//!
--//!
--//! # Crate Organization
--//!
--//! The entry point for most customers will be [`Client`], which exposes one method for each API
--//! offered by AWS Key Management Service. The return value of each of these methods is a "fluent builder",
--//! where the different inputs for that API are added by builder-style function call chaining,
--//! followed by calling `send()` to get a [`Future`](std::future::Future) that will result in
--//! either a successful output or a [`SdkError`](crate::error::SdkError).
--//!
--//! Some of these API inputs may be structs or enums to provide more complex structured information.
--//! These structs and enums live in [`types`](crate::types). There are some simpler types for
--//! representing data such as date times or binary blobs that live in [`primitives`](crate::primitives).
--//!
--//! All types required to configure a client via the [`Config`](crate::Config) struct live
--//! in [`config`](crate::config).
--//!
--//! The [`operation`](crate::operation) module has a submodule for every API, and in each submodule
--//! is the input, output, and error type for that API, as well as builders to construct each of those.
--//!
--//! There is a top-level [`Error`](crate::Error) type that encompasses all the errors that the
--//! client can return. Any other error type can be converted to this `Error` type via the
--//! [`From`](std::convert::From) trait.
--//!
--//! The other modules within this crate are not required for normal usage.
--
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
--pub use error_meta::Error;
-
--#[doc(inline)]
--pub use config::Config;
--
--/// Client for calling AWS Key Management Service.
--/// ## Constructing a `Client`
--///
--/// A [`Config`] is required to construct a client. For most use cases, the [`aws-config`]
--/// crate should be used to automatically resolve this config using
--/// [`aws_config::load_from_env()`], since this will resolve an [`SdkConfig`] which can be shared
--/// across multiple different AWS SDK clients. This config resolution process can be customized
--/// by calling [`aws_config::from_env()`] instead, which returns a [`ConfigLoader`] that uses
--/// the [builder pattern] to customize the default config.
--///
--/// In the simplest case, creating a client looks as follows:
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let config = aws_config::load_from_env().await;
--/// let client = aws_sdk_kms::Client::new(&config);
--/// # }
--/// ```
--///
--/// Occasionally, SDKs may have additional service-specific values that can be set on the [`Config`] that
--/// is absent from [`SdkConfig`], or slightly different settings for a specific client may be desired.
--/// The [`Builder`](crate::config::Builder) struct implements `From<&SdkConfig>`, so setting these specific settings can be
--/// done as follows:
--///
--/// ```rust,no_run
--/// # async fn wrapper() {
--/// let sdk_config = ::aws_config::load_from_env().await;
--/// let config = aws_sdk_kms::config::Builder::from(&sdk_config)
--/// # /*
--///     .some_service_specific_setting("value")
--/// # */
--///     .build();
--/// # }
--/// ```
--///
--/// See the [`aws-config` docs] and [`Config`] for more information on customizing configuration.
--///
--/// _Note:_ Client construction is expensive due to connection thread pool initialization, and should
--/// be done once at application start-up.
--///
--/// [`Config`]: crate::Config
--/// [`ConfigLoader`]: https://docs.rs/aws-config/*/aws_config/struct.ConfigLoader.html
--/// [`SdkConfig`]: https://docs.rs/aws-config/*/aws_config/struct.SdkConfig.html
--/// [`aws-config` docs]: https://docs.rs/aws-config/*
--/// [`aws-config`]: https://crates.io/crates/aws-config
--/// [`aws_config::from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.from_env.html
--/// [`aws_config::load_from_env()`]: https://docs.rs/aws-config/*/aws_config/fn.load_from_env.html
--/// [builder pattern]: https://rust-lang.github.io/api-guidelines/type-safety.html#builders-enable-construction-of-complex-values-c-builder
--/// # Using the `Client`
--///
--/// A client has a function for every operation that can be performed by the service.
--/// For example, the [`CancelKeyDeletion`](crate::operation::cancel_key_deletion) operation has
--/// a [`Client::cancel_key_deletion`], function which returns a builder for that operation.
--/// The fluent builder ultimately has a `send()` function that returns an async future that
--/// returns a result, as illustrated below:
--///
--/// ```rust,ignore
--/// let result = client.cancel_key_deletion()
--///     .key_id("example")
--///     .send()
--///     .await;
--/// ```
--///
--/// The underlying HTTP requests that get made by this can be modified with the `customize_operation`
--/// function on the fluent builder. See the [`customize`](crate::client::customize) module for more
--/// information.
--pub mod client;
--
--/// Configuration for AWS Key Management Service.
--pub mod config;
-+pub use error_meta::Error;
-
--/// Common errors and error handling utilities.
--pub mod error;
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/primitives.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/config.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/error.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/meta.rs"));
-+pub mod types {
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types.rs"));
-+}
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation.rs"));
-+include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client.rs"));
-
- mod error_meta;
--
--/// Information about this crate.
--pub mod meta;
--
--/// All operations that this crate can perform.
--pub mod operation;
--
--/// Primitives such as `Blob` or `DateTime` used by other types.
--pub mod primitives;
--
--/// Data structures used by operation inputs/outputs.
--pub mod types;
--
--mod observability_feature;
--
--pub(crate) mod protocol_serde;
--
--mod sdk_feature_tracker;
--
--mod serialization_settings;
--
--mod endpoint_lib;
--
--mod lens;
--
--mod json_errors;
--
--mod serde_util;
--
--#[doc(inline)]
--pub use client::Client;
-+mod serde_util {
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/serde_util.rs"));
-+}
-+mod lens {
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/lens.rs"));
-+}
-```
-
 ### `src/operation/cancel_key_deletion.rs`
 
 ```diff
@@ -4069,6 +3158,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::create_grant::CreateGrantError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/create_key/_create_key_input.rs`
+
+```diff
+--- reference/src/operation/create_key/_create_key_input.rs
++++ generated/src/operation/create_key/_create_key_input.rs
+@@ -923,7 +923,7 @@
+             key_spec: self.key_spec,
+             origin: self.origin,
+             custom_key_store_id: self.custom_key_store_id,
+-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
++            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
+             tags: self.tags,
+             multi_region: self.multi_region,
+             xks_key_id: self.xks_key_id,
 ```
 
 ### `src/operation/create_key.rs`
@@ -4589,40 +3694,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::derive_shared_secret::DeriveSharedSecretError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs`
-
-```diff
---- reference/src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs
-+++ generated/src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl DescribeCustomKeyStoresOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresOutput {
-             custom_key_stores: self.custom_key_stores,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
 ```
 
 ### `src/operation/describe_custom_key_stores.rs`
@@ -5970,40 +5041,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/get_key_rotation_status/_get_key_rotation_status_output.rs`
-
-```diff
---- reference/src/operation/get_key_rotation_status/_get_key_rotation_status_output.rs
-+++ generated/src/operation/get_key_rotation_status/_get_key_rotation_status_output.rs
-@@ -4,7 +4,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct GetKeyRotationStatusOutput {
-     /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
--    pub key_rotation_enabled: bool,
-+    pub key_rotation_enabled: ::std::option::Option<bool>,
-     /// <p>Identifies the specified symmetric encryption KMS key.</p>
-     pub key_id: ::std::option::Option<::std::string::String>,
-     /// <p>The number of days between each automatic rotation. The default value is 365 days.</p>
-@@ -18,7 +18,7 @@
- }
- impl GetKeyRotationStatusOutput {
-     /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
--    pub fn key_rotation_enabled(&self) -> bool {
-+    pub fn key_rotation_enabled(&self) -> ::std::option::Option<bool> {
-         self.key_rotation_enabled
-     }
-     /// <p>Identifies the specified symmetric encryption KMS key.</p>
-@@ -148,7 +148,7 @@
-     /// Consumes the builder and constructs a [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
-     pub fn build(self) -> crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
-         crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
--            key_rotation_enabled: self.key_rotation_enabled.unwrap_or_default(),
-+            key_rotation_enabled: self.key_rotation_enabled,
-             key_id: self.key_id,
-             rotation_period_in_days: self.rotation_period_in_days,
-             next_rotation_date: self.next_rotation_date,
-```
-
 ### `src/operation/get_key_rotation_status.rs`
 
 ```diff
@@ -6398,40 +5435,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/list_aliases/_list_aliases_output.rs`
-
-```diff
---- reference/src/operation/list_aliases/_list_aliases_output.rs
-+++ generated/src/operation/list_aliases/_list_aliases_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListAliasesOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::list_aliases::ListAliasesOutput {
-             aliases: self.aliases,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
-```
-
 ### `src/operation/list_aliases.rs`
 
 ```diff
@@ -6511,40 +5514,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/list_grants/_list_grants_output.rs`
-
-```diff
---- reference/src/operation/list_grants/_list_grants_output.rs
-+++ generated/src/operation/list_grants/_list_grants_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListGrantsOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::list_grants::ListGrantsOutput {
-             grants: self.grants,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
-```
-
 ### `src/operation/list_grants.rs`
 
 ```diff
@@ -6622,40 +5591,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::list_grants::ListGrantsError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/list_key_policies/_list_key_policies_output.rs`
-
-```diff
---- reference/src/operation/list_key_policies/_list_key_policies_output.rs
-+++ generated/src/operation/list_key_policies/_list_key_policies_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListKeyPoliciesOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::list_key_policies::ListKeyPoliciesOutput {
-             policy_names: self.policy_names,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
 ```
 
 ### `src/operation/list_key_policies.rs`
@@ -6739,40 +5674,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/list_key_rotations/_list_key_rotations_output.rs`
-
-```diff
---- reference/src/operation/list_key_rotations/_list_key_rotations_output.rs
-+++ generated/src/operation/list_key_rotations/_list_key_rotations_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListKeyRotationsOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::list_key_rotations::ListKeyRotationsOutput {
-             rotations: self.rotations,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
-```
-
 ### `src/operation/list_key_rotations.rs`
 
 ```diff
@@ -6854,40 +5755,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/list_keys/_list_keys_output.rs`
-
-```diff
---- reference/src/operation/list_keys/_list_keys_output.rs
-+++ generated/src/operation/list_keys/_list_keys_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListKeysOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::list_keys::ListKeysOutput {
-             keys: self.keys,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
-```
-
 ### `src/operation/list_keys.rs`
 
 ```diff
@@ -6965,40 +5832,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::list_keys::ListKeysError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/list_resource_tags/_list_resource_tags_output.rs`
-
-```diff
---- reference/src/operation/list_resource_tags/_list_resource_tags_output.rs
-+++ generated/src/operation/list_resource_tags/_list_resource_tags_output.rs
-@@ -11,7 +11,7 @@
-     /// <p>Do not assume or infer any information from this value.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListResourceTagsOutput {
-@@ -29,7 +29,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -126,7 +126,7 @@
-         crate::operation::list_resource_tags::ListResourceTagsOutput {
-             tags: self.tags,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
 ```
 
 ### `src/operation/list_resource_tags.rs`
@@ -7080,40 +5913,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::list_resource_tags::ListResourceTagsError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation/list_retirable_grants/_list_retirable_grants_output.rs`
-
-```diff
---- reference/src/operation/list_retirable_grants/_list_retirable_grants_output.rs
-+++ generated/src/operation/list_retirable_grants/_list_retirable_grants_output.rs
-@@ -8,7 +8,7 @@
-     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-     pub next_marker: ::std::option::Option<::std::string::String>,
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub truncated: bool,
-+    pub truncated: ::std::option::Option<bool>,
-     _request_id: Option<String>,
- }
- impl ListRetirableGrantsOutput {
-@@ -23,7 +23,7 @@
-         self.next_marker.as_deref()
-     }
-     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
--    pub fn truncated(&self) -> bool {
-+    pub fn truncated(&self) -> ::std::option::Option<bool> {
-         self.truncated
-     }
- }
-@@ -111,7 +111,7 @@
-         crate::operation::list_retirable_grants::ListRetirableGrantsOutput {
-             grants: self.grants,
-             next_marker: self.next_marker,
--            truncated: self.truncated.unwrap_or_default(),
-+            truncated: self.truncated,
-             _request_id: self._request_id,
-         }
-     }
 ```
 
 ### `src/operation/list_retirable_grants.rs`
@@ -7215,6 +6014,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::list_retirable_grants::ListRetirableGrantsError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/put_key_policy/_put_key_policy_input.rs`
+
+```diff
+--- reference/src/operation/put_key_policy/_put_key_policy_input.rs
++++ generated/src/operation/put_key_policy/_put_key_policy_input.rs
+@@ -288,7 +288,7 @@
+             key_id: self.key_id,
+             policy_name: self.policy_name,
+             policy: self.policy,
+-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
++            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
+         })
+     }
+ }
 ```
 
 ### `src/operation/put_key_policy.rs`
@@ -7373,6 +6188,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::re_encrypt::ReEncryptError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
+```
+
+### `src/operation/replicate_key/_replicate_key_input.rs`
+
+```diff
+--- reference/src/operation/replicate_key/_replicate_key_input.rs
++++ generated/src/operation/replicate_key/_replicate_key_input.rs
+@@ -383,7 +383,7 @@
+             key_id: self.key_id,
+             replica_region: self.replica_region,
+             policy: self.policy,
+-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
++            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
+             description: self.description,
+             tags: self.tags,
+         })
 ```
 
 ### `src/operation/replicate_key.rs`
@@ -8432,40 +7263,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/verify/_verify_output.rs`
-
-```diff
---- reference/src/operation/verify/_verify_output.rs
-+++ generated/src/operation/verify/_verify_output.rs
-@@ -6,7 +6,7 @@
-     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
-     pub key_id: ::std::option::Option<::std::string::String>,
-     /// <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
--    pub signature_valid: bool,
-+    pub signature_valid: ::std::option::Option<bool>,
-     /// <p>The signing algorithm that was used to verify the signature.</p>
-     pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
-     _request_id: Option<String>,
-@@ -17,7 +17,7 @@
-         self.key_id.as_deref()
-     }
-     /// <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception.</p>
--    pub fn signature_valid(&self) -> bool {
-+    pub fn signature_valid(&self) -> ::std::option::Option<bool> {
-         self.signature_valid
-     }
-     /// <p>The signing algorithm that was used to verify the signature.</p>
-@@ -102,7 +102,7 @@
-     pub fn build(self) -> crate::operation::verify::VerifyOutput {
-         crate::operation::verify::VerifyOutput {
-             key_id: self.key_id,
--            signature_valid: self.signature_valid.unwrap_or_default(),
-+            signature_valid: self.signature_valid,
-             signing_algorithm: self.signing_algorithm,
-             _request_id: self._request_id,
-         }
-```
-
 ### `src/operation/verify.rs`
 
 ```diff
@@ -8545,40 +7342,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/verify_mac/_verify_mac_output.rs`
-
-```diff
---- reference/src/operation/verify_mac/_verify_mac_output.rs
-+++ generated/src/operation/verify_mac/_verify_mac_output.rs
-@@ -7,7 +7,7 @@
-     pub key_id: ::std::option::Option<::std::string::String>,
-     /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
-     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
--    pub mac_valid: bool,
-+    pub mac_valid: ::std::option::Option<bool>,
-     /// <p>The MAC algorithm used in the verification.</p>
-     pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
-     _request_id: Option<String>,
-@@ -19,7 +19,7 @@
-     }
-     /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
-     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
--    pub fn mac_valid(&self) -> bool {
-+    pub fn mac_valid(&self) -> ::std::option::Option<bool> {
-         self.mac_valid
-     }
-     /// <p>The MAC algorithm used in the verification.</p>
-@@ -107,7 +107,7 @@
-     pub fn build(self) -> crate::operation::verify_mac::VerifyMacOutput {
-         crate::operation::verify_mac::VerifyMacOutput {
-             key_id: self.key_id,
--            mac_valid: self.mac_valid.unwrap_or_default(),
-+            mac_valid: self.mac_valid,
-             mac_algorithm: self.mac_algorithm,
-             _request_id: self._request_id,
-         }
-```
-
 ### `src/operation/verify_mac.rs`
 
 ```diff
@@ -8656,398 +7419,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_types::request_id::RequestId for crate::operation::verify_mac::VerifyMacError {
      fn request_id(&self) -> Option<&str> {
          self.meta().request_id()
-```
-
-### `src/operation.rs`
-
-```diff
---- reference/src/operation.rs
-+++ generated/src/operation.rs
-@@ -1,164 +1,174 @@
- // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
-+
- pub use ::aws_types::request_id::RequestId;
-
--/// Types for the `CancelKeyDeletion` operation.
--pub mod cancel_key_deletion;
--
--/// Types for the `ConnectCustomKeyStore` operation.
--pub mod connect_custom_key_store;
--
--/// Types for the `CreateAlias` operation.
--pub mod create_alias;
--
--/// Types for the `CreateCustomKeyStore` operation.
--pub mod create_custom_key_store;
--
--/// Types for the `CreateGrant` operation.
--pub mod create_grant;
--
--/// Types for the `CreateKey` operation.
--pub mod create_key;
--
--/// Types for the `Decrypt` operation.
--pub mod decrypt;
--
--/// Types for the `DeleteAlias` operation.
--pub mod delete_alias;
--
--/// Types for the `DeleteCustomKeyStore` operation.
--pub mod delete_custom_key_store;
--
--/// Types for the `DeleteImportedKeyMaterial` operation.
--pub mod delete_imported_key_material;
--
--/// Types for the `DeriveSharedSecret` operation.
--pub mod derive_shared_secret;
--
--/// Types for the `DescribeCustomKeyStores` operation.
--pub mod describe_custom_key_stores;
--
--/// Types for the `DescribeKey` operation.
--pub mod describe_key;
--
--/// Types for the `DisableKey` operation.
--pub mod disable_key;
--
--/// Types for the `DisableKeyRotation` operation.
--pub mod disable_key_rotation;
--
--/// Types for the `DisconnectCustomKeyStore` operation.
--pub mod disconnect_custom_key_store;
--
--/// Types for the `EnableKey` operation.
--pub mod enable_key;
--
--/// Types for the `EnableKeyRotation` operation.
--pub mod enable_key_rotation;
--
--/// Types for the `Encrypt` operation.
--pub mod encrypt;
--
--/// Types for the `GenerateDataKey` operation.
--pub mod generate_data_key;
--
--/// Types for the `GenerateDataKeyPair` operation.
--pub mod generate_data_key_pair;
--
--/// Types for the `GenerateDataKeyPairWithoutPlaintext` operation.
--pub mod generate_data_key_pair_without_plaintext;
--
--/// Types for the `GenerateDataKeyWithoutPlaintext` operation.
--pub mod generate_data_key_without_plaintext;
--
--/// Types for the `GenerateMac` operation.
--pub mod generate_mac;
--
--/// Types for the `GenerateRandom` operation.
--pub mod generate_random;
--
--/// Types for the `GetKeyLastUsage` operation.
--pub mod get_key_last_usage;
--
--/// Types for the `GetKeyPolicy` operation.
--pub mod get_key_policy;
--
--/// Types for the `GetKeyRotationStatus` operation.
--pub mod get_key_rotation_status;
--
--/// Types for the `GetParametersForImport` operation.
--pub mod get_parameters_for_import;
--
--/// Types for the `GetPublicKey` operation.
--pub mod get_public_key;
--
--/// Types for the `ImportKeyMaterial` operation.
--pub mod import_key_material;
--
--/// Types for the `ListAliases` operation.
--pub mod list_aliases;
--
--/// Types for the `ListGrants` operation.
--pub mod list_grants;
--
--/// Types for the `ListKeyPolicies` operation.
--pub mod list_key_policies;
--
--/// Types for the `ListKeyRotations` operation.
--pub mod list_key_rotations;
--
--/// Types for the `ListKeys` operation.
--pub mod list_keys;
--
--/// Types for the `ListResourceTags` operation.
--pub mod list_resource_tags;
--
--/// Types for the `ListRetirableGrants` operation.
--pub mod list_retirable_grants;
--
--/// Types for the `PutKeyPolicy` operation.
--pub mod put_key_policy;
--
--/// Types for the `ReEncrypt` operation.
--pub mod re_encrypt;
--
--/// Types for the `ReplicateKey` operation.
--pub mod replicate_key;
--
--/// Types for the `RetireGrant` operation.
--pub mod retire_grant;
--
--/// Types for the `RevokeGrant` operation.
--pub mod revoke_grant;
--
--/// Types for the `RotateKeyOnDemand` operation.
--pub mod rotate_key_on_demand;
--
--/// Types for the `ScheduleKeyDeletion` operation.
--pub mod schedule_key_deletion;
--
--/// Types for the `Sign` operation.
--pub mod sign;
--
--/// Types for the `TagResource` operation.
--pub mod tag_resource;
--
--/// Types for the `UntagResource` operation.
--pub mod untag_resource;
--
--/// Types for the `UpdateAlias` operation.
--pub mod update_alias;
--
--/// Types for the `UpdateCustomKeyStore` operation.
--pub mod update_custom_key_store;
--
--/// Types for the `UpdateKeyDescription` operation.
--pub mod update_key_description;
--
--/// Types for the `UpdatePrimaryRegion` operation.
--pub mod update_primary_region;
--
--/// Types for the `Verify` operation.
--pub mod verify;
--
--/// Types for the `VerifyMac` operation.
--pub mod verify_mac;
-+pub mod operation {
-+    pub mod cancel_key_deletion {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/cancel_key_deletion.rs"));
-+    }
-+    pub mod connect_custom_key_store {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/connect_custom_key_store.rs"));
-+    }
-+    pub mod create_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/create_alias.rs"));
-+    }
-+    pub mod create_custom_key_store {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/create_custom_key_store.rs"));
-+    }
-+    pub mod create_grant {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/create_grant.rs"));
-+    }
-+    pub mod create_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/create_key.rs"));
-+    }
-+    pub mod decrypt {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/decrypt.rs"));
-+    }
-+    pub mod delete_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/delete_alias.rs"));
-+    }
-+    pub mod delete_custom_key_store {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/delete_custom_key_store.rs"));
-+    }
-+    pub mod delete_imported_key_material {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/delete_imported_key_material.rs"));
-+    }
-+    pub mod derive_shared_secret {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/derive_shared_secret.rs"));
-+    }
-+    pub mod describe_custom_key_stores {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/describe_custom_key_stores.rs"));
-+    }
-+    pub mod describe_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/describe_key.rs"));
-+    }
-+    pub mod disable_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/disable_key.rs"));
-+    }
-+    pub mod disable_key_rotation {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/disable_key_rotation.rs"));
-+    }
-+    pub mod disconnect_custom_key_store {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/disconnect_custom_key_store.rs"));
-+    }
-+    pub mod enable_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/enable_key.rs"));
-+    }
-+    pub mod enable_key_rotation {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/enable_key_rotation.rs"));
-+    }
-+    pub mod encrypt {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/encrypt.rs"));
-+    }
-+    pub mod generate_data_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_data_key.rs"));
-+    }
-+    pub mod generate_data_key_pair {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_data_key_pair.rs"));
-+    }
-+    pub mod generate_data_key_pair_without_plaintext {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/kms/src/operation/generate_data_key_pair_without_plaintext.rs"
-+        ));
-+    }
-+    pub mod generate_data_key_without_plaintext {
-+        include!(concat!(
-+            env!("OUT_DIR"),
-+            "/generated/kms/src/operation/generate_data_key_without_plaintext.rs"
-+        ));
-+    }
-+    pub mod generate_mac {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_mac.rs"));
-+    }
-+    pub mod generate_random {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_random.rs"));
-+    }
-+    pub mod get_key_last_usage {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/get_key_last_usage.rs"));
-+    }
-+    pub mod get_key_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/get_key_policy.rs"));
-+    }
-+    pub mod get_key_rotation_status {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/get_key_rotation_status.rs"));
-+    }
-+    pub mod get_parameters_for_import {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/get_parameters_for_import.rs"));
-+    }
-+    pub mod get_public_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/get_public_key.rs"));
-+    }
-+    pub mod import_key_material {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/import_key_material.rs"));
-+    }
-+    pub mod list_aliases {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_aliases.rs"));
-+    }
-+    pub mod list_grants {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_grants.rs"));
-+    }
-+    pub mod list_key_policies {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_key_policies.rs"));
-+    }
-+    pub mod list_key_rotations {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_key_rotations.rs"));
-+    }
-+    pub mod list_keys {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_keys.rs"));
-+    }
-+    pub mod list_resource_tags {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_resource_tags.rs"));
-+    }
-+    pub mod list_retirable_grants {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/list_retirable_grants.rs"));
-+    }
-+    pub mod put_key_policy {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/put_key_policy.rs"));
-+    }
-+    pub mod re_encrypt {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/re_encrypt.rs"));
-+    }
-+    pub mod replicate_key {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/replicate_key.rs"));
-+    }
-+    pub mod retire_grant {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/retire_grant.rs"));
-+    }
-+    pub mod revoke_grant {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/revoke_grant.rs"));
-+    }
-+    pub mod rotate_key_on_demand {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/rotate_key_on_demand.rs"));
-+    }
-+    pub mod schedule_key_deletion {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/schedule_key_deletion.rs"));
-+    }
-+    pub mod sign {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/sign.rs"));
-+    }
-+    pub mod tag_resource {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/tag_resource.rs"));
-+    }
-+    pub mod untag_resource {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/untag_resource.rs"));
-+    }
-+    pub mod update_alias {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_alias.rs"));
-+    }
-+    pub mod update_custom_key_store {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_custom_key_store.rs"));
-+    }
-+    pub mod update_key_description {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_key_description.rs"));
-+    }
-+    pub mod update_primary_region {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_primary_region.rs"));
-+    }
-+    pub mod verify {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/verify.rs"));
-+    }
-+    pub mod verify_mac {
-+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/verify_mac.rs"));
-+    }
-+}
-```
-
-### `src/types/_customer_master_key_spec.rs`
-
-```diff
---- reference/src/types/_customer_master_key_spec.rs
-+++ generated/src/types/_customer_master_key_spec.rs
-@@ -48,7 +48,6 @@
- /// - It might inadvertently shadow other intended match arms.
- ///
- #[allow(missing_docs)] // documentation missing in model
--#[deprecated(note = "This enum has been deprecated. Instead, use the KeySpec enum.")]
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-```
-
-### `src/types/_key_metadata.rs`
-
-```diff
---- reference/src/types/_key_metadata.rs
-+++ generated/src/types/_key_metadata.rs
-@@ -14,7 +14,7 @@
-     /// <p>The date and time when the KMS key was created.</p>
-     pub creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-     /// <p>Specifies whether the KMS key is enabled. When <code>KeyState</code> is <code>Enabled</code> this value is true, otherwise it is false.</p>
--    pub enabled: bool,
-+    pub enabled: ::std::option::Option<bool>,
-     /// <p>The description of the KMS key.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key.</p>
-@@ -96,7 +96,7 @@
-         self.creation_date.as_ref()
-     }
-     /// <p>Specifies whether the KMS key is enabled. When <code>KeyState</code> is <code>Enabled</code> this value is true, otherwise it is false.</p>
--    pub fn enabled(&self) -> bool {
-+    pub fn enabled(&self) -> ::std::option::Option<bool> {
-         self.enabled
-     }
-     /// <p>The description of the KMS key.</p>
-@@ -710,7 +710,7 @@
-             })?,
-             arn: self.arn,
-             creation_date: self.creation_date,
--            enabled: self.enabled.unwrap_or_default(),
-+            enabled: self.enabled,
-             description: self.description,
-             key_usage: self.key_usage,
-             key_state: self.key_state,
 ```
 
 ### `src/types/error/_kms_internal_exception.rs`
@@ -9378,7 +7749,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client/delete_custom_key_store.rs`
 - `src/client/delete_imported_key_material.rs`
 - `src/client/derive_shared_secret.rs`
-- `src/client/describe_custom_key_stores.rs`
 - `src/client/describe_key.rs`
 - `src/client/disable_key.rs`
 - `src/client/disable_key_rotation.rs`
@@ -9402,7 +7772,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client/list_grants.rs`
 - `src/client/list_key_policies.rs`
 - `src/client/list_key_rotations.rs`
-- `src/client/list_keys.rs`
 - `src/client/list_resource_tags.rs`
 - `src/client/list_retirable_grants.rs`
 - `src/client/put_key_policy.rs`
@@ -9421,21 +7790,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client/update_primary_region.rs`
 - `src/client/verify.rs`
 - `src/client/verify_mac.rs`
-- `src/client.rs`
 - `src/config.rs`
-- `src/lib.rs`
 - `src/operation/cancel_key_deletion.rs`
 - `src/operation/connect_custom_key_store.rs`
 - `src/operation/create_alias.rs`
 - `src/operation/create_custom_key_store.rs`
 - `src/operation/create_grant.rs`
+- `src/operation/create_key/_create_key_input.rs`
 - `src/operation/create_key.rs`
 - `src/operation/decrypt.rs`
 - `src/operation/delete_alias.rs`
 - `src/operation/delete_custom_key_store.rs`
 - `src/operation/delete_imported_key_material.rs`
 - `src/operation/derive_shared_secret.rs`
-- `src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs`
 - `src/operation/describe_custom_key_stores.rs`
 - `src/operation/describe_key.rs`
 - `src/operation/disable_key.rs`
@@ -9452,27 +7819,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/generate_random.rs`
 - `src/operation/get_key_last_usage.rs`
 - `src/operation/get_key_policy.rs`
-- `src/operation/get_key_rotation_status/_get_key_rotation_status_output.rs`
 - `src/operation/get_key_rotation_status.rs`
 - `src/operation/get_parameters_for_import.rs`
 - `src/operation/get_public_key.rs`
 - `src/operation/import_key_material.rs`
-- `src/operation/list_aliases/_list_aliases_output.rs`
 - `src/operation/list_aliases.rs`
-- `src/operation/list_grants/_list_grants_output.rs`
 - `src/operation/list_grants.rs`
-- `src/operation/list_key_policies/_list_key_policies_output.rs`
 - `src/operation/list_key_policies.rs`
-- `src/operation/list_key_rotations/_list_key_rotations_output.rs`
 - `src/operation/list_key_rotations.rs`
-- `src/operation/list_keys/_list_keys_output.rs`
 - `src/operation/list_keys.rs`
-- `src/operation/list_resource_tags/_list_resource_tags_output.rs`
 - `src/operation/list_resource_tags.rs`
-- `src/operation/list_retirable_grants/_list_retirable_grants_output.rs`
 - `src/operation/list_retirable_grants.rs`
+- `src/operation/put_key_policy/_put_key_policy_input.rs`
 - `src/operation/put_key_policy.rs`
 - `src/operation/re_encrypt.rs`
+- `src/operation/replicate_key/_replicate_key_input.rs`
 - `src/operation/replicate_key.rs`
 - `src/operation/retire_grant.rs`
 - `src/operation/revoke_grant.rs`
@@ -9485,13 +7846,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/update_custom_key_store.rs`
 - `src/operation/update_key_description.rs`
 - `src/operation/update_primary_region.rs`
-- `src/operation/verify/_verify_output.rs`
 - `src/operation/verify.rs`
-- `src/operation/verify_mac/_verify_mac_output.rs`
 - `src/operation/verify_mac.rs`
-- `src/operation.rs`
-- `src/types/_customer_master_key_spec.rs`
-- `src/types/_key_metadata.rs`
 - `src/types/error/_kms_internal_exception.rs`
 - `src/types/error/_kms_invalid_mac_exception.rs`
 - `src/types/error/_kms_invalid_signature_exception.rs`

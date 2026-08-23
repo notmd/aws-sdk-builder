@@ -119,7 +119,7 @@ impl CreateLoginProfileInputBuilder {
         ::std::result::Result::Ok(crate::operation::create_login_profile::CreateLoginProfileInput {
             user_name: self.user_name,
             password: self.password,
-            password_reset_required: self.password_reset_required,
+            password_reset_required: self.password_reset_required.unwrap_or_default(),
         })
     }
 }
