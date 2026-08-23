@@ -7025,58 +7025,486 @@ fn record_protocol_role(
 fn render_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(String, String)>) {
     let roles = protocol_serde_roles(selected);
     let mut files = Vec::new();
-    let mut module_names = BTreeSet::new();
+    let mut module_names = Vec::new();
+    let mut module_names_seen = BTreeSet::new();
+    let mut add_module = |module: String| {
+        if module_names_seen.insert(module.clone()) {
+            module_names.push(module);
+        }
+    };
 
+    let mut deferred_modules = BTreeSet::new();
+    let mut initial_modules = BTreeSet::new();
     for operation_name in &selected.operations {
         let module = names::rust_module_name(operation_name);
-        module_names.insert(module.clone());
+        initial_modules.insert(module.clone());
         if render_protocol_input_file(selected, operation_name).is_some() {
-            module_names.insert(format!("{module}_input"));
-        }
-        if protocol_output_has_headers(selected, operation_name) {
-            module_names.insert(format!("{module}_output"));
-        }
-        if render_protocol_output_payload_file(selected, operation_name).is_some() {
-            module_names.insert(format!("{module}_output"));
+            let input_module = format!("{module}_input");
+            let output_is_event_stream = operation_shape(selected, operation_name)
+                .and_then(|operation| operation.get("output"))
+                .and_then(target_value)
+                .and_then(|id| selected.model.shapes.get(id))
+                .is_some_and(|output| {
+                    members(output).into_iter().any(|(_, member)| {
+                        has_trait(member, "smithy.api#httpPayload")
+                            && member_target(member)
+                                .is_some_and(|target| is_event_stream_target(selected, target))
+                    })
+                });
+            if output_is_event_stream {
+                deferred_modules.insert(input_module);
+            } else {
+                initial_modules.insert(input_module);
+            }
         }
     }
+    for module in initial_modules {
+        add_module(module);
+    }
+    for operation_name in &selected.operations {
+        let module = names::rust_module_name(operation_name);
+        if protocol_output_has_headers(selected, operation_name)
+            || render_protocol_output_payload_file(selected, operation_name).is_some()
+        {
+            deferred_modules.insert(format!("{module}_output"));
+        }
+    }
+    for error_id in error_shape_ids(selected) {
+        deferred_modules.insert(names::rust_module_name(terminal(&error_id)));
+    }
+    for module in deferred_modules {
+        add_module(module);
+    }
 
-    for (shape_id, role) in &roles {
-        let module = names::rust_module_name(terminal(shape_id));
-        module_names.insert(module.clone());
+    for (shape_id, role) in protocol_serde_shape_order(selected, &roles) {
+        let module = names::rust_module_name(terminal(&shape_id));
+        add_module(module.clone());
+        let mut shape_roles = roles
+            .get(&shape_id)
+            .copied()
+            .expect("ordered protocol shape exists");
+        shape_roles.first = Some(role);
         files.push((
             format!("src/protocol_serde/shape_{module}.rs"),
-            render_protocol_shape_file(selected, shape_id, *role),
+            render_protocol_shape_file(selected, &shape_id, shape_roles),
         ));
     }
 
     for error_id in error_shape_ids(selected) {
         let module = names::rust_module_name(terminal(&error_id));
-        if module_names.insert(module.clone()) {
-            files.push((
-                format!("src/protocol_serde/shape_{module}.rs"),
-                render_protocol_error_file(selected, &error_id),
-            ));
+        let path = format!("src/protocol_serde/shape_{module}.rs");
+        if !files.iter().any(|(file, _)| file == &path) {
+            files.push((path, render_protocol_error_file(selected, &error_id)));
         }
     }
     files.sort_by(|left, right| left.0.cmp(&right.0));
 
+    let shared_start = module_names
+        .iter()
+        .position(|name| {
+            roles
+                .keys()
+                .any(|shape_id| names::rust_module_name(terminal(shape_id)) == *name)
+        })
+        .unwrap_or(module_names.len());
+    let struct_unset_before = selected
+        .operations
+        .iter()
+        .find_map(|operation_name| {
+            (protocol_input_payload_kind(selected, operation_name) == Some("structure")).then(
+                || {
+                    let module = format!("{}_input", names::rust_module_name(operation_name));
+                    module_names.iter().position(|name| name == &module)
+                },
+            )
+        })
+        .flatten();
+    let union_unset_before = selected
+        .operations
+        .iter()
+        .find_map(|operation_name| {
+            (protocol_input_payload_kind(selected, operation_name) == Some("union")).then(|| {
+                let module = format!("{}_input", names::rust_module_name(operation_name));
+                module_names.iter().position(|name| name == &module)
+            })
+        })
+        .flatten();
+
     let mut module = String::new();
     client_operation_header(&mut module);
     module.push_str(
-        "pub(crate) fn type_erase_result<O, E>(\n    result: ::std::result::Result<O, E>,\n) -> ::std::result::Result<\n    ::aws_smithy_runtime_api::client::interceptors::context::Output,\n    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,\n>\nwhere\n    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n    E: ::std::error::Error + ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n{\n    result\n        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))\n        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))\n        .map_err(::std::convert::Into::into)\n}\n\n",
+        "pub(crate) fn type_erase_result<O, E>(\n    result: ::std::result::Result<O, E>,\n) -> ::std::result::Result<\n    ::aws_smithy_runtime_api::client::interceptors::context::Output,\n    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,\n>\nwhere\n    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n    E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n{\n    result\n        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))\n        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))\n        .map_err(::std::convert::Into::into)\n}\n\n",
     );
-    module.push_str(
-        "pub fn rest_xml_unset_struct_payload() -> ::std::vec::Vec<u8> {\n    Vec::new()\n}\n\npub fn rest_xml_unset_union_payload() -> ::std::vec::Vec<u8> {\n    Vec::new()\n}\n\n",
-    );
-    module.push_str(
-        "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {\n    if response_body.is_empty() {\n        Ok(::aws_smithy_types::error::ErrorMetadata::builder())\n    } else {\n        crate::rest_xml_unwrapped_errors::parse_error_metadata(response_body)\n    }\n}\n\n",
-    );
-    for name in module_names {
+    if request_id_plan(selected).extended {
+        module.push_str(
+            "pub fn parse_http_error_metadata(\n    response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {\n    // S3 HEAD responses have no response body to for an error code. Therefore,\n    // check the HTTP response status and populate an error code for 404s.\n    if response_body.is_empty() {\n        let mut builder = ::aws_smithy_types::error::ErrorMetadata::builder();\n        if response_status == 404 {\n            builder = builder.code(\"NotFound\");\n        }\n        Ok(builder)\n    } else {\n        crate::rest_xml_unwrapped_errors::parse_error_metadata(response_body)\n    }\n}\n\n",
+        );
+    } else {
+        module.push_str(
+            "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {\n    if response_body.is_empty() {\n        Ok(::aws_smithy_types::error::ErrorMetadata::builder())\n    } else {\n        crate::rest_xml_unwrapped_errors::parse_error_metadata(response_body)\n    }\n}\n\n",
+        );
+    }
+    for (index, name) in module_names.into_iter().enumerate() {
+        if struct_unset_before == Some(index) {
+            module.push_str(
+                "pub fn rest_xml_unset_struct_payload() -> ::std::vec::Vec<u8> {\n    Vec::new()\n}\n\n",
+            );
+        }
+        if union_unset_before == Some(index) {
+            module.push_str(
+                "pub fn rest_xml_unset_union_payload() -> ::std::vec::Vec<u8> {\n    ::std::vec::Vec::new()\n}\n\n",
+            );
+        }
+        if index == shared_start && !streaming_error_union_ids(selected).is_empty() {
+            module.push_str(
+                "pub fn parse_event_stream_error_metadata(\n    payload: &::bytes::Bytes,\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_xml::decode::XmlDecodeError> {\n    crate::rest_xml_unwrapped_errors::parse_error_metadata(payload.as_ref())\n}\n\n",
+            );
+        }
         writeln!(module, "pub(crate) mod shape_{name};").unwrap();
         module.push('\n');
     }
     (module, files)
+}
+
+fn protocol_input_payload_kind(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> Option<&'static str> {
+    let operation = operation_shape(selected, operation_name)?;
+    let input = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))?;
+    let member = members(input)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))?
+        .1;
+    let target = member_target(member)?;
+    match protocol_shape_kind(selected, target) {
+        "structure" => Some("structure"),
+        "union" => Some("union"),
+        _ => None,
+    }
+}
+
+/// Return shared protocol helpers in the order in which Smithy's lazy inline
+/// dependencies become reachable. Operation wrappers and input helpers are
+/// loaded first. Output payload and error helpers are loaded next, so their
+/// direct dependencies join the first shared-helper wave. Each later wave is
+/// made from the dependencies of the preceding wave and sorted by module name
+/// to preserve deterministic output.
+fn protocol_serde_shape_order(
+    selected: &SelectedModel,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+) -> Vec<(String, ProtocolSerdeRole)> {
+    let mut phase_one = Vec::new();
+    let mut phase_two = Vec::new();
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        if let Some(input) = operation
+            .get("input")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(input) {
+                let Some(target) = member_target(member) else {
+                    continue;
+                };
+                if is_xml_document_member(member) {
+                    protocol_first_role_dependencies(
+                        selected,
+                        target,
+                        member,
+                        ProtocolSerdeRole::Serialize,
+                        roles,
+                        &mut BTreeSet::new(),
+                        &mut phase_one,
+                    );
+                }
+            }
+        }
+        if let Some(output) = operation
+            .get("output")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(output) {
+                let Some(target) = member_target(member) else {
+                    continue;
+                };
+                if is_xml_body_member(member) {
+                    if has_trait(member, "smithy.api#httpPayload") {
+                        protocol_first_role_dependencies(
+                            selected,
+                            target,
+                            member,
+                            ProtocolSerdeRole::Deserialize,
+                            roles,
+                            &mut BTreeSet::new(),
+                            &mut phase_two,
+                        );
+                    } else {
+                        protocol_first_role_dependencies_preserving_intermediates(
+                            selected,
+                            target,
+                            member,
+                            ProtocolSerdeRole::Deserialize,
+                            roles,
+                            &mut BTreeSet::new(),
+                            &mut phase_one,
+                        );
+                    }
+                }
+            }
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error in errors.iter().filter_map(target_value) {
+                let Some(shape) = selected.model.shapes.get(error) else {
+                    continue;
+                };
+                for (_, member) in members(shape) {
+                    let Some(target) = member_target(member) else {
+                        continue;
+                    };
+                    protocol_first_role_dependencies(
+                        selected,
+                        target,
+                        member,
+                        ProtocolSerdeRole::Deserialize,
+                        roles,
+                        &mut BTreeSet::new(),
+                        &mut phase_two,
+                    );
+                }
+            }
+        }
+    }
+
+    let mut state_seen = BTreeSet::new();
+    let mut module_seen = BTreeSet::new();
+    let (initial_rendered, initial_intermediates) = phase_one
+        .into_iter()
+        .map(|(shape_id, role)| (shape_id.to_owned(), role))
+        .partition::<Vec<_>, _>(|(shape_id, role)| protocol_role_enabled(roles, shape_id, *role));
+    let mut current = initial_rendered
+        .into_iter()
+        .chain(initial_intermediates)
+        .collect::<Vec<_>>();
+    current.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
+    let deferred = phase_two
+        .into_iter()
+        .filter(|(shape_id, role)| protocol_role_enabled(roles, shape_id, *role))
+        .map(|(shape_id, role)| (shape_id.to_owned(), role))
+        .collect::<Vec<_>>();
+    let mut ordered = Vec::new();
+
+    while !current.is_empty() {
+        let first_level = ordered.is_empty();
+        current.retain(|state| state_seen.insert((state.0.clone(), protocol_role_key(state.1))));
+        if current.is_empty() {
+            break;
+        }
+        let mut level = current
+            .iter()
+            .filter_map(|(shape_id, role)| {
+                if !protocol_role_enabled(roles, shape_id, *role) {
+                    return None;
+                }
+                let module = names::rust_module_name(terminal(shape_id));
+                module_seen
+                    .insert(module)
+                    .then_some((shape_id.clone(), *role))
+            })
+            .collect::<Vec<_>>();
+        level.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
+        ordered.extend(level);
+
+        let mut next = Vec::new();
+        for (shape_id, role) in &current {
+            protocol_role_dependencies(selected, shape_id, *role, roles, &mut next);
+        }
+        if first_level {
+            next.extend(deferred.iter().cloned());
+        }
+        current = next;
+    }
+
+    let mut remainder = roles
+        .keys()
+        .filter(|shape_id| !module_seen.contains(&names::rust_module_name(terminal(shape_id))))
+        .filter_map(|shape_id| {
+            roles
+                .get(shape_id)
+                .and_then(|role| role.first)
+                .map(|role| (shape_id.clone(), role))
+        })
+        .collect::<Vec<_>>();
+    remainder.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
+    ordered.extend(remainder);
+    ordered
+}
+
+fn protocol_role_key(role: ProtocolSerdeRole) -> bool {
+    matches!(role, ProtocolSerdeRole::Serialize)
+}
+
+fn protocol_role_enabled(
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    shape_id: &str,
+    role: ProtocolSerdeRole,
+) -> bool {
+    roles.get(shape_id).is_some_and(|roles| match role {
+        ProtocolSerdeRole::Serialize => roles.serialize,
+        ProtocolSerdeRole::Deserialize => roles.deserialize,
+    })
+}
+
+fn protocol_first_role_dependencies(
+    selected: &SelectedModel,
+    shape_id: &str,
+    member: &Value,
+    role: ProtocolSerdeRole,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+    output: &mut Vec<(String, ProtocolSerdeRole)>,
+) {
+    protocol_first_role_dependencies_mode(
+        selected, shape_id, member, role, roles, seen, output, false,
+    );
+}
+
+fn protocol_first_role_dependencies_preserving_intermediates(
+    selected: &SelectedModel,
+    shape_id: &str,
+    member: &Value,
+    role: ProtocolSerdeRole,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+    output: &mut Vec<(String, ProtocolSerdeRole)>,
+) {
+    protocol_first_role_dependencies_mode(
+        selected, shape_id, member, role, roles, seen, output, true,
+    );
+}
+
+#[allow(clippy::too_many_arguments)]
+fn protocol_first_role_dependencies_mode(
+    selected: &SelectedModel,
+    shape_id: &str,
+    member: &Value,
+    role: ProtocolSerdeRole,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+    output: &mut Vec<(String, ProtocolSerdeRole)>,
+    preserve_unrendered: bool,
+) {
+    let mut shape_id = shape_id;
+    if matches!(role, ProtocolSerdeRole::Deserialize)
+        && protocol_shape_kind(selected, shape_id) == "list"
+        && has_trait(member, "smithy.api#xmlFlattened")
+    {
+        let Some(element) = selected
+            .model
+            .shapes
+            .get(shape_id)
+            .and_then(|shape| shape.get("member"))
+            .and_then(member_target)
+        else {
+            return;
+        };
+        shape_id = element;
+    }
+    if !seen.insert(shape_id.to_owned()) {
+        return;
+    }
+    if protocol_role_enabled(roles, shape_id, role) {
+        output.push((shape_id.to_owned(), role));
+        return;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    if let Some((_, payload)) = event_payload_member(shape)
+        && !matches!(
+            protocol_shape_kind(selected, member_target(payload).unwrap_or_default()),
+            "structure" | "union"
+        )
+    {
+        return;
+    }
+    if preserve_unrendered
+        && matches!(
+            protocol_shape_kind(selected, shape_id),
+            "structure" | "union" | "list" | "map"
+        )
+    {
+        output.push((shape_id.to_owned(), role));
+        return;
+    }
+    for (_, child) in protocol_shape_members(selected, shape) {
+        let Some(target) = member_target(child) else {
+            continue;
+        };
+        protocol_first_role_dependencies_mode(
+            selected,
+            target,
+            child,
+            role,
+            roles,
+            seen,
+            output,
+            preserve_unrendered,
+        );
+    }
+}
+
+fn protocol_shape_members<'a>(
+    selected: &'a SelectedModel,
+    shape: &'a Value,
+) -> Vec<(String, &'a Value)> {
+    match shape.get("type").and_then(Value::as_str) {
+        Some("structure" | "union") => members(shape),
+        Some("list") => shape
+            .get("member")
+            .map(|member| vec![("member".to_owned(), member)])
+            .unwrap_or_default(),
+        Some("map") => ["key", "value"]
+            .into_iter()
+            .filter_map(|name| shape.get(name).map(|member| (name.to_owned(), member)))
+            .collect(),
+        _ => {
+            let _ = selected;
+            Vec::new()
+        }
+    }
+}
+
+fn protocol_role_dependencies(
+    selected: &SelectedModel,
+    shape_id: &str,
+    role: ProtocolSerdeRole,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    output: &mut Vec<(String, ProtocolSerdeRole)>,
+) {
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    for (_, member) in protocol_shape_members(selected, shape) {
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        protocol_first_role_dependencies(
+            selected,
+            target,
+            member,
+            role,
+            roles,
+            &mut BTreeSet::new(),
+            output,
+        );
+    }
 }
 
 fn protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, ProtocolSerdeRoles> {

@@ -4,24 +4,28 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
-### Checkpoint: 2026-08-23 — Distinguish streaming unions from streaming blobs
+### Checkpoint: 2026-08-23 — Match Rest XML lazy protocol dependency ordering
 
 - State: in progress
-- Changed: streaming output detection is now model-driven: streaming blobs remain
-  `ByteStream`, while streaming unions use `EventReceiver` and required output
-  builders. Streaming blob inputs retain their required `ByteStream` fields. The
-  sensitivity propagation from the preceding checkpoint remains recursive through
-  structures, unions, lists, and maps.
-- Evidence: inspected Smithy-RS `StreamingTraitSymbolProvider.kt`,
-  `HttpBindingGenerator.kt`, and `ResponseDeserializerGenerator.kt` under the
-  pinned `/tmp/smithy-rs` checkout. `just conformance` regenerated 8 snapshots and
-  formatted 4,575 generated Rust files; it exits 1 because broader parity remains
-  incomplete.
-- Conformance: overall `3,603/971/1,887/1` -> `3,607/967/1,887/1`; S3
-  `1,188/69/87/0` -> `1,192/65/87/0` (matched/mismatched/missing/extra).
-- Remaining gap: shared Rest XML protocol helper ordering and runtime/source-tree
-  parity still differ from Smithy-RS; the serializer-first experiment was reverted
-  because Smithy-RS uses mixed lazy dependency ordering across shape families.
+- Changed: Rest XML protocol modules now follow a model-driven lazy dependency plan:
+  lexical operation/input roots, deferred event-stream and output helpers, breadth-
+  first shared-shape waves, and the role that first reaches each helper. Aggregate
+  intermediates are retained during output traversal so nested serializer helpers do
+  not get preempted by deserializer paths. Model-derived placement for unset payload
+  helpers, event-stream error metadata, and S3 404 metadata remains intact.
+- Evidence: inspected Smithy-RS `ProtocolFunctions.kt`,
+  `CodegenDelegator.kt`, `RequestSerializerGenerator.kt`, and
+  `ResponseDeserializerGenerator.kt` under the pinned `/tmp/smithy-rs` checkout.
+  `just conformance` regenerated 8 snapshots and formatted 4,575 generated Rust
+  files; it exits 1 because broader parity remains incomplete. Workspace tests,
+  Clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: overall `3,607/967/1,887/1` -> `3,639/935/1,887/1`; S3
+  `1,192/65/87/0` -> `1,224/33/87/0` (matched/mismatched/missing/extra).
+- Blocker: one remaining S3 protocol mismatch is Smithy-RS template indentation in
+  `shape_list_bucket_intelligent_tiering_configurations.rs`; shared client,
+  runtime, package-tree, and broader protocol parity gaps remain.
+- Next action: compare the remaining S3 root-validation formatting gap and then
+  continue with the next model-driven shared runtime mismatch.
 
 ### Checkpoint: 2026-08-23 — Match Smithy-RS sensitivity propagation
 
