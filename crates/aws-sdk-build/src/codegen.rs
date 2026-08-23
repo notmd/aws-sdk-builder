@@ -53,7 +53,14 @@ pub(crate) fn generate(
                 "src/primitives.rs".to_owned(),
                 render_primitives(&selected, consumer_namespace),
             ),
-            ("src/config.rs".to_owned(), render_config_file()),
+            (
+                "src/config.rs".to_owned(),
+                render_config_file(entry.key, consumer_namespace),
+            ),
+            (
+                "src/config/auth.rs".to_owned(),
+                render_auth_file(&selected, consumer_namespace),
+            ),
             (
                 "src/error.rs".to_owned(),
                 render_error_file(consumer_namespace, model_has_enum(&selected)),
@@ -1649,13 +1656,13 @@ fn render_sealed_enum_unknown() -> String {
     output
 }
 
-fn render_config_file() -> String {
+fn render_config_file(service_key: &str, consumer_namespace: bool) -> String {
     let mut output = String::new();
-    render_config(&mut output);
+    render_config(&mut output, service_key, consumer_namespace);
     output
 }
 
-fn render_config(output: &mut String) {
+fn render_config(output: &mut String, service_key: &str, consumer_namespace: bool) {
     header(output);
     output.push_str(
         "#[derive(Clone, Debug)]\n\
@@ -1691,11 +1698,28 @@ fn render_config(output: &mut String) {
                          Self { endpoint_url: Some(config.endpoint_url.clone()) }\n\
                      }\n\
                  }\n\
+                 __INNER_AUTH_MODULE__\n\
              }\n\n\
+             __OUTER_AUTH_MODULE__\n\
              impl Config {\n\
                  pub fn builder() -> config::Builder { config::Builder::default() }\n\
              }\n\n",
     );
+    let inner_auth_module = if consumer_namespace {
+        format!(
+            "pub mod auth {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/config/auth.rs\"));\n}}"
+        )
+    } else {
+        String::new()
+    };
+    let outer_auth_module = if consumer_namespace {
+        String::new()
+    } else {
+        "pub mod auth;".to_owned()
+    };
+    *output = output
+        .replace("__INNER_AUTH_MODULE__", &inner_auth_module)
+        .replace("__OUTER_AUTH_MODULE__", &outer_auth_module);
 }
 
 fn render_error_file(consumer_namespace: bool, has_enum: bool) -> String {
@@ -1706,6 +1730,321 @@ fn render_error_file(consumer_namespace: bool, has_enum: bool) -> String {
         render_standalone_error(&mut output, has_enum);
     }
     output
+}
+
+fn render_auth_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let service = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .expect("selected service shape exists");
+    let title = service_title(selected);
+    let service_options = auth_options_for_service(selected, service, consumer_namespace);
+    let operation_overrides = auth_operation_overrides(selected, consumer_namespace);
+    let resolve_allow = if consumer_namespace {
+        "             #[allow(clippy::let_and_return)]\n"
+    } else {
+        ""
+    };
+    let endpoint_auth = if service_supports_s3_express(selected) && !consumer_namespace {
+        "        let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::new(async move {\n            crate::endpoint_auth::resolve_endpoint_based_auth_scheme_options(modeled_auth_options, _cfg, _runtime_components).await\n        });\n\n"
+    } else {
+        ""
+    };
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "/// Auth scheme resolver trait specific to {title}\n\
+         pub trait ResolveAuthScheme: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {{\n\
+             /// Resolve a priority list of auth scheme options with the given parameters\n\
+             fn resolve_auth_scheme<'a>(\n\
+                 &'a self,\n\
+                 params: &'a crate::config::auth::Params,\n\
+                 cfg: &'a ::aws_smithy_types::config_bag::ConfigBag,\n\
+                 runtime_components: &'a ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponents,\n\
+             ) -> ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture<'a>;\n\n\
+             /// Convert this service-specific resolver into a `SharedAuthSchemeOptionResolver`\n\
+             fn into_shared_resolver(self) -> ::aws_smithy_runtime_api::client::auth::SharedAuthSchemeOptionResolver\n\
+             where\n\
+                 Self: ::std::marker::Sized + 'static,\n\
+             {{\n\
+                 ::aws_smithy_runtime_api::client::auth::SharedAuthSchemeOptionResolver::new(DowncastParams(self))\n\
+             }}\n\
+         }}\n\n\
+         #[derive(Debug)]\n\
+         struct DowncastParams<T>(T);\n\
+         impl<T> ::aws_smithy_runtime_api::client::auth::ResolveAuthSchemeOptions for DowncastParams<T>\n\
+         where\n\
+             T: ResolveAuthScheme,\n\
+         {{\n\
+             fn resolve_auth_scheme_options_v2<'a>(\n\
+                 &'a self,\n\
+                 params: &'a ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams,\n\
+                 cfg: &'a ::aws_smithy_types::config_bag::ConfigBag,\n\
+                 runtime_components: &'a ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponents,\n\
+             ) -> ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture<'a> {{\n\
+                 match params.get::<crate::config::auth::Params>() {{\n\
+                     ::std::option::Option::Some(concrete_params) => self.0.resolve_auth_scheme(concrete_params, cfg, runtime_components),\n\
+                     ::std::option::Option::None => ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(::std::result::Result::Err(\n\
+                         \"params of expected type was not present\".into(),\n\
+                     )),\n\
+                 }}\n\
+             }}\n\
+         }}\n\n\
+         /// The default auth scheme resolver\n\
+         #[derive(Debug)]\n\
+         #[allow(dead_code)]\n\
+         pub struct DefaultAuthSchemeResolver {{\n\
+             service_defaults: Vec<::aws_smithy_runtime_api::client::auth::AuthSchemeOption>,\n\
+             operation_overrides: ::std::collections::HashMap<&'static str, Vec<::aws_smithy_runtime_api::client::auth::AuthSchemeOption>>,\n\
+         }}\n\n\
+         // TODO(https://github.com/smithy-lang/smithy-rs/issues/4177): Remove `allow(...)` once the issue is addressed.\n\
+         // When generating code for tests (e.g., `codegen-client-test`), this manual implementation\n\
+         // of the `Default` trait may appear as if it could be derived automatically.\n\
+         // However, that is not the case in production.\n\
+         #[allow(clippy::derivable_impls)]\n\
+         impl Default for DefaultAuthSchemeResolver {{\n\
+             fn default() -> Self {{\n\
+                 Self {{\n\
+                     service_defaults: {service_options},\n\
+                     operation_overrides: {operation_overrides},\n\
+                 }}\n\
+             }}\n\
+         }}\n\n\
+         impl crate::config::auth::ResolveAuthScheme for DefaultAuthSchemeResolver {{\n\
+{resolve_allow}             fn resolve_auth_scheme<'a>(\n\
+                 &'a self,\n\
+                 params: &'a crate::config::auth::Params,\n\
+                 _cfg: &'a ::aws_smithy_types::config_bag::ConfigBag,\n\
+                 _runtime_components: &'a ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponents,\n\
+             ) -> ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture<'a> {{\n\
+                 let operation_name = params.operation_name();\n\n\
+                 let modeled_auth_options = match self.operation_overrides.get(operation_name) {{\n\
+                     Some(overrides) => overrides,\n\
+                     None => &self.service_defaults,\n\
+                 }};\n\n\
+                 let _fut = ::aws_smithy_runtime_api::client::auth::AuthSchemeOptionsFuture::ready(Ok(modeled_auth_options.clone()));\n\n{endpoint_auth}                 _fut\n\
+             }}\n\
+         }}\n\n\
+         /// Configuration parameters for resolving the correct auth scheme\n\
+         #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]\n\
+         pub struct Params {{\n\
+             operation_name: ::std::borrow::Cow<'static, str>,\n\
+         }}\n\
+         impl Params {{\n\
+             /// Create a builder for [`Params`]\n\
+             pub fn builder() -> crate::config::auth::ParamsBuilder {{\n\
+                 crate::config::auth::ParamsBuilder::default()\n\
+             }}\n\n\
+             /// Return the operation name for [`Params`]\n\
+             pub fn operation_name(&self) -> &str {{\n\
+                 self.operation_name.as_ref()\n\
+             }}\n\
+         }}\n\n\
+         #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]\n\
+         /// Builder for [`Params`]\n\
+         pub struct ParamsBuilder {{\n\
+             operation_name: ::std::option::Option<::std::borrow::Cow<'static, str>>,\n\
+         }}\n\
+         impl ParamsBuilder {{\n\
+             /// Set the operation name for the builder\n\
+             pub fn operation_name(self, operation_name: impl Into<::std::borrow::Cow<'static, str>>) -> Self {{\n\
+                 self.set_operation_name(::std::option::Option::Some(operation_name.into()))\n\
+             }}\n\n\
+             /// Set the operation name for the builder\n\
+             pub fn set_operation_name(mut self, operation_name: ::std::option::Option<::std::borrow::Cow<'static, str>>) -> Self {{\n\
+                 self.operation_name = operation_name;\n\
+                 self\n\
+             }}\n\
+             /// Consume this builder, create [`Params`].\"\n\
+             ///\n\
+             /// Return [`BuildError`] if any of the required fields are unset.\n\
+             ///\n\
+             pub fn build(self) -> ::std::result::Result<crate::config::auth::Params, crate::config::auth::BuildError> {{\n\
+                 ::std::result::Result::Ok(crate::config::auth::Params {{\n\
+                     operation_name: self.operation_name.ok_or_else(|| BuildError::missing(\"operation_name\"))?,\n\
+                 }})\n\
+             }}\n\
+         }}\n\n\
+         /// An error that occurred while constructing `config::auth::Params`\n\
+         #[derive(Debug)]\n\
+         pub struct BuildError {{\n\
+             field: ::std::borrow::Cow<'static, str>,\n\
+         }}\n\n\
+         impl BuildError {{\n\
+             fn missing(field: &'static str) -> Self {{\n\
+                 Self {{ field: field.into() }}\n\
+             }}\n\
+         }}\n\n\
+         impl std::fmt::Display for BuildError {{\n\
+             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {{\n\
+                 write!(f, \"a required field was missing: `{{}}`\", self.field)\n\
+             }}\n\
+         }}\n\n\
+         impl std::error::Error for BuildError {{}}\n"
+    )
+    .unwrap();
+    if consumer_namespace {
+        output = output.replace("crate::config::auth::", "self::").replace(
+            "::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID",
+            "::aws_smithy_runtime_api::client::auth::AuthSchemeId::new(\"noAuth\")",
+        );
+    }
+    output
+}
+
+fn auth_options_for_service(
+    selected: &SelectedModel,
+    service: &Value,
+    consumer_namespace: bool,
+) -> String {
+    let mut ids = service
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#auth"))
+        .and_then(Value::as_array)
+        .map(|auth| {
+            auth.iter()
+                .filter_map(Value::as_str)
+                .map(ToOwned::to_owned)
+                .collect::<Vec<_>>()
+        })
+        .unwrap_or_default();
+    if ids.is_empty() {
+        for id in ["aws.auth#sigv4", "aws.auth#sigv4a"] {
+            if has_trait(service, id) {
+                ids.push(id.to_owned());
+            }
+        }
+    }
+    if service_supports_s3_express(selected) && !ids.iter().any(|id| id == "aws.auth#sigv4a") {
+        ids.push("aws.auth#sigv4a".to_owned());
+    }
+    if service_supports_s3_express(selected) {
+        ids.push("smithy.api#noAuth".to_owned());
+    }
+    render_auth_option_vec(&ids, None, None, true, consumer_namespace)
+}
+
+fn auth_operation_overrides(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let mut overrides = Vec::new();
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        let Some(auth) = operation
+            .get("traits")
+            .and_then(Value::as_object)
+            .and_then(|traits| traits.get("smithy.api#auth"))
+        else {
+            continue;
+        };
+        let ids = auth
+            .as_array()
+            .map(|values| {
+                values
+                    .iter()
+                    .filter_map(Value::as_str)
+                    .map(ToOwned::to_owned)
+                    .collect::<Vec<_>>()
+            })
+            .unwrap_or_default();
+        if ids.is_empty() {
+            overrides.push(format!(
+                "({operation_name:?}, vec![{}])",
+                render_no_auth_option(consumer_namespace)
+            ));
+        } else {
+            overrides.push(format!(
+                "({operation_name:?}, {})",
+                render_auth_option_vec(
+                    &ids,
+                    Some(operation_name),
+                    Some(operation),
+                    false,
+                    consumer_namespace,
+                )
+            ));
+        }
+    }
+    if overrides.is_empty() {
+        "::std::collections::HashMap::new()".to_owned()
+    } else {
+        format!("[{}].into()", overrides.join(", "))
+    }
+}
+
+fn render_auth_option_vec(
+    ids: &[String],
+    operation_name: Option<&str>,
+    operation: Option<&Value>,
+    service_defaults: bool,
+    consumer_namespace: bool,
+) -> String {
+    let options = ids
+        .iter()
+        .map(|id| {
+            render_auth_option(
+                id,
+                operation_name,
+                operation,
+                service_defaults,
+                consumer_namespace,
+            )
+        })
+        .filter(|option| !option.is_empty())
+        .collect::<Vec<_>>();
+    format!("vec![{}]", options.join(", "))
+}
+
+fn render_auth_option(
+    id: &str,
+    operation_name: Option<&str>,
+    operation: Option<&Value>,
+    service_defaults: bool,
+    consumer_namespace: bool,
+) -> String {
+    if id == "smithy.api#noAuth" {
+        return render_no_auth_option(consumer_namespace);
+    }
+    let (module, cfg) = match id {
+        "aws.auth#sigv4" => ("sigv4", false),
+        "aws.auth#sigv4a" => ("sigv4a", true),
+        _ => {
+            return "::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from(\"unknown\")"
+                .to_owned();
+        }
+    };
+    if cfg && consumer_namespace && service_defaults {
+        return String::new();
+    }
+    let properties = operation
+        .filter(|operation| has_trait(operation, "aws.auth#unsignedPayload"))
+        .map(|_| {
+            let operation_name = operation_name.unwrap_or_default();
+            format!(
+                ".properties({{ let mut layer = ::aws_smithy_types::config_bag::Layer::new(\"{operation_name}AuthOptionProperties\"); layer.store_put(::aws_runtime::auth::PayloadSigningOverride::unsigned_payload()); layer.freeze() }})"
+            )
+        })
+        .unwrap_or_default();
+    let expression = format!(
+        "::aws_smithy_runtime_api::client::auth::AuthSchemeOption::builder().scheme_id(::aws_runtime::auth::{module}::SCHEME_ID){properties}.build().expect(\"required fields set\")"
+    );
+    if cfg && service_defaults {
+        format!("#[cfg(feature = \"sigv4a\")] {{ {expression} }}")
+    } else {
+        expression
+    }
+}
+
+fn render_no_auth_option(consumer_namespace: bool) -> String {
+    let scheme_id = if consumer_namespace {
+        "::aws_smithy_runtime_api::client::auth::AuthSchemeId::new(\"noAuth\")"
+    } else {
+        "::aws_smithy_runtime::client::auth::no_auth::NO_AUTH_SCHEME_ID"
+    };
+    format!("::aws_smithy_runtime_api::client::auth::AuthSchemeOption::from({scheme_id})")
 }
 
 fn render_standalone_error(output: &mut String, has_enum: bool) {

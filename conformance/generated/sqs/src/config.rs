@@ -38,6 +38,7 @@ pub mod config {
     }
 }
 
+pub mod auth;
 impl Config {
     pub fn builder() -> config::Builder {
         config::Builder::default()

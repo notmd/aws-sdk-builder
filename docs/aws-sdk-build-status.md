@@ -4,6 +4,26 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Generate model-driven auth resolvers
+
+- State: in progress
+- Changed: `codegen.rs` now emits generic `src/config/auth.rs` modules from service and
+  operation `smithy.api#auth` traits, including SigV4/SigV4a options, no-auth overrides,
+  `aws.auth#unsignedPayload` properties, and model-derived S3 Express endpoint-auth
+  resolution. Standalone and consumer config trees wire the generated auth module using
+  the appropriate source layout.
+- Evidence: compared the implementation with the pinned Smithy-RS checkout at
+  `/tmp/smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance`
+  regenerated all eight service snapshots and formatted 4,583 generated files. All
+  eight generated auth snapshots are exact.
+- Conformance: overall `3,882/692/1,887/1` -> `3,890/692/1,879/1`
+  (matched/mismatched/missing/extra); average match increased to `56.28%`.
+- Verification: workspace tests, Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass. The conformance recipe still exits nonzero because shared
+  config/endpoint/runtime files, reference test/package trees, and remaining source
+  mismatches are not yet complete.
+- Next action: continue the generic model-driven config and endpoint/runtime parity loop.
+
 ### Checkpoint: 2026-08-23 — Refine malformed inline HTML spacing
 
 - State: in progress
