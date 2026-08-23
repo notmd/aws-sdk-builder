@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `868` matched · `231` mismatches · `532` missing · `0` extra · `53.22%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `874` matched · `231` mismatches · `526` missing · `0` extra · `53.59%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -23206,12 +23206,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
 - `src/protocol_serde/shape_accept_delegation_request.rs`
 - `src/protocol_serde/shape_accept_delegation_request_input.rs`
 - `src/protocol_serde/shape_access_detail.rs`

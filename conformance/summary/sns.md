@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `230` matched · `63` mismatches · `156` missing · `0` extra · `51.22%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `236` matched · `63` mismatches · `150` missing · `0` extra · `52.56%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -5368,12 +5368,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
 - `src/protocol_serde/shape_add_permission.rs`
 - `src/protocol_serde/shape_add_permission_input.rs`
 - `src/protocol_serde/shape_authorization_error_exception.rs`

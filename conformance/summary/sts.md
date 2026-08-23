@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `152/152` files compared · `81` matched · `16` mismatches · `55` missing · `0` extra · `53.29%` match (100.00% means fully matched)
+**Progress:** `152/152` files compared · `87` matched · `16` mismatches · `49` missing · `0` extra · `57.24%` match (100.00% means fully matched)
 
 ### `src/client.rs`
 
@@ -1171,12 +1171,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
 - `src/protocol_serde/shape_assume_role.rs`
 - `src/protocol_serde/shape_assume_role_input.rs`
 - `src/protocol_serde/shape_assume_role_with_saml.rs`

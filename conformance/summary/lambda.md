@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `576` matched · `142` mismatches · `366` missing · `0` extra · `53.14%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `583` matched · `143` mismatches · `358` missing · `0` extra · `53.78%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -177,6 +177,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<UpdateFunctionEventInvokeConfigError>`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError)
      pub fn update_function_event_invoke_config(
          &self,
+```
+
+### `src/event_stream_serde.rs`
+
+```diff
+--- reference/src/event_stream_serde.rs
++++ generated/src/event_stream_serde.rs
+@@ -34,10 +34,10 @@
+                 }
+                 "InvokeComplete" => {
+                     let parsed =
+-                            crate::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
+-                                                .map_err(|err| {
+-                                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
+-                                                })?
++                        crate::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
++                            .map_err(|err| {
++                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
++                            })?
+                         ;
+                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
+                         crate::types::InvokeWithResponseStreamResponseEvent::InvokeComplete(parsed),
 ```
 
 ### `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
@@ -8432,14 +8454,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
-- `src/event_receiver.rs`
-- `src/event_stream_serde.rs`
 - `src/json_errors.rs`
 - `src/protocol_serde/shape_account_limit.rs`
 - `src/protocol_serde/shape_account_usage.rs`

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `903/903` files compared · `465` matched · `71` mismatches · `367` missing · `0` extra · `51.50%` match (100.00% means fully matched)
+**Progress:** `903/903` files compared · `473` matched · `72` mismatches · `358` missing · `0` extra · `52.38%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -134,6 +134,855 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`expression_attribute_values(impl Into<String>, AttributeValue)`](crate::operation::update_item::builders::UpdateItemFluentBuilder::expression_attribute_values) / [`set_expression_attribute_values(Option<HashMap::<String, AttributeValue>>)`](crate::operation::update_item::builders::UpdateItemFluentBuilder::set_expression_attribute_values):<br>required: **false**<br><p>One or more values that can be substituted in an expression.</p> <p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following:</p> <p><code>Available | Backordered | Discontinued</code></p> <p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p> <p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p> <p>You could then use these values in an expression, such as this:</p> <p><code>ProductStatus IN (:avail, :back, :disc)</code></p> <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><br>
      ///   - [`return_values_on_condition_check_failure(ReturnValuesOnConditionCheckFailure)`](crate::operation::update_item::builders::UpdateItemFluentBuilder::return_values_on_condition_check_failure) / [`set_return_values_on_condition_check_failure(Option<ReturnValuesOnConditionCheckFailure>)`](crate::operation::update_item::builders::UpdateItemFluentBuilder::set_return_values_on_condition_check_failure):<br>required: **false**<br><p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p> <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p><br>
      /// - On success, responds with [`UpdateItemOutput`](crate::operation::update_item::UpdateItemOutput) with field(s):
+```
+
+### `src/config/endpoint.rs`
+
+```diff
+--- reference/src/config/endpoint.rs
++++ generated/src/config/endpoint.rs
+@@ -12150,422 +12150,396 @@
+             match current_ref {
+                 ref_val if ref_val >= 100_000_000 => {
+                     return match (ref_val - 100_000_000) as usize {
+-                                        0 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched")) as ::aws_smithy_runtime_api::box_error::BoxError),
+-1 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: FIPS and custom endpoint are not supported"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-2 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: Dualstack and custom endpoint are not supported"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-3 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Endpoint override is not supported for dual-stack endpoints. Please enable dual-stack functionality by enabling the configuration. For more details, see: https://docs.aws.amazon.com/sdkref/latest/guide/feature-endpoints.html"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-4 => {
++                        0 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "No endpoint rule matched",
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        1 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: FIPS and custom endpoint are not supported".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        2 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: Dualstack and custom endpoint are not supported".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        3 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Endpoint override is not supported for dual-stack endpoints. Please enable dual-stack functionality by enabling the configuration. For more details, see: https://docs.aws.amazon.com/sdkref/latest/guide/feature-endpoints.html".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        4 => {
+                             let endpoint = params.endpoint.as_deref().unwrap_or_default();
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url(endpoint.to_owned())
+-.build())
+-                        },
+-5 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: FIPS and local endpoint are not supported"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-6 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: Dualstack and local endpoint are not supported"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-7 => {
+-
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url("http://localhost:8000"
+-.to_string())
+-.auth_scheme(::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4"
+-.to_string(), 2)
+-.put("signingName", "dynamodb")
+-.put("signingRegion", "us-east-1")
+-)
+-.build())
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&endpoint.as_ref());
++                                        out
++                                    }).build())
+                         },
+-8 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: AccountIdEndpointMode is required and FIPS is enabled, but FIPS account endpoints are not supported"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
++                        5 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: FIPS and local endpoint are not supported".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        6 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: Dualstack and local endpoint are not supported".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        7 => {
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url("http://localhost:8000".to_string()).auth_scheme(
++                                ::aws_smithy_types::endpoint::EndpointAuthScheme::with_capacity("sigv4".to_string(), 2)
++                                    .put("signingName", "dynamodb")
++                                    .put("signingRegion", "us-east-1")
++                            ).build())
+                         },
+-9 => {
++                        8 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: AccountIdEndpointMode is required and FIPS is enabled, but FIPS account endpoints are not supported".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        9 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://search-dynamodb-fips.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://search-dynamodb-fips.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-10 => {
++                        10 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://dynamodb-fips.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://dynamodb-fips.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-11 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("FIPS and DualStack are enabled, but this partition does not support one or both"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-12 => {
++                        11 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "FIPS and DualStack are enabled, but this partition does not support one or both".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        12 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://search-dynamodb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://search-dynamodb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-13 => {
++                        13 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://dynamodb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://dynamodb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-14 => {
++                        14 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://search-dynamodb-fips.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://search-dynamodb-fips.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-15 => {
++                        15 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://dynamodb-fips.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://dynamodb-fips.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-16 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("FIPS is enabled but this partition does not support FIPS"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-17 => {
++                        16 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "FIPS is enabled but this partition does not support FIPS".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        17 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_2.account_id());
+-out.push_str(".search-ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_2.account_id());
++                                        out.push_str(".search-ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-18 => {
++                        18 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_2.account_id());
+-out.push_str(".ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_2.account_id());
++                                        out.push_str(".ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-19 => {
++                        19 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_1.account_id());
+-out.push_str(".search-ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_1.account_id());
++                                        out.push_str(".search-ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-20 => {
++                        20 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_1.account_id());
+-out.push_str(".ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_1.account_id());
++                                        out.push_str(".ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-21 => {
++                        21 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let account_id = params.account_id.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&account_id.as_ref());
+-out.push_str(".search-ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let account_id = params.account_id.as_deref().unwrap_or_default();
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&account_id.as_ref());
++                                        out.push_str(".search-ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-22 => {
++                        22 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let account_id = params.account_id.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&account_id.as_ref());
+-out.push_str(".ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let account_id = params.account_id.as_deref().unwrap_or_default();
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&account_id.as_ref());
++                                        out.push_str(".ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-23 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Credentials-sourced account ID parameter is invalid"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-24 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("AccountIdEndpointMode is required but no AccountID was provided or able to be loaded"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-25 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: AccountIdEndpointMode is required but account endpoints are not supported in this partition"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-26 => {
++                        23 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Credentials-sourced account ID parameter is invalid".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        24 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "AccountIdEndpointMode is required but no AccountID was provided or able to be loaded".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        25 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: AccountIdEndpointMode is required but account endpoints are not supported in this partition".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        26 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://search-dynamodb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://search-dynamodb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-27 => {
++                        27 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://dynamodb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dual_stack_dns_suffix());
+-out })
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://dynamodb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dual_stack_dns_suffix());
++                                        out
++                                    }).build())
+                         },
+-28 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("DualStack is enabled but this partition does not support DualStack"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-29 => {
++                        28 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "DualStack is enabled but this partition does not support DualStack".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        29 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_2.account_id());
+-out.push_str(".search-ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_2.account_id());
++                                        out.push_str(".search-ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-30 => {
++                        30 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_2.account_id());
+-out.push_str(".ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_2 = context.parsed_arn_ssa_2.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_2.account_id());
++                                        out.push_str(".ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-31 => {
++                        31 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_1.account_id());
+-out.push_str(".search-ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_1.account_id());
++                                        out.push_str(".search-ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-32 => {
++                        32 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&parsed_arn_ssa_1.account_id());
+-out.push_str(".ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            let parsed_arn_ssa_1 = context.parsed_arn_ssa_1.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&parsed_arn_ssa_1.account_id());
++                                        out.push_str(".ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-33 => {
++                        33 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let account_id = params.account_id.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&account_id.as_ref());
+-out.push_str(".search-ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let account_id = params.account_id.as_deref().unwrap_or_default();
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&account_id.as_ref());
++                                        out.push_str(".search-ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-34 => {
++                        34 => {
+                             let region = params.region.as_deref().unwrap_or_default();
+-let account_id = params.account_id.as_deref().unwrap_or_default();
+-let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
+-                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({ let mut out = String::new();
+-out.push_str("https://");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&account_id.as_ref());
+-out.push_str(".ddb.");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&region.as_ref());
+-out.push_str(".");
+-#[allow(clippy::needless_borrow)]
+-out.push_str(&partition_result.dns_suffix());
+-out })
+-.property("metricValues", vec![::aws_smithy_types::Document::from("O"
+-.to_string()),])
+-.build())
++                            let account_id = params.account_id.as_deref().unwrap_or_default();
++                            let partition_result = context.partition_result.as_ref().expect("Guaranteed to have a value by earlier checks.");
++                            ::std::result::Result::Ok(::aws_smithy_types::endpoint::Endpoint::builder().url({
++                                        let mut out = String::new();
++                                        out.push_str("https://");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&account_id.as_ref());
++                                        out.push_str(".ddb.");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&region.as_ref());
++                                        out.push_str(".");
++                                        #[allow(clippy::needless_borrow)]
++                                        out.push_str(&partition_result.dns_suffix());
++                                        out
++                                    }).property("metricValues", vec![::aws_smithy_types::Document::from("O".to_string())]).build())
+                         },
+-35 => {
+-
+-                            ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("Invalid Configuration: Missing Region"
+-.to_string())) as ::aws_smithy_runtime_api::box_error::BoxError)
+-                        },
+-                                        _ => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message("No endpoint rule matched")) as ::aws_smithy_runtime_api::box_error::BoxError),
+-                                    };
++                        35 => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "Invalid Configuration: Missing Region".to_string(),
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                        _ => ::std::result::Result::Err(Box::new(::aws_smithy_http::endpoint::ResolveEndpointError::message(
++                            "No endpoint rule matched",
++                        )) as ::aws_smithy_runtime_api::box_error::BoxError),
++                    };
+                 }
+                 1 | -1 => {
+                     return ::std::result::Result::Err(
+@@ -12623,10 +12597,8 @@
+                             (&{
+                                 let mut out = String::new();
+                                 out.push_str("dynamodb.");
+-                                #[allow(clippy::needless_borrow)]
+                                 out.push_str(&region.as_deref().unwrap_or_default());
+                                 out.push_str(".");
+-                                #[allow(clippy::needless_borrow)]
+                                 out.push_str(&if let Some(inner) = partition_result {
+                                     inner.dual_stack_dns_suffix()
+                                 } else {
+@@ -12655,10 +12627,8 @@
+                             (&{
+                                 let mut out = String::new();
+                                 out.push_str("search-dynamodb.");
+-                                #[allow(clippy::needless_borrow)]
+                                 out.push_str(&region.as_deref().unwrap_or_default());
+                                 out.push_str(".");
+-                                #[allow(clippy::needless_borrow)]
+                                 out.push_str(&if let Some(inner) = partition_result {
+                                     inner.dual_stack_dns_suffix()
+                                 } else {
+@@ -12701,7 +12671,7 @@
+                         16 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                             let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
+                             let partition_resolver = &self.partition_resolver;
+-                            &mut Some(
++                            (&mut Some(
+                                 (if let Some(inner) = parsed_arn_ssa_2 {
+                                     inner.region()
+                                 } else {
+@@ -12708,7 +12678,7 @@
+                                     return false;
+                                 }
+                                 .into()),
+-                            ) == (region)
++                            )) == region
+                         })(&mut _diagnostic_collector),
+                         17 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                             let parsed_arn_ssa_2 = &context.parsed_arn_ssa_2;
+@@ -12751,10 +12721,11 @@
+                             let partition_resolver = &self.partition_resolver;
+                             {
+                                 *first_arn = if let Some(inner) = resource_arn_list {
+-                                    inner.first().map(|s| s.as_str())
++                                    inner.first().cloned()
+                                 } else {
+                                     return false;
+-                                };
++                                }
++                                .map(|inner| inner.into());
+                                 first_arn.is_some()
+                             }
+                         })(&mut _diagnostic_collector),
+@@ -12774,7 +12745,7 @@
+                         23 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                             let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
+                             let partition_resolver = &self.partition_resolver;
+-                            &mut Some(
++                            (&mut Some(
+                                 (if let Some(inner) = parsed_arn_ssa_1 {
+                                     inner.region()
+                                 } else {
+@@ -12781,7 +12752,7 @@
+                                     return false;
+                                 }
+                                 .into()),
+-                            ) == (region)
++                            )) == region
+                         })(&mut _diagnostic_collector),
+                         24 => (|_diagnostic_collector: &mut crate::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
+                             let parsed_arn_ssa_1 = &context.parsed_arn_ssa_1;
 ```
 
 ### `src/operation/batch_execute_statement.rs`
@@ -6409,15 +7258,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `benches/deserialization_bench.rs`
 - `benches/serialization_bench.rs`
 - `src/account_id_endpoint.rs`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/arn.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/coalesce.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/parse_url.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
 - `src/json_errors.rs`
 - `src/protocol_serde/shape_archival_summary.rs`
 - `src/protocol_serde/shape_attribute_definition.rs`
@@ -6781,6 +7621,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client/query.rs`
 - `src/client/scan.rs`
 - `src/client/update_item.rs`
+- `src/config/endpoint.rs`
 - `src/operation/batch_execute_statement.rs`
 - `src/operation/batch_get_item.rs`
 - `src/operation/batch_write_item.rs`

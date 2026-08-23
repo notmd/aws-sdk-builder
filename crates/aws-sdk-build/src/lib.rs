@@ -1,5 +1,6 @@
 mod codegen;
 mod config;
+mod endpoint_codegen;
 mod error;
 pub mod model;
 mod names;

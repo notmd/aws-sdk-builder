@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `282` matched · `114` mismatches · `203` missing · `1` extra · `47.00%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `288` matched · `114` mismatches · `197` missing · `1` extra · `48.00%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -5770,12 +5770,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
 - `src/json_errors.rs`
 - `src/protocol_serde/shape_alias_list.rs`
 - `src/protocol_serde/shape_alias_list_entry.rs`

@@ -138,6 +138,65 @@ pub(crate) fn generate(
             ));
         }
         if !consumer_namespace {
+            if model_has_event_stream(&selected) {
+                service_files.push((
+                    "src/event_receiver.rs".to_owned(),
+                    include_str!("../assets/event_receiver.rs").to_owned(),
+                ));
+                service_files.push((
+                    "src/event_stream_serde.rs".to_owned(),
+                    render_event_stream_serde_file(&selected),
+                ));
+            }
+            if model_has_aws_chunked_operations(&selected) {
+                service_files.push((
+                    "src/aws_chunked.rs".to_owned(),
+                    include_str!("../assets/aws_chunked.rs").to_owned(),
+                ));
+                service_files.push((
+                    "src/endpoint_auth.rs".to_owned(),
+                    include_str!("../assets/endpoint_auth.rs").to_owned(),
+                ));
+            }
+            if model_contains_trait(&selected, "aws.protocols#httpChecksum") {
+                service_files.push((
+                    "src/http_request_checksum.rs".to_owned(),
+                    include_str!("../assets/http_request_checksum.rs").to_owned(),
+                ));
+                service_files.push((
+                    "src/http_response_checksum.rs".to_owned(),
+                    include_str!("../assets/http_response_checksum.rs").to_owned(),
+                ));
+            }
+            if service_supports_s3_express(&selected) {
+                service_files.push((
+                    "src/s3_express.rs".to_owned(),
+                    include_str!("../assets/s3_express.rs").to_owned(),
+                ));
+            }
+            if service_has_rest_xml_unwrapped_errors(&selected) {
+                service_files.push((
+                    "src/rest_xml_unwrapped_errors.rs".to_owned(),
+                    include_str!("../assets/rest_xml_unwrapped_errors.rs").to_owned(),
+                ));
+            }
+            if selected
+                .operations
+                .iter()
+                .filter_map(|name| operation_shape(&selected, name))
+                .any(|operation| operation_has_s3_expires_output(&selected, operation))
+            {
+                service_files.push((
+                    "src/s3_expires_interceptor.rs".to_owned(),
+                    include_str!("../assets/s3_expires_interceptor.rs").to_owned(),
+                ));
+            }
+            if service_has_endpoint_rules(&selected) {
+                service_files.push((
+                    "src/config/endpoint.rs".to_owned(),
+                    crate::endpoint_codegen::render_endpoint_config_file(&selected),
+                ));
+            }
             service_files.push((
                 "src/error_meta.rs".to_owned(),
                 render_service_error_metadata(&selected),
@@ -146,6 +205,18 @@ pub(crate) fn generate(
                 "src/error/sealed_unhandled.rs".to_owned(),
                 include_str!("../assets/error_sealed_unhandled.rs").to_owned(),
             ));
+            if service_has_endpoint_rules(&selected) {
+                service_files.push((
+                    "src/endpoint_lib.rs".to_owned(),
+                    render_endpoint_lib(&selected),
+                ));
+                for module in endpoint_lib_module_names(&selected) {
+                    service_files.push((
+                        format!("src/endpoint_lib/{module}.rs"),
+                        render_endpoint_lib_module(&module),
+                    ));
+                }
+            }
         }
         if !consumer_namespace {
             service_files.push((
@@ -925,7 +996,7 @@ fn render_standalone_extra_modules(
         || service_has_protocol(selected, ProtocolKind::AwsJson1_1);
     let has_waiters = has_waiters(selected);
     let has_paginators = has_paginated_operations(selected);
-    let has_event_stream = model_has_streaming(selected);
+    let has_event_stream = model_has_event_stream(selected);
     let has_wrapped_xml_errors = has_aws_query
         || (has_rest_xml
             && !selected
@@ -948,7 +1019,7 @@ fn render_standalone_extra_modules(
     if has_idempotency_operations(selected) {
         output.push_str("\npub(crate) mod client_idempotency_token;\n");
     }
-    if model_has_streaming(selected) {
+    if has_event_stream {
         output.push_str("\nmod event_receiver;\n");
     }
     if model_contains_trait(selected, "aws.protocols#httpChecksum") {
@@ -1025,6 +1096,170 @@ fn render_standalone_extra_modules(
     if has_wrapped_xml_errors && !has_waiters && has_paginators {
         output.push_str("\nmod rest_xml_wrapped_errors;\n");
     }
+}
+
+fn service_has_endpoint_rules(selected: &SelectedModel) -> bool {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|service| service.get("traits"))
+        .is_some_and(|traits| {
+            traits.get("smithy.rules#endpointBdd").is_some()
+                || traits.get("smithy.rules#endpointRuleSet").is_some()
+        })
+}
+
+fn service_has_rest_xml_unwrapped_errors(selected: &SelectedModel) -> bool {
+    service_has_protocol(selected, ProtocolKind::RestXml)
+        && selected
+            .model
+            .shapes
+            .get(selected.model.entry.service_shape_id)
+            .is_some_and(|service| {
+                has_trait_value(service, "aws.protocols#restXml", "noErrorWrapping")
+            })
+}
+
+fn endpoint_rule_function_ids(selected: &SelectedModel) -> BTreeSet<String> {
+    let mut functions = BTreeSet::new();
+    let Some(traits) = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|service| service.get("traits"))
+    else {
+        return functions;
+    };
+    for trait_id in [
+        "smithy.rules#endpointBdd",
+        "smithy.rules#endpointRuleSet",
+        "smithy.rules#endpointTests",
+    ] {
+        collect_endpoint_rule_functions(traits.get(trait_id), &mut functions);
+    }
+    functions
+}
+
+fn collect_endpoint_rule_functions(value: Option<&Value>, functions: &mut BTreeSet<String>) {
+    let Some(value) = value else {
+        return;
+    };
+    match value {
+        Value::Object(object) => {
+            if let Some(function) = object.get("fn").and_then(Value::as_str) {
+                functions.insert(function.to_owned());
+            }
+            for value in object.values() {
+                collect_endpoint_rule_functions(Some(value), functions);
+            }
+        }
+        Value::Array(values) => {
+            for value in values {
+                collect_endpoint_rule_functions(Some(value), functions);
+            }
+        }
+        _ => {}
+    }
+}
+
+fn endpoint_lib_module_names(selected: &SelectedModel) -> Vec<String> {
+    let functions = endpoint_rule_function_ids(selected);
+    let mut modules = vec![
+        "bdd_interpreter".to_owned(),
+        "diagnostic".to_owned(),
+        "partition".to_owned(),
+        "host".to_owned(),
+    ];
+    if functions.contains("aws.parseArn") {
+        modules.insert(0, "arn".to_owned());
+    }
+    if functions.contains("coalesce") {
+        modules.push("coalesce".to_owned());
+    }
+    if functions.contains("ite") {
+        modules.push("ite".to_owned());
+    }
+    if functions.contains("parseURL") {
+        modules.push("parse_url".to_owned());
+    }
+    if functions.contains("aws.isVirtualHostableS3Bucket") {
+        modules.push("s3".to_owned());
+    }
+    if functions.contains("split") {
+        modules.push("split".to_owned());
+    }
+    if functions.contains("substring") {
+        modules.push("substring".to_owned());
+    }
+    if functions.contains("uriEncode") {
+        modules.push("uri_encode".to_owned());
+    }
+
+    // The inlineable module tree is emitted in dependency insertion order. The
+    // richer endpoint rule sets add the standard library modules before the AWS
+    // partition resolver, while the minimal AWS rulesets register partition
+    // support before the host-label customization.
+    if functions.contains("coalesce") || functions.contains("parseURL") {
+        modules.sort();
+    }
+    modules
+}
+
+fn render_endpoint_lib(selected: &SelectedModel) -> String {
+    let partition_json = include_str!("../assets/default-partitions.json").trim();
+    let escaped_partition_json = partition_json.replace('\\', "\\\\").replace('"', "\\\"");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str(
+        "// Loading the partition JSON is expensive since it involves many regex compilations,\n\
+         // so cache the result so that it only need to be paid for the first constructed client.\n\
+         pub(crate) static DEFAULT_PARTITION_RESOLVER: std::sync::LazyLock<crate::endpoint_lib::partition::PartitionResolver> = std::sync::LazyLock::new(\n\
+             || match std::env::var(\"SMITHY_CLIENT_SDK_CUSTOM_PARTITION\") {\n\
+                 Ok(partitions) => {\n\
+                     ::tracing::debug!(\"loading custom partitions located at {partitions}\");\n\
+                     let partition_dot_json = std::fs::read_to_string(partitions).expect(\"should be able to read a custom partition JSON\");\n\
+                     crate::endpoint_lib::partition::PartitionResolver::new_from_json(partition_dot_json.as_bytes()).expect(\"valid JSON\")\n\
+                 }\n\
+                 _ => {\n\
+                     ::tracing::debug!(\"loading default partitions\");\n\
+                     crate::endpoint_lib::partition::PartitionResolver::new_from_json(b\"",
+    );
+    output.push_str(&escaped_partition_json);
+    output.push_str(
+        "\").expect(\"valid JSON\")\n\
+                 }\n\
+             },\n\
+         );\n\n\
+",
+    );
+    for module in endpoint_lib_module_names(selected) {
+        writeln!(output, "pub(crate) mod {module};").unwrap();
+        output.push('\n');
+    }
+    output
+}
+
+fn render_endpoint_lib_module(module: &str) -> String {
+    let source = match module {
+        "arn" => include_str!("../assets/endpoint_lib/arn.rs"),
+        "bdd_interpreter" => include_str!("../assets/endpoint_lib/bdd_interpreter.rs"),
+        "coalesce" => include_str!("../assets/endpoint_lib/coalesce.rs"),
+        "diagnostic" => include_str!("../assets/endpoint_lib/diagnostic.rs"),
+        "host" => include_str!("../assets/endpoint_lib/host.rs"),
+        "ite" => include_str!("../assets/endpoint_lib/ite.rs"),
+        "parse_url" => include_str!("../assets/endpoint_lib/parse_url.rs"),
+        "partition" => include_str!("../assets/endpoint_lib/partition.rs"),
+        "s3" => include_str!("../assets/endpoint_lib/s3.rs"),
+        "split" => include_str!("../assets/endpoint_lib/split.rs"),
+        "substring" => include_str!("../assets/endpoint_lib/substring.rs"),
+        "uri_encode" => include_str!("../assets/endpoint_lib/uri_encode.rs"),
+        _ => panic!("unknown endpoint library module: {module}"),
+    };
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    output.push_str(source);
+    output
 }
 
 fn service_has_protocol(selected: &SelectedModel, protocol: ProtocolKind) -> bool {
@@ -1619,6 +1854,177 @@ fn model_has_streaming(selected: &SelectedModel) -> bool {
             .and_then(Value::as_object)
             .is_some_and(|traits| traits.contains_key("smithy.api#streaming"))
     })
+}
+
+fn model_has_event_stream(selected: &SelectedModel) -> bool {
+    selected.model.shapes.values().any(|shape| {
+        shape.get("type").and_then(Value::as_str) == Some("union") && shape_is_streaming(shape)
+    })
+}
+
+fn event_stream_union_ids(selected: &SelectedModel) -> Vec<String> {
+    selected
+        .model
+        .shapes
+        .iter()
+        .filter_map(|(id, shape)| {
+            (shape.get("type").and_then(Value::as_str) == Some("union")
+                && shape_is_streaming(shape))
+            .then_some(id.clone())
+        })
+        .collect()
+}
+
+fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let mut union_ids = event_stream_union_ids(selected);
+    union_ids.sort();
+    for union_id in union_ids {
+        let Some(shape) = selected.model.shapes.get(&union_id) else {
+            continue;
+        };
+        let union_name = rust_type_name(terminal(&union_id));
+        let unmarshaller_name = format!("{union_name}Unmarshaller");
+        writeln!(
+            output,
+            "#[non_exhaustive]\n#[derive(Debug)]\npub struct {unmarshaller_name};\n\nimpl {unmarshaller_name} {{\n    pub fn new() -> Self {{\n        {unmarshaller_name}\n    }}\n}}"
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "impl ::aws_smithy_eventstream::frame::UnmarshallMessage for {unmarshaller_name} {{\n    type Output = crate::types::{union_name};\n    type Error = crate::types::error::{union_name}Error;\n    fn unmarshall(\n        &self,\n        message: &::aws_smithy_types::event_stream::Message,\n    ) -> std::result::Result<::aws_smithy_eventstream::frame::UnmarshalledMessage<Self::Output, Self::Error>, ::aws_smithy_eventstream::error::Error>\n    {{\n        let response_headers = ::aws_smithy_eventstream::smithy::parse_response_headers(message)?;\n        match response_headers.message_type.as_str() {{\n            \"event\" => match response_headers.smithy_type.as_str() {{"
+        )
+        .unwrap();
+        for (member_name, member) in members(shape) {
+            render_event_stream_member(&mut output, selected, &union_name, &member_name, member);
+        }
+        output.push_str(
+            "                _unknown_variant => Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                    crate::types::",
+        );
+        output.push_str(&union_name);
+        output.push_str(
+            "::Unknown,\n                )),\n            },\n            \"exception\" => {\n",
+        );
+        writeln!(
+            output,
+            "                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {{\n                    Ok(builder) => builder.build(),\n                    Err(err) => {{\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::{union_name}Error::unhandled(err),\n                        ))\n                    }}\n                }};\n                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                    crate::types::error::{union_name}Error::generic(generic),\n                ))\n            }}\n            value => {{\n                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                    \"unrecognized :message-type: {{value}}\"\n                )));\n            }}\n        }}\n    }}\n}}"
+        )
+        .unwrap();
+    }
+    output
+}
+
+fn render_event_stream_member(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_name: &str,
+    member_name: &str,
+    member: &Value,
+) {
+    let variant = rust_type_name(member_name);
+    let target = member_target(member).unwrap_or("smithy.api#Unit");
+    let Some(target_shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let target_name = rust_type_name(terminal(target));
+    writeln!(output, "                {member_name:?} => {{").unwrap();
+    let event_members = members(target_shape);
+    let payload = event_members
+        .iter()
+        .find(|(_, event_member)| has_trait(event_member, "smithy.api#eventPayload"));
+    if target == "smithy.api#Unit" {
+        writeln!(
+            output,
+            "                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                        crate::types::{union_name}::{variant},\n                    ))"
+        )
+        .unwrap();
+    } else if event_members.is_empty() {
+        writeln!(
+            output,
+            "                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                        crate::types::{union_name}::{variant}(crate::types::{target_name}::builder().build()),\n                    ))"
+        )
+        .unwrap();
+    } else if let Some((payload_name, payload_member)) = payload {
+        render_event_stream_explicit_payload(
+            output,
+            selected,
+            union_name,
+            &variant,
+            &target_name,
+            payload_name,
+            payload_member,
+        );
+    } else {
+        let module = names::rust_module_name(terminal(target));
+        writeln!(
+            output,
+            "                    let parsed =\n                        crate::protocol_serde::shape_{module}::de_{module}_payload(&message.payload()[..])\n                            .map_err(|err| {{\n                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {member_name}: {{err}}\"))\n                            }})?\n                        ;\n                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                        crate::types::{union_name}::{variant}(parsed),\n                    ))"
+        )
+        .unwrap();
+    }
+    output.push_str("                }\n");
+}
+
+fn render_event_stream_explicit_payload(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_name: &str,
+    variant: &str,
+    event_name: &str,
+    payload_name: &str,
+    payload_member: &Value,
+) {
+    let field = names::rust_identifier(payload_name);
+    let payload_target = member_target(payload_member).unwrap_or("smithy.api#Unit");
+    let payload_kind = selected
+        .model
+        .shapes
+        .get(payload_target)
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| payload_target.strip_prefix("smithy.api#"))
+        .unwrap_or("structure");
+    writeln!(
+        output,
+        "                    let mut builder = crate::types::builders::{event_name}Builder::default();"
+    )
+    .unwrap();
+    match payload_kind {
+        "blob" => {
+            output.push_str(
+                "                    let content_type = response_headers.content_type().unwrap_or_default();\n                    if content_type != \"application/octet-stream\" {\n                        return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                            \"expected :content-type to be 'application/octet-stream', but was '{content_type}'\"\n                        )));\n                    }\n",
+            );
+            writeln!(
+                output,
+                "                    builder = builder.set_{field}(Some(::aws_smithy_types::Blob::from_maybe_shared(message.payload().clone())));"
+            )
+            .unwrap();
+        }
+        "string" => {
+            output.push_str(
+                "                    let content_type = response_headers.content_type().unwrap_or_default();\n                    if content_type != \"text/plain\" {\n                        return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                            \"expected :content-type to be 'text/plain', but was '{content_type}'\"\n                        )));\n                    }\n",
+            );
+            writeln!(
+                output,
+                "                    builder = builder.set_{field}(Some(::std::str::from_utf8(message.payload()).map_err(|_| ::aws_smithy_eventstream::error::Error::unmarshalling(\"message payload is not valid UTF-8\"))?.to_owned()));"
+            )
+            .unwrap();
+        }
+        _ => {
+            let module = names::rust_module_name(terminal(event_name));
+            writeln!(
+                output,
+                "                    builder = builder.set_{field}(Some(\n                        crate::protocol_serde::shape_{module}::de_{field}(&message.payload()[..])\n                            .map_err(|err| ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {field}: {{err}}\")))?,\n                    ));"
+            )
+            .unwrap();
+        }
+    }
+    writeln!(
+        output,
+        "                    Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(\n                        crate::types::{union_name}::{variant}(builder.build()),\n                    ))"
+    )
+    .unwrap();
 }
 
 fn model_has_enum(selected: &SelectedModel) -> bool {
@@ -4340,7 +4746,11 @@ fn service_endpoint_parameter_names(selected: &SelectedModel) -> BTreeSet<String
         .shapes
         .get(selected.model.entry.service_shape_id)
         .and_then(|shape| shape.get("traits"))
-        .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
+        .and_then(|traits| {
+            traits
+                .get("smithy.rules#endpointRuleSet")
+                .or_else(|| traits.get("smithy.rules#endpointBdd"))
+        })
         .and_then(|rules| rules.get("parameters"))
         .and_then(Value::as_object)
         .map(|parameters| parameters.keys().cloned().collect())
@@ -5117,7 +5527,11 @@ fn render_standalone_endpoint_interceptor(
         .and_then(|shape| shape.get("traits"))
         .and_then(Value::as_object);
     let endpoint_params = service_traits
-        .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
+        .and_then(|traits| {
+            traits
+                .get("smithy.rules#endpointRuleSet")
+                .or_else(|| traits.get("smithy.rules#endpointBdd"))
+        })
         .and_then(|rules| rules.get("parameters"))
         .and_then(Value::as_object);
     let client_params = service_traits

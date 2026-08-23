@@ -4,6 +4,51 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Add model-driven standalone runtime modules
+
+- State: in progress
+- Changed: emitted the Smithy-RS runtime assets for AWS-chunked encoding, endpoint-based
+  auth option merging, request/response checksums, and S3 Express when the selected model
+  requires those capabilities. Added a model-driven event-stream unmarshaller renderer
+  for streaming union shapes. The runtime source modules are shared assets; generation
+  is selected by model traits and endpoint rules rather than service or operation names.
+- Evidence: compared the assets and event-stream lowering with the pinned Smithy-RS
+  checkout at `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+  `just conformance` regenerated 8 all-operation snapshots and formatted 4,653 generated
+  Rust files.
+- Conformance: runtime-asset stage overall `3,968/673/1,820/1` -> `3,972/673/1,816/1`;
+  S3 `1,272/0/72/0` -> `1,275/0/69/0`. Runtime-module stage overall
+  `3,972/673/1,816/1` -> `3,978/674/1,809/1`; S3 `1,275/0/69/0` ->
+  `1,281/0/63/0`. The Lambda event-stream file is emitted and differs only in a
+  legacy Smithy-RS rustfmt indentation quirk; the net missing-plus-mismatched diff still
+  shrank by six files.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass. `just
+  conformance` completed generation, formatting, and comparison but exits 1 because
+  parity remains incomplete.
+- Next action: continue with the remaining S3 package metadata and reference test/data
+  tree after recording this runtime-module parity checkpoint.
+
+### Checkpoint: 2026-08-23 — Align model-driven BDD endpoint lowering
+
+- State: in progress
+- Changed: endpoint generation now follows the Smithy-RS BDD lowering for optional
+  function arguments, optional string equality, infallible assignments, `getAttr`
+  conditions, URI encoding, and model-driven region validation. Result formatting also
+  derives its multiline threshold from endpoint model data.
+- Evidence: compared behavior with the pinned Smithy-RS checkout at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance` regenerated
+  eight all-operation snapshots and formatted 4,642 generated Rust files.
+- Conformance: overall `3,967/674/1,820/1` -> `3,968/673/1,820/1`; S3
+  `1,271/1/72/0` -> `1,272/0/72/0` (matched/mismatched/missing/extra). Average match
+  increased from `58.02%` to `58.03%`.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass.
+  `just conformance` still exits 1 because parity remains incomplete; DynamoDB's
+  endpoint source remains the primary endpoint mismatch.
+- Next action: align the remaining DynamoDB BDD result-arm formatting and ownership
+  lowering generically from the Smithy-RS endpoint generators.
+
 ### Checkpoint: 2026-08-23 — Match model-driven standalone config generation
 
 - State: in progress

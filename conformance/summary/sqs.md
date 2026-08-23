@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `150` matched · `35` mismatches · `114` missing · `0` extra · `50.17%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `156` matched · `35` mismatches · `108` missing · `0` extra · `52.17%` match (100.00% means fully matched)
 
 ### `src/client/change_message_visibility.rs`
 
@@ -2253,12 +2253,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `LICENSE`
 - `README.md`
 - `src/aws_query_compatible_errors.rs`
-- `src/config/endpoint.rs`
-- `src/endpoint_lib/bdd_interpreter.rs`
-- `src/endpoint_lib/diagnostic.rs`
-- `src/endpoint_lib/host.rs`
-- `src/endpoint_lib/partition.rs`
-- `src/endpoint_lib.rs`
 - `src/json_errors.rs`
 - `src/long_polling.rs`
 - `src/protocol_serde/shape_add_permission.rs`
