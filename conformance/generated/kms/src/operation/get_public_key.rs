@@ -104,9 +104,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetPubl
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetPublicKey", "KMS"));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = false;
-        signing_options.content_sha256_header = true;
-        signing_options.normalize_uri_path = false;
+        signing_options.double_uri_encode = true;
+        signing_options.content_sha256_header = false;
+        signing_options.normalize_uri_path = true;
         signing_options.payload_override = None;
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
@@ -138,15 +138,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetPubl
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::get_public_key::GetPublicKeyError,
             >::new())
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_public_key::GetPublicKeyError>::builder()
-                    .transient_errors({
-                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                        transient_errors.push("InternalError");
-                        ::std::borrow::Cow::Owned(transient_errors)
-                    })
-                    .build(),
-            );
+            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::get_public_key::GetPublicKeyError,
+            >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -253,10 +247,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetPublicKey
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                "TrentService.GetPublicKey",
+            );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_public_key_input::ser_get_public_key_op_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_public_key::ser_get_public_key_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -290,8 +289,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetPublicKeyE
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
             .build()
             .map_err(|err| {
@@ -507,11 +506,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetPubli
             source,
             meta: meta.unwrap_or_default(),
         })
-    }
-}
-impl crate::s3_request_id::RequestIdExt for crate::operation::get_public_key::GetPublicKeyError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId for crate::operation::get_public_key::GetPublicKeyError {

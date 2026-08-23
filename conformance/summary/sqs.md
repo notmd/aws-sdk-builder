@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `159` matched · `35` mismatches · `105` missing · `0` extra · `53.18%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `231` matched · `64` mismatches · `4` missing · `0` extra · `77.26%` match (100.00% means fully matched)
 
 ### `src/client/change_message_visibility.rs`
 
@@ -181,80 +181,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/add_permission.rs
 +++ generated/src/operation/add_permission.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AddPermission", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::add_permission::AddPermissionError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::add_permission::AddPermissionError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::add_permission::AddPermissionError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,17 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.AddPermission",
--            );
+@@ -258,8 +258,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.AddPermission",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -465,6 +464,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::add_permission::AddPermissionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::add_permission::AddPermissionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
 ```
 
 ### `src/operation/cancel_message_move_task.rs`
@@ -262,116 +197,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/cancel_message_move_task.rs
 +++ generated/src/operation/cancel_message_move_task.rs
-@@ -107,9 +107,9 @@
-             "SQS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CancelMessageMoveTask")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CancelMessageMoveTaskTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CancelMessageMoveTaskEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CancelMessageMoveTask")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CancelMessageMoveTaskTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CancelMessageMoveTaskEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::cancel_message_move_task::CancelMessageMoveTaskError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,18 +259,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.CancelMessageMoveTask",
--            );
+@@ -256,8 +256,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.CancelMessageMoveTask",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_cancel_message_move_task::ser_cancel_message_move_task_input(&input)?,
-+            crate::protocol_serde::shape_cancel_message_move_task_input::ser_cancel_message_move_task_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -296,8 +298,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +457,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::cancel_message_move_task::CancelMessageMoveTaskError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::cancel_message_move_task::CancelMessageMoveTaskError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/change_message_visibility/builders.rs`
@@ -395,83 +229,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/change_message_visibility.rs
 +++ generated/src/operation/change_message_visibility.rs
-@@ -107,9 +107,9 @@
-             "SQS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::change_message_visibility::ChangeMessageVisibilityError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::change_message_visibility::ChangeMessageVisibilityError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::change_message_visibility::ChangeMessageVisibilityError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,18 +263,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ChangeMessageVisibility",
--            );
+@@ -261,8 +261,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ChangeMessageVisibility",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_change_message_visibility::ser_change_message_visibility_input(&input)?,
-+            crate::protocol_serde::shape_change_message_visibility_input::ser_change_message_visibility_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -301,8 +302,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -480,6 +481,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::change_message_visibility::ChangeMessageVisibilityError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::change_message_visibility::ChangeMessageVisibilityError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/change_message_visibility_batch.rs`
@@ -479,83 +245,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/change_message_visibility_batch.rs
 +++ generated/src/operation/change_message_visibility_batch.rs
-@@ -107,9 +107,9 @@
-             "SQS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,18 +258,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ChangeMessageVisibilityBatch",
--            );
+@@ -256,8 +256,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ChangeMessageVisibilityBatch",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_change_message_visibility_batch::ser_change_message_visibility_batch_input(&input)?,
-+            crate::protocol_serde::shape_change_message_visibility_batch_input::ser_change_message_visibility_batch_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -296,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -495,6 +496,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_queue.rs`
@@ -563,80 +261,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_queue.rs
 +++ generated/src/operation/create_queue.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateQueue", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_queue::CreateQueueError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_queue::CreateQueueError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_queue::CreateQueueError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,17 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.CreateQueue",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.CreateQueue",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_queue::ser_create_queue_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_queue_input::ser_create_queue_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -480,6 +479,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_queue::CreateQueueError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_queue::CreateQueueError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_queue::ser_create_queue_input(&input)?);
 ```
 
 ### `src/operation/delete_message.rs`
@@ -644,69 +277,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_message.rs
 +++ generated/src/operation/delete_message.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteMessage", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_message::DeleteMessageError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_message::DeleteMessageError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_message::DeleteMessageError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,17 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.DeleteMessage",
--            );
+@@ -258,8 +258,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.DeleteMessage",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_message::ser_delete_message_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_message_input::ser_delete_message_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -319,7 +318,6 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_message::ser_delete_message_input(&input)?);
+@@ -319,7 +317,6 @@
      /// <p>The specified ID is invalid.</p>
      InvalidAddress(crate::types::error::InvalidAddress),
      /// <p>The specified receipt handle isn't valid for the current version.</p>
@@ -714,18 +294,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      InvalidIdFormat(crate::types::error::InvalidIdFormat),
      /// <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
      InvalidSecurity(crate::types::error::InvalidSecurity),
-@@ -476,6 +474,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_message::DeleteMessageError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_message::DeleteMessageError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_message_batch.rs`
@@ -733,101 +301,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_message_batch.rs
 +++ generated/src/operation/delete_message_batch.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteMessageBatch", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteMessageBatch")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteMessageBatchTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteMessageBatchEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_message_batch::DeleteMessageBatchError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_message_batch::DeleteMessageBatchError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_message_batch::DeleteMessageBatchError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteMessageBatch")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteMessageBatchTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteMessageBatchEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_message_batch::DeleteMessageBatchError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_message_batch::DeleteMessageBatchError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_message_batch::DeleteMessageBatchError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,18 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.DeleteMessageBatch",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.DeleteMessageBatch",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_message_batch::ser_delete_message_batch_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_message_batch_input::ser_delete_message_batch_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -491,6 +477,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_message_batch::DeleteMessageBatchError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_message_batch::DeleteMessageBatchError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body =
 ```
 
 ### `src/operation/delete_queue.rs`
@@ -835,80 +317,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_queue.rs
 +++ generated/src/operation/delete_queue.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteQueue", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_queue::DeleteQueueError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_queue::DeleteQueueError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_queue::DeleteQueueError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,17 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.DeleteQueue",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.DeleteQueue",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_queue_input::ser_delete_queue_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +449,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_queue::DeleteQueueError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_queue::DeleteQueueError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
 ```
 
 ### `src/operation/get_queue_attributes.rs`
@@ -916,101 +333,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_queue_attributes.rs
 +++ generated/src/operation/get_queue_attributes.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetQueueAttributes", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetQueueAttributes")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetQueueAttributesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetQueueAttributesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_queue_attributes::GetQueueAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_queue_attributes::GetQueueAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_queue_attributes::GetQueueAttributesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetQueueAttributes")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetQueueAttributesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetQueueAttributesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_queue_attributes::GetQueueAttributesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_queue_attributes::GetQueueAttributesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_queue_attributes::GetQueueAttributesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,18 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.GetQueueAttributes",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.GetQueueAttributes",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_queue_attributes::ser_get_queue_attributes_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_queue_attributes_input::ser_get_queue_attributes_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -461,6 +447,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_queue_attributes::GetQueueAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_queue_attributes::GetQueueAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body =
 ```
 
 ### `src/operation/get_queue_url.rs`
@@ -1018,80 +349,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_queue_url.rs
 +++ generated/src/operation/get_queue_url.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetQueueUrl", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_queue_url::GetQueueUrlError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_queue_url::GetQueueUrlError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_queue_url::GetQueueUrlError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,17 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.GetQueueUrl",
--            );
+@@ -258,8 +258,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.GetQueueUrl",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_queue_url_input::ser_get_queue_url_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +454,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_queue_url::GetQueueUrlError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_queue_url::GetQueueUrlError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
 ```
 
 ### `src/operation/list_dead_letter_source_queues.rs`
@@ -1099,83 +365,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_dead_letter_source_queues.rs
 +++ generated/src/operation/list_dead_letter_source_queues.rs
-@@ -107,9 +107,9 @@
-             "SQS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,18 +263,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ListDeadLetterSourceQueues",
--            );
+@@ -261,8 +261,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ListDeadLetterSourceQueues",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_list_dead_letter_source_queues::ser_list_dead_letter_source_queues_input(&input)?,
-+            crate::protocol_serde::shape_list_dead_letter_source_queues_input::ser_list_dead_letter_source_queues_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -301,8 +302,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -460,6 +461,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_message_move_tasks.rs`
@@ -1183,102 +381,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_message_move_tasks.rs
 +++ generated/src/operation/list_message_move_tasks.rs
-@@ -107,9 +107,9 @@
-             "SQS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListMessageMoveTasks")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListMessageMoveTasksTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListMessageMoveTasksEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_message_move_tasks::ListMessageMoveTasksError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_message_move_tasks::ListMessageMoveTasksError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_message_move_tasks::ListMessageMoveTasksError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListMessageMoveTasks")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListMessageMoveTasksTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListMessageMoveTasksEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_message_move_tasks::ListMessageMoveTasksError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_message_move_tasks::ListMessageMoveTasksError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_message_move_tasks::ListMessageMoveTasksError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,19 +242,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ListMessageMoveTasks",
--            );
+@@ -256,8 +256,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ListMessageMoveTasks",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_message_move_tasks_input::ser_list_message_move_tasks_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,8 +281,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_message_move_tasks::ListMessageMoveTasksError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_message_move_tasks::ListMessageMoveTasksError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
 ```
 
 ### `src/operation/list_queue_tags.rs`
@@ -1286,80 +397,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_queue_tags.rs
 +++ generated/src/operation/list_queue_tags.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListQueueTags", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_queue_tags::ListQueueTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_queue_tags::ListQueueTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_queue_tags::ListQueueTagsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,17 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ListQueueTags",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ListQueueTags",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queue_tags_input::ser_list_queue_tags_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +449,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_queue_tags::ListQueueTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_queue_tags::ListQueueTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
 ```
 
 ### `src/operation/list_queues.rs`
@@ -1367,80 +413,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_queues.rs
 +++ generated/src/operation/list_queues.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListQueues", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_queues::ListQueuesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_queues::ListQueuesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_queues::ListQueuesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,17 +256,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ListQueues",
--            );
+@@ -256,8 +256,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ListQueues",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queues_input::ser_list_queues_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +293,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -443,6 +442,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_queues::ListQueuesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_queues::ListQueuesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
 ```
 
 ### `src/operation/purge_queue.rs`
@@ -1448,80 +429,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/purge_queue.rs
 +++ generated/src/operation/purge_queue.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PurgeQueue", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::purge_queue::PurgeQueueError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::purge_queue::PurgeQueueError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::purge_queue::PurgeQueueError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,17 +251,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.PurgeQueue",
--            );
+@@ -251,8 +251,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.PurgeQueue",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_purge_queue::ser_purge_queue_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_purge_queue_input::ser_purge_queue_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -458,6 +457,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::purge_queue::PurgeQueueError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::purge_queue::PurgeQueueError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_purge_queue::ser_purge_queue_input(&input)?);
 ```
 
 ### `src/operation/receive_message/_receive_message_input.rs`
@@ -1547,19 +463,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/receive_message.rs
 +++ generated/src/operation/receive_message.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ReceiveMessage", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -130,9 +130,6 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
@@ -1570,67 +473,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ReceiveMessageEndpointParamsInterceptor,
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-@@ -141,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::receive_message::ReceiveMessageError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::receive_message::ReceiveMessageError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::receive_message::ReceiveMessageError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,17 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.ReceiveMessage",
--            );
+@@ -261,8 +258,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.ReceiveMessage",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_receive_message_input::ser_receive_message_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -299,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -544,6 +540,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::receive_message::ReceiveMessageError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::receive_message::ReceiveMessageError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
 ```
 
 ### `src/operation/remove_permission.rs`
@@ -1638,82 +489,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/remove_permission.rs
 +++ generated/src/operation/remove_permission.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RemovePermission", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::remove_permission::RemovePermissionError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::remove_permission::RemovePermissionError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::remove_permission::RemovePermissionError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,17 +258,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.RemovePermission",
--            );
+@@ -258,8 +258,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.RemovePermission",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +456,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::remove_permission::RemovePermissionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::remove_permission::RemovePermissionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
 ```
 
 ### `src/operation/send_message.rs`
@@ -1721,80 +505,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/send_message.rs
 +++ generated/src/operation/send_message.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SendMessage", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::send_message::SendMessageError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::send_message::SendMessageError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::send_message::SendMessageError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -262,17 +268,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.SendMessage",
--            );
+@@ -268,8 +268,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.SendMessage",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message_input::ser_send_message_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -306,8 +305,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -551,6 +550,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::send_message::SendMessageError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::send_message::SendMessageError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
 ```
 
 ### `src/operation/send_message_batch.rs`
@@ -1802,82 +521,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/send_message_batch.rs
 +++ generated/src/operation/send_message_batch.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SendMessageBatch", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::send_message_batch::SendMessageBatchError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::send_message_batch::SendMessageBatchError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::send_message_batch::SendMessageBatchError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,17 +253,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.SendMessageBatch",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.SendMessageBatch",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message_batch_input::ser_send_message_batch_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,8 +292,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -576,6 +577,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::send_message_batch::SendMessageBatchError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::send_message_batch::SendMessageBatchError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
 ```
 
 ### `src/operation/set_queue_attributes.rs`
@@ -1885,101 +537,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_queue_attributes.rs
 +++ generated/src/operation/set_queue_attributes.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SetQueueAttributes", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetQueueAttributes")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SetQueueAttributesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SetQueueAttributesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::set_queue_attributes::SetQueueAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::set_queue_attributes::SetQueueAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_queue_attributes::SetQueueAttributesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetQueueAttributes")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SetQueueAttributesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SetQueueAttributesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::set_queue_attributes::SetQueueAttributesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::set_queue_attributes::SetQueueAttributesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::set_queue_attributes::SetQueueAttributesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,18 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.SetQueueAttributes",
--            );
+@@ -253,8 +253,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.SetQueueAttributes",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_set_queue_attributes::ser_set_queue_attributes_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_set_queue_attributes_input::ser_set_queue_attributes_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -481,6 +467,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_queue_attributes::SetQueueAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_queue_attributes::SetQueueAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body =
 ```
 
 ### `src/operation/start_message_move_task.rs`
@@ -1987,102 +553,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/start_message_move_task.rs
 +++ generated/src/operation/start_message_move_task.rs
-@@ -107,9 +107,9 @@
-             "SQS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("StartMessageMoveTask")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                StartMessageMoveTaskTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                StartMessageMoveTaskEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::start_message_move_task::StartMessageMoveTaskError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::start_message_move_task::StartMessageMoveTaskError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::start_message_move_task::StartMessageMoveTaskError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("StartMessageMoveTask")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(StartMessageMoveTaskTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(StartMessageMoveTaskEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::start_message_move_task::StartMessageMoveTaskError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::start_message_move_task::StartMessageMoveTaskError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::start_message_move_task::StartMessageMoveTaskError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,19 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.StartMessageMoveTask",
--            );
+@@ -261,8 +261,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.StartMessageMoveTask",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_start_message_move_task_input::ser_start_message_move_task_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -301,8 +286,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -460,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::start_message_move_task::StartMessageMoveTaskError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::start_message_move_task::StartMessageMoveTaskError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
 ```
 
 ### `src/operation/tag_queue.rs`
@@ -2090,80 +569,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_queue.rs
 +++ generated/src/operation/tag_queue.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagQueue", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_queue::TagQueueError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_queue::TagQueueError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_queue::TagQueueError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,17 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.TagQueue",
--            );
+@@ -247,8 +247,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.TagQueue",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_queue_input::ser_tag_queue_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -285,8 +284,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -444,6 +443,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_queue::TagQueueError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_queue::TagQueueError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
 ```
 
 ### `src/operation/untag_queue.rs`
@@ -2171,188 +585,1749 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_queue.rs
 +++ generated/src/operation/untag_queue.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagQueue", "SQS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_queue::UntagQueueError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_queue::UntagQueueError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_queue::UntagQueueError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,17 +251,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "AmazonSQS.UntagQueue",
--            );
+@@ -251,8 +251,6 @@
+                 ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                 "AmazonSQS.UntagQueue",
+             );
 -            builder =
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_queue::ser_untag_queue_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_queue_input::ser_untag_queue_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +288,8 @@
+         let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_queue::ser_untag_queue_input(&input)?);
+```
 
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -448,6 +447,11 @@
-         })
+### `src/protocol_serde/shape_add_permission.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_add_permission.rs
++++ generated/src/protocol_serde/shape_add_permission.rs
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::add_permission::AddPermissionError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::add_permission::AddPermissionError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::add_permission::AddPermissionError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::add_permission::AddPermissionError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -134,3 +134,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_add_permission(
++    _value: &[u8],
++    mut builder: crate::operation::add_permission::builders::AddPermissionOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::add_permission::builders::AddPermissionOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_cancel_message_move_task.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_cancel_message_move_task.rs
++++ generated/src/protocol_serde/shape_cancel_message_move_task.rs
+@@ -80,23 +80,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => {
+-            crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
++                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => crate::operation::cancel_message_move_task::CancelMessageMoveTaskError::generic(generic),
+     })
+ }
+```
+
+### `src/protocol_serde/shape_change_message_visibility.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_change_message_visibility.rs
++++ generated/src/protocol_serde/shape_change_message_visibility.rs
+@@ -54,24 +54,22 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.MessageNotInflight" => {
+-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
++        "MessageNotInflight" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::MessageNotInflight({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
+-                    output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
+-                        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
++                let mut output = crate::types::error::builders::MessageNotInflightBuilder::default();
++                output = crate::protocol_serde::shape_message_not_inflight::de_message_not_inflight_json_err(_response_body, output)
++                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "QueueDoesNotExist" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -116,23 +114,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => {
+-            crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::change_message_visibility::ChangeMessageVisibilityError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
++                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(crate::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => crate::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
+     })
+ }
+@@ -163,3 +159,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_change_message_visibility(
++    _value: &[u8],
++    mut builder: crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::change_message_visibility::builders::ChangeMessageVisibilityOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_change_message_visibility_batch.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_change_message_visibility_batch.rs
++++ generated/src/protocol_serde/shape_change_message_visibility_batch.rs
+@@ -20,7 +20,7 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => {
++        "BatchEntryIdsNotDistinct" => {
+             crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+@@ -38,23 +38,21 @@
+                 tmp
+             })
+         }
+-        "AWS.SimpleQueueService.EmptyBatchRequest" => {
+-            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
++        "EmptyBatchRequest" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::EmptyBatchRequest({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
+-                    output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
+-                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::EmptyBatchRequestBuilder::default();
++                output = crate::protocol_serde::shape_empty_batch_request::de_empty_batch_request_json_err(_response_body, output)
++                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         "InvalidAddress" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidAddress({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -70,23 +68,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.InvalidBatchEntryId" => {
+-            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
++        "InvalidBatchEntryId" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidBatchEntryId({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
+-                    output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
+-                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::InvalidBatchEntryIdBuilder::default();
++                output = crate::protocol_serde::shape_invalid_batch_entry_id::de_invalid_batch_entry_id_json_err(_response_body, output)
++                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         "InvalidSecurity" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidSecurity({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -102,23 +98,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => {
+-            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::QueueDoesNotExist({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
+-                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+-                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
++                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
++                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         "RequestThrottled" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::RequestThrottled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -134,7 +128,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
++        "TooManyEntriesInBatchRequest" => {
+             crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::TooManyEntriesInBatchRequest({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+@@ -154,23 +148,21 @@
+                 tmp
+             })
+         }
+-        "AWS.SimpleQueueService.UnsupportedOperation" => {
+-            crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
++                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic),
+     })
+ }
+@@ -223,9 +215,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "Successful" => {
+-                    builder = builder.set_successful(
+-                            crate::protocol_serde::shape_change_message_visibility_batch_result_entry_list::de_change_message_visibility_batch_result_entry_list(tokens, _value, depth + 1)?
+-                        );
++                    builder = builder.set_successful(crate::protocol_serde::shape_change_message_visibility_batch_result_entry_list::de_change_message_visibility_batch_result_entry_list(tokens, _value, depth + 1)?);
+                 }
+                 "Failed" => {
+                     builder = builder.set_failed(
+```
+
+### `src/protocol_serde/shape_change_message_visibility_batch_result_entry_list.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_change_message_visibility_batch_result_entry_list.rs
++++ generated/src/protocol_serde/shape_change_message_visibility_batch_result_entry_list.rs
+@@ -26,9 +26,7 @@
+                         break;
+                     }
+                     _ => {
+-                        let value =
+-                            crate::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?
+-                        ;
++                        let value = crate::protocol_serde::shape_change_message_visibility_batch_result_entry::de_change_message_visibility_batch_result_entry(tokens, _value, depth + 1)?;
+                         if let Some(value) = value {
+                             items.push(value);
+                         } else {
+```
+
+### `src/protocol_serde/shape_create_queue.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_create_queue.rs
++++ generated/src/protocol_serde/shape_create_queue.rs
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.QueueDeletedRecently" => crate::operation::create_queue::CreateQueueError::QueueDeletedRecently({
++        "QueueDeletedRecently" => crate::operation::create_queue::CreateQueueError::QueueDeletedRecently({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "QueueAlreadyExists" => crate::operation::create_queue::CreateQueueError::QueueNameExists({
++        "QueueNameExists" => crate::operation::create_queue::CreateQueueError::QueueNameExists({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -122,7 +122,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::create_queue::CreateQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::create_queue::CreateQueueError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_delete_message.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_message.rs
++++ generated/src/protocol_serde/shape_delete_message.rs
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::delete_message::DeleteMessageError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -107,7 +107,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_message::DeleteMessageError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::delete_message::DeleteMessageError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -149,3 +149,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_message(
++    _value: &[u8],
++    mut builder: crate::operation::delete_message::builders::DeleteMessageOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::delete_message::builders::DeleteMessageOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_delete_message_batch.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_message_batch.rs
++++ generated/src/protocol_serde/shape_delete_message_batch.rs
+@@ -20,25 +20,22 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => {
+-            crate::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
++        "BatchEntryIdsNotDistinct" => crate::operation::delete_message_batch::DeleteMessageBatchError::BatchEntryIdsNotDistinct({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
+-                    output =
+-                        crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+-                            .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
+-        "AWS.SimpleQueueService.EmptyBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
++                let mut output = crate::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
++                output = crate::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
++                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "EmptyBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -68,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.InvalidBatchEntryId" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
++        "InvalidBatchEntryId" => crate::operation::delete_message_batch::DeleteMessageBatchError::InvalidBatchEntryId({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -98,7 +95,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::delete_message_batch::DeleteMessageBatchError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -128,27 +125,25 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
+-            crate::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
++        "TooManyEntriesInBatchRequest" => crate::operation::delete_message_batch::DeleteMessageBatchError::TooManyEntriesInBatchRequest({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+-                    output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+-                        _response_body,
+-                        output,
+-                    )
+-                    .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
++                let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
++                output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(crate::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "UnsupportedOperation" => crate::operation::delete_message_batch::DeleteMessageBatchError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_delete_queue.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_delete_queue.rs
++++ generated/src/protocol_serde/shape_delete_queue.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::delete_queue::DeleteQueueError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::delete_queue::DeleteQueueError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_delete_queue(
++    _value: &[u8],
++    mut builder: crate::operation::delete_queue::builders::DeleteQueueOutputBuilder,
++) -> ::std::result::Result<crate::operation::delete_queue::builders::DeleteQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_get_queue_attributes.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_queue_attributes.rs
++++ generated/src/protocol_serde/shape_get_queue_attributes.rs
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::get_queue_attributes::GetQueueAttributesError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -95,7 +95,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::get_queue_attributes::GetQueueAttributesError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_get_queue_url.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_queue_url.rs
++++ generated/src/protocol_serde/shape_get_queue_url.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::get_queue_url::GetQueueUrlError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::get_queue_url::GetQueueUrlError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_invalid_id_format.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_invalid_id_format.rs
++++ generated/src/protocol_serde/shape_invalid_id_format.rs
+@@ -13,11 +13,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "Message" => {
+-                    builder = builder.set_message(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
++                    builder = builder.set_message(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
+```
+
+### `src/protocol_serde/shape_list_dead_letter_source_queues.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_dead_letter_source_queues.rs
++++ generated/src/protocol_serde/shape_list_dead_letter_source_queues.rs
+@@ -50,23 +50,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => {
+-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::QueueDoesNotExist({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
+-                    output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
+-                        .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::QueueDoesNotExistBuilder::default();
++                output = crate::protocol_serde::shape_queue_does_not_exist::de_queue_does_not_exist_json_err(_response_body, output)
++                    .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         "RequestThrottled" => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::RequestThrottled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+@@ -82,23 +80,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => {
+-            crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
++                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic),
+     })
+ }
+```
+
+### `src/protocol_serde/shape_list_message_move_tasks.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_message_move_tasks.rs
++++ generated/src/protocol_serde/shape_list_message_move_tasks.rs
+@@ -80,23 +80,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => {
+-            crate::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::list_message_move_tasks::ListMessageMoveTasksError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(crate::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
++                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(crate::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => crate::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic),
+     })
+ }
+```
+
+### `src/protocol_serde/shape_list_queue_tags.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_queue_tags.rs
++++ generated/src/protocol_serde/shape_list_queue_tags.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::list_queue_tags::ListQueueTagsError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::list_queue_tags::ListQueueTagsError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_queues.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_queues.rs
++++ generated/src/protocol_serde/shape_list_queues.rs
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::list_queues::ListQueuesError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::list_queues::ListQueuesError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_message_not_inflight.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_message_not_inflight.rs
++++ generated/src/protocol_serde/shape_message_not_inflight.rs
+@@ -13,11 +13,7 @@
+             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                 "Message" => {
+-                    builder = builder.set_message(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
++                    builder = builder.set_message(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                 }
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
+```
+
+### `src/protocol_serde/shape_message_system_attribute_map.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_message_system_attribute_map.rs
++++ generated/src/protocol_serde/shape_message_system_attribute_map.rs
+@@ -23,7 +23,7 @@
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        let key = key.to_unescaped().map(|u| crate::types::MessageSystemAttributeName::from(u.as_ref()))?;
++                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                         let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                             .transpose()?;
+```
+
+### `src/protocol_serde/shape_purge_queue.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_purge_queue.rs
++++ generated/src/protocol_serde/shape_purge_queue.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.PurgeQueueInProgress" => crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
++        "PurgeQueueInProgress" => crate::operation::purge_queue::PurgeQueueError::PurgeQueueInProgress({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::purge_queue::PurgeQueueError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::purge_queue::PurgeQueueError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -134,3 +134,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_purge_queue(
++    _value: &[u8],
++    mut builder: crate::operation::purge_queue::builders::PurgeQueueOutputBuilder,
++) -> ::std::result::Result<crate::operation::purge_queue::builders::PurgeQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_queue_attribute_map.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_queue_attribute_map.rs
++++ generated/src/protocol_serde/shape_queue_attribute_map.rs
+@@ -23,7 +23,7 @@
+                 match tokens.next().transpose()? {
+                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
+                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+-                        let key = key.to_unescaped().map(|u| crate::types::QueueAttributeName::from(u.as_ref()))?;
++                        let key = key.to_unescaped().map(|u| u.into_owned())?;
+                         let value = ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                             .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                             .transpose()?;
+```
+
+### `src/protocol_serde/shape_receive_message.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_receive_message.rs
++++ generated/src/protocol_serde/shape_receive_message.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMS.AccessDeniedException" => crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
++        "KmsAccessDenied" => crate::operation::receive_message::ReceiveMessageError::KmsAccessDenied({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMS.DisabledException" => crate::operation::receive_message::ReceiveMessageError::KmsDisabled({
++        "KmsDisabled" => crate::operation::receive_message::ReceiveMessageError::KmsDisabled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "KMS.InvalidKeyUsageException" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
++        "KmsInvalidKeyUsage" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidKeyUsage({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "KMS.InvalidStateException" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidState({
++        "KmsInvalidState" => crate::operation::receive_message::ReceiveMessageError::KmsInvalidState({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -107,7 +107,7 @@
+             }
+             tmp
+         }),
+-        "KMS.NotFoundException" => crate::operation::receive_message::ReceiveMessageError::KmsNotFound({
++        "KmsNotFound" => crate::operation::receive_message::ReceiveMessageError::KmsNotFound({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -122,7 +122,7 @@
+             }
+             tmp
+         }),
+-        "KMS.OptInRequired" => crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
++        "KmsOptInRequired" => crate::operation::receive_message::ReceiveMessageError::KmsOptInRequired({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -137,7 +137,7 @@
+             }
+             tmp
+         }),
+-        "KMS.ThrottlingException" => crate::operation::receive_message::ReceiveMessageError::KmsThrottled({
++        "KmsThrottled" => crate::operation::receive_message::ReceiveMessageError::KmsThrottled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -167,7 +167,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::receive_message::ReceiveMessageError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -197,7 +197,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::receive_message::ReceiveMessageError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_remove_permission.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_remove_permission.rs
++++ generated/src/protocol_serde/shape_remove_permission.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::remove_permission::RemovePermissionError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::remove_permission::RemovePermissionError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_remove_permission(
++    _value: &[u8],
++    mut builder: crate::operation::remove_permission::builders::RemovePermissionOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::remove_permission::builders::RemovePermissionOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_send_message.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_send_message.rs
++++ generated/src/protocol_serde/shape_send_message.rs
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMS.AccessDeniedException" => crate::operation::send_message::SendMessageError::KmsAccessDenied({
++        "KmsAccessDenied" => crate::operation::send_message::SendMessageError::KmsAccessDenied({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "KMS.DisabledException" => crate::operation::send_message::SendMessageError::KmsDisabled({
++        "KmsDisabled" => crate::operation::send_message::SendMessageError::KmsDisabled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "KMS.InvalidKeyUsageException" => crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
++        "KmsInvalidKeyUsage" => crate::operation::send_message::SendMessageError::KmsInvalidKeyUsage({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -107,7 +107,7 @@
+             }
+             tmp
+         }),
+-        "KMS.InvalidStateException" => crate::operation::send_message::SendMessageError::KmsInvalidState({
++        "KmsInvalidState" => crate::operation::send_message::SendMessageError::KmsInvalidState({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -122,7 +122,7 @@
+             }
+             tmp
+         }),
+-        "KMS.NotFoundException" => crate::operation::send_message::SendMessageError::KmsNotFound({
++        "KmsNotFound" => crate::operation::send_message::SendMessageError::KmsNotFound({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -137,7 +137,7 @@
+             }
+             tmp
+         }),
+-        "KMS.OptInRequired" => crate::operation::send_message::SendMessageError::KmsOptInRequired({
++        "KmsOptInRequired" => crate::operation::send_message::SendMessageError::KmsOptInRequired({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -152,7 +152,7 @@
+             }
+             tmp
+         }),
+-        "KMS.ThrottlingException" => crate::operation::send_message::SendMessageError::KmsThrottled({
++        "KmsThrottled" => crate::operation::send_message::SendMessageError::KmsThrottled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -167,7 +167,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::send_message::SendMessageError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::send_message::SendMessageError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -197,7 +197,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::send_message::SendMessageError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::send_message::SendMessageError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_send_message_batch.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_send_message_batch.rs
++++ generated/src/protocol_serde/shape_send_message_batch.rs
+@@ -17,7 +17,7 @@
+
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "AWS.SimpleQueueService.BatchEntryIdsNotDistinct" => crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
++        "BatchEntryIdsNotDistinct" => crate::operation::send_message_batch::SendMessageBatchError::BatchEntryIdsNotDistinct({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -32,7 +32,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.BatchRequestTooLong" => crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
++        "BatchRequestTooLong" => crate::operation::send_message_batch::SendMessageBatchError::BatchRequestTooLong({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.EmptyBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
++        "EmptyBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::EmptyBatchRequest({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.InvalidBatchEntryId" => crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
++        "InvalidBatchEntryId" => crate::operation::send_message_batch::SendMessageBatchError::InvalidBatchEntryId({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -107,7 +107,7 @@
+             }
+             tmp
+         }),
+-        "KMS.AccessDeniedException" => crate::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
++        "KmsAccessDenied" => crate::operation::send_message_batch::SendMessageBatchError::KmsAccessDenied({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -122,7 +122,7 @@
+             }
+             tmp
+         }),
+-        "KMS.DisabledException" => crate::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
++        "KmsDisabled" => crate::operation::send_message_batch::SendMessageBatchError::KmsDisabled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -137,7 +137,7 @@
+             }
+             tmp
+         }),
+-        "KMS.InvalidKeyUsageException" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
++        "KmsInvalidKeyUsage" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidKeyUsage({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -152,7 +152,7 @@
+             }
+             tmp
+         }),
+-        "KMS.InvalidStateException" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
++        "KmsInvalidState" => crate::operation::send_message_batch::SendMessageBatchError::KmsInvalidState({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -167,7 +167,7 @@
+             }
+             tmp
+         }),
+-        "KMS.NotFoundException" => crate::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
++        "KmsNotFound" => crate::operation::send_message_batch::SendMessageBatchError::KmsNotFound({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -182,7 +182,7 @@
+             }
+             tmp
+         }),
+-        "KMS.OptInRequired" => crate::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
++        "KmsOptInRequired" => crate::operation::send_message_batch::SendMessageBatchError::KmsOptInRequired({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -197,7 +197,7 @@
+             }
+             tmp
+         }),
+-        "KMS.ThrottlingException" => crate::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
++        "KmsThrottled" => crate::operation::send_message_batch::SendMessageBatchError::KmsThrottled({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -212,7 +212,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::send_message_batch::SendMessageBatchError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -242,27 +242,25 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.TooManyEntriesInBatchRequest" => {
+-            crate::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
++        "TooManyEntriesInBatchRequest" => crate::operation::send_message_batch::SendMessageBatchError::TooManyEntriesInBatchRequest({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
+-                    output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
+-                        _response_body,
+-                        output,
+-                    )
+-                    .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
++                let mut output = crate::types::error::builders::TooManyEntriesInBatchRequestBuilder::default();
++                output = crate::protocol_serde::shape_too_many_entries_in_batch_request::de_too_many_entries_in_batch_request_json_err(
++                    _response_body,
++                    output,
++                )
++                .map_err(crate::operation::send_message_batch::SendMessageBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
++        "UnsupportedOperation" => crate::operation::send_message_batch::SendMessageBatchError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_set_queue_attributes.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_set_queue_attributes.rs
++++ generated/src/protocol_serde/shape_set_queue_attributes.rs
+@@ -95,7 +95,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::set_queue_attributes::SetQueueAttributesError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -125,7 +125,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::set_queue_attributes::SetQueueAttributesError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -170,3 +170,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_set_queue_attributes(
++    _value: &[u8],
++    mut builder: crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::set_queue_attributes::builders::SetQueueAttributesOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_start_message_move_task.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_start_message_move_task.rs
++++ generated/src/protocol_serde/shape_start_message_move_task.rs
+@@ -80,23 +80,21 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => {
+-            crate::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::start_message_move_task::StartMessageMoveTaskError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
+                 #[allow(unused_mut)]
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(crate::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = crate::types::error::builders::UnsupportedOperationBuilder::default();
++                output = crate::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(crate::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => crate::operation::start_message_move_task::StartMessageMoveTaskError::generic(generic),
+     })
+ }
+```
+
+### `src/protocol_serde/shape_tag_queue.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_queue.rs
++++ generated/src/protocol_serde/shape_tag_queue.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::tag_queue::TagQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::tag_queue::TagQueueError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::tag_queue::TagQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::tag_queue::TagQueueError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,33 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_tag_queue(
++    _value: &[u8],
++    mut builder: crate::operation::tag_queue::builders::TagQueueOutputBuilder,
++) -> ::std::result::Result<crate::operation::tag_queue::builders::TagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_untag_queue.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_queue.rs
++++ generated/src/protocol_serde/shape_untag_queue.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.NonExistentQueue" => crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
++        "QueueDoesNotExist" => crate::operation::untag_queue::UntagQueueError::QueueDoesNotExist({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "AWS.SimpleQueueService.UnsupportedOperation" => crate::operation::untag_queue::UntagQueueError::UnsupportedOperation({
++        "UnsupportedOperation" => crate::operation::untag_queue::UntagQueueError::UnsupportedOperation({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_untag_queue(
++    _value: &[u8],
++    mut builder: crate::operation::untag_queue::builders::UntagQueueOutputBuilder,
++) -> ::std::result::Result<crate::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde.rs`
+
+```diff
+--- reference/src/protocol_serde.rs
++++ generated/src/protocol_serde.rs
+@@ -20,12 +20,7 @@
+     response_headers: &::aws_smithy_runtime_api::http::Headers,
+     response_body: &[u8],
+ ) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {
+-    let mut builder = crate::json_errors::parse_error_metadata(response_body, response_headers)?;
+-    if let Some((error_code, error_type)) = crate::aws_query_compatible_errors::parse_aws_query_compatible_error(response_headers) {
+-        builder = builder.code(error_code);
+-        builder = builder.custom("type", error_type);
+-    }
+-    Ok(builder)
++    crate::json_errors::parse_error_metadata(response_body, response_headers)
+ }
+
+ pub(crate) mod shape_add_permission;
+@@ -74,8 +69,6 @@
+
+ pub(crate) mod shape_untag_queue;
+
+-pub(crate) mod shape_add_permission_input;
+-
+ pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {
+     if data.is_empty() {
+         b"{}"
+@@ -84,6 +77,8 @@
      }
  }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_queue::UntagQueueError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_queue::UntagQueueError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+
++pub(crate) mod shape_add_permission_input;
++
+ pub(crate) mod shape_batch_entry_ids_not_distinct;
+
+ pub(crate) mod shape_batch_request_too_long;
 ```
 
 ### Missing reference files
 
 - `Cargo.toml`
 - `src/aws_query_compatible_errors.rs`
-- `src/json_errors.rs`
 - `src/long_polling.rs`
-- `src/protocol_serde/shape_add_permission.rs`
-- `src/protocol_serde/shape_add_permission_input.rs`
-- `src/protocol_serde/shape_batch_entry_ids_not_distinct.rs`
-- `src/protocol_serde/shape_batch_request_too_long.rs`
-- `src/protocol_serde/shape_batch_result_error_entry.rs`
-- `src/protocol_serde/shape_batch_result_error_entry_list.rs`
-- `src/protocol_serde/shape_binary_list.rs`
-- `src/protocol_serde/shape_cancel_message_move_task.rs`
-- `src/protocol_serde/shape_cancel_message_move_task_input.rs`
-- `src/protocol_serde/shape_change_message_visibility.rs`
-- `src/protocol_serde/shape_change_message_visibility_batch.rs`
-- `src/protocol_serde/shape_change_message_visibility_batch_input.rs`
-- `src/protocol_serde/shape_change_message_visibility_batch_request_entry.rs`
-- `src/protocol_serde/shape_change_message_visibility_batch_result_entry.rs`
-- `src/protocol_serde/shape_change_message_visibility_batch_result_entry_list.rs`
-- `src/protocol_serde/shape_change_message_visibility_input.rs`
-- `src/protocol_serde/shape_create_queue.rs`
-- `src/protocol_serde/shape_create_queue_input.rs`
-- `src/protocol_serde/shape_delete_message.rs`
-- `src/protocol_serde/shape_delete_message_batch.rs`
-- `src/protocol_serde/shape_delete_message_batch_input.rs`
-- `src/protocol_serde/shape_delete_message_batch_request_entry.rs`
-- `src/protocol_serde/shape_delete_message_batch_result_entry.rs`
-- `src/protocol_serde/shape_delete_message_batch_result_entry_list.rs`
-- `src/protocol_serde/shape_delete_message_input.rs`
-- `src/protocol_serde/shape_delete_queue.rs`
-- `src/protocol_serde/shape_delete_queue_input.rs`
-- `src/protocol_serde/shape_empty_batch_request.rs`
-- `src/protocol_serde/shape_get_queue_attributes.rs`
-- `src/protocol_serde/shape_get_queue_attributes_input.rs`
-- `src/protocol_serde/shape_get_queue_url.rs`
-- `src/protocol_serde/shape_get_queue_url_input.rs`
-- `src/protocol_serde/shape_invalid_address.rs`
-- `src/protocol_serde/shape_invalid_attribute_name.rs`
-- `src/protocol_serde/shape_invalid_attribute_value.rs`
-- `src/protocol_serde/shape_invalid_batch_entry_id.rs`
-- `src/protocol_serde/shape_invalid_id_format.rs`
-- `src/protocol_serde/shape_invalid_message_contents.rs`
-- `src/protocol_serde/shape_invalid_security.rs`
-- `src/protocol_serde/shape_kms_access_denied.rs`
-- `src/protocol_serde/shape_kms_disabled.rs`
-- `src/protocol_serde/shape_kms_invalid_key_usage.rs`
-- `src/protocol_serde/shape_kms_invalid_state.rs`
-- `src/protocol_serde/shape_kms_not_found.rs`
-- `src/protocol_serde/shape_kms_opt_in_required.rs`
-- `src/protocol_serde/shape_kms_throttled.rs`
-- `src/protocol_serde/shape_list_dead_letter_source_queues.rs`
-- `src/protocol_serde/shape_list_dead_letter_source_queues_input.rs`
-- `src/protocol_serde/shape_list_message_move_tasks.rs`
-- `src/protocol_serde/shape_list_message_move_tasks_input.rs`
-- `src/protocol_serde/shape_list_message_move_tasks_result_entry.rs`
-- `src/protocol_serde/shape_list_message_move_tasks_result_entry_list.rs`
-- `src/protocol_serde/shape_list_queue_tags.rs`
-- `src/protocol_serde/shape_list_queue_tags_input.rs`
-- `src/protocol_serde/shape_list_queues.rs`
-- `src/protocol_serde/shape_list_queues_input.rs`
-- `src/protocol_serde/shape_message.rs`
-- `src/protocol_serde/shape_message_attribute_value.rs`
-- `src/protocol_serde/shape_message_body_attribute_map.rs`
-- `src/protocol_serde/shape_message_list.rs`
-- `src/protocol_serde/shape_message_not_inflight.rs`
-- `src/protocol_serde/shape_message_system_attribute_map.rs`
-- `src/protocol_serde/shape_message_system_attribute_value.rs`
-- `src/protocol_serde/shape_over_limit.rs`
-- `src/protocol_serde/shape_purge_queue.rs`
-- `src/protocol_serde/shape_purge_queue_in_progress.rs`
-- `src/protocol_serde/shape_purge_queue_input.rs`
-- `src/protocol_serde/shape_queue_attribute_map.rs`
-- `src/protocol_serde/shape_queue_deleted_recently.rs`
-- `src/protocol_serde/shape_queue_does_not_exist.rs`
-- `src/protocol_serde/shape_queue_name_exists.rs`
-- `src/protocol_serde/shape_queue_url_list.rs`
-- `src/protocol_serde/shape_receipt_handle_is_invalid.rs`
-- `src/protocol_serde/shape_receive_message.rs`
-- `src/protocol_serde/shape_receive_message_input.rs`
-- `src/protocol_serde/shape_remove_permission.rs`
-- `src/protocol_serde/shape_remove_permission_input.rs`
-- `src/protocol_serde/shape_request_throttled.rs`
-- `src/protocol_serde/shape_resource_not_found_exception.rs`
-- `src/protocol_serde/shape_send_message.rs`
-- `src/protocol_serde/shape_send_message_batch.rs`
-- `src/protocol_serde/shape_send_message_batch_input.rs`
-- `src/protocol_serde/shape_send_message_batch_request_entry.rs`
-- `src/protocol_serde/shape_send_message_batch_result_entry.rs`
-- `src/protocol_serde/shape_send_message_batch_result_entry_list.rs`
-- `src/protocol_serde/shape_send_message_input.rs`
-- `src/protocol_serde/shape_set_queue_attributes.rs`
-- `src/protocol_serde/shape_set_queue_attributes_input.rs`
-- `src/protocol_serde/shape_start_message_move_task.rs`
-- `src/protocol_serde/shape_start_message_move_task_input.rs`
-- `src/protocol_serde/shape_string_list.rs`
-- `src/protocol_serde/shape_tag_map.rs`
-- `src/protocol_serde/shape_tag_queue.rs`
-- `src/protocol_serde/shape_tag_queue_input.rs`
-- `src/protocol_serde/shape_too_many_entries_in_batch_request.rs`
-- `src/protocol_serde/shape_unsupported_operation.rs`
-- `src/protocol_serde/shape_untag_queue.rs`
-- `src/protocol_serde/shape_untag_queue_input.rs`
-- `src/protocol_serde.rs`
-- `src/serialization_settings.rs`
 - `tests/long-polling.rs`
 
 ### Rust token differences
@@ -2392,3 +2367,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/start_message_move_task.rs`
 - `src/operation/tag_queue.rs`
 - `src/operation/untag_queue.rs`
+- `src/protocol_serde/shape_add_permission.rs`
+- `src/protocol_serde/shape_cancel_message_move_task.rs`
+- `src/protocol_serde/shape_change_message_visibility.rs`
+- `src/protocol_serde/shape_change_message_visibility_batch.rs`
+- `src/protocol_serde/shape_create_queue.rs`
+- `src/protocol_serde/shape_delete_message.rs`
+- `src/protocol_serde/shape_delete_message_batch.rs`
+- `src/protocol_serde/shape_delete_queue.rs`
+- `src/protocol_serde/shape_get_queue_attributes.rs`
+- `src/protocol_serde/shape_get_queue_url.rs`
+- `src/protocol_serde/shape_invalid_id_format.rs`
+- `src/protocol_serde/shape_list_dead_letter_source_queues.rs`
+- `src/protocol_serde/shape_list_message_move_tasks.rs`
+- `src/protocol_serde/shape_list_queue_tags.rs`
+- `src/protocol_serde/shape_list_queues.rs`
+- `src/protocol_serde/shape_message_not_inflight.rs`
+- `src/protocol_serde/shape_message_system_attribute_map.rs`
+- `src/protocol_serde/shape_purge_queue.rs`
+- `src/protocol_serde/shape_queue_attribute_map.rs`
+- `src/protocol_serde/shape_receive_message.rs`
+- `src/protocol_serde/shape_remove_permission.rs`
+- `src/protocol_serde/shape_send_message.rs`
+- `src/protocol_serde/shape_send_message_batch.rs`
+- `src/protocol_serde/shape_set_queue_attributes.rs`
+- `src/protocol_serde/shape_start_message_move_task.rs`
+- `src/protocol_serde/shape_tag_queue.rs`
+- `src/protocol_serde/shape_untag_queue.rs`
+- `src/protocol_serde.rs`

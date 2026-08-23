@@ -107,9 +107,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateP
             "SNS",
         ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = false;
-        signing_options.content_sha256_header = true;
-        signing_options.normalize_uri_path = false;
+        signing_options.double_uri_encode = true;
+        signing_options.content_sha256_header = false;
+        signing_options.normalize_uri_path = true;
         signing_options.payload_override = None;
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
@@ -141,17 +141,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateP
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::create_platform_application::CreatePlatformApplicationError,
             >::new())
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::create_platform_application::CreatePlatformApplicationError,
-                >::builder()
-                .transient_errors({
-                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                    transient_errors.push("InternalError");
-                    ::std::borrow::Cow::Owned(transient_errors)
-                })
-                .build(),
-            );
+            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::create_platform_application::CreatePlatformApplicationError,
+            >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -302,8 +294,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreatePlatfor
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
             .build()
             .map_err(|err| {
@@ -433,11 +425,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreatePl
             source,
             meta: meta.unwrap_or_default(),
         })
-    }
-}
-impl crate::s3_request_id::RequestIdExt for crate::operation::create_platform_application::CreatePlatformApplicationError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId for crate::operation::create_platform_application::CreatePlatformApplicationError {

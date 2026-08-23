@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `239` matched · `63` mismatches · `147` missing · `0` extra · `53.23%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `240` matched · `63` mismatches · `146` missing · `0` extra · `53.45%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -58,39 +58,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/add_permission.rs
 +++ generated/src/operation/add_permission.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AddPermission", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::add_permission::AddPermissionError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::add_permission::AddPermissionError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::add_permission::AddPermissionError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -106,28 +74,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -435,6 +438,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::add_permission::AddPermissionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::add_permission::AddPermissionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/check_if_phone_number_is_opted_out.rs`
@@ -135,96 +81,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/check_if_phone_number_is_opted_out.rs
 +++ generated/src/operation/check_if_phone_number_is_opted_out.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CheckIfPhoneNumberIsOptedOut")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                CheckIfPhoneNumberIsOptedOutTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct CheckIfPhoneNumberIsOptedOutTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CheckIfPhoneNumberIsOptedOutTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "CheckIfPhoneNumberIsOptedOutTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<CheckIfPhoneNumberIsOptedOutInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct CheckIfPhoneNumberIsOptedOutResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CheckIfPhoneNumberIsOptedOutResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -206,12 +255,11 @@
+@@ -206,12 +206,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -239,28 +96,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -246,8 +294,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -389,6 +437,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/confirm_subscription.rs`
@@ -268,57 +103,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/confirm_subscription.rs
 +++ generated/src/operation/confirm_subscription.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ConfirmSubscription")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ConfirmSubscriptionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ConfirmSubscriptionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::confirm_subscription::ConfirmSubscriptionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::confirm_subscription::ConfirmSubscriptionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::confirm_subscription::ConfirmSubscriptionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ConfirmSubscription")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ConfirmSubscriptionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ConfirmSubscriptionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::confirm_subscription::ConfirmSubscriptionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::confirm_subscription::ConfirmSubscriptionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::confirm_subscription::ConfirmSubscriptionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +252,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -333,28 +118,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -300,8 +291,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -473,6 +464,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::confirm_subscription::ConfirmSubscriptionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::confirm_subscription::ConfirmSubscriptionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_platform_application.rs`
@@ -362,41 +125,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_platform_application.rs
 +++ generated/src/operation/create_platform_application.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_platform_application::CreatePlatformApplicationError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_platform_application::CreatePlatformApplicationError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::create_platform_application::CreatePlatformApplicationError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -411,28 +140,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -295,8 +302,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -428,6 +435,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_platform_application::CreatePlatformApplicationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_platform_application::CreatePlatformApplicationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_platform_endpoint.rs`
@@ -440,74 +147,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_platform_endpoint.rs
 +++ generated/src/operation/create_platform_endpoint.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreatePlatformEndpoint")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreatePlatformEndpointTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreatePlatformEndpointEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreatePlatformEndpoint")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CreatePlatformEndpointTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CreatePlatformEndpointEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::create_platform_endpoint::CreatePlatformEndpointError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +269,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -522,28 +162,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -300,8 +308,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -443,6 +451,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_platform_endpoint::CreatePlatformEndpointError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_platform_endpoint::CreatePlatformEndpointError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_sms_sandbox_phone_number/builders.rs`
@@ -687,26 +305,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,10 +127,13 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateSMSSandboxPhoneNumber")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                CreateSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -130,7 +130,7 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -715,73 +314,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct CreateSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "CreateSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<CreateSmsSandboxPhoneNumberInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct CreateSMSSandboxPhoneNumberResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CreateSMSSandboxPhoneNumberResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,12 +253,11 @@
+@@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -796,7 +329,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -219,12 +267,12 @@
+@@ -219,12 +218,12 @@
      }
  }
  #[derive(Debug)]
@@ -812,28 +345,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -244,8 +292,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -407,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_topic.rs`
@@ -841,39 +352,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_topic.rs
 +++ generated/src/operation/create_topic.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateTopic", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_topic::CreateTopicError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_topic::CreateTopicError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_topic::CreateTopicError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -889,28 +368,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -485,6 +488,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_topic::CreateTopicError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_topic::CreateTopicError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_endpoint.rs`
@@ -918,39 +375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_endpoint.rs
 +++ generated/src/operation/delete_endpoint.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteEndpoint", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_endpoint::DeleteEndpointError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_endpoint::DeleteEndpointError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_endpoint::DeleteEndpointError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -966,28 +391,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -420,6 +423,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_endpoint::DeleteEndpointError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_endpoint::DeleteEndpointError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_platform_application.rs`
@@ -995,41 +398,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_platform_application.rs
 +++ generated/src/operation/delete_platform_application.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_platform_application::DeletePlatformApplicationError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_platform_application::DeletePlatformApplicationError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_platform_application::DeletePlatformApplicationError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1044,28 +413,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_platform_application::DeletePlatformApplicationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_platform_application::DeletePlatformApplicationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_sms_sandbox_phone_number/builders.rs`
@@ -1209,26 +556,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,10 +127,13 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSMSSandboxPhoneNumber")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                DeleteSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -130,7 +130,7 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -1237,73 +565,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct DeleteSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "DeleteSmsSandboxPhoneNumberTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DeleteSmsSandboxPhoneNumberInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct DeleteSMSSandboxPhoneNumberResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteSMSSandboxPhoneNumberResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,12 +253,11 @@
+@@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1318,7 +580,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -219,12 +267,12 @@
+@@ -219,12 +218,12 @@
      }
  }
  #[derive(Debug)]
@@ -1334,28 +596,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -244,8 +292,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -407,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_topic.rs`
@@ -1363,39 +603,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_topic.rs
 +++ generated/src/operation/delete_topic.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteTopic", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_topic::DeleteTopicError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_topic::DeleteTopicError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_topic::DeleteTopicError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1411,28 +619,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -470,6 +473,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_topic::DeleteTopicError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_topic::DeleteTopicError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_data_protection_policy.rs`
@@ -1440,41 +626,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_data_protection_policy.rs
 +++ generated/src/operation/get_data_protection_policy.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_data_protection_policy::GetDataProtectionPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_data_protection_policy::GetDataProtectionPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_data_protection_policy::GetDataProtectionPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1489,28 +641,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -443,6 +450,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_data_protection_policy::GetDataProtectionPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_data_protection_policy::GetDataProtectionPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_endpoint_attributes.rs`
@@ -1518,74 +648,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_endpoint_attributes.rs
 +++ generated/src/operation/get_endpoint_attributes.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetEndpointAttributes")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetEndpointAttributesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetEndpointAttributesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetEndpointAttributes")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetEndpointAttributesTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetEndpointAttributesEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::get_endpoint_attributes::GetEndpointAttributesError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1600,28 +663,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +298,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -433,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_endpoint_attributes::GetEndpointAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_endpoint_attributes::GetEndpointAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_platform_application_attributes.rs`
@@ -1629,41 +670,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_platform_application_attributes.rs
 +++ generated/src/operation/get_platform_application_attributes.rs
-@@ -113,9 +113,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -258,14 +266,11 @@
+@@ -258,14 +258,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1680,28 +687,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -300,8 +305,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -443,6 +448,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_sms_attributes/builders.rs`
@@ -1845,26 +830,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetSMSAttributes", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -124,10 +124,13 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetSMSAttributes")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                GetSmsAttributesTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -127,7 +127,7 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -1873,71 +839,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::get_sms_attributes::GetSMSAttributesError,
-@@ -135,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_sms_attributes::GetSMSAttributesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_sms_attributes::GetSMSAttributesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_sms_attributes::GetSMSAttributesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -144,6 +153,44 @@
- }
-
- #[derive(Debug)]
-+struct GetSmsAttributesTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetSmsAttributesTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetSmsAttributesTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetSmsAttributesInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetSMSAttributesResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetSMSAttributesResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -201,13 +248,12 @@
+@@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1955,7 +857,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -216,12 +262,12 @@
+@@ -216,12 +215,12 @@
      }
  }
  #[derive(Debug)]
@@ -1971,28 +873,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -241,8 +287,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -384,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_sms_attributes::GetSMSAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_sms_attributes::GetSMSAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_sms_sandbox_account_status/builders.rs`
@@ -2136,26 +1016,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,10 +127,13 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetSMSSandboxAccountStatus")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                GetSmsSandboxAccountStatusTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -130,7 +130,7 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -2164,73 +1025,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct GetSmsSandboxAccountStatusTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetSmsSandboxAccountStatusTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetSmsSandboxAccountStatusTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetSmsSandboxAccountStatusInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetSMSSandboxAccountStatusResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetSMSSandboxAccountStatusResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,24 +253,20 @@
+@@ -204,24 +204,20 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2259,28 +1054,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -241,8 +286,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -374,6 +419,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_subscription_attributes.rs`
@@ -2288,41 +1061,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_subscription_attributes.rs
 +++ generated/src/operation/get_subscription_attributes.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_subscription_attributes::GetSubscriptionAttributesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2337,28 +1076,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_subscription_attributes::GetSubscriptionAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_subscription_attributes::GetSubscriptionAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_topic_attributes.rs`
@@ -2366,57 +1083,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_topic_attributes.rs
 +++ generated/src/operation/get_topic_attributes.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetTopicAttributes", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetTopicAttributes")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetTopicAttributesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetTopicAttributesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_topic_attributes::GetTopicAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_topic_attributes::GetTopicAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_topic_attributes::GetTopicAttributesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetTopicAttributes")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetTopicAttributesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetTopicAttributesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_topic_attributes::GetTopicAttributesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_topic_attributes::GetTopicAttributesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_topic_attributes::GetTopicAttributesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2431,28 +1098,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -287,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -440,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_topic_attributes::GetTopicAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_topic_attributes::GetTopicAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_endpoints_by_platform_application.rs`
@@ -2460,41 +1105,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_endpoints_by_platform_application.rs
 +++ generated/src/operation/list_endpoints_by_platform_application.rs
-@@ -113,9 +113,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -265,14 +273,11 @@
+@@ -265,14 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2511,28 +1122,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -307,8 +312,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_origination_numbers.rs`
@@ -2540,74 +1129,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_origination_numbers.rs
 +++ generated/src/operation/list_origination_numbers.rs
-@@ -108,9 +108,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOriginationNumbers")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListOriginationNumbersTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListOriginationNumbersEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_origination_numbers::ListOriginationNumbersError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_origination_numbers::ListOriginationNumbersError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_origination_numbers::ListOriginationNumbersError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOriginationNumbers")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListOriginationNumbersTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListOriginationNumbersEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::list_origination_numbers::ListOriginationNumbersError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::list_origination_numbers::ListOriginationNumbersError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::list_origination_numbers::ListOriginationNumbersError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -251,12 +260,11 @@
+@@ -251,12 +251,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2622,28 +1144,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -291,8 +299,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -444,6 +452,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_origination_numbers::ListOriginationNumbersError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_origination_numbers::ListOriginationNumbersError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs`
@@ -2705,41 +1205,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_phone_numbers_opted_out.rs
 +++ generated/src/operation/list_phone_numbers_opted_out.rs
-@@ -108,9 +108,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -142,9 +142,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -251,12 +259,11 @@
+@@ -251,12 +251,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2754,28 +1220,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -291,8 +298,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -434,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_platform_applications.rs`
@@ -2783,41 +1227,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_platform_applications.rs
 +++ generated/src/operation/list_platform_applications.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_platform_applications::ListPlatformApplicationsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_platform_applications::ListPlatformApplicationsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_platform_applications::ListPlatformApplicationsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2832,28 +1242,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_platform_applications::ListPlatformApplicationsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_platform_applications::ListPlatformApplicationsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_sms_sandbox_phone_numbers/builders.rs`
@@ -2997,19 +1385,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -108,9 +108,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -128,13 +128,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSMSSandboxPhoneNumbers")
@@ -3026,28 +1401,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-@@ -142,9 +142,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -151,12 +159,12 @@
+@@ -151,12 +151,12 @@
  }
 
  #[derive(Debug)]
@@ -3063,7 +1417,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +259,11 @@
+@@ -251,12 +251,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3078,7 +1432,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -266,12 +273,12 @@
+@@ -266,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -3094,28 +1448,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,8 +298,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -444,6 +451,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_sms_sandbox_phone_numbers::ListSMSSandboxPhoneNumbersError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_subscriptions.rs`
@@ -3123,40 +1455,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_subscriptions.rs
 +++ generated/src/operation/list_subscriptions.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListSubscriptions", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,16 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_subscriptions::ListSubscriptionsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_subscriptions::ListSubscriptionsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_subscriptions::ListSubscriptionsError>::builder(
-+                )
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +254,12 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3174,28 +1473,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +293,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -420,6 +426,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_subscriptions::ListSubscriptionsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_subscriptions::ListSubscriptionsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_subscriptions_by_topic.rs`
@@ -3203,41 +1480,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_subscriptions_by_topic.rs
 +++ generated/src/operation/list_subscriptions_by_topic.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3252,28 +1495,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -295,8 +302,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_tags_for_resource.rs`
@@ -3281,57 +1502,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_tags_for_resource.rs
 +++ generated/src/operation/list_tags_for_resource.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListTagsForResource")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListTagsForResourceTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListTagsForResourceEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_tags_for_resource::ListTagsForResourceError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_tags_for_resource::ListTagsForResourceError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_tags_for_resource::ListTagsForResourceError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListTagsForResource")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListTagsForResourceTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListTagsForResourceEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_tags_for_resource::ListTagsForResourceError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_tags_for_resource::ListTagsForResourceError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_tags_for_resource::ListTagsForResourceError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +242,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3346,28 +1517,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +281,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -443,6 +434,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_tags_for_resource::ListTagsForResourceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_tags_for_resource::ListTagsForResourceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_topics.rs`
@@ -3375,39 +1524,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_topics.rs
 +++ generated/src/operation/list_topics.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListTopics", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_topics::ListTopicsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_topics::ListTopicsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_topics::ListTopicsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,12 +251,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3422,28 +1539,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -284,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -417,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_topics::ListTopicsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_topics::ListTopicsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/opt_in_phone_number.rs`
@@ -3451,95 +1546,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/opt_in_phone_number.rs
 +++ generated/src/operation/opt_in_phone_number.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("OptInPhoneNumber", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -124,6 +124,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("OptInPhoneNumber")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                OptInPhoneNumberTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -135,9 +138,16 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::opt_in_phone_number::OptInPhoneNumberError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::opt_in_phone_number::OptInPhoneNumberError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::opt_in_phone_number::OptInPhoneNumberError>::builder(
-+                )
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -144,6 +154,44 @@
- }
-
- #[derive(Debug)]
-+struct OptInPhoneNumberTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for OptInPhoneNumberTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "OptInPhoneNumberTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<OptInPhoneNumberInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct OptInPhoneNumberResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for OptInPhoneNumberResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -201,13 +249,12 @@
+@@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3557,28 +1564,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -241,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -384,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::opt_in_phone_number::OptInPhoneNumberError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::opt_in_phone_number::OptInPhoneNumberError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/publish.rs`
@@ -3586,39 +1571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/publish.rs
 +++ generated/src/operation/publish.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Publish", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::publish::PublishError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::publish::PublishError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::publish::PublishError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -271,11 +277,10 @@
+@@ -271,11 +271,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3632,28 +1585,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -309,8 +314,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -562,6 +567,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::publish::PublishError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::publish::PublishError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/publish_batch.rs`
@@ -3661,39 +1592,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/publish_batch.rs
 +++ generated/src/operation/publish_batch.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PublishBatch", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::publish_batch::PublishBatchError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::publish_batch::PublishBatchError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::publish_batch::PublishBatchError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3709,28 +1608,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -590,6 +593,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::publish_batch::PublishBatchError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::publish_batch::PublishBatchError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_data_protection_policy.rs`
@@ -3738,41 +1615,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_data_protection_policy.rs
 +++ generated/src/operation/put_data_protection_policy.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_data_protection_policy::PutDataProtectionPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_data_protection_policy::PutDataProtectionPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::put_data_protection_policy::PutDataProtectionPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3787,28 +1630,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -295,8 +302,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -448,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_data_protection_policy::PutDataProtectionPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_data_protection_policy::PutDataProtectionPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/remove_permission.rs`
@@ -3816,39 +1637,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/remove_permission.rs
 +++ generated/src/operation/remove_permission.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RemovePermission", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::remove_permission::RemovePermissionError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::remove_permission::RemovePermissionError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::remove_permission::RemovePermissionError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3866,28 +1655,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -435,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::remove_permission::RemovePermissionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::remove_permission::RemovePermissionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_endpoint_attributes.rs`
@@ -3895,74 +1662,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_endpoint_attributes.rs
 +++ generated/src/operation/set_endpoint_attributes.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetEndpointAttributes")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SetEndpointAttributesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SetEndpointAttributesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetEndpointAttributes")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    SetEndpointAttributesTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    SetEndpointAttributesEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::set_endpoint_attributes::SetEndpointAttributesError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3977,28 +1677,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -290,8 +298,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -433,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_endpoint_attributes::SetEndpointAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_endpoint_attributes::SetEndpointAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_platform_application_attributes.rs`
@@ -4006,41 +1684,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_platform_application_attributes.rs
 +++ generated/src/operation/set_platform_application_attributes.rs
-@@ -113,9 +113,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -258,14 +266,11 @@
+@@ -258,14 +258,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4057,28 +1701,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -300,8 +305,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -443,6 +448,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_platform_application_attributes::SetPlatformApplicationAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_sms_attributes/_set_sms_attributes_input.rs`
@@ -4304,26 +1926,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SetSMSAttributes", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -124,10 +124,13 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetSMSAttributes")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                SetSmsAttributesTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -127,7 +127,7 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -4332,71 +1935,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::set_sms_attributes::SetSMSAttributesError,
-@@ -135,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::set_sms_attributes::SetSMSAttributesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_sms_attributes::SetSMSAttributesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::set_sms_attributes::SetSMSAttributesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -144,6 +153,44 @@
- }
-
- #[derive(Debug)]
-+struct SetSmsAttributesTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for SetSmsAttributesTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "SetSmsAttributesTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<SetSmsAttributesInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct SetSMSAttributesResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for SetSMSAttributesResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -201,13 +248,12 @@
+@@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4414,7 +1953,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -216,12 +262,12 @@
+@@ -216,12 +215,12 @@
      }
  }
  #[derive(Debug)]
@@ -4430,28 +1969,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -241,8 +287,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -384,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_sms_attributes::SetSMSAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_sms_attributes::SetSMSAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_subscription_attributes.rs`
@@ -4459,41 +1976,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_subscription_attributes.rs
 +++ generated/src/operation/set_subscription_attributes.rs
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::set_subscription_attributes::SetSubscriptionAttributesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +268,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4508,28 +1991,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -300,8 +307,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -463,6 +470,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_subscription_attributes::SetSubscriptionAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_subscription_attributes::SetSubscriptionAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_topic_attributes.rs`
@@ -4537,57 +1998,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_topic_attributes.rs
 +++ generated/src/operation/set_topic_attributes.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("SetTopicAttributes", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetTopicAttributes")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SetTopicAttributesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SetTopicAttributesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::set_topic_attributes::SetTopicAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::set_topic_attributes::SetTopicAttributesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_topic_attributes::SetTopicAttributesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetTopicAttributes")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SetTopicAttributesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SetTopicAttributesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::set_topic_attributes::SetTopicAttributesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::set_topic_attributes::SetTopicAttributesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::set_topic_attributes::SetTopicAttributesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,12 +249,11 @@
+@@ -257,12 +257,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4602,28 +2013,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -297,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_topic_attributes::SetTopicAttributesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_topic_attributes::SetTopicAttributesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/subscribe/_subscribe_input.rs`
@@ -4647,39 +2036,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/subscribe.rs
 +++ generated/src/operation/subscribe.rs
-@@ -101,9 +101,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Subscribe", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -135,9 +135,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::subscribe::SubscribeError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::subscribe::SubscribeError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::subscribe::SubscribeError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,11 +258,10 @@
+@@ -252,11 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4693,28 +2050,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -290,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -473,6 +478,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::subscribe::SubscribeError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::subscribe::SubscribeError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_resource.rs`
@@ -4722,39 +2057,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_resource.rs
 +++ generated/src/operation/tag_resource.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagResource", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_resource::TagResourceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_resource::TagResourceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_resource::TagResourceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4770,28 +2073,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -460,6 +463,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_resource::TagResourceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_resource::TagResourceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/unsubscribe.rs`
@@ -4799,39 +2080,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/unsubscribe.rs
 +++ generated/src/operation/unsubscribe.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Unsubscribe", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::unsubscribe::UnsubscribeError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::unsubscribe::UnsubscribeError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::unsubscribe::UnsubscribeError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,12 +251,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4846,28 +2095,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -284,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -437,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::unsubscribe::UnsubscribeError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::unsubscribe::UnsubscribeError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_resource.rs`
@@ -4875,39 +2102,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_resource.rs
 +++ generated/src/operation/untag_resource.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagResource", "SNS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_resource::UntagResourceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_resource::UntagResourceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_resource::UntagResourceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4923,28 +2118,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -460,6 +463,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_resource::UntagResourceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_resource::UntagResourceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/verify_sms_sandbox_phone_number/builders.rs`
@@ -5088,19 +2261,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "SNS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("VerifySMSSandboxPhoneNumber")
@@ -5117,28 +2277,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -5154,7 +2293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5169,7 +2308,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +272,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -5185,28 +2324,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -290,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -453,6 +460,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/types/error/_kms_access_denied_exception.rs`
@@ -5511,7 +2628,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_verify_sms_sandbox_phone_number_input.rs`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
-- `src/serialization_settings.rs`
 
 ### Rust token differences
 

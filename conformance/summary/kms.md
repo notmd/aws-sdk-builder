@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `291` matched · `114` mismatches · `194` missing · `1` extra · `48.50%` match (100.00% means fully matched)
+**Progress:** `601/601` files compared · `477` matched · `115` mismatches · `7` missing · `2` extra · `79.37%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -926,479 +926,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On success, responds with [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput) with field(s):
 ```
 
-### `src/operation/cancel_key_deletion.rs`
-
-```diff
---- reference/src/operation/cancel_key_deletion.rs
-+++ generated/src/operation/cancel_key_deletion.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CancelKeyDeletion", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CancelKeyDeletion")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CancelKeyDeletionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CancelKeyDeletionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::cancel_key_deletion::CancelKeyDeletionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::cancel_key_deletion::CancelKeyDeletionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::cancel_key_deletion::CancelKeyDeletionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CancelKeyDeletion")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CancelKeyDeletionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CancelKeyDeletionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::cancel_key_deletion::CancelKeyDeletionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::cancel_key_deletion::CancelKeyDeletionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::cancel_key_deletion::CancelKeyDeletionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.CancelKeyDeletion",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_cancel_key_deletion::ser_cancel_key_deletion_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_cancel_key_deletion_input::ser_cancel_key_deletion_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +439,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::cancel_key_deletion::CancelKeyDeletionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::cancel_key_deletion::CancelKeyDeletionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/connect_custom_key_store.rs`
-
-```diff
---- reference/src/operation/connect_custom_key_store.rs
-+++ generated/src/operation/connect_custom_key_store.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ConnectCustomKeyStore")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ConnectCustomKeyStoreTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ConnectCustomKeyStoreEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ConnectCustomKeyStore")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ConnectCustomKeyStoreTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ConnectCustomKeyStoreEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,16 +259,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ConnectCustomKeyStore",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_connect_custom_key_store::ser_connect_custom_key_store_input(&input)?,
-+            crate::protocol_serde::shape_connect_custom_key_store_input::ser_connect_custom_key_store_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -294,8 +298,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -470,6 +474,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/create_alias.rs`
-
-```diff
---- reference/src/operation/create_alias.rs
-+++ generated/src/operation/create_alias.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateAlias", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_alias::CreateAliasError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_alias::CreateAliasError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_alias::CreateAliasError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.CreateAlias",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_alias::ser_create_alias_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_alias_input::ser_create_alias_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -475,6 +476,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_alias::CreateAliasError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_alias::CreateAliasError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/create_custom_key_store.rs`
-
-```diff
---- reference/src/operation/create_custom_key_store.rs
-+++ generated/src/operation/create_custom_key_store.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateCustomKeyStore")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateCustomKeyStoreTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateCustomKeyStoreEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_custom_key_store::CreateCustomKeyStoreError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateCustomKeyStore")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateCustomKeyStoreTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateCustomKeyStoreEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::create_custom_key_store::CreateCustomKeyStoreError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::create_custom_key_store::CreateCustomKeyStoreError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_custom_key_store::CreateCustomKeyStoreError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -280,17 +272,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.CreateCustomKeyStore",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_custom_key_store::ser_create_custom_key_store_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_create_custom_key_store_input::ser_create_custom_key_store_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -324,8 +311,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -615,6 +602,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_custom_key_store::CreateCustomKeyStoreError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_custom_key_store::CreateCustomKeyStoreError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/create_grant.rs`
-
-```diff
---- reference/src/operation/create_grant.rs
-+++ generated/src/operation/create_grant.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateGrant", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_grant::CreateGrantError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_grant::CreateGrantError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_grant::CreateGrantError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -272,15 +278,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.CreateGrant",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_grant::ser_create_grant_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_grant_input::ser_create_grant_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -314,8 +315,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -515,6 +516,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_grant::CreateGrantError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_grant::CreateGrantError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
 ### `src/operation/create_key/_create_key_input.rs`
 
 ```diff
@@ -1413,2846 +940,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tags: self.tags,
              multi_region: self.multi_region,
              xks_key_id: self.xks_key_id,
-```
-
-### `src/operation/create_key.rs`
-
-```diff
---- reference/src/operation/create_key.rs
-+++ generated/src/operation/create_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_key::CreateKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_key::CreateKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_key::CreateKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,15 +266,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.CreateKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_key::ser_create_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_create_key_input::ser_create_key_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -302,8 +303,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -560,6 +561,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_key::CreateKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_key::CreateKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/decrypt.rs`
-
-```diff
---- reference/src/operation/decrypt.rs
-+++ generated/src/operation/decrypt.rs
-@@ -101,9 +101,9 @@
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Decrypt", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -135,9 +135,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::decrypt::DecryptError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::decrypt::DecryptError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::decrypt::DecryptError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -242,15 +248,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.Decrypt",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_decrypt::ser_decrypt_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_decrypt_input::ser_decrypt_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -284,8 +285,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -514,6 +515,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::decrypt::DecryptError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::decrypt::DecryptError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/delete_alias.rs`
-
-```diff
---- reference/src/operation/delete_alias.rs
-+++ generated/src/operation/delete_alias.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteAlias", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_alias::DeleteAliasError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_alias::DeleteAliasError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_alias::DeleteAliasError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DeleteAlias",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_alias::ser_delete_alias_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_alias_input::ser_delete_alias_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -440,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_alias::DeleteAliasError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_alias::DeleteAliasError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/delete_custom_key_store.rs`
-
-```diff
---- reference/src/operation/delete_custom_key_store.rs
-+++ generated/src/operation/delete_custom_key_store.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteCustomKeyStore")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteCustomKeyStoreTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteCustomKeyStoreEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteCustomKeyStore")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteCustomKeyStoreTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteCustomKeyStoreEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,17 +242,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DeleteCustomKeyStore",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_delete_custom_key_store::ser_delete_custom_key_store_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_delete_custom_key_store_input::ser_delete_custom_key_store_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +281,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +437,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/delete_imported_key_material.rs`
-
-```diff
---- reference/src/operation/delete_imported_key_material.rs
-+++ generated/src/operation/delete_imported_key_material.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,16 +263,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DeleteImportedKeyMaterial",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_delete_imported_key_material::ser_delete_imported_key_material_input(&input)?,
-+            crate::protocol_serde::shape_delete_imported_key_material_input::ser_delete_imported_key_material_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -299,8 +302,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -470,6 +473,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/derive_shared_secret.rs`
-
-```diff
---- reference/src/operation/derive_shared_secret.rs
-+++ generated/src/operation/derive_shared_secret.rs
-@@ -105,9 +105,9 @@
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeriveSharedSecret", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -123,25 +123,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeriveSharedSecret")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeriveSharedSecretTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeriveSharedSecretEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::derive_shared_secret::DeriveSharedSecretError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::derive_shared_secret::DeriveSharedSecretError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::derive_shared_secret::DeriveSharedSecretError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeriveSharedSecret")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeriveSharedSecretTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeriveSharedSecretEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::derive_shared_secret::DeriveSharedSecretError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::derive_shared_secret::DeriveSharedSecretError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::derive_shared_secret::DeriveSharedSecretError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -248,16 +240,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DeriveSharedSecret",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_derive_shared_secret::ser_derive_shared_secret_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_derive_shared_secret_input::ser_derive_shared_secret_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,8 +279,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -500,6 +488,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::derive_shared_secret::DeriveSharedSecretError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::derive_shared_secret::DeriveSharedSecretError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/describe_custom_key_stores.rs`
-
-```diff
---- reference/src/operation/describe_custom_key_stores.rs
-+++ generated/src/operation/describe_custom_key_stores.rs
-@@ -108,9 +108,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -142,9 +142,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -261,16 +269,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DescribeCustomKeyStores",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_describe_custom_key_stores::ser_describe_custom_key_stores_input(&input)?,
-+            crate::protocol_serde::shape_describe_custom_key_stores_input::ser_describe_custom_key_stores_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -305,8 +308,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -438,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/describe_key.rs`
-
-```diff
---- reference/src/operation/describe_key.rs
-+++ generated/src/operation/describe_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DescribeKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::describe_key::DescribeKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::describe_key::DescribeKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::describe_key::DescribeKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DescribeKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_key::ser_describe_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_describe_key_input::ser_describe_key_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -432,6 +433,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::describe_key::DescribeKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::describe_key::DescribeKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/disable_key.rs`
-
-```diff
---- reference/src/operation/disable_key.rs
-+++ generated/src/operation/disable_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DisableKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::disable_key::DisableKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::disable_key::DisableKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::disable_key::DisableKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,15 +251,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DisableKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_disable_key::ser_disable_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_disable_key_input::ser_disable_key_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -448,6 +449,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::disable_key::DisableKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::disable_key::DisableKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/disable_key_rotation.rs`
-
-```diff
---- reference/src/operation/disable_key_rotation.rs
-+++ generated/src/operation/disable_key_rotation.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DisableKeyRotation", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableKeyRotation")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DisableKeyRotationTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DisableKeyRotationEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::disable_key_rotation::DisableKeyRotationError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::disable_key_rotation::DisableKeyRotationError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::disable_key_rotation::DisableKeyRotationError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableKeyRotation")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DisableKeyRotationTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DisableKeyRotationEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::disable_key_rotation::DisableKeyRotationError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::disable_key_rotation::DisableKeyRotationError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::disable_key_rotation::DisableKeyRotationError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,16 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DisableKeyRotation",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_disable_key_rotation::ser_disable_key_rotation_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_disable_key_rotation_input::ser_disable_key_rotation_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -290,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -471,6 +459,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::disable_key_rotation::DisableKeyRotationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::disable_key_rotation::DisableKeyRotationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/disconnect_custom_key_store.rs`
-
-```diff
---- reference/src/operation/disconnect_custom_key_store.rs
-+++ generated/src/operation/disconnect_custom_key_store.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,16 +258,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.DisconnectCustomKeyStore",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_disconnect_custom_key_store::ser_disconnect_custom_key_store_input(&input)?,
-+            crate::protocol_serde::shape_disconnect_custom_key_store_input::ser_disconnect_custom_key_store_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -294,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -440,6 +443,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/enable_key.rs`
-
-```diff
---- reference/src/operation/enable_key.rs
-+++ generated/src/operation/enable_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("EnableKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::enable_key::EnableKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::enable_key::EnableKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::enable_key::EnableKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,15 +251,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.EnableKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_key::ser_enable_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_key_input::ser_enable_key_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -458,6 +459,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::enable_key::EnableKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::enable_key::EnableKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/enable_key_rotation.rs`
-
-```diff
---- reference/src/operation/enable_key_rotation.rs
-+++ generated/src/operation/enable_key_rotation.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("EnableKeyRotation", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableKeyRotation")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                EnableKeyRotationTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                EnableKeyRotationEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::enable_key_rotation::EnableKeyRotationError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::enable_key_rotation::EnableKeyRotationError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::enable_key_rotation::EnableKeyRotationError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableKeyRotation")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(EnableKeyRotationTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(EnableKeyRotationEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::enable_key_rotation::EnableKeyRotationError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::enable_key_rotation::EnableKeyRotationError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::enable_key_rotation::EnableKeyRotationError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.EnableKeyRotation",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_key_rotation::ser_enable_key_rotation_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_enable_key_rotation_input::ser_enable_key_rotation_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -470,6 +459,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::enable_key_rotation::EnableKeyRotationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::enable_key_rotation::EnableKeyRotationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/encrypt.rs`
-
-```diff
---- reference/src/operation/encrypt.rs
-+++ generated/src/operation/encrypt.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Encrypt", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::encrypt::EncryptError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::encrypt::EncryptError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::encrypt::EncryptError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,15 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.Encrypt",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_encrypt::ser_encrypt_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_encrypt_input::ser_encrypt_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -283,8 +284,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -492,6 +493,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::encrypt::EncryptError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::encrypt::EncryptError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/generate_data_key.rs`
-
-```diff
---- reference/src/operation/generate_data_key.rs
-+++ generated/src/operation/generate_data_key.rs
-@@ -105,9 +105,9 @@
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GenerateDataKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +139,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_data_key::GenerateDataKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_data_key::GenerateDataKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::generate_data_key::GenerateDataKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -248,15 +254,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GenerateDataKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_data_key::ser_generate_data_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_data_key_input::ser_generate_data_key_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -290,8 +293,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -499,6 +502,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_data_key::GenerateDataKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_data_key::GenerateDataKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/generate_data_key_pair.rs`
-
-```diff
---- reference/src/operation/generate_data_key_pair.rs
-+++ generated/src/operation/generate_data_key_pair.rs
-@@ -108,9 +108,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GenerateDataKeyPair")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GenerateDataKeyPairTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GenerateDataKeyPairEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::generate_data_key_pair::GenerateDataKeyPairError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::generate_data_key_pair::GenerateDataKeyPairError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_data_key_pair::GenerateDataKeyPairError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GenerateDataKeyPair")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GenerateDataKeyPairTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GenerateDataKeyPairEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::generate_data_key_pair::GenerateDataKeyPairError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::generate_data_key_pair::GenerateDataKeyPairError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::generate_data_key_pair::GenerateDataKeyPairError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -251,17 +243,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GenerateDataKeyPair",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_data_key_pair::ser_generate_data_key_pair_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_generate_data_key_pair_input::ser_generate_data_key_pair_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -295,8 +282,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -514,6 +501,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_data_key_pair::GenerateDataKeyPairError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_data_key_pair::GenerateDataKeyPairError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/generate_data_key_pair_without_plaintext.rs`
-
-```diff
---- reference/src/operation/generate_data_key_pair_without_plaintext.rs
-+++ generated/src/operation/generate_data_key_pair_without_plaintext.rs
-@@ -113,9 +113,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,16 +268,13 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GenerateDataKeyPairWithoutPlaintext",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_generate_data_key_pair_without_plaintext::ser_generate_data_key_pair_without_plaintext_input(&input)?,
-+            crate::protocol_serde::shape_generate_data_key_pair_without_plaintext_input::ser_generate_data_key_pair_without_plaintext_op_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -304,8 +309,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -523,6 +528,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/generate_data_key_without_plaintext.rs`
-
-```diff
---- reference/src/operation/generate_data_key_without_plaintext.rs
-+++ generated/src/operation/generate_data_key_without_plaintext.rs
-@@ -113,9 +113,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -258,16 +266,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GenerateDataKeyWithoutPlaintext",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_generate_data_key_without_plaintext::ser_generate_data_key_without_plaintext_input(&input)?,
-+            crate::protocol_serde::shape_generate_data_key_without_plaintext_input::ser_generate_data_key_without_plaintext_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -302,8 +305,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -511,6 +514,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/generate_mac.rs`
-
-```diff
---- reference/src/operation/generate_mac.rs
-+++ generated/src/operation/generate_mac.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GenerateMac", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_mac::GenerateMacError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_mac::GenerateMacError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::generate_mac::GenerateMacError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GenerateMac",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_mac::ser_generate_mac_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_mac_input::ser_generate_mac_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -488,6 +489,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_mac::GenerateMacError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_mac::GenerateMacError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/generate_random.rs`
-
-```diff
---- reference/src/operation/generate_random.rs
-+++ generated/src/operation/generate_random.rs
-@@ -105,9 +105,9 @@
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GenerateRandom", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +139,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_random::GenerateRandomError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_random::GenerateRandomError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::generate_random::GenerateRandomError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -248,15 +254,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GenerateRandom",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_random::ser_generate_random_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_generate_random_input::ser_generate_random_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -290,8 +291,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -456,6 +457,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_random::GenerateRandomError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_random::GenerateRandomError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/get_key_last_usage.rs`
-
-```diff
---- reference/src/operation/get_key_last_usage.rs
-+++ generated/src/operation/get_key_last_usage.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetKeyLastUsage", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_key_last_usage::GetKeyLastUsageError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_key_last_usage::GetKeyLastUsageError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_key_last_usage::GetKeyLastUsageError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GetKeyLastUsage",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_key_last_usage::ser_get_key_last_usage_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_key_last_usage_input::ser_get_key_last_usage_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +292,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -432,6 +435,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_key_last_usage::GetKeyLastUsageError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_key_last_usage::GetKeyLastUsageError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/get_key_policy.rs`
-
-```diff
---- reference/src/operation/get_key_policy.rs
-+++ generated/src/operation/get_key_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetKeyPolicy", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_key_policy::GetKeyPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_key_policy::GetKeyPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_key_policy::GetKeyPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GetKeyPolicy",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_key_policy::ser_get_key_policy_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_key_policy_input::ser_get_key_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +456,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_key_policy::GetKeyPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_key_policy::GetKeyPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/get_key_rotation_status.rs`
-
-```diff
---- reference/src/operation/get_key_rotation_status.rs
-+++ generated/src/operation/get_key_rotation_status.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetKeyRotationStatus")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetKeyRotationStatusTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetKeyRotationStatusEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_key_rotation_status::GetKeyRotationStatusError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_key_rotation_status::GetKeyRotationStatusError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_key_rotation_status::GetKeyRotationStatusError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetKeyRotationStatus")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetKeyRotationStatusTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetKeyRotationStatusEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_key_rotation_status::GetKeyRotationStatusError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_key_rotation_status::GetKeyRotationStatusError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_key_rotation_status::GetKeyRotationStatusError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,17 +242,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GetKeyRotationStatus",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_key_rotation_status::ser_get_key_rotation_status_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_get_key_rotation_status_input::ser_get_key_rotation_status_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +281,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -465,6 +452,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_key_rotation_status::GetKeyRotationStatusError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_key_rotation_status::GetKeyRotationStatusError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/get_parameters_for_import.rs`
-
-```diff
---- reference/src/operation/get_parameters_for_import.rs
-+++ generated/src/operation/get_parameters_for_import.rs
-@@ -108,9 +108,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetParametersForImport")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetParametersForImportTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetParametersForImportEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_parameters_for_import::GetParametersForImportError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_parameters_for_import::GetParametersForImportError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_parameters_for_import::GetParametersForImportError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetParametersForImport")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetParametersForImportTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetParametersForImportEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::get_parameters_for_import::GetParametersForImportError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::get_parameters_for_import::GetParametersForImportError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::get_parameters_for_import::GetParametersForImportError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -251,16 +260,11 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GetParametersForImport",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            crate::protocol_serde::shape_get_parameters_for_import::ser_get_parameters_for_import_input(&input)?,
-+            crate::protocol_serde::shape_get_parameters_for_import_input::ser_get_parameters_for_import_op_input(&input)?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -295,8 +299,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -466,6 +470,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_parameters_for_import::GetParametersForImportError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_parameters_for_import::GetParametersForImportError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/get_public_key.rs`
-
-```diff
---- reference/src/operation/get_public_key.rs
-+++ generated/src/operation/get_public_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetPublicKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_public_key::GetPublicKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_public_key::GetPublicKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_public_key::GetPublicKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.GetPublicKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_public_key::ser_get_public_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_get_public_key_input::ser_get_public_key_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -508,6 +509,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_public_key::GetPublicKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_public_key::GetPublicKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/import_key_material.rs`
-
-```diff
---- reference/src/operation/import_key_material.rs
-+++ generated/src/operation/import_key_material.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ImportKeyMaterial", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ImportKeyMaterial")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ImportKeyMaterialTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ImportKeyMaterialEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::import_key_material::ImportKeyMaterialError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::import_key_material::ImportKeyMaterialError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::import_key_material::ImportKeyMaterialError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ImportKeyMaterial")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ImportKeyMaterialTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ImportKeyMaterialEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::import_key_material::ImportKeyMaterialError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::import_key_material::ImportKeyMaterialError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::import_key_material::ImportKeyMaterialError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,15 +249,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ImportKeyMaterial",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_import_key_material::ser_import_key_material_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_import_key_material_input::ser_import_key_material_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -299,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -511,6 +500,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::import_key_material::ImportKeyMaterialError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::import_key_material::ImportKeyMaterialError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_aliases.rs`
-
-```diff
---- reference/src/operation/list_aliases.rs
-+++ generated/src/operation/list_aliases.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListAliases", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_aliases::ListAliasesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_aliases::ListAliasesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_aliases::ListAliasesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListAliases",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_aliases::ser_list_aliases_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_aliases_input::ser_list_aliases_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -447,6 +448,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_aliases::ListAliasesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_aliases::ListAliasesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_grants.rs`
-
-```diff
---- reference/src/operation/list_grants.rs
-+++ generated/src/operation/list_grants.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListGrants", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_grants::ListGrantsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_grants::ListGrantsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_grants::ListGrantsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -265,15 +271,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListGrants",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_grants::ser_list_grants_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_grants_input::ser_list_grants_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -307,8 +308,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -488,6 +489,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_grants::ListGrantsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_grants::ListGrantsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_key_policies.rs`
-
-```diff
---- reference/src/operation/list_key_policies.rs
-+++ generated/src/operation/list_key_policies.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListKeyPolicies", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_key_policies::ListKeyPoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_key_policies::ListKeyPoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_key_policies::ListKeyPoliciesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListKeyPolicies",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_key_policies::ser_list_key_policies_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_key_policies_input::ser_list_key_policies_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +458,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_key_policies::ListKeyPoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_key_policies::ListKeyPoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_key_rotations.rs`
-
-```diff
---- reference/src/operation/list_key_rotations.rs
-+++ generated/src/operation/list_key_rotations.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListKeyRotations", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_key_rotations::ListKeyRotationsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_key_rotations::ListKeyRotationsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_key_rotations::ListKeyRotationsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListKeyRotations",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_key_rotations::ser_list_key_rotations_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_key_rotations_input::ser_list_key_rotations_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -465,6 +468,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_key_rotations::ListKeyRotationsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_key_rotations::ListKeyRotationsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_keys.rs`
-
-```diff
---- reference/src/operation/list_keys.rs
-+++ generated/src/operation/list_keys.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListKeys", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_keys::ListKeysError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_keys::ListKeysError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_keys::ListKeysError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,15 +247,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListKeys",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_keys::ser_list_keys_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_keys_input::ser_list_keys_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -283,8 +284,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -416,6 +417,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_keys::ListKeysError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_keys::ListKeysError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_resource_tags.rs`
-
-```diff
---- reference/src/operation/list_resource_tags.rs
-+++ generated/src/operation/list_resource_tags.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListResourceTags", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_resource_tags::ListResourceTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_resource_tags::ListResourceTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_resource_tags::ListResourceTagsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListResourceTags",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_resource_tags::ser_list_resource_tags_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_resource_tags_input::ser_list_resource_tags_op_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +297,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -437,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_resource_tags::ListResourceTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_resource_tags::ListResourceTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/list_retirable_grants.rs`
-
-```diff
---- reference/src/operation/list_retirable_grants.rs
-+++ generated/src/operation/list_retirable_grants.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListRetirableGrants")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListRetirableGrantsTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListRetirableGrantsEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_retirable_grants::ListRetirableGrantsError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_retirable_grants::ListRetirableGrantsError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_retirable_grants::ListRetirableGrantsError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListRetirableGrants")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListRetirableGrantsTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListRetirableGrantsEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_retirable_grants::ListRetirableGrantsError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_retirable_grants::ListRetirableGrantsError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_retirable_grants::ListRetirableGrantsError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,17 +252,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ListRetirableGrants",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_list_retirable_grants::ser_list_retirable_grants_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_list_retirable_grants_input::ser_list_retirable_grants_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -304,8 +291,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -457,6 +444,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_retirable_grants::ListRetirableGrantsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_retirable_grants::ListRetirableGrantsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_key_policy/_put_key_policy_input.rs`
@@ -4271,164 +958,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/put_key_policy.rs`
-
-```diff
---- reference/src/operation/put_key_policy.rs
-+++ generated/src/operation/put_key_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PutKeyPolicy", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_key_policy::PutKeyPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_key_policy::PutKeyPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_key_policy::PutKeyPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,15 +263,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.PutKeyPolicy",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_put_key_policy::ser_put_key_policy_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_put_key_policy_input::ser_put_key_policy_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -299,8 +300,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -490,6 +491,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_key_policy::PutKeyPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_key_policy::PutKeyPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
-### `src/operation/re_encrypt.rs`
-
-```diff
---- reference/src/operation/re_encrypt.rs
-+++ generated/src/operation/re_encrypt.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ReEncrypt", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::re_encrypt::ReEncryptError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::re_encrypt::ReEncryptError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::re_encrypt::ReEncryptError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,15 +256,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ReEncrypt",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_re_encrypt::ser_re_encrypt_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_re_encrypt_input::ser_re_encrypt_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -292,8 +293,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -522,6 +523,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::re_encrypt::ReEncryptError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::re_encrypt::ReEncryptError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-```
-
 ### `src/operation/replicate_key/_replicate_key_input.rs`
 
 ```diff
@@ -4445,1219 +974,1926 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          })
 ```
 
-### `src/operation/replicate_key.rs`
+### `src/protocol_serde/shape_cancel_key_deletion.rs`
 
 ```diff
---- reference/src/operation/replicate_key.rs
-+++ generated/src/operation/replicate_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ReplicateKey", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::replicate_key::ReplicateKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::replicate_key::ReplicateKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::replicate_key::ReplicateKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -262,15 +268,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_cancel_key_deletion.rs
++++ generated/src/protocol_serde/shape_cancel_key_deletion.rs
+@@ -48,7 +48,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ReplicateKey",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_replicate_key::ser_replicate_key_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_replicate_key_input::ser_replicate_key_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -304,8 +305,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -515,6 +516,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::replicate_key::ReplicateKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::replicate_key::ReplicateKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInternalException({
++        "KmsInternalException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -63,7 +63,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::cancel_key_deletion::CancelKeyDeletionError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/retire_grant.rs`
+### `src/protocol_serde/shape_connect_custom_key_store.rs`
 
 ```diff
---- reference/src/operation/retire_grant.rs
-+++ generated/src/operation/retire_grant.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RetireGrant", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::retire_grant::RetireGrantError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::retire_grant::RetireGrantError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::retire_grant::RetireGrantError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,15 +263,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.RetireGrant",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_retire_grant::ser_retire_grant_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_retire_grant_input::ser_retire_grant_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -299,8 +300,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -490,6 +491,11 @@
-         })
-     }
+--- reference/src/protocol_serde/shape_connect_custom_key_store.rs
++++ generated/src/protocol_serde/shape_connect_custom_key_store.rs
+@@ -97,7 +97,7 @@
+                 tmp
+             })
+         }
+-        "KMSInternalException" => crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError::KmsInternalException({
++        "KmsInternalException" => crate::operation::connect_custom_key_store::ConnectCustomKeyStoreError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -142,3 +142,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::retire_grant::RetireGrantError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
++
++pub(crate) fn de_connect_custom_key_store(
++    _value: &[u8],
++    mut builder: crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::connect_custom_key_store::builders::ConnectCustomKeyStoreOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
 +    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
 +}
- impl ::aws_types::request_id::RequestId for crate::operation::retire_grant::RetireGrantError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
-### `src/operation/revoke_grant.rs`
+### `src/protocol_serde/shape_create_alias.rs`
 
 ```diff
---- reference/src/operation/revoke_grant.rs
-+++ generated/src/operation/revoke_grant.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RevokeGrant", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::revoke_grant::RevokeGrantError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::revoke_grant::RevokeGrantError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::revoke_grant::RevokeGrantError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_create_alias.rs
++++ generated/src/protocol_serde/shape_create_alias.rs
+@@ -62,7 +62,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.RevokeGrant",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_revoke_grant::ser_revoke_grant_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_revoke_grant_input::ser_revoke_grant_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -475,6 +476,11 @@
-         })
-     }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::create_alias::CreateAliasError::KmsInternalException({
++        "KmsInternalException" => crate::operation::create_alias::CreateAliasError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::create_alias::CreateAliasError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::create_alias::CreateAliasError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -149,3 +149,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::revoke_grant::RevokeGrantError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
++
++pub(crate) fn de_create_alias(
++    _value: &[u8],
++    mut builder: crate::operation::create_alias::builders::CreateAliasOutputBuilder,
++) -> ::std::result::Result<crate::operation::create_alias::builders::CreateAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
 +    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
 +}
- impl ::aws_types::request_id::RequestId for crate::operation::revoke_grant::RevokeGrantError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
-### `src/operation/rotate_key_on_demand.rs`
+### `src/protocol_serde/shape_create_custom_key_store.rs`
 
 ```diff
---- reference/src/operation/rotate_key_on_demand.rs
-+++ generated/src/operation/rotate_key_on_demand.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("RotateKeyOnDemand", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("RotateKeyOnDemand")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                RotateKeyOnDemandTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                RotateKeyOnDemandEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::rotate_key_on_demand::RotateKeyOnDemandError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("RotateKeyOnDemand")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(RotateKeyOnDemandTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(RotateKeyOnDemandEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::rotate_key_on_demand::RotateKeyOnDemandError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::rotate_key_on_demand::RotateKeyOnDemandError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::rotate_key_on_demand::RotateKeyOnDemandError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,16 +239,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_create_custom_key_store.rs
++++ generated/src/protocol_serde/shape_create_custom_key_store.rs
+@@ -132,7 +132,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.RotateKeyOnDemand",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_rotate_key_on_demand::ser_rotate_key_on_demand_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_rotate_key_on_demand_input::ser_rotate_key_on_demand_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -290,8 +278,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -491,6 +479,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::rotate_key_on_demand::RotateKeyOnDemandError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::rotate_key_on_demand::RotateKeyOnDemandError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
++        "KmsInternalException" => crate::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/schedule_key_deletion.rs`
+### `src/protocol_serde/shape_create_grant.rs`
 
 ```diff
---- reference/src/operation/schedule_key_deletion.rs
-+++ generated/src/operation/schedule_key_deletion.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ScheduleKeyDeletion")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ScheduleKeyDeletionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ScheduleKeyDeletionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::schedule_key_deletion::ScheduleKeyDeletionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::schedule_key_deletion::ScheduleKeyDeletionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::schedule_key_deletion::ScheduleKeyDeletionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ScheduleKeyDeletion")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ScheduleKeyDeletionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ScheduleKeyDeletionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::schedule_key_deletion::ScheduleKeyDeletionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::schedule_key_deletion::ScheduleKeyDeletionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::schedule_key_deletion::ScheduleKeyDeletionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,17 +242,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_create_grant.rs
++++ generated/src/protocol_serde/shape_create_grant.rs
+@@ -93,7 +93,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.ScheduleKeyDeletion",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_schedule_key_deletion::ser_schedule_key_deletion_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_schedule_key_deletion_input::ser_schedule_key_deletion_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +281,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +442,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::schedule_key_deletion::ScheduleKeyDeletionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::schedule_key_deletion::ScheduleKeyDeletionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
++        "KmsInternalException" => crate::operation::create_grant::CreateGrantError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::create_grant::CreateGrantError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/sign.rs`
+### `src/protocol_serde/shape_create_key.rs`
 
 ```diff
---- reference/src/operation/sign.rs
-+++ generated/src/operation/sign.rs
-@@ -95,9 +95,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Sign", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -129,9 +129,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::sign::SignError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::sign::SignError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::sign::SignError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -236,15 +242,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_create_key.rs
++++ generated/src/protocol_serde/shape_create_key.rs
+@@ -99,7 +99,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.Sign",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_sign::ser_sign_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_sign_input::ser_sign_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -275,8 +276,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -484,6 +485,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::sign::SignError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::sign::SignError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::create_key::CreateKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::create_key::CreateKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/tag_resource.rs`
+### `src/protocol_serde/shape_decrypt.rs`
 
 ```diff
---- reference/src/operation/tag_resource.rs
-+++ generated/src/operation/tag_resource.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagResource", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_resource::TagResourceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_resource::TagResourceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_resource::TagResourceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_decrypt.rs
++++ generated/src/protocol_serde/shape_decrypt.rs
+@@ -138,7 +138,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.TagResource",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_resource::ser_tag_resource_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -460,6 +461,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_resource::TagResourceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_resource::TagResourceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::decrypt::DecryptError::KmsInternalException({
++        "KmsInternalException" => crate::operation::decrypt::DecryptError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -153,7 +153,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::decrypt::DecryptError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::decrypt::DecryptError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/untag_resource.rs`
+### `src/protocol_serde/shape_delete_alias.rs`
 
 ```diff
---- reference/src/operation/untag_resource.rs
-+++ generated/src/operation/untag_resource.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagResource", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_resource::UntagResourceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_resource::UntagResourceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_resource::UntagResourceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,15 +253,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_delete_alias.rs
++++ generated/src/protocol_serde/shape_delete_alias.rs
+@@ -32,7 +32,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.UntagResource",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_resource::ser_untag_resource_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -289,8 +290,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -450,6 +451,11 @@
-         })
-     }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::delete_alias::DeleteAliasError::KmsInternalException({
++        "KmsInternalException" => crate::operation::delete_alias::DeleteAliasError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::delete_alias::DeleteAliasError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -104,3 +104,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_resource::UntagResourceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
++
++pub(crate) fn de_delete_alias(
++    _value: &[u8],
++    mut builder: crate::operation::delete_alias::builders::DeleteAliasOutputBuilder,
++) -> ::std::result::Result<crate::operation::delete_alias::builders::DeleteAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
 +    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
 +}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_resource::UntagResourceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
-### `src/operation/update_alias.rs`
+### `src/protocol_serde/shape_delete_custom_key_store.rs`
 
 ```diff
---- reference/src/operation/update_alias.rs
-+++ generated/src/operation/update_alias.rs
-@@ -104,9 +104,9 @@
+--- reference/src/protocol_serde/shape_delete_custom_key_store.rs
++++ generated/src/protocol_serde/shape_delete_custom_key_store.rs
+@@ -20,12 +20,12 @@
 
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateAlias", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_alias::UpdateAliasError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_alias::UpdateAliasError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_alias::UpdateAliasError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,15 +258,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+     let _error_message = generic.message().map(|msg| msg.to_owned());
+     Err(match error_code {
+-        "CustomKeyStoreHasCMKsException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
++        "CustomKeyStoreHasCmKsException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+                 let mut output = crate::types::error::builders::CustomKeyStoreHasCmKsExceptionBuilder::default();
+-                output = crate::protocol_serde::shape_custom_key_store_has_cmks_exception::de_custom_key_store_has_cmks_exception_json_err(
++                output = crate::protocol_serde::shape_custom_key_store_has_cm_ks_exception::de_custom_key_store_has_cm_ks_exception_json_err(
+                     _response_body,
+                     output,
+                 )
+@@ -77,7 +77,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.UpdateAlias",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_alias::ser_update_alias_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_alias_input::ser_update_alias_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -294,8 +295,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -455,6 +456,11 @@
-         })
-     }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
++        "KmsInternalException" => crate::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -122,3 +122,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_alias::UpdateAliasError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
++
++pub(crate) fn de_delete_custom_key_store(
++    _value: &[u8],
++    mut builder: crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::delete_custom_key_store::builders::DeleteCustomKeyStoreOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
 +    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
 +}
- impl ::aws_types::request_id::RequestId for crate::operation::update_alias::UpdateAliasError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
-### `src/operation/update_custom_key_store.rs`
+### `src/protocol_serde/shape_delete_imported_key_material.rs`
 
 ```diff
---- reference/src/operation/update_custom_key_store.rs
-+++ generated/src/operation/update_custom_key_store.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateCustomKeyStore")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateCustomKeyStoreTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateCustomKeyStoreEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_custom_key_store::UpdateCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_custom_key_store::UpdateCustomKeyStoreError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_custom_key_store::UpdateCustomKeyStoreError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateCustomKeyStore")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateCustomKeyStoreTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateCustomKeyStoreEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_custom_key_store::UpdateCustomKeyStoreError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_custom_key_store::UpdateCustomKeyStoreError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_custom_key_store::UpdateCustomKeyStoreError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -280,17 +272,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_delete_imported_key_material.rs
++++ generated/src/protocol_serde/shape_delete_imported_key_material.rs
+@@ -54,7 +54,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.UpdateCustomKeyStore",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_custom_key_store::ser_update_custom_key_store_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_update_custom_key_store_input::ser_update_custom_key_store_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -324,8 +311,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -628,6 +615,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_custom_key_store::UpdateCustomKeyStoreError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_custom_key_store::UpdateCustomKeyStoreError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInternalException({
++        "KmsInternalException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -69,7 +69,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/update_key_description.rs`
+### `src/protocol_serde/shape_derive_shared_secret.rs`
 
 ```diff
---- reference/src/operation/update_key_description.rs
-+++ generated/src/operation/update_key_description.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateKeyDescription")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateKeyDescriptionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateKeyDescriptionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_key_description::UpdateKeyDescriptionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_key_description::UpdateKeyDescriptionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_key_description::UpdateKeyDescriptionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateKeyDescription")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateKeyDescriptionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateKeyDescriptionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_key_description::UpdateKeyDescriptionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_key_description::UpdateKeyDescriptionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_key_description::UpdateKeyDescriptionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,17 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_derive_shared_secret.rs
++++ generated/src/protocol_serde/shape_derive_shared_secret.rs
+@@ -111,7 +111,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.UpdateKeyDescription",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_key_description::ser_update_key_description_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_update_key_description_input::ser_update_key_description_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -299,8 +286,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -460,6 +447,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_key_description::UpdateKeyDescriptionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_key_description::UpdateKeyDescriptionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
++        "KmsInternalException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -126,7 +126,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::derive_shared_secret::DeriveSharedSecretError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/update_primary_region.rs`
+### `src/protocol_serde/shape_describe_custom_key_stores.rs`
 
 ```diff
---- reference/src/operation/update_primary_region.rs
-+++ generated/src/operation/update_primary_region.rs
-@@ -107,9 +107,9 @@
-             "KMS",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdatePrimaryRegion")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdatePrimaryRegionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdatePrimaryRegionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_primary_region::UpdatePrimaryRegionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_primary_region::UpdatePrimaryRegionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_primary_region::UpdatePrimaryRegionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdatePrimaryRegion")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdatePrimaryRegionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdatePrimaryRegionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_primary_region::UpdatePrimaryRegionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_primary_region::UpdatePrimaryRegionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_primary_region::UpdatePrimaryRegionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,17 +247,12 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_describe_custom_key_stores.rs
++++ generated/src/protocol_serde/shape_describe_custom_key_stores.rs
+@@ -59,7 +59,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.UpdatePrimaryRegion",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_update_primary_region::ser_update_primary_region_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            crate::protocol_serde::shape_update_primary_region_input::ser_update_primary_region_op_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -299,8 +286,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -470,6 +457,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_primary_region::UpdatePrimaryRegionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_primary_region::UpdatePrimaryRegionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::KmsInternalException({
++        "KmsInternalException" => crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/verify.rs`
+### `src/protocol_serde/shape_describe_key.rs`
 
 ```diff
---- reference/src/operation/verify.rs
-+++ generated/src/operation/verify.rs
-@@ -96,9 +96,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("Verify", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -130,9 +130,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::verify::VerifyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::verify::VerifyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::verify::VerifyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -237,15 +243,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_describe_key.rs
++++ generated/src/protocol_serde/shape_describe_key.rs
+@@ -47,7 +47,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.Verify",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_verify::ser_verify_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_verify_input::ser_verify_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -276,8 +277,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -495,6 +496,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::verify::VerifyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::verify::VerifyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::describe_key::DescribeKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
 ```
 
-### `src/operation/verify_mac.rs`
+### `src/protocol_serde/shape_disable_key.rs`
 
 ```diff
---- reference/src/operation/verify_mac.rs
-+++ generated/src/operation/verify_mac.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("VerifyMac", "KMS"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::verify_mac::VerifyMacError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::verify_mac::VerifyMacError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::verify_mac::VerifyMacError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,15 +251,10 @@
-                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
+--- reference/src/protocol_serde/shape_disable_key.rs
++++ generated/src/protocol_serde/shape_disable_key.rs
+@@ -47,7 +47,7 @@
              }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
--            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.1");
--            builder = _header_serialization_settings.set_default_header(
--                builder,
--                ::http_1x::header::HeaderName::from_static("x-amz-target"),
--                "TrentService.VerifyMac",
--            );
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_verify_mac::ser_verify_mac_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_verify_mac_input::ser_verify_mac_op_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,8 +288,8 @@
-
-         let params = crate::config::endpoint::Params::builder()
-             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
-             .build()
-             .map_err(|err| {
-@@ -496,6 +497,11 @@
-         })
-     }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::disable_key::DisableKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::disable_key::DisableKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::disable_key::DisableKeyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::disable_key::DisableKeyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::verify_mac::VerifyMacError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
++
++pub(crate) fn de_disable_key(
++    _value: &[u8],
++    mut builder: crate::operation::disable_key::builders::DisableKeyOutputBuilder,
++) -> ::std::result::Result<crate::operation::disable_key::builders::DisableKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
 +    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
 +}
- impl ::aws_types::request_id::RequestId for crate::operation::verify_mac::VerifyMacError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
+```
+
+### `src/protocol_serde/shape_disable_key_rotation.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_disable_key_rotation.rs
++++ generated/src/protocol_serde/shape_disable_key_rotation.rs
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
++        "KmsInternalException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -80,7 +80,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::disable_key_rotation::DisableKeyRotationError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -156,3 +156,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_disable_key_rotation(
++    _value: &[u8],
++    mut builder: crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::disable_key_rotation::builders::DisableKeyRotationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_disconnect_custom_key_store.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_disconnect_custom_key_store.rs
++++ generated/src/protocol_serde/shape_disconnect_custom_key_store.rs
+@@ -65,7 +65,7 @@
+                 tmp
+             })
+         }
+-        "KMSInternalException" => crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::KmsInternalException({
++        "KmsInternalException" => crate::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -110,3 +110,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_disconnect_custom_key_store(
++    _value: &[u8],
++    mut builder: crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::disconnect_custom_key_store::builders::DisconnectCustomKeyStoreOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_enable_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_enable_key.rs
++++ generated/src/protocol_serde/shape_enable_key.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::enable_key::EnableKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::enable_key::EnableKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::enable_key::EnableKeyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::enable_key::EnableKeyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -134,3 +134,33 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_enable_key(
++    _value: &[u8],
++    mut builder: crate::operation::enable_key::builders::EnableKeyOutputBuilder,
++) -> ::std::result::Result<crate::operation::enable_key::builders::EnableKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_enable_key_rotation.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_enable_key_rotation.rs
++++ generated/src/protocol_serde/shape_enable_key_rotation.rs
+@@ -63,7 +63,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInternalException({
++        "KmsInternalException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -78,7 +78,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::enable_key_rotation::EnableKeyRotationError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -152,3 +152,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_enable_key_rotation(
++    _value: &[u8],
++    mut builder: crate::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::enable_key_rotation::builders::EnableKeyRotationOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_encrypt.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_encrypt.rs
++++ generated/src/protocol_serde/shape_encrypt.rs
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::encrypt::EncryptError::KmsInternalException({
++        "KmsInternalException" => crate::operation::encrypt::EncryptError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -123,7 +123,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::encrypt::EncryptError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::encrypt::EncryptError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_generate_data_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_generate_data_key.rs
++++ generated/src/protocol_serde/shape_generate_data_key.rs
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -123,7 +123,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::generate_data_key::GenerateDataKeyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_generate_data_key_pair.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_generate_data_key_pair.rs
++++ generated/src/protocol_serde/shape_generate_data_key_pair.rs
+@@ -111,7 +111,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInternalException({
++        "KmsInternalException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -126,7 +126,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::generate_data_key_pair::GenerateDataKeyPairError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs
++++ generated/src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs
+@@ -134,7 +134,7 @@
+                 tmp
+             })
+         }
+-        "KMSInternalException" => {
++        "KmsInternalException" => {
+             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::KmsInternalException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+@@ -151,7 +151,7 @@
+                 tmp
+             })
+         }
+-        "KMSInvalidStateException" => {
++        "KmsInvalidStateException" => {
+             crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError::KmsInvalidStateException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+```
+
+### `src/protocol_serde/shape_generate_data_key_without_plaintext.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_generate_data_key_without_plaintext.rs
++++ generated/src/protocol_serde/shape_generate_data_key_without_plaintext.rs
+@@ -124,7 +124,7 @@
+                 tmp
+             })
+         }
+-        "KMSInternalException" => {
++        "KmsInternalException" => {
+             crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::KmsInternalException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+@@ -141,7 +141,7 @@
+                 tmp
+             })
+         }
+-        "KMSInvalidStateException" => {
++        "KmsInvalidStateException" => {
+             crate::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::KmsInvalidStateException({
+                 #[allow(unused_mut)]
+                 let mut tmp = {
+```
+
+### `src/protocol_serde/shape_generate_mac.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_generate_mac.rs
++++ generated/src/protocol_serde/shape_generate_mac.rs
+@@ -93,7 +93,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::generate_mac::GenerateMacError::KmsInternalException({
++        "KmsInternalException" => crate::operation::generate_mac::GenerateMacError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::generate_mac::GenerateMacError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_generate_random.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_generate_random.rs
++++ generated/src/protocol_serde/shape_generate_random.rs
+@@ -68,7 +68,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::generate_random::GenerateRandomError::KmsInternalException({
++        "KmsInternalException" => crate::operation::generate_random::GenerateRandomError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_get_key_last_usage.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_key_last_usage.rs
++++ generated/src/protocol_serde/shape_get_key_last_usage.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::get_key_last_usage::GetKeyLastUsageError::KmsInternalException({
++        "KmsInternalException" => crate::operation::get_key_last_usage::GetKeyLastUsageError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_get_key_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_key_policy.rs
++++ generated/src/protocol_serde/shape_get_key_policy.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::get_key_policy::GetKeyPolicyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_get_key_rotation_status.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_key_rotation_status.rs
++++ generated/src/protocol_serde/shape_get_key_rotation_status.rs
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInternalException({
++        "KmsInternalException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::get_key_rotation_status::GetKeyRotationStatusError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_get_parameters_for_import.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_parameters_for_import.rs
++++ generated/src/protocol_serde/shape_get_parameters_for_import.rs
+@@ -54,7 +54,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInternalException({
++        "KmsInternalException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -69,7 +69,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::get_parameters_for_import::GetParametersForImportError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_get_public_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_get_public_key.rs
++++ generated/src/protocol_serde/shape_get_public_key.rs
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::get_public_key::GetPublicKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::get_public_key::GetPublicKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -123,7 +123,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::get_public_key::GetPublicKeyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_import_key_material.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_import_key_material.rs
++++ generated/src/protocol_serde/shape_import_key_material.rs
+@@ -113,7 +113,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInternalException({
++        "KmsInternalException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -128,7 +128,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::import_key_material::ImportKeyMaterialError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_aliases.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_aliases.rs
++++ generated/src/protocol_serde/shape_list_aliases.rs
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_aliases::ListAliasesError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_aliases::ListAliasesError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_grants.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_grants.rs
++++ generated/src/protocol_serde/shape_list_grants.rs
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_grants::ListGrantsError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_grants::ListGrantsError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::list_grants::ListGrantsError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::list_grants::ListGrantsError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_key_policies.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_key_policies.rs
++++ generated/src/protocol_serde/shape_list_key_policies.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::list_key_policies::ListKeyPoliciesError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_key_rotations.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_key_rotations.rs
++++ generated/src/protocol_serde/shape_list_key_rotations.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::list_key_rotations::ListKeyRotationsError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_keys.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_keys.rs
++++ generated/src/protocol_serde/shape_list_keys.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_keys::ListKeysError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_keys::ListKeysError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_resource_tags.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_resource_tags.rs
++++ generated/src/protocol_serde/shape_list_resource_tags.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_resource_tags::ListResourceTagsError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_list_retirable_grants.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_list_retirable_grants.rs
++++ generated/src/protocol_serde/shape_list_retirable_grants.rs
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
++        "KmsInternalException" => crate::operation::list_retirable_grants::ListRetirableGrantsError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_put_key_policy.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_put_key_policy.rs
++++ generated/src/protocol_serde/shape_put_key_policy.rs
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::put_key_policy::PutKeyPolicyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -168,3 +168,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_put_key_policy(
++    _value: &[u8],
++    mut builder: crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::put_key_policy::builders::PutKeyPolicyOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_re_encrypt.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_re_encrypt.rs
++++ generated/src/protocol_serde/shape_re_encrypt.rs
+@@ -138,7 +138,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::re_encrypt::ReEncryptError::KmsInternalException({
++        "KmsInternalException" => crate::operation::re_encrypt::ReEncryptError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -153,7 +153,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::re_encrypt::ReEncryptError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_replicate_key.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_replicate_key.rs
++++ generated/src/protocol_serde/shape_replicate_key.rs
+@@ -62,7 +62,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::replicate_key::ReplicateKeyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::replicate_key::ReplicateKeyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_retire_grant.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_retire_grant.rs
++++ generated/src/protocol_serde/shape_retire_grant.rs
+@@ -93,7 +93,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::retire_grant::RetireGrantError::KmsInternalException({
++        "KmsInternalException" => crate::operation::retire_grant::RetireGrantError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::retire_grant::RetireGrantError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -165,3 +165,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_retire_grant(
++    _value: &[u8],
++    mut builder: crate::operation::retire_grant::builders::RetireGrantOutputBuilder,
++) -> ::std::result::Result<crate::operation::retire_grant::builders::RetireGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_revoke_grant.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_revoke_grant.rs
++++ generated/src/protocol_serde/shape_revoke_grant.rs
+@@ -77,7 +77,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::revoke_grant::RevokeGrantError::KmsInternalException({
++        "KmsInternalException" => crate::operation::revoke_grant::RevokeGrantError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -92,7 +92,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::revoke_grant::RevokeGrantError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -149,3 +149,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_revoke_grant(
++    _value: &[u8],
++    mut builder: crate::operation::revoke_grant::builders::RevokeGrantOutputBuilder,
++) -> ::std::result::Result<crate::operation::revoke_grant::builders::RevokeGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_rotate_key_on_demand.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_rotate_key_on_demand.rs
++++ generated/src/protocol_serde/shape_rotate_key_on_demand.rs
+@@ -80,7 +80,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
++        "KmsInternalException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -95,7 +95,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::rotate_key_on_demand::RotateKeyOnDemandError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_schedule_key_deletion.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_schedule_key_deletion.rs
++++ generated/src/protocol_serde/shape_schedule_key_deletion.rs
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInternalException({
++        "KmsInternalException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::schedule_key_deletion::ScheduleKeyDeletionError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_sign.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_sign.rs
++++ generated/src/protocol_serde/shape_sign.rs
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::sign::SignError::KmsInternalException({
++        "KmsInternalException" => crate::operation::sign::SignError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -123,7 +123,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::sign::SignError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_tag_resource.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_tag_resource.rs
++++ generated/src/protocol_serde/shape_tag_resource.rs
+@@ -32,7 +32,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::tag_resource::TagResourceError::KmsInternalException({
++        "KmsInternalException" => crate::operation::tag_resource::TagResourceError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::tag_resource::TagResourceError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::tag_resource::TagResourceError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -134,3 +134,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_tag_resource(
++    _value: &[u8],
++    mut builder: crate::operation::tag_resource::builders::TagResourceOutputBuilder,
++) -> ::std::result::Result<crate::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_untag_resource.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_untag_resource.rs
++++ generated/src/protocol_serde/shape_untag_resource.rs
+@@ -32,7 +32,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::untag_resource::UntagResourceError::KmsInternalException({
++        "KmsInternalException" => crate::operation::untag_resource::UntagResourceError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::untag_resource::UntagResourceError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_untag_resource(
++    _value: &[u8],
++    mut builder: crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::untag_resource::builders::UntagResourceOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_alias.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_alias.rs
++++ generated/src/protocol_serde/shape_update_alias.rs
+@@ -32,7 +32,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::update_alias::UpdateAliasError::KmsInternalException({
++        "KmsInternalException" => crate::operation::update_alias::UpdateAliasError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -47,7 +47,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::update_alias::UpdateAliasError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -119,3 +119,34 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_alias(
++    _value: &[u8],
++    mut builder: crate::operation::update_alias::builders::UpdateAliasOutputBuilder,
++) -> ::std::result::Result<crate::operation::update_alias::builders::UpdateAliasOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_custom_key_store.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_custom_key_store.rs
++++ generated/src/protocol_serde/shape_update_custom_key_store.rs
+@@ -156,7 +156,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::update_custom_key_store::UpdateCustomKeyStoreError::KmsInternalException({
++        "KmsInternalException" => crate::operation::update_custom_key_store::UpdateCustomKeyStoreError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -356,3 +356,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_custom_key_store(
++    _value: &[u8],
++    mut builder: crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::update_custom_key_store::builders::UpdateCustomKeyStoreOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_key_description.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_key_description.rs
++++ generated/src/protocol_serde/shape_update_key_description.rs
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInternalException({
++        "KmsInternalException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::update_key_description::UpdateKeyDescriptionError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -125,3 +125,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_key_description(
++    _value: &[u8],
++    mut builder: crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::update_key_description::builders::UpdateKeyDescriptionOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_update_primary_region.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_update_primary_region.rs
++++ generated/src/protocol_serde/shape_update_primary_region.rs
+@@ -50,7 +50,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInternalException({
++        "KmsInternalException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -65,7 +65,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::update_primary_region::UpdatePrimaryRegionError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -141,3 +141,36 @@
+     object.finish();
+     Ok(::aws_smithy_types::body::SdkBody::from(out))
+ }
++
++pub(crate) fn de_update_primary_region(
++    _value: &[u8],
++    mut builder: crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder,
++) -> ::std::result::Result<
++    crate::operation::update_primary_region::builders::UpdatePrimaryRegionOutputBuilder,
++    ::aws_smithy_json::deserialize::error::DeserializeError,
++> {
++    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();
++    let tokens = &mut tokens_owned;
++    #[allow(unused_variables)]
++    let depth = 0u32;
++    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;
++    loop {
++        match tokens.next().transpose()? {
++            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
++            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
++                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++            },
++            other => {
++                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
++                    "expected object key or end object, found: {other:?}"
++                )))
++            }
++        }
++    }
++    if tokens.next().is_some() {
++        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
++            "found more JSON tokens after completing parsing",
++        ));
++    }
++    Ok(builder)
++}
+```
+
+### `src/protocol_serde/shape_verify.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_verify.rs
++++ generated/src/protocol_serde/shape_verify.rs
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::verify::VerifyError::KmsInternalException({
++        "KmsInternalException" => crate::operation::verify::VerifyError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -123,7 +123,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidSignatureException" => crate::operation::verify::VerifyError::KmsInvalidSignatureException({
++        "KmsInvalidSignatureException" => crate::operation::verify::VerifyError::KmsInvalidSignatureException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -139,7 +139,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::verify::VerifyError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::verify::VerifyError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde/shape_verify_mac.rs`
+
+```diff
+--- reference/src/protocol_serde/shape_verify_mac.rs
++++ generated/src/protocol_serde/shape_verify_mac.rs
+@@ -93,7 +93,7 @@
+             }
+             tmp
+         }),
+-        "KMSInternalException" => crate::operation::verify_mac::VerifyMacError::KmsInternalException({
++        "KmsInternalException" => crate::operation::verify_mac::VerifyMacError::KmsInternalException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -108,7 +108,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidMacException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException({
++        "KmsInvalidMacException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidMacException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+@@ -123,7 +123,7 @@
+             }
+             tmp
+         }),
+-        "KMSInvalidStateException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException({
++        "KmsInvalidStateException" => crate::operation::verify_mac::VerifyMacError::KmsInvalidStateException({
+             #[allow(unused_mut)]
+             let mut tmp = {
+                 #[allow(unused_mut)]
+```
+
+### `src/protocol_serde.rs`
+
+```diff
+--- reference/src/protocol_serde.rs
++++ generated/src/protocol_serde.rs
+@@ -165,7 +165,7 @@
+
+ pub(crate) mod shape_create_key_input;
+
+-pub(crate) mod shape_custom_key_store_has_cmks_exception;
++pub(crate) mod shape_custom_key_store_has_cm_ks_exception;
+
+ pub(crate) mod shape_custom_key_store_invalid_state_exception;
+
 ```
 
 ### `src/types/error/_kms_internal_exception.rs`
@@ -5768,194 +3004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Missing reference files
 
 - `Cargo.toml`
-- `src/json_errors.rs`
-- `src/protocol_serde/shape_alias_list.rs`
-- `src/protocol_serde/shape_alias_list_entry.rs`
-- `src/protocol_serde/shape_already_exists_exception.rs`
-- `src/protocol_serde/shape_cancel_key_deletion.rs`
-- `src/protocol_serde/shape_cancel_key_deletion_input.rs`
-- `src/protocol_serde/shape_cloud_hsm_cluster_in_use_exception.rs`
-- `src/protocol_serde/shape_cloud_hsm_cluster_invalid_configuration_exception.rs`
-- `src/protocol_serde/shape_cloud_hsm_cluster_not_active_exception.rs`
-- `src/protocol_serde/shape_cloud_hsm_cluster_not_found_exception.rs`
-- `src/protocol_serde/shape_cloud_hsm_cluster_not_related_exception.rs`
-- `src/protocol_serde/shape_conflict_exception.rs`
-- `src/protocol_serde/shape_connect_custom_key_store.rs`
-- `src/protocol_serde/shape_connect_custom_key_store_input.rs`
-- `src/protocol_serde/shape_create_alias.rs`
-- `src/protocol_serde/shape_create_alias_input.rs`
-- `src/protocol_serde/shape_create_custom_key_store.rs`
-- `src/protocol_serde/shape_create_custom_key_store_input.rs`
-- `src/protocol_serde/shape_create_grant.rs`
-- `src/protocol_serde/shape_create_grant_input.rs`
-- `src/protocol_serde/shape_create_key.rs`
-- `src/protocol_serde/shape_create_key_input.rs`
 - `src/protocol_serde/shape_custom_key_store_has_cmks_exception.rs`
-- `src/protocol_serde/shape_custom_key_store_invalid_state_exception.rs`
-- `src/protocol_serde/shape_custom_key_store_name_in_use_exception.rs`
-- `src/protocol_serde/shape_custom_key_store_not_found_exception.rs`
-- `src/protocol_serde/shape_custom_key_stores_list.rs`
-- `src/protocol_serde/shape_custom_key_stores_list_entry.rs`
-- `src/protocol_serde/shape_decrypt.rs`
-- `src/protocol_serde/shape_decrypt_input.rs`
-- `src/protocol_serde/shape_delete_alias.rs`
-- `src/protocol_serde/shape_delete_alias_input.rs`
-- `src/protocol_serde/shape_delete_custom_key_store.rs`
-- `src/protocol_serde/shape_delete_custom_key_store_input.rs`
-- `src/protocol_serde/shape_delete_imported_key_material.rs`
-- `src/protocol_serde/shape_delete_imported_key_material_input.rs`
-- `src/protocol_serde/shape_dependency_timeout_exception.rs`
-- `src/protocol_serde/shape_derive_shared_secret.rs`
-- `src/protocol_serde/shape_derive_shared_secret_input.rs`
-- `src/protocol_serde/shape_describe_custom_key_stores.rs`
-- `src/protocol_serde/shape_describe_custom_key_stores_input.rs`
-- `src/protocol_serde/shape_describe_key.rs`
-- `src/protocol_serde/shape_describe_key_input.rs`
-- `src/protocol_serde/shape_disable_key.rs`
-- `src/protocol_serde/shape_disable_key_input.rs`
-- `src/protocol_serde/shape_disable_key_rotation.rs`
-- `src/protocol_serde/shape_disable_key_rotation_input.rs`
-- `src/protocol_serde/shape_disabled_exception.rs`
-- `src/protocol_serde/shape_disconnect_custom_key_store.rs`
-- `src/protocol_serde/shape_disconnect_custom_key_store_input.rs`
-- `src/protocol_serde/shape_dry_run_operation_exception.rs`
-- `src/protocol_serde/shape_enable_key.rs`
-- `src/protocol_serde/shape_enable_key_input.rs`
-- `src/protocol_serde/shape_enable_key_rotation.rs`
-- `src/protocol_serde/shape_enable_key_rotation_input.rs`
-- `src/protocol_serde/shape_encrypt.rs`
-- `src/protocol_serde/shape_encrypt_input.rs`
-- `src/protocol_serde/shape_encryption_algorithm_spec_list.rs`
-- `src/protocol_serde/shape_encryption_context_type.rs`
-- `src/protocol_serde/shape_expired_import_token_exception.rs`
-- `src/protocol_serde/shape_generate_data_key.rs`
-- `src/protocol_serde/shape_generate_data_key_input.rs`
-- `src/protocol_serde/shape_generate_data_key_pair.rs`
-- `src/protocol_serde/shape_generate_data_key_pair_input.rs`
-- `src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs`
-- `src/protocol_serde/shape_generate_data_key_pair_without_plaintext_input.rs`
-- `src/protocol_serde/shape_generate_data_key_without_plaintext.rs`
-- `src/protocol_serde/shape_generate_data_key_without_plaintext_input.rs`
-- `src/protocol_serde/shape_generate_mac.rs`
-- `src/protocol_serde/shape_generate_mac_input.rs`
-- `src/protocol_serde/shape_generate_random.rs`
-- `src/protocol_serde/shape_generate_random_input.rs`
-- `src/protocol_serde/shape_get_key_last_usage.rs`
-- `src/protocol_serde/shape_get_key_last_usage_input.rs`
-- `src/protocol_serde/shape_get_key_policy.rs`
-- `src/protocol_serde/shape_get_key_policy_input.rs`
-- `src/protocol_serde/shape_get_key_rotation_status.rs`
-- `src/protocol_serde/shape_get_key_rotation_status_input.rs`
-- `src/protocol_serde/shape_get_parameters_for_import.rs`
-- `src/protocol_serde/shape_get_parameters_for_import_input.rs`
-- `src/protocol_serde/shape_get_public_key.rs`
-- `src/protocol_serde/shape_get_public_key_input.rs`
-- `src/protocol_serde/shape_grant_constraints.rs`
-- `src/protocol_serde/shape_grant_list.rs`
-- `src/protocol_serde/shape_grant_list_entry.rs`
-- `src/protocol_serde/shape_grant_operation_list.rs`
-- `src/protocol_serde/shape_import_key_material.rs`
-- `src/protocol_serde/shape_import_key_material_input.rs`
-- `src/protocol_serde/shape_incorrect_key_exception.rs`
-- `src/protocol_serde/shape_incorrect_key_material_exception.rs`
-- `src/protocol_serde/shape_incorrect_trust_anchor_exception.rs`
-- `src/protocol_serde/shape_invalid_alias_name_exception.rs`
-- `src/protocol_serde/shape_invalid_arn_exception.rs`
-- `src/protocol_serde/shape_invalid_ciphertext_exception.rs`
-- `src/protocol_serde/shape_invalid_grant_id_exception.rs`
-- `src/protocol_serde/shape_invalid_grant_token_exception.rs`
-- `src/protocol_serde/shape_invalid_import_token_exception.rs`
-- `src/protocol_serde/shape_invalid_key_usage_exception.rs`
-- `src/protocol_serde/shape_invalid_marker_exception.rs`
-- `src/protocol_serde/shape_key_agreement_algorithm_spec_list.rs`
-- `src/protocol_serde/shape_key_last_usage_data.rs`
-- `src/protocol_serde/shape_key_list.rs`
-- `src/protocol_serde/shape_key_list_entry.rs`
-- `src/protocol_serde/shape_key_metadata.rs`
-- `src/protocol_serde/shape_key_unavailable_exception.rs`
-- `src/protocol_serde/shape_kms_internal_exception.rs`
-- `src/protocol_serde/shape_kms_invalid_mac_exception.rs`
-- `src/protocol_serde/shape_kms_invalid_signature_exception.rs`
-- `src/protocol_serde/shape_kms_invalid_state_exception.rs`
-- `src/protocol_serde/shape_limit_exceeded_exception.rs`
-- `src/protocol_serde/shape_list_aliases.rs`
-- `src/protocol_serde/shape_list_aliases_input.rs`
-- `src/protocol_serde/shape_list_grants.rs`
-- `src/protocol_serde/shape_list_grants_input.rs`
-- `src/protocol_serde/shape_list_key_policies.rs`
-- `src/protocol_serde/shape_list_key_policies_input.rs`
-- `src/protocol_serde/shape_list_key_rotations.rs`
-- `src/protocol_serde/shape_list_key_rotations_input.rs`
-- `src/protocol_serde/shape_list_keys.rs`
-- `src/protocol_serde/shape_list_keys_input.rs`
-- `src/protocol_serde/shape_list_resource_tags.rs`
-- `src/protocol_serde/shape_list_resource_tags_input.rs`
-- `src/protocol_serde/shape_list_retirable_grants.rs`
-- `src/protocol_serde/shape_list_retirable_grants_input.rs`
-- `src/protocol_serde/shape_mac_algorithm_spec_list.rs`
-- `src/protocol_serde/shape_malformed_policy_document_exception.rs`
-- `src/protocol_serde/shape_multi_region_configuration.rs`
-- `src/protocol_serde/shape_multi_region_key.rs`
-- `src/protocol_serde/shape_multi_region_key_list.rs`
-- `src/protocol_serde/shape_not_found_exception.rs`
-- `src/protocol_serde/shape_policy_name_list.rs`
-- `src/protocol_serde/shape_put_key_policy.rs`
-- `src/protocol_serde/shape_put_key_policy_input.rs`
-- `src/protocol_serde/shape_re_encrypt.rs`
-- `src/protocol_serde/shape_re_encrypt_input.rs`
-- `src/protocol_serde/shape_recipient_info.rs`
-- `src/protocol_serde/shape_replicate_key.rs`
-- `src/protocol_serde/shape_replicate_key_input.rs`
-- `src/protocol_serde/shape_retire_grant.rs`
-- `src/protocol_serde/shape_retire_grant_input.rs`
-- `src/protocol_serde/shape_revoke_grant.rs`
-- `src/protocol_serde/shape_revoke_grant_input.rs`
-- `src/protocol_serde/shape_rotate_key_on_demand.rs`
-- `src/protocol_serde/shape_rotate_key_on_demand_input.rs`
-- `src/protocol_serde/shape_rotations_list.rs`
-- `src/protocol_serde/shape_rotations_list_entry.rs`
-- `src/protocol_serde/shape_schedule_key_deletion.rs`
-- `src/protocol_serde/shape_schedule_key_deletion_input.rs`
-- `src/protocol_serde/shape_sign.rs`
-- `src/protocol_serde/shape_sign_input.rs`
-- `src/protocol_serde/shape_signing_algorithm_spec_list.rs`
-- `src/protocol_serde/shape_tag.rs`
-- `src/protocol_serde/shape_tag_exception.rs`
-- `src/protocol_serde/shape_tag_list.rs`
-- `src/protocol_serde/shape_tag_resource.rs`
-- `src/protocol_serde/shape_tag_resource_input.rs`
-- `src/protocol_serde/shape_unsupported_operation_exception.rs`
-- `src/protocol_serde/shape_untag_resource.rs`
-- `src/protocol_serde/shape_untag_resource_input.rs`
-- `src/protocol_serde/shape_update_alias.rs`
-- `src/protocol_serde/shape_update_alias_input.rs`
-- `src/protocol_serde/shape_update_custom_key_store.rs`
-- `src/protocol_serde/shape_update_custom_key_store_input.rs`
-- `src/protocol_serde/shape_update_key_description.rs`
-- `src/protocol_serde/shape_update_key_description_input.rs`
-- `src/protocol_serde/shape_update_primary_region.rs`
-- `src/protocol_serde/shape_update_primary_region_input.rs`
-- `src/protocol_serde/shape_verify.rs`
-- `src/protocol_serde/shape_verify_input.rs`
-- `src/protocol_serde/shape_verify_mac.rs`
-- `src/protocol_serde/shape_verify_mac_input.rs`
-- `src/protocol_serde/shape_xks_key_already_in_use_exception.rs`
-- `src/protocol_serde/shape_xks_key_configuration_type.rs`
-- `src/protocol_serde/shape_xks_key_invalid_configuration_exception.rs`
-- `src/protocol_serde/shape_xks_key_not_found_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_authentication_credential_type.rs`
-- `src/protocol_serde/shape_xks_proxy_configuration_type.rs`
-- `src/protocol_serde/shape_xks_proxy_incorrect_authentication_credential_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_invalid_configuration_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_invalid_response_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_uri_endpoint_in_use_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_uri_in_use_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_uri_unreachable_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_vpc_endpoint_service_in_use_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_vpc_endpoint_service_invalid_configuration_exception.rs`
-- `src/protocol_serde/shape_xks_proxy_vpc_endpoint_service_not_found_exception.rs`
-- `src/protocol_serde.rs`
-- `src/serialization_settings.rs`
 - `src/types/error/_custom_key_store_has_cmks_exception.rs`
 - `tests/integration.rs`
 - `tests/retryable_errors.rs`
@@ -5964,6 +3013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ### Unexpected generated files
 
+- `src/protocol_serde/shape_custom_key_store_has_cm_ks_exception.rs`
 - `src/types/error/_custom_key_store_has_cm_ks_exception.rs`
 
 ### Rust token differences
@@ -6019,63 +3069,64 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client/update_primary_region.rs`
 - `src/client/verify.rs`
 - `src/client/verify_mac.rs`
-- `src/operation/cancel_key_deletion.rs`
-- `src/operation/connect_custom_key_store.rs`
-- `src/operation/create_alias.rs`
-- `src/operation/create_custom_key_store.rs`
-- `src/operation/create_grant.rs`
 - `src/operation/create_key/_create_key_input.rs`
-- `src/operation/create_key.rs`
-- `src/operation/decrypt.rs`
-- `src/operation/delete_alias.rs`
-- `src/operation/delete_custom_key_store.rs`
-- `src/operation/delete_imported_key_material.rs`
-- `src/operation/derive_shared_secret.rs`
-- `src/operation/describe_custom_key_stores.rs`
-- `src/operation/describe_key.rs`
-- `src/operation/disable_key.rs`
-- `src/operation/disable_key_rotation.rs`
-- `src/operation/disconnect_custom_key_store.rs`
-- `src/operation/enable_key.rs`
-- `src/operation/enable_key_rotation.rs`
-- `src/operation/encrypt.rs`
-- `src/operation/generate_data_key.rs`
-- `src/operation/generate_data_key_pair.rs`
-- `src/operation/generate_data_key_pair_without_plaintext.rs`
-- `src/operation/generate_data_key_without_plaintext.rs`
-- `src/operation/generate_mac.rs`
-- `src/operation/generate_random.rs`
-- `src/operation/get_key_last_usage.rs`
-- `src/operation/get_key_policy.rs`
-- `src/operation/get_key_rotation_status.rs`
-- `src/operation/get_parameters_for_import.rs`
-- `src/operation/get_public_key.rs`
-- `src/operation/import_key_material.rs`
-- `src/operation/list_aliases.rs`
-- `src/operation/list_grants.rs`
-- `src/operation/list_key_policies.rs`
-- `src/operation/list_key_rotations.rs`
-- `src/operation/list_keys.rs`
-- `src/operation/list_resource_tags.rs`
-- `src/operation/list_retirable_grants.rs`
 - `src/operation/put_key_policy/_put_key_policy_input.rs`
-- `src/operation/put_key_policy.rs`
-- `src/operation/re_encrypt.rs`
 - `src/operation/replicate_key/_replicate_key_input.rs`
-- `src/operation/replicate_key.rs`
-- `src/operation/retire_grant.rs`
-- `src/operation/revoke_grant.rs`
-- `src/operation/rotate_key_on_demand.rs`
-- `src/operation/schedule_key_deletion.rs`
-- `src/operation/sign.rs`
-- `src/operation/tag_resource.rs`
-- `src/operation/untag_resource.rs`
-- `src/operation/update_alias.rs`
-- `src/operation/update_custom_key_store.rs`
-- `src/operation/update_key_description.rs`
-- `src/operation/update_primary_region.rs`
-- `src/operation/verify.rs`
-- `src/operation/verify_mac.rs`
+- `src/protocol_serde/shape_cancel_key_deletion.rs`
+- `src/protocol_serde/shape_connect_custom_key_store.rs`
+- `src/protocol_serde/shape_create_alias.rs`
+- `src/protocol_serde/shape_create_custom_key_store.rs`
+- `src/protocol_serde/shape_create_grant.rs`
+- `src/protocol_serde/shape_create_key.rs`
+- `src/protocol_serde/shape_decrypt.rs`
+- `src/protocol_serde/shape_delete_alias.rs`
+- `src/protocol_serde/shape_delete_custom_key_store.rs`
+- `src/protocol_serde/shape_delete_imported_key_material.rs`
+- `src/protocol_serde/shape_derive_shared_secret.rs`
+- `src/protocol_serde/shape_describe_custom_key_stores.rs`
+- `src/protocol_serde/shape_describe_key.rs`
+- `src/protocol_serde/shape_disable_key.rs`
+- `src/protocol_serde/shape_disable_key_rotation.rs`
+- `src/protocol_serde/shape_disconnect_custom_key_store.rs`
+- `src/protocol_serde/shape_enable_key.rs`
+- `src/protocol_serde/shape_enable_key_rotation.rs`
+- `src/protocol_serde/shape_encrypt.rs`
+- `src/protocol_serde/shape_generate_data_key.rs`
+- `src/protocol_serde/shape_generate_data_key_pair.rs`
+- `src/protocol_serde/shape_generate_data_key_pair_without_plaintext.rs`
+- `src/protocol_serde/shape_generate_data_key_without_plaintext.rs`
+- `src/protocol_serde/shape_generate_mac.rs`
+- `src/protocol_serde/shape_generate_random.rs`
+- `src/protocol_serde/shape_get_key_last_usage.rs`
+- `src/protocol_serde/shape_get_key_policy.rs`
+- `src/protocol_serde/shape_get_key_rotation_status.rs`
+- `src/protocol_serde/shape_get_parameters_for_import.rs`
+- `src/protocol_serde/shape_get_public_key.rs`
+- `src/protocol_serde/shape_import_key_material.rs`
+- `src/protocol_serde/shape_list_aliases.rs`
+- `src/protocol_serde/shape_list_grants.rs`
+- `src/protocol_serde/shape_list_key_policies.rs`
+- `src/protocol_serde/shape_list_key_rotations.rs`
+- `src/protocol_serde/shape_list_keys.rs`
+- `src/protocol_serde/shape_list_resource_tags.rs`
+- `src/protocol_serde/shape_list_retirable_grants.rs`
+- `src/protocol_serde/shape_put_key_policy.rs`
+- `src/protocol_serde/shape_re_encrypt.rs`
+- `src/protocol_serde/shape_replicate_key.rs`
+- `src/protocol_serde/shape_retire_grant.rs`
+- `src/protocol_serde/shape_revoke_grant.rs`
+- `src/protocol_serde/shape_rotate_key_on_demand.rs`
+- `src/protocol_serde/shape_schedule_key_deletion.rs`
+- `src/protocol_serde/shape_sign.rs`
+- `src/protocol_serde/shape_tag_resource.rs`
+- `src/protocol_serde/shape_untag_resource.rs`
+- `src/protocol_serde/shape_update_alias.rs`
+- `src/protocol_serde/shape_update_custom_key_store.rs`
+- `src/protocol_serde/shape_update_key_description.rs`
+- `src/protocol_serde/shape_update_primary_region.rs`
+- `src/protocol_serde/shape_verify.rs`
+- `src/protocol_serde/shape_verify_mac.rs`
+- `src/protocol_serde.rs`
 - `src/types/error/_kms_internal_exception.rs`
 - `src/types/error/_kms_invalid_mac_exception.rs`
 - `src/types/error/_kms_invalid_signature_exception.rs`

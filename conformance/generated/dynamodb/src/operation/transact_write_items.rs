@@ -114,9 +114,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Transac
             "DynamoDB",
         ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = false;
-        signing_options.content_sha256_header = true;
-        signing_options.normalize_uri_path = false;
+        signing_options.double_uri_encode = true;
+        signing_options.content_sha256_header = false;
+        signing_options.normalize_uri_path = true;
         signing_options.payload_override = None;
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
@@ -132,17 +132,25 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Transac
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TransactWriteItems")
-                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(TransactWriteItemsTelemetryInputCaptureInterceptor))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(TransactWriteItemsEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::transact_write_items::TransactWriteItemsError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::transact_write_items::TransactWriteItemsError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::transact_write_items::TransactWriteItemsError>::builder().transient_errors({
-                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                                            transient_errors.push("InternalError");
-                                            ::std::borrow::Cow::Owned(transient_errors)
-                                            }).build());
+        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TransactWriteItems")
+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                TransactWriteItemsTelemetryInputCaptureInterceptor,
+            ))
+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+            ))
+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                TransactWriteItemsEndpointParamsInterceptor,
+            ))
+            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                crate::operation::transact_write_items::TransactWriteItemsError,
+            >::new())
+            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
+                crate::operation::transact_write_items::TransactWriteItemsError,
+            >::new())
+            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::transact_write_items::TransactWriteItemsError,
+            >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -249,12 +257,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for TransactWrit
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                "DynamoDB_20120810.TransactWriteItems",
+            );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_transact_write_items_input::ser_transact_write_items_op_input(&input)?,
-        );
+        let body =
+            ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_transact_write_items::ser_transact_write_items_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -288,9 +300,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for TransactWrite
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_account_id_endpoint_mode(::std::option::Option::Some(
+                cfg.load::<::aws_types::endpoint_config::AccountIdEndpointMode>()
+                    .cloned()
+                    .unwrap_or_default()
+                    .to_string(),
+            ))
+            .set_resource_arn_list(get_resource_arn_list(_input).map(|v| v.into_iter().cloned().collect::<Vec<_>>()))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
@@ -303,6 +322,32 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for TransactWrite
 
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
+// Generated from JMESPath Expression: TransactItems[*].[ConditionCheck.TableName, Put.TableName, Delete.TableName, Update.TableName][]
+fn get_resource_arn_list(input: &crate::operation::transact_write_items::TransactWriteItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
+    let _fld_1 = input.transact_items.as_ref()?;
+    let _prj_11 = _fld_1
+        .iter()
+        .flat_map(|v| {
+            #[allow(clippy::let_and_return)]
+            fn map(_v: &crate::types::TransactWriteItem) -> ::std::option::Option<::std::vec::Vec<::std::option::Option<&::std::string::String>>> {
+                let _fld_2 = _v.condition_check.as_ref();
+                let _fld_3 = _fld_2.map(|v| &v.table_name);
+                let _fld_4 = _v.put.as_ref();
+                let _fld_5 = _fld_4.map(|v| &v.table_name);
+                let _fld_6 = _v.delete.as_ref();
+                let _fld_7 = _fld_6.map(|v| &v.table_name);
+                let _fld_8 = _v.update.as_ref();
+                let _fld_9 = _fld_8.map(|v| &v.table_name);
+                let _msl_10 = vec![_fld_3, _fld_5, _fld_7, _fld_9];
+                ::std::option::Option::Some(_msl_10)
+            }
+            map(v)
+        })
+        .flatten()
+        .flatten()
+        .collect::<::std::vec::Vec<_>>();
+    Some(_prj_11)
+}
 
 /// Error type for the `TransactWriteItemsError` operation.
 #[non_exhaustive]
@@ -312,6 +357,7 @@ pub enum TransactWriteItemsError {
     IdempotentParameterMismatchException(crate::types::error::IdempotentParameterMismatchException),
     /// <p>An error occurred on the server side.</p>
     InternalServerError(crate::types::error::InternalServerError),
+    #[allow(missing_docs)] // documentation missing in model
     InvalidEndpointException(crate::types::error::InvalidEndpointException),
     /// <p>The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     ProvisionedThroughputExceededException(crate::types::error::ProvisionedThroughputExceededException),
@@ -640,11 +686,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Transact
             source,
             meta: meta.unwrap_or_default(),
         })
-    }
-}
-impl crate::s3_request_id::RequestIdExt for crate::operation::transact_write_items::TransactWriteItemsError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId for crate::operation::transact_write_items::TransactWriteItemsError {

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `877` matched · `231` mismatches · `523` missing · `0` extra · `53.77%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `878` matched · `231` mismatches · `522` missing · `0` extra · `53.83%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -74,41 +74,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/accept_delegation_request.rs
 +++ generated/src/operation/accept_delegation_request.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::accept_delegation_request::AcceptDelegationRequestError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::accept_delegation_request::AcceptDelegationRequestError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::accept_delegation_request::AcceptDelegationRequestError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -123,31 +89,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to AcceptDelegationRequestInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::accept_delegation_request::AcceptDelegationRequestError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::accept_delegation_request::AcceptDelegationRequestError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/acquire_role.rs`
@@ -155,39 +96,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/acquire_role.rs
 +++ generated/src/operation/acquire_role.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AcquireRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::acquire_role::AcquireRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::acquire_role::AcquireRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::acquire_role::AcquireRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -203,31 +112,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -286,10 +289,10 @@
-             .ok_or("failed to downcast to AcquireRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -490,6 +493,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::acquire_role::AcquireRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::acquire_role::AcquireRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/add_client_id_to_open_id_connect_provider/builders.rs`
@@ -371,19 +255,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -133,13 +133,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("AddClientIDToOpenIDConnectProvider")
@@ -400,28 +271,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -156,12 +164,12 @@
+@@ -156,12 +156,12 @@
  }
 
  #[derive(Debug)]
@@ -437,7 +287,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -265,11 +273,14 @@
+@@ -265,11 +265,14 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -455,7 +305,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,12 +289,12 @@
+@@ -278,12 +281,12 @@
      }
  }
  #[derive(Debug)]
@@ -471,31 +321,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -302,10 +313,10 @@
-             .ok_or("failed to downcast to AddClientIdToOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -456,6 +467,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/add_role_to_instance_profile.rs`
@@ -503,41 +328,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/add_role_to_instance_profile.rs
 +++ generated/src/operation/add_role_to_instance_profile.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -552,31 +343,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to AddRoleToInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/add_user_to_group.rs`
@@ -584,39 +350,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/add_user_to_group.rs
 +++ generated/src/operation/add_user_to_group.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AddUserToGroup", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::add_user_to_group::AddUserToGroupError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::add_user_to_group::AddUserToGroupError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::add_user_to_group::AddUserToGroupError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -634,31 +368,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to AddUserToGroupInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::add_user_to_group::AddUserToGroupError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::add_user_to_group::AddUserToGroupError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/associate_delegation_request.rs`
@@ -666,41 +375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/associate_delegation_request.rs
 +++ generated/src/operation/associate_delegation_request.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::associate_delegation_request::AssociateDelegationRequestError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::associate_delegation_request::AssociateDelegationRequestError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::associate_delegation_request::AssociateDelegationRequestError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -715,31 +390,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to AssociateDelegationRequestInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::associate_delegation_request::AssociateDelegationRequestError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::associate_delegation_request::AssociateDelegationRequestError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/attach_group_policy.rs`
@@ -747,57 +397,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/attach_group_policy.rs
 +++ generated/src/operation/attach_group_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AttachGroupPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("AttachGroupPolicy")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                AttachGroupPolicyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                AttachGroupPolicyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::attach_group_policy::AttachGroupPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::attach_group_policy::AttachGroupPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::attach_group_policy::AttachGroupPolicyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("AttachGroupPolicy")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AttachGroupPolicyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AttachGroupPolicyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::attach_group_policy::AttachGroupPolicyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::attach_group_policy::AttachGroupPolicyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::attach_group_policy::AttachGroupPolicyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +244,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -815,31 +415,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to AttachGroupPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -445,6 +436,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::attach_group_policy::AttachGroupPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::attach_group_policy::AttachGroupPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/attach_role_policy.rs`
@@ -847,39 +422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/attach_role_policy.rs
 +++ generated/src/operation/attach_role_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AttachRolePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::attach_role_policy::AttachRolePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::attach_role_policy::AttachRolePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::attach_role_policy::AttachRolePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -897,31 +440,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to AttachRolePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -455,6 +460,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::attach_role_policy::AttachRolePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::attach_role_policy::AttachRolePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/attach_user_policy.rs`
@@ -929,39 +447,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/attach_user_policy.rs
 +++ generated/src/operation/attach_user_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("AttachUserPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::attach_user_policy::AttachUserPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::attach_user_policy::AttachUserPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::attach_user_policy::AttachUserPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -979,31 +465,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to AttachUserPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -445,6 +450,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::attach_user_policy::AttachUserPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::attach_user_policy::AttachUserPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/change_password.rs`
@@ -1011,94 +472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/change_password.rs
 +++ generated/src/operation/change_password.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ChangePassword", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -124,6 +124,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ChangePassword")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                ChangePasswordTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -135,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::change_password::ChangePasswordError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::change_password::ChangePasswordError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::change_password::ChangePasswordError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -144,6 +153,44 @@
- }
-
- #[derive(Debug)]
-+struct ChangePasswordTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ChangePasswordTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "ChangePasswordTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ChangePasswordInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct ChangePasswordResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ChangePasswordResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -201,13 +248,10 @@
+@@ -201,13 +201,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1114,31 +488,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -240,10 +284,10 @@
-             .ok_or("failed to downcast to ChangePasswordInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -404,6 +448,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::change_password::ChangePasswordError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::change_password::ChangePasswordError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_access_key.rs`
@@ -1146,39 +495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_access_key.rs
 +++ generated/src/operation/create_access_key.rs
-@@ -105,9 +105,9 @@
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::SensitiveOutput);
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateAccessKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -139,9 +139,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_access_key::CreateAccessKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_access_key::CreateAccessKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_access_key::CreateAccessKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -248,13 +254,12 @@
+@@ -248,13 +248,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1196,31 +513,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,10 +292,10 @@
-             .ok_or("failed to downcast to CreateAccessKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -421,6 +426,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_access_key::CreateAccessKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_access_key::CreateAccessKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_account_alias.rs`
@@ -1228,57 +520,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_account_alias.rs
 +++ generated/src/operation/create_account_alias.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateAccountAlias", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateAccountAlias")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateAccountAliasTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateAccountAliasEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_account_alias::CreateAccountAliasError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_account_alias::CreateAccountAliasError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_account_alias::CreateAccountAliasError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateAccountAlias")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateAccountAliasTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateAccountAliasEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::create_account_alias::CreateAccountAliasError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::create_account_alias::CreateAccountAliasError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_account_alias::CreateAccountAliasError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1293,31 +535,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to CreateAccountAliasInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_account_alias::CreateAccountAliasError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_account_alias::CreateAccountAliasError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_delegation_request/_create_delegation_request_input.rs`
@@ -1341,41 +558,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_delegation_request.rs
 +++ generated/src/operation/create_delegation_request.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_delegation_request::CreateDelegationRequestError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_delegation_request::CreateDelegationRequestError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::create_delegation_request::CreateDelegationRequestError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -275,12 +283,11 @@
+@@ -275,12 +275,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1390,31 +573,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -314,10 +321,10 @@
-             .ok_or("failed to downcast to CreateDelegationRequestInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -468,6 +475,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_delegation_request::CreateDelegationRequestError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_delegation_request::CreateDelegationRequestError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_group.rs`
@@ -1422,39 +580,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_group.rs
 +++ generated/src/operation/create_group.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateGroup", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_group::CreateGroupError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_group::CreateGroupError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_group::CreateGroupError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1470,31 +596,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to CreateGroupInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -435,6 +438,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_group::CreateGroupError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_group::CreateGroupError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_instance_profile.rs`
@@ -1502,74 +603,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_instance_profile.rs
 +++ generated/src/operation/create_instance_profile.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateInstanceProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateInstanceProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateInstanceProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_instance_profile::CreateInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_instance_profile::CreateInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_instance_profile::CreateInstanceProfileError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateInstanceProfile")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CreateInstanceProfileTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CreateInstanceProfileEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::create_instance_profile::CreateInstanceProfileError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::create_instance_profile::CreateInstanceProfileError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::create_instance_profile::CreateInstanceProfileError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +264,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1584,31 +618,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +302,10 @@
-             .ok_or("failed to downcast to CreateInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +456,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_instance_profile::CreateInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_instance_profile::CreateInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_login_profile/_create_login_profile_input.rs`
@@ -1632,57 +641,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_login_profile.rs
 +++ generated/src/operation/create_login_profile.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateLoginProfile", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateLoginProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateLoginProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreateLoginProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_login_profile::CreateLoginProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_login_profile::CreateLoginProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_login_profile::CreateLoginProfileError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateLoginProfile")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateLoginProfileTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateLoginProfileEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::create_login_profile::CreateLoginProfileError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::create_login_profile::CreateLoginProfileError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_login_profile::CreateLoginProfileError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1697,31 +656,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to CreateLoginProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_login_profile::CreateLoginProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_login_profile::CreateLoginProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_open_id_connect_provider/builders.rs`
@@ -1868,19 +802,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateOpenIDConnectProvider")
@@ -1897,28 +818,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -1934,7 +834,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1949,7 +849,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +272,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -1965,31 +865,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to CreateOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -453,6 +460,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_open_id_connect_provider::CreateOpenIDConnectProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_policy.rs`
@@ -1997,39 +872,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_policy.rs
 +++ generated/src/operation/create_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreatePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_policy::CreatePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_policy::CreatePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_policy::CreatePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -262,13 +268,10 @@
+@@ -262,13 +262,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2045,31 +888,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -301,10 +304,10 @@
-             .ok_or("failed to downcast to CreatePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -465,6 +468,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_policy::CreatePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_policy::CreatePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_policy_version/_create_policy_version_input.rs`
@@ -2093,57 +911,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_policy_version.rs
 +++ generated/src/operation/create_policy_version.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreatePolicyVersion")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreatePolicyVersionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                CreatePolicyVersionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_policy_version::CreatePolicyVersionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_policy_version::CreatePolicyVersionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_policy_version::CreatePolicyVersionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreatePolicyVersion")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreatePolicyVersionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreatePolicyVersionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::create_policy_version::CreatePolicyVersionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::create_policy_version::CreatePolicyVersionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_policy_version::CreatePolicyVersionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +247,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2158,31 +926,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +285,10 @@
-             .ok_or("failed to downcast to CreatePolicyVersionInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +439,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_policy_version::CreatePolicyVersionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_policy_version::CreatePolicyVersionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_role.rs`
@@ -2190,39 +933,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_role.rs
 +++ generated/src/operation/create_role.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_role::CreateRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_role::CreateRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_role::CreateRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -265,12 +271,10 @@
+@@ -265,12 +265,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2237,31 +948,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -303,10 +307,10 @@
-             .ok_or("failed to downcast to CreateRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -467,6 +471,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_role::CreateRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_role::CreateRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_saml_provider/builders.rs`
@@ -2408,57 +1094,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateSAMLProvider", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateSAMLProvider")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateSAMLProvider")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                CreateSAMLProviderTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                CreateSamlProviderTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                CreateSAMLProviderEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_saml_provider::CreateSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_saml_provider::CreateSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_saml_provider::CreateSAMLProviderError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateSAMLProvider")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateSamlProviderTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(CreateSamlProviderEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::create_saml_provider::CreateSAMLProviderError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::create_saml_provider::CreateSAMLProviderError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_saml_provider::CreateSAMLProviderError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                CreateSamlProviderEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::create_saml_provider::CreateSAMLProviderError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -2474,7 +1126,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2489,7 +1141,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -267,12 +258,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -2505,31 +1157,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to CreateSamlProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -445,6 +436,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_saml_provider::CreateSAMLProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_saml_provider::CreateSAMLProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_service_linked_role.rs`
@@ -2537,41 +1164,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_service_linked_role.rs
 +++ generated/src/operation/create_service_linked_role.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::create_service_linked_role::CreateServiceLinkedRoleError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +268,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2586,31 +1179,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -299,10 +306,10 @@
-             .ok_or("failed to downcast to CreateServiceLinkedRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -443,6 +450,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_service_linked_role::CreateServiceLinkedRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_service_linked_role::CreateServiceLinkedRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_service_specific_credential.rs`
@@ -2618,41 +1186,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_service_specific_credential.rs
 +++ generated/src/operation/create_service_specific_credential.rs
-@@ -114,9 +114,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +148,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -264,12 +272,11 @@
+@@ -264,12 +264,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2667,31 +1201,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -303,10 +310,10 @@
-             .ok_or("failed to downcast to CreateServiceSpecificCredentialInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -437,6 +444,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_user.rs`
@@ -2699,39 +1208,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_user.rs
 +++ generated/src/operation/create_user.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("CreateUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::create_user::CreateUserError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_user::CreateUserError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::create_user::CreateUserError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +261,10 @@
+@@ -255,12 +255,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2746,31 +1223,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -293,10 +297,10 @@
-             .ok_or("failed to downcast to CreateUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -457,6 +461,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_user::CreateUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_user::CreateUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/create_virtual_mfa_device/builders.rs`
@@ -2917,74 +1369,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -108,9 +108,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -128,13 +128,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateVirtualMFADevice")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateVirtualMFADevice")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                CreateVirtualMFADeviceTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                CreateVirtualMfaDeviceTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                CreateVirtualMFADeviceEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("CreateVirtualMFADevice")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CreateVirtualMfaDeviceTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    CreateVirtualMfaDeviceEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -151,12 +160,12 @@
++                CreateVirtualMfaDeviceEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
+@@ -151,12 +151,12 @@
  }
 
  #[derive(Debug)]
@@ -3000,7 +1401,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -256,12 +265,11 @@
+@@ -256,12 +256,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3015,7 +1416,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -271,12 +279,12 @@
+@@ -271,12 +270,12 @@
      }
  }
  #[derive(Debug)]
@@ -3031,31 +1432,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -295,10 +303,10 @@
-             .ok_or("failed to downcast to CreateVirtualMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -449,6 +457,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/deactivate_mfa_device/builders.rs`
@@ -3199,57 +1575,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -127,13 +127,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeactivateMFADevice")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeactivateMFADevice")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeactivateMFADeviceTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                DeactivateMfaDeviceTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeactivateMFADeviceEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeactivateMFADevice")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeactivateMfaDeviceTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeactivateMfaDeviceEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +142,12 @@
++                DeactivateMfaDeviceEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -3265,7 +1607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -255,12 +247,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3280,7 +1622,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -270,12 +261,12 @@
+@@ -270,12 +269,12 @@
      }
  }
  #[derive(Debug)]
@@ -3296,31 +1638,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -294,10 +285,10 @@
-             .ok_or("failed to downcast to DeactivateMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +439,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::deactivate_mfa_device::DeactivateMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::deactivate_mfa_device::DeactivateMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_access_key.rs`
@@ -3328,39 +1645,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_access_key.rs
 +++ generated/src/operation/delete_access_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteAccessKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_access_key::DeleteAccessKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_access_key::DeleteAccessKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_access_key::DeleteAccessKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3378,31 +1663,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteAccessKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_access_key::DeleteAccessKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_access_key::DeleteAccessKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_account_alias.rs`
@@ -3410,57 +1670,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_account_alias.rs
 +++ generated/src/operation/delete_account_alias.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteAccountAlias", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteAccountAlias")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteAccountAliasTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteAccountAliasEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_account_alias::DeleteAccountAliasError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_account_alias::DeleteAccountAliasError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_account_alias::DeleteAccountAliasError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteAccountAlias")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteAccountAliasTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteAccountAliasEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_account_alias::DeleteAccountAliasError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_account_alias::DeleteAccountAliasError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_account_alias::DeleteAccountAliasError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3475,31 +1685,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to DeleteAccountAliasInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_account_alias::DeleteAccountAliasError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_account_alias::DeleteAccountAliasError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_account_password_policy.rs`
@@ -3507,96 +1692,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_account_password_policy.rs
 +++ generated/src/operation/delete_account_password_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteAccountPasswordPolicy")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                DeleteAccountPasswordPolicyTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct DeleteAccountPasswordPolicyTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteAccountPasswordPolicyTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "DeleteAccountPasswordPolicyTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DeleteAccountPasswordPolicyInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct DeleteAccountPasswordPolicyResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteAccountPasswordPolicyResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,13 +253,9 @@
+@@ -204,13 +204,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3611,31 +1707,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -240,10 +285,10 @@
-             .ok_or("failed to downcast to DeleteAccountPasswordPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -374,6 +419,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_account_password_policy::DeleteAccountPasswordPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_group.rs`
@@ -3643,39 +1714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_group.rs
 +++ generated/src/operation/delete_group.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteGroup", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_group::DeleteGroupError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_group::DeleteGroupError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_group::DeleteGroupError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3691,31 +1730,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -286,10 +289,10 @@
-             .ok_or("failed to downcast to DeleteGroupInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +433,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_group::DeleteGroupError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_group::DeleteGroupError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_group_policy.rs`
@@ -3723,57 +1737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_group_policy.rs
 +++ generated/src/operation/delete_group_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteGroupPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteGroupPolicy")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteGroupPolicyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteGroupPolicyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_group_policy::DeleteGroupPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_group_policy::DeleteGroupPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_group_policy::DeleteGroupPolicyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteGroupPolicy")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteGroupPolicyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteGroupPolicyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_group_policy::DeleteGroupPolicyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_group_policy::DeleteGroupPolicyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_group_policy::DeleteGroupPolicyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +244,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3791,31 +1755,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to DeleteGroupPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +416,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_group_policy::DeleteGroupPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_group_policy::DeleteGroupPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_instance_profile.rs`
@@ -3823,74 +1762,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_instance_profile.rs
 +++ generated/src/operation/delete_instance_profile.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteInstanceProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteInstanceProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteInstanceProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_instance_profile::DeleteInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_instance_profile::DeleteInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_instance_profile::DeleteInstanceProfileError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteInstanceProfile")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    DeleteInstanceProfileTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    DeleteInstanceProfileEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::delete_instance_profile::DeleteInstanceProfileError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::delete_instance_profile::DeleteInstanceProfileError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::delete_instance_profile::DeleteInstanceProfileError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3905,31 +1777,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +297,10 @@
-             .ok_or("failed to downcast to DeleteInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_instance_profile::DeleteInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_instance_profile::DeleteInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_login_profile.rs`
@@ -3937,57 +1784,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_login_profile.rs
 +++ generated/src/operation/delete_login_profile.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteLoginProfile", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteLoginProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteLoginProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeleteLoginProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_login_profile::DeleteLoginProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_login_profile::DeleteLoginProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_login_profile::DeleteLoginProfileError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteLoginProfile")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteLoginProfileTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteLoginProfileEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_login_profile::DeleteLoginProfileError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_login_profile::DeleteLoginProfileError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_login_profile::DeleteLoginProfileError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4002,31 +1799,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to DeleteLoginProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_login_profile::DeleteLoginProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_login_profile::DeleteLoginProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_open_id_connect_provider/builders.rs`
@@ -4171,19 +1943,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteOpenIDConnectProvider")
@@ -4200,28 +1959,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -4237,7 +1975,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4252,7 +1990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +272,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -4268,31 +2006,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_policy.rs`
@@ -4300,39 +2013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_policy.rs
 +++ generated/src/operation/delete_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeletePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_policy::DeletePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_policy::DeletePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_policy::DeletePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4348,31 +2029,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -286,10 +289,10 @@
-             .ok_or("failed to downcast to DeletePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +443,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_policy::DeletePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_policy::DeletePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_policy_version.rs`
@@ -4380,57 +2036,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_policy_version.rs
 +++ generated/src/operation/delete_policy_version.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeletePolicyVersion")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeletePolicyVersionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DeletePolicyVersionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_policy_version::DeletePolicyVersionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_policy_version::DeletePolicyVersionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_policy_version::DeletePolicyVersionError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeletePolicyVersion")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeletePolicyVersionTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeletePolicyVersionEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_policy_version::DeletePolicyVersionError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_policy_version::DeletePolicyVersionError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_policy_version::DeletePolicyVersionError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +247,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4445,31 +2051,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +285,10 @@
-             .ok_or("failed to downcast to DeletePolicyVersionInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +439,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_policy_version::DeletePolicyVersionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_policy_version::DeletePolicyVersionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_role.rs`
@@ -4477,39 +2058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_role.rs
 +++ generated/src/operation/delete_role.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_role::DeleteRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_role::DeleteRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_role::DeleteRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,12 +251,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4524,31 +2073,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -283,10 +287,10 @@
-             .ok_or("failed to downcast to DeleteRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -447,6 +451,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_role::DeleteRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_role::DeleteRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_role_permissions_boundary.rs`
@@ -4556,41 +2080,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_role_permissions_boundary.rs
 +++ generated/src/operation/delete_role_permissions_boundary.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4605,31 +2095,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteRolePermissionsBoundaryInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_role_policy.rs`
@@ -4637,39 +2102,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_role_policy.rs
 +++ generated/src/operation/delete_role_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteRolePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_role_policy::DeleteRolePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_role_policy::DeleteRolePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_role_policy::DeleteRolePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4687,31 +2120,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteRolePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -435,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_role_policy::DeleteRolePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_role_policy::DeleteRolePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_saml_provider/builders.rs`
@@ -4858,57 +2266,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteSAMLProvider", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSAMLProvider")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSAMLProvider")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeleteSAMLProviderTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                DeleteSamlProviderTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeleteSAMLProviderEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_saml_provider::DeleteSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_saml_provider::DeleteSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_saml_provider::DeleteSAMLProviderError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSAMLProvider")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSamlProviderTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSamlProviderEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                DeleteSamlProviderEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::delete_saml_provider::DeleteSAMLProviderError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -4924,7 +2298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4939,7 +2313,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -262,12 +253,12 @@
+@@ -262,12 +261,12 @@
      }
  }
  #[derive(Debug)]
@@ -4955,31 +2329,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to DeleteSamlProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_saml_provider::DeleteSAMLProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_saml_provider::DeleteSAMLProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_server_certificate.rs`
@@ -4987,41 +2336,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_server_certificate.rs
 +++ generated/src/operation/delete_server_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_server_certificate::DeleteServerCertificateError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_server_certificate::DeleteServerCertificateError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_server_certificate::DeleteServerCertificateError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5036,31 +2351,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteServerCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_server_certificate::DeleteServerCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_server_certificate::DeleteServerCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_service_linked_role.rs`
@@ -5068,41 +2358,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_service_linked_role.rs
 +++ generated/src/operation/delete_service_linked_role.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5117,31 +2373,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteServiceLinkedRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_service_linked_role::DeleteServiceLinkedRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_service_specific_credential.rs`
@@ -5149,41 +2380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_service_specific_credential.rs
 +++ generated/src/operation/delete_service_specific_credential.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -263,12 +271,11 @@
+@@ -263,12 +263,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5198,31 +2395,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -302,10 +309,10 @@
-             .ok_or("failed to downcast to DeleteServiceSpecificCredentialInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -416,6 +423,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_service_specific_credential::DeleteServiceSpecificCredentialError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_signing_certificate.rs`
@@ -5230,41 +2402,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_signing_certificate.rs
 +++ generated/src/operation/delete_signing_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_signing_certificate::DeleteSigningCertificateError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5279,31 +2417,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to DeleteSigningCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_signing_certificate::DeleteSigningCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_signing_certificate::DeleteSigningCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_ssh_public_key/builders.rs`
@@ -5447,57 +2560,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteSSHPublicKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSSHPublicKey")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSSHPublicKey")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeleteSSHPublicKeyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                DeleteSshPublicKeyTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeleteSSHPublicKeyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteSSHPublicKey")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSshPublicKeyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSshPublicKeyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                DeleteSshPublicKeyEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -5513,7 +2592,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5528,7 +2607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -267,12 +258,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -5544,31 +2623,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to DeleteSshPublicKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -405,6 +396,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_user.rs`
@@ -5576,39 +2630,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_user.rs
 +++ generated/src/operation/delete_user.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_user::DeleteUserError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_user::DeleteUserError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_user::DeleteUserError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,12 +251,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5623,31 +2645,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -283,10 +287,10 @@
-             .ok_or("failed to downcast to DeleteUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -437,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_user::DeleteUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_user::DeleteUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_user_permissions_boundary.rs`
@@ -5655,41 +2652,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_user_permissions_boundary.rs
 +++ generated/src/operation/delete_user_permissions_boundary.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5704,31 +2667,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteUserPermissionsBoundaryInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -413,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_user_policy.rs`
@@ -5736,39 +2674,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_user_policy.rs
 +++ generated/src/operation/delete_user_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DeleteUserPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::delete_user_policy::DeleteUserPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_user_policy::DeleteUserPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_user_policy::DeleteUserPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5786,31 +2692,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to DeleteUserPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_user_policy::DeleteUserPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_user_policy::DeleteUserPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/delete_virtual_mfa_device/builders.rs`
@@ -5955,74 +2836,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -127,13 +127,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteVirtualMFADevice")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteVirtualMFADevice")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeleteVirtualMFADeviceTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                DeleteVirtualMfaDeviceTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                DeleteVirtualMFADeviceEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DeleteVirtualMFADevice")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    DeleteVirtualMfaDeviceTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    DeleteVirtualMfaDeviceEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +159,12 @@
++                DeleteVirtualMfaDeviceEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError,
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -6038,7 +2868,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6053,7 +2883,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +273,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -6069,31 +2899,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -289,10 +297,10 @@
-             .ok_or("failed to downcast to DeleteVirtualMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -443,6 +451,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::delete_virtual_mfa_device::DeleteVirtualMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/detach_group_policy.rs`
@@ -6101,57 +2906,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/detach_group_policy.rs
 +++ generated/src/operation/detach_group_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DetachGroupPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DetachGroupPolicy")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DetachGroupPolicyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                DetachGroupPolicyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::detach_group_policy::DetachGroupPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::detach_group_policy::DetachGroupPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::detach_group_policy::DetachGroupPolicyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DetachGroupPolicy")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DetachGroupPolicyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DetachGroupPolicyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::detach_group_policy::DetachGroupPolicyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::detach_group_policy::DetachGroupPolicyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::detach_group_policy::DetachGroupPolicyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +244,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6169,31 +2924,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to DetachGroupPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -435,6 +426,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::detach_group_policy::DetachGroupPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::detach_group_policy::DetachGroupPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/detach_role_policy.rs`
@@ -6201,39 +2931,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/detach_role_policy.rs
 +++ generated/src/operation/detach_role_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DetachRolePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::detach_role_policy::DetachRolePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::detach_role_policy::DetachRolePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::detach_role_policy::DetachRolePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6251,31 +2949,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to DetachRolePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -445,6 +450,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::detach_role_policy::DetachRolePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::detach_role_policy::DetachRolePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/detach_user_policy.rs`
@@ -6283,39 +2956,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/detach_user_policy.rs
 +++ generated/src/operation/detach_user_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("DetachUserPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::detach_user_policy::DetachUserPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::detach_user_policy::DetachUserPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::detach_user_policy::DetachUserPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6333,31 +2974,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to DetachUserPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -435,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::detach_user_policy::DetachUserPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::detach_user_policy::DetachUserPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/disable_organizations_root_credentials_management.rs`
@@ -6365,96 +2981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_organizations_root_credentials_management.rs
 +++ generated/src/operation/disable_organizations_root_credentials_management.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,6 +134,9 @@
-         let mut rcb =
-             ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOrganizationsRootCredentialsManagement")
-                 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    DisableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                     ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-                 ))
-                 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -145,9 +148,17 @@
-                 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                     crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError,
-                 >::new())
--                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError,
--                >::new());
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -154,6 +165,44 @@
- }
-
- #[derive(Debug)]
-+struct DisableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DisableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "DisableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DisableOrganizationsRootCredentialsManagementInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct DisableOrganizationsRootCredentialsManagementResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DisableOrganizationsRootCredentialsManagementResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -211,11 +260,9 @@
+@@ -211,11 +211,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6467,33 +2994,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -245,10 +292,10 @@
-             .ok_or("failed to downcast to DisableOrganizationsRootCredentialsManagementInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -391,6 +438,13 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt
-+    for crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError
-+{
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId
-     for crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError
- {
 ```
 
 ### `src/operation/disable_organizations_root_sessions.rs`
@@ -6501,96 +3001,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_organizations_root_sessions.rs
 +++ generated/src/operation/disable_organizations_root_sessions.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -133,6 +133,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOrganizationsRootSessions")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                DisableOrganizationsRootSessionsTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -144,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -153,6 +164,44 @@
- }
-
- #[derive(Debug)]
-+struct DisableOrganizationsRootSessionsTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DisableOrganizationsRootSessionsTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "DisableOrganizationsRootSessionsTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DisableOrganizationsRootSessionsInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct DisableOrganizationsRootSessionsResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DisableOrganizationsRootSessionsResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -212,15 +261,9 @@
+@@ -212,15 +212,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6607,31 +3018,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -250,10 +293,10 @@
-             .ok_or("failed to downcast to DisableOrganizationsRootSessionsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -396,6 +439,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/disable_outbound_web_identity_federation.rs`
@@ -6639,96 +3025,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_outbound_web_identity_federation.rs
 +++ generated/src/operation/disable_outbound_web_identity_federation.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -133,6 +133,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("DisableOutboundWebIdentityFederation")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                DisableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -144,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -153,6 +164,44 @@
- }
-
- #[derive(Debug)]
-+struct DisableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DisableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "DisableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<DisableOutboundWebIdentityFederationInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct DisableOutboundWebIdentityFederationResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DisableOutboundWebIdentityFederationResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -214,11 +263,9 @@
+@@ -214,11 +214,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6741,31 +3038,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -248,10 +295,10 @@
-             .ok_or("failed to downcast to DisableOutboundWebIdentityFederationInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -362,6 +409,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/enable_mfa_device/builders.rs`
@@ -6908,19 +3180,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("EnableMFADevice", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableMFADevice")
@@ -6937,26 +3196,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::enable_mfa_device::EnableMFADeviceError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::enable_mfa_device::EnableMFADeviceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::enable_mfa_device::EnableMFADeviceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::enable_mfa_device::EnableMFADeviceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -6972,7 +3212,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -262,13 +268,12 @@
+@@ -262,13 +262,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6990,7 +3230,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -277,12 +282,12 @@
+@@ -277,12 +276,12 @@
      }
  }
  #[derive(Debug)]
@@ -7006,31 +3246,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -301,10 +306,10 @@
-             .ok_or("failed to downcast to EnableMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -475,6 +480,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::enable_mfa_device::EnableMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::enable_mfa_device::EnableMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/enable_organizations_root_credentials_management.rs`
@@ -7038,96 +3253,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/enable_organizations_root_credentials_management.rs
 +++ generated/src/operation/enable_organizations_root_credentials_management.rs
-@@ -114,9 +114,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -135,6 +135,9 @@
-         let mut rcb =
-             ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableOrganizationsRootCredentialsManagement")
-                 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    EnableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                     ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-                 ))
-                 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -146,9 +149,17 @@
-                 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                     crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError,
-                 >::new())
--                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError,
--                >::new());
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -155,6 +166,44 @@
- }
-
- #[derive(Debug)]
-+struct EnableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EnableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "EnableOrganizationsRootCredentialsManagementTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<EnableOrganizationsRootCredentialsManagementInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct EnableOrganizationsRootCredentialsManagementResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for EnableOrganizationsRootCredentialsManagementResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -212,11 +261,9 @@
+@@ -212,11 +212,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7140,33 +3266,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -246,10 +293,10 @@
-             .ok_or("failed to downcast to EnableOrganizationsRootCredentialsManagementInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -402,6 +449,13 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt
-+    for crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError
-+{
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId
-     for crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError
- {
 ```
 
 ### `src/operation/enable_organizations_root_sessions.rs`
@@ -7174,96 +3273,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/enable_organizations_root_sessions.rs
 +++ generated/src/operation/enable_organizations_root_sessions.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -133,6 +133,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableOrganizationsRootSessions")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                EnableOrganizationsRootSessionsTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -144,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -153,6 +164,44 @@
- }
-
- #[derive(Debug)]
-+struct EnableOrganizationsRootSessionsTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EnableOrganizationsRootSessionsTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "EnableOrganizationsRootSessionsTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<EnableOrganizationsRootSessionsInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct EnableOrganizationsRootSessionsResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for EnableOrganizationsRootSessionsResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -212,13 +261,9 @@
+@@ -212,13 +212,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7278,31 +3288,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -248,10 +293,10 @@
-             .ok_or("failed to downcast to EnableOrganizationsRootSessionsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -404,6 +449,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/enable_outbound_web_identity_federation.rs`
@@ -7310,96 +3295,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/enable_outbound_web_identity_federation.rs
 +++ generated/src/operation/enable_outbound_web_identity_federation.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -133,6 +133,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("EnableOutboundWebIdentityFederation")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                EnableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -144,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -153,6 +164,44 @@
- }
-
- #[derive(Debug)]
-+struct EnableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EnableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "EnableOutboundWebIdentityFederationTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<EnableOutboundWebIdentityFederationInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct EnableOutboundWebIdentityFederationResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for EnableOutboundWebIdentityFederationResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -214,11 +263,9 @@
+@@ -214,11 +214,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7412,31 +3308,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -248,10 +295,10 @@
-             .ok_or("failed to downcast to EnableOutboundWebIdentityFederationInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -362,6 +409,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/generate_credential_report.rs`
@@ -7444,96 +3315,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/generate_credential_report.rs
 +++ generated/src/operation/generate_credential_report.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GenerateCredentialReport")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                GenerateCredentialReportTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_credential_report::GenerateCredentialReportError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_credential_report::GenerateCredentialReportError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::generate_credential_report::GenerateCredentialReportError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct GenerateCredentialReportTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GenerateCredentialReportTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GenerateCredentialReportTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GenerateCredentialReportInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GenerateCredentialReportResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GenerateCredentialReportResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,13 +253,9 @@
+@@ -204,13 +204,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7548,31 +3330,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -240,10 +285,10 @@
-             .ok_or("failed to downcast to GenerateCredentialReportInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -364,6 +409,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_credential_report::GenerateCredentialReportError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_credential_report::GenerateCredentialReportError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/generate_organizations_access_report.rs`
@@ -7580,41 +3337,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/generate_organizations_access_report.rs
 +++ generated/src/operation/generate_organizations_access_report.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -265,14 +273,11 @@
+@@ -265,14 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7631,31 +3354,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -306,10 +311,10 @@
-             .ok_or("failed to downcast to GenerateOrganizationsAccessReportInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -420,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/generate_service_last_accessed_details.rs`
@@ -7663,41 +3361,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/generate_service_last_accessed_details.rs
 +++ generated/src/operation/generate_service_last_accessed_details.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,14 +268,11 @@
+@@ -260,14 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7714,31 +3378,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -301,10 +306,10 @@
-             .ok_or("failed to downcast to GenerateServiceLastAccessedDetailsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_access_key_last_used.rs`
@@ -7746,74 +3385,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_access_key_last_used.rs
 +++ generated/src/operation/get_access_key_last_used.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccessKeyLastUsed")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetAccessKeyLastUsedTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetAccessKeyLastUsedEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccessKeyLastUsed")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetAccessKeyLastUsedTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetAccessKeyLastUsedEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7828,31 +3400,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +297,10 @@
-             .ok_or("failed to downcast to GetAccessKeyLastUsedInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -393,6 +401,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_access_key_last_used::GetAccessKeyLastUsedError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_account_authorization_details.rs`
@@ -7860,41 +3407,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_authorization_details.rs
 +++ generated/src/operation/get_account_authorization_details.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -256,12 +264,11 @@
+@@ -256,12 +256,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7909,31 +3422,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -295,10 +302,10 @@
-             .ok_or("failed to downcast to GetAccountAuthorizationDetailsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -409,6 +416,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_account_authorization_details::GetAccountAuthorizationDetailsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_account_password_policy.rs`
@@ -7941,96 +3429,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_password_policy.rs
 +++ generated/src/operation/get_account_password_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountPasswordPolicy")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                GetAccountPasswordPolicyTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_account_password_policy::GetAccountPasswordPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct GetAccountPasswordPolicyTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetAccountPasswordPolicyTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetAccountPasswordPolicyTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetAccountPasswordPolicyInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetAccountPasswordPolicyResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetAccountPasswordPolicyResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,13 +253,9 @@
+@@ -204,13 +204,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8045,31 +3444,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -240,10 +285,10 @@
-             .ok_or("failed to downcast to GetAccountPasswordPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -364,6 +409,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_account_password_policy::GetAccountPasswordPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_account_password_policy::GetAccountPasswordPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_account_properties.rs`
@@ -8077,99 +3451,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_properties.rs
 +++ generated/src/operation/get_account_properties.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,22 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountProperties")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetAccountPropertiesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_account_properties::GetAccountPropertiesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_account_properties::GetAccountPropertiesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_account_properties::GetAccountPropertiesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountProperties")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountPropertiesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountPropertiesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_account_properties::GetAccountPropertiesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_account_properties::GetAccountPropertiesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_account_properties::GetAccountPropertiesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +142,44 @@
- }
-
- #[derive(Debug)]
-+struct GetAccountPropertiesTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetAccountPropertiesTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetAccountPropertiesTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetAccountPropertiesInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetAccountPropertiesResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetAccountPropertiesResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,13 +237,9 @@
+@@ -204,13 +204,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8184,31 +3466,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -240,10 +269,10 @@
-             .ok_or("failed to downcast to GetAccountPropertiesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -364,6 +393,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_account_properties::GetAccountPropertiesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_account_properties::GetAccountPropertiesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_account_summary.rs`
@@ -8216,99 +3473,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_account_summary.rs
 +++ generated/src/operation/get_account_summary.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetAccountSummary", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,22 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountSummary")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetAccountSummaryEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_account_summary::GetAccountSummaryError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_account_summary::GetAccountSummaryError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_account_summary::GetAccountSummaryError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetAccountSummary")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountSummaryTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetAccountSummaryEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_account_summary::GetAccountSummaryError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_account_summary::GetAccountSummaryError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_account_summary::GetAccountSummaryError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -144,6 +139,44 @@
- }
-
- #[derive(Debug)]
-+struct GetAccountSummaryTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetAccountSummaryTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetAccountSummaryTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetAccountSummaryInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetAccountSummaryResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetAccountSummaryResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -201,13 +234,9 @@
+@@ -201,13 +201,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8323,31 +3488,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -237,10 +266,10 @@
-             .ok_or("failed to downcast to GetAccountSummaryInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -351,6 +380,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_account_summary::GetAccountSummaryError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_account_summary::GetAccountSummaryError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_context_keys_for_custom_policy.rs`
@@ -8355,96 +3495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_context_keys_for_custom_policy.rs
 +++ generated/src/operation/get_context_keys_for_custom_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetContextKeysForCustomPolicy")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                GetContextKeysForCustomPolicyTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct GetContextKeysForCustomPolicyTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetContextKeysForCustomPolicyTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetContextKeysForCustomPolicyTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetContextKeysForCustomPolicyInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetContextKeysForCustomPolicyResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetContextKeysForCustomPolicyResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -206,12 +255,11 @@
+@@ -206,12 +206,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8459,31 +3510,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -245,10 +293,10 @@
-             .ok_or("failed to downcast to GetContextKeysForCustomPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -359,6 +407,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_context_keys_for_principal_policy.rs`
@@ -8491,41 +3517,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_context_keys_for_principal_policy.rs
 +++ generated/src/operation/get_context_keys_for_principal_policy.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,14 +268,11 @@
+@@ -260,14 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8542,31 +3534,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -301,10 +306,10 @@
-             .ok_or("failed to downcast to GetContextKeysForPrincipalPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_credential_report.rs`
@@ -8574,99 +3541,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_credential_report.rs
 +++ generated/src/operation/get_credential_report.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,22 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetCredentialReport")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetCredentialReportEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_credential_report::GetCredentialReportError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_credential_report::GetCredentialReportError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_credential_report::GetCredentialReportError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetCredentialReport")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetCredentialReportTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetCredentialReportEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_credential_report::GetCredentialReportError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_credential_report::GetCredentialReportError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_credential_report::GetCredentialReportError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +142,44 @@
- }
-
- #[derive(Debug)]
-+struct GetCredentialReportTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetCredentialReportTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetCredentialReportTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetCredentialReportInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetCredentialReportResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetCredentialReportResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,13 +237,9 @@
+@@ -204,13 +204,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8681,31 +3556,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -240,10 +269,10 @@
-             .ok_or("failed to downcast to GetCredentialReportInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -384,6 +413,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_credential_report::GetCredentialReportError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_credential_report::GetCredentialReportError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_delegation_request/_get_delegation_request_input.rs`
@@ -8729,57 +3579,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_delegation_request.rs
 +++ generated/src/operation/get_delegation_request.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDelegationRequest")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetDelegationRequestTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetDelegationRequestEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_delegation_request::GetDelegationRequestError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_delegation_request::GetDelegationRequestError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_delegation_request::GetDelegationRequestError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDelegationRequest")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetDelegationRequestTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetDelegationRequestEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_delegation_request::GetDelegationRequestError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_delegation_request::GetDelegationRequestError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_delegation_request::GetDelegationRequestError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +242,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8794,31 +3594,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +280,10 @@
-             .ok_or("failed to downcast to GetDelegationRequestInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -413,6 +404,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_delegation_request::GetDelegationRequestError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_delegation_request::GetDelegationRequestError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_group.rs`
@@ -8826,39 +3601,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_group.rs
 +++ generated/src/operation/get_group.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetGroup", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_group::GetGroupError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_group::GetGroupError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_group::GetGroupError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -246,11 +252,10 @@
+@@ -246,11 +246,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8872,31 +3615,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -283,10 +288,10 @@
-             .ok_or("failed to downcast to GetGroupInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -407,6 +412,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_group::GetGroupError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_group::GetGroupError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_group_policy.rs`
@@ -8904,39 +3622,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_group_policy.rs
 +++ generated/src/operation/get_group_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetGroupPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_group_policy::GetGroupPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_group_policy::GetGroupPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_group_policy::GetGroupPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8954,31 +3640,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to GetGroupPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_group_policy::GetGroupPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_group_policy::GetGroupPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_human_readable_summary/builders.rs`
@@ -9002,41 +3663,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_human_readable_summary.rs
 +++ generated/src/operation/get_human_readable_summary.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_human_readable_summary::GetHumanReadableSummaryError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9051,31 +3678,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to GetHumanReadableSummaryInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -428,6 +435,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_human_readable_summary::GetHumanReadableSummaryError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_human_readable_summary::GetHumanReadableSummaryError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_instance_profile.rs`
@@ -9083,57 +3685,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_instance_profile.rs
 +++ generated/src/operation/get_instance_profile.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetInstanceProfile", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetInstanceProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetInstanceProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetInstanceProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_instance_profile::GetInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_instance_profile::GetInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_instance_profile::GetInstanceProfileError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetInstanceProfile")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetInstanceProfileTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetInstanceProfileEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_instance_profile::GetInstanceProfileError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_instance_profile::GetInstanceProfileError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_instance_profile::GetInstanceProfileError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9148,31 +3700,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to GetInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -410,6 +401,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_instance_profile::GetInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_instance_profile::GetInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_login_profile.rs`
@@ -9180,39 +3707,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_login_profile.rs
 +++ generated/src/operation/get_login_profile.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetLoginProfile", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_login_profile::GetLoginProfileError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_login_profile::GetLoginProfileError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_login_profile::GetLoginProfileError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,12 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9230,31 +3725,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -286,10 +291,10 @@
-             .ok_or("failed to downcast to GetLoginProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -410,6 +415,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_login_profile::GetLoginProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_login_profile::GetLoginProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_mfa_device/builders.rs`
@@ -9397,19 +3867,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetMFADevice", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetMFADevice")
@@ -9426,26 +3883,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::get_mfa_device::GetMFADeviceError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_mfa_device::GetMFADeviceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_mfa_device::GetMFADeviceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_mfa_device::GetMFADeviceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -9461,7 +3899,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9477,7 +3915,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -267,12 +270,12 @@
+@@ -267,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -9493,31 +3931,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to GetMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +418,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_mfa_device::GetMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_mfa_device::GetMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_open_id_connect_provider/builders.rs`
@@ -9660,19 +4073,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetOpenIDConnectProvider")
@@ -9689,28 +4089,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -9726,7 +4105,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9741,7 +4120,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +272,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -9757,31 +4136,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to GetOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -423,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_organizations_access_report.rs`
@@ -9789,41 +4143,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_organizations_access_report.rs
 +++ generated/src/operation/get_organizations_access_report.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9838,31 +4158,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to GetOrganizationsAccessReportInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -408,6 +415,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_organizations_access_report::GetOrganizationsAccessReportError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_outbound_web_identity_federation_info.rs`
@@ -9870,96 +4165,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_outbound_web_identity_federation_info.rs
 +++ generated/src/operation/get_outbound_web_identity_federation_info.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -133,6 +133,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetOutboundWebIdentityFederationInfo")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                GetOutboundWebIdentityFederationInfoTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -144,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -153,6 +164,44 @@
- }
-
- #[derive(Debug)]
-+struct GetOutboundWebIdentityFederationInfoTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetOutboundWebIdentityFederationInfoTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "GetOutboundWebIdentityFederationInfoTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetOutboundWebIdentityFederationInfoInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct GetOutboundWebIdentityFederationInfoResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetOutboundWebIdentityFederationInfoResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -214,11 +263,9 @@
+@@ -214,11 +214,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9972,31 +4178,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -248,10 +295,10 @@
-             .ok_or("failed to downcast to GetOutboundWebIdentityFederationInfoInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -362,6 +409,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_policy.rs`
@@ -10004,39 +4185,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_policy.rs
 +++ generated/src/operation/get_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_policy::GetPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_policy::GetPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_policy::GetPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,11 +251,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10050,31 +4199,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -282,10 +287,10 @@
-             .ok_or("failed to downcast to GetPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -416,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_policy::GetPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_policy::GetPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_policy_version.rs`
@@ -10082,39 +4206,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_policy_version.rs
 +++ generated/src/operation/get_policy_version.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetPolicyVersion", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_policy_version::GetPolicyVersionError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_policy_version::GetPolicyVersionError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_policy_version::GetPolicyVersionError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10132,31 +4224,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to GetPolicyVersionInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_policy_version::GetPolicyVersionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_policy_version::GetPolicyVersionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_role.rs`
@@ -10164,39 +4231,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_role.rs
 +++ generated/src/operation/get_role.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_role::GetRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_role::GetRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_role::GetRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,11 +247,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10210,31 +4245,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,10 +283,10 @@
-             .ok_or("failed to downcast to GetRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -402,6 +407,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_role::GetRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_role::GetRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_role_policy.rs`
@@ -10242,39 +4252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_role_policy.rs
 +++ generated/src/operation/get_role_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetRolePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_role_policy::GetRolePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_role_policy::GetRolePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_role_policy::GetRolePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10290,31 +4268,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to GetRolePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +418,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_role_policy::GetRolePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_role_policy::GetRolePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_role_template_version.rs`
@@ -10322,74 +4275,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_role_template_version.rs
 +++ generated/src/operation/get_role_template_version.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetRoleTemplateVersion")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetRoleTemplateVersionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetRoleTemplateVersionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_role_template_version::GetRoleTemplateVersionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_role_template_version::GetRoleTemplateVersionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_role_template_version::GetRoleTemplateVersionError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetRoleTemplateVersion")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetRoleTemplateVersionTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    GetRoleTemplateVersionEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::get_role_template_version::GetRoleTemplateVersionError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::get_role_template_version::GetRoleTemplateVersionError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::get_role_template_version::GetRoleTemplateVersionError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10404,31 +4290,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +297,10 @@
-             .ok_or("failed to downcast to GetRoleTemplateVersionInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -423,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_role_template_version::GetRoleTemplateVersionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_role_template_version::GetRoleTemplateVersionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_saml_provider/builders.rs`
@@ -10573,19 +4434,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetSAMLProvider", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetSAMLProvider")
@@ -10602,26 +4450,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::get_saml_provider::GetSAMLProviderError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_saml_provider::GetSAMLProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_saml_provider::GetSAMLProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_saml_provider::GetSAMLProviderError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -10637,7 +4466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +253,12 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10655,7 +4484,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +267,12 @@
+@@ -262,12 +261,12 @@
      }
  }
  #[derive(Debug)]
@@ -10671,31 +4500,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -286,10 +291,10 @@
-             .ok_or("failed to downcast to GetSamlProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -420,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_saml_provider::GetSAMLProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_saml_provider::GetSAMLProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_server_certificate.rs`
@@ -10703,57 +4507,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_server_certificate.rs
 +++ generated/src/operation/get_server_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetServerCertificate")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetServerCertificateTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                GetServerCertificateEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::get_server_certificate::GetServerCertificateError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::get_server_certificate::GetServerCertificateError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_server_certificate::GetServerCertificateError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetServerCertificate")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetServerCertificateTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetServerCertificateEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::get_server_certificate::GetServerCertificateError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::get_server_certificate::GetServerCertificateError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_server_certificate::GetServerCertificateError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +242,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10768,31 +4522,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +280,10 @@
-             .ok_or("failed to downcast to GetServerCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -413,6 +404,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_server_certificate::GetServerCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_server_certificate::GetServerCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_service_last_accessed_details.rs`
@@ -10800,41 +4529,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_service_last_accessed_details.rs
 +++ generated/src/operation/get_service_last_accessed_details.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10849,31 +4544,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to GetServiceLastAccessedDetailsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -418,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_service_last_accessed_details_with_entities.rs`
@@ -10881,41 +4551,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_service_last_accessed_details_with_entities.rs
 +++ generated/src/operation/get_service_last_accessed_details_with_entities.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +148,17 @@
-                 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                     crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError,
-                 >::new())
--                .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                    crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError,
--                >::new());
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -267,11 +275,10 @@
+@@ -267,11 +267,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10929,33 +4565,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -304,10 +311,10 @@
-             .ok_or("failed to downcast to GetServiceLastAccessedDetailsWithEntitiesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -428,6 +435,13 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt
-+    for crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError
-+{
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId
-     for crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError
- {
 ```
 
 ### `src/operation/get_service_linked_role_deletion_status.rs`
@@ -10963,41 +4572,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_service_linked_role_deletion_status.rs
 +++ generated/src/operation/get_service_linked_role_deletion_status.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,11 +268,12 @@
+@@ -260,11 +260,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11013,31 +4588,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -297,10 +306,10 @@
-             .ok_or("failed to downcast to GetServiceLinkedRoleDeletionStatusInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -431,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_ssh_public_key/builders.rs`
@@ -11181,19 +4731,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetSSHPublicKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetSSHPublicKey")
@@ -11210,26 +4747,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_ssh_public_key::GetSSHPublicKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_ssh_public_key::GetSSHPublicKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -11245,7 +4763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11263,7 +4781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -267,12 +272,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -11279,31 +4797,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to GetSshPublicKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_ssh_public_key::GetSSHPublicKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_ssh_public_key::GetSSHPublicKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_user.rs`
@@ -11311,39 +4804,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_user.rs
 +++ generated/src/operation/get_user.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_user::GetUserError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_user::GetUserError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_user::GetUserError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,11 +247,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11357,31 +4818,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,10 +283,10 @@
-             .ok_or("failed to downcast to GetUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -402,6 +407,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_user::GetUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_user::GetUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/get_user_policy.rs`
@@ -11389,39 +4825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_user_policy.rs
 +++ generated/src/operation/get_user_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("GetUserPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::get_user_policy::GetUserPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::get_user_policy::GetUserPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_user_policy::GetUserPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11437,31 +4841,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to GetUserPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +418,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::get_user_policy::GetUserPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::get_user_policy::GetUserPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_access_keys.rs`
@@ -11469,39 +4848,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_access_keys.rs
 +++ generated/src/operation/list_access_keys.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListAccessKeys", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_access_keys::ListAccessKeysError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_access_keys::ListAccessKeysError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_access_keys::ListAccessKeysError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11519,31 +4866,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to ListAccessKeysInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_access_keys::ListAccessKeysError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_access_keys::ListAccessKeysError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_account_aliases.rs`
@@ -11551,57 +4873,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_account_aliases.rs
 +++ generated/src/operation/list_account_aliases.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListAccountAliases", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListAccountAliases")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListAccountAliasesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListAccountAliasesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_account_aliases::ListAccountAliasesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_account_aliases::ListAccountAliasesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_account_aliases::ListAccountAliasesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListAccountAliases")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListAccountAliasesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListAccountAliasesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_account_aliases::ListAccountAliasesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_account_aliases::ListAccountAliasesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_account_aliases::ListAccountAliasesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11616,31 +4888,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to ListAccountAliasesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -400,6 +391,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_account_aliases::ListAccountAliasesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_account_aliases::ListAccountAliasesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_attached_group_policies.rs`
@@ -11648,41 +4895,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_attached_group_policies.rs
 +++ generated/src/operation/list_attached_group_policies.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +268,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11697,31 +4910,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -299,10 +306,10 @@
-             .ok_or("failed to downcast to ListAttachedGroupPoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_attached_role_policies.rs`
@@ -11729,41 +4917,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_attached_role_policies.rs
 +++ generated/src/operation/list_attached_role_policies.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +268,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11778,31 +4932,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -299,10 +306,10 @@
-             .ok_or("failed to downcast to ListAttachedRolePoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_attached_user_policies.rs`
@@ -11810,41 +4939,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_attached_user_policies.rs
 +++ generated/src/operation/list_attached_user_policies.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +268,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11859,31 +4954,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -299,10 +306,10 @@
-             .ok_or("failed to downcast to ListAttachedUserPoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_delegation_requests.rs`
@@ -11891,74 +4961,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_delegation_requests.rs
 +++ generated/src/operation/list_delegation_requests.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListDelegationRequests")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListDelegationRequestsTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListDelegationRequestsEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_delegation_requests::ListDelegationRequestsError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_delegation_requests::ListDelegationRequestsError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_delegation_requests::ListDelegationRequestsError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListDelegationRequests")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListDelegationRequestsTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListDelegationRequestsEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::list_delegation_requests::ListDelegationRequestsError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::list_delegation_requests::ListDelegationRequestsError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::list_delegation_requests::ListDelegationRequestsError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +264,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11973,31 +4976,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +302,10 @@
-             .ok_or("failed to downcast to ListDelegationRequestsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -428,6 +436,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_delegation_requests::ListDelegationRequestsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_delegation_requests::ListDelegationRequestsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_entities_for_policy.rs`
@@ -12005,74 +4983,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_entities_for_policy.rs
 +++ generated/src/operation/list_entities_for_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListEntitiesForPolicy")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListEntitiesForPolicyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListEntitiesForPolicyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListEntitiesForPolicy")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListEntitiesForPolicyTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListEntitiesForPolicyEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::list_entities_for_policy::ListEntitiesForPolicyError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +269,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12087,31 +4998,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -299,10 +307,10 @@
-             .ok_or("failed to downcast to ListEntitiesForPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_entities_for_policy::ListEntitiesForPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_entities_for_policy::ListEntitiesForPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_group_policies.rs`
@@ -12119,57 +5005,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_group_policies.rs
 +++ generated/src/operation/list_group_policies.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListGroupPolicies", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListGroupPolicies")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListGroupPoliciesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListGroupPoliciesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_group_policies::ListGroupPoliciesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_group_policies::ListGroupPoliciesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_group_policies::ListGroupPoliciesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListGroupPolicies")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListGroupPoliciesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListGroupPoliciesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_group_policies::ListGroupPoliciesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_group_policies::ListGroupPoliciesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_group_policies::ListGroupPoliciesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +244,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12187,31 +5023,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to ListGroupPoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +406,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_group_policies::ListGroupPoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_group_policies::ListGroupPoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_groups.rs`
@@ -12219,39 +5030,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_groups.rs
 +++ generated/src/operation/list_groups.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListGroups", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_groups::ListGroupsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_groups::ListGroupsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_groups::ListGroupsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +256,10 @@
+@@ -250,12 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12266,31 +5045,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -288,10 +292,10 @@
-             .ok_or("failed to downcast to ListGroupsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -402,6 +406,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_groups::ListGroupsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_groups::ListGroupsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_groups_for_user.rs`
@@ -12298,57 +5052,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_groups_for_user.rs
 +++ generated/src/operation/list_groups_for_user.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListGroupsForUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListGroupsForUser")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListGroupsForUserTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListGroupsForUserEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_groups_for_user::ListGroupsForUserError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_groups_for_user::ListGroupsForUserError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_groups_for_user::ListGroupsForUserError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListGroupsForUser")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListGroupsForUserTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListGroupsForUserEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_groups_for_user::ListGroupsForUserError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_groups_for_user::ListGroupsForUserError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_groups_for_user::ListGroupsForUserError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12363,31 +5067,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to ListGroupsForUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +406,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_groups_for_user::ListGroupsForUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_groups_for_user::ListGroupsForUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_instance_profile_tags.rs`
@@ -12395,41 +5074,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_instance_profile_tags.rs
 +++ generated/src/operation/list_instance_profile_tags.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12444,31 +5089,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to ListInstanceProfileTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -418,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_instance_profile_tags::ListInstanceProfileTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_instance_profiles.rs`
@@ -12476,57 +5096,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_instance_profiles.rs
 +++ generated/src/operation/list_instance_profiles.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListInstanceProfiles")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListInstanceProfilesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListInstanceProfilesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_instance_profiles::ListInstanceProfilesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_instance_profiles::ListInstanceProfilesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_instance_profiles::ListInstanceProfilesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListInstanceProfiles")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListInstanceProfilesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListInstanceProfilesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_instance_profiles::ListInstanceProfilesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_instance_profiles::ListInstanceProfilesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_instance_profiles::ListInstanceProfilesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +247,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12541,31 +5111,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +285,10 @@
-             .ok_or("failed to downcast to ListInstanceProfilesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -408,6 +399,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_instance_profiles::ListInstanceProfilesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_instance_profiles::ListInstanceProfilesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_instance_profiles_for_role.rs`
@@ -12573,41 +5118,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_instance_profiles_for_role.rs
 +++ generated/src/operation/list_instance_profiles_for_role.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12622,31 +5133,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to ListInstanceProfilesForRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -418,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_mfa_device_tags/builders.rs`
@@ -12789,57 +5275,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListMFADeviceTags", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListMFADeviceTags")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListMFADeviceTags")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListMFADeviceTagsTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                ListMfaDeviceTagsTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListMFADeviceTagsEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListMFADeviceTags")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListMfaDeviceTagsTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListMfaDeviceTagsEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_mfa_device_tags::ListMFADeviceTagsError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                ListMfaDeviceTagsEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::list_mfa_device_tags::ListMFADeviceTagsError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -12855,7 +5307,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12870,7 +5322,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -267,12 +258,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -12886,31 +5338,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to ListMfaDeviceTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +416,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_mfa_device_tags::ListMFADeviceTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_mfa_device_tags::ListMFADeviceTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_mfa_devices/builders.rs`
@@ -13054,19 +5481,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListMFADevices", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListMFADevices")
@@ -13083,26 +5497,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::list_mfa_devices::ListMFADevicesError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_mfa_devices::ListMFADevicesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_mfa_devices::ListMFADevicesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_mfa_devices::ListMFADevicesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -13118,7 +5513,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13136,7 +5531,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -267,12 +272,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -13152,31 +5547,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to ListMfaDevicesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_mfa_devices::ListMFADevicesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_mfa_devices::ListMFADevicesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_open_id_connect_provider_tags/builders.rs`
@@ -13320,19 +5690,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOpenIDConnectProviderTags")
@@ -13349,28 +5706,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -13386,7 +5722,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -257,12 +265,11 @@
+@@ -257,12 +257,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13401,7 +5737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -272,12 +279,12 @@
+@@ -272,12 +271,12 @@
      }
  }
  #[derive(Debug)]
@@ -13417,31 +5753,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -296,10 +303,10 @@
-             .ok_or("failed to downcast to ListOpenIdConnectProviderTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +437,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_open_id_connect_providers/builders.rs`
@@ -13586,26 +5897,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,10 +127,13 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOpenIDConnectProviders")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                ListOpenIdConnectProvidersTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -130,7 +130,7 @@
                  ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
              ))
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -13614,73 +5906,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct ListOpenIdConnectProvidersTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListOpenIdConnectProvidersTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "ListOpenIdConnectProvidersTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListOpenIdConnectProvidersInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct ListOpenIDConnectProvidersResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListOpenIDConnectProvidersResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,24 +253,20 @@
+@@ -204,24 +204,20 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13709,31 +5935,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -240,10 +285,10 @@
-             .ok_or("failed to downcast to ListOpenIdConnectProvidersInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -354,6 +399,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_open_id_connect_providers::ListOpenIDConnectProvidersError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_organizations_features.rs`
@@ -13741,96 +5942,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_organizations_features.rs
 +++ generated/src/operation/list_organizations_features.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListOrganizationsFeatures")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                ListOrganizationsFeaturesTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_organizations_features::ListOrganizationsFeaturesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct ListOrganizationsFeaturesTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListOrganizationsFeaturesTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "ListOrganizationsFeaturesTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListOrganizationsFeaturesInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct ListOrganizationsFeaturesResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListOrganizationsFeaturesResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,13 +253,9 @@
+@@ -204,13 +204,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13845,31 +5957,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -240,10 +285,10 @@
-             .ok_or("failed to downcast to ListOrganizationsFeaturesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -386,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_organizations_features::ListOrganizationsFeaturesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_organizations_features::ListOrganizationsFeaturesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_policies/_list_policies_input.rs`
@@ -13893,39 +5980,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policies.rs
 +++ generated/src/operation/list_policies.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListPolicies", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_policies::ListPoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_policies::ListPoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_policies::ListPoliciesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13941,31 +5996,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to ListPoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -405,6 +408,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_policies::ListPoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_policies::ListPoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_policies_granting_service_access.rs`
@@ -13973,41 +6003,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policies_granting_service_access.rs
 +++ generated/src/operation/list_policies_granting_service_access.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -265,14 +273,11 @@
+@@ -265,14 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14024,31 +6020,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -306,10 +311,10 @@
-             .ok_or("failed to downcast to ListPoliciesGrantingServiceAccessInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +435,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_policy_tags.rs`
@@ -14056,39 +6027,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policy_tags.rs
 +++ generated/src/operation/list_policy_tags.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListPolicyTags", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_policy_tags::ListPolicyTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_policy_tags::ListPolicyTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_policy_tags::ListPolicyTagsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14106,31 +6045,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to ListPolicyTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +430,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_policy_tags::ListPolicyTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_policy_tags::ListPolicyTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_policy_versions.rs`
@@ -14138,57 +6052,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policy_versions.rs
 +++ generated/src/operation/list_policy_versions.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListPolicyVersions", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListPolicyVersions")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListPolicyVersionsTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListPolicyVersionsEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_policy_versions::ListPolicyVersionsError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_policy_versions::ListPolicyVersionsError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_policy_versions::ListPolicyVersionsError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListPolicyVersions")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListPolicyVersionsTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListPolicyVersionsEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_policy_versions::ListPolicyVersionsError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_policy_versions::ListPolicyVersionsError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_policy_versions::ListPolicyVersionsError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14203,31 +6067,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to ListPolicyVersionsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -425,6 +416,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_policy_versions::ListPolicyVersionsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_policy_versions::ListPolicyVersionsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_role_policies.rs`
@@ -14235,39 +6074,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_role_policies.rs
 +++ generated/src/operation/list_role_policies.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListRolePolicies", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_role_policies::ListRolePoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_role_policies::ListRolePoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_role_policies::ListRolePoliciesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14285,31 +6092,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to ListRolePoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_role_policies::ListRolePoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_role_policies::ListRolePoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_role_tags.rs`
@@ -14317,39 +6099,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_role_tags.rs
 +++ generated/src/operation/list_role_tags.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListRoleTags", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_role_tags::ListRoleTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_role_tags::ListRoleTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_role_tags::ListRoleTagsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14365,31 +6115,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to ListRoleTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +418,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_role_tags::ListRoleTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_role_tags::ListRoleTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_roles.rs`
@@ -14397,39 +6122,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_roles.rs
 +++ generated/src/operation/list_roles.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListRoles", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_roles::ListRolesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_roles::ListRolesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_roles::ListRolesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,11 +256,10 @@
+@@ -250,11 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14443,31 +6136,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,10 +292,10 @@
-             .ok_or("failed to downcast to ListRolesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -401,6 +406,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_roles::ListRolesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_roles::ListRolesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_saml_provider_tags/builders.rs`
@@ -14611,57 +6279,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -127,13 +127,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSAMLProviderTags")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSAMLProviderTags")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListSAMLProviderTagsTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                ListSamlProviderTagsTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListSAMLProviderTagsEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSAMLProviderTags")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSamlProviderTagsTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSamlProviderTagsEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +142,12 @@
++                ListSamlProviderTagsEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -14677,7 +6311,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -255,12 +247,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14692,7 +6326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -270,12 +261,12 @@
+@@ -270,12 +269,12 @@
      }
  }
  #[derive(Debug)]
@@ -14708,31 +6342,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -294,10 +285,10 @@
-             .ok_or("failed to downcast to ListSamlProviderTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -428,6 +419,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_saml_providers/builders.rs`
@@ -14877,99 +6486,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListSAMLProviders", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,22 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSAMLProviders")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+@@ -127,7 +127,7 @@
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListSAMLProvidersEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_saml_providers::ListSAMLProvidersError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_saml_providers::ListSAMLProvidersError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_saml_providers::ListSAMLProvidersError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSAMLProviders")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSamlProvidersTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSamlProvidersEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_saml_providers::ListSAMLProvidersError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_saml_providers::ListSAMLProvidersError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_saml_providers::ListSAMLProvidersError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -144,6 +139,44 @@
- }
-
- #[derive(Debug)]
-+struct ListSamlProvidersTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSamlProvidersTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "ListSamlProvidersTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<ListSamlProvidersInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct ListSAMLProvidersResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListSAMLProvidersResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -201,24 +234,20 @@
++                ListSamlProvidersEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::list_saml_providers::ListSAMLProvidersError,
+@@ -201,24 +201,20 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14998,31 +6524,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -237,10 +266,10 @@
-             .ok_or("failed to downcast to ListSamlProvidersInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -351,6 +380,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_saml_providers::ListSAMLProvidersError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_saml_providers::ListSAMLProvidersError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_server_certificate_tags.rs`
@@ -15030,41 +6531,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_server_certificate_tags.rs
 +++ generated/src/operation/list_server_certificate_tags.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_server_certificate_tags::ListServerCertificateTagsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15079,31 +6546,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to ListServerCertificateTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -418,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_server_certificate_tags::ListServerCertificateTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_server_certificate_tags::ListServerCertificateTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_server_certificates.rs`
@@ -15111,74 +6553,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_server_certificates.rs
 +++ generated/src/operation/list_server_certificates.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListServerCertificates")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListServerCertificatesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ListServerCertificatesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_server_certificates::ListServerCertificatesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_server_certificates::ListServerCertificatesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_server_certificates::ListServerCertificatesError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListServerCertificates")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListServerCertificatesTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListServerCertificatesEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::list_server_certificates::ListServerCertificatesError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::list_server_certificates::ListServerCertificatesError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::list_server_certificates::ListServerCertificatesError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +264,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15193,31 +6568,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +302,10 @@
-             .ok_or("failed to downcast to ListServerCertificatesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -408,6 +416,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_server_certificates::ListServerCertificatesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_server_certificates::ListServerCertificatesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_service_specific_credentials.rs`
@@ -15225,41 +6575,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_service_specific_credentials.rs
 +++ generated/src/operation/list_service_specific_credentials.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -266,12 +274,11 @@
+@@ -266,12 +266,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15274,31 +6590,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -305,10 +312,10 @@
-             .ok_or("failed to downcast to ListServiceSpecificCredentialsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -429,6 +436,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_service_specific_credentials::ListServiceSpecificCredentialsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_signing_certificates.rs`
@@ -15306,41 +6597,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_signing_certificates.rs
 +++ generated/src/operation/list_signing_certificates.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_signing_certificates::ListSigningCertificatesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_signing_certificates::ListSigningCertificatesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::list_signing_certificates::ListSigningCertificatesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15355,31 +6612,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to ListSigningCertificatesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -418,6 +425,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_signing_certificates::ListSigningCertificatesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_signing_certificates::ListSigningCertificatesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_ssh_public_keys/builders.rs`
@@ -15524,57 +6756,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListSSHPublicKeys", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSSHPublicKeys")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSSHPublicKeys")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListSSHPublicKeysTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                ListSshPublicKeysTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListSSHPublicKeysEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListSSHPublicKeys")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSshPublicKeysTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSshPublicKeysEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_ssh_public_keys::ListSSHPublicKeysError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                ListSshPublicKeysEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::list_ssh_public_keys::ListSSHPublicKeysError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -15590,7 +6788,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15605,7 +6803,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -267,12 +258,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -15621,31 +6819,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to ListSshPublicKeysInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -405,6 +396,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_ssh_public_keys::ListSSHPublicKeysError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_ssh_public_keys::ListSSHPublicKeysError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_user_policies.rs`
@@ -15653,39 +6826,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_user_policies.rs
 +++ generated/src/operation/list_user_policies.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListUserPolicies", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_user_policies::ListUserPoliciesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_user_policies::ListUserPoliciesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_user_policies::ListUserPoliciesError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15703,31 +6844,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to ListUserPoliciesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +420,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_user_policies::ListUserPoliciesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_user_policies::ListUserPoliciesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_user_tags.rs`
@@ -15735,39 +6851,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_user_tags.rs
 +++ generated/src/operation/list_user_tags.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListUserTags", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_user_tags::ListUserTagsError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_user_tags::ListUserTagsError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_user_tags::ListUserTagsError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15783,31 +6867,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +294,10 @@
-             .ok_or("failed to downcast to ListUserTagsInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +418,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_user_tags::ListUserTagsError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_user_tags::ListUserTagsError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_users.rs`
@@ -15815,39 +6874,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_users.rs
 +++ generated/src/operation/list_users.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ListUsers", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::list_users::ListUsersError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_users::ListUsersError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_users::ListUsersError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,11 +256,10 @@
+@@ -250,11 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15861,31 +6888,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -287,10 +292,10 @@
-             .ok_or("failed to downcast to ListUsersInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -401,6 +406,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_users::ListUsersError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_users::ListUsersError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/list_virtual_mfa_devices/builders.rs`
@@ -16032,74 +7034,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -108,9 +108,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -126,25 +126,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -128,13 +128,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListVirtualMFADevices")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListVirtualMFADevices")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListVirtualMFADevicesTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                ListVirtualMfaDevicesTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                ListVirtualMFADevicesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ListVirtualMFADevices")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListVirtualMfaDevicesTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ListVirtualMfaDevicesEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -151,12 +160,12 @@
++                ListVirtualMfaDevicesEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError,
+@@ -151,12 +151,12 @@
  }
 
  #[derive(Debug)]
@@ -16115,7 +7066,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -251,12 +260,11 @@
+@@ -251,12 +251,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16130,7 +7081,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -266,12 +274,12 @@
+@@ -266,12 +265,12 @@
      }
  }
  #[derive(Debug)]
@@ -16146,31 +7097,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -290,10 +298,10 @@
-             .ok_or("failed to downcast to ListVirtualMfaDevicesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -394,6 +402,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::list_virtual_mfa_devices::ListVirtualMFADevicesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_account_properties.rs`
@@ -16178,99 +7104,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_account_properties.rs
 +++ generated/src/operation/put_account_properties.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,22 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountProperties")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                PutAccountPropertiesEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::put_account_properties::PutAccountPropertiesError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::put_account_properties::PutAccountPropertiesError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_account_properties::PutAccountPropertiesError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("PutAccountProperties")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountPropertiesTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(PutAccountPropertiesEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::put_account_properties::PutAccountPropertiesError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::put_account_properties::PutAccountPropertiesError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_account_properties::PutAccountPropertiesError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +142,44 @@
- }
-
- #[derive(Debug)]
-+struct PutAccountPropertiesTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for PutAccountPropertiesTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "PutAccountPropertiesTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<PutAccountPropertiesInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct PutAccountPropertiesResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutAccountPropertiesResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,12 +237,11 @@
+@@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16285,31 +7119,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -243,10 +275,10 @@
-             .ok_or("failed to downcast to PutAccountPropertiesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -377,6 +409,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_account_properties::PutAccountPropertiesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_account_properties::PutAccountPropertiesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_group_policy.rs`
@@ -16317,39 +7126,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_group_policy.rs
 +++ generated/src/operation/put_group_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PutGroupPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_group_policy::PutGroupPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_group_policy::PutGroupPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_group_policy::PutGroupPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,13 +263,12 @@
+@@ -257,13 +257,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16367,31 +7144,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,10 +301,10 @@
-             .ok_or("failed to downcast to PutGroupPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_group_policy::PutGroupPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_group_policy::PutGroupPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_role_permissions_boundary.rs`
@@ -16399,41 +7151,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_role_permissions_boundary.rs
 +++ generated/src/operation/put_role_permissions_boundary.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16448,31 +7166,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to PutRolePermissionsBoundaryInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_role_policy.rs`
@@ -16480,39 +7173,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_role_policy.rs
 +++ generated/src/operation/put_role_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PutRolePolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_role_policy::PutRolePolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_role_policy::PutRolePolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_role_policy::PutRolePolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,13 +263,10 @@
+@@ -257,13 +257,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16528,31 +7189,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,10 +299,10 @@
-             .ok_or("failed to downcast to PutRolePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -450,6 +453,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_role_policy::PutRolePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_role_policy::PutRolePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_user_permissions_boundary.rs`
@@ -16560,41 +7196,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_user_permissions_boundary.rs
 +++ generated/src/operation/put_user_permissions_boundary.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16609,31 +7211,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to PutUserPermissionsBoundaryInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/put_user_policy.rs`
@@ -16641,39 +7218,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_user_policy.rs
 +++ generated/src/operation/put_user_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("PutUserPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::put_user_policy::PutUserPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::put_user_policy::PutUserPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::put_user_policy::PutUserPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,13 +263,10 @@
+@@ -257,13 +257,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16689,31 +7234,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,10 +299,10 @@
-             .ok_or("failed to downcast to PutUserPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +443,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::put_user_policy::PutUserPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::put_user_policy::PutUserPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/reject_delegation_request.rs`
@@ -16721,41 +7241,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/reject_delegation_request.rs
 +++ generated/src/operation/reject_delegation_request.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::reject_delegation_request::RejectDelegationRequestError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::reject_delegation_request::RejectDelegationRequestError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::reject_delegation_request::RejectDelegationRequestError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16770,31 +7256,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to RejectDelegationRequestInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::reject_delegation_request::RejectDelegationRequestError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::reject_delegation_request::RejectDelegationRequestError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/remove_client_id_from_open_id_connect_provider/builders.rs`
@@ -16938,19 +7399,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -133,13 +133,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("RemoveClientIDFromOpenIDConnectProvider")
@@ -16967,28 +7415,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -156,12 +164,12 @@
+@@ -156,12 +156,12 @@
  }
 
  #[derive(Debug)]
@@ -17004,7 +7431,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -263,11 +271,10 @@
+@@ -263,11 +263,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17018,7 +7445,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -276,12 +283,12 @@
+@@ -276,12 +275,12 @@
      }
  }
  #[derive(Debug)]
@@ -17034,33 +7461,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -300,10 +307,10 @@
-             .ok_or("failed to downcast to RemoveClientIdFromOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -444,6 +451,13 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt
-+    for crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError
-+{
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId
-     for crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError
- {
 ```
 
 ### `src/operation/remove_role_from_instance_profile.rs`
@@ -17068,41 +7468,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/remove_role_from_instance_profile.rs
 +++ generated/src/operation/remove_role_from_instance_profile.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17117,31 +7483,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to RemoveRoleFromInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/remove_user_from_group.rs`
@@ -17149,57 +7490,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/remove_user_from_group.rs
 +++ generated/src/operation/remove_user_from_group.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("RemoveUserFromGroup")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                RemoveUserFromGroupTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                RemoveUserFromGroupEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::remove_user_from_group::RemoveUserFromGroupError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::remove_user_from_group::RemoveUserFromGroupError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::remove_user_from_group::RemoveUserFromGroupError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("RemoveUserFromGroup")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(RemoveUserFromGroupTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(RemoveUserFromGroupEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::remove_user_from_group::RemoveUserFromGroupError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::remove_user_from_group::RemoveUserFromGroupError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::remove_user_from_group::RemoveUserFromGroupError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +247,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17214,31 +7505,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +285,10 @@
-             .ok_or("failed to downcast to RemoveUserFromGroupInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -428,6 +419,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::remove_user_from_group::RemoveUserFromGroupError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::remove_user_from_group::RemoveUserFromGroupError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/reset_service_specific_credential.rs`
@@ -17246,41 +7512,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/reset_service_specific_credential.rs
 +++ generated/src/operation/reset_service_specific_credential.rs
-@@ -114,9 +114,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -148,9 +148,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -262,12 +270,11 @@
+@@ -262,12 +262,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17295,31 +7527,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -301,10 +308,10 @@
-             .ok_or("failed to downcast to ResetServiceSpecificCredentialInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +422,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::reset_service_specific_credential::ResetServiceSpecificCredentialError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/resync_mfa_device/builders.rs`
@@ -17463,19 +7670,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("ResyncMFADevice", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("ResyncMFADevice")
@@ -17492,26 +7686,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::resync_mfa_device::ResyncMFADeviceError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::resync_mfa_device::ResyncMFADeviceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::resync_mfa_device::ResyncMFADeviceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::resync_mfa_device::ResyncMFADeviceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -17527,7 +7702,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -262,13 +268,12 @@
+@@ -262,13 +262,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17545,7 +7720,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -277,12 +282,12 @@
+@@ -277,12 +276,12 @@
      }
  }
  #[derive(Debug)]
@@ -17561,31 +7736,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -301,10 +306,10 @@
-             .ok_or("failed to downcast to ResyncMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -455,6 +460,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::resync_mfa_device::ResyncMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::resync_mfa_device::ResyncMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/send_delegation_token.rs`
@@ -17593,57 +7743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/send_delegation_token.rs
 +++ generated/src/operation/send_delegation_token.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SendDelegationToken")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SendDelegationTokenTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SendDelegationTokenEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::send_delegation_token::SendDelegationTokenError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::send_delegation_token::SendDelegationTokenError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::send_delegation_token::SendDelegationTokenError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SendDelegationToken")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SendDelegationTokenTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SendDelegationTokenEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::send_delegation_token::SendDelegationTokenError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::send_delegation_token::SendDelegationTokenError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::send_delegation_token::SendDelegationTokenError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +242,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17658,31 +7758,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +280,10 @@
-             .ok_or("failed to downcast to SendDelegationTokenInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +424,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::send_delegation_token::SendDelegationTokenError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::send_delegation_token::SendDelegationTokenError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_default_policy_version.rs`
@@ -17690,41 +7765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_default_policy_version.rs
 +++ generated/src/operation/set_default_policy_version.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::set_default_policy_version::SetDefaultPolicyVersionError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17739,31 +7780,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to SetDefaultPolicyVersionInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_default_policy_version::SetDefaultPolicyVersionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_default_policy_version::SetDefaultPolicyVersionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/set_security_token_service_preferences.rs`
@@ -17771,96 +7787,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_security_token_service_preferences.rs
 +++ generated/src/operation/set_security_token_service_preferences.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -133,6 +133,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SetSecurityTokenServicePreferences")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                SetSecurityTokenServicePreferencesTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -144,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -153,6 +164,44 @@
- }
-
- #[derive(Debug)]
-+struct SetSecurityTokenServicePreferencesTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for SetSecurityTokenServicePreferencesTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "SetSecurityTokenServicePreferencesTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<SetSecurityTokenServicePreferencesInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct SetSecurityTokenServicePreferencesResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for SetSecurityTokenServicePreferencesResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -214,14 +263,11 @@
+@@ -214,14 +214,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17877,31 +7804,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -255,10 +301,10 @@
-             .ok_or("failed to downcast to SetSecurityTokenServicePreferencesInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -369,6 +415,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/simulate_custom_policy.rs`
@@ -17909,57 +7811,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/simulate_custom_policy.rs
 +++ generated/src/operation/simulate_custom_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SimulateCustomPolicy")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SimulateCustomPolicyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                SimulateCustomPolicyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::simulate_custom_policy::SimulateCustomPolicyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SimulateCustomPolicy")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SimulateCustomPolicyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SimulateCustomPolicyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::simulate_custom_policy::SimulateCustomPolicyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::simulate_custom_policy::SimulateCustomPolicyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::simulate_custom_policy::SimulateCustomPolicyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -270,12 +262,11 @@
+@@ -270,12 +270,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -17974,31 +7826,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -309,10 +300,10 @@
-             .ok_or("failed to downcast to SimulateCustomPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +424,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::simulate_custom_policy::SimulateCustomPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::simulate_custom_policy::SimulateCustomPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/simulate_principal_policy.rs`
@@ -18006,41 +7833,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/simulate_principal_policy.rs
 +++ generated/src/operation/simulate_principal_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -275,12 +283,11 @@
+@@ -275,12 +275,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -18055,31 +7848,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -314,10 +321,10 @@
-             .ok_or("failed to downcast to SimulatePrincipalPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +455,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::simulate_principal_policy::SimulatePrincipalPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_instance_profile.rs`
@@ -18087,57 +7855,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_instance_profile.rs
 +++ generated/src/operation/tag_instance_profile.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagInstanceProfile", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagInstanceProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                TagInstanceProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                TagInstanceProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::tag_instance_profile::TagInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::tag_instance_profile::TagInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_instance_profile::TagInstanceProfileError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagInstanceProfile")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(TagInstanceProfileTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(TagInstanceProfileEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::tag_instance_profile::TagInstanceProfileError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::tag_instance_profile::TagInstanceProfileError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_instance_profile::TagInstanceProfileError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -18152,31 +7870,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to TagInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_instance_profile::TagInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_instance_profile::TagInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_mfa_device/builders.rs`
@@ -18323,19 +8016,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagMFADevice", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagMFADevice")
@@ -18352,26 +8032,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::tag_mfa_device::TagMFADeviceError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_mfa_device::TagMFADeviceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_mfa_device::TagMFADeviceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_mfa_device::TagMFADeviceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -18387,7 +8048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -18403,7 +8064,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +265,12 @@
+@@ -262,12 +259,12 @@
      }
  }
  #[derive(Debug)]
@@ -18419,31 +8080,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -286,10 +289,10 @@
-             .ok_or("failed to downcast to TagMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +443,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_mfa_device::TagMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_mfa_device::TagMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_open_id_connect_provider/builders.rs`
@@ -18590,19 +8226,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagOpenIDConnectProvider")
@@ -18619,28 +8242,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -18656,7 +8258,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -18671,7 +8273,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +272,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -18687,31 +8289,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to TagOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -443,6 +450,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_policy.rs`
@@ -18719,39 +8296,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_policy.rs
 +++ generated/src/operation/tag_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_policy::TagPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_policy::TagPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_policy::TagPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,11 +251,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -18765,31 +8310,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -282,10 +287,10 @@
-             .ok_or("failed to downcast to TagPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -436,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_policy::TagPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_policy::TagPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_role.rs`
@@ -18797,39 +8317,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_role.rs
 +++ generated/src/operation/tag_role.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_role::TagRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_role::TagRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_role::TagRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,11 +247,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -18843,31 +8331,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,10 +283,10 @@
-             .ok_or("failed to downcast to TagRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -432,6 +437,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_role::TagRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_role::TagRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_saml_provider/builders.rs`
@@ -19014,19 +8477,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagSAMLProvider", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagSAMLProvider")
@@ -19043,26 +8493,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::tag_saml_provider::TagSAMLProviderError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_saml_provider::TagSAMLProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_saml_provider::TagSAMLProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_saml_provider::TagSAMLProviderError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -19078,7 +8509,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +253,12 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19096,7 +8527,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +267,12 @@
+@@ -262,12 +261,12 @@
      }
  }
  #[derive(Debug)]
@@ -19112,31 +8543,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -286,10 +291,10 @@
-             .ok_or("failed to downcast to TagSamlProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_saml_provider::TagSAMLProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_saml_provider::TagSAMLProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_server_certificate.rs`
@@ -19144,57 +8550,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_server_certificate.rs
 +++ generated/src/operation/tag_server_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagServerCertificate")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                TagServerCertificateTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                TagServerCertificateEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::tag_server_certificate::TagServerCertificateError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::tag_server_certificate::TagServerCertificateError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_server_certificate::TagServerCertificateError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("TagServerCertificate")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(TagServerCertificateTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(TagServerCertificateEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::tag_server_certificate::TagServerCertificateError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::tag_server_certificate::TagServerCertificateError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_server_certificate::TagServerCertificateError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +242,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19209,31 +8565,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +280,10 @@
-             .ok_or("failed to downcast to TagServerCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -443,6 +434,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_server_certificate::TagServerCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_server_certificate::TagServerCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/tag_user.rs`
@@ -19241,39 +8572,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_user.rs
 +++ generated/src/operation/tag_user.rs
-@@ -100,9 +100,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("TagUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -134,9 +134,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::tag_user::TagUserError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::tag_user::TagUserError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_user::TagUserError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -241,11 +247,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19287,31 +8586,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,10 +283,10 @@
-             .ok_or("failed to downcast to TagUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -432,6 +437,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_user::TagUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::tag_user::TagUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_instance_profile.rs`
@@ -19319,57 +8593,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_instance_profile.rs
 +++ generated/src/operation/untag_instance_profile.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagInstanceProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UntagInstanceProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UntagInstanceProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::untag_instance_profile::UntagInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::untag_instance_profile::UntagInstanceProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_instance_profile::UntagInstanceProfileError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagInstanceProfile")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UntagInstanceProfileTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UntagInstanceProfileEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::untag_instance_profile::UntagInstanceProfileError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::untag_instance_profile::UntagInstanceProfileError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_instance_profile::UntagInstanceProfileError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +242,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19384,31 +8608,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +280,10 @@
-             .ok_or("failed to downcast to UntagInstanceProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +424,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_instance_profile::UntagInstanceProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_instance_profile::UntagInstanceProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_mfa_device/builders.rs`
@@ -19551,19 +8750,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagMFADevice", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -124,13 +124,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagMFADevice")
@@ -19580,26 +8766,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::untag_mfa_device::UntagMFADeviceError,
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_mfa_device::UntagMFADeviceError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_mfa_device::UntagMFADeviceError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_mfa_device::UntagMFADeviceError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +153,12 @@
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -19615,7 +8782,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +253,12 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19633,7 +8800,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +267,12 @@
+@@ -262,12 +261,12 @@
      }
  }
  #[derive(Debug)]
@@ -19649,31 +8816,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -286,10 +291,10 @@
-             .ok_or("failed to downcast to UntagMfaDeviceInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +435,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_mfa_device::UntagMFADeviceError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_mfa_device::UntagMFADeviceError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_open_id_connect_provider/builders.rs`
@@ -19816,19 +8958,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -127,13 +127,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagOpenIDConnectProvider")
@@ -19845,28 +8974,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -150,12 +158,12 @@
+@@ -150,12 +150,12 @@
  }
 
  #[derive(Debug)]
@@ -19882,7 +8990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -250,12 +258,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19897,7 +9005,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +272,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -19913,31 +9021,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -289,10 +296,10 @@
-             .ok_or("failed to downcast to UntagOpenIdConnectProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_open_id_connect_provider::UntagOpenIDConnectProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_policy.rs`
@@ -19945,39 +9028,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_policy.rs
 +++ generated/src/operation/untag_policy.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagPolicy", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_policy::UntagPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_policy::UntagPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_policy::UntagPolicyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,13 +253,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -19993,31 +9044,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -286,10 +289,10 @@
-             .ok_or("failed to downcast to UntagPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +433,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_policy::UntagPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_policy::UntagPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_role.rs`
@@ -20025,39 +9051,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_role.rs
 +++ generated/src/operation/untag_role.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_role::UntagRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_role::UntagRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_role::UntagRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,11 +251,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20071,31 +9065,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -282,10 +287,10 @@
-             .ok_or("failed to downcast to UntagRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -416,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_role::UntagRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_role::UntagRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_saml_provider/builders.rs`
@@ -20238,57 +9207,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagSAMLProvider", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagSAMLProvider")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagSAMLProvider")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UntagSAMLProviderTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                UntagSamlProviderTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UntagSAMLProviderEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::untag_saml_provider::UntagSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::untag_saml_provider::UntagSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_saml_provider::UntagSAMLProviderError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagSAMLProvider")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UntagSamlProviderTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UntagSamlProviderEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::untag_saml_provider::UntagSAMLProviderError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::untag_saml_provider::UntagSAMLProviderError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_saml_provider::UntagSAMLProviderError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                UntagSamlProviderEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::untag_saml_provider::UntagSAMLProviderError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -20304,7 +9239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,13 +239,12 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20322,7 +9257,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -262,12 +253,12 @@
+@@ -262,12 +261,12 @@
      }
  }
  #[derive(Debug)]
@@ -20338,31 +9273,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to UntagSamlProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -430,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_saml_provider::UntagSAMLProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_saml_provider::UntagSAMLProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_server_certificate.rs`
@@ -20370,74 +9280,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_server_certificate.rs
 +++ generated/src/operation/untag_server_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagServerCertificate")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UntagServerCertificateTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UntagServerCertificateEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::untag_server_certificate::UntagServerCertificateError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::untag_server_certificate::UntagServerCertificateError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_server_certificate::UntagServerCertificateError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UntagServerCertificate")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    UntagServerCertificateTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    UntagServerCertificateEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::untag_server_certificate::UntagServerCertificateError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::untag_server_certificate::UntagServerCertificateError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::untag_server_certificate::UntagServerCertificateError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +259,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20452,31 +9295,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -289,10 +297,10 @@
-             .ok_or("failed to downcast to UntagServerCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -433,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_server_certificate::UntagServerCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_server_certificate::UntagServerCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/untag_user.rs`
@@ -20484,39 +9302,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_user.rs
 +++ generated/src/operation/untag_user.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UntagUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::untag_user::UntagUserError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::untag_user::UntagUserError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::untag_user::UntagUserError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -245,11 +251,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20530,31 +9316,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -282,10 +287,10 @@
-             .ok_or("failed to downcast to UntagUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -416,6 +421,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::untag_user::UntagUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::untag_user::UntagUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_access_key.rs`
@@ -20562,39 +9323,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_access_key.rs
 +++ generated/src/operation/update_access_key.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateAccessKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_access_key::UpdateAccessKeyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_access_key::UpdateAccessKeyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_access_key::UpdateAccessKeyError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -252,13 +258,12 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20612,31 +9341,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -291,10 +296,10 @@
-             .ok_or("failed to downcast to UpdateAccessKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -435,6 +440,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_access_key::UpdateAccessKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_access_key::UpdateAccessKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_account_password_policy/_update_account_password_policy_input.rs`
@@ -20668,96 +9372,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_account_password_policy.rs
 +++ generated/src/operation/update_account_password_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -127,6 +127,9 @@
-         #[allow(unused_mut)]
-         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateAccountPasswordPolicy")
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                UpdateAccountPasswordPolicyTelemetryInputCaptureInterceptor,
-+            ))
-+            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-             ))
-             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-@@ -138,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,6 +158,44 @@
- }
-
- #[derive(Debug)]
-+struct UpdateAccountPasswordPolicyTelemetryInputCaptureInterceptor;
-+
-+#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-+impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateAccountPasswordPolicyTelemetryInputCaptureInterceptor {
-+    fn name(&self) -> &'static str {
-+        "UpdateAccountPasswordPolicyTelemetryInputCaptureInterceptor"
-+    }
-+
-+    fn read_before_execution(
-+        &self,
-+        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-+            '_,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+        >,
-+        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-+    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-+        // Nothing to do unless the customer opted in by naming members to record.
-+        let ::std::option::Option::Some(requested) = cfg
-+            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-+            .filter(|r| !r.is_empty())
-+        else {
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let ::std::option::Option::Some(input) = context.input().downcast_ref::<UpdateAccountPasswordPolicyInput>() else {
-+            // A mismatched input is not this interceptor's concern; skip quietly.
-+            return ::std::result::Result::Ok(());
-+        };
-+
-+        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-+
-+        cfg.interceptor_state().store_put(captured);
-+        ::std::result::Result::Ok(())
-+    }
-+}
-+#[derive(Debug)]
- struct UpdateAccountPasswordPolicyResponseDeserializer;
- impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for UpdateAccountPasswordPolicyResponseDeserializer {
-     fn deserialize_nonstreaming_with_config(
-@@ -204,12 +253,11 @@
+@@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20772,31 +9387,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -243,10 +291,10 @@
-             .ok_or("failed to downcast to UpdateAccountPasswordPolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -387,6 +435,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_account_password_policy::UpdateAccountPasswordPolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_assume_role_policy.rs`
@@ -20804,74 +9394,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_assume_role_policy.rs
 +++ generated/src/operation/update_assume_role_policy.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateAssumeRolePolicy")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateAssumeRolePolicyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateAssumeRolePolicyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateAssumeRolePolicy")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    UpdateAssumeRolePolicyTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    UpdateAssumeRolePolicyEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +264,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20886,31 +9409,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +302,10 @@
-             .ok_or("failed to downcast to UpdateAssumeRolePolicyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -448,6 +456,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_assume_role_policy::UpdateAssumeRolePolicyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_delegation_request.rs`
@@ -20918,41 +9416,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_delegation_request.rs
 +++ generated/src/operation/update_delegation_request.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_delegation_request::UpdateDelegationRequestError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_delegation_request::UpdateDelegationRequestError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::update_delegation_request::UpdateDelegationRequestError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -20967,31 +9431,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to UpdateDelegationRequestInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_delegation_request::UpdateDelegationRequestError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_delegation_request::UpdateDelegationRequestError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_group.rs`
@@ -20999,39 +9438,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_group.rs
 +++ generated/src/operation/update_group.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateGroup", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_group::UpdateGroupError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_group::UpdateGroupError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_group::UpdateGroupError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -257,13 +263,10 @@
+@@ -257,13 +257,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21047,31 +9454,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -296,10 +299,10 @@
-             .ok_or("failed to downcast to UpdateGroupInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +443,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_group::UpdateGroupError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_group::UpdateGroupError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_login_profile.rs`
@@ -21079,57 +9461,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_login_profile.rs
 +++ generated/src/operation/update_login_profile.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateLoginProfile", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateLoginProfile")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateLoginProfileTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateLoginProfileEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_login_profile::UpdateLoginProfileError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_login_profile::UpdateLoginProfileError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_login_profile::UpdateLoginProfileError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateLoginProfile")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateLoginProfileTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateLoginProfileEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_login_profile::UpdateLoginProfileError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_login_profile::UpdateLoginProfileError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_login_profile::UpdateLoginProfileError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -247,12 +239,11 @@
+@@ -247,12 +247,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21144,31 +9476,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -286,10 +277,10 @@
-             .ok_or("failed to downcast to UpdateLoginProfileInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -440,6 +431,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_login_profile::UpdateLoginProfileError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_login_profile::UpdateLoginProfileError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_open_id_connect_provider_thumbprint/builders.rs`
@@ -21315,19 +9622,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
 @@ -133,13 +133,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateOpenIDConnectProviderThumbprint")
@@ -21344,28 +9638,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -156,12 +164,12 @@
+@@ -156,12 +156,12 @@
  }
 
  #[derive(Debug)]
@@ -21381,7 +9654,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -260,11 +268,14 @@
+@@ -260,11 +260,14 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21399,7 +9672,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -273,12 +284,12 @@
+@@ -273,12 +276,12 @@
      }
  }
  #[derive(Debug)]
@@ -21415,31 +9688,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -297,10 +308,10 @@
-             .ok_or("failed to downcast to UpdateOpenIdConnectProviderThumbprintInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -441,6 +452,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_role.rs`
@@ -21447,39 +9695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_role.rs
 +++ generated/src/operation/update_role.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateRole", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_role::UpdateRoleError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_role::UpdateRoleError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_role::UpdateRoleError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -250,12 +256,10 @@
+@@ -250,12 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21494,31 +9710,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -288,10 +292,10 @@
-             .ok_or("failed to downcast to UpdateRoleInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -422,6 +426,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_role::UpdateRoleError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_role::UpdateRoleError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_role_description.rs`
@@ -21526,74 +9717,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_role_description.rs
 +++ generated/src/operation/update_role_description.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -125,25 +125,34 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
-         #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateRoleDescription")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateRoleDescriptionTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                UpdateRoleDescriptionEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_role_description::UpdateRoleDescriptionError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_role_description::UpdateRoleDescriptionError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_role_description::UpdateRoleDescriptionError,
--            >::new());
-+        let mut rcb =
-+            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateRoleDescription")
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    UpdateRoleDescriptionTelemetryInputCaptureInterceptor,
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-+                ))
-+                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-+                    UpdateRoleDescriptionEndpointParamsInterceptor,
-+                ))
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-+                    crate::operation::update_role_description::UpdateRoleDescriptionError,
-+                >::new())
-+                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-+                    crate::operation::update_role_description::UpdateRoleDescriptionError,
-+                >::new())
-+                .with_retry_classifier(
-+                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                        crate::operation::update_role_description::UpdateRoleDescriptionError,
-+                    >::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+                );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +264,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21608,31 +9732,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +302,10 @@
-             .ok_or("failed to downcast to UpdateRoleDescriptionInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -428,6 +436,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_role_description::UpdateRoleDescriptionError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_role_description::UpdateRoleDescriptionError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_saml_provider/builders.rs`
@@ -21775,57 +9874,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateSAMLProvider", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateSAMLProvider")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateSAMLProvider")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UpdateSAMLProviderTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                UpdateSamlProviderTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UpdateSAMLProviderEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_saml_provider::UpdateSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_saml_provider::UpdateSAMLProviderError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_saml_provider::UpdateSAMLProviderError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateSAMLProvider")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateSamlProviderTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateSamlProviderEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_saml_provider::UpdateSAMLProviderError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_saml_provider::UpdateSAMLProviderError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_saml_provider::UpdateSAMLProviderError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                UpdateSamlProviderEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::update_saml_provider::UpdateSAMLProviderError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -21841,7 +9906,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -257,12 +249,11 @@
+@@ -257,12 +257,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21856,7 +9921,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -272,12 +263,12 @@
+@@ -272,12 +271,12 @@
      }
  }
  #[derive(Debug)]
@@ -21872,31 +9937,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -296,10 +287,10 @@
-             .ok_or("failed to downcast to UpdateSamlProviderInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -450,6 +441,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_saml_provider::UpdateSAMLProviderError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_saml_provider::UpdateSAMLProviderError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_server_certificate.rs`
@@ -21904,41 +9944,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_server_certificate.rs
 +++ generated/src/operation/update_server_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_server_certificate::UpdateServerCertificateError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_server_certificate::UpdateServerCertificateError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::update_server_certificate::UpdateServerCertificateError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -260,12 +268,11 @@
+@@ -260,12 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -21953,31 +9959,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -299,10 +306,10 @@
-             .ok_or("failed to downcast to UpdateServerCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -443,6 +450,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_server_certificate::UpdateServerCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_server_certificate::UpdateServerCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_service_specific_credential.rs`
@@ -21985,41 +9966,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_service_specific_credential.rs
 +++ generated/src/operation/update_service_specific_credential.rs
-@@ -113,9 +113,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -147,9 +147,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -263,12 +271,11 @@
+@@ -263,12 +263,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22034,31 +9981,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -302,10 +309,10 @@
-             .ok_or("failed to downcast to UpdateServiceSpecificCredentialInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -416,6 +423,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_service_specific_credential::UpdateServiceSpecificCredentialError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_signing_certificate.rs`
@@ -22066,41 +9988,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_signing_certificate.rs
 +++ generated/src/operation/update_signing_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_signing_certificate::UpdateSigningCertificateError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_signing_certificate::UpdateSigningCertificateError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::update_signing_certificate::UpdateSigningCertificateError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22115,31 +10003,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to UpdateSigningCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -438,6 +445,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_signing_certificate::UpdateSigningCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_signing_certificate::UpdateSigningCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_ssh_public_key/builders.rs`
@@ -22283,57 +10146,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateSSHPublicKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateSSHPublicKey")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateSSHPublicKey")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UpdateSSHPublicKeyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                UpdateSshPublicKeyTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UpdateSSHPublicKeyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UpdateSSHPublicKey")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateSshPublicKeyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateSshPublicKeyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                UpdateSshPublicKeyEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -22349,7 +10178,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22364,7 +10193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -267,12 +258,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -22380,31 +10209,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to UpdateSshPublicKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -415,6 +406,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/update_user.rs`
@@ -22412,39 +10216,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_user.rs
 +++ generated/src/operation/update_user.rs
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UpdateUser", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -138,9 +138,15 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::update_user::UpdateUserError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::update_user::UpdateUserError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_user::UpdateUserError>::builder()
-+                    .transient_errors({
-+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                        transient_errors.push("InternalError");
-+                        ::std::borrow::Cow::Owned(transient_errors)
-+                    })
-+                    .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +261,10 @@
+@@ -255,12 +255,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22459,31 +10231,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -293,10 +297,10 @@
-             .ok_or("failed to downcast to UpdateUserInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
--            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -457,6 +461,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::update_user::UpdateUserError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::update_user::UpdateUserError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/upload_server_certificate.rs`
@@ -22491,41 +10238,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/upload_server_certificate.rs
 +++ generated/src/operation/upload_server_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::upload_server_certificate::UploadServerCertificateError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::upload_server_certificate::UploadServerCertificateError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::upload_server_certificate::UploadServerCertificateError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -265,12 +273,11 @@
+@@ -265,12 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22540,31 +10253,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -304,10 +311,10 @@
-             .ok_or("failed to downcast to UploadServerCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -478,6 +485,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::upload_server_certificate::UploadServerCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::upload_server_certificate::UploadServerCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/upload_signing_certificate.rs`
@@ -22572,41 +10260,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/upload_signing_certificate.rs
 +++ generated/src/operation/upload_signing_certificate.rs
-@@ -107,9 +107,9 @@
-             "IAM",
-         ));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -141,9 +141,17 @@
-             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                 crate::operation::upload_signing_certificate::UploadSigningCertificateError,
-             >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::upload_signing_certificate::UploadSigningCertificateError,
--            >::new());
-+            .with_retry_classifier(
-+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-+                    crate::operation::upload_signing_certificate::UploadSigningCertificateError,
-+                >::builder()
-+                .transient_errors({
-+                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                    transient_errors.push("InternalError");
-+                    ::std::borrow::Cow::Owned(transient_errors)
-+                })
-+                .build(),
-+            );
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -255,12 +263,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22621,31 +10275,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -294,10 +301,10 @@
-             .ok_or("failed to downcast to UploadSigningCertificateInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -478,6 +485,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::upload_signing_certificate::UploadSigningCertificateError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::upload_signing_certificate::UploadSigningCertificateError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation/upload_ssh_public_key/builders.rs`
@@ -22789,57 +10418,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -104,9 +104,9 @@
-
-         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("UploadSSHPublicKey", "IAM"));
-         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
--        signing_options.double_uri_encode = true;
--        signing_options.content_sha256_header = false;
--        signing_options.normalize_uri_path = true;
-+        signing_options.double_uri_encode = false;
-+        signing_options.content_sha256_header = true;
-+        signing_options.normalize_uri_path = false;
-         signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-@@ -122,25 +122,17 @@
-         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
-     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
+@@ -124,13 +124,13 @@
          #[allow(unused_mut)]
--        let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UploadSSHPublicKey")
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UploadSSHPublicKey")
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UploadSSHPublicKeyTelemetryInputCaptureInterceptor,
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
--                ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
--            ))
--            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
++                UploadSshPublicKeyTelemetryInputCaptureInterceptor,
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
+                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
+             ))
+             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
 -                UploadSSHPublicKeyEndpointParamsInterceptor,
--            ))
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
--                crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
--            >::new())
--            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
--                crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
--            >::new())
--            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
--                crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
--            >::new());
-+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("UploadSSHPublicKey")
-+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UploadSshPublicKeyTelemetryInputCaptureInterceptor))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
-+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UploadSshPublicKeyEndpointParamsInterceptor))
-+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>::new())
-+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>::new())
-+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>::builder().transient_errors({
-+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-+                                            transient_errors.push("InternalError");
-+                                            ::std::borrow::Cow::Owned(transient_errors)
-+                                            }).build());
-
-         ::std::borrow::Cow::Owned(rcb)
-     }
-@@ -147,12 +139,12 @@
++                UploadSshPublicKeyEndpointParamsInterceptor,
+             ))
+             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
+                 crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
+@@ -147,12 +147,12 @@
  }
 
  #[derive(Debug)]
@@ -22855,7 +10450,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +244,11 @@
+@@ -252,12 +252,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -22870,7 +10465,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -267,12 +258,12 @@
+@@ -267,12 +266,12 @@
      }
  }
  #[derive(Debug)]
@@ -22886,31 +10481,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -291,10 +282,10 @@
-             .ok_or("failed to downcast to UploadSshPublicKeyInput")?;
-
-         let params = crate::config::endpoint::Params::builder()
--            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-+            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
-+            .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
-             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
--            .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-             .build()
-             .map_err(|err| {
-                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
-@@ -445,6 +436,11 @@
-         })
-     }
- }
-+impl crate::s3_request_id::RequestIdExt for crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError {
-+    fn extended_request_id(&self) -> Option<&str> {
-+        self.meta().extended_request_id()
-+    }
-+}
- impl ::aws_types::request_id::RequestId for crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError {
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
 ```
 
 ### `src/operation.rs`
@@ -23016,24 +10586,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/serde_util.rs
 +++ generated/src/serde_util.rs
-@@ -98,7 +98,7 @@
-     if builder.password_policy.is_none() {
-         builder.password_policy = {
-             let builder = crate::types::builders::PasswordPolicyBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
-@@ -212,7 +212,7 @@
-     if builder.role_template_version.is_none() {
-         builder.role_template_version = {
-             let builder = crate::types::builders::RoleTemplateVersionBuilder::default();
--            Some(builder.build())
-+            builder.build().ok()
-         }
-     }
-     builder
 @@ -642,6 +642,24 @@
      builder
  }
@@ -23724,7 +11276,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_virtual_mfa_device_list_type.rs`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
-- `src/serialization_settings.rs`
 - `tests/resolve-global-endpoint.rs`
 
 ### Rust token differences

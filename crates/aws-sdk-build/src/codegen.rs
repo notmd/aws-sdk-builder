@@ -180,6 +180,12 @@ pub(crate) fn generate(
                     render_event_stream_serde_file(&selected),
                 ));
             }
+            if model_contains_string(&selected, "AccountId") {
+                service_files.push((
+                    "src/account_id_endpoint.rs".to_owned(),
+                    include_str!("../assets/account_id_endpoint.rs").to_owned(),
+                ));
+            }
             if model_has_aws_chunked_operations(&selected) {
                 service_files.push((
                     "src/aws_chunked.rs".to_owned(),
@@ -271,13 +277,36 @@ pub(crate) fn generate(
                 "src/presigning_interceptors.rs".to_owned(),
                 render_presigning_interceptors_file(),
             ));
+        }
+        if !consumer_namespace {
             service_files.push((
                 "src/serialization_settings.rs".to_owned(),
                 render_serialization_settings_file(),
             ));
+            if matches!(
+                protocol,
+                crate::model::ProtocolKind::RestJson1
+                    | crate::model::ProtocolKind::AwsJson1_0
+                    | crate::model::ProtocolKind::AwsJson1_1
+            ) {
+                service_files.push((
+                    "src/json_errors.rs".to_owned(),
+                    include_str!("../assets/json_errors.rs").to_owned(),
+                ));
+            }
         }
         if protocol == crate::model::ProtocolKind::RestXml {
             let (protocol_module, protocol_shape_files) = render_protocol_serde_files(&selected);
+            service_files.push(("src/protocol_serde.rs".to_owned(), protocol_module));
+            service_files.extend(protocol_shape_files);
+        } else if matches!(
+            protocol,
+            crate::model::ProtocolKind::RestJson1
+                | crate::model::ProtocolKind::AwsJson1_0
+                | crate::model::ProtocolKind::AwsJson1_1
+        ) {
+            let (protocol_module, protocol_shape_files) =
+                render_json_protocol_serde_files(&selected);
             service_files.push(("src/protocol_serde.rs".to_owned(), protocol_module));
             service_files.extend(protocol_shape_files);
         }
@@ -2560,11 +2589,10 @@ fn serde_util_shape_needs_correction(shape: &Value) -> bool {
             .any(|(_, member)| member_is_required(member))
 }
 
-fn serde_util_builder_is_fallible(selected: &SelectedModel, shape: &Value) -> bool {
-    members(shape).iter().any(|(_, member)| {
-        let target = member_target(member).unwrap_or("smithy.api#String");
-        member_is_effectively_required(selected, member, target)
-    })
+fn serde_util_builder_is_fallible(_selected: &SelectedModel, shape: &Value) -> bool {
+    members(shape)
+        .iter()
+        .any(|(_, member)| member_is_required(member) && !has_trait(member, "smithy.api#default"))
 }
 
 fn render_serde_util_correction(
@@ -5571,7 +5599,17 @@ fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &s
         &operation_type,
         &error_path,
     );
-    render_standalone_telemetry_interceptor(&mut output, selected, operation_name, &operation_type);
+    if !operation_has_telemetry_members(selected, operation) {
+        output.push('\n');
+    }
+    if operation_has_telemetry_members(selected, operation) {
+        render_standalone_telemetry_interceptor(
+            &mut output,
+            selected,
+            operation_name,
+            &operation_type,
+        );
+    }
     render_standalone_response_deserializer(
         &mut output,
         selected,
@@ -5621,6 +5659,30 @@ fn service_sdk_id(selected: &SelectedModel) -> String {
         .and_then(Value::as_str)
         .unwrap_or_else(|| terminal(selected.model.entry.service_shape_id))
         .to_owned()
+}
+
+fn operation_has_telemetry_members(selected: &SelectedModel, operation: &Value) -> bool {
+    let Some(input_shape) = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+    else {
+        return false;
+    };
+    if has_trait(input_shape, "smithy.api#sensitive") {
+        return false;
+    }
+    members(input_shape).into_iter().any(|(_, member)| {
+        let Some(target) = member_target(member) else {
+            return false;
+        };
+        !has_trait(member, "smithy.api#sensitive")
+            && !selected.model.shapes.get(target).is_some_and(|shape| {
+                has_trait(shape, "smithy.api#sensitive")
+                    || shape.get("type").and_then(Value::as_str) == Some("enum")
+            })
+            && is_string_type(target, selected.model.shapes.get(target))
+    })
 }
 
 fn operation_http_trait(operation: &Value) -> Option<&Value> {
@@ -5745,6 +5807,10 @@ fn service_supports_s3_express(selected: &SelectedModel) -> bool {
         .and_then(|shape| shape.get("traits"))
         .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
         .is_some_and(|rules| value_contains_string(rules, "sigv4-s3express"))
+}
+
+fn service_uses_s3_sigv4_overrides(selected: &SelectedModel) -> bool {
+    endpoint_rule_function_ids(selected).contains("aws.isVirtualHostableS3Bucket")
 }
 
 fn value_contains_string(value: &Value, expected: &str) -> bool {
@@ -5912,12 +5978,46 @@ fn standalone_request_body(
     input_shape: Option<&Value>,
 ) -> (String, Option<String>) {
     let module = names::rust_module_name(operation_name);
+    let protocol = selected.model.protocol().expect("selected protocol exists");
     let Some(input_shape) = input_shape else {
+        if matches!(
+            protocol,
+            ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1 | ProtocolKind::RestJson1
+        ) {
+            let function = format!("ser_{module}_input");
+            let content_type = match protocol {
+                ProtocolKind::AwsJson1_0 => "application/x-amz-json-1.0",
+                ProtocolKind::AwsJson1_1 => "application/x-amz-json-1.1",
+                ProtocolKind::RestJson1 => "application/json",
+                _ => unreachable!(),
+            };
+            return (
+                format!("crate::protocol_serde::shape_{module}::{function}(&input)?"),
+                Some(content_type.to_owned()),
+            );
+        }
         return (
             "::aws_smithy_types::body::SdkBody::from(\"\")".to_owned(),
             None,
         );
     };
+    if matches!(
+        protocol,
+        ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1 | ProtocolKind::RestJson1
+    ) {
+        let content_type = match protocol {
+            ProtocolKind::AwsJson1_0 => "application/x-amz-json-1.0",
+            ProtocolKind::AwsJson1_1 => "application/x-amz-json-1.1",
+            ProtocolKind::RestJson1 => "application/json",
+            _ => unreachable!(),
+        };
+        return (
+            format!(
+                "::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_{module}::ser_{module}_input(&input)?)"
+            ),
+            Some(content_type.to_owned()),
+        );
+    }
     if let Some((name, member)) = members(input_shape)
         .into_iter()
         .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
@@ -5976,7 +6076,6 @@ fn standalone_request_body(
             Some("application/xml".to_owned()),
         );
     }
-    let _ = selected;
     (
         "::aws_smithy_types::body::SdkBody::from(\"\")".to_owned(),
         None,
@@ -6069,6 +6168,26 @@ fn render_standalone_runtime_plugin(
         .and_then(member_target)
         .map(|target| format!("crate::types::{}", rust_type_name(terminal(target))));
     let unsigned_payload = operation_has_unsigned_payload(operation);
+    let disable_sigv4_overrides = service_uses_s3_sigv4_overrides(selected);
+    let double_uri_encode = unsigned_payload || !disable_sigv4_overrides;
+    let content_sha256_header = disable_sigv4_overrides || unsigned_payload;
+    let normalize_uri_path = !disable_sigv4_overrides;
+    let aws_error_classifier = if disable_sigv4_overrides {
+        format!(
+            "::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::builder().transient_errors({{\n                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();\n                                            transient_errors.push(\"InternalError\");\n                                            ::std::borrow::Cow::Owned(transient_errors)\n                                            }}).build()"
+        )
+    } else {
+        format!(
+            "::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::new()"
+        )
+    };
+    let telemetry_interceptor = operation_has_telemetry_members(selected, operation)
+        .then(|| {
+            format!(
+                ".with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}TelemetryInputCaptureInterceptor))\n"
+            )
+        })
+        .unwrap_or_default();
 
     let mut config_extras = String::new();
     if request_checksum_required && service_supports_s3_express(selected) {
@@ -6244,13 +6363,17 @@ fn render_standalone_runtime_plugin(
     }
     writeln!(
         output,
-        "        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new({operation_name:?}, {service_id:?}));\n{config_extras}        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();\n        signing_options.double_uri_encode = {unsigned_payload};\n        signing_options.content_sha256_header = true;\n        signing_options.normalize_uri_path = false;\n        signing_options.payload_override = {payload_override};\n\n        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {{\n            signing_options,\n            ..::std::default::Default::default()\n        }});\n\n        ::std::option::Option::Some(cfg.freeze())\n    }}\n\n    fn runtime_components(\n        &self,\n        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,\n    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {{\n        #[allow(unused_mut)]\n                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new({operation_name:?})\n                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}TelemetryInputCaptureInterceptor))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}EndpointParamsInterceptor))\n{additional_interceptors}                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<{error_path}>::builder().transient_errors({{\n                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();\n                                            transient_errors.push(\"InternalError\");\n                                            ::std::borrow::Cow::Owned(transient_errors)\n                                            }}).build());\n\n        ::std::borrow::Cow::Owned(rcb)\n    }}\n}}",
-        unsigned_payload = unsigned_payload,
+        "        cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new({operation_name:?}, {service_id:?}));\n{config_extras}        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();\n        signing_options.double_uri_encode = {double_uri_encode};\n        signing_options.content_sha256_header = {content_sha256_header};\n        signing_options.normalize_uri_path = {normalize_uri_path};\n        signing_options.payload_override = {payload_override};\n\n        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {{\n            signing_options,\n            ..::std::default::Default::default()\n        }});\n\n        ::std::option::Option::Some(cfg.freeze())\n    }}\n\n    fn runtime_components(\n        &self,\n        _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,\n    ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {{\n        #[allow(unused_mut)]\n                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new({operation_name:?})\n{telemetry_interceptor}.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))\n.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent({operation_type}EndpointParamsInterceptor))\n{additional_interceptors}                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<{error_path}>::new())\n.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<{error_path}>::new())\n.with_retry_classifier({aws_error_classifier});\n\n        ::std::borrow::Cow::Owned(rcb)\n    }}\n}}",
+        double_uri_encode = double_uri_encode,
+        content_sha256_header = content_sha256_header,
+        normalize_uri_path = normalize_uri_path,
         payload_override = if unsigned_payload {
             "Some(::aws_sigv4::http_request::SignableBody::UnsignedPayload)"
         } else {
             "None"
         },
+        telemetry_interceptor = telemetry_interceptor,
+        aws_error_classifier = aws_error_classifier,
     )
     .unwrap();
     if !stalled_stream_protection {
@@ -6423,12 +6546,15 @@ fn render_standalone_request_serializer(
             .any(|(_, member)| has_trait(member, "smithy.api#httpQuery"))
     });
     let has_query = !query_parts.is_empty() || has_dynamic_query;
-    let has_headers = input_shape.is_some_and(|shape| {
-        members(shape).iter().any(|(_, member)| {
-            has_trait(member, "smithy.api#httpHeader")
-                || has_trait(member, "smithy.api#httpPrefixHeaders")
-        })
-    });
+    let protocol = selected.model.protocol().expect("selected protocol exists");
+    let has_headers = protocol != ProtocolKind::AwsJson1_0
+        && protocol != ProtocolKind::AwsJson1_1
+        && input_shape.is_some_and(|shape| {
+            members(shape).iter().any(|(_, member)| {
+                has_trait(member, "smithy.api#httpHeader")
+                    || has_trait(member, "smithy.api#httpPrefixHeaders")
+            })
+        });
     writeln!(
         output,
         "#[derive(Debug)]\nstruct {operation_name}RequestSerializer;\nimpl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for {operation_name}RequestSerializer {{\n    #[allow(unused_mut, clippy::let_and_return, clippy::needless_borrow, clippy::useless_conversion)]\n    fn serialize_input(\n        &self,\n        input: ::aws_smithy_runtime_api::client::interceptors::context::Input,\n        _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,\n    ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {{\n        let input = input.downcast::<{input_path}>().expect(\"correct type\");\n        let _header_serialization_settings = _cfg\n            .load::<crate::serialization_settings::HeaderSerializationSettings>()\n            .cloned()\n            .unwrap_or_default();\n        let mut request_builder = {{"
@@ -6539,15 +6665,26 @@ fn render_standalone_request_serializer(
         standalone_request_body(selected, operation_name, input_shape);
     if let Some(ref content_type) = content_type {
         let builder_marker = "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder".to_owned();
+        let target_header = standalone_json_target_header(selected, operation_name);
+        let target_header = target_header
+            .map(|target| {
+                format!(
+                    "\n            builder = _header_serialization_settings.set_default_header(\n                builder,\n                ::http_1x::header::HeaderName::from_static(\"x-amz-target\"),\n                {target:?},\n            );"
+                )
+            })
+            .unwrap_or_default();
         let builder_replacement = format!(
-            "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, {content_type:?});\n            builder"
+            "            let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;\n            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, {content_type:?});{target_header}\n            builder"
         );
         *output = output.replace(&builder_marker, &builder_replacement);
     }
     let body_marker = "        let body = ::aws_smithy_types::body::SdkBody::from(\"\");\n\n";
     let mut body_replacement = format!("        let body = {body_expression};\n");
     body_replacement.push_str("        if let Some(content_length) = body.content_length() {\n            let content_length = content_length.to_string();\n            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);\n        }\n");
-    if content_type.is_some() {
+    let add_content_length = content_type.is_some()
+        && (protocol != ProtocolKind::AwsJson1_0 && protocol != ProtocolKind::AwsJson1_1
+            || input_shape.is_some_and(|shape| !members(shape).is_empty()));
+    if add_content_length {
         *output = output.replacen(body_marker, &body_replacement, 1);
     }
     *output = output.replace(
@@ -6555,6 +6692,21 @@ fn render_standalone_request_serializer(
         "            #[allow(clippy::unnecessary_wraps)]",
     );
     let _ = error_path;
+}
+
+fn standalone_json_target_header(selected: &SelectedModel, operation_name: &str) -> Option<String> {
+    let protocol = selected.model.protocol().ok()?;
+    if !matches!(
+        protocol,
+        ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1
+    ) {
+        return None;
+    }
+    Some(format!(
+        "{}.{}",
+        terminal(selected.model.entry.service_shape_id),
+        operation_name
+    ))
 }
 
 fn render_standalone_endpoint_interceptor(
@@ -6598,24 +6750,38 @@ fn render_standalone_endpoint_interceptor(
         let params_marker = "        let params = crate::config::endpoint::Params::builder()";
         *output = output.replace(params_marker, &format!("{endpoint_prefix}{params_marker}"));
     }
-    let builtin_order = ["Region", "UseFIPS", "UseDualStack", "Endpoint"];
-    for name in builtin_order {
-        if endpoint_params.is_some_and(|params| params.contains_key(name)) {
-            let setter = names::snake_case(name);
-            let expression = match name {
+    if let Some(endpoint_params) = endpoint_params {
+        for (name, parameter) in endpoint_params {
+            let expression = match name.as_str() {
                 "Region" => {
-                    "cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned())"
+                    Some("cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned())")
                 }
-                "UseFIPS" => "cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0)",
+                "UseFIPS" => {
+                    Some("cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0)")
+                }
                 "UseDualStack" => {
-                    "cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0)"
+                    Some("cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0)")
                 }
-                "Endpoint" => {
-                    "cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone())"
-                }
-                _ => unreachable!(),
+                "Endpoint" => Some(
+                    "cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone())",
+                ),
+                _ => None,
             };
-            writeln!(output, "            .set_{setter}({expression})").unwrap();
+            if let Some(expression) = expression {
+                writeln!(
+                    output,
+                    "            .set_{}({expression})",
+                    names::snake_case(name)
+                )
+                .unwrap();
+            }
+            if parameter.get("builtIn").and_then(Value::as_str)
+                == Some("AWS::Auth::AccountIdEndpointMode")
+            {
+                output.push_str(
+                    "            .set_account_id_endpoint_mode(::std::option::Option::Some(\n                cfg.load::<::aws_types::endpoint_config::AccountIdEndpointMode>()\n                    .cloned()\n                    .unwrap_or_default()\n                    .to_string(),\n            ))\n",
+                );
+            }
         }
     }
     if let Some(client_params) = client_params {
@@ -6640,18 +6806,48 @@ fn render_standalone_endpoint_interceptor(
             writeln!(output, "            .set_{setter}({literal})").unwrap();
         }
     }
+    let mut operation_context_getters = String::new();
+    if let Some(operation_context_params) = operation
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.rules#operationContextParams"))
+        .and_then(Value::as_object)
+    {
+        for (name, parameter) in operation_context_params {
+            if let Some(path) = parameter.get("path").and_then(Value::as_str) {
+                if let Some((setter, source)) = render_operation_context_param(
+                    selected,
+                    operation_name,
+                    input_shape,
+                    name,
+                    path,
+                ) {
+                    writeln!(
+                        output,
+                        "            .set_{}({setter})",
+                        names::snake_case(name)
+                    )
+                    .unwrap();
+                    operation_context_getters.push_str(&source);
+                }
+            }
+        }
+    }
     if let Some(input_shape) = input_shape {
-        for (name, member) in members(input_shape) {
-            let Some(context_param) = member
-                .get("traits")
-                .and_then(|traits| traits.get("smithy.rules#contextParam"))
-                .and_then(|value| value.get("name"))
-                .and_then(Value::as_str)
-            else {
-                continue;
-            };
+        let mut context_members = members(input_shape)
+            .into_iter()
+            .filter_map(|(name, member)| {
+                member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.rules#contextParam"))
+                    .and_then(|value| value.get("name"))
+                    .and_then(Value::as_str)
+                    .map(|context_param| (name, member, context_param.to_owned()))
+            })
+            .collect::<Vec<_>>();
+        context_members.sort_by(|left, right| left.0.cmp(&right.0));
+        for (name, member, context_param) in context_members {
             let field = names::rust_identifier(&name);
-            let setter = names::snake_case(context_param);
+            let setter = names::snake_case(&context_param);
             let value = if member_is_required(member) {
                 format!(
                     "Some(\n                _input\n                    .{field}\n                    .clone()\n                    .filter(|f| !AsRef::<str>::as_ref(f).trim().is_empty())\n                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field({field:?}, \"A required field was not set\"))?\n            )"
@@ -6665,6 +6861,7 @@ fn render_standalone_endpoint_interceptor(
     output.push_str(
         "            .build()\n            .map_err(|err| {\n                ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint params could not be built\", err)\n            })?;\n        cfg.interceptor_state()\n            .store_put(::aws_smithy_runtime_api::client::endpoint::EndpointResolverParams::new(params));\n        ::std::result::Result::Ok(())\n    }\n}\n\n// The get_* functions below are generated from JMESPath expressions in the\n// operationContextParams trait. They target the operation's input shape.\n",
     );
+    output.push_str(&operation_context_getters);
 }
 
 fn render_standalone_endpoint_prefix(
@@ -6729,6 +6926,190 @@ fn render_standalone_endpoint_prefix(
         "        }.map_err(|err| ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new(\"endpoint prefix could not be built\", err))?;\n        cfg.interceptor_state().store_put(endpoint_prefix);\n\n",
     );
     Some(output)
+}
+
+fn render_operation_context_param(
+    selected: &SelectedModel,
+    operation_name: &str,
+    input_shape: Option<&Value>,
+    parameter_name: &str,
+    path: &str,
+) -> Option<(String, String)> {
+    let input_shape = input_shape?;
+    let getter = format!("get_{}", names::snake_case(parameter_name));
+    let input_module = names::rust_module_name(operation_name);
+    let input_type = rust_type_name(operation_name);
+    let input_path = format!("crate::operation::{input_module}::{input_type}Input");
+
+    if let Some(inner) = path
+        .strip_prefix("keys(")
+        .and_then(|value| value.strip_suffix(')'))
+    {
+        let field = inner.trim();
+        let (member_name, _member) = members(input_shape)
+            .into_iter()
+            .find(|(name, _)| name == field)?;
+        let field = names::rust_identifier(&member_name);
+        let source = format!(
+            "// Generated from JMESPath Expression: {path}\nfn {getter}(input: &{input_path}) -> Option<::std::vec::Vec<::std::string::String>> {{\n    let _fld_2 = input.{field}.as_ref()?;\n    let _ret_1 = _fld_2.keys().map(Clone::clone).collect::<Vec<String>>();\n    Some(_ret_1)\n}}\n\n"
+        );
+        return Some((format!("{getter}(_input)"), source));
+    }
+
+    if let Some((outer, rest)) = path.split_once("[*].") {
+        let (outer_name, outer_member) = members(input_shape)
+            .into_iter()
+            .find(|(name, _)| name == outer)?;
+        let outer_field = names::rust_identifier(&outer_name);
+        let outer_target = member_target(outer_member)?;
+        let list_shape = selected.model.shapes.get(outer_target)?;
+        let element_target = list_shape.get("member").and_then(member_target)?;
+        let element_shape = selected.model.shapes.get(element_target)?;
+        let element_type = rust_type_name(terminal(element_target));
+        let Some((_variant_path, _)) = rest.split_once(".") else {
+            return None;
+        };
+
+        let output_path = if rest.starts_with('[') {
+            rest.trim_start_matches('[')
+                .split_once(',')
+                .map(|(value, _)| value.trim())?
+        } else {
+            rest
+        };
+        let output_target = nested_member_target(selected, element_shape, output_path)?;
+        let output_type = protocol_shape_type(selected, output_target);
+        let output_type_ref = format!("&{output_type}");
+        let paths = if rest.starts_with('[') && rest.ends_with("][]") {
+            let variants = rest
+                .trim_end_matches("[]")
+                .trim_start_matches('[')
+                .split(", ")
+                .collect::<Vec<_>>();
+            if variants.is_empty() {
+                return None;
+            }
+            let mut lines = String::new();
+            for (index, variant) in variants.iter().enumerate() {
+                let (variant_name, member_name) = variant.split_once('.')?;
+                let variant_field = names::rust_identifier(variant_name);
+                let member_field = names::rust_identifier(member_name);
+                let first = 2 + index * 2;
+                let second = first + 1;
+                writeln!(
+                    lines,
+                    "                let _fld_{first} = _v.{variant_field}.as_ref();\n                let _fld_{second} = _fld_{first}.map(|v| &v.{member_field});"
+                )
+                .ok()?;
+            }
+            let option_type = format!("::std::option::Option<{output_type_ref}>");
+            let mut values = Vec::new();
+            for index in 0..variants.len() {
+                values.push(format!("_fld_{}", 3 + index * 2));
+            }
+            let last = 2 + variants.len() * 2;
+            let mapped = format!(
+                "let _msl_{last} = vec![{}];\n                ::std::option::Option::Some(_msl_{last})",
+                values.join(", ")
+            );
+            (lines, mapped, option_type)
+        } else {
+            let (variant_name, member_name) = rest.split_once('.')?;
+            let variant_field = names::rust_identifier(variant_name);
+            let member_field = names::rust_identifier(member_name);
+            let variant = format!(
+                "let _fld_2 = _v.{variant_field}.as_ref();\n                let _fld_3 = _fld_2.map(|v| &v.{member_field});\n                _fld_3"
+            );
+            (String::new(), variant, String::new())
+        };
+
+        let (inner_lines, mapped, option_type) = paths;
+        let (return_type, flatten) = if rest.starts_with('[') {
+            (
+                format!("Option<::std::vec::Vec<{output_type_ref}>>"),
+                ".flatten()\n        .flatten()",
+            )
+        } else {
+            (format!("Option<::std::vec::Vec<{output_type_ref}>>"), "")
+        };
+        let (mapped, helper_return, collect) = if rest.starts_with('[') {
+            (
+                format!("{inner_lines}                {mapped}"),
+                format!("::std::option::Option<::std::vec::Vec<{option_type}>>"),
+                format!("{flatten}\n        .collect::<::std::vec::Vec<_>>()"),
+            )
+        } else {
+            (
+                mapped,
+                format!("::std::option::Option<{output_type_ref}>"),
+                "\n        .collect::<::std::vec::Vec<_>>()".to_owned(),
+            )
+        };
+        let source = if rest.starts_with('[') {
+            format!(
+                "// Generated from JMESPath Expression: {path}\nfn {getter}(input: &{input_path}) -> Option<::std::vec::Vec<{output_type_ref}>> {{\n    let _fld_1 = input.{outer_field}.as_ref()?;\n    let _prj_11 = _fld_1\n        .iter()\n        .flat_map(|v| {{\n            #[allow(clippy::let_and_return)]\n            fn map(_v: &crate::types::{element_type}) -> {helper_return} {{\n{mapped}\n            }}\n            map(v)\n        }}){collect};\n    Some(_prj_11)\n}}\n\n"
+            )
+        } else {
+            format!(
+                "// Generated from JMESPath Expression: {path}\nfn {getter}(input: &{input_path}) -> Option<::std::vec::Vec<{output_type_ref}>> {{\n    let _fld_1 = input.{outer_field}.as_ref()?;\n    let _prj_4 = _fld_1\n        .iter()\n        .flat_map(|v| {{\n            #[allow(clippy::let_and_return)]\n            fn map(_v: &crate::types::{element_type}) -> ::std::option::Option<{output_type_ref}> {{\n                {mapped}\n            }}\n            map(v)\n        }})\n        .collect::<::std::vec::Vec<_>>();\n    Some(_prj_4)\n}}\n\n"
+            )
+        };
+        let setter = if rest.starts_with('[') || !output_type_ref.is_empty() {
+            format!("{getter}(_input).map(|v| v.into_iter().cloned().collect::<Vec<_>>())")
+        } else {
+            format!("{getter}(_input)")
+        };
+        let _ = (return_type, option_type, inner_lines);
+        return Some((setter, source));
+    }
+
+    let mut current_shape = input_shape;
+    let mut statements = String::new();
+    let mut current = "input".to_owned();
+    let mut fields = path.split('.').peekable();
+    let mut index = 0;
+    while let Some(name) = fields.next() {
+        let (_, member) = members(current_shape)
+            .into_iter()
+            .find(|(member_name, _)| member_name == name)?;
+        let field = names::rust_identifier(name);
+        let target = member_target(member)?;
+        if fields.peek().is_some() {
+            index += 1;
+            writeln!(
+                statements,
+                "    let _fld_{index} = {current}.{field}.as_ref()?;"
+            )
+            .ok()?;
+            current = format!("_fld_{index}");
+            current_shape = selected.model.shapes.get(target)?;
+        } else {
+            index += 1;
+            writeln!(statements, "    let _fld_{index} = &{current}.{field};").ok()?;
+            let source = format!(
+                "// Generated from JMESPath Expression: {path}\nfn {getter}(input: &{input_path}) -> Option<&{}> {{\n{statements}    Some(_fld_{index})\n}}\n\n",
+                protocol_shape_type(selected, target)
+            );
+            return Some((format!("{getter}(_input).cloned()"), source));
+        }
+    }
+    None
+}
+
+fn nested_member_target<'a>(
+    selected: &'a SelectedModel,
+    mut shape: &'a Value,
+    path: &str,
+) -> Option<&'a str> {
+    let mut target = None;
+    for field in path.split('.') {
+        let (_, member) = members(shape).into_iter().find(|(name, _)| name == field)?;
+        target = member_target(member);
+        if let Some(next) = target.and_then(|target| selected.model.shapes.get(target)) {
+            shape = next;
+        }
+    }
+    target
 }
 
 /// Render Smithy HTTP protocol tests supplied by a declarative model overlay.
@@ -7218,6 +7599,8 @@ fn render_standalone_operation_error(
             && let Some(documentation) = documentation(shape)
         {
             render_doc_lines(output, &documentation, 4);
+        } else {
+            output.push_str("    #[allow(missing_docs)] // documentation missing in model\n");
         }
         writeln!(
             output,
@@ -7274,8 +7657,43 @@ fn render_standalone_operation_error(
     }
     writeln!(output, "impl ::std::error::Error for {operation_type}Error {{\n    fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => ::std::option::Option::Some(_inner),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
     writeln!(output, "impl ::std::fmt::Display for {operation_type}Error {{\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => {\n                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {\n                    write!(f, \"unhandled error ({{code}})\")\n                } else {\n                    f.write_str(\"unhandled error\")\n                }\n            }".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => _inner.fmt(f),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => {\n                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {\n                    write!(f, \"unhandled error ({{code}})\")\n                } else {\n                    f.write_str(\"unhandled error\")\n                }\n            }".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
-    writeln!(output, "impl ::aws_smithy_types::retry::ProvideErrorKind for {operation_type}Error {{\n    fn code(&self) -> ::std::option::Option<&str> {{\n        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)\n    }}\n    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {{\n        ::std::option::Option::None\n    }}\n}}\nimpl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for {operation_type}Error {{\n    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => &_inner.meta,".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => &_inner.meta,".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
-    writeln!(output, "impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for {operation_type}Error {{\n    fn create_unhandled_error(\n        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,\n        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,\n    ) -> Self {{\n        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n            source,\n            meta: meta.unwrap_or_default(),\n        }})\n    }}\n}}\nimpl crate::s3_request_id::RequestIdExt for {error_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{\n        self.meta().extended_request_id()\n    }}\n}}\nimpl ::aws_types::request_id::RequestId for {error_path} {{\n    fn request_id(&self) -> Option<&str> {{\n        self.meta().request_id()\n    }}\n}}",).unwrap();
+    let retryable_arms = errors
+        .iter()
+        .filter(|error| {
+            selected
+                .model
+                .shapes
+                .get::<str>(*error)
+                .is_some_and(|shape| has_trait(shape, "smithy.api#retryable"))
+        })
+        .map(|error| {
+            format!(
+                "Self::{}(inner) => ::std::option::Option::Some(inner.retryable_error_kind()),",
+                rust_type_name(terminal(error))
+            )
+        })
+        .collect::<Vec<_>>();
+    let retryable_body = if retryable_arms.is_empty() {
+        "::std::option::Option::None".to_owned()
+    } else {
+        let arms = retryable_arms
+            .into_iter()
+            .chain(std::iter::once(
+                "_ => ::std::option::Option::None,".to_owned(),
+            ))
+            .collect::<Vec<_>>()
+            .join("\n            ");
+        format!("match self {{\n            {arms}\n        }}")
+    };
+    writeln!(output, "impl ::aws_smithy_types::retry::ProvideErrorKind for {operation_type}Error {{\n    fn code(&self) -> ::std::option::Option<&str> {{\n        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)\n    }}\n    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {{\n        {retryable_body}\n    }}\n}}\nimpl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for {operation_type}Error {{\n    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {{\n        match self {{\n            {arms}\n        }}\n    }}\n}}", arms = if errors.is_empty() { "Self::Unhandled(_inner) => &_inner.meta,".to_owned() } else { errors.iter().map(|error| format!("Self::{}(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),", rust_type_name(terminal(error)))).chain(std::iter::once("Self::Unhandled(_inner) => &_inner.meta,".to_owned())).collect::<Vec<_>>().join("\n            ") }).unwrap();
+    let extended_request_id = if request_id_plan(selected).extended {
+        format!(
+            "impl crate::s3_request_id::RequestIdExt for {error_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{\n        self.meta().extended_request_id()\n    }}\n}}\n"
+        )
+    } else {
+        String::new()
+    };
+    writeln!(output, "impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for {operation_type}Error {{\n    fn create_unhandled_error(\n        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,\n        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,\n    ) -> Self {{\n        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n            source,\n            meta: meta.unwrap_or_default(),\n        }})\n    }}\n}}\n{extended_request_id}impl ::aws_types::request_id::RequestId for {error_path} {{\n    fn request_id(&self) -> Option<&str> {{\n        self.meta().request_id()\n    }}\n}}",).unwrap();
     let continuation = ['\\', '\n'].iter().collect::<String>();
     let mut text = std::mem::take(output);
     text = text.replace(
@@ -10227,7 +10645,7 @@ struct ProtocolSerdeRoles {
     first: Option<ProtocolSerdeRole>,
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Eq, Ord, PartialEq, PartialOrd)]
 enum ProtocolSerdeRole {
     Serialize,
     Deserialize,
@@ -10396,6 +10814,1256 @@ fn render_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(String
         module.push('\n');
     }
     (module, files)
+}
+
+/// Render the document serializers and parsers used by the AWS JSON and
+/// REST-JSON protocols. AwsJson uses the same Smithy JSON token parser as
+/// RestJson; the protocol difference is in the HTTP bindings, not in the
+/// modeled document walk. Keeping this renderer shape-driven also means that
+/// services with different operation sets share the same implementation.
+fn render_json_protocol_serde_files(selected: &SelectedModel) -> (String, Vec<(String, String)>) {
+    let roles = json_protocol_serde_roles(selected);
+    let mut files = Vec::new();
+    let mut modules = Vec::new();
+    let mut seen = BTreeSet::new();
+    for operation_name in &selected.operations {
+        let module = names::rust_module_name(operation_name);
+        if seen.insert(module.clone()) {
+            modules.push(module);
+        }
+    }
+    let operation_module_count = modules.len();
+    for operation_name in &selected.operations {
+        let Some(input) = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        else {
+            continue;
+        };
+        if !members(input).is_empty() {
+            let module = format!("{}_input", names::rust_module_name(operation_name));
+            if seen.insert(module.clone()) {
+                modules.push(module);
+            }
+        }
+    }
+    for error_id in error_shape_ids(selected) {
+        let module = names::rust_module_name(terminal(&error_id));
+        if seen.insert(module.clone()) {
+            modules.push(module);
+        }
+    }
+    let shared_module_start = modules.len();
+    for shape_id in roles.keys() {
+        let module = names::rust_module_name(terminal(shape_id));
+        if seen.insert(module.clone()) {
+            modules.push(module);
+        }
+    }
+    modules[operation_module_count..shared_module_start].sort();
+    let shared_modules = json_protocol_shape_order(selected, &roles);
+    modules.truncate(shared_module_start);
+    let mut module_seen = modules.iter().cloned().collect::<BTreeSet<_>>();
+    for (shape_id, _) in shared_modules {
+        let module = names::rust_module_name(terminal(&shape_id));
+        if module_seen.insert(module.clone()) {
+            modules.push(module);
+        }
+    }
+
+    for operation_name in &selected.operations {
+        let module = names::rust_module_name(operation_name);
+        files.push((
+            format!("src/protocol_serde/shape_{module}.rs"),
+            render_json_protocol_operation_file(selected, operation_name),
+        ));
+        let has_input = operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+            .is_some_and(|shape| !members(shape).is_empty());
+        if has_input {
+            files.push((
+                format!("src/protocol_serde/shape_{module}_input.rs"),
+                render_json_protocol_operation_input_file(selected, operation_name),
+            ));
+        }
+    }
+    for (shape_id, shape_roles) in &roles {
+        files.push((
+            format!(
+                "src/protocol_serde/shape_{}.rs",
+                names::rust_module_name(terminal(shape_id))
+            ),
+            render_json_protocol_shape_file(selected, shape_id, *shape_roles),
+        ));
+    }
+    for error_id in error_shape_ids(selected) {
+        let module = names::rust_module_name(terminal(&error_id));
+        let path = format!("src/protocol_serde/shape_{module}.rs");
+        if !files.iter().any(|(file, _)| file == &path) {
+            files.push((path, render_json_protocol_error_file(selected, &error_id)));
+        }
+    }
+    files.sort_by(|left, right| left.0.cmp(&right.0));
+
+    let mut module = String::new();
+    client_operation_header(&mut module);
+    module.push_str(
+        "pub(crate) fn type_erase_result<O, E>(\n    result: ::std::result::Result<O, E>,\n) -> ::std::result::Result<\n    ::aws_smithy_runtime_api::client::interceptors::context::Output,\n    ::aws_smithy_runtime_api::client::orchestrator::OrchestratorError<::aws_smithy_runtime_api::client::interceptors::context::Error>,\n>\nwhere\n    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n    E: ::std::error::Error + std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n{\n    result\n        .map(|output| ::aws_smithy_runtime_api::client::interceptors::context::Output::erase(output))\n        .map_err(|error| ::aws_smithy_runtime_api::client::interceptors::context::Error::erase(error))\n        .map_err(::std::convert::Into::into)\n}\n\n",
+    );
+    module.push_str(
+        "pub fn parse_http_error_metadata(\n    _response_status: u16,\n    response_headers: &::aws_smithy_runtime_api::http::Headers,\n    response_body: &[u8],\n) -> ::std::result::Result<::aws_smithy_types::error::metadata::Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {\n    crate::json_errors::parse_error_metadata(response_body, response_headers)\n}\n\n",
+    );
+    for (index, name) in modules.into_iter().enumerate() {
+        if index == operation_module_count {
+            module.push_str(
+                "pub(crate) fn or_empty_doc(data: &[u8]) -> &[u8] {\n    if data.is_empty() {\n        b\"{}\"\n    } else {\n        data\n    }\n}\n\n",
+            );
+        }
+        writeln!(module, "pub(crate) mod shape_{name};").unwrap();
+        module.push('\n');
+    }
+    (module, files)
+}
+
+fn json_protocol_shape_order(
+    selected: &SelectedModel,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+) -> Vec<(String, ProtocolSerdeRole)> {
+    let mut phase_one = Vec::new();
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        if let Some(input) = operation
+            .get("input")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(input) {
+                if let Some(target) = member_target(member) {
+                    json_protocol_first_role_dependencies(
+                        selected,
+                        target,
+                        ProtocolSerdeRole::Serialize,
+                        roles,
+                        &mut BTreeSet::new(),
+                        &mut phase_one,
+                    );
+                }
+            }
+        }
+        if let Some(output) = operation
+            .get("output")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(output) {
+                if let Some(target) = member_target(member) {
+                    json_protocol_first_role_dependencies(
+                        selected,
+                        target,
+                        ProtocolSerdeRole::Deserialize,
+                        roles,
+                        &mut BTreeSet::new(),
+                        &mut phase_one,
+                    );
+                }
+            }
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error in errors.iter().filter_map(target_value) {
+                let Some(shape) = selected.model.shapes.get(error) else {
+                    continue;
+                };
+                for (_, member) in members(shape) {
+                    if let Some(target) = member_target(member) {
+                        json_protocol_first_role_dependencies(
+                            selected,
+                            target,
+                            ProtocolSerdeRole::Deserialize,
+                            roles,
+                            &mut BTreeSet::new(),
+                            &mut phase_one,
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    let mut state_seen = BTreeSet::new();
+    let mut current = phase_one;
+    current.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
+    let mut ordered = Vec::new();
+    while !current.is_empty() {
+        current.retain(|(shape_id, role)| state_seen.insert((shape_id.clone(), *role)));
+        if current.is_empty() {
+            break;
+        }
+        current.sort_by_key(|(shape_id, _)| names::rust_module_name(terminal(shape_id)));
+        ordered.extend(current.iter().cloned());
+        let mut next = Vec::new();
+        for (shape_id, role) in &current {
+            json_protocol_role_dependencies(selected, shape_id, *role, roles, &mut next);
+        }
+        current = next;
+    }
+
+    let mut seen_modules = BTreeSet::new();
+    let mut result = Vec::new();
+    for (shape_id, role) in ordered {
+        if seen_modules.insert(names::rust_module_name(terminal(&shape_id))) {
+            result.push((shape_id, role));
+        }
+    }
+    for shape_id in roles.keys() {
+        if seen_modules.insert(names::rust_module_name(terminal(shape_id))) {
+            result.push((
+                shape_id.clone(),
+                roles
+                    .get(shape_id)
+                    .and_then(|roles| roles.first)
+                    .unwrap_or(ProtocolSerdeRole::Deserialize),
+            ));
+        }
+    }
+    result
+}
+
+fn json_protocol_first_role_dependencies(
+    selected: &SelectedModel,
+    shape_id: &str,
+    role: ProtocolSerdeRole,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<(String, ProtocolSerdeRole)>,
+    output: &mut Vec<(String, ProtocolSerdeRole)>,
+) {
+    if !seen.insert((shape_id.to_owned(), role)) {
+        return;
+    }
+    if protocol_role_enabled(roles, shape_id, role) {
+        output.push((shape_id.to_owned(), role));
+        return;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    for (_, member) in protocol_shape_members(selected, shape) {
+        if let Some(target) = member_target(member) {
+            json_protocol_first_role_dependencies(selected, target, role, roles, seen, output);
+        }
+    }
+}
+
+fn json_protocol_role_dependencies(
+    selected: &SelectedModel,
+    shape_id: &str,
+    role: ProtocolSerdeRole,
+    roles: &BTreeMap<String, ProtocolSerdeRoles>,
+    output: &mut Vec<(String, ProtocolSerdeRole)>,
+) {
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    for (_, member) in protocol_shape_members(selected, shape) {
+        if let Some(target) = member_target(member) {
+            json_protocol_first_role_dependencies(
+                selected,
+                target,
+                role,
+                roles,
+                &mut BTreeSet::new(),
+                output,
+            );
+        }
+    }
+}
+
+fn json_protocol_serde_roles(selected: &SelectedModel) -> BTreeMap<String, ProtocolSerdeRoles> {
+    let mut roles = BTreeMap::new();
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        if let Some(input) = operation
+            .get("input")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(input) {
+                if let Some(target) = member_target(member) {
+                    json_protocol_mark_role(
+                        selected,
+                        target,
+                        ProtocolSerdeRole::Serialize,
+                        &mut roles,
+                        &mut BTreeSet::new(),
+                    );
+                }
+            }
+        }
+        if let Some(output) = operation
+            .get("output")
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+        {
+            for (_, member) in members(output) {
+                if let Some(target) = member_target(member) {
+                    json_protocol_mark_role(
+                        selected,
+                        target,
+                        ProtocolSerdeRole::Deserialize,
+                        &mut roles,
+                        &mut BTreeSet::new(),
+                    );
+                }
+            }
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error_id in errors.iter().filter_map(target_value) {
+                if let Some(shape) = selected.model.shapes.get(error_id) {
+                    for (_, member) in members(shape) {
+                        if let Some(target) = member_target(member) {
+                            json_protocol_mark_role(
+                                selected,
+                                target,
+                                ProtocolSerdeRole::Deserialize,
+                                &mut roles,
+                                &mut BTreeSet::new(),
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+    roles.retain(|shape_id, role| {
+        selected.model.shapes.contains_key(shape_id)
+            && (role.serialize || role.deserialize)
+            && matches!(
+                protocol_shape_kind(selected, shape_id),
+                "structure" | "union" | "list" | "map"
+            )
+            && !(protocol_shape_kind(selected, shape_id) == "structure"
+                && selected
+                    .model
+                    .shapes
+                    .get(shape_id)
+                    .is_some_and(|shape| members(shape).is_empty()))
+    });
+    roles
+}
+
+fn json_protocol_mark_role(
+    selected: &SelectedModel,
+    shape_id: &str,
+    role: ProtocolSerdeRole,
+    roles: &mut BTreeMap<String, ProtocolSerdeRoles>,
+    seen: &mut BTreeSet<String>,
+) {
+    if !seen.insert(shape_id.to_owned()) {
+        return;
+    }
+    let Some(shape) = selected.model.shapes.get(shape_id) else {
+        return;
+    };
+    let kind = protocol_shape_kind(selected, shape_id);
+    // Smithy-RS emits shared JSON serializers only for structures and unions;
+    // collection and map values are serialized inline by their containing
+    // serializer. Deserializers, however, need helpers for all compound
+    // shapes so they can recursively build collection/map values.
+    if matches!(role, ProtocolSerdeRole::Serialize)
+        && matches!(kind, "structure" | "union")
+        && !(kind == "structure" && members(shape).is_empty())
+        || matches!(role, ProtocolSerdeRole::Deserialize)
+            && matches!(kind, "structure" | "union" | "list" | "map")
+            && !(kind == "structure" && members(shape).is_empty())
+    {
+        record_protocol_role(roles, shape_id, role);
+    }
+    for (_, member) in protocol_shape_members(selected, shape) {
+        if let Some(target) = member_target(member) {
+            json_protocol_mark_role(selected, target, role, roles, seen);
+        }
+    }
+}
+
+fn render_json_protocol_operation_file(selected: &SelectedModel, operation_name: &str) -> String {
+    let operation = operation_shape(selected, operation_name).expect("operation exists");
+    let module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let output_path = format!("crate::operation::{module}::{operation_type}Output");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    render_json_protocol_http_error(&mut output, selected, operation_name, operation);
+    writeln!(
+        output,
+        "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{\n    Ok({{\n        #[allow(unused_mut)]\n        let mut output = crate::operation::{module}::builders::{operation_type}OutputBuilder::default();"
+    )
+    .unwrap();
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    if output_shape.is_some_and(|shape| !members(shape).is_empty()) {
+        writeln!(
+            output,
+            "        output = crate::protocol_serde::shape_{module}::de_{module}(_response_body, output)\n            .map_err({error_path}::unhandled)?;"
+        )
+        .unwrap();
+    }
+    if request_id_plan(selected).standard {
+        output.push_str(
+            "        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));\n",
+        );
+    }
+    if let Some(shape) = output_shape.filter(|shape| serde_util_shape_needs_correction(shape)) {
+        let correction = format!(
+            "crate::serde_util::{}_output_output_correct_errors(output)",
+            module
+        );
+        if serde_util_builder_is_fallible(selected, shape) {
+            writeln!(
+                output,
+                "        {correction}\n            .build()\n            .map_err({error_path}::unhandled)?\n    }})\n}}"
+            )
+            .unwrap();
+        } else {
+            writeln!(output, "        {correction}.build()\n    }})\n}}\n").unwrap();
+        }
+    } else {
+        output.push_str("        output.build()\n    })\n}\n");
+    }
+    render_json_protocol_operation_input_and_parser(
+        &mut output,
+        selected,
+        operation_name,
+        operation,
+    );
+    output
+}
+
+fn render_json_protocol_operation_input_and_parser(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+) {
+    let module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let input_has_members = input_shape.is_some_and(|shape| !members(shape).is_empty());
+    writeln!(
+        output,
+        "\npub fn ser_{module}_input(\n    {input}: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {{",
+        input = if input_has_members { "input" } else { "_input" }
+    )
+    .unwrap();
+    if input_has_members {
+        output.push_str("    let mut out = String::new();\n    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);\n");
+        writeln!(
+            output,
+            "    crate::protocol_serde::shape_{module}_input::ser_{module}_input_input(&mut object, input)?;\n    object.finish();\n    Ok(::aws_smithy_types::body::SdkBody::from(out))\n}}\n"
+        )
+        .unwrap();
+    } else {
+        output.push_str("    Ok(::aws_smithy_types::body::SdkBody::from(\"{}\"))\n}\n");
+    }
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let output_path =
+        format!("crate::operation::{module}::builders::{operation_type}OutputBuilder");
+    writeln!(
+        output,
+        "\npub(crate) fn de_{module}(\n    _value: &[u8],\n    mut builder: {output_path},\n) -> ::std::result::Result<{output_path}, ::aws_smithy_json::deserialize::error::DeserializeError> {{"
+    )
+    .unwrap();
+    output.push_str("    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();\n    let tokens = &mut tokens_owned;\n    #[allow(unused_variables)]\n    let depth = 0u32;\n    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;\n");
+    render_json_structure_deserializer_loop(
+        output,
+        selected,
+        output_shape,
+        "builder",
+        "depth",
+        None,
+    );
+    output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n    Ok(builder)\n}\n");
+}
+
+fn render_json_protocol_operation_input_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> String {
+    let operation = operation_shape(selected, operation_name).expect("operation exists");
+    let module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .expect("input shape");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "pub fn ser_{module}_input_input(\n    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    input: &crate::operation::{module}::{operation_type}Input,\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{"
+    )
+    .unwrap();
+    let mut state = JsonRenderState::default();
+    render_json_structure_serializer_body(
+        &mut output,
+        selected,
+        input_shape,
+        "object",
+        "input",
+        &mut state,
+        true,
+    );
+    output.push_str("}\n");
+    output
+}
+
+#[derive(Default)]
+struct JsonRenderState {
+    next_name: usize,
+}
+
+impl JsonRenderState {
+    fn var(&mut self) -> String {
+        self.next_name += 1;
+        format!("var_{}", self.next_name)
+    }
+    fn object(&mut self) -> String {
+        self.next_name += 1;
+        format!("object_{}", self.next_name)
+    }
+    fn array(&mut self) -> String {
+        self.next_name += 1;
+        format!("array_{}", self.next_name)
+    }
+    fn item(&mut self) -> String {
+        self.next_name += 1;
+        format!("item_{}", self.next_name)
+    }
+    fn key(&mut self) -> String {
+        self.next_name += 1;
+        format!("key_{}", self.next_name)
+    }
+    fn value(&mut self) -> String {
+        self.next_name += 1;
+        format!("value_{}", self.next_name)
+    }
+}
+
+fn render_json_protocol_http_error(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+) {
+    let module = names::rust_module_name(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let output_path = format!("crate::operation::{module}::{operation_type}Output");
+    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    writeln!(
+        output,
+        "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_error(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{\n    #[allow(unused_mut)]\n    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)\n        .map_err({error_path}::unhandled)?;"
+    )
+    .unwrap();
+    if request_id_plan(selected).standard {
+        output.push_str("    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);\n");
+    }
+    let errors = operation
+        .get("errors")
+        .and_then(Value::as_array)
+        .map(|errors| errors.iter().filter_map(target_value).collect::<Vec<_>>())
+        .unwrap_or_default();
+    if errors.is_empty() {
+        writeln!(
+            output,
+            "    let generic = generic_builder.build();\n    Err({error_path}::generic(generic))\n}}\n"
+        )
+        .unwrap();
+        return;
+    }
+    output.push_str("    let generic = generic_builder.build();\n    let error_code = match generic.code() {\n        Some(code) => code,\n        None => return Err(");
+    writeln!(output, "{error_path}::unhandled(generic)),").unwrap();
+    output.push_str("    };\n\n    let _error_message = generic.message().map(|msg| msg.to_owned());\n    Err(match error_code {\n");
+    for error in errors {
+        render_json_protocol_error_arm(output, &error_path, error);
+    }
+    writeln!(
+        output,
+        "        _ => {error_path}::generic(generic),\n    }})\n}}\n"
+    )
+    .unwrap();
+}
+
+fn render_json_protocol_error_arm(output: &mut String, error_path: &str, error: &str) {
+    let error_name = rust_type_name(terminal(error));
+    let error_module = names::rust_module_name(terminal(error));
+    writeln!(
+        output,
+        "        {error_name:?} => {error_path}::{error_name}({{"
+    )
+    .unwrap();
+    output.push_str("            #[allow(unused_mut)]\n            let mut tmp = {\n");
+    writeln!(
+        output,
+        "                #[allow(unused_mut)]\n                let mut output = crate::types::error::builders::{error_name}Builder::default();\n                output = crate::protocol_serde::shape_{error_module}::de_{error_module}_json_err(_response_body, output).map_err({error_path}::unhandled)?;\n                let output = output.meta(generic);\n                output.build()\n            }};"
+    )
+    .unwrap();
+    output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
+}
+
+fn render_json_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> String {
+    let shape = selected.model.shapes.get(shape_id).expect("error shape");
+    let name = rust_type_name(terminal(shape_id));
+    let module = names::rust_module_name(terminal(shape_id));
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "pub(crate) fn de_{module}_json_err(\n    _value: &[u8],\n    mut builder: crate::types::error::builders::{name}Builder,\n) -> ::std::result::Result<crate::types::error::builders::{name}Builder, ::aws_smithy_json::deserialize::error::DeserializeError> {{"
+    )
+    .unwrap();
+    output.push_str("    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(crate::protocol_serde::or_empty_doc(_value)).peekable();\n    let tokens = &mut tokens_owned;\n    #[allow(unused_variables)]\n    let depth = 0u32;\n    ::aws_smithy_json::deserialize::token::expect_start_object(tokens.next())?;\n");
+    render_json_structure_deserializer_loop(
+        &mut output,
+        selected,
+        Some(shape),
+        "builder",
+        "depth",
+        Some("error"),
+    );
+    output.push_str("    if tokens.next().is_some() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"found more JSON tokens after completing parsing\",\n        ));\n    }\n");
+    if serde_util_shape_needs_correction(shape) {
+        writeln!(
+            output,
+            "    Ok(crate::serde_util::{module}_correct_errors(builder).build().map_err(|_| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"missing field\"))?)\n}}\n"
+        )
+        .unwrap();
+    } else {
+        output.push_str("    Ok(builder)\n}\n");
+    }
+    output
+}
+
+fn render_json_protocol_shape_file(
+    selected: &SelectedModel,
+    shape_id: &str,
+    roles: ProtocolSerdeRoles,
+) -> String {
+    let shape = selected.model.shapes.get(shape_id).expect("protocol shape");
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    if roles.serialize {
+        match protocol_shape_kind(selected, shape_id) {
+            "structure" => {
+                render_json_shared_structure_serializer(&mut output, selected, shape_id, shape)
+            }
+            "union" => render_json_union_serializer(&mut output, selected, shape_id, shape),
+            _ => {}
+        }
+    }
+    if roles.deserialize {
+        if roles.serialize {
+            output.push('\n');
+        }
+        match protocol_shape_kind(selected, shape_id) {
+            "structure" => {
+                render_json_shared_structure_deserializer(&mut output, selected, shape_id, shape)
+            }
+            "union" => render_json_union_deserializer(&mut output, selected, shape_id, shape),
+            "list" => render_json_list_deserializer(&mut output, selected, shape_id, shape),
+            "map" => render_json_map_deserializer(&mut output, selected, shape_id, shape),
+            _ => {}
+        }
+    }
+    if roles.deserialize && protocol_shape_kind(selected, shape_id) == "union" {
+        let type_name = protocol_shape_type(selected, shape_id);
+        let old = format!("Some({type_name}::Unknown),\n                    }};");
+        let new = format!(
+            "Some({type_name}::Unknown)\n                        }}\n                    }};"
+        );
+        output = output.replace(&old, &new);
+    }
+    output
+}
+
+fn render_json_shared_structure_serializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    writeln!(
+        output,
+        "pub fn ser_{module}(\n    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    input: &{type_name},\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{"
+    )
+    .unwrap();
+    let mut state = JsonRenderState::default();
+    render_json_structure_serializer_body(
+        output, selected, shape, "object", "input", &mut state, false,
+    );
+    output.push_str("}\n");
+}
+
+fn render_json_structure_serializer_body(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    writer: &str,
+    input: &str,
+    state: &mut JsonRenderState,
+    force_optional: bool,
+) {
+    for (name, member) in members(shape) {
+        let field = names::rust_identifier(&name);
+        let expression = format!("{input}.{field}");
+        render_json_serialize_member(
+            output,
+            selected,
+            &name,
+            member,
+            writer,
+            &expression,
+            state,
+            0,
+            force_optional || protocol_member_is_optional(selected, member),
+        );
+    }
+    output.push_str("    Ok(())\n");
+}
+
+fn render_json_serialize_member(
+    output: &mut String,
+    selected: &SelectedModel,
+    member_name: &str,
+    member: &Value,
+    writer: &str,
+    expression: &str,
+    state: &mut JsonRenderState,
+    indent: usize,
+    optional: bool,
+) {
+    let Some(target) = member_target(member) else {
+        return;
+    };
+    let prefix = " ".repeat(indent);
+    if optional {
+        let variable = state.var();
+        writeln!(output, "{prefix}if let Some({variable}) = &{expression} {{").unwrap();
+        render_json_serialize_value(
+            output,
+            selected,
+            member_name,
+            member,
+            target,
+            writer,
+            &variable,
+            state,
+            indent + 4,
+        );
+        writeln!(output, "{prefix}}}").unwrap();
+    } else {
+        writeln!(output, "{prefix}{{").unwrap();
+        render_json_serialize_value(
+            output,
+            selected,
+            member_name,
+            member,
+            target,
+            writer,
+            expression,
+            state,
+            indent + 4,
+        );
+        writeln!(output, "{prefix}}}").unwrap();
+    }
+}
+
+fn render_json_serialize_value(
+    output: &mut String,
+    selected: &SelectedModel,
+    member_name: &str,
+    member: &Value,
+    target: &str,
+    writer: &str,
+    value: &str,
+    state: &mut JsonRenderState,
+    indent: usize,
+) {
+    let prefix = " ".repeat(indent);
+    let key = format!("{member_name}");
+    let writer = if member_name.is_empty() {
+        writer.to_owned()
+    } else {
+        format!("{writer}.key({key:?})")
+    };
+    let value_ref = if value.starts_with('&')
+        || value
+            .chars()
+            .all(|character| character == '_' || character.is_ascii_alphanumeric())
+    {
+        value.to_owned()
+    } else {
+        format!("&{value}")
+    };
+    let value_without_reference = value.strip_prefix('&').unwrap_or(value);
+    let scalar_value = if value.starts_with('&') || !value.contains('.') {
+        format!("*{value_ref}")
+    } else {
+        value_without_reference.to_owned()
+    };
+    match protocol_shape_kind(selected, target) {
+        "string" | "enum" => writeln!(output, "{prefix}{writer}.string({value_without_reference}.as_str());").unwrap(),
+        "boolean" => writeln!(output, "{prefix}{writer}.boolean({scalar_value});").unwrap(),
+        "integer" | "long" | "short" | "byte" => writeln!(
+            output,
+            "{prefix}{writer}.number(\n{prefix}    #[allow(clippy::useless_conversion)]\n{prefix}    ::aws_smithy_types::Number::NegInt(({scalar_value}).into()),\n{prefix});"
+        )
+        .unwrap(),
+        "float" | "double" => writeln!(
+            output,
+            "{prefix}{writer}.number(\n{prefix}    #[allow(clippy::useless_conversion)]\n{prefix}    ::aws_smithy_types::Number::Float(({scalar_value}).into()),\n{prefix});"
+        )
+        .unwrap(),
+        "timestamp" => writeln!(
+            output,
+            "{prefix}{writer}.date_time({value_without_reference}, ::aws_smithy_types::date_time::Format::{})?;",
+            json_timestamp_format(selected, target)
+        )
+        .unwrap(),
+        "blob" => writeln!(
+            output,
+            "{prefix}{writer}.string_unchecked(&::aws_smithy_types::base64::encode({value_without_reference}));"
+        )
+        .unwrap(),
+        "list" => {
+            let array = state.array();
+            writeln!(output, "{prefix}let mut {array} = {writer}.start_array();").unwrap();
+            let item = state.item();
+            let item_member = selected.model.shapes.get(target).and_then(|shape| shape.get("member"));
+            writeln!(output, "{prefix}for {item} in {value_ref} {{").unwrap();
+            if let Some(item_member) = item_member {
+                let sparse = selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(|shape| has_trait(shape, "smithy.api#sparse"));
+                render_json_serialize_member(
+                    output,
+                    selected,
+                    "",
+                    item_member,
+                    &format!("{array}.value()"),
+                    &item,
+                    state,
+                    indent + 4,
+                    sparse,
+                );
+            }
+            writeln!(output, "{prefix}}}\n{prefix}{array}.finish();").unwrap();
+        }
+        "map" => {
+            let object = state.object();
+            writeln!(output, "{prefix}#[allow(unused_mut)]\n{prefix}let mut {object} = {writer}.start_object();").unwrap();
+            let key_var = state.key();
+            let value_var = state.value();
+            let value_member = selected.model.shapes.get(target).and_then(|shape| shape.get("value"));
+            writeln!(output, "{prefix}for ({key_var}, {value_var}) in {value_ref} {{").unwrap();
+            if let Some(value_member) = value_member {
+                let value_target = member_target(value_member).unwrap_or_default();
+                let sparse = selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(|shape| has_trait(shape, "smithy.api#sparse"));
+                render_json_serialize_map_value(
+                    output,
+                    selected,
+                    value_member,
+                    value_target,
+                    &object,
+                    &key_var,
+                    &value_var,
+                    state,
+                    indent + 4,
+                    sparse,
+                );
+            }
+            writeln!(output, "{prefix}}}\n{prefix}{object}.finish();").unwrap();
+        }
+        "structure" => {
+            let object = state.object();
+            writeln!(output, "{prefix}#[allow(unused_mut)]\n{prefix}let mut {object} = {writer}.start_object();").unwrap();
+            writeln!(output, "{prefix}crate::protocol_serde::shape_{}::ser_{}(&mut {object}, {value_ref})?;", names::rust_module_name(terminal(target)), names::rust_module_name(terminal(target))).unwrap();
+            writeln!(output, "{prefix}{object}.finish();").unwrap();
+        }
+        "union" => {
+            let object = state.object();
+            writeln!(output, "{prefix}#[allow(unused_mut)]\n{prefix}let mut {object} = {writer}.start_object();").unwrap();
+            writeln!(output, "{prefix}crate::protocol_serde::shape_{}::ser_{}(&mut {object}, {value_ref})?;", names::rust_module_name(terminal(target)), names::rust_module_name(terminal(target))).unwrap();
+            writeln!(output, "{prefix}{object}.finish();").unwrap();
+        }
+        "document" => writeln!(output, "{prefix}{writer}.document({value_ref});").unwrap(),
+        _ => {}
+    }
+    let _ = member;
+}
+
+fn render_json_serialize_map_value(
+    output: &mut String,
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    object: &str,
+    key: &str,
+    value: &str,
+    state: &mut JsonRenderState,
+    indent: usize,
+    sparse: bool,
+) {
+    let prefix = " ".repeat(indent);
+    let writer = format!("{object}.key({key}.as_str())");
+    if sparse {
+        let variable = state.var();
+        writeln!(
+            output,
+            "{prefix}if let Some({variable}) = {value}.as_ref() {{"
+        )
+        .unwrap();
+        render_json_serialize_value(
+            output,
+            selected,
+            "",
+            member,
+            target,
+            &writer,
+            &variable,
+            state,
+            indent + 4,
+        );
+        writeln!(
+            output,
+            "{prefix}}} else {{\n{prefix}    {writer}.null();\n{prefix}}}"
+        )
+        .unwrap();
+    } else {
+        render_json_serialize_member(
+            output, selected, "", member, &writer, value, state, indent, false,
+        );
+    }
+}
+
+fn render_json_union_serializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    writeln!(
+        output,
+        "pub fn ser_{module}(\n    object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,\n    input: &{type_name},\n) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {{\n    match input {{"
+    )
+    .unwrap();
+    for (name, member) in members(shape) {
+        let variant = rust_type_name(&name);
+        let target = member_target(member).unwrap_or_default();
+        if protocol_shape_kind(selected, target) == "unit" {
+            writeln!(output, "        {type_name}::{variant} => {{\n            object.key({name:?}).null();\n        }}").unwrap();
+        } else {
+            writeln!(output, "        {type_name}::{variant}(inner) => {{").unwrap();
+            render_json_serialize_value(
+                output,
+                selected,
+                &name,
+                member,
+                target,
+                "object",
+                "inner",
+                &mut JsonRenderState::default(),
+                12,
+            );
+            output.push_str("        }\n");
+        }
+    }
+    writeln!(
+        output,
+        "        {type_name}::Unknown => {{\n            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(\n                {:?},\n            ))\n        }}",
+        rust_type_name(terminal(shape_id))
+    )
+    .unwrap();
+    output.push_str("    }\n    Ok(())\n}\n");
+}
+
+fn render_json_shared_structure_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    writeln!(
+        output,
+        "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{"
+    )
+    .unwrap();
+    output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {\n            #[allow(unused_mut)]\n");
+    writeln!(
+        output,
+        "            let mut builder = crate::types::builders::{}Builder::default();",
+        rust_type_name(terminal(shape_id))
+    )
+    .unwrap();
+    render_json_structure_deserializer_loop(
+        output,
+        selected,
+        Some(shape),
+        "builder",
+        "depth",
+        None,
+    );
+    let result = json_builder_result(selected, shape_id, "builder", "Response was invalid");
+    writeln!(output, "            Ok(Some({result}))").unwrap();
+    output.push_str("        }\n        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"expected start object or null\",\n        )),\n    }\n}\n");
+}
+
+fn render_json_list_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    let member = shape.get("member").expect("list member");
+    let target = member_target(member).unwrap_or_default();
+    let sparse = has_trait(shape, "smithy.api#sparse");
+    writeln!(
+        output,
+        "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{"
+    )
+    .unwrap();
+    output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartArray { .. }) => {\n            let mut items = Vec::new();\n            loop {\n                match tokens.peek() {\n                    Some(Ok(::aws_smithy_json::deserialize::Token::EndArray { .. })) => {\n                        tokens.next().transpose().unwrap();\n                        break;\n                    }\n                    _ => {\n");
+    let expression =
+        json_deserialize_expression(selected, target, member, "tokens", "_value", "depth + 1");
+    if sparse {
+        writeln!(output, "                        let value = {expression};\n                        items.push(value);").unwrap();
+    } else {
+        writeln!(output, "                        let value = {expression};\n                        if let Some(value) = value {{\n                            items.push(value);\n                        }} else {{\n                            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n                                \"dense list cannot contain null values\",\n                            ));\n                        }}").unwrap();
+    }
+    output.push_str("                    }\n                }\n            }\n            Ok(Some(items))\n        }\n        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"expected start array or null\",\n        )),\n    }\n}\n");
+}
+
+fn render_json_map_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    let key = shape.get("key").expect("map key");
+    let value = shape.get("value").expect("map value");
+    let key_target = member_target(key).unwrap_or("smithy.api#String");
+    let value_target = member_target(value).unwrap_or_default();
+    let sparse = has_trait(shape, "smithy.api#sparse");
+    writeln!(
+        output,
+        "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{"
+    )
+    .unwrap();
+    output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => {\n            let mut map = ::std::collections::HashMap::new();\n            loop {\n                match tokens.next().transpose()? {\n                    Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {\n                        let key = key.to_unescaped().map(|u| u.into_owned())?;\n");
+    let key_expression = json_deserialize_key_expression(selected, key_target, "key");
+    if key_expression != "key" {
+        writeln!(
+            output,
+            "                        let key = {key_expression};"
+        )
+        .unwrap();
+    }
+    let value_expression = json_deserialize_expression(
+        selected,
+        value_target,
+        value,
+        "tokens",
+        "_value",
+        "depth + 1",
+    );
+    if sparse {
+        writeln!(
+            output,
+            "                        map.insert(key, {value_expression});"
+        )
+        .unwrap();
+    } else {
+        writeln!(output, "                        let value = {value_expression};\n                        match value {{\n                            Some(value) => {{\n                                map.insert(key, value);\n                            }}\n                            None => return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n                                \"dense map cannot contain null values\",\n                            )),\n                        }}").unwrap();
+    }
+    output.push_str("                    }\n                    other => {\n                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(\n                            \"expected object key or end object, found: {other:?}\"\n                        )))\n                    }\n                }\n            }\n            Ok(Some(map))\n        }\n        _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"expected start object or null\",\n        )),\n    }\n}\n");
+}
+
+fn render_json_union_deserializer(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape_id: &str,
+    shape: &Value,
+) {
+    let module = names::rust_module_name(terminal(shape_id));
+    let type_name = protocol_shape_type(selected, shape_id);
+    writeln!(
+        output,
+        "pub(crate) fn de_{module}<'a, I>(\n    tokens: &mut ::std::iter::Peekable<I>,\n    _value: &'a [u8],\n    depth: u32,\n) -> ::std::result::Result<Option<{type_name}>, ::aws_smithy_json::deserialize::error::DeserializeError>\nwhere\n    I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,\n{{"
+    )
+    .unwrap();
+    output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    let mut variant = None;\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => loop {\n            match tokens.next().transpose()? {\n                Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n                Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {\n                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {\n                        let _ = tokens.next().expect(\"peek returned a token\")?;\n                        continue;\n                    }\n                    let key = key.to_unescaped()?;\n                    if key == \"__type\" {\n                        ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                        continue;\n                    }\n                    if variant.is_some() {\n                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n                            \"encountered mixed variants in union\",\n                        ));\n                    }\n                    variant = match key.as_ref() {\n");
+    for (name, member) in members(shape) {
+        let target = member_target(member).unwrap_or_default();
+        let variant_name = rust_type_name(&name);
+        let expression =
+            json_deserialize_expression(selected, target, member, "tokens", "_value", "depth + 1");
+        if protocol_shape_kind(selected, target) == "unit" {
+            writeln!(output, "                        {name:?} => {{\n                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                            Some({type_name}::{variant_name})\n                        }}").unwrap();
+        } else {
+            writeln!(output, "                        {name:?} => Some({type_name}::{variant_name}({expression}.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom(\"value for '{name}' cannot be null\"))?)),").unwrap();
+        }
+    }
+    output.push_str("                        _ => {\n                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                            Some(");
+    output.push_str(&format!("{type_name}::Unknown"));
+    output.push_str("),\n                    };\n                }\n                other => {\n                    return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(\n                        \"expected object key or end object, found: {other:?}\"\n                    )))\n                }\n            }\n        },\n        _ => {\n            return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n                \"expected start object or null\",\n            ))\n        }\n    }\n    if variant.is_none() {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"Union did not contain a valid variant.\",\n        ));\n    }\n    Ok(variant)\n}\n");
+}
+
+fn render_json_structure_deserializer_loop(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: Option<&Value>,
+    builder: &str,
+    depth: &str,
+    _context: Option<&str>,
+) {
+    output.push_str("    loop {\n        match tokens.next().transpose()? {\n            Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {\n");
+    if let Some(shape) = shape {
+        for (name, member) in members(shape) {
+            let target = member_target(member).unwrap_or_default();
+            let field = names::rust_identifier(&name);
+            let setter = names::rustdoc_identifier(&field);
+            let expression = json_deserialize_expression(
+                selected,
+                target,
+                member,
+                "tokens",
+                "_value",
+                &format!("{depth} + 1"),
+            );
+            writeln!(output, "                {name:?} => {{\n                    {builder} = {builder}.set_{setter}({expression});\n                }},").unwrap();
+        }
+    }
+    output.push_str("                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,\n            },\n            other => {\n                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(\n                    \"expected object key or end object, found: {other:?}\"\n                )))\n            }\n        }\n    }\n");
+}
+
+fn json_deserialize_expression(
+    selected: &SelectedModel,
+    target: &str,
+    member: &Value,
+    tokens: &str,
+    value: &str,
+    depth: &str,
+) -> String {
+    match protocol_shape_kind(selected, target) {
+        "string" => format!(
+            "::aws_smithy_json::deserialize::token::expect_string_or_null({tokens}.next())?\n                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))\n                            .transpose()?"
+        ),
+        "enum" => format!(
+            "::aws_smithy_json::deserialize::token::expect_string_or_null({tokens}.next())?\n                            .map(|s| s.to_unescaped().map(|u| crate::types::{}::from(u.as_ref())))\n                            .transpose()?",
+            rust_type_name(terminal(target))
+        ),
+        "boolean" => {
+            format!("::aws_smithy_json::deserialize::token::expect_bool_or_null({tokens}.next())?")
+        }
+        "integer" | "long" | "short" | "byte" => format!(
+            "::aws_smithy_json::deserialize::token::expect_number_or_null({tokens}.next())?\n                            .map({}::try_from)\n                            .transpose()?",
+            match protocol_shape_kind(selected, target) {
+                "integer" => "i32",
+                "long" => "i64",
+                "short" => "i16",
+                "byte" => "i8",
+                _ => unreachable!(),
+            }
+        ),
+        "float" => format!(
+            "::aws_smithy_json::deserialize::token::expect_number_or_null({tokens}.next())?.map(|v| v.to_f32_lossy())"
+        ),
+        "double" => format!(
+            "::aws_smithy_json::deserialize::token::expect_number_or_null({tokens}.next())?.map(|v| v.to_f64_lossy())"
+        ),
+        "timestamp" => format!(
+            "::aws_smithy_json::deserialize::token::expect_timestamp_or_null({tokens}.next(), ::aws_smithy_types::date_time::Format::{})?",
+            json_timestamp_format(selected, target)
+        ),
+        "blob" => {
+            format!("::aws_smithy_json::deserialize::token::expect_blob_or_null({tokens}.next())?")
+        }
+        "list" | "map" | "structure" | "union" => format!(
+            "crate::protocol_serde::shape_{}::de_{}({tokens}, {value}, {depth})?",
+            names::rust_module_name(terminal(target)),
+            names::rust_module_name(terminal(target))
+        ),
+        "document" => format!(
+            "Some(::aws_smithy_json::deserialize::token::expect_document({tokens}.next())?)"
+        ),
+        _ => format!("::aws_smithy_json::deserialize::token::skip_value({tokens})?"),
+    }
+}
+
+fn json_deserialize_key_expression(selected: &SelectedModel, target: &str, key: &str) -> String {
+    if protocol_shape_kind(selected, target) == "string"
+        || protocol_shape_kind(selected, target) == "enum"
+    {
+        "key".to_owned()
+    } else {
+        key.to_owned()
+    }
+}
+
+fn json_builder_result(
+    selected: &SelectedModel,
+    shape_id: &str,
+    builder: &str,
+    source: &str,
+) -> String {
+    if serde_util_shape_needs_correction(selected.model.shapes.get(shape_id).expect("shape")) {
+        if serde_util_builder_is_fallible(
+            selected,
+            selected.model.shapes.get(shape_id).expect("shape"),
+        ) {
+            format!(
+                "crate::serde_util::{}_correct_errors({builder}).build().map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source(\"{source}\", err))?",
+                names::rust_module_name(terminal(shape_id))
+            )
+        } else {
+            format!(
+                "crate::serde_util::{}_correct_errors({builder}).build()",
+                names::rust_module_name(terminal(shape_id))
+            )
+        }
+    } else {
+        format!("{builder}.build()")
+    }
 }
 
 fn protocol_input_payload_kind(
@@ -11226,6 +12894,22 @@ fn protocol_timestamp_format(selected: &SelectedModel, target: &str) -> &'static
         Some("epoch-seconds") => "EpochSeconds",
         Some("http-date") => "HttpDate",
         _ => "DateTimeWithOffset",
+    }
+}
+
+fn json_timestamp_format(selected: &SelectedModel, target: &str) -> &'static str {
+    match selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+        .and_then(Value::as_str)
+    {
+        Some("date-time") => "DateTimeWithOffset",
+        Some("epoch-seconds") => "EpochSeconds",
+        Some("http-date") => "HttpDate",
+        _ => "EpochSeconds",
     }
 }
 

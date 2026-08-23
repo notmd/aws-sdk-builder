@@ -113,9 +113,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Disable
             "DynamoDB",
         ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = false;
-        signing_options.content_sha256_header = true;
-        signing_options.normalize_uri_path = false;
+        signing_options.double_uri_encode = true;
+        signing_options.content_sha256_header = false;
+        signing_options.normalize_uri_path = true;
         signing_options.payload_override = None;
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
@@ -147,17 +147,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Disable
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError,
             >::new())
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError,
-                >::builder()
-                .transient_errors({
-                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                    transient_errors.push("InternalError");
-                    ::std::borrow::Cow::Owned(transient_errors)
-                })
-                .build(),
-            );
+            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError,
+            >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -273,11 +265,16 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DisableKines
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                "DynamoDB_20120810.DisableKinesisStreamingDestination",
+            );
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            crate::protocol_serde::shape_disable_kinesis_streaming_destination_input::ser_disable_kinesis_streaming_destination_op_input(&input)?,
+            crate::protocol_serde::shape_disable_kinesis_streaming_destination::ser_disable_kinesis_streaming_destination_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -312,9 +309,15 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DisableKinesi
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_account_id_endpoint_mode(::std::option::Option::Some(
+                cfg.load::<::aws_types::endpoint_config::AccountIdEndpointMode>()
+                    .cloned()
+                    .unwrap_or_default()
+                    .to_string(),
+            ))
             .set_resource_arn(Some(
                 _input
                     .table_name
@@ -341,6 +344,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DisableKinesi
 pub enum DisableKinesisStreamingDestinationError {
     /// <p>An error occurred on the server side.</p>
     InternalServerError(crate::types::error::InternalServerError),
+    #[allow(missing_docs)] // documentation missing in model
     InvalidEndpointException(crate::types::error::InvalidEndpointException),
     /// <p>There is no limit to the number of daily on-demand backups that can be taken.</p>
     /// <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include <code>CreateTable</code>, <code>UpdateTable</code>, <code>DeleteTable</code>,<code>UpdateTimeToLive</code>, <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>.</p>
@@ -484,11 +488,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DisableK
             source,
             meta: meta.unwrap_or_default(),
         })
-    }
-}
-impl crate::s3_request_id::RequestIdExt for crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId for crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationError {

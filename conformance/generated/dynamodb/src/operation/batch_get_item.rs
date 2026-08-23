@@ -104,9 +104,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for BatchGe
 
         cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new("BatchGetItem", "DynamoDB"));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = false;
-        signing_options.content_sha256_header = true;
-        signing_options.normalize_uri_path = false;
+        signing_options.double_uri_encode = true;
+        signing_options.content_sha256_header = false;
+        signing_options.normalize_uri_path = true;
         signing_options.payload_override = None;
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
@@ -124,9 +124,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for BatchGe
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("BatchGetItem")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                BatchGetItemTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
             ))
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -138,58 +135,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for BatchGe
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::batch_get_item::BatchGetItemError,
             >::new())
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::batch_get_item::BatchGetItemError>::builder()
-                    .transient_errors({
-                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                        transient_errors.push("InternalError");
-                        ::std::borrow::Cow::Owned(transient_errors)
-                    })
-                    .build(),
-            );
+            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::batch_get_item::BatchGetItemError,
+            >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
 }
 
-#[derive(Debug)]
-struct BatchGetItemTelemetryInputCaptureInterceptor;
-
-#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for BatchGetItemTelemetryInputCaptureInterceptor {
-    fn name(&self) -> &'static str {
-        "BatchGetItemTelemetryInputCaptureInterceptor"
-    }
-
-    fn read_before_execution(
-        &self,
-        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-            '_,
-            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-        >,
-        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        // Nothing to do unless the customer opted in by naming members to record.
-        let ::std::option::Option::Some(requested) = cfg
-            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-            .filter(|r| !r.is_empty())
-        else {
-            return ::std::result::Result::Ok(());
-        };
-
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<BatchGetItemInput>() else {
-            // A mismatched input is not this interceptor's concern; skip quietly.
-            return ::std::result::Result::Ok(());
-        };
-
-        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-
-        cfg.interceptor_state().store_put(captured);
-        ::std::result::Result::Ok(())
-    }
-}
 #[derive(Debug)]
 struct BatchGetItemResponseDeserializer;
 impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for BatchGetItemResponseDeserializer {
@@ -248,10 +201,15 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for BatchGetItem
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/x-amz-json-1.0");
+            builder = _header_serialization_settings.set_default_header(
+                builder,
+                ::http_1x::header::HeaderName::from_static("x-amz-target"),
+                "DynamoDB_20120810.BatchGetItem",
+            );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_batch_get_item_input::ser_batch_get_item_op_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(crate::protocol_serde::shape_batch_get_item::ser_batch_get_item_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -285,9 +243,16 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for BatchGetItemE
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
+            .set_account_id_endpoint_mode(::std::option::Option::Some(
+                cfg.load::<::aws_types::endpoint_config::AccountIdEndpointMode>()
+                    .cloned()
+                    .unwrap_or_default()
+                    .to_string(),
+            ))
+            .set_resource_arn_list(get_resource_arn_list(_input))
             .build()
             .map_err(|err| {
                 ::aws_smithy_runtime_api::client::interceptors::error::ContextAttachedError::new("endpoint params could not be built", err)
@@ -300,6 +265,12 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for BatchGetItemE
 
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
+// Generated from JMESPath Expression: keys(RequestItems)
+fn get_resource_arn_list(input: &crate::operation::batch_get_item::BatchGetItemInput) -> Option<::std::vec::Vec<::std::string::String>> {
+    let _fld_2 = input.request_items.as_ref()?;
+    let _ret_1 = _fld_2.keys().map(Clone::clone).collect::<Vec<String>>();
+    Some(_ret_1)
+}
 
 /// Error type for the `BatchGetItemError` operation.
 #[non_exhaustive]
@@ -307,6 +278,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for BatchGetItemE
 pub enum BatchGetItemError {
     /// <p>An error occurred on the server side.</p>
     InternalServerError(crate::types::error::InternalServerError),
+    #[allow(missing_docs)] // documentation missing in model
     InvalidEndpointException(crate::types::error::InvalidEndpointException),
     /// <p>The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     ProvisionedThroughputExceededException(crate::types::error::ProvisionedThroughputExceededException),
@@ -445,11 +417,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for BatchGet
             source,
             meta: meta.unwrap_or_default(),
         })
-    }
-}
-impl crate::s3_request_id::RequestIdExt for crate::operation::batch_get_item::BatchGetItemError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId for crate::operation::batch_get_item::BatchGetItemError {

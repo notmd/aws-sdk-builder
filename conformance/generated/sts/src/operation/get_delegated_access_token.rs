@@ -108,9 +108,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDele
             "STS",
         ));
         let mut signing_options = ::aws_runtime::auth::SigningOptions::default();
-        signing_options.double_uri_encode = false;
-        signing_options.content_sha256_header = true;
-        signing_options.normalize_uri_path = false;
+        signing_options.double_uri_encode = true;
+        signing_options.content_sha256_header = false;
+        signing_options.normalize_uri_path = true;
         signing_options.payload_override = None;
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
@@ -128,9 +128,6 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDele
         #[allow(unused_mut)]
         let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetDelegatedAccessToken")
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                GetDelegatedAccessTokenTelemetryInputCaptureInterceptor,
-            ))
-            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
                 ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
             ))
             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -142,60 +139,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetDele
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
                 crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
             >::new())
-            .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
-                >::builder()
-                .transient_errors({
-                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                    transient_errors.push("InternalError");
-                    ::std::borrow::Cow::Owned(transient_errors)
-                })
-                .build(),
-            );
+            .with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
+                crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError,
+            >::new());
 
         ::std::borrow::Cow::Owned(rcb)
     }
 }
 
-#[derive(Debug)]
-struct GetDelegatedAccessTokenTelemetryInputCaptureInterceptor;
-
-#[::aws_smithy_runtime_api::client::interceptors::dyn_dispatch_hint]
-impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetDelegatedAccessTokenTelemetryInputCaptureInterceptor {
-    fn name(&self) -> &'static str {
-        "GetDelegatedAccessTokenTelemetryInputCaptureInterceptor"
-    }
-
-    fn read_before_execution(
-        &self,
-        context: &::aws_smithy_runtime_api::client::interceptors::context::BeforeSerializationInterceptorContextRef<
-            '_,
-            ::aws_smithy_runtime_api::client::interceptors::context::Input,
-            ::aws_smithy_runtime_api::client::interceptors::context::Output,
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-        >,
-        cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-    ) -> ::std::result::Result<(), ::aws_smithy_runtime_api::box_error::BoxError> {
-        // Nothing to do unless the customer opted in by naming members to record.
-        let ::std::option::Option::Some(requested) = cfg
-            .load::<::aws_smithy_types::telemetry::RequestedTelemetryAttributes>()
-            .filter(|r| !r.is_empty())
-        else {
-            return ::std::result::Result::Ok(());
-        };
-
-        let ::std::option::Option::Some(input) = context.input().downcast_ref::<GetDelegatedAccessTokenInput>() else {
-            // A mismatched input is not this interceptor's concern; skip quietly.
-            return ::std::result::Result::Ok(());
-        };
-
-        let mut captured = ::aws_smithy_types::telemetry::CapturedTelemetryAttributes::default();
-
-        cfg.interceptor_state().store_put(captured);
-        ::std::result::Result::Ok(())
-    }
-}
 #[derive(Debug)]
 struct GetDelegatedAccessTokenResponseDeserializer;
 impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetDelegatedAccessTokenResponseDeserializer {
@@ -293,8 +244,8 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetDelegatedA
 
         let params = crate::config::endpoint::Params::builder()
             .set_region(cfg.load::<::aws_types::region::Region>().map(|r| r.as_ref().to_owned()))
-            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_use_dual_stack(cfg.load::<::aws_types::endpoint_config::UseDualStack>().map(|ty| ty.0))
+            .set_use_fips(cfg.load::<::aws_types::endpoint_config::UseFips>().map(|ty| ty.0))
             .set_endpoint(cfg.load::<::aws_types::endpoint_config::EndpointUrl>().map(|ty| ty.0.clone()))
             .build()
             .map_err(|err| {
@@ -425,11 +376,6 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetDeleg
             source,
             meta: meta.unwrap_or_default(),
         })
-    }
-}
-impl crate::s3_request_id::RequestIdExt for crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError {
-    fn extended_request_id(&self) -> Option<&str> {
-        self.meta().extended_request_id()
     }
 }
 impl ::aws_types::request_id::RequestId for crate::operation::get_delegated_access_token::GetDelegatedAccessTokenError {
