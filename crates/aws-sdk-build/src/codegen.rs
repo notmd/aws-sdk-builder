@@ -149,7 +149,8 @@ pub(crate) fn generate(
             if let Some(source) = endpoint_test_source {
                 service_files.push(("tests/endpoint_tests.rs".to_owned(), source));
             }
-            if let Some(integration_tests) = entry.integration_tests {
+            if !selected.protocol_tests.is_empty() {
+                let integration_tests = entry.integration_tests.unwrap_or_default();
                 for asset in integration_tests {
                     service_files.push((
                         asset.path.to_owned(),

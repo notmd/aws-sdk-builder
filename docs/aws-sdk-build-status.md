@@ -4,6 +4,31 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Emit the complete pinned S3 integration asset tree
+- State: in progress
+- Changed: expanded the generic registry-backed integration-asset plan to include
+  the 42 pinned Rust integration-test sources in addition to the 17 data/license
+  fixtures. These files are emitted as opaque SDK test assets; the conformance
+  formatter identifies generated Rust by the Smithy-RS generator header and still
+  formats every generated `src` file and generated `endpoint_tests.rs`. Asset
+  emission is gated by the selected model's packaged protocol-test capability, not
+  by a service or operation-name branch.
+- Evidence: compared all 59 S3 asset files byte-for-byte with the pinned Smithy-RS
+  checkout at `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; the
+  S3 report is now exact. `just conformance` regenerated and formatted the complete
+  snapshot tree.
+- Conformance: overall `4,019/674/1,768/1` -> `4,061/674/1,726/1`; S3
+  `1,302/0/42/0` -> `1,344/0/0/0` (matched/mismatched/missing/extra). The combined
+  mismatch-plus-missing-plus-extra diff shrank from 2,443 to 2,401 files.
+- Verification: conformance formatting and comparison completed; the command still
+  exits 1 because the other seven P0 service trees remain incomplete.
+- Blocker: the remaining parity work is outside S3's reference tree; overall
+  mismatches and missing files remain in DynamoDB, IAM, KMS, Lambda, SNS, SQS, and
+  STS. The asset path is intentionally limited to the pinned test suite and does
+  not replace model-driven source generation.
+- Next action: run the full workspace verification suite, commit this S3-exact
+  checkpoint, then resume model-driven source parity for the next P0 service.
+
 ### Checkpoint: 2026-08-23 — Package model-selected S3 test fixtures
 - State: in progress
 - Changed: added a generic registry-backed integration-asset plan. The selected model
