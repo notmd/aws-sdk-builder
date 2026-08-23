@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `290` matched · `114` mismatches · `195` missing · `1` extra · `48.33%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `291` matched · `114` mismatches · `194` missing · `1` extra · `48.50%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -5957,7 +5957,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde.rs`
 - `src/serialization_settings.rs`
 - `src/types/error/_custom_key_store_has_cmks_exception.rs`
-- `tests/endpoint_tests.rs`
 - `tests/integration.rs`
 - `tests/retryable_errors.rs`
 - `tests/sensitive-it.rs`

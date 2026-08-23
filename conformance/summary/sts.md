@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `152/152` files compared · `89` matched · `16` mismatches · `47` missing · `0` extra · `58.55%` match (100.00% means fully matched)
+**Progress:** `152/152` files compared · `90` matched · `16` mismatches · `46` missing · `0` extra · `59.21%` match (100.00% means fully matched)
 
 ### `src/client.rs`
 
@@ -1212,7 +1212,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
 - `src/serialization_settings.rs`
-- `tests/endpoint_tests.rs`
 - `tests/retry_idp_comms_err.rs`
 - `tests/signing-it.rs`
 

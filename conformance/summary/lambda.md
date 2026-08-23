@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `585` matched · `143` mismatches · `356` missing · `0` extra · `53.97%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `586` matched · `143` mismatches · `355` missing · `0` extra · `54.06%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -8804,7 +8804,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/serialization_settings.rs`
 - `tests/blns/LICENSE`
 - `tests/blns/blns.txt`
-- `tests/endpoint_tests.rs`
 - `tests/naughty-strings-client-context.rs`
 - `tests/request_id.rs`
 

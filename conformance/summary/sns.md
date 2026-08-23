@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `449/449` files compared · `238` matched · `63` mismatches · `148` missing · `0` extra · `53.01%` match (100.00% means fully matched)
+**Progress:** `449/449` files compared · `239` matched · `63` mismatches · `147` missing · `0` extra · `53.23%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -5512,7 +5512,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde.rs`
 - `src/rest_xml_wrapped_errors.rs`
 - `src/serialization_settings.rs`
-- `tests/endpoint_tests.rs`
 
 ### Rust token differences
 

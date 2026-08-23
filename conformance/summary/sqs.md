@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `299/299` files compared · `158` matched · `35` mismatches · `106` missing · `0` extra · `52.84%` match (100.00% means fully matched)
+**Progress:** `299/299` files compared · `159` matched · `35` mismatches · `105` missing · `0` extra · `53.18%` match (100.00% means fully matched)
 
 ### `src/client/change_message_visibility.rs`
 
@@ -2353,7 +2353,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/protocol_serde/shape_untag_queue_input.rs`
 - `src/protocol_serde.rs`
 - `src/serialization_settings.rs`
-- `tests/endpoint_tests.rs`
 - `tests/long-polling.rs`
 
 ### Rust token differences

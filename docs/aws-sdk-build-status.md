@@ -4,6 +4,30 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Emit model-filtered endpoint test placeholders
+
+- State: in progress
+- Changed: added the reusable Smithy-RS endpoint integration-test placeholder when a
+  model's `smithy.rules#endpointTests` trait has no operation inputs after filtering
+  the deprecated global-endpoint built-ins documented by Smithy-RS. This emits exact
+  `tests/endpoint_tests.rs` files for IAM, KMS, Lambda, SNS, SQS, and STS without
+  service- or operation-name branches; models with real operation inputs remain for the
+  next endpoint-test renderer.
+- Evidence: compared the filter behavior with the pinned Smithy-RS checkout at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; 6 generated
+  endpoint test files are byte-identical to their references.
+- Conformance: overall `3,995/674/1,792/1` -> `4,001/674/1,786/1`; S3
+  `1,284/0/60/0` -> `1,284/0/60/0` (matched/mismatched/missing/extra). The combined
+  mismatch-plus-missing diff shrank from 2,466 to 2,460 files.
+- Verification: `just conformance` completed generation, formatting, and comparison;
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance still exits 1
+  because parity remains incomplete.
+- Blocker: S3's endpoint test file has model operation inputs and needs generic lowering;
+  the remaining S3 gaps are otherwise the reference test/data tree.
+- Next action: commit this endpoint-test checkpoint, then lower modeled endpoint test
+  operation inputs generically for S3 and DynamoDB.
+
 ### Checkpoint: 2026-08-23 — Match model-driven S3 Cargo manifest
 
 - State: in progress
