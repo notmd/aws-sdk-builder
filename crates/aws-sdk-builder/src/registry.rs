@@ -14,7 +14,6 @@ pub struct ServiceMetadata {
     pub crate_name: &'static str,
     pub module_name: &'static str,
     pub sdk_version: Option<&'static str>,
-    pub model_sha256: &'static str,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -53,7 +52,7 @@ impl ServiceSource {
 }
 
 macro_rules! metadata {
-    ($key:literal, $shape:literal, $crate_name:literal, $module:literal, $checksum:literal, $version:expr) => {
+    ($key:literal, $shape:literal, $crate_name:literal, $module:literal, $version:expr) => {
         ServiceMetadata {
             key: $key,
             service_shape_id: $shape,
@@ -61,7 +60,6 @@ macro_rules! metadata {
             crate_name: $crate_name,
             module_name: $module,
             sdk_version: $version,
-            model_sha256: $checksum,
         }
     };
 }
@@ -72,7 +70,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.dynamodb#DynamoDB_20120810",
         "aws-sdk-dynamodb",
         "aws_sdk_dynamodb",
-        "7e9436596b667e2e0600de9c086205b38960012028bcd625ee786a5126d0f63e",
         Some("1.122.0")
     ),
     metadata!(
@@ -80,7 +77,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.iam#AWSIdentityManagementV20100508",
         "aws-sdk-iam",
         "aws_sdk_iam",
-        "c0cec5eeceeffdf03f310ae41c30d072041dbc274bc5a388cad525847de1bec2",
         Some("1.121.0")
     ),
     metadata!(
@@ -88,7 +84,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.kms#TrentService",
         "aws-sdk-kms",
         "aws_sdk_kms",
-        "82e414ec6095a69dabe0e7de071a5b9704c413d3277ed1b293d3cbcd8dd6ce5f",
         Some("1.116.0")
     ),
     metadata!(
@@ -96,7 +91,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.lambda#AWSGirApiService",
         "aws-sdk-lambda",
         "aws_sdk_lambda",
-        "a041b314d008e743535e36e0ce3a2148ee28a46f6dbda79af4f03ba9f984f57b",
         Some("1.140.0")
     ),
     metadata!(
@@ -104,7 +98,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.s3#AmazonS3",
         "aws-sdk-s3",
         "aws_sdk_s3",
-        "85e30a81b268de1b569bc1611a77fac7422198402f616149164a900285eb44e7",
         Some("1.143.0")
     ),
     metadata!(
@@ -112,7 +105,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.sns#AmazonSimpleNotificationService",
         "aws-sdk-sns",
         "aws_sdk_sns",
-        "ab2f70d13a3e389a1ccc29471f926017bf0482d76804197aa2d305657feba7c3",
         Some("1.109.0")
     ),
     metadata!(
@@ -120,7 +112,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.sqs#AmazonSQS",
         "aws-sdk-sqs",
         "aws_sdk_sqs",
-        "38eef06ce5642b8a052282fd19a3ab275e0046d375474e2ff022d3e33aaeab72",
         Some("1.107.0")
     ),
     metadata!(
@@ -128,7 +119,6 @@ static ENTRIES: &[ServiceMetadata] = &[
         "com.amazonaws.sts#AWSSecurityTokenServiceV20110615",
         "aws-sdk-sts",
         "aws_sdk_sts",
-        "1645206cfffb5c92e39b10c54cac340592954ef67a872092ca1bd6941a5e6840",
         Some("1.112.0")
     ),
 ];

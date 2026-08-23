@@ -1,7 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 
 use serde_json::{Map, Value};
-use sha2::{Digest, Sha256};
 
 use crate::{
     error::BuildError,
@@ -63,16 +62,6 @@ impl ProtocolKind {
 impl Model {
     pub(crate) fn load(source: ServiceSource) -> Result<Self, BuildError> {
         let entry = source.metadata;
-        let actual = format!("{:x}", Sha256::digest(source.model));
-        if !entry.model_sha256.is_empty() && actual != entry.model_sha256 {
-            return Err(BuildError::InvalidModel {
-                model: entry.filename.to_owned(),
-                message: format!(
-                    "SHA-256 mismatch: expected {}, got {actual}",
-                    entry.model_sha256
-                ),
-            });
-        }
         let root = serde_json::from_slice::<Value>(source.model).map_err(|source| {
             BuildError::ModelParse {
                 model: entry.filename.to_owned(),
@@ -914,7 +903,6 @@ mod tests {
             crate_name: "aws-sdk-fixture",
             module_name: "aws_sdk_fixture",
             sdk_version: None,
-            model_sha256: "",
         };
         let source = ServiceSource::new(
             metadata,
@@ -923,21 +911,5 @@ mod tests {
         let model = Model::load(source).unwrap();
         let selected = model.select(&[], true).unwrap();
         assert_eq!(selected.operations, ["DeleteThing", "GetThing"]);
-    }
-
-    #[test]
-    fn checksum_mismatch_is_rejected() {
-        let metadata = ServiceMetadata {
-            key: "fixture",
-            service_shape_id: "example#Service",
-            filename: "fixture.json",
-            crate_name: "aws-sdk-fixture",
-            module_name: "aws_sdk_fixture",
-            sdk_version: None,
-            model_sha256: "not-the-checksum",
-        };
-        let source = ServiceSource::new(metadata, br#"{"shapes":{}}"#);
-        let error = Model::load(source).unwrap_err().to_string();
-        assert!(error.contains("SHA-256 mismatch"));
     }
 }

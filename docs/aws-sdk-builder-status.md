@@ -36,7 +36,7 @@ full audit trail.
   service packages and the core model directory. The supported providers are
   DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS. Build scripts now call a
   provider's `compile()` and consumers use one aggregate `include_sdk!()` facade.
-- Evidence: registry metadata and SHA-256 checksums cover exactly eight services;
+- Evidence: registry metadata covers exactly eight services;
   package-content tests assert one `model.json` plus manifest/glue per provider;
   `/tmp/smithy-rs` is pinned at `f1b64a9c0` for the codegen reference.
 - Conformance: `just conformance` generated 8 services and 568 operations, compared
@@ -640,7 +640,7 @@ full audit trail.
   `compile(operations)`, while the core owns shared generation, atomic installation,
   and the aggregate facade.
 - M2: complete for the supported tier. Each provider packages one `model.json`; the
-  core contains metadata, service/module mappings, SHA-256 checksums, and pinned
+  core contains metadata, service/module mappings, and pinned
   snapshot SHAs without embedding service models.
 - M3: in progress. The Rust generator emits deterministic service/config/client,
   operation, builder, error, shape, enum, and union source; owns shared shapes,

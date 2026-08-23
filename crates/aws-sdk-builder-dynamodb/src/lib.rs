@@ -9,7 +9,6 @@ pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceM
     crate_name: "aws-sdk-dynamodb",
     module_name: "aws_sdk_dynamodb",
     sdk_version: Some("1.122.0"),
-    model_sha256: "7e9436596b667e2e0600de9c086205b38960012028bcd625ee786a5126d0f63e",
 };
 
 pub fn model() -> &'static [u8] {

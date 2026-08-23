@@ -35,7 +35,7 @@ previous result.
 Generated clients use the AWS runtime contract supplied by the downstream
 consumer; `aws-sdk-builder` and the service provider crates remain codegen-only.
 
-The pinned snapshot metadata and model checksums are in the core registry
+The pinned snapshot metadata is in the core registry
 (`crates/aws-sdk-builder/src/registry.rs`). The conformance harness is invoked
 with:
 

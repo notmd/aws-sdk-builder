@@ -9,7 +9,6 @@ pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceM
     crate_name: "aws-sdk-lambda",
     module_name: "aws_sdk_lambda",
     sdk_version: Some("1.140.0"),
-    model_sha256: "a041b314d008e743535e36e0ce3a2148ee28a46f6dbda79af4f03ba9f984f57b",
 };
 
 pub fn model() -> &'static [u8] {

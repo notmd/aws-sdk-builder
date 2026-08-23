@@ -9,7 +9,6 @@ pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceM
     crate_name: "aws-sdk-kms",
     module_name: "aws_sdk_kms",
     sdk_version: Some("1.116.0"),
-    model_sha256: "82e414ec6095a69dabe0e7de071a5b9704c413d3277ed1b293d3cbcd8dd6ce5f",
 };
 
 pub fn model() -> &'static [u8] {

@@ -9,7 +9,6 @@ pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceM
     crate_name: "aws-sdk-sns",
     module_name: "aws_sdk_sns",
     sdk_version: Some("1.109.0"),
-    model_sha256: "ab2f70d13a3e389a1ccc29471f926017bf0482d76804197aa2d305657feba7c3",
 };
 
 pub fn model() -> &'static [u8] {

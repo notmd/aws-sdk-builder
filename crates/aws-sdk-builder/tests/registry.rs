@@ -18,7 +18,6 @@ fn registry_contains_exactly_the_supported_service_crates() {
         assert_eq!(entry.crate_name, crate_name);
         assert_eq!(entry.module_name, module_name);
         assert_eq!(entry.filename, "model.json");
-        assert_eq!(entry.model_sha256.len(), 64);
     }
     assert_eq!(
         registry::AWS_SDK_RUST_SNAPSHOT,

@@ -119,7 +119,6 @@ mod tests {
                 crate_name: "aws-sdk-s3",
                 module_name: "aws_sdk_s3",
                 sdk_version: None,
-                model_sha256: "",
             },
             br#"{"shapes":{}}"#,
         )

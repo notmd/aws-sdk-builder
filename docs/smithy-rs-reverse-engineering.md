@@ -516,7 +516,7 @@ mirror's `gradle/libs.versions.toml` and module `build.gradle.kts` files.
 
 Current Rust files combine several upstream responsibilities:
 
-- `crates/aws-sdk-builder/src/model.rs`: packaged model load, checksum validation,
+- `crates/aws-sdk-builder/src/model.rs`: packaged model load,
   operation selection, directed shape-reference closure, protocol trait selection, and
   a small model customization pass.
 - `crates/aws-sdk-builder/src/names.rs`: Rust module/type naming.

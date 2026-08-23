@@ -206,9 +206,8 @@ time this specification was written, the latest `main` commits were:
 | [`awslabs/aws-sdk-rust`](https://github.com/awslabs/aws-sdk-rust/tree/3c6d526c9d4775f41a8ef1ed2ef574d1b14481db) | `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db` | AWS models and generated SDK golden source |
 | [`smithy-lang/smithy-rs`](https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d) | `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` | Behavioral reference for `aws/codegen-aws-sdk` and its client generator |
 
-Record these SHAs, the snapshot date, every imported model’s SHA-256, and the AWS SDK
-crate version used for each golden in a checked-in manifest. Never compare against a
-moving branch during tests.
+Record these SHAs, the snapshot date, and the AWS SDK crate version used for each
+golden in a checked-in manifest. Never compare against a moving branch during tests.
 
 ## Hard constraints
 
@@ -300,7 +299,7 @@ crates/aws-sdk-builder-dynamodb/
 ```
 
 Each service package must include exactly its one model asset when published.
-The core registry contains metadata and checksums only; loading a model means using
+The core registry contains metadata only; loading a model means using
 the provider selected by the build script, not an arbitrary consumer path.
 Model loading must support the AWS Smithy JSON AST used by the pinned AWS SDK snapshot,
 including shared/prelude shapes, traits, endpoint rules, auth traits, streaming
@@ -310,7 +309,7 @@ The registry manifest must contain, for every available service:
 
 - short service key;
 - AWS service shape ID;
-- model filename and SHA-256;
+- model filename;
 - official `aws-sdk-*` crate name and Rust module name;
 - snapshot commit and model version;
 - operation names in the source order and canonical sorted order.
@@ -689,7 +688,7 @@ and update the status/audit markdown before moving on.
   model-provider crate per supported service. Providers expose typed `compile()`
   calls with Cargo environment discovery and deterministic selection merging.
 - [x] M2 — Package exactly one model in each of the eight service crates. The core
-  registry stores metadata/checksums and the service packages contain no conformance
+  registry stores metadata and the service packages contain no conformance
   fixtures or unrelated models.
 - [ ] M3 — Port the generic Smithy Rust generator. The current renderer covers a
   useful subset of AST names, shapes, operation modules, client/config, builders, and
