@@ -4,6 +4,27 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Normalize malformed client HTML
+
+- State: in progress
+- Changed: `codegen.rs` now tracks implicit and whitespace-derived HTML gaps, limits
+  pseudo-tag indentation to the active parent, auto-closes malformed nested tags when
+  an ancestor closes, and escapes brackets in client documentation text. These rules
+  port the pinned Smithy-RS `normalizeHtml`/Jsoup behavior without service-specific
+  branches. Regenerated all eight all-operation snapshots and conformance reports.
+- Evidence: inspected Smithy-RS `RustWriter.kt` and the raw S3 documentation traits at
+  `/tmp/smithy-rs` commit `f1b64a9c0`; `just conformance` regenerated 8 snapshots and
+  formatted 4,575 files. `cargo test --workspace`, Clippy with `-D warnings`,
+  formatting, and `git diff --check` pass.
+- Conformance: overall `3,871/703/1,887/1` -> `3,881/693/1,887/1`; S3
+  `1,244/13/87/0` -> `1,248/9/87/0` (matched/mismatched/missing/extra). Average
+  match increased to `56.06%`.
+- Blocker: shared service config/auth/endpoint runtime files and reference test/package
+  trees remain incomplete; several S3 client docs still differ in Jsoup pretty-print
+  spacing.
+- Next action: finish the remaining generic client-documentation spacing cases, then
+  compare model-driven endpoint/auth/config generation against Smithy-RS.
+
 ### Checkpoint: 2026-08-23 — Preserve long fluent method signatures
 
 - State: in progress

@@ -13290,6 +13290,7 @@ fn normalize_client_documentation(value: &str) -> String {
     let mut previous = None::<DocumentationToken>;
     let mut next_significant = vec![None; tokens.len()];
     let mut next = None;
+    let mut whitespace_since_previous = false;
     for index in (0..tokens.len()).rev() {
         next_significant[index] = next;
         if !matches!(tokens[index], DocumentationToken::Whitespace(_)) {
@@ -13301,12 +13302,25 @@ fn normalize_client_documentation(value: &str) -> String {
             let next = next_significant[index].map(|next| &tokens[next]);
             let gap = documentation_gap(previous.as_ref(), next, &stack);
             output.push_str(&gap);
+            whitespace_since_previous = true;
             continue;
+        }
+        if !whitespace_since_previous {
+            output.push_str(&documentation_implicit_gap(token, &stack));
         }
         match token {
             DocumentationToken::Tag(tag) => {
-                output.push_str(&lowercase_documentation_tag(tag));
                 if let Some(name) = documentation_tag_name(tag) {
+                    if tag.starts_with("</")
+                        && let Some(opening_index) =
+                            stack.iter().rposition(|current| current == &name)
+                    {
+                        while stack.len() > opening_index + 1 {
+                            let unclosed = stack.pop().expect("opening tag exists");
+                            output.push_str(&format!("</{unclosed}>"));
+                        }
+                    }
+                    output.push_str(&lowercase_documentation_tag(tag));
                     if tag.starts_with("</") {
                         if stack.last().is_some_and(|current| current == &name) {
                             stack.pop();
@@ -13316,6 +13330,8 @@ fn normalize_client_documentation(value: &str) -> String {
                     {
                         stack.push(name);
                     }
+                } else {
+                    output.push_str(&lowercase_documentation_tag(tag));
                 }
             }
             DocumentationToken::Text(text) => {
@@ -13327,6 +13343,7 @@ fn normalize_client_documentation(value: &str) -> String {
             }
             DocumentationToken::Whitespace(_) => unreachable!(),
         }
+        whitespace_since_previous = false;
         previous = Some(token.clone());
     }
     for tag in ["p", "li"] {
@@ -13362,6 +13379,12 @@ fn documentation_gap(
     let Some(previous_name) = documentation_tag_name(previous) else {
         return " ".to_owned();
     };
+    if documentation_pseudo_parent(stack) {
+        return match next {
+            DocumentationToken::Tag(tag) if tag.starts_with("</") => " ".repeat(stack.len()),
+            _ => " ".repeat(stack.len() + 1),
+        };
+    }
     let next_name = match next {
         DocumentationToken::Tag(tag) => documentation_tag_name(tag),
         DocumentationToken::Text(_) => None,
@@ -13377,7 +13400,11 @@ fn documentation_gap(
                         name.as_str(),
                         "code" | "note" | "important" | "warning" | "tip"
                     )
-                }) {
+                }) || (previous_name == "code"
+                    && stack
+                        .last()
+                        .is_some_and(|name| documentation_is_inline(name)))
+                {
                     " ".to_owned()
                 } else if previous_name == "li"
                     && matches!(stack.last().map(String::as_str), Some("ul" | "ol"))
@@ -13437,6 +13464,22 @@ fn documentation_gap(
     }
 }
 
+fn documentation_implicit_gap(token: &DocumentationToken, stack: &[String]) -> String {
+    if !documentation_pseudo_parent(stack) {
+        return String::new();
+    }
+    match token {
+        DocumentationToken::Tag(tag) if tag.starts_with("</") => " ".repeat(stack.len()),
+        _ => " ".repeat(stack.len() + 1),
+    }
+}
+
+fn documentation_pseudo_parent(stack: &[String]) -> bool {
+    stack
+        .last()
+        .is_some_and(|name| !documentation_known_tag(name))
+}
+
 fn normalize_documentation_text(
     text: &str,
     previous: Option<&DocumentationToken>,
@@ -13447,7 +13490,7 @@ fn normalize_documentation_text(
         .any(|character| matches!(character, '\n' | '\r'));
     if !had_newline {
         if parent.is_some_and(|name| name == "code") {
-            return escape_documentation_text(text);
+            return escape_documentation_text(&escape_doc_brackets(text));
         }
         let mut output = String::new();
         let preserve_leading_space = text.chars().next().is_some_and(|character| {
@@ -13471,7 +13514,9 @@ fn normalize_documentation_text(
                 {
                     output.push(' ');
                 }
-                output.push_str(&escape_documentation_text(&character.to_string()));
+                output.push_str(&escape_documentation_text(&escape_doc_brackets(
+                    &character.to_string(),
+                )));
                 whitespace = false;
             }
         }
@@ -13502,7 +13547,9 @@ fn normalize_documentation_text(
             {
                 output.push(' ');
             }
-            output.push_str(&escape_documentation_text(&character.to_string()));
+            output.push_str(&escape_documentation_text(&escape_doc_brackets(
+                &character.to_string(),
+            )));
             whitespace = false;
         }
     }
