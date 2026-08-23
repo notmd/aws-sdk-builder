@@ -9,7 +9,6 @@ pub const REGISTRY_SOURCE: &str = "aws-sdk-builder service-crate registry";
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ServiceMetadata {
     pub key: &'static str,
-    pub service_shape_id: &'static str,
     pub filename: &'static str,
     pub crate_name: &'static str,
     pub module_name: &'static str,
@@ -52,10 +51,9 @@ impl ServiceSource {
 }
 
 macro_rules! metadata {
-    ($key:literal, $shape:literal, $crate_name:literal, $module:literal, $version:expr) => {
+    ($key:literal, $crate_name:literal, $module:literal, $version:expr) => {
         ServiceMetadata {
             key: $key,
-            service_shape_id: $shape,
             filename: "model.json",
             crate_name: $crate_name,
             module_name: $module,
@@ -67,60 +65,22 @@ macro_rules! metadata {
 static ENTRIES: &[ServiceMetadata] = &[
     metadata!(
         "dynamodb",
-        "com.amazonaws.dynamodb#DynamoDB_20120810",
         "aws-sdk-dynamodb",
         "aws_sdk_dynamodb",
         Some("1.122.0")
     ),
-    metadata!(
-        "iam",
-        "com.amazonaws.iam#AWSIdentityManagementV20100508",
-        "aws-sdk-iam",
-        "aws_sdk_iam",
-        Some("1.121.0")
-    ),
-    metadata!(
-        "kms",
-        "com.amazonaws.kms#TrentService",
-        "aws-sdk-kms",
-        "aws_sdk_kms",
-        Some("1.116.0")
-    ),
+    metadata!("iam", "aws-sdk-iam", "aws_sdk_iam", Some("1.121.0")),
+    metadata!("kms", "aws-sdk-kms", "aws_sdk_kms", Some("1.116.0")),
     metadata!(
         "lambda",
-        "com.amazonaws.lambda#AWSGirApiService",
         "aws-sdk-lambda",
         "aws_sdk_lambda",
         Some("1.140.0")
     ),
-    metadata!(
-        "s3",
-        "com.amazonaws.s3#AmazonS3",
-        "aws-sdk-s3",
-        "aws_sdk_s3",
-        Some("1.143.0")
-    ),
-    metadata!(
-        "sns",
-        "com.amazonaws.sns#AmazonSimpleNotificationService",
-        "aws-sdk-sns",
-        "aws_sdk_sns",
-        Some("1.109.0")
-    ),
-    metadata!(
-        "sqs",
-        "com.amazonaws.sqs#AmazonSQS",
-        "aws-sdk-sqs",
-        "aws_sdk_sqs",
-        Some("1.107.0")
-    ),
-    metadata!(
-        "sts",
-        "com.amazonaws.sts#AWSSecurityTokenServiceV20110615",
-        "aws-sdk-sts",
-        "aws_sdk_sts",
-        Some("1.112.0")
-    ),
+    metadata!("s3", "aws-sdk-s3", "aws_sdk_s3", Some("1.143.0")),
+    metadata!("sns", "aws-sdk-sns", "aws_sdk_sns", Some("1.109.0")),
+    metadata!("sqs", "aws-sdk-sqs", "aws_sdk_sqs", Some("1.107.0")),
+    metadata!("sts", "aws-sdk-sts", "aws_sdk_sts", Some("1.112.0")),
 ];
 
 pub fn entries() -> &'static [ServiceMetadata] {

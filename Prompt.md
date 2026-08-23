@@ -308,7 +308,6 @@ shapes, event streams, and service-specific traits.
 The registry manifest must contain, for every available service:
 
 - short service key;
-- AWS service shape ID;
 - model filename;
 - official `aws-sdk-*` crate name and Rust module name;
 - snapshot commit and model version;

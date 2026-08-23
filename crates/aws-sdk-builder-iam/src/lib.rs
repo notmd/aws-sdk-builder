@@ -4,7 +4,6 @@ pub const MODEL: &[u8] = include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/mo
 
 pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceMetadata {
     key: "iam",
-    service_shape_id: "com.amazonaws.iam#AWSIdentityManagementV20100508",
     filename: "model.json",
     crate_name: "aws-sdk-iam",
     module_name: "aws_sdk_iam",

@@ -390,7 +390,7 @@ pub(crate) fn generate(
             let Some(shape) = selected.model.shapes.get(&shape_id) else {
                 continue;
             };
-            if shape_id == selected.model.entry.service_shape_id
+            if shape_id == selected.model.service_shape_id.as_str()
                 || operation_shapes.contains(&shape_id)
                 || !is_file_renderable_type(selected.model.shapes.get(&shape_id))
             {
@@ -505,7 +505,7 @@ fn request_id_plan(selected: &SelectedModel) -> RequestIdPlan {
     let service = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id);
+        .get(selected.model.service_shape_id.as_str());
     let service_traits = service
         .and_then(|shape| shape.get("traits"))
         .and_then(Value::as_object);
@@ -623,7 +623,7 @@ fn render_standalone_service_lib(selected: &SelectedModel) -> String {
     let service = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .expect("selected service shape exists");
     let protocol = selected.model.protocol().unwrap_or(ProtocolKind::RestJson1);
     let service_title = service_title(selected);
@@ -672,7 +672,7 @@ fn render_service_readme(selected: &SelectedModel) -> String {
     let service = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .expect("selected service shape exists");
     let crate_name = selected.model.entry.crate_name;
     let module_name = selected.model.entry.module_name;
@@ -2080,7 +2080,7 @@ fn render_standalone_extra_modules(
             && !selected
                 .model
                 .shapes
-                .get(selected.model.entry.service_shape_id)
+                .get(selected.model.service_shape_id.as_str())
                 .is_some_and(|service| {
                     has_trait_value(service, "aws.protocols#restXml", "noErrorWrapping")
                 }));
@@ -2117,7 +2117,7 @@ fn render_standalone_extra_modules(
         && selected
             .model
             .shapes
-            .get(selected.model.entry.service_shape_id)
+            .get(selected.model.service_shape_id.as_str())
             .is_some_and(|service| {
                 has_trait_value(service, "aws.protocols#restXml", "noErrorWrapping")
             })
@@ -2180,7 +2180,7 @@ fn service_has_endpoint_rules(selected: &SelectedModel) -> bool {
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|service| service.get("traits"))
         .is_some_and(|traits| {
             traits.get("smithy.rules#endpointBdd").is_some()
@@ -2193,7 +2193,7 @@ fn service_has_rest_xml_unwrapped_errors(selected: &SelectedModel) -> bool {
         && selected
             .model
             .shapes
-            .get(selected.model.entry.service_shape_id)
+            .get(selected.model.service_shape_id.as_str())
             .is_some_and(|service| {
                 has_trait_value(service, "aws.protocols#restXml", "noErrorWrapping")
             })
@@ -2204,7 +2204,7 @@ fn endpoint_rule_function_ids(selected: &SelectedModel) -> BTreeSet<String> {
     let Some(traits) = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|service| service.get("traits"))
     else {
         return functions;
@@ -2344,7 +2344,7 @@ fn service_has_protocol(selected: &SelectedModel, protocol: ProtocolKind) -> boo
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|service| service.get("traits"))
         .and_then(Value::as_object)
         .is_some_and(|traits| traits.contains_key(protocol.trait_id()))
@@ -3475,7 +3475,7 @@ fn render_standalone_config_file(selected: &SelectedModel) -> String {
         .replace("__SDK_CRATE__", selected.model.entry.module_name)
         .replace(
             "__SERVICE_SHAPE__",
-            terminal(selected.model.entry.service_shape_id),
+            terminal(selected.model.service_shape_id.as_str()),
         )
         .replace("__SERVICE_TITLE__", &service_sdk_id(selected))
         .replace("__SERVICE_KEY__", selected.model.entry.key);
@@ -3495,7 +3495,7 @@ fn selected_service(selected: &SelectedModel) -> Option<&Value> {
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
 }
 
 fn service_has_endpoint_builtin(selected: &SelectedModel, built_in: &str) -> bool {
@@ -3972,7 +3972,7 @@ fn render_auth_file(selected: &SelectedModel, consumer_namespace: bool) -> Strin
     let service = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .expect("selected service shape exists");
     let title = service_title(selected);
     let service_options = auth_options_for_service(selected, service, consumer_namespace);
@@ -4795,7 +4795,7 @@ fn render_types_file(
             .shapes
             .iter()
             .filter_map(|(id, shape)| {
-                (id != selected.model.entry.service_shape_id
+                (id != selected.model.service_shape_id.as_str()
                     && is_file_renderable_type(Some(shape))
                     && !is_error_shape(shape)
                     && !is_synthetic_operation_shape(shape))
@@ -4840,7 +4840,7 @@ fn render_types_file(
         .shapes
         .iter()
         .filter_map(|(id, shape)| {
-            (id != selected.model.entry.service_shape_id
+            (id != selected.model.service_shape_id.as_str()
                 && is_file_renderable_type(Some(shape))
                 && !is_error_shape(shape)
                 && !is_synthetic_operation_shape(shape))
@@ -5095,13 +5095,13 @@ fn service_title(selected: &SelectedModel) -> String {
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|shape| shape.get("traits"))
         .and_then(Value::as_object)
         .and_then(|traits| traits.get("smithy.api#title"))
         .and_then(Value::as_str)
         .map(ToOwned::to_owned)
-        .unwrap_or_else(|| terminal(selected.model.entry.service_shape_id).to_owned())
+        .unwrap_or_else(|| terminal(selected.model.service_shape_id.as_str()).to_owned())
 }
 
 /// Return modeled public types in Smithy's first-discovery order.
@@ -5206,8 +5206,8 @@ fn render_error_builders_file(selected: &SelectedModel, consumer_namespace: bool
 fn error_shape_ids(selected: &SelectedModel) -> Vec<String> {
     let namespace = selected
         .model
-        .entry
         .service_shape_id
+        .as_str()
         .split('#')
         .next()
         .unwrap_or_default();
@@ -5243,8 +5243,8 @@ fn error_shape_ids(selected: &SelectedModel) -> Vec<String> {
 fn operation_shape_ids(selected: &SelectedModel) -> std::collections::BTreeSet<String> {
     let namespace = selected
         .model
-        .entry
         .service_shape_id
+        .as_str()
         .split('#')
         .next()
         .unwrap_or_default();
@@ -5364,7 +5364,7 @@ fn render_types_with_context(
     let mut ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
     ids.sort();
     for id in ids {
-        if id == selected.model.entry.service_shape_id
+        if id == selected.model.service_shape_id.as_str()
             || only_shape.is_some_and(|only| only != id.as_str())
         {
             continue;
@@ -5664,12 +5664,12 @@ fn service_sdk_id(selected: &SelectedModel) -> String {
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|shape| shape.get("traits"))
         .and_then(|traits| traits.get("aws.api#service"))
         .and_then(|service| service.get("sdkId"))
         .and_then(Value::as_str)
-        .unwrap_or_else(|| terminal(selected.model.entry.service_shape_id))
+        .unwrap_or_else(|| terminal(selected.model.service_shape_id.as_str()))
         .to_owned()
 }
 
@@ -5815,7 +5815,7 @@ fn service_supports_s3_express(selected: &SelectedModel) -> bool {
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|shape| shape.get("traits"))
         .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
         .is_some_and(|rules| value_contains_string(rules, "sigv4-s3express"))
@@ -5867,7 +5867,7 @@ fn service_endpoint_parameter_names(selected: &SelectedModel) -> BTreeSet<String
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|shape| shape.get("traits"))
         .and_then(|traits| {
             traits
@@ -6716,7 +6716,7 @@ fn standalone_json_target_header(selected: &SelectedModel, operation_name: &str)
     }
     Some(format!(
         "{}.{}",
-        terminal(selected.model.entry.service_shape_id),
+        terminal(selected.model.service_shape_id.as_str()),
         operation_name
     ))
 }
@@ -6731,7 +6731,7 @@ fn render_standalone_endpoint_interceptor(
     let service = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id);
+        .get(selected.model.service_shape_id.as_str());
     let service_traits = service
         .and_then(|shape| shape.get("traits"))
         .and_then(Value::as_object);
@@ -7724,8 +7724,8 @@ fn render_standalone_operation_error(
 fn operation_shape<'a>(selected: &'a SelectedModel, operation_name: &str) -> Option<&'a Value> {
     let namespace = selected
         .model
-        .entry
         .service_shape_id
+        .as_str()
         .split('#')
         .next()
         .unwrap_or_default();
@@ -7776,7 +7776,7 @@ fn operation_pagination_info(
     let service_trait = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|shape| shape.get("traits"))
         .and_then(Value::as_object)
         .and_then(|traits| traits.get("smithy.api#paginated"));
@@ -13698,7 +13698,7 @@ fn xml_namespace(selected: &SelectedModel) -> (String, Option<String>) {
     selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(selected.model.service_shape_id.as_str())
         .and_then(|service| service.get("traits"))
         .and_then(Value::as_object)
         .and_then(|traits| traits.get("smithy.api#xmlNamespace"))

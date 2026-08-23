@@ -4,7 +4,6 @@ pub const MODEL: &[u8] = include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/mo
 
 pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceMetadata {
     key: "dynamodb",
-    service_shape_id: "com.amazonaws.dynamodb#DynamoDB_20120810",
     filename: "model.json",
     crate_name: "aws-sdk-dynamodb",
     module_name: "aws_sdk_dynamodb",

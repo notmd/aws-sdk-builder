@@ -4,7 +4,6 @@ pub const MODEL: &[u8] = include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/mo
 
 pub const METADATA: aws_sdk_builder::ServiceMetadata = aws_sdk_builder::ServiceMetadata {
     key: "lambda",
-    service_shape_id: "com.amazonaws.lambda#AWSGirApiService",
     filename: "model.json",
     crate_name: "aws-sdk-lambda",
     module_name: "aws_sdk_lambda",

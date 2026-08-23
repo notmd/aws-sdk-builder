@@ -41,7 +41,7 @@ pub(crate) fn render_endpoint_config_file(selected: &SelectedModel) -> String {
     let service = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(&selected.model.service_shape_id)
         .expect("selected service shape exists");
     let traits = service
         .get("traits")
@@ -427,7 +427,7 @@ fn render_resolver(
     let title = selected
         .model
         .shapes
-        .get(selected.model.entry.service_shape_id)
+        .get(&selected.model.service_shape_id)
         .and_then(|service| service.get("traits"))
         .and_then(|traits| traits.get("smithy.api#title"))
         .and_then(Value::as_str)
@@ -435,7 +435,7 @@ fn render_resolver(
             selected
                 .model
                 .shapes
-                .get(selected.model.entry.service_shape_id)
+                .get(&selected.model.service_shape_id)
                 .and_then(|service| service.get("traits"))
                 .and_then(|traits| traits.get("aws.api#service"))
                 .and_then(|service| service.get("sdkId"))

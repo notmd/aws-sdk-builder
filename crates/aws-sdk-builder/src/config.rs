@@ -114,7 +114,6 @@ mod tests {
         ServiceSource::new(
             ServiceMetadata {
                 key: "s3",
-                service_shape_id: "test#Service",
                 filename: "model.json",
                 crate_name: "aws-sdk-s3",
                 module_name: "aws_sdk_s3",

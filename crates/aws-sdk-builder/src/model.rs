@@ -10,6 +10,7 @@ use crate::{
 #[derive(Debug, Clone)]
 pub(crate) struct Model {
     pub(crate) entry: ServiceMetadata,
+    pub(crate) service_shape_id: String,
     pub(crate) root: Value,
     pub(crate) shapes: BTreeMap<String, Value>,
     pub(crate) protocol_tests: Vec<Value>,
@@ -77,7 +78,31 @@ impl Model {
             })?
             .iter()
             .map(|(id, shape)| (id.clone(), shape.clone()))
-            .collect();
+            .collect::<BTreeMap<_, _>>();
+        let service_shapes = shapes
+            .iter()
+            .filter_map(|(id, shape)| {
+                (shape.get("type").and_then(Value::as_str) == Some("service")).then_some(id.clone())
+            })
+            .collect::<Vec<_>>();
+        let service_shape_id = match service_shapes.as_slice() {
+            [service_shape_id] => service_shape_id.clone(),
+            [] => {
+                return Err(BuildError::InvalidModel {
+                    model: entry.filename.to_owned(),
+                    message: "model must contain exactly one service shape; found none".to_owned(),
+                });
+            }
+            _ => {
+                return Err(BuildError::InvalidModel {
+                    model: entry.filename.to_owned(),
+                    message: format!(
+                        "model must contain exactly one service shape; found {}",
+                        service_shapes.len()
+                    ),
+                });
+            }
+        };
         let protocol_tests = source
             .protocol_tests
             .map(serde_json::from_slice::<Value>)
@@ -91,6 +116,7 @@ impl Model {
             .unwrap_or_default();
         Ok(Self {
             entry,
+            service_shape_id,
             root,
             shapes,
             protocol_tests,
@@ -130,7 +156,7 @@ impl Model {
             .root
             .get("shapes")
             .and_then(Value::as_object)
-            .and_then(|shapes| shapes.get(self.entry.service_shape_id))
+            .and_then(|shapes| shapes.get(&self.service_shape_id))
             .and_then(|service| service.get("operations"))
             .and_then(Value::as_array)
             .into_iter()
@@ -148,7 +174,7 @@ impl Model {
         }
 
         let mut queue = VecDeque::from_iter(
-            std::iter::once(self.entry.service_shape_id.to_owned()).chain(selected_ids.clone()),
+            std::iter::once(self.service_shape_id.clone()).chain(selected_ids.clone()),
         );
         let mut retained = BTreeSet::new();
         while let Some(id) = queue.pop_front() {
@@ -180,7 +206,7 @@ impl Model {
             }
         }
         if let Some(service) = shapes
-            .get_mut(self.entry.service_shape_id)
+            .get_mut(&self.service_shape_id)
             .and_then(Value::as_object_mut)
         {
             service.insert(
@@ -192,7 +218,7 @@ impl Model {
         normalize_operation_shapes(
             &mut shapes,
             &selected_ids,
-            self.entry.service_shape_id,
+            &self.service_shape_id,
             self.entry.filename,
         )?;
         let selected_protocol_tests = self
@@ -236,6 +262,7 @@ impl Model {
         Ok(SelectedModel {
             model: Self {
                 entry: self.entry,
+                service_shape_id: self.service_shape_id.clone(),
                 root,
                 shapes: selected_shape_map,
                 protocol_tests: self.protocol_tests.clone(),
@@ -247,19 +274,19 @@ impl Model {
     }
 
     pub(crate) fn protocol(&self) -> Result<ProtocolKind, BuildError> {
-        let service = self
-            .shapes
-            .get(self.entry.service_shape_id)
-            .ok_or_else(|| BuildError::InvalidModel {
-                model: self.entry.filename.to_owned(),
-                message: format!("service {} is missing", self.entry.service_shape_id),
-            })?;
+        let service =
+            self.shapes
+                .get(&self.service_shape_id)
+                .ok_or_else(|| BuildError::InvalidModel {
+                    model: self.entry.filename.to_owned(),
+                    message: format!("service {} is missing", self.service_shape_id),
+                })?;
         let traits = service
             .get("traits")
             .and_then(Value::as_object)
             .ok_or_else(|| BuildError::InvalidModel {
                 model: self.entry.filename.to_owned(),
-                message: format!("service {} has no traits", self.entry.service_shape_id),
+                message: format!("service {} has no traits", self.service_shape_id),
             })?;
 
         // This order is the supported-protocol order used by the client
@@ -280,7 +307,7 @@ impl Model {
             model: self.entry.filename.to_owned(),
             message: format!(
                 "service {} does not advertise a supported AWS protocol",
-                self.entry.service_shape_id
+                self.service_shape_id
             ),
         })
     }
@@ -294,10 +321,10 @@ impl Model {
     }
 
     fn declared_operations(&self) -> Result<Vec<String>, BuildError> {
-        if !self.shapes.contains_key(self.entry.service_shape_id) {
+        if !self.shapes.contains_key(&self.service_shape_id) {
             return Err(BuildError::InvalidModel {
                 model: self.entry.filename.to_owned(),
-                message: format!("service {} is missing", self.entry.service_shape_id),
+                message: format!("service {} is missing", self.service_shape_id),
             });
         }
 
@@ -306,7 +333,7 @@ impl Model {
         // attached to any resource in the service closure. Some AWS models
         // intentionally set `disableDefaultOperations`, leaving the latter
         // out of the service's explicit `operations` array.
-        let mut queue = VecDeque::from_iter([self.entry.service_shape_id.to_owned()]);
+        let mut queue = VecDeque::from_iter([self.service_shape_id.clone()]);
         let mut visited = BTreeSet::new();
         let mut operations = BTreeSet::new();
         while let Some(id) = queue.pop_front() {
@@ -329,7 +356,7 @@ impl Model {
                 model: self.entry.filename.to_owned(),
                 message: format!(
                     "service {} has neither operations nor resource operations",
-                    self.entry.service_shape_id
+                    self.service_shape_id
                 ),
             });
         }
@@ -898,7 +925,6 @@ mod tests {
     fn valid_fixture_loads_and_selects_all_operations() {
         let metadata = ServiceMetadata {
             key: "fixture",
-            service_shape_id: "example#Service",
             filename: "fixture.json",
             crate_name: "aws-sdk-fixture",
             module_name: "aws_sdk_fixture",
@@ -909,7 +935,31 @@ mod tests {
             include_bytes!("../../../tests/fixtures/selection-model.json"),
         );
         let model = Model::load(source).unwrap();
+        assert_eq!(model.service_shape_id, "example#Service");
         let selected = model.select(&[], true).unwrap();
         assert_eq!(selected.operations, ["DeleteThing", "GetThing"]);
+    }
+
+    #[test]
+    fn model_requires_exactly_one_service_shape() {
+        let metadata = ServiceMetadata {
+            key: "fixture",
+            filename: "fixture.json",
+            crate_name: "aws-sdk-fixture",
+            module_name: "aws_sdk_fixture",
+            sdk_version: None,
+        };
+        let no_service = Model::load(ServiceSource::new(metadata, br#"{"shapes":{}}"#))
+            .unwrap_err()
+            .to_string();
+        assert!(no_service.contains("exactly one service shape; found none"));
+
+        let multiple_services = Model::load(ServiceSource::new(
+            metadata,
+            br#"{"shapes":{"example#First":{"type":"service"},"example#Second":{"type":"service"}}}"#,
+        ))
+        .unwrap_err()
+        .to_string();
+        assert!(multiple_services.contains("exactly one service shape; found 2"));
     }
 }
