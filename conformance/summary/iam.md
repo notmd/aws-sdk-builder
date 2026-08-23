@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `864` matched · `235` mismatches · `532` missing · `0` extra · `52.97%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `865` matched · `234` mismatches · `532` missing · `0` extra · `53.03%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -35,22 +35,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On success, responds with [`GetServiceLinkedRoleDeletionStatusOutput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput) with field(s):
      ///   - [`status(DeletionTaskStatusType)`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput::status): <p>The status of the deletion.</p>
      ///   - [`reason(Option<DeletionTaskFailureReasonType>)`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput::reason): <p>An object that contains details about the reason the deletion failed.</p>
-```
-
-### `src/client/get_user.rs`
-
-```diff
---- reference/src/client/get_user.rs
-+++ generated/src/client/get_user.rs
-@@ -5,7 +5,7 @@
-     /// - The fluent builder is configurable:
-     ///   - [`user_name(impl Into<String>)`](crate::operation::get_user::builders::GetUserFluentBuilder::user_name) / [`set_user_name(Option<String>)`](crate::operation::get_user::builders::GetUserFluentBuilder::set_user_name):<br>required: **false**<br><p>The name of the user to get information about.</p> <p>This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p><br>
-     /// - On success, responds with [`GetUserOutput`](crate::operation::get_user::GetUserOutput) with field(s):
--    ///   - [`user(Option<User>)`](crate::operation::get_user::GetUserOutput::user): <p>A structure containing details about the IAM user.</p><important>  <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p>  <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p> </important>
-+    ///   - [`user(Option<User>)`](crate::operation::get_user::GetUserOutput::user): <p>A structure containing details about the IAM user.</p><important>  <p>Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html">last sign-in</a> dates shown in the IAM console and password last used dates in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">IAM credential report</a>, and returned by this operation. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.</p> <p>You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access Amazon Web Services programmatically you can refer to access key last used information because it is accurate for all dates.</p> </important>
-     /// - On failure, responds with [`SdkError<GetUserError>`](crate::operation::get_user::GetUserError)
-     pub fn get_user(&self) -> crate::operation::get_user::builders::GetUserFluentBuilder {
-         crate::operation::get_user::builders::GetUserFluentBuilder::new(self.handle.clone())
 ```
 
 ### `src/client/simulate_custom_policy.rs`
@@ -25553,7 +25537,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 - `src/client/delete_service_linked_role.rs`
 - `src/client/get_service_linked_role_deletion_status.rs`
-- `src/client/get_user.rs`
 - `src/client/simulate_custom_policy.rs`
 - `src/client/simulate_principal_policy.rs`
 - `src/config.rs`

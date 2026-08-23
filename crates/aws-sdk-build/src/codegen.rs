@@ -13763,7 +13763,14 @@ fn documentation_gap(
                         .last()
                         .is_some_and(|name| documentation_is_inline(name)))
                 {
-                    " ".to_owned()
+                    if stack
+                        .last()
+                        .is_some_and(|name| documentation_custom_tag(name))
+                    {
+                        " ".repeat(stack.len().max(1))
+                    } else {
+                        " ".to_owned()
+                    }
                 } else if previous_name == "li"
                     && matches!(stack.last().map(String::as_str), Some("ul" | "ol"))
                 {
@@ -13786,8 +13793,22 @@ fn documentation_gap(
             {
                 return "".to_owned();
             }
+            if previous_name == "p"
+                && matches!(next_name.as_str(), "ul" | "ol")
+                && stack
+                    .last()
+                    .is_some_and(|name| documentation_custom_tag(name))
+            {
+                return " ".repeat(stack.len() + 1);
+            }
             if stack.last().is_some_and(|name| name == "li")
                 && matches!(next_name.as_str(), "p" | "ul" | "ol")
+            {
+                return " ".repeat(stack.len() + 1);
+            }
+            if stack
+                .last()
+                .is_some_and(|name| documentation_custom_tag(name))
             {
                 return " ".repeat(stack.len() + 1);
             }
@@ -14338,6 +14359,17 @@ mod tests {
                 "<p>Contains a generic description of the error condition. Returned in the <Message> tag of the\n      error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful\n        <code>StatusCode</code> header or when the transformed object is provided in body.</p>"
             ),
             "<p>Contains a generic description of the error condition. Returned in the <message>\ntag of the error XML response for a corresponding\n<code>GetObject</code> call. Cannot be used with a successful\n<code>StatusCode</code> header or when the transformed object is provided in body.\n</message></p>"
+        );
+    }
+
+    #[test]
+    fn normalize_client_documentation_preserves_nested_note_list_gap() {
+        let normalized = normalize_client_documentation(
+            "<ul><li><p>Text</p><note><p>Nested text</p>\n    <ul><li><p>Nested item</p></li></ul></note></li></ul>",
+        );
+        assert_eq!(
+            normalized,
+            "<ul><li><p>Text</p><note><p>Nested text</p>    <ul><li><p>Nested item</p></li></ul></note></li></ul>"
         );
     }
 

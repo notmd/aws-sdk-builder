@@ -4,6 +4,29 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Match nested custom-tag documentation gaps
+
+- State: in progress
+- Changed: `codegen.rs` now derives client-documentation whitespace from the active
+  malformed-HTML stack for nested `<note>`, `<important>`, `<warning>`, and `<tip>`
+  transitions. The rule is generic and preserves shallow custom-tag spacing while
+  matching Smithy-RS/Jsoup depth for nested lists and paragraphs. Added a focused
+  regression test for the nested-note list case.
+- Evidence: compared the implementation with Smithy-RS `RustWriter.kt` and its
+  `normalizeHtml` behavior at `/tmp/smithy-rs` commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance` regenerated all
+  eight all-operation snapshots and formatted 4,583 generated files. The four S3
+  client-documentation mismatches are now exact.
+- Conformance: overall `3,890/692/1,879/1` -> `3,897/685/1,879/1`
+  (matched/mismatched/missing/extra); S3 `1,250/8/86/0` -> `1,254/4/86/0`.
+  Average match increased to `56.38%`.
+- Verification: focused and workspace tests, Clippy with `-D warnings`, formatting,
+  and `git diff --check` pass. The conformance recipe still exits nonzero because
+  shared config/endpoint/runtime files, reference test/package trees, and remaining
+  builder-layout mismatches are not yet complete.
+- Next action: align the generic operation-builder template indentation, then continue
+  with the model-driven S3 config/endpoint runtime surface.
+
 ### Checkpoint: 2026-08-23 — Generate model-driven auth resolvers
 
 - State: in progress
