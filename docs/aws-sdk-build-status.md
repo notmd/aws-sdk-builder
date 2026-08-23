@@ -4,6 +4,26 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Match model-driven standalone config generation
+
+- State: in progress
+- Changed: added a generic model-driven standalone `src/config.rs` template. The
+  renderer now derives checksum, SigV4a, idempotency, S3 Express, DynamoDB account-ID
+  endpoint, retry, and aws-chunked configuration capabilities from the selected model;
+  it does not branch on service or operation names. Regenerated all eight standalone
+  config snapshots, which now match their references exactly.
+- Evidence: compared the generated structure with the pinned Smithy-RS checkout at
+  `/tmp/smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `just conformance`
+  regenerated 8 snapshots and formatted 4,583 Rust files.
+- Conformance: overall `3,906/676/1,879/1` -> `3,910/672/1,879/1`; S3
+  `1,257/1/86/0` -> `1,258/0/86/0` (matched/mismatched/missing/extra). Average match
+  increased from `56.59%` to `56.64%`.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass. The
+  conformance recipe still exits nonzero because parity remains incomplete.
+- Next action: port the generic S3 endpoint/runtime source tree, starting with
+  `src/config/endpoint.rs` and `src/endpoint_lib`.
+
 ### Checkpoint: 2026-08-23 — Match long operation-builder templates
 
 - State: in progress

@@ -55,7 +55,7 @@ pub(crate) fn generate(
             ),
             (
                 "src/config.rs".to_owned(),
-                render_config_file(entry.key, consumer_namespace),
+                render_config_file(&selected, consumer_namespace),
             ),
             (
                 "src/config/auth.rs".to_owned(),
@@ -1656,13 +1656,758 @@ fn render_sealed_enum_unknown() -> String {
     output
 }
 
-fn render_config_file(service_key: &str, consumer_namespace: bool) -> String {
+fn render_config_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    if !consumer_namespace {
+        return render_standalone_config_file(selected);
+    }
+
     let mut output = String::new();
-    render_config(&mut output, service_key, consumer_namespace);
+    render_consumer_config(&mut output, selected.model.entry.key, true);
     output
 }
 
-fn render_config(output: &mut String, service_key: &str, consumer_namespace: bool) {
+fn render_standalone_config_file(selected: &SelectedModel) -> String {
+    let mut output = include_str!("../assets/config_base.rs.in").to_owned();
+    let checksums = model_contains_trait(selected, "aws.protocols#httpChecksum");
+    let s3_express = service_supports_s3_express(selected);
+    let sigv4a = service_uses_sigv4a(selected);
+    let idempotency = has_idempotency_operations(selected);
+    let account_id_endpoint =
+        service_has_endpoint_builtin(selected, "AWS::Auth::AccountIdEndpointMode");
+    let dynamodb_retry = account_id_endpoint;
+    let aws_chunked = model_has_aws_chunked_operations(selected);
+
+    replace_config_placeholder(
+        &mut output,
+        "__S3_TOP_BLANK__",
+        if s3_express {
+            "\n".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_CONFIG_BLANK__",
+        if s3_express {
+            "\n".to_owned()
+        } else {
+            String::new()
+        },
+    );
+
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_CHECKSUM_GETTERS__",
+        if checksums {
+            r#"    /// Return a reference to the response_checksum_validation value contained in this config, if any.
+    pub fn response_checksum_validation(&self) -> ::std::option::Option<&crate::config::ResponseChecksumValidation> {
+        self.config.load::<crate::config::ResponseChecksumValidation>()
+    }
+    /// Return a reference to the request_checksum_calculation value contained in this config, if any.
+    pub fn request_checksum_calculation(&self) -> ::std::option::Option<&crate::config::RequestChecksumCalculation> {
+        self.config.load::<crate::config::RequestChecksumCalculation>()
+    }"#
+                .to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_SIGV4A_GETTER__",
+        if sigv4a {
+            r#"    /// Returns the SigV4a signing region set, if configured.
+    pub fn sigv4a_signing_region_set(&self) -> Option<&::aws_types::region::SigningRegionSet> {
+        self.config.load::<::aws_types::region::SigningRegionSet>()
+    }"#
+            .to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_S3_BUILTINS__",
+        render_s3_config_bag(selected),
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_ACCOUNT_ID__",
+        if account_id_endpoint {
+            "        builder.set_account_id_endpoint_mode(config_bag.load::<::aws_types::endpoint_config::AccountIdEndpointMode>().cloned());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_CHECKSUMS__",
+        if checksums {
+            "        builder.set_response_checksum_validation(config_bag.load::<crate::config::ResponseChecksumValidation>().cloned());\n        builder.set_request_checksum_calculation(config_bag.load::<crate::config::RequestChecksumCalculation>().cloned());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_SIGV4A__",
+        if sigv4a {
+            "        builder.set_sigv4a_signing_region_set(config_bag.load::<::aws_types::region::SigningRegionSet>().cloned());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__IDEMPOTENCY_BUILDER__",
+        if idempotency {
+            render_idempotency_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(&mut output, "__S3_BUILDER__", render_s3_builder(selected));
+    replace_config_placeholder(
+        &mut output,
+        "__S3_EXPRESS_BUILDER__",
+        if s3_express {
+            render_s3_express_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__ACCOUNT_ID_BUILDER__",
+        if account_id_endpoint {
+            render_account_id_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_CHECKSUM_BUILDER__",
+        if checksums {
+            render_checksum_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_SIGV4A_BUILDER__",
+        if sigv4a {
+            render_sigv4a_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SIGV4A_CREDENTIALS__",
+        if sigv4a {
+            "            #[cfg(feature = \"sigv4a\")]\n            {\n                self.runtime_components\n                    .set_identity_resolver(::aws_runtime::auth::sigv4a::SCHEME_ID, credentials_provider.clone());\n            }".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__AWS_CHUNKED_BUILDER__",
+        if aws_chunked {
+            render_aws_chunked_builder()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__IDEMPOTENCY_TEST_DEFAULT__",
+        if idempotency {
+            "        self.set_idempotency_token_provider(Some(\"00000000-0000-4000-8000-000000000000\".into()));".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_IDEMPOTENCY_BLANK__",
+        if s3_express {
+            "\n".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_TEST_V2_BLANK__",
+        if s3_express {
+            "\n".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_BUILD_BLANK__",
+        if s3_express {
+            "\n".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__IDEMPOTENCY_RUNTIME_CONFIG__",
+        if idempotency {
+            "            cfg.store_put(crate::idempotency_token::default_provider());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_EXPRESS_AUTH_SCHEME__",
+        if s3_express {
+            "        runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(\n            crate::s3_express::auth::S3ExpressAuthScheme::new(),\n        ));".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__ACCOUNT_ID_INTERCEPTOR__",
+        if account_id_endpoint {
+            "        runtime_components.push_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(\n            crate::account_id_endpoint::AccountIdEndpointFeatureTrackerInterceptor,\n        ));".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SIGV4A_RUNTIME_AUTH_SCHEME__",
+        if sigv4a {
+            "        #[cfg(feature = \"sigv4a\")]\n        {\n            runtime_components.push_auth_scheme(::aws_smithy_runtime_api::client::auth::SharedAuthScheme::new(\n                ::aws_runtime::auth::sigv4a::SigV4aAuthScheme::new(),\n            ));\n        }".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_EXPRESS_RUNTIME_PLUGIN__",
+        if s3_express {
+            "\n    plugins = plugins.with_client_plugin(crate::s3_express::runtime_plugin::S3ExpressRuntimePlugin::new(config.clone()));".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_SIGV4A__",
+        if sigv4a {
+            "        builder.set_sigv4a_signing_region_set(input.sigv4a_signing_region_set().cloned());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_CHECKSUMS__",
+        if checksums {
+            "        builder.set_request_checksum_calculation(input.request_checksum_calculation());\n        builder.set_response_checksum_validation(input.response_checksum_validation());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_ACCOUNT_ID__",
+        if account_id_endpoint {
+            "        builder.set_account_id_endpoint_mode(input.account_id_endpoint_mode().cloned());".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_S3_EXPRESS__",
+        if s3_express {
+            format!(
+                "        builder.set_disable_s3_express_session_auth(input.service_config().and_then(|conf| {{\n            let str_config = conf.load_config(service_config_key(\n                \"{}\",\n                \"AWS_S3_DISABLE_EXPRESS_SESSION_AUTH\",\n                \"s3_disable_express_session_auth\",\n            ));\n            str_config.and_then(|it| it.parse::<bool>().ok())\n        }}));",
+                service_sdk_id(selected)
+            )
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__SDK_CONFIG_DYNAMODB_RETRY__",
+        if dynamodb_retry {
+            r#"        if let ::std::option::Option::Some(existing_rc) = input.retry_config().cloned() {
+            if existing_rc
+                .retry_spec()
+                .is_some_and(|s| s.is_at_least(::aws_smithy_types::retry::RetrySpec::V2_1))
+            {
+                let mut rc = existing_rc.with_retry_spec(
+                    ::aws_smithy_types::retry::RetrySpec::v2_1().with_non_throttling_initial_backoff(::std::time::Duration::from_millis(25)),
+                );
+                if !input.get_origin("retry_config").is_client_config() {
+                    rc = rc.with_max_attempts(4);
+                }
+                builder = builder.retry_config(rc);
+            }
+        }"#
+                .to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__CONFIG_CHECKSUM_EXPORTS__",
+        if checksums {
+            "\npub use ::aws_smithy_types::checksum_config::ResponseChecksumValidation;\n\npub use ::aws_smithy_types::checksum_config::RequestChecksumCalculation;".to_owned()
+        } else {
+            String::new()
+        },
+    );
+    replace_config_placeholder(
+        &mut output,
+        "__S3_STORABLES__",
+        render_s3_storables(selected),
+    );
+
+    output = output
+        .replace("__SDK_CRATE__", selected.model.entry.module_name)
+        .replace(
+            "__SERVICE_SHAPE__",
+            terminal(selected.model.entry.service_shape_id),
+        )
+        .replace("__SERVICE_TITLE__", &service_sdk_id(selected))
+        .replace("__SERVICE_KEY__", selected.model.entry.key);
+    output
+}
+
+fn replace_config_placeholder(output: &mut String, marker: &str, value: String) {
+    let marker_line = format!("{marker}\n");
+    if value.is_empty() {
+        *output = output.replace(&marker_line, "").replace(marker, "");
+    } else {
+        *output = output.replace(marker, &value);
+    }
+}
+
+fn selected_service(selected: &SelectedModel) -> Option<&Value> {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+}
+
+fn service_has_endpoint_builtin(selected: &SelectedModel, built_in: &str) -> bool {
+    selected_service(selected)
+        .and_then(|service| service.get("traits"))
+        .and_then(Value::as_object)
+        .into_iter()
+        .flat_map(|traits| traits.values())
+        .filter_map(|trait_value| trait_value.get("parameters"))
+        .filter_map(Value::as_object)
+        .flat_map(|parameters| parameters.values())
+        .any(|parameter| {
+            parameter
+                .get("builtIn")
+                .and_then(Value::as_str)
+                .is_some_and(|value| value == built_in)
+        })
+}
+
+fn service_has_client_context_param(selected: &SelectedModel, name: &str) -> bool {
+    selected_service(selected)
+        .and_then(|service| service.get("traits"))
+        .and_then(|traits| traits.get("smithy.rules#clientContextParams"))
+        .and_then(Value::as_object)
+        .is_some_and(|params| params.contains_key(name))
+}
+
+fn service_uses_sigv4a(selected: &SelectedModel) -> bool {
+    service_supports_s3_express(selected)
+        || selected_service(selected).is_some_and(|service| {
+            has_trait(service, "aws.auth#sigv4a")
+                || service
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#auth"))
+                    .and_then(Value::as_array)
+                    .is_some_and(|auth| {
+                        auth.iter().any(|id| id.as_str() == Some("aws.auth#sigv4a"))
+                    })
+        })
+}
+
+fn render_s3_config_bag(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    let controls = [
+        (
+            "ForcePathStyle",
+            "ForcePathStyle",
+            "        builder.set_force_path_style(config_bag.load::<crate::config::ForcePathStyle>().map(|ty| ty.0));",
+        ),
+        (
+            "UseArnRegion",
+            "UseArnRegion",
+            "        builder.set_use_arn_region(config_bag.load::<crate::config::UseArnRegion>().map(|ty| ty.0));",
+        ),
+        (
+            "DisableMultiRegionAccessPoints",
+            "DisableMultiRegionAccessPoints",
+            "        builder.set_disable_multi_region_access_points(config_bag.load::<crate::config::DisableMultiRegionAccessPoints>().map(|ty| ty.0));",
+        ),
+        (
+            "Accelerate",
+            "Accelerate",
+            "        builder.set_accelerate(config_bag.load::<crate::config::Accelerate>().map(|ty| ty.0));",
+        ),
+        (
+            "DisableS3ExpressSessionAuth",
+            "DisableS3ExpressSessionAuth",
+            "        builder.set_disable_s3_express_session_auth(config_bag.load::<crate::config::DisableS3ExpressSessionAuth>().map(|ty| ty.0));",
+        ),
+    ];
+    for (name, _rust_name, line) in controls {
+        if service_has_client_context_param(selected, name) {
+            if !output.is_empty() {
+                output.push('\n');
+            }
+            output.push_str(line);
+            if name != "DisableS3ExpressSessionAuth" {
+                output.push('\n');
+            }
+        }
+    }
+    output
+}
+
+fn render_idempotency_builder() -> String {
+    r#"    /// Sets the idempotency token provider to use for service calls that require tokens.
+    pub fn idempotency_token_provider(
+        mut self,
+        idempotency_token_provider: impl ::std::convert::Into<crate::idempotency_token::IdempotencyTokenProvider>,
+    ) -> Self {
+        self.set_idempotency_token_provider(::std::option::Option::Some(idempotency_token_provider.into()));
+        self
+    }
+    /// Sets the idempotency token provider to use for service calls that require tokens.
+    pub fn set_idempotency_token_provider(
+        &mut self,
+        idempotency_token_provider: ::std::option::Option<crate::idempotency_token::IdempotencyTokenProvider>,
+    ) -> &mut Self {
+        self.config.store_or_unset(idempotency_token_provider);
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_s3_builder(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    let controls = [
+        (
+            "ForcePathStyle",
+            r#"    /// Forces this client to use path-style addressing for buckets.
+    pub fn force_path_style(mut self, force_path_style: impl Into<bool>) -> Self {
+        self.set_force_path_style(Some(force_path_style.into()));
+        self
+    }
+    /// Forces this client to use path-style addressing for buckets.
+    pub fn set_force_path_style(&mut self, force_path_style: Option<bool>) -> &mut Self {
+        self.config.store_or_unset(force_path_style.map(crate::config::ForcePathStyle));
+        self
+    }
+
+"#,
+        ),
+        (
+            "UseArnRegion",
+            r#"    /// Enables this client to use an ARN's region when constructing an endpoint instead of the client's configured region.
+    pub fn use_arn_region(mut self, use_arn_region: impl Into<bool>) -> Self {
+        self.set_use_arn_region(Some(use_arn_region.into()));
+        self
+    }
+    /// Enables this client to use an ARN's region when constructing an endpoint instead of the client's configured region.
+    pub fn set_use_arn_region(&mut self, use_arn_region: Option<bool>) -> &mut Self {
+        self.config.store_or_unset(use_arn_region.map(crate::config::UseArnRegion));
+        self
+    }
+
+"#,
+        ),
+        (
+            "DisableMultiRegionAccessPoints",
+            r#"    /// Disables this client's usage of Multi-Region Access Points.
+    pub fn disable_multi_region_access_points(mut self, disable_multi_region_access_points: impl Into<bool>) -> Self {
+        self.set_disable_multi_region_access_points(Some(disable_multi_region_access_points.into()));
+        self
+    }
+    /// Disables this client's usage of Multi-Region Access Points.
+    pub fn set_disable_multi_region_access_points(&mut self, disable_multi_region_access_points: Option<bool>) -> &mut Self {
+        self.config
+            .store_or_unset(disable_multi_region_access_points.map(crate::config::DisableMultiRegionAccessPoints));
+        self
+    }
+
+"#,
+        ),
+        (
+            "Accelerate",
+            r#"    /// Enables this client to use S3 Transfer Acceleration endpoints.
+    pub fn accelerate(mut self, accelerate: impl Into<bool>) -> Self {
+        self.set_accelerate(Some(accelerate.into()));
+        self
+    }
+    /// Enables this client to use S3 Transfer Acceleration endpoints.
+    pub fn set_accelerate(&mut self, accelerate: Option<bool>) -> &mut Self {
+        self.config.store_or_unset(accelerate.map(crate::config::Accelerate));
+        self
+    }
+
+"#,
+        ),
+        (
+            "DisableS3ExpressSessionAuth",
+            r#"    /// Disables this client's usage of Session Auth for S3Express       buckets and reverts to using conventional SigV4 for those.
+    pub fn disable_s3_express_session_auth(mut self, disable_s3_express_session_auth: impl Into<bool>) -> Self {
+        self.set_disable_s3_express_session_auth(Some(disable_s3_express_session_auth.into()));
+        self
+    }
+    /// Disables this client's usage of Session Auth for S3Express       buckets and reverts to using conventional SigV4 for those.
+    pub fn set_disable_s3_express_session_auth(&mut self, disable_s3_express_session_auth: Option<bool>) -> &mut Self {
+        self.config
+            .store_or_unset(disable_s3_express_session_auth.map(crate::config::DisableS3ExpressSessionAuth));
+        self
+    }
+"#,
+        ),
+    ];
+    for (name, block) in controls {
+        if service_has_client_context_param(selected, name) {
+            output.push_str(block);
+        }
+    }
+    output.trim_end_matches('\n').to_owned()
+}
+
+fn render_s3_express_builder() -> String {
+    r#"    /// Sets the credentials provider for S3 Express One Zone
+    pub fn express_credentials_provider(mut self, credentials_provider: impl crate::config::ProvideCredentials + 'static) -> Self {
+        self.set_express_credentials_provider(::std::option::Option::Some(crate::config::SharedCredentialsProvider::new(
+            credentials_provider,
+        )));
+        self
+    }
+    /// Sets the credentials provider for S3 Express One Zone
+    pub fn set_express_credentials_provider(
+        &mut self,
+        credentials_provider: ::std::option::Option<crate::config::SharedCredentialsProvider>,
+    ) -> &mut Self {
+        if let ::std::option::Option::Some(credentials_provider) = credentials_provider {
+            self.runtime_components
+                .set_identity_resolver(crate::s3_express::auth::SCHEME_ID, credentials_provider);
+        }
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_account_id_builder() -> String {
+    r#"    /// The AccountId Endpoint Mode.
+    pub fn account_id_endpoint_mode(mut self, account_id_endpoint_mode: ::aws_types::endpoint_config::AccountIdEndpointMode) -> Self {
+        self.set_account_id_endpoint_mode(::std::option::Option::Some(account_id_endpoint_mode));
+        self
+    }
+    /// The AccountId Endpoint Mode.
+    pub fn set_account_id_endpoint_mode(
+        &mut self,
+        account_id_endpoint_mode: ::std::option::Option<::aws_types::endpoint_config::AccountIdEndpointMode>,
+    ) -> &mut Self {
+        self.config.store_or_unset(account_id_endpoint_mode);
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_checksum_builder() -> String {
+    r#"    /// Set the [`ResponseChecksumValidation`](crate::config::ResponseChecksumValidation)
+    /// to determine when checksum validation will be performed on response payloads.
+    pub fn response_checksum_validation(mut self, response_checksum_validation: crate::config::ResponseChecksumValidation) -> Self {
+        self.set_response_checksum_validation(::std::option::Option::Some(response_checksum_validation));
+        self
+    }
+    /// Set the [`ResponseChecksumValidation`](crate::config::ResponseChecksumValidation)
+    /// to determine when checksum validation will be performed on response payloads.
+    pub fn set_response_checksum_validation(
+        &mut self,
+        response_checksum_validation: ::std::option::Option<crate::config::ResponseChecksumValidation>,
+    ) -> &mut Self {
+        self.config.store_or_unset(response_checksum_validation);
+        self
+    }
+    /// Set the [`RequestChecksumCalculation`](crate::config::RequestChecksumCalculation)
+    /// to determine when a checksum will be calculated for request payloads.
+    pub fn request_checksum_calculation(mut self, request_checksum_calculation: crate::config::RequestChecksumCalculation) -> Self {
+        self.set_request_checksum_calculation(::std::option::Option::Some(request_checksum_calculation));
+        self
+    }
+    /// Set the [`RequestChecksumCalculation`](crate::config::RequestChecksumCalculation)
+    /// to determine when a checksum will be calculated for request payloads.
+    pub fn set_request_checksum_calculation(
+        &mut self,
+        request_checksum_calculation: ::std::option::Option<crate::config::RequestChecksumCalculation>,
+    ) -> &mut Self {
+        self.config.store_or_unset(request_checksum_calculation);
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_sigv4a_builder() -> String {
+    r#"    /// Sets the SigV4a signing region set.
+    pub fn sigv4a_signing_region_set(mut self, v: impl Into<::aws_types::region::SigningRegionSet>) -> Self {
+        self.set_sigv4a_signing_region_set(Some(v.into()));
+        self
+    }
+
+    /// Sets the SigV4a signing region set.
+    pub fn set_sigv4a_signing_region_set(&mut self, v: Option<::aws_types::region::SigningRegionSet>) -> &mut Self {
+        self.config.store_or_unset(v);
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_aws_chunked_builder() -> String {
+    r#"    /// Sets the chunk size for [`aws-chunked encoding`].
+    ///
+    /// Pass `Some(size)` to use a specific chunk size (minimum 8 KiB).
+    /// Pass `None` to use the content-length as chunk size (no chunking).
+    ///
+    /// The minimum chunk size of 8 KiB is validated when the request is sent.
+    ///
+    /// **Note:** This setting only applies to operations that support aws-chunked encoding
+    /// and has no effect on other operations. If this method is not invoked, a default
+    /// chunk size of 64 KiB is used.
+    ///
+    /// [`aws-chunked encoding`]: https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming.html
+    ///
+    /// # Example - Custom chunk size
+    /// ```no_run
+    /// # use __SDK_CRATE__::{Client, Config};
+    /// # async fn example(client: Client) -> Result<(), Box<dyn std::error::Error>> {
+    /// let config = Config::builder()
+    ///     .aws_chunked_encoding_chunk_size(Some(10240)) // 10 KiB chunks
+    ///     .build();
+    /// let client = Client::from_conf(config);
+    /// # Ok(())
+    /// # }
+    /// ```
+    ///
+    /// # Example - No chunking (buffers entire body in memory)
+    /// ```no_run
+    /// # use __SDK_CRATE__::{Client, Config};
+    /// # async fn example(client: Client) -> Result<(), Box<dyn std::error::Error>> {
+    /// let config = Config::builder()
+    ///     .aws_chunked_encoding_chunk_size(None) // Use entire content as one chunk
+    ///     .build();
+    /// let client = Client::from_conf(config);
+    /// # Ok(())
+    /// # }
+    /// ```
+    pub fn aws_chunked_encoding_chunk_size(mut self, chunk_size: ::std::option::Option<usize>) -> Self {
+        self.set_aws_chunked_encoding_chunk_size(::std::option::Option::Some(chunk_size));
+        self
+    }
+
+    /// Sets the chunk size for aws-chunked encoding.
+    pub fn set_aws_chunked_encoding_chunk_size(&mut self, chunk_size: ::std::option::Option<::std::option::Option<usize>>) -> &mut Self {
+        if let ::std::option::Option::Some(chunk_size) = chunk_size {
+            let chunk_size = match chunk_size {
+                ::std::option::Option::Some(size) => crate::aws_chunked::ChunkSize::Configured(size),
+                ::std::option::Option::None => crate::aws_chunked::ChunkSize::DisableChunking,
+            };
+            self.push_runtime_plugin(crate::aws_chunked::ChunkSizeRuntimePlugin::new(chunk_size).into_shared());
+        }
+        self
+    }"#
+        .to_owned()
+}
+
+fn render_s3_storables(selected: &SelectedModel) -> String {
+    let controls = [
+        (
+            "ForcePathStyle",
+            r#"#[derive(Debug, Clone)]
+pub(crate) struct ForcePathStyle(pub(crate) bool);
+impl ::aws_smithy_types::config_bag::Storable for ForcePathStyle {
+    type Storer = ::aws_smithy_types::config_bag::StoreReplace<Self>;
+}
+"#,
+        ),
+        (
+            "UseArnRegion",
+            r#"#[derive(Debug, Clone)]
+pub(crate) struct UseArnRegion(pub(crate) bool);
+impl ::aws_smithy_types::config_bag::Storable for UseArnRegion {
+    type Storer = ::aws_smithy_types::config_bag::StoreReplace<Self>;
+}
+"#,
+        ),
+        (
+            "DisableMultiRegionAccessPoints",
+            r#"#[derive(Debug, Clone)]
+pub(crate) struct DisableMultiRegionAccessPoints(pub(crate) bool);
+impl ::aws_smithy_types::config_bag::Storable for DisableMultiRegionAccessPoints {
+    type Storer = ::aws_smithy_types::config_bag::StoreReplace<Self>;
+}
+"#,
+        ),
+        (
+            "Accelerate",
+            r#"#[derive(Debug, Clone)]
+pub(crate) struct Accelerate(pub(crate) bool);
+impl ::aws_smithy_types::config_bag::Storable for Accelerate {
+    type Storer = ::aws_smithy_types::config_bag::StoreReplace<Self>;
+}
+"#,
+        ),
+        (
+            "DisableS3ExpressSessionAuth",
+            r#"#[derive(Debug, Clone)]
+pub(crate) struct DisableS3ExpressSessionAuth(pub(crate) bool);
+impl ::aws_smithy_types::config_bag::Storable for DisableS3ExpressSessionAuth {
+    type Storer = ::aws_smithy_types::config_bag::StoreReplace<Self>;
+}
+"#,
+        ),
+    ];
+    let mut output = String::new();
+    for block in controls
+        .into_iter()
+        .filter(|(name, _)| service_has_client_context_param(selected, name))
+        .map(|(_, block)| block)
+    {
+        if !output.is_empty() {
+            output.push('\n');
+        }
+        output.push_str(block);
+    }
+    if output.is_empty() {
+        output
+    } else {
+        format!("\n{output}")
+    }
+}
+
+fn render_consumer_config(output: &mut String, service_key: &str, consumer_namespace: bool) {
     header(output);
     output.push_str(
         "#[derive(Clone, Debug)]\n\
