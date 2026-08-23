@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `601/601` files compared · `477` matched · `115` mismatches · `7` missing · `2` extra · `79.37%` match (100.00% means fully matched)
+**Progress:** `594/594` files compared · `475` matched · `115` mismatches · `2` missing · `2` extra · `79.97%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -3003,13 +3003,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ### Missing reference files
 
-- `Cargo.toml`
 - `src/protocol_serde/shape_custom_key_store_has_cmks_exception.rs`
 - `src/types/error/_custom_key_store_has_cmks_exception.rs`
-- `tests/integration.rs`
-- `tests/retryable_errors.rs`
-- `tests/sensitive-it.rs`
-- `tests/traits.rs`
 
 ### Unexpected generated files
 

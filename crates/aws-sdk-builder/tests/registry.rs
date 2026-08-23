@@ -19,14 +19,6 @@ fn registry_contains_exactly_the_supported_service_crates() {
         assert_eq!(entry.module_name, module_name);
         assert_eq!(entry.filename, "model.json");
     }
-    assert_eq!(
-        registry::AWS_SDK_RUST_SNAPSHOT,
-        "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db"
-    );
-    assert_eq!(
-        registry::SMITHY_RS_SNAPSHOT,
-        "f1b64a9c0dd001d4bac4277fec4041da59c1f48d"
-    );
 }
 
 #[test]

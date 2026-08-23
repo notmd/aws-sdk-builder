@@ -1,6 +1,5 @@
+conformance-sync:
+    cargo run -p aws-sdk-conformance -- update-reference --manifest services-manifest.json
+
 conformance:
-    cargo run -p aws-sdk-conformance -- \
-        --reference conformance/reference \
-        --generated conformance/generated \
-        --output conformance/summary.md \
-        --snapshot 3c6d526c9d4775f41a8ef1ed2ef574d1b14481db
+    cargo run -p aws-sdk-conformance -- conformance --manifest services-manifest.json

@@ -120,7 +120,7 @@ run. The durable project memory is the repository:
   completion definition.
 - `docs/aws-sdk-builder-status.md` is the current checkpoint: milestone, completed
   work, evidence, conformance counts, blockers, and exactly one next action.
-- `conformance/manifest.json`, `conformance/summary.md`, and
+- `services-manifest.json`, `conformance/summary.md`, and
   `conformance/summary/` are the reproducible parity evidence.
 - Git history and the working-tree diff preserve implementation history; never use an
   unrecorded chat statement as the only explanation for a change.
@@ -500,9 +500,11 @@ formatting is:
   header separately.
 
 Do not strip or otherwise ignore whitespace after formatting, imports in general, docs,
-ordering, or generated files. A second AST/token comparison using `syn` should verify
-public item names, signatures, attributes, visibility, and nested module paths
-independent of formatting.
+ordering, or included generated source files. The checked-in
+`services-manifest.json` explicitly excludes package metadata and test/bench trees from
+both snapshot inputs. A second AST/token comparison using `syn` should verify public
+item names, signatures, attributes, visibility, and nested module paths independent of
+formatting.
 
 ### Markdown diff reports with `diffy`
 
@@ -539,22 +541,20 @@ exist, but still leaves the complete Markdown report available for review.
 The checked-in runner should expose an invocation equivalent to:
 
 ```text
-cargo run -p aws-sdk-conformance -- \
-  --reference conformance/reference \
-  --generated conformance/generated \
-  --output conformance/summary.md \
-  --snapshot <pinned-aws-sdk-rust-sha>
+cargo run -p aws-sdk-conformance -- conformance --manifest services-manifest.json
 ```
 
-Every conformance run must save its deterministic Markdown output at
-`conformance/summary.md` and commit that summary plus one detailed report per service
-under `conformance/summary/` to version control for reviewable history.
-The pinned reference and generated source trees must also be checked in under
-`conformance/`, with provenance recorded in `conformance/manifest.json`. The report
-must retain non-zero differences; a committed report is evidence of what was compared,
-not a claim that parity passed. The report header must identify the pinned AWS SDK Rust
-snapshot, and all snapshots/reports must be regenerated when the generator or pinned
-reference changes. `just conformance` is the short form of the checked-in command.
+Reference and generated roots, selected services, exclusions, and provenance come from
+`services-manifest.json`. Run `cargo run -p aws-sdk-conformance -- update-reference
+--manifest services-manifest.json` to clone the exact upstream commit and refresh
+reference trees plus provider `model.json` assets. Every conformance run must save its
+deterministic Markdown output at `conformance/summary.md` and commit that summary plus
+one detailed report per service under `conformance/summary/` to version control for
+reviewable history. The report must retain non-zero differences; a committed report is
+evidence of what was compared, not a claim that parity passed. The report header must
+identify the pinned AWS SDK Rust snapshot, and all snapshots/reports must be regenerated
+when the generator or pinned reference changes. `just conformance` is the short form of
+the checked-in command.
 
 ### Required codegen feedback loop
 

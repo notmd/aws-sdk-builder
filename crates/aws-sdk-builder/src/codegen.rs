@@ -11,7 +11,7 @@ use crate::{
     config::ServiceSelection,
     error::BuildError,
     model::{ProtocolKind, SelectedModel},
-    names, registry,
+    names,
 };
 
 pub(crate) struct Generated {
@@ -768,13 +768,7 @@ fn render_service_manifest(selected: &SelectedModel, protocol: ProtocolKind) -> 
     output.push_str(
         "edition = \"2021\"\nlicense = \"Apache-2.0\"\nrepository = \"https://github.com/awslabs/aws-sdk-rust\"\nrust-version = \"1.94.1\"\nreadme = \"README.md\"\n[package.metadata.smithy]\n",
     );
-    writeln!(
-        output,
-        "codegen-version = {:?}\nprotocol = {:?}",
-        registry::SMITHY_CODEGEN_VERSION,
-        protocol.trait_id()
-    )
-    .unwrap();
+    writeln!(output, "protocol = {:?}", protocol.trait_id()).unwrap();
     output.push_str(
         "[package.metadata.docs.rs]\nall-features = true\ntargets = [\"x86_64-unknown-linux-gnu\"]\n",
     );

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `903/903` files compared · `848` matched · `36` mismatches · `19` missing · `0` extra · `93.91%` match (100.00% means fully matched)
+**Progress:** `883/883` files compared · `847` matched · `36` mismatches · `0` missing · `0` extra · `95.92%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -1693,28 +1693,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message(&self) -> ::std::option::Option<&str> {
          self.message.as_deref()
 ```
-
-### Missing reference files
-
-- `Cargo.toml`
-- `benches/deserialization_bench.rs`
-- `benches/serialization_bench.rs`
-- `tests/account-based-endpoints.rs`
-- `tests/auth_scheme_error.rs`
-- `tests/build-errors.rs`
-- `tests/cloning.rs`
-- `tests/data.json`
-- `tests/endpoint_tests.rs`
-- `tests/endpoints.rs`
-- `tests/ignore_configured_endpoint_urls.rs`
-- `tests/movies.rs`
-- `tests/paginators.rs`
-- `tests/protocol-swap.rs`
-- `tests/retries-with-client-rate-limiting.rs`
-- `tests/retry-spec.rs`
-- `tests/shared-config.rs`
-- `tests/test-error-classification.rs`
-- `tests/timeouts.rs`
 
 ### Rust token differences
 

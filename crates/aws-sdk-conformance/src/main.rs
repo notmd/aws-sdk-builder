@@ -1,19 +1,44 @@
 use std::{
-    collections::BTreeSet,
-    env, fs,
+    env,
+    ffi::OsString,
+    fs,
     path::{Path, PathBuf},
     process::{Command, ExitCode},
 };
 
-mod fixtures;
+mod manifest;
+mod normalize;
+mod updater;
 
 #[allow(dead_code)]
 mod report;
 
-use report::{compare_directories, write_reports};
+use report::{compare_directories_with_policy, write_reports};
 
 fn main() -> ExitCode {
-    match run() {
+    let arguments = env::args_os().skip(1).collect::<Vec<_>>();
+    if arguments
+        .first()
+        .is_some_and(|argument| argument == "update-reference")
+    {
+        return match updater::run(&arguments[1..]) {
+            Ok(()) => ExitCode::SUCCESS,
+            Err(error) => {
+                eprintln!("aws-sdk-conformance: {error}");
+                ExitCode::from(2)
+            }
+        };
+    }
+
+    let arguments = if arguments
+        .first()
+        .is_some_and(|argument| argument == "conformance")
+    {
+        &arguments[1..]
+    } else {
+        &arguments[..]
+    };
+    match run_conformance(arguments) {
         Ok(has_differences) => {
             if has_differences {
                 ExitCode::from(1)
@@ -28,8 +53,7 @@ fn main() -> ExitCode {
     }
 }
 
-fn run() -> Result<bool, Box<dyn std::error::Error>> {
-    let arguments = env::args_os().skip(1).collect::<Vec<_>>();
+fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::Error>> {
     if arguments
         .iter()
         .any(|argument| argument == "--help" || argument == "-h")
@@ -38,11 +62,32 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         return Ok(false);
     }
 
-    let reference = required_path(&arguments, "--reference")?;
-    let generated = required_path(&arguments, "--generated")?;
-    let output = required_path(&arguments, "--output")?;
-    let snapshot = optional_string(&arguments, "--snapshot")?;
-    let services = service_names(&reference)?;
+    let manifest_path = optional_path(arguments, "--manifest")
+        .unwrap_or_else(|| PathBuf::from(manifest::DEFAULT_PATH));
+    let manifest = manifest::ServicesManifest::load(&manifest_path)?;
+    manifest::validate_registered_services(&manifest)?;
+    let reference = optional_path(arguments, "--reference")
+        .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.reference));
+    let generated = optional_path(arguments, "--generated")
+        .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.generated));
+    let output = optional_path(arguments, "--output")
+        .unwrap_or_else(|| manifest.root_path(&manifest_path, &manifest.roots.summary));
+    let snapshot = optional_string(arguments, "--snapshot")?;
+    if let Some(snapshot) = &snapshot
+        && snapshot != &manifest.upstream.commit
+    {
+        return Err(format!(
+            "--snapshot {snapshot} does not match manifest commit {}",
+            manifest.upstream.commit
+        )
+        .into());
+    }
+    let snapshot = Some(manifest.upstream.commit.clone());
+    let services = manifest
+        .services
+        .iter()
+        .map(|service| service.key.clone())
+        .collect::<Vec<_>>();
     let operation_count =
         aws_sdk_builder::generate_all(&generated, conformance_sources(&services)?)?;
     eprintln!(
@@ -50,13 +95,21 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         services.len(),
         operation_count
     );
+    let removed = normalize::strip_excluded(&generated, &manifest.comparison.exclude)?;
+    eprintln!("removed {removed} excluded generated snapshot path(s)");
     let formatted_files = format_generated_sources(&generated)?;
     eprintln!(
         "formatted {} generated Rust snapshot file(s) with rustfmt",
         formatted_files
     );
-    let report = compare_directories(reference, generated, snapshot)?;
-    write_reports(output, &report)?;
+    let report = compare_directories_with_policy(
+        &reference,
+        &generated,
+        snapshot,
+        &manifest.comparison.exclude,
+    )?;
+    write_reports(&output, &report)?;
+    update_manifest_counts(&manifest_path, manifest, &reference, &generated)?;
     eprintln!(
         "compared {} service(s): {}/{} files matched",
         report.services.len(),
@@ -64,6 +117,25 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         report.total_files()
     );
     Ok(report.has_differences())
+}
+
+fn update_manifest_counts(
+    manifest_path: &Path,
+    mut manifest: manifest::ServicesManifest,
+    reference: &Path,
+    generated: &Path,
+) -> Result<(), String> {
+    for service in &mut manifest.services {
+        service.reference_files = Some(normalize::count_files(
+            &reference.join(&service.reference_path),
+            &manifest.comparison.exclude,
+        )?);
+        service.generated_files = Some(normalize::count_files(
+            &generated.join(&service.generated_path),
+            &manifest.comparison.exclude,
+        )?);
+    }
+    manifest.write_atomic(manifest_path)
 }
 
 fn conformance_sources(services: &[String]) -> Result<Vec<aws_sdk_builder::ServiceSource>, String> {
@@ -74,15 +146,12 @@ fn conformance_sources(services: &[String]) -> Result<Vec<aws_sdk_builder::Servi
             "iam" => Ok(aws_sdk_builder_iam::source()),
             "kms" => Ok(aws_sdk_builder_kms::source()),
             "lambda" => Ok(aws_sdk_builder_lambda::source()),
-            "s3" => Ok(aws_sdk_builder_s3::source().with_fixtures(
-                Some(fixtures::S3_PROTOCOL_TESTS),
-                fixtures::S3_INTEGRATION_TESTS,
-            )),
+            "s3" => Ok(aws_sdk_builder_s3::source()),
             "sns" => Ok(aws_sdk_builder_sns::source()),
             "sqs" => Ok(aws_sdk_builder_sqs::source()),
             "sts" => Ok(aws_sdk_builder_sts::source()),
             other => Err(format!(
-                "reference service `{other}` has no registered builder crate"
+                "manifest service `{other}` has no registered builder crate"
             )),
         })
         .collect()
@@ -153,43 +222,14 @@ fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), Strin
     Ok(())
 }
 
-fn service_names(reference: &Path) -> Result<Vec<String>, String> {
-    if !reference.is_dir() {
-        return Err(format!(
-            "reference root is not a directory: {}",
-            reference.display()
-        ));
-    }
-    let mut services = BTreeSet::new();
-    for entry in fs::read_dir(reference).map_err(|error| error.to_string())? {
-        let entry = entry.map_err(|error| error.to_string())?;
-        if entry
-            .file_type()
-            .map_err(|error| error.to_string())?
-            .is_dir()
-        {
-            services.insert(entry.file_name().to_string_lossy().into_owned());
-        }
-    }
-    if services.is_empty() {
-        return Err(format!(
-            "reference root has no service directories: {}",
-            reference.display()
-        ));
-    }
-    Ok(services.into_iter().collect())
-}
-
-fn required_path(arguments: &[std::ffi::OsString], flag: &str) -> Result<PathBuf, String> {
-    let value = arguments
+fn optional_path(arguments: &[OsString], flag: &str) -> Option<PathBuf> {
+    arguments
         .windows(2)
         .find(|pair| pair[0] == flag)
-        .map(|pair| pair[1].clone())
-        .ok_or_else(|| format!("missing {flag}\n\n{}", usage()))?;
-    Ok(PathBuf::from(value))
+        .map(|pair| PathBuf::from(&pair[1]))
 }
 
-fn optional_string(arguments: &[std::ffi::OsString], flag: &str) -> Result<Option<String>, String> {
+fn optional_string(arguments: &[OsString], flag: &str) -> Result<Option<String>, String> {
     arguments
         .windows(2)
         .find(|pair| pair[0] == flag)
@@ -207,5 +247,5 @@ fn print_usage() {
 }
 
 fn usage() -> &'static str {
-    "Usage: aws-sdk-conformance --reference DIR --generated DIR --output FILE [--snapshot SHA]\n\nGenerates all packaged operations for each reference service into DIR, then compares the source directories and writes a summary report plus one deterministic diffy Markdown report per service.\nExit status: 0 means equal, 1 means differences were reported, 2 means the runner failed."
+    "Usage: aws-sdk-conformance [conformance] [--manifest FILE] [--reference DIR] [--generated DIR] [--output FILE] [--snapshot SHA]\n       aws-sdk-conformance update-reference [--manifest FILE] [--dry-run]\n\nThe conformance command generates all packaged operations, removes configured non-source files, compares selected services, and writes deterministic reports. The update-reference command downloads the pinned upstream GitHub archive, refreshes reference trees and service model.json files atomically, and exits without changing files on --dry-run. Exit status: 0 means equal or update succeeded, 1 means conformance differences, 2 means the runner failed."
 }

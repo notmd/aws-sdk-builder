@@ -126,6 +126,8 @@ dependencies = [
  "aws-sdk-builder-sts",
  "diffy",
  "quote",
+ "serde",
+ "serde_json",
  "syn 3.0.3",
  "tempfile",
 ]

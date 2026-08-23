@@ -1,17 +1,24 @@
 # Checked-in conformance snapshots
 
-This directory contains the immutable P0 inputs for the source comparison:
+This directory contains checked-in conformance inputs and reports:
 
-- `reference/` is copied from the AWS SDK for Rust `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
-  snapshot.
-- `generated/` is the checked-in all-operation output from the Rust-only
-  `aws-sdk-builder-rust-native-0.2.0` generator using the packaged models in this
-  repository.
-- `manifest.json` records the provenance and expected file counts.
+- `reference/` is copied from the AWS SDK for Rust repository and the exact commit in
+  [`../services-manifest.json`](../services-manifest.json).
+- `generated/` is the all-operation output from the Rust-only generator using the
+  packaged service models.
+- `summary.md` and `summary/` contain deterministic comparison reports.
 
-Run `just conformance` to regenerate every packaged operation for each reference
-service into `generated/`, then compare the fresh tree and refresh the summary
-table in `summary.md` plus the per-service Markdown reports under `summary/`.
-Generation is atomic, so failed generation leaves the previous snapshot intact.
-Differences intentionally produce exit status 1. Percentages are based on exact
-file matches; 100.00% means fully matched.
+Run `just conformance-sync` to download the pinned upstream commit archive, refresh selected
+service reference trees, and update each service provider's `model.json`. The updater
+removes configured Cargo metadata, README files, tests, and benches while preserving
+source and license files. It stages all data first and replaces snapshots only after
+validation succeeds.
+
+Run `just conformance` to regenerate every selected service, remove the same excluded
+artifacts from generated snapshots, compare the sanitized trees, refresh reports, and
+update derived file counts in `services-manifest.json`. Differences intentionally
+produce exit status 1. Percentages are based on exact file matches; 100.00% means
+fully matched.
+
+Normal conformance runs use checked-in data and do not clone or invoke an external
+code generator. `just conformance-sync` is the explicit network operation.

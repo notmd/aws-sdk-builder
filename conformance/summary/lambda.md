@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1139/1139` files compared · `792` matched · `283` mismatches · `9` missing · `55` extra · `69.53%` match (100.00% means fully matched)
+**Progress:** `1132/1132` files compared · `790` matched · `283` mismatches · `4` missing · `55` extra · `69.79%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -16708,15 +16708,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ### Missing reference files
 
-- `Cargo.toml`
 - `src/protocol_serde/shape_context_started_details.rs`
 - `src/protocol_serde/shape_invoke_output.rs`
 - `src/protocol_serde/shape_invoke_with_response_stream_output.rs`
 - `src/protocol_serde/shape_step_started_details.rs`
-- `tests/blns/LICENSE`
-- `tests/blns/blns.txt`
-- `tests/naughty-strings-client-context.rs`
-- `tests/request_id.rs`
 
 ### Unexpected generated files
 

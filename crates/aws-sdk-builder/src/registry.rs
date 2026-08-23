@@ -1,11 +1,5 @@
 use crate::error::BuildError;
 
-pub const AWS_SDK_RUST_SNAPSHOT: &str = "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db";
-pub const SMITHY_RS_SNAPSHOT: &str = "f1b64a9c0dd001d4bac4277fec4041da59c1f48d";
-pub const GENERATOR_VERSION: &str = "aws-sdk-builder-rust-native-0.2.0";
-pub const SMITHY_CODEGEN_VERSION: &str = "8c50a50e36736f932bd51898f14ee0fa84d47c09";
-pub const REGISTRY_SOURCE: &str = "aws-sdk-builder service-crate registry";
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ServiceMetadata {
     pub key: &'static str,
@@ -37,16 +31,6 @@ impl ServiceSource {
             protocol_tests: None,
             integration_tests: &[],
         }
-    }
-
-    pub const fn with_fixtures(
-        mut self,
-        protocol_tests: Option<&'static [u8]>,
-        integration_tests: &'static [IntegrationTestAsset],
-    ) -> Self {
-        self.protocol_tests = protocol_tests;
-        self.integration_tests = integration_tests;
-        self
     }
 }
 
@@ -94,6 +78,6 @@ pub fn lookup(key: &str) -> Result<ServiceMetadata, BuildError> {
         .find(|entry| entry.key == key)
         .ok_or_else(|| BuildError::UnknownService {
             service: key.to_owned(),
-            registry: REGISTRY_SOURCE.to_owned(),
+            registry: "aws-sdk-builder service registry".to_owned(),
         })
 }

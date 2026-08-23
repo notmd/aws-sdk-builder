@@ -1,3 +1,4 @@
+use crate::manifest::Exclusions;
 use std::{
     collections::BTreeSet,
     error::Error,
@@ -228,6 +229,20 @@ pub fn compare_directories(
     generated_root: impl AsRef<Path>,
     snapshot: Option<String>,
 ) -> Result<ConformanceReport, ReportError> {
+    compare_directories_with_policy(
+        reference_root,
+        generated_root,
+        snapshot,
+        &Exclusions::default(),
+    )
+}
+
+pub fn compare_directories_with_policy(
+    reference_root: impl AsRef<Path>,
+    generated_root: impl AsRef<Path>,
+    snapshot: Option<String>,
+    exclusions: &Exclusions,
+) -> Result<ConformanceReport, ReportError> {
     let reference_root = reference_root.as_ref();
     let generated_root = generated_root.as_ref();
     validate_root(reference_root, "reference")?;
@@ -240,6 +255,7 @@ pub fn compare_directories(
             &service,
             &reference_root.join(&service),
             &generated_root.join(&service),
+            exclusions,
         )?);
     }
 
@@ -361,9 +377,10 @@ fn compare_service(
     name: &str,
     reference_root: &Path,
     generated_root: &Path,
+    exclusions: &Exclusions,
 ) -> Result<ServiceReport, ReportError> {
-    let reference_files = collect_files(reference_root)?;
-    let generated_files = collect_files(generated_root)?;
+    let reference_files = collect_files(reference_root, exclusions)?;
+    let generated_files = collect_files(generated_root, exclusions)?;
     let paths = reference_files
         .keys()
         .chain(generated_files.keys())
@@ -505,34 +522,43 @@ fn validate_rust_pair(
     }
 }
 
-fn collect_files(root: &Path) -> Result<std::collections::BTreeMap<PathBuf, PathBuf>, ReportError> {
+fn collect_files(
+    root: &Path,
+    exclusions: &Exclusions,
+) -> Result<std::collections::BTreeMap<PathBuf, PathBuf>, ReportError> {
     let mut files = std::collections::BTreeMap::new();
     if !root.exists() {
         return Ok(files);
     }
-    collect_files_recursively(root, root, &mut files)?;
+    collect_files_recursively(root, root, Path::new(""), exclusions, &mut files)?;
     Ok(files)
 }
 
 fn collect_files_recursively(
     root: &Path,
     current: &Path,
+    relative_root: &Path,
+    exclusions: &Exclusions,
     files: &mut std::collections::BTreeMap<PathBuf, PathBuf>,
 ) -> Result<(), ReportError> {
     for entry in fs::read_dir(current).map_err(|source| ReportError::io(current, source))? {
         let entry = entry.map_err(|source| ReportError::io(current, source))?;
         let path = entry.path();
+        let relative = relative_root.join(entry.file_name());
         let file_type = entry
             .file_type()
             .map_err(|source| ReportError::io(&path, source))?;
+        if exclusions.excludes(&relative) {
+            continue;
+        }
         if file_type.is_dir() {
-            collect_files_recursively(root, &path, files)?;
+            collect_files_recursively(root, &path, &relative, exclusions, files)?;
         } else if file_type.is_file() {
-            let relative = path
+            let root_relative = path
                 .strip_prefix(root)
                 .expect("recursive paths must stay below root")
                 .to_owned();
-            files.insert(relative, path);
+            files.insert(root_relative, path);
         }
     }
     Ok(())
@@ -768,6 +794,30 @@ mod tests {
         assert!(report
             .to_markdown()
             .contains("**Progress:** `1/1` files compared · `1` matched · `0` mismatches · `0` missing · `0` extra · `100.00%` match"));
+    }
+
+    #[test]
+    fn excluded_files_do_not_affect_comparison_counts() {
+        let reference = tempdir().unwrap();
+        let generated = tempdir().unwrap();
+        fs::create_dir_all(reference.path().join("s3/tests")).unwrap();
+        fs::create_dir_all(generated.path().join("s3/tests")).unwrap();
+        fs::write(reference.path().join("s3/README.md"), "reference").unwrap();
+        fs::write(generated.path().join("s3/tests/extra.rs"), "generated").unwrap();
+        fs::write(reference.path().join("s3/src.rs"), "pub struct Same;\n").unwrap();
+        fs::write(generated.path().join("s3/src.rs"), "pub struct Same;\n").unwrap();
+        let exclusions = Exclusions {
+            files: vec!["README.md".to_owned()],
+            directories: vec!["tests".to_owned()],
+        };
+
+        let report =
+            compare_directories_with_policy(reference.path(), generated.path(), None, &exclusions)
+                .unwrap();
+
+        assert!(!report.has_differences());
+        assert_eq!(report.services[0].compared_files, 1);
+        assert_eq!(report.services[0].matched_files, 1);
     }
 
     #[test]
