@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `573` matched · `144` mismatches · `367` missing · `0` extra · `52.86%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `574` matched · `143` mismatches · `367` missing · `0` extra · `52.95%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -5625,27 +5625,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          self.meta().request_id()
 ```
 
-### `src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs`
-
-```diff
---- reference/src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs
-+++ generated/src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs
-@@ -165,12 +165,7 @@
-         ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
-             status_code: self.status_code.unwrap_or_default(),
-             executed_version: self.executed_version,
--            event_stream: self.event_stream.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "event_stream",
--                    "event_stream was not specified but it is required when building InvokeWithResponseStreamOutput",
--                )
--            })?,
-+            event_stream: self.event_stream.unwrap_or_default(),
-             response_stream_content_type: self.response_stream_content_type,
-             _request_id: self._request_id,
-         })
-```
-
 ### `src/operation/invoke_with_response_stream.rs`
 
 ```diff
@@ -10657,7 +10636,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/get_runtime_management_config.rs`
 - `src/operation/invoke.rs`
 - `src/operation/invoke_async.rs`
-- `src/operation/invoke_with_response_stream/_invoke_with_response_stream_output.rs`
 - `src/operation/invoke_with_response_stream.rs`
 - `src/operation/list_aliases.rs`
 - `src/operation/list_capacity_providers.rs`

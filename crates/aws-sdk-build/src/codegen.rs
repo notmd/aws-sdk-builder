@@ -11867,10 +11867,7 @@ fn render_type_builder(
             .map(|(_, member)| member)
             .expect("member exists");
         let target = member_target(member).unwrap_or("smithy.api#String");
-        if has_trait(member, "smithy.api#streaming")
-            || is_streaming_shape_target(selected, target)
-            || has_trait(member, "smithy.api#default")
-        {
+        if has_trait(member, "smithy.api#default") {
             writeln!(
                 output,
                 "{inner}        {field}: self.{field}.unwrap_or_default(),"
@@ -11882,6 +11879,14 @@ fn render_type_builder(
                 "{inner}        {field}: self.{field}.ok_or_else(|| {}::missing_field({field:?}, {message:?}))?,",
                 build_error_type(&context),
                 message = format!("{field} was not specified but it is required when building {rust_name}")
+            )
+            .unwrap();
+        } else if has_trait(member, "smithy.api#streaming")
+            || is_streaming_shape_target(selected, target)
+        {
+            writeln!(
+                output,
+                "{inner}        {field}: self.{field}.unwrap_or_default(),"
             )
             .unwrap();
         } else {

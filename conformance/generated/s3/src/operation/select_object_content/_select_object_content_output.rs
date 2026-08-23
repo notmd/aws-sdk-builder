@@ -104,7 +104,12 @@ impl SelectObjectContentOutputBuilder {
     ) -> ::std::result::Result<crate::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
     {
         ::std::result::Result::Ok(crate::operation::select_object_content::SelectObjectContentOutput {
-            payload: self.payload.unwrap_or_default(),
+            payload: self.payload.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "payload",
+                    "payload was not specified but it is required when building SelectObjectContentOutput",
+                )
+            })?,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         })

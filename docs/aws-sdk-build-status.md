@@ -4,6 +4,27 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Preserve required streaming builder errors
+
+- State: in progress
+- Changed: `codegen.rs` now checks model-derived builder requiredness before applying
+  the `unwrap_or_default()` path for streaming members. Required event-stream and
+  streaming targets therefore retain Smithy-RS missing-field errors; optional streams
+  and modeled defaults keep their existing behavior.
+- Evidence: inspected Smithy-RS `BuilderGenerator.kt` at the pinned
+  `/tmp/smithy-rs` checkout; `just conformance` regenerated 8 all-operation snapshots
+  and formatted 4,575 generated Rust files. Workspace tests, Clippy with `-D warnings`,
+  formatting, and `git diff --check` pass.
+- Conformance: overall `3,868/706/1,887/1` -> `3,870/704/1,887/1`; S3
+  `1,242/15/87/0` -> `1,243/14/87/0` (matched/mismatched/missing/extra). Lambda
+  also gained one exact streaming-output match; average match increased to `55.76%`.
+- Blocker: shared service config/auth/endpoint runtime files and reference test/package
+  trees remain incomplete; the full conformance recipe exits nonzero for those known
+  parity gaps.
+- Next action: align the generic client-operation documentation normalizer with
+  Smithy-RS `normalizeHtml(...).replace("\\n", " ")`, starting with the remaining S3
+  client documentation mismatches.
+
 ### Checkpoint: 2026-08-23 — Align builder fallibility with rendered member symbols
 
 - State: in progress

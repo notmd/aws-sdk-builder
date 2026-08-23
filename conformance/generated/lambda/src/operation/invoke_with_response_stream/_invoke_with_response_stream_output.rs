@@ -165,7 +165,12 @@ impl InvokeWithResponseStreamOutputBuilder {
         ::std::result::Result::Ok(crate::operation::invoke_with_response_stream::InvokeWithResponseStreamOutput {
             status_code: self.status_code.unwrap_or_default(),
             executed_version: self.executed_version,
-            event_stream: self.event_stream.unwrap_or_default(),
+            event_stream: self.event_stream.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "event_stream",
+                    "event_stream was not specified but it is required when building InvokeWithResponseStreamOutput",
+                )
+            })?,
             response_stream_content_type: self.response_stream_content_type,
             _request_id: self._request_id,
         })
