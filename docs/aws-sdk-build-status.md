@@ -4,6 +4,25 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Preserve long fluent method signatures
+
+- State: in progress
+- Changed: `codegen.rs` no longer adds a manual column-width branch for standalone
+  client operation methods. Smithy-RS writes the fluent method signature as one logical
+  source line; formatting/conformance then preserves that layout for long modeled names.
+- Evidence: `just conformance` regenerated 8 all-operation snapshots and formatted
+  4,575 generated Rust files. `cargo fmt --all`, workspace tests, Clippy with
+  `-D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Conformance: overall `3,870/704/1,887/1` -> `3,871/703/1,887/1`; S3
+  `1,243/14/87/0` -> `1,244/13/87/0` (matched/mismatched/missing/extra). Average
+  match increased to `55.77%`.
+- Blocker: shared service config/auth/endpoint runtime files and reference test/package
+  trees remain incomplete; the full conformance recipe exits nonzero for those known
+  parity gaps.
+- Next action: align the generic client-operation documentation normalizer with
+  Smithy-RS `normalizeHtml(...).replace("\\n", " ")`, starting with the remaining S3
+  client documentation mismatches.
+
 ### Checkpoint: 2026-08-23 — Preserve required streaming builder errors
 
 - State: in progress

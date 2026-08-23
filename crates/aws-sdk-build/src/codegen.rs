@@ -12719,16 +12719,11 @@ fn render_client_operation_file(
         render_deprecated_attribute(&mut output, operation_shape, 4);
         let fluent_builder_path =
             format!("crate::operation::{module}::builders::{operation_symbol}FluentBuilder");
-        let method_signature = format!("    pub fn {module}(&self) -> {fluent_builder_path}");
-        if method_signature.len() > 160 {
-            writeln!(
-                output,
-                "    pub fn {module}(\n        &self,\n    ) -> {fluent_builder_path} {{"
-            )
-            .unwrap();
-        } else {
-            writeln!(output, "{method_signature} {{").unwrap();
-        }
+        writeln!(
+            output,
+            "    pub fn {module}(&self) -> {fluent_builder_path}{{"
+        )
+        .unwrap();
         writeln!(
             output,
             "        crate::operation::{module}::builders::{operation_symbol}FluentBuilder::new(self.handle.clone())"
