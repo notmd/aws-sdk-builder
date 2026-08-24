@@ -191,12 +191,6 @@ pub(crate) mod shape_verify_sms_sandbox_phone_number;
 
 pub(crate) mod shape_verify_sms_sandbox_phone_number_input;
 
-pub(crate) mod shape_message_attribute_value;
-
-pub(crate) mod shape_publish_batch_request_entry;
-
-pub(crate) mod shape_tag;
-
 pub(crate) mod shape_authorization_error_exception;
 
 pub(crate) mod shape_batch_entry_ids_not_distinct_exception;
@@ -235,11 +229,15 @@ pub(crate) mod shape_kms_opt_in_required;
 
 pub(crate) mod shape_kms_throttling_exception;
 
+pub(crate) mod shape_message_attribute_value;
+
 pub(crate) mod shape_not_found_exception;
 
 pub(crate) mod shape_opted_out_exception;
 
 pub(crate) mod shape_platform_application_disabled_exception;
+
+pub(crate) mod shape_publish_batch_request_entry;
 
 pub(crate) mod shape_replay_limit_exceeded_exception;
 
@@ -248,6 +246,8 @@ pub(crate) mod shape_resource_not_found_exception;
 pub(crate) mod shape_stale_tag_exception;
 
 pub(crate) mod shape_subscription_limit_exceeded_exception;
+
+pub(crate) mod shape_tag;
 
 pub(crate) mod shape_tag_limit_exceeded_exception;
 

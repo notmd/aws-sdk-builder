@@ -743,33 +743,21 @@ pub(crate) mod shape_upload_ssh_public_key;
 
 pub(crate) mod shape_upload_ssh_public_key_input;
 
-pub(crate) mod shape_context_entry;
-
-pub(crate) mod shape_delegation_permission;
-
-pub(crate) mod shape_ordered_organization_policy_type;
-
-pub(crate) mod shape_policy_identifier;
-
-pub(crate) mod shape_replacement_value_entry;
-
-pub(crate) mod shape_tag;
-
-pub(crate) mod shape_inline_policy_identifier_type;
-
-pub(crate) mod shape_policy_parameter;
-
 pub(crate) mod shape_account_not_management_or_delegated_administrator_exception;
 
 pub(crate) mod shape_caller_is_not_management_account_exception;
 
 pub(crate) mod shape_concurrent_modification_exception;
 
+pub(crate) mod shape_context_entry;
+
 pub(crate) mod shape_credential_report_expired_exception;
 
 pub(crate) mod shape_credential_report_not_present_exception;
 
 pub(crate) mod shape_credential_report_not_ready_exception;
+
+pub(crate) mod shape_delegation_permission;
 
 pub(crate) mod shape_delete_conflict_exception;
 
@@ -784,6 +772,8 @@ pub(crate) mod shape_entity_temporarily_unmodifiable_exception;
 pub(crate) mod shape_feature_disabled_exception;
 
 pub(crate) mod shape_feature_enabled_exception;
+
+pub(crate) mod shape_inline_policy_identifier_type;
 
 pub(crate) mod shape_invalid_authentication_code_exception;
 
@@ -809,6 +799,8 @@ pub(crate) mod shape_no_such_entity_exception;
 
 pub(crate) mod shape_open_id_idp_communication_error_exception;
 
+pub(crate) mod shape_ordered_organization_policy_type;
+
 pub(crate) mod shape_organization_not_found_exception;
 
 pub(crate) mod shape_organization_not_in_all_features_mode_exception;
@@ -817,7 +809,13 @@ pub(crate) mod shape_password_policy_violation_exception;
 
 pub(crate) mod shape_policy_evaluation_exception;
 
+pub(crate) mod shape_policy_identifier;
+
 pub(crate) mod shape_policy_not_attachable_exception;
+
+pub(crate) mod shape_policy_parameter;
+
+pub(crate) mod shape_replacement_value_entry;
 
 pub(crate) mod shape_report_generation_limit_exceeded_exception;
 
@@ -830,6 +828,8 @@ pub(crate) mod shape_service_access_not_enabled_exception;
 pub(crate) mod shape_service_failure_exception;
 
 pub(crate) mod shape_service_not_supported_exception;
+
+pub(crate) mod shape_tag;
 
 pub(crate) mod shape_unmodifiable_entity_exception;
 

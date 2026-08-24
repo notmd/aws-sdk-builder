@@ -4,6 +4,23 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Match lazy query protocol helper ordering
+- State: in progress
+- Changed: query-protocol `protocol_serde` modules now register the first lazy wave as
+  the sorted union of modeled error helpers and input serializers, followed by output
+  deserializers. REST XML keeps its existing lazy ordering. This is model-driven and
+  matches the pinned Smithy-RS checkout at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,033`
+  matched, `1,130` mismatched, `4` missing, and `1` extra (`89.44%` average match).
+  This is `+3` exact files from the `12,030` baseline. STS and S3 are exact at
+  `146/146` and `1,281/1,281`; generation completed without generated-source parse
+  errors, including `shape_converse_stream.rs`.
+- Verification: focused builder tests, workspace tests, workspace Clippy with
+  `-D warnings`, formatting, and `git diff --check` are the final checks for this
+  checkpoint. Conformance exits 1 only because broader parity gaps remain.
+
 ### Checkpoint: 2026-08-24 — Respect explicit per-operation auth overrides
 - State: in progress
 - Changed: per-operation SigV4 signing configuration now follows the operation's

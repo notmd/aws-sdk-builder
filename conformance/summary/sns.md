@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `430` matched · `15` mismatches · `0` missing · `0` extra · `96.63%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `431` matched · `14` mismatches · `0` missing · `0` extra · `96.85%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -382,51 +382,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              tmp
          }),
          _ => super::super::operation::verify_sms_sandbox_phone_number::VerifySMSSandboxPhoneNumberError::generic(generic),
-```
-
-### `src/protocol_serde.rs`
-
-```diff
---- reference/src/protocol_serde.rs
-+++ generated/src/protocol_serde.rs
-@@ -191,6 +191,12 @@
-
- pub(crate) mod shape_verify_sms_sandbox_phone_number_input;
-
-+pub(crate) mod shape_message_attribute_value;
-+
-+pub(crate) mod shape_publish_batch_request_entry;
-+
-+pub(crate) mod shape_tag;
-+
- pub(crate) mod shape_authorization_error_exception;
-
- pub(crate) mod shape_batch_entry_ids_not_distinct_exception;
-@@ -229,8 +235,6 @@
-
- pub(crate) mod shape_kms_throttling_exception;
-
--pub(crate) mod shape_message_attribute_value;
--
- pub(crate) mod shape_not_found_exception;
-
- pub(crate) mod shape_opted_out_exception;
-@@ -237,8 +241,6 @@
-
- pub(crate) mod shape_platform_application_disabled_exception;
-
--pub(crate) mod shape_publish_batch_request_entry;
--
- pub(crate) mod shape_replay_limit_exceeded_exception;
-
- pub(crate) mod shape_resource_not_found_exception;
-@@ -247,8 +249,6 @@
-
- pub(crate) mod shape_subscription_limit_exceeded_exception;
-
--pub(crate) mod shape_tag;
--
- pub(crate) mod shape_tag_limit_exceeded_exception;
-
- pub(crate) mod shape_tag_policy_exception;
 ```

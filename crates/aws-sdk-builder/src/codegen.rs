@@ -8293,11 +8293,6 @@ fn render_protocol_serde_files(
         add_module(module);
     }
     let shared_shape_order = protocol_serde_shape_order(selected, &roles, query_mode);
-    for (shape_id, role) in &shared_shape_order {
-        if matches!(*role, ProtocolSerdeRole::Serialize) {
-            add_module(names::rust_module_name(terminal(shape_id)));
-        }
-    }
     for operation_name in &selected.operations {
         let module = names::rust_module_name(operation_name);
         if protocol_output_has_headers(selected, operation_name)
@@ -8306,11 +8301,31 @@ fn render_protocol_serde_files(
             deferred_modules.insert(format!("{module}_output"));
         }
     }
-    for error_id in error_shape_ids(selected) {
-        deferred_modules.insert(names::rust_module_name(terminal(&error_id)));
-    }
-    for module in deferred_modules {
-        add_module(module);
+    let error_modules = error_shape_ids(selected)
+        .into_iter()
+        .map(|error_id| names::rust_module_name(terminal(&error_id)))
+        .collect::<BTreeSet<_>>();
+    if query_mode {
+        let mut query_first_modules = error_modules.clone();
+        query_first_modules.extend(
+            shared_shape_order
+                .iter()
+                .filter(|(_, role)| matches!(*role, ProtocolSerdeRole::Serialize))
+                .map(|(shape_id, _)| names::rust_module_name(terminal(shape_id))),
+        );
+        for module in query_first_modules {
+            add_module(module);
+        }
+        for module in deferred_modules {
+            if !error_modules.contains(&module) {
+                add_module(module);
+            }
+        }
+    } else {
+        deferred_modules.extend(error_modules);
+        for module in deferred_modules {
+            add_module(module);
+        }
     }
 
     for (shape_id, role) in &shared_shape_order {
