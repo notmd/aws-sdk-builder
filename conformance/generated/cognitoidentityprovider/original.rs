@@ -147594,7 +147594,7 @@ mod _user_status_type {
 ///     UserStatusType::ForceChangePassword => { /* ... */ },
 ///     UserStatusType::ResetRequired => { /* ... */ },
 ///     UserStatusType::Unconfirmed => { /* ... */ },
-///     UserStatusType::Unknown => { /* ... */ },
+///     UserStatusType::UnknownValue => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -147617,7 +147617,8 @@ mod _user_status_type {
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-#[allow(missing_docs)] // documentation missing in model
+///
+/// _Note: `UserStatusType::Unknown` has been renamed to `::UnknownValue`._
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
@@ -147637,8 +147638,9 @@ pub enum UserStatusType {
     ResetRequired,
     #[allow(missing_docs)] // documentation missing in model
     Unconfirmed,
-    #[allow(missing_docs)] // documentation missing in model
-    Unknown,
+    ///
+    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
+    UnknownValue,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -147653,7 +147655,7 @@ impl ::std::convert::From<&str> for UserStatusType {
             "FORCE_CHANGE_PASSWORD" => UserStatusType::ForceChangePassword,
             "RESET_REQUIRED" => UserStatusType::ResetRequired,
             "UNCONFIRMED" => UserStatusType::Unconfirmed,
-            "UNKNOWN" => UserStatusType::Unknown,
+            "UNKNOWN" => UserStatusType::UnknownValue,
             other => UserStatusType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -147676,7 +147678,7 @@ impl UserStatusType {
             UserStatusType::ForceChangePassword => "FORCE_CHANGE_PASSWORD",
             UserStatusType::ResetRequired => "RESET_REQUIRED",
             UserStatusType::Unconfirmed => "UNCONFIRMED",
-            UserStatusType::Unknown => "UNKNOWN",
+            UserStatusType::UnknownValue => "UNKNOWN",
             UserStatusType::Unknown(value) => value.as_str(),
         }
     }
@@ -147712,7 +147714,7 @@ impl ::std::fmt::Display for UserStatusType {
             UserStatusType::ForceChangePassword => write!(f, "FORCE_CHANGE_PASSWORD"),
             UserStatusType::ResetRequired => write!(f, "RESET_REQUIRED"),
             UserStatusType::Unconfirmed => write!(f, "UNCONFIRMED"),
-            UserStatusType::Unknown => write!(f, "UNKNOWN"),
+            UserStatusType::UnknownValue => write!(f, "UNKNOWN"),
             UserStatusType::Unknown(value) => write!(f, "{value}"),
         }
     }

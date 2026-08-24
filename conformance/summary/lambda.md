@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1024` matched · `52` mismatches · `0` missing · `1` extra · `95.08%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1026` matched · `50` mismatches · `0` missing · `1` extra · `95.26%` match (100.00% means fully matched)
 
 ### `src/client/get_function_event_invoke_config.rs`
 
@@ -2518,40 +2518,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          formatter.field("sub_type", &self.sub_type);
          formatter.field("action", &self.action);
          formatter.field("payload", &"*** Sensitive Data Redacted ***");
-```
-
-### `src/types/_propagate_tags_mode.rs`
-
-```diff
---- reference/src/types/_propagate_tags_mode.rs
-+++ generated/src/types/_propagate_tags_mode.rs
-@@ -42,9 +42,7 @@
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
- )]
- pub enum PropagateTagsMode {
--    /// <p>Tags specified in <code>ExplicitTags</code> are applied to managed resources at launch.</p>
-     Explicit,
--    /// <p>Tag propagation is disabled. No tags are applied to managed resources.</p>
-     None,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-```
-
-### `src/types/_s3_object_storage_mode.rs`
-
-```diff
---- reference/src/types/_s3_object_storage_mode.rs
-+++ generated/src/types/_s3_object_storage_mode.rs
-@@ -42,9 +42,7 @@
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
- )]
- pub enum S3ObjectStorageMode {
--    /// <p>The default storage mode. Uploads a copy of your deployment package to Lambda.</p>
-     Copy,
--    /// <p>The reference storage mode. Lambda references the deployment package from the specified Amazon S3 bucket without uploading a copy.</p>
-     Reference,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
 ```
 
 ### `src/types/builders.rs`

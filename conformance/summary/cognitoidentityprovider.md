@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1335` matched · `26` mismatches · `0` missing · `0` extra · `98.09%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1336` matched · `25` mismatches · `0` missing · `0` extra · `98.16%` match (100.00% means fully matched)
 
 ### `src/client/add_custom_attributes.rs`
 
@@ -1207,69 +1207,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          formatter.field("default_redirect_uri", &self.default_redirect_uri);
          formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
          formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
-```
-
-### `src/types/_user_status_type.rs`
-
-```diff
---- reference/src/types/_user_status_type.rs
-+++ generated/src/types/_user_status_type.rs
-@@ -19,7 +19,7 @@
- ///     UserStatusType::ForceChangePassword => { /* ... */ },
- ///     UserStatusType::ResetRequired => { /* ... */ },
- ///     UserStatusType::Unconfirmed => { /* ... */ },
--///     UserStatusType::UnknownValue => { /* ... */ },
-+///     UserStatusType::Unknown => { /* ... */ },
- ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
- ///     _ => { /* ... */ },
- /// }
-@@ -42,8 +42,7 @@
- /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
- /// - It might inadvertently shadow other intended match arms.
- ///
--///
--/// _Note: `UserStatusType::Unknown` has been renamed to `::UnknownValue`._
-+#[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-@@ -63,9 +62,8 @@
-     ResetRequired,
-     #[allow(missing_docs)] // documentation missing in model
-     Unconfirmed,
--    ///
--    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
--    UnknownValue,
-+    #[allow(missing_docs)] // documentation missing in model
-+    Unknown,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
-@@ -80,7 +78,7 @@
-             "FORCE_CHANGE_PASSWORD" => UserStatusType::ForceChangePassword,
-             "RESET_REQUIRED" => UserStatusType::ResetRequired,
-             "UNCONFIRMED" => UserStatusType::Unconfirmed,
--            "UNKNOWN" => UserStatusType::UnknownValue,
-+            "UNKNOWN" => UserStatusType::Unknown,
-             other => UserStatusType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-         }
-     }
-@@ -103,7 +101,7 @@
-             UserStatusType::ForceChangePassword => "FORCE_CHANGE_PASSWORD",
-             UserStatusType::ResetRequired => "RESET_REQUIRED",
-             UserStatusType::Unconfirmed => "UNCONFIRMED",
--            UserStatusType::UnknownValue => "UNKNOWN",
-+            UserStatusType::Unknown => "UNKNOWN",
-             UserStatusType::Unknown(value) => value.as_str(),
-         }
-     }
-@@ -148,7 +146,7 @@
-             UserStatusType::ForceChangePassword => write!(f, "FORCE_CHANGE_PASSWORD"),
-             UserStatusType::ResetRequired => write!(f, "RESET_REQUIRED"),
-             UserStatusType::Unconfirmed => write!(f, "UNCONFIRMED"),
--            UserStatusType::UnknownValue => write!(f, "UNKNOWN"),
-+            UserStatusType::Unknown => write!(f, "UNKNOWN"),
-             UserStatusType::Unknown(value) => write!(f, "{value}"),
-         }
-     }
 ```

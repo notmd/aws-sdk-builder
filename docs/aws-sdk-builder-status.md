@@ -4,6 +4,29 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy enum reserved-member renames and notes
+- State: in progress
+- Changed: enum member symbols now follow the pinned Smithy-RS reserved-word maps:
+  `Self` becomes `SelfValue`, `SelfValue` becomes `SelfValue_`, and modeled
+  `Unknown`/`UnknownValue` members avoid the generated catch-all variant. Enum
+  documentation, match examples, conversion arms, and rename notes are rendered
+  from the same model-derived symbol, including the missing-docs suppression rule.
+  This follows `RustReservedWords`, `ClientReservedWords`, and `EnumGenerator` at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, with focused
+  regressions.
+- Evidence: focused regressions, `just conformance` regeneration and formatting,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance generated and
+  formatted all `13,166` snapshot files without generated-source parse errors.
+- Conformance: `12,882/13,168` exact, `283` mismatches, `2` missing, and `1` extra
+  (`97.67%`) -> `12,890/13,168` exact, `275` mismatches, `2` missing, and `1` extra
+  (`97.73%`). Lambda improved from `1,024/52` to `1,026/50`; Config from `1,234/28`
+  to `1,236/26`; Bedrock Runtime from `505/31` to `506/30` mismatches.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic parity mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Render modeled enum defaults as validated values
 - State: in progress
 - Changed: structure builders now render non-optional members targeting modeled enum

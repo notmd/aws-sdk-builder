@@ -15212,6 +15212,10 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
         .and_then(|traits| traits.get("smithy.api#documentation"))
         .and_then(Value::as_str)
         .is_some();
+    let renamed_members = ordered_members
+        .iter()
+        .filter_map(|(member_name, _)| enum_variant_rename(member_name))
+        .collect::<Vec<_>>();
     let lower_name = name.to_ascii_lowercase();
     writeln!(
         output,
@@ -15235,7 +15239,7 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
     writeln!(output, "    /// # let {lower_name} = unimplemented!();").unwrap();
     writeln!(output, "    /// match {lower_name} {{").unwrap();
     for (member_name, _) in &ordered_members {
-        let variant = rust_type_name(member_name);
+        let variant = enum_variant_name(member_name);
         writeln!(
             output,
             "    ///     {rust_name}::{variant} => {{ /* ... */ }},"
@@ -15282,8 +15286,16 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
                 writeln!(output, "    /// {}", line.trim_start()).unwrap();
             }
         }
-    } else {
+    } else if renamed_members.is_empty() {
         output.push_str("    #[allow(missing_docs)] // documentation missing in model\n");
+    }
+    for (original, renamed) in &renamed_members {
+        output.push_str("    ///\n");
+        writeln!(
+            output,
+            "    /// _Note: `{rust_name}::{original}` has been renamed to `::{renamed}`._"
+        )
+        .unwrap();
     }
     render_deprecated_attribute(output, shape, 4);
     output.push_str("    #[non_exhaustive]\n");
@@ -15294,14 +15306,19 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
     output.push_str("    )]\n");
     writeln!(output, "    pub enum {rust_name} {{").unwrap();
     for (member_name, member) in &ordered_members {
-        let variant = rust_type_name(member_name);
-        let member_documented = member
-            .get("traits")
-            .and_then(Value::as_object)
-            .and_then(|traits| traits.get("smithy.api#documentation"))
-            .and_then(Value::as_str)
-            .is_some();
-        if !member_documented {
+        let variant = enum_variant_name(member_name);
+        let member_documentation = documentation(member);
+        if let Some(member_documentation) = member_documentation.as_deref() {
+            render_doc_lines(output, member_documentation, 8);
+        }
+        if let Some((original, renamed)) = enum_variant_rename(member_name) {
+            output.push_str("        ///\n");
+            writeln!(
+                output,
+                "        /// _Note: `::{original}` has been renamed to `::{renamed}`._"
+            )
+            .unwrap();
+        } else if member_documentation.is_none() {
             output.push_str("        #[allow(missing_docs)] // documentation missing in model\n");
         }
         writeln!(output, "        {variant},").unwrap();
@@ -15325,7 +15342,7 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
         writeln!(
             output,
             "                {value:?} => {rust_name}::{},",
-            rust_type_name(member_name)
+            enum_variant_name(member_name)
         )
         .unwrap();
     }
@@ -15350,7 +15367,7 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
         writeln!(
             output,
             "                {rust_name}::{} => {value:?},",
-            rust_type_name(member_name)
+            enum_variant_name(member_name)
         )
         .unwrap();
     }
@@ -15410,7 +15427,7 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
         writeln!(
             output,
             "                {rust_name}::{} => write!(f, {value:?}),",
-            rust_type_name(member_name)
+            enum_variant_name(member_name)
         )
         .unwrap();
     }
@@ -16884,7 +16901,25 @@ fn primitive_type_for_namespace(name: &str) -> String {
 }
 
 fn rust_type_name(value: &str) -> String {
-    let result = names::snake_case(value)
+    let result = pascal_type_name(value);
+    if result.is_empty()
+        || result
+            .chars()
+            .next()
+            .is_some_and(|character| character.is_ascii_digit())
+    {
+        format!("Value{result}")
+    } else {
+        match result.as_str() {
+            "Self" => "SelfValue".to_owned(),
+            "SelfValue" => "SelfValue_".to_owned(),
+            _ => result,
+        }
+    }
+}
+
+fn pascal_type_name(value: &str) -> String {
+    names::snake_case(value)
         .split('_')
         .map(|part| {
             let mut chars = part.chars();
@@ -16893,19 +16928,21 @@ fn rust_type_name(value: &str) -> String {
                 None => String::new(),
             }
         })
-        .collect::<String>();
-    if result.is_empty()
-        || result
-            .chars()
-            .next()
-            .is_some_and(|character| character.is_ascii_digit())
-    {
-        format!("Value{result}")
-    } else if result == "Self" {
-        "SelfType".to_owned()
-    } else {
-        result
+        .collect::<String>()
+}
+
+fn enum_variant_name(value: &str) -> String {
+    match rust_type_name(value).as_str() {
+        "Unknown" => "UnknownValue".to_owned(),
+        "UnknownValue" => "UnknownValue_".to_owned(),
+        name => name.to_owned(),
     }
+}
+
+fn enum_variant_rename(value: &str) -> Option<(String, String)> {
+    let original = pascal_type_name(value);
+    let renamed = enum_variant_name(value);
+    (original != renamed).then_some((original, renamed))
 }
 
 /// Smithy operation symbols preserve the operation shape name, only
@@ -16994,6 +17031,35 @@ mod tests {
             "AssumeRoleWithSAML"
         );
         assert_eq!(operation_error_type_name("CreateThing"), "CreateThing");
+    }
+
+    #[test]
+    fn reserved_self_type_names_follow_smithy_rust_renames() {
+        assert_eq!(rust_type_name("SELF"), "SelfValue");
+        assert_eq!(rust_type_name("SELF_VALUE"), "SelfValue_");
+    }
+
+    #[test]
+    fn enum_reserved_variants_are_renamed_and_documented() {
+        let shape = serde_json::json!({
+            "type": "enum",
+            "members": {
+                "UNKNOWN": {"target": "smithy.api#Unit"},
+                "UNKNOWN_VALUE": {"target": "smithy.api#Unit"},
+                "SELF": {"target": "smithy.api#Unit"}
+            }
+        });
+        let mut rendered = String::new();
+        render_enum(&mut rendered, &shape, "Example");
+
+        assert!(rendered.contains("Example::UnknownValue =>"));
+        assert!(rendered.contains("Example::UnknownValue_ =>"));
+        assert!(rendered.contains("Example::SelfValue =>"));
+        assert!(
+            rendered.contains("_Note: `Example::Unknown` has been renamed to `::UnknownValue`._")
+        );
+        assert!(rendered.contains("_Note: `::Self` has been renamed"));
+        assert!(!rendered.contains("pub enum Example {\n        #[allow(missing_docs)"));
     }
 
     #[test]

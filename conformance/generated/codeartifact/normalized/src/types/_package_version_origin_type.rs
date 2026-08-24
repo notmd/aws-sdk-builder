@@ -14,7 +14,7 @@
 /// match packageversionorigintype {
 ///     PackageVersionOriginType::External => { /* ... */ },
 ///     PackageVersionOriginType::Internal => { /* ... */ },
-///     PackageVersionOriginType::Unknown => { /* ... */ },
+///     PackageVersionOriginType::UnknownValue => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -37,7 +37,8 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-#[allow(missing_docs)] // documentation missing in model
+///
+/// _Note: `PackageVersionOriginType::Unknown` has been renamed to `::UnknownValue`._
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
@@ -47,8 +48,9 @@ pub enum PackageVersionOriginType {
     External,
     #[allow(missing_docs)] // documentation missing in model
     Internal,
-    #[allow(missing_docs)] // documentation missing in model
-    Unknown,
+    ///
+    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
+    UnknownValue,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -58,7 +60,7 @@ impl ::std::convert::From<&str> for PackageVersionOriginType {
         match s {
             "EXTERNAL" => PackageVersionOriginType::External,
             "INTERNAL" => PackageVersionOriginType::Internal,
-            "UNKNOWN" => PackageVersionOriginType::Unknown,
+            "UNKNOWN" => PackageVersionOriginType::UnknownValue,
             other => PackageVersionOriginType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -76,7 +78,7 @@ impl PackageVersionOriginType {
         match self {
             PackageVersionOriginType::External => "EXTERNAL",
             PackageVersionOriginType::Internal => "INTERNAL",
-            PackageVersionOriginType::Unknown => "UNKNOWN",
+            PackageVersionOriginType::UnknownValue => "UNKNOWN",
             PackageVersionOriginType::Unknown(value) => value.as_str(),
         }
     }
@@ -107,7 +109,7 @@ impl ::std::fmt::Display for PackageVersionOriginType {
         match self {
             PackageVersionOriginType::External => write!(f, "EXTERNAL"),
             PackageVersionOriginType::Internal => write!(f, "INTERNAL"),
-            PackageVersionOriginType::Unknown => write!(f, "UNKNOWN"),
+            PackageVersionOriginType::UnknownValue => write!(f, "UNKNOWN"),
             PackageVersionOriginType::Unknown(value) => write!(f, "{value}"),
         }
     }

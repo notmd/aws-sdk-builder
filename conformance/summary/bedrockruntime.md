@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `505` matched · `31` mismatches · `0` missing · `0` extra · `94.22%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `506` matched · `30` mismatches · `0` missing · `0` extra · `94.40%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_citation_location.rs`
 
@@ -2049,71 +2049,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>A content block for selective guarding with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a> API operations.</p>
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-```
-
-### `src/types/_guardrail_ownership.rs`
-
-```diff
---- reference/src/types/_guardrail_ownership.rs
-+++ generated/src/types/_guardrail_ownership.rs
-@@ -13,7 +13,7 @@
- /// # let guardrailownership = unimplemented!();
- /// match guardrailownership {
- ///     GuardrailOwnership::CrossAccount => { /* ... */ },
--///     GuardrailOwnership::SelfValue => { /* ... */ },
-+///     GuardrailOwnership::SelfType => { /* ... */ },
- ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
- ///     _ => { /* ... */ },
- /// }
-@@ -36,8 +36,7 @@
- /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
- /// - It might inadvertently shadow other intended match arms.
- ///
--///
--/// _Note: `GuardrailOwnership::Self` has been renamed to `::SelfValue`._
-+#[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-@@ -45,9 +44,8 @@
- pub enum GuardrailOwnership {
-     #[allow(missing_docs)] // documentation missing in model
-     CrossAccount,
--    ///
--    /// _Note: `::Self` has been renamed to `::SelfValue`._
--    SelfValue,
-+    #[allow(missing_docs)] // documentation missing in model
-+    SelfType,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
-@@ -56,7 +54,7 @@
-     fn from(s: &str) -> Self {
-         match s {
-             "CROSS_ACCOUNT" => GuardrailOwnership::CrossAccount,
--            "SELF" => GuardrailOwnership::SelfValue,
-+            "SELF" => GuardrailOwnership::SelfType,
-             other => GuardrailOwnership::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-         }
-     }
-@@ -73,7 +71,7 @@
-     pub fn as_str(&self) -> &str {
-         match self {
-             GuardrailOwnership::CrossAccount => "CROSS_ACCOUNT",
--            GuardrailOwnership::SelfValue => "SELF",
-+            GuardrailOwnership::SelfType => "SELF",
-             GuardrailOwnership::Unknown(value) => value.as_str(),
-         }
-     }
-@@ -103,7 +101,7 @@
-     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-         match self {
-             GuardrailOwnership::CrossAccount => write!(f, "CROSS_ACCOUNT"),
--            GuardrailOwnership::SelfValue => write!(f, "SELF"),
-+            GuardrailOwnership::SelfType => write!(f, "SELF"),
-             GuardrailOwnership::Unknown(value) => write!(f, "{value}"),
-         }
-     }
 ```
 
 ### `src/types/_output_format.rs`

@@ -18,7 +18,7 @@
 ///     QueryStatus::Running => { /* ... */ },
 ///     QueryStatus::Scheduled => { /* ... */ },
 ///     QueryStatus::Timeout => { /* ... */ },
-///     QueryStatus::Unknown => { /* ... */ },
+///     QueryStatus::UnknownValue => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -41,7 +41,8 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-#[allow(missing_docs)] // documentation missing in model
+///
+/// _Note: `QueryStatus::Unknown` has been renamed to `::UnknownValue`._
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
@@ -59,8 +60,9 @@ pub enum QueryStatus {
     Scheduled,
     #[allow(missing_docs)] // documentation missing in model
     Timeout,
-    #[allow(missing_docs)] // documentation missing in model
-    Unknown,
+    ///
+    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
+    UnknownValue,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -74,7 +76,7 @@ impl ::std::convert::From<&str> for QueryStatus {
             "Running" => QueryStatus::Running,
             "Scheduled" => QueryStatus::Scheduled,
             "Timeout" => QueryStatus::Timeout,
-            "Unknown" => QueryStatus::Unknown,
+            "Unknown" => QueryStatus::UnknownValue,
             other => QueryStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -96,7 +98,7 @@ impl QueryStatus {
             QueryStatus::Running => "Running",
             QueryStatus::Scheduled => "Scheduled",
             QueryStatus::Timeout => "Timeout",
-            QueryStatus::Unknown => "Unknown",
+            QueryStatus::UnknownValue => "Unknown",
             QueryStatus::Unknown(value) => value.as_str(),
         }
     }
@@ -131,7 +133,7 @@ impl ::std::fmt::Display for QueryStatus {
             QueryStatus::Running => write!(f, "Running"),
             QueryStatus::Scheduled => write!(f, "Scheduled"),
             QueryStatus::Timeout => write!(f, "Timeout"),
-            QueryStatus::Unknown => write!(f, "Unknown"),
+            QueryStatus::UnknownValue => write!(f, "Unknown"),
             QueryStatus::Unknown(value) => write!(f, "{value}"),
         }
     }

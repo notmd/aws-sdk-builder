@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `444` matched · `15` mismatches · `0` missing · `0` extra · `96.73%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `445` matched · `14` mismatches · `0` missing · `0` extra · `96.95%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -272,69 +272,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_put_domain_permissions_policy_input;
 
  pub(crate) mod shape_put_package_origin_configuration_input;
-```
-
-### `src/types/_package_version_origin_type.rs`
-
-```diff
---- reference/src/types/_package_version_origin_type.rs
-+++ generated/src/types/_package_version_origin_type.rs
-@@ -14,7 +14,7 @@
- /// match packageversionorigintype {
- ///     PackageVersionOriginType::External => { /* ... */ },
- ///     PackageVersionOriginType::Internal => { /* ... */ },
--///     PackageVersionOriginType::UnknownValue => { /* ... */ },
-+///     PackageVersionOriginType::Unknown => { /* ... */ },
- ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
- ///     _ => { /* ... */ },
- /// }
-@@ -37,8 +37,7 @@
- /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
- /// - It might inadvertently shadow other intended match arms.
- ///
--///
--/// _Note: `PackageVersionOriginType::Unknown` has been renamed to `::UnknownValue`._
-+#[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-@@ -48,9 +47,8 @@
-     External,
-     #[allow(missing_docs)] // documentation missing in model
-     Internal,
--    ///
--    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
--    UnknownValue,
-+    #[allow(missing_docs)] // documentation missing in model
-+    Unknown,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
-@@ -60,7 +58,7 @@
-         match s {
-             "EXTERNAL" => PackageVersionOriginType::External,
-             "INTERNAL" => PackageVersionOriginType::Internal,
--            "UNKNOWN" => PackageVersionOriginType::UnknownValue,
-+            "UNKNOWN" => PackageVersionOriginType::Unknown,
-             other => PackageVersionOriginType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-         }
-     }
-@@ -78,7 +76,7 @@
-         match self {
-             PackageVersionOriginType::External => "EXTERNAL",
-             PackageVersionOriginType::Internal => "INTERNAL",
--            PackageVersionOriginType::UnknownValue => "UNKNOWN",
-+            PackageVersionOriginType::Unknown => "UNKNOWN",
-             PackageVersionOriginType::Unknown(value) => value.as_str(),
-         }
-     }
-@@ -109,7 +107,7 @@
-         match self {
-             PackageVersionOriginType::External => write!(f, "EXTERNAL"),
-             PackageVersionOriginType::Internal => write!(f, "INTERNAL"),
--            PackageVersionOriginType::UnknownValue => write!(f, "UNKNOWN"),
-+            PackageVersionOriginType::Unknown => write!(f, "UNKNOWN"),
-             PackageVersionOriginType::Unknown(value) => write!(f, "{value}"),
-         }
-     }
 ```

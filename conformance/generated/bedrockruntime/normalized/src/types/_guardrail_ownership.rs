@@ -13,7 +13,7 @@
 /// # let guardrailownership = unimplemented!();
 /// match guardrailownership {
 ///     GuardrailOwnership::CrossAccount => { /* ... */ },
-///     GuardrailOwnership::SelfType => { /* ... */ },
+///     GuardrailOwnership::SelfValue => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -36,7 +36,8 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-#[allow(missing_docs)] // documentation missing in model
+///
+/// _Note: `GuardrailOwnership::Self` has been renamed to `::SelfValue`._
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
@@ -44,8 +45,9 @@
 pub enum GuardrailOwnership {
     #[allow(missing_docs)] // documentation missing in model
     CrossAccount,
-    #[allow(missing_docs)] // documentation missing in model
-    SelfType,
+    ///
+    /// _Note: `::Self` has been renamed to `::SelfValue`._
+    SelfValue,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -54,7 +56,7 @@ impl ::std::convert::From<&str> for GuardrailOwnership {
     fn from(s: &str) -> Self {
         match s {
             "CROSS_ACCOUNT" => GuardrailOwnership::CrossAccount,
-            "SELF" => GuardrailOwnership::SelfType,
+            "SELF" => GuardrailOwnership::SelfValue,
             other => GuardrailOwnership::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -71,7 +73,7 @@ impl GuardrailOwnership {
     pub fn as_str(&self) -> &str {
         match self {
             GuardrailOwnership::CrossAccount => "CROSS_ACCOUNT",
-            GuardrailOwnership::SelfType => "SELF",
+            GuardrailOwnership::SelfValue => "SELF",
             GuardrailOwnership::Unknown(value) => value.as_str(),
         }
     }
@@ -101,7 +103,7 @@ impl ::std::fmt::Display for GuardrailOwnership {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
             GuardrailOwnership::CrossAccount => write!(f, "CROSS_ACCOUNT"),
-            GuardrailOwnership::SelfType => write!(f, "SELF"),
+            GuardrailOwnership::SelfValue => write!(f, "SELF"),
             GuardrailOwnership::Unknown(value) => write!(f, "{value}"),
         }
     }

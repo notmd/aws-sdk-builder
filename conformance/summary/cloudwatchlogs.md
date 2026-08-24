@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1272` matched · `15` mismatches · `0` missing · `0` extra · `98.83%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1273` matched · `14` mismatches · `0` missing · `0` extra · `98.91%` match (100.00% means fully matched)
 
 ### `src/operation/get_log_object.rs`
 
@@ -542,71 +542,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.element
      }
      /// Appends an item to `fields`.
-```
-
-### `src/types/_query_status.rs`
-
-```diff
---- reference/src/types/_query_status.rs
-+++ generated/src/types/_query_status.rs
-@@ -18,7 +18,7 @@
- ///     QueryStatus::Running => { /* ... */ },
- ///     QueryStatus::Scheduled => { /* ... */ },
- ///     QueryStatus::Timeout => { /* ... */ },
--///     QueryStatus::UnknownValue => { /* ... */ },
-+///     QueryStatus::Unknown => { /* ... */ },
- ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
- ///     _ => { /* ... */ },
- /// }
-@@ -41,8 +41,7 @@
- /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
- /// - It might inadvertently shadow other intended match arms.
- ///
--///
--/// _Note: `QueryStatus::Unknown` has been renamed to `::UnknownValue`._
-+#[allow(missing_docs)] // documentation missing in model
- #[non_exhaustive]
- #[derive(
-     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
-@@ -60,9 +59,8 @@
-     Scheduled,
-     #[allow(missing_docs)] // documentation missing in model
-     Timeout,
--    ///
--    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
--    UnknownValue,
-+    #[allow(missing_docs)] // documentation missing in model
-+    Unknown,
-     /// `Unknown` contains new variants that have been added since this code was generated.
-     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
-     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
-@@ -76,7 +74,7 @@
-             "Running" => QueryStatus::Running,
-             "Scheduled" => QueryStatus::Scheduled,
-             "Timeout" => QueryStatus::Timeout,
--            "Unknown" => QueryStatus::UnknownValue,
-+            "Unknown" => QueryStatus::Unknown,
-             other => QueryStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-         }
-     }
-@@ -98,7 +96,7 @@
-             QueryStatus::Running => "Running",
-             QueryStatus::Scheduled => "Scheduled",
-             QueryStatus::Timeout => "Timeout",
--            QueryStatus::UnknownValue => "Unknown",
-+            QueryStatus::Unknown => "Unknown",
-             QueryStatus::Unknown(value) => value.as_str(),
-         }
-     }
-@@ -133,7 +131,7 @@
-             QueryStatus::Running => write!(f, "Running"),
-             QueryStatus::Scheduled => write!(f, "Scheduled"),
-             QueryStatus::Timeout => write!(f, "Timeout"),
--            QueryStatus::UnknownValue => write!(f, "Unknown"),
-+            QueryStatus::Unknown => write!(f, "Unknown"),
-             QueryStatus::Unknown(value) => write!(f, "{value}"),
-         }
-     }
 ```
 
 ### `src/types/_substitute_string_entry.rs`

@@ -17,7 +17,7 @@
 ///     RemediationExecutionStepState::InProgress => { /* ... */ },
 ///     RemediationExecutionStepState::Pending => { /* ... */ },
 ///     RemediationExecutionStepState::Succeeded => { /* ... */ },
-///     RemediationExecutionStepState::Unknown => { /* ... */ },
+///     RemediationExecutionStepState::UnknownValue => { /* ... */ },
 ///     other @ _ if other.as_str() == "NewFeature" => { /* handles a case for `NewFeature` */ },
 ///     _ => { /* ... */ },
 /// }
@@ -40,7 +40,8 @@
 /// - The inner data `UnknownVariantValue` is opaque, and no further information can be extracted.
 /// - It might inadvertently shadow other intended match arms.
 ///
-#[allow(missing_docs)] // documentation missing in model
+///
+/// _Note: `RemediationExecutionStepState::Unknown` has been renamed to `::UnknownValue`._
 #[non_exhaustive]
 #[derive(
     ::std::clone::Clone, ::std::cmp::Eq, ::std::cmp::Ord, ::std::cmp::PartialEq, ::std::cmp::PartialOrd, ::std::fmt::Debug, ::std::hash::Hash,
@@ -56,8 +57,9 @@ pub enum RemediationExecutionStepState {
     Pending,
     #[allow(missing_docs)] // documentation missing in model
     Succeeded,
-    #[allow(missing_docs)] // documentation missing in model
-    Unknown,
+    ///
+    /// _Note: `::Unknown` has been renamed to `::UnknownValue`._
+    UnknownValue,
     /// `Unknown` contains new variants that have been added since this code was generated.
     #[deprecated(note = "Don't directly match on `Unknown`. See the docs on this enum for the correct way to handle unknown variants.")]
     Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue),
@@ -70,7 +72,7 @@ impl ::std::convert::From<&str> for RemediationExecutionStepState {
             "IN_PROGRESS" => RemediationExecutionStepState::InProgress,
             "PENDING" => RemediationExecutionStepState::Pending,
             "SUCCEEDED" => RemediationExecutionStepState::Succeeded,
-            "UNKNOWN" => RemediationExecutionStepState::Unknown,
+            "UNKNOWN" => RemediationExecutionStepState::UnknownValue,
             other => RemediationExecutionStepState::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
@@ -91,7 +93,7 @@ impl RemediationExecutionStepState {
             RemediationExecutionStepState::InProgress => "IN_PROGRESS",
             RemediationExecutionStepState::Pending => "PENDING",
             RemediationExecutionStepState::Succeeded => "SUCCEEDED",
-            RemediationExecutionStepState::Unknown => "UNKNOWN",
+            RemediationExecutionStepState::UnknownValue => "UNKNOWN",
             RemediationExecutionStepState::Unknown(value) => value.as_str(),
         }
     }
@@ -125,7 +127,7 @@ impl ::std::fmt::Display for RemediationExecutionStepState {
             RemediationExecutionStepState::InProgress => write!(f, "IN_PROGRESS"),
             RemediationExecutionStepState::Pending => write!(f, "PENDING"),
             RemediationExecutionStepState::Succeeded => write!(f, "SUCCEEDED"),
-            RemediationExecutionStepState::Unknown => write!(f, "UNKNOWN"),
+            RemediationExecutionStepState::UnknownValue => write!(f, "UNKNOWN"),
             RemediationExecutionStepState::Unknown(value) => write!(f, "{value}"),
         }
     }
