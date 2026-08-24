@@ -5401,7 +5401,13 @@ fn render_standalone_response_deserializer(
             })
         });
     if streaming_output {
-        render_standalone_streaming_response_deserializer(output, module, operation_name, code);
+        render_standalone_streaming_response_deserializer(
+            output,
+            module,
+            operation_name,
+            code,
+            request_id_plan(selected).extended,
+        );
         return;
     }
     let force_error = request_id_plan(selected).extended;
@@ -5427,7 +5433,13 @@ fn render_standalone_streaming_response_deserializer(
     module: &str,
     operation_name: &str,
     code: u64,
+    extended_request_id: bool,
 ) {
+    let extended_request_id_debug = if extended_request_id {
+        "        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));\n"
+    } else {
+        ""
+    };
     writeln!(
         output,
         "#[derive(Debug)]
@@ -5439,7 +5451,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for {operatio
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {{
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
+{extended_request_id_debug}
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -16474,6 +16486,29 @@ mod tests {
 
         assert!(!is_streaming_blob(&event_stream_union));
         assert!(is_streaming_blob(&streaming_blob));
+    }
+
+    #[test]
+    fn streaming_response_extended_request_id_logging_is_optional() {
+        let mut output = String::new();
+        render_standalone_streaming_response_deserializer(
+            &mut output,
+            "streaming_operation",
+            "StreamingOperation",
+            200,
+            false,
+        );
+        assert!(!output.contains("s3_request_id::RequestIdExt"));
+
+        let mut output = String::new();
+        render_standalone_streaming_response_deserializer(
+            &mut output,
+            "streaming_operation",
+            "StreamingOperation",
+            200,
+            true,
+        );
+        assert!(output.contains("s3_request_id::RequestIdExt"));
     }
 
     #[test]

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## codeartifact
-**Progress:** `459/459` files compared · `439` matched · `20` mismatches · `0` missing · `0` extra · `95.64%` match (100.00% means fully matched)
+**Progress:** `459/459` files compared · `440` matched · `19` mismatches · `0` missing · `0` extra · `95.86%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -38,21 +38,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          cfg.store_put(::aws_smithy_runtime_api::client::orchestrator::Metadata::new(
              "GetAuthorizationToken",
              "codeartifact",
-```
-
-### `src/operation/get_package_version_asset.rs`
-
-```diff
---- reference/src/operation/get_package_version_asset.rs
-+++ generated/src/operation/get_package_version_asset.rs
-@@ -242,6 +242,7 @@
-     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
-         #[allow(unused_mut)]
-         let mut force_error = false;
-+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-
-         // If this is an error, defer to the non-streaming parser
 ```
 
 ### `src/operation/publish_package_version.rs`

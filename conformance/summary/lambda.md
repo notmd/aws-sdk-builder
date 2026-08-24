@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1016` matched · `60` mismatches · `0` missing · `1` extra · `94.34%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1017` matched · `59` mismatches · `0` missing · `1` extra · `94.43%` match (100.00% means fully matched)
 
 ### `src/client/get_function_event_invoke_config.rs`
 
@@ -178,21 +178,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/invoke_with_response_stream.rs`
-
-```diff
---- reference/src/operation/invoke_with_response_stream.rs
-+++ generated/src/operation/invoke_with_response_stream.rs
-@@ -214,6 +214,7 @@
-     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
-         #[allow(unused_mut)]
-         let mut force_error = false;
-+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-
-         // If this is an error, defer to the non-streaming parser
 ```
 
 ### `src/operation/remove_layer_version_permission.rs`

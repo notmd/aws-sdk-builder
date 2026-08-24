@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `421` matched · `115` mismatches · `0` missing · `0` extra · `78.54%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `423` matched · `113` mismatches · `0` missing · `0` extra · `78.92%` match (100.00% means fully matched)
 
 ### `src/lib.rs`
 
@@ -28,21 +28,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod json_errors;
 
  #[doc(inline)]
-```
-
-### `src/operation/converse_stream.rs`
-
-```diff
---- reference/src/operation/converse_stream.rs
-+++ generated/src/operation/converse_stream.rs
-@@ -199,6 +199,7 @@
-     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
-         #[allow(unused_mut)]
-         let mut force_error = false;
-+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-
-         // If this is an error, defer to the non-streaming parser
 ```
 
 ### `src/operation/count_tokens/_count_tokens_output.rs`
@@ -81,22 +66,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
          #[allow(unused_mut)]
          let mut force_error = false;
-+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-
-         // If this is an error, defer to the non-streaming parser
-```
-
-### `src/operation/invoke_model_with_response_stream.rs`
-
-```diff
---- reference/src/operation/invoke_model_with_response_stream.rs
-+++ generated/src/operation/invoke_model_with_response_stream.rs
-@@ -225,6 +225,7 @@
-     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
-         #[allow(unused_mut)]
-         let mut force_error = false;
-+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
++
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser

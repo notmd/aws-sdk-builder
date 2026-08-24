@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Gate extended request-ID logging by the S3 decorator
+- State: in progress
+- Changed: streaming response deserialization now receives the shared request-ID plan
+  and emits `s3_request_id::RequestIdExt` logging only when the model-selected S3
+  decorator is active. The prior renderer unconditionally emitted this S3-only path
+  for every streaming operation. A focused regression covers both enabled and disabled
+  plans, checked against Smithy-RS's `S3ExtendedRequestIdDecorator` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: focused regression, `just conformance` generation and parsing,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. `just conformance` exits
+  1 only because broader parity gaps remain.
+- Conformance: `12,721/13,168` exact, `442` mismatches, `4` missing, `1` extra ->
+  `12,725/13,168` exact, `438` mismatches, `4` missing, `1` extra (`96.17%` average).
+  Bedrock Runtime improved from `421/115` to `423/113`; CodeArtifact from `439/20`
+  to `440/19`; Lambda from `1,016/60` to `1,017/59`.
+- Blocker: broader protocol, shape, and installation parity gaps remain; no blocker in
+  this checkpoint.
+- Next action: correct the event-stream module ordering in `src/lib.rs`, then continue
+  the remaining generic Bedrock Runtime protocol/shape mismatches.
+
 ### Checkpoint: 2026-08-25 — Distinguish streaming blobs from event streams
 - State: in progress
 - Changed: the shared primitive-export predicate now enables `SdkBody` and byte-stream

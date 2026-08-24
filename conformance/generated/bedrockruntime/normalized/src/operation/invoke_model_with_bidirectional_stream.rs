@@ -205,7 +205,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeMod
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
