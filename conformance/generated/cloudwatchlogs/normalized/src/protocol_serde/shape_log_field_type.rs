@@ -29,7 +29,9 @@ where
                             );
                         }
                         "element" => {
-                            builder = builder.set_element(super::super::protocol_serde::shape_log_field_type::de_log_field_type(tokens, _value, depth + 1)?);
+                            builder = builder.set_element(
+                                super::super::protocol_serde::shape_log_field_type::de_log_field_type(tokens, _value, depth + 1)?.map(Box::new),
+                            );
                         }
                         "fields" => {
                             builder = builder.set_fields(super::super::protocol_serde::shape_log_fields_list::de_log_fields_list(

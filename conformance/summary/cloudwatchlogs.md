@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1276` matched · `11` mismatches · `0` missing · `0` extra · `99.15%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1278` matched · `9` mismatches · `0` missing · `0` extra · `99.30%` match (100.00% means fully matched)
 
 ### `src/operation/get_log_object.rs`
 
@@ -115,24 +115,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      mut builder: super::super::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder,
 ```
 
-### `src/protocol_serde/shape_log_field_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_log_field_type.rs
-+++ generated/src/protocol_serde/shape_log_field_type.rs
-@@ -29,9 +29,7 @@
-                             );
-                         }
-                         "element" => {
--                            builder = builder.set_element(
--                                super::super::protocol_serde::shape_log_field_type::de_log_field_type(tokens, _value, depth + 1)?.map(Box::new),
--                            );
-+                            builder = builder.set_element(super::super::protocol_serde::shape_log_field_type::de_log_field_type(tokens, _value, depth + 1)?);
-                         }
-                         "fields" => {
-                             builder = builder.set_fields(super::super::protocol_serde::shape_log_fields_list::de_log_fields_list(
-```
-
 ### `src/protocol_serde.rs`
 
 ```diff
@@ -231,62 +213,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_enumerations;
 -
 -pub(crate) mod shape_live_tail_session_log_event;
-```
-
-### `src/types/_log_field_type.rs`
-
-```diff
---- reference/src/types/_log_field_type.rs
-+++ generated/src/types/_log_field_type.rs
-@@ -7,7 +7,7 @@
-     /// <p>The data type of the log field.</p>
-     pub r#type: ::std::option::Option<::std::string::String>,
-     /// <p>For array or collection types, specifies the element type information.</p>
--    pub element: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>,
-+    pub element: ::std::option::Option<super::super::types::LogFieldType>,
-     /// <p>For complex types, contains the nested field definitions.</p>
-     pub fields: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>,
- }
-@@ -18,7 +18,7 @@
-     }
-     /// <p>For array or collection types, specifies the element type information.</p>
-     pub fn element(&self) -> ::std::option::Option<&super::super::types::LogFieldType> {
--        self.element.as_deref()
-+        self.element.as_ref()
-     }
-     /// <p>For complex types, contains the nested field definitions.</p>
-     ///
-@@ -39,7 +39,7 @@
- #[non_exhaustive]
- pub struct LogFieldTypeBuilder {
-     pub(crate) r#type: ::std::option::Option<::std::string::String>,
--    pub(crate) element: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>,
-+    pub(crate) element: ::std::option::Option<super::super::types::LogFieldType>,
-     pub(crate) fields: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>,
- }
- impl LogFieldTypeBuilder {
-@@ -58,17 +58,17 @@
-         &self.r#type
-     }
-     /// <p>For array or collection types, specifies the element type information.</p>
--    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<super::super::types::LogFieldType>>) -> Self {
--        self.element = ::std::option::Option::Some(input.into());
-+    pub fn element(mut self, input: super::super::types::LogFieldType) -> Self {
-+        self.element = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>For array or collection types, specifies the element type information.</p>
--    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>) -> Self {
-+    pub fn set_element(mut self, input: ::std::option::Option<super::super::types::LogFieldType>) -> Self {
-         self.element = input;
-         self
-     }
-     /// <p>For array or collection types, specifies the element type information.</p>
--    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>> {
-+    pub fn get_element(&self) -> &::std::option::Option<super::super::types::LogFieldType> {
-         &self.element
-     }
-     /// Appends an item to `fields`.
 ```
 
 ### `src/types/_substitute_string_entry.rs`

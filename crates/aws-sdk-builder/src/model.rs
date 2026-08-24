@@ -7,6 +7,11 @@ use crate::{
     registry::{ServiceMetadata, ServiceSource},
 };
 
+/// Synthetic Smithy-RS marker used for members that need indirection to make
+/// a recursive Rust type well-formed.
+pub(crate) const RUST_BOX_TRAIT_ID: &str =
+    "software.amazon.smithy.rust.codegen.smithy.rust.synthetic#box";
+
 #[derive(Debug, Clone)]
 pub(crate) struct Model {
     pub(crate) entry: ServiceMetadata,
@@ -207,6 +212,7 @@ impl Model {
             &self.service_shape_id,
             self.entry.filename,
         )?;
+        apply_recursive_shape_boxing(&mut shapes);
         let mut root = self.root.clone();
         root["shapes"] = Value::Object(shapes);
         let selected_shape_map = root_shape_map(&root);
@@ -400,6 +406,163 @@ fn normalize_operation_shapes(
     }
     prune_to_directed_closure(shapes, service_id, operation_ids);
     Ok(())
+}
+
+/// Mark recursive members that need a `Box` in the generated Rust model.
+///
+/// Smithy-RS's `RecursiveShapeBoxer` repeatedly finds strongly connected
+/// structure/union components and marks the lexicographically earliest member
+/// edge in each remaining cycle. Collection and map shapes already provide
+/// heap indirection, so edges through them are intentionally omitted here.
+fn apply_recursive_shape_boxing(shapes: &mut Map<String, Value>) {
+    loop {
+        let mut adjacency: BTreeMap<String, Vec<(String, String)>> = BTreeMap::new();
+        let mut reverse: BTreeMap<String, Vec<String>> = BTreeMap::new();
+
+        for (shape_id, shape) in shapes.iter() {
+            let kind = shape.get("type").and_then(Value::as_str);
+            if !matches!(kind, Some("structure" | "union")) {
+                continue;
+            }
+            adjacency.entry(shape_id.clone()).or_default();
+            for (member_name, member) in members_from_value(shape) {
+                if member_has_rust_box_trait(member) {
+                    continue;
+                }
+                let Some(target) = member_target(member) else {
+                    continue;
+                };
+                let Some(target_shape) = shapes.get(target) else {
+                    continue;
+                };
+                if !matches!(
+                    target_shape.get("type").and_then(Value::as_str),
+                    Some("structure" | "union")
+                ) {
+                    continue;
+                }
+                let member_id = format!("{shape_id}${member_name}");
+                adjacency
+                    .entry(shape_id.clone())
+                    .or_default()
+                    .push((target.to_owned(), member_id));
+                reverse
+                    .entry(target.to_owned())
+                    .or_default()
+                    .push(shape_id.clone());
+            }
+        }
+
+        let mut finish_order = Vec::new();
+        let mut visited = BTreeSet::new();
+        for start in adjacency.keys() {
+            if !visited.insert(start.clone()) {
+                continue;
+            }
+            let mut stack = vec![(start.clone(), false)];
+            while let Some((node, expanded)) = stack.pop() {
+                if expanded {
+                    finish_order.push(node);
+                    continue;
+                }
+                stack.push((node.clone(), true));
+                if let Some(edges) = adjacency.get(&node) {
+                    for (target, _) in edges.iter().rev() {
+                        if visited.insert(target.clone()) {
+                            stack.push((target.clone(), false));
+                        }
+                    }
+                }
+            }
+        }
+
+        let mut components = Vec::new();
+        let mut assigned = BTreeSet::new();
+        for start in finish_order.into_iter().rev() {
+            if !assigned.insert(start.clone()) {
+                continue;
+            }
+            let mut component = BTreeSet::new();
+            let mut stack = vec![start];
+            while let Some(node) = stack.pop() {
+                component.insert(node.clone());
+                if let Some(edges) = reverse.get(&node) {
+                    for target in edges {
+                        if assigned.insert(target.clone()) {
+                            stack.push(target.clone());
+                        }
+                    }
+                }
+            }
+            components.push(component);
+        }
+
+        let mut member_to_box = None;
+        for component in components {
+            let cyclic = component.len() > 1
+                || component.iter().any(|node| {
+                    adjacency
+                        .get(node)
+                        .is_some_and(|edges| edges.iter().any(|(target, _)| target == node))
+                });
+            if !cyclic {
+                continue;
+            }
+            let candidate = component
+                .iter()
+                .flat_map(|source| adjacency.get(source).into_iter().flatten())
+                .filter(|(target, _)| component.contains(target))
+                .map(|(_, member_id)| member_id.clone())
+                .min();
+            if candidate.is_some() {
+                member_to_box = candidate;
+                break;
+            }
+        }
+
+        let Some(member_id) = member_to_box else {
+            break;
+        };
+        let Some((shape_id, member_name)) = member_id.rsplit_once('$') else {
+            break;
+        };
+        let Some(member) = shapes
+            .get_mut(shape_id)
+            .and_then(Value::as_object_mut)
+            .and_then(|shape| shape.get_mut("members"))
+            .and_then(Value::as_object_mut)
+            .and_then(|members| members.get_mut(member_name))
+            .and_then(Value::as_object_mut)
+        else {
+            break;
+        };
+        member
+            .entry("traits".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()))
+            .as_object_mut()
+            .expect("member traits must be an object")
+            .insert(RUST_BOX_TRAIT_ID.to_owned(), Value::Object(Map::new()));
+    }
+}
+
+fn members_from_value(shape: &Value) -> Vec<(String, &Value)> {
+    shape
+        .get("members")
+        .and_then(Value::as_object)
+        .map(|members| {
+            members
+                .iter()
+                .map(|(name, member)| (name.clone(), member))
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
+fn member_has_rust_box_trait(member: &Value) -> bool {
+    member
+        .get("traits")
+        .and_then(Value::as_object)
+        .is_some_and(|traits| traits.contains_key(RUST_BOX_TRAIT_ID))
 }
 
 /// Smithy-RS's event-stream normalization promotes errors carried by streaming
@@ -970,6 +1133,48 @@ mod tests {
         assert_eq!(model.service_shape_id, "example#Service");
         let selected = model.select(&[], true).unwrap();
         assert_eq!(selected.operations, ["DeleteThing", "GetThing"]);
+    }
+
+    #[test]
+    fn recursive_structure_members_are_marked_for_rust_boxing() {
+        let metadata = ServiceMetadata {
+            key: "fixture",
+            filename: "fixture.json",
+            module_name: "aws_sdk_fixture",
+            sdk_version: None,
+        };
+        let model = Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "output": {"target": "example#Recursive"}
+                    },
+                    "example#Recursive": {
+                        "type": "structure",
+                        "members": {
+                            "child": {"target": "example#Recursive"}
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let recursive = selected.model.shapes.get("example#Recursive").unwrap();
+        let child = recursive
+            .get("members")
+            .and_then(Value::as_object)
+            .and_then(|members| members.get("child"))
+            .unwrap();
+        assert!(member_has_rust_box_trait(child));
     }
 
     #[test]

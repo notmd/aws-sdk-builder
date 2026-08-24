@@ -7,7 +7,7 @@ pub struct LogFieldType {
     /// <p>The data type of the log field.</p>
     pub r#type: ::std::option::Option<::std::string::String>,
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub element: ::std::option::Option<super::super::types::LogFieldType>,
+    pub element: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>,
     /// <p>For complex types, contains the nested field definitions.</p>
     pub fields: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>,
 }
@@ -18,7 +18,7 @@ impl LogFieldType {
     }
     /// <p>For array or collection types, specifies the element type information.</p>
     pub fn element(&self) -> ::std::option::Option<&super::super::types::LogFieldType> {
-        self.element.as_ref()
+        self.element.as_deref()
     }
     /// <p>For complex types, contains the nested field definitions.</p>
     ///
@@ -39,7 +39,7 @@ impl LogFieldType {
 #[non_exhaustive]
 pub struct LogFieldTypeBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
-    pub(crate) element: ::std::option::Option<super::super::types::LogFieldType>,
+    pub(crate) element: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>,
     pub(crate) fields: ::std::option::Option<::std::vec::Vec<super::super::types::LogFieldsListItem>>,
 }
 impl LogFieldTypeBuilder {
@@ -58,17 +58,17 @@ impl LogFieldTypeBuilder {
         &self.r#type
     }
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub fn element(mut self, input: super::super::types::LogFieldType) -> Self {
-        self.element = ::std::option::Option::Some(input);
+    pub fn element(mut self, input: impl ::std::convert::Into<::std::boxed::Box<super::super::types::LogFieldType>>) -> Self {
+        self.element = ::std::option::Option::Some(input.into());
         self
     }
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub fn set_element(mut self, input: ::std::option::Option<super::super::types::LogFieldType>) -> Self {
+    pub fn set_element(mut self, input: ::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>>) -> Self {
         self.element = input;
         self
     }
     /// <p>For array or collection types, specifies the element type information.</p>
-    pub fn get_element(&self) -> &::std::option::Option<super::super::types::LogFieldType> {
+    pub fn get_element(&self) -> &::std::option::Option<::std::boxed::Box<super::super::types::LogFieldType>> {
         &self.element
     }
     /// Appends an item to `fields`.

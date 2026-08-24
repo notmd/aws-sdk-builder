@@ -11,7 +11,7 @@ use crate::{
     artifact,
     config::ServiceSelection,
     error::BuildError,
-    model::{ProtocolKind, SelectedModel},
+    model::{ProtocolKind, RUST_BOX_TRAIT_ID, SelectedModel},
     names,
 };
 
@@ -7124,15 +7124,12 @@ fn render_waiter_input_methods(
         let field = names::rust_identifier(&member_name);
         let field_method = field.strip_prefix("r#").unwrap_or(&field);
         let target_id = member_target(member).unwrap_or("smithy.api#String");
-        let target = type_expr(
-            selected,
-            target_id,
-            Context::Builder {
-                module: operation_module.to_owned(),
-                input: true,
-            },
-        );
-        let argument = builder_argument_type(selected, target_id, &target);
+        let context = Context::Builder {
+            module: operation_module.to_owned(),
+            input: true,
+        };
+        let target = member_storage_type(selected, member, target_id, &context);
+        let argument = builder_argument_type_for_member(selected, member, target_id, &target);
         let value = builder_argument_value(&argument, "input");
         let documentation = modeled_member_documentation(selected, member).unwrap_or_default();
         writeln!(output, "    {}", documentation_lines(documentation.clone())).unwrap();
@@ -7935,7 +7932,7 @@ fn render_standalone_fluent_member_helpers(
         module: module.to_owned(),
         input: true,
     };
-    let target = type_expr(selected, target_id, context.clone());
+    let target = member_storage_type(selected, member, target_id, &context);
     let target_shape = selected.model.shapes.get(target_id);
     if let Some(list_shape) =
         target_shape.filter(|shape| shape.get("type").and_then(Value::as_str) == Some("list"))
@@ -7985,7 +7982,7 @@ fn render_standalone_fluent_member_helpers(
         )
         .unwrap();
     } else {
-        let argument = builder_argument_type(selected, target_id, &target);
+        let argument = builder_argument_type_for_member(selected, member, target_id, &target);
         render_fluent_member_docs(output, selected, member);
         render_deprecated_attribute(output, member, 4);
         writeln!(
@@ -8829,7 +8826,7 @@ fn render_protocol_operation_output_parser(
         let xml_name = protocol_member_xml_name(selected, member_name, member);
         let var = state.temp();
         let parse = indent_expression(
-            &protocol_parse_expression(selected, target, "decoder", "depth"),
+            &protocol_parse_member_expression(selected, member, target, "decoder", "depth"),
             20,
         );
         writeln!(
@@ -8880,7 +8877,13 @@ fn render_protocol_operation_output_parser(
                     .expect("flattened list member");
                 let element_target = member_target(element).unwrap_or_default();
                 let element_expr = indent_expression(
-                    &protocol_parse_expression(selected, element_target, "tag", "depth"),
+                    &protocol_parse_member_expression(
+                        selected,
+                        element,
+                        element_target,
+                        "tag",
+                        "depth",
+                    ),
                     8,
                 );
                 let list_type = format!(
@@ -8891,7 +8894,7 @@ fn render_protocol_operation_output_parser(
                     "Result::<{list_type}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok({{\n    let mut {list} = builder.{field}.take().unwrap_or_default();\n    {list}.push(\n        {element_expr}\n        ?\n    );\n    {list}\n}})"
                 )
             } else {
-                protocol_parse_expression(selected, target, "tag", "depth")
+                protocol_parse_member_expression(selected, member, target, "tag", "depth")
             };
             let parse = indent_expression(&parse, 24);
             writeln!(
@@ -10865,7 +10868,14 @@ fn render_json_list_deserializer(
     )
     .unwrap();
     output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartArray { .. }) => {\n            let mut items = Vec::new();\n            loop {\n                match tokens.peek() {\n                    Some(Ok(::aws_smithy_json::deserialize::Token::EndArray { .. })) => {\n                        tokens.next().transpose().unwrap();\n                        break;\n                    }\n                    _ => {\n");
-    let expression = json_deserialize_expression(selected, target, "tokens", "_value", "depth + 1");
+    let expression = json_deserialize_member_expression(
+        selected,
+        member,
+        target,
+        "tokens",
+        "_value",
+        "depth + 1",
+    );
     if sparse {
         writeln!(output, "                        let value = {expression};\n                        items.push(value);").unwrap();
     } else {
@@ -10899,8 +10909,14 @@ fn render_json_map_deserializer(
         "                        let key = {key_expression};"
     )
     .unwrap();
-    let value_expression =
-        json_deserialize_expression(selected, value_target, "tokens", "_value", "depth + 1");
+    let value_expression = json_deserialize_member_expression(
+        selected,
+        value,
+        value_target,
+        "tokens",
+        "_value",
+        "depth + 1",
+    );
     if sparse {
         writeln!(
             output,
@@ -10935,8 +10951,14 @@ fn render_json_union_deserializer(
     for (name, member) in members(shape) {
         let target = member_target(member).unwrap_or_default();
         let variant_name = rust_type_name(&name);
-        let expression =
-            json_deserialize_expression(selected, target, "tokens", "_value", "depth + 1");
+        let expression = json_deserialize_member_expression(
+            selected,
+            member,
+            target,
+            "tokens",
+            "_value",
+            "depth + 1",
+        );
         if protocol_shape_kind(selected, target) == "unit" {
             writeln!(output, "                        {name:?} => {{\n                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                            Some({type_name}::{variant_name})\n                        }}").unwrap();
         } else {
@@ -10973,8 +10995,9 @@ fn render_json_structure_deserializer_loop(
             let target = member_target(member).unwrap_or_default();
             let field = names::rust_identifier(&name);
             let setter = names::rustdoc_identifier(&field);
-            let expression = json_deserialize_expression(
+            let expression = json_deserialize_member_expression(
                 selected,
+                member,
                 target,
                 "tokens",
                 "_value",
@@ -10984,6 +11007,22 @@ fn render_json_structure_deserializer_loop(
         }
     }
     output.push_str("                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,\n            },\n            other => {\n                return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(\n                    \"expected object key or end object, found: {other:?}\"\n                )))\n            }\n        }\n    }\n");
+}
+
+fn json_deserialize_member_expression(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    tokens: &str,
+    value: &str,
+    depth: &str,
+) -> String {
+    let expression = json_deserialize_expression(selected, target, tokens, value, depth);
+    if member_is_boxed(member) {
+        format!("{expression}.map(Box::new)")
+    } else {
+        expression
+    }
 }
 
 fn json_deserialize_expression(
@@ -12503,6 +12542,21 @@ fn protocol_parse_expression(
     }
 }
 
+fn protocol_parse_member_expression(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    tag: &str,
+    depth: &str,
+) -> String {
+    let expression = protocol_parse_expression(selected, target, tag, depth);
+    if member_is_boxed(member) {
+        format!("{expression}.map(Box::new)")
+    } else {
+        expression
+    }
+}
+
 fn render_protocol_structure_deserializer(
     output: &mut String,
     selected: &SelectedModel,
@@ -12578,7 +12632,13 @@ fn render_protocol_structure_deserializer(
                     .expect("flattened list member");
                 let element_target = member_target(element).unwrap_or_default();
                 let element_expr = indent_expression(
-                    &protocol_parse_expression(selected, element_target, "tag", "depth"),
+                    &protocol_parse_member_expression(
+                        selected,
+                        element,
+                        element_target,
+                        "tag",
+                        "depth",
+                    ),
                     8,
                 );
                 let list_type = selected
@@ -12599,7 +12659,7 @@ fn render_protocol_structure_deserializer(
                     list_type
                 )
             } else {
-                protocol_parse_expression(selected, target, "tag", "depth")
+                protocol_parse_member_expression(selected, member, target, "tag", "depth")
             };
             let parse = indent_expression(&parse, 24);
             writeln!(
@@ -12677,7 +12737,7 @@ fn render_protocol_union_deserializer(
             .unwrap();
         } else {
             let expression = indent_expression(
-                &protocol_parse_expression(selected, target, "tag", "depth"),
+                &protocol_parse_member_expression(selected, member, target, "tag", "depth"),
                 20,
             );
             writeln!(
@@ -12716,7 +12776,7 @@ fn render_protocol_list_deserializer(
         "    if depth >= 128u32 {\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(\"maximum nesting depth exceeded\"));\n    }\n    let mut out = std::vec::Vec::new();\n    while let Some(mut tag) = decoder.next_tag() {\n        match tag.start_el() {\n",
     );
     let parse = indent_expression(
-        &protocol_parse_expression(selected, target, "tag", "depth"),
+        &protocol_parse_member_expression(selected, member, target, "tag", "depth"),
         20,
     );
     writeln!(
@@ -12743,11 +12803,11 @@ fn render_protocol_map_deserializer(
     let key_xml_name = protocol_member_xml_name(selected, "key", key);
     let value_xml_name = protocol_member_xml_name(selected, "value", value);
     let key_parse = indent_expression(
-        &protocol_parse_expression(selected, key_target, "tag", "depth"),
+        &protocol_parse_member_expression(selected, key, key_target, "tag", "depth"),
         20,
     );
     let value_parse = indent_expression(
-        &protocol_parse_expression(selected, value_target, "tag", "depth"),
+        &protocol_parse_member_expression(selected, value, value_target, "tag", "depth"),
         20,
     );
     writeln!(
@@ -13962,7 +14022,7 @@ fn structure_member_type(
     target: &str,
     context: &Context,
 ) -> String {
-    let value_type = type_expr(selected, target, context.clone());
+    let value_type = member_storage_type(selected, member, target, context);
     if has_trait(member, "smithy.api#streaming")
         || is_streaming_shape_target(selected, target)
         || is_streaming_output_target(selected, target, context)
@@ -13971,6 +14031,24 @@ fn structure_member_type(
     } else if operation_input(context) || !member_is_effectively_required(selected, member, target)
     {
         format!("::std::option::Option<{value_type}>")
+    } else {
+        value_type
+    }
+}
+
+fn member_is_boxed(member: &Value) -> bool {
+    has_trait(member, RUST_BOX_TRAIT_ID)
+}
+
+fn member_storage_type(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    context: &Context,
+) -> String {
+    let value_type = type_expr(selected, target, context.clone());
+    if member_is_boxed(member) {
+        format!("::std::boxed::Box<{value_type}>")
     } else {
         value_type
     }
@@ -14173,6 +14251,19 @@ fn builder_argument_type(selected: &SelectedModel, target: &str, value_type: &st
     }
 }
 
+fn builder_argument_type_for_member(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    value_type: &str,
+) -> String {
+    if member_is_boxed(member) {
+        format!("impl ::std::convert::Into<{value_type}>")
+    } else {
+        builder_argument_type(selected, target, value_type)
+    }
+}
+
 fn builder_argument_value(argument_type: &str, value: &str) -> String {
     if argument_type.starts_with("impl ::std::convert::Into<") {
         format!("{value}.into()")
@@ -14332,6 +14423,7 @@ fn render_structure_accessors(
             let field = names::rust_identifier(&member_name);
             let target = member_target(member).unwrap_or("smithy.api#String");
             let target_type = type_expr(selected, target, context.clone());
+            let boxed = member_is_boxed(member);
             if let Some(member_doc) = modeled_member_documentation(selected, member) {
                 render_doc_lines(output, &member_doc, indent + 4);
             } else if is_error {
@@ -14387,6 +14479,20 @@ fn render_structure_accessors(
                     )
                     .unwrap();
                     writeln!(output, "{padding}    }}").unwrap();
+                }
+            } else if boxed {
+                if required {
+                    writeln!(
+                        output,
+                        "{padding}    pub fn {field}(&self) -> &{target_type} {{\n{padding}        self.{field}.as_ref()\n{padding}    }}"
+                    )
+                    .unwrap();
+                } else {
+                    writeln!(
+                        output,
+                        "{padding}    pub fn {field}(&self) -> ::std::option::Option<&{target_type}> {{\n{padding}        self.{field}.as_deref()\n{padding}    }}"
+                    )
+                    .unwrap();
                 }
             } else if is_string_type(target, target_shape) {
                 if required {
@@ -14715,7 +14821,7 @@ fn render_type_builder(
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(selected, target, context.clone()))
+            .map(|target| member_storage_type(selected, member, target, &context))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(
             output,
@@ -14742,7 +14848,7 @@ fn render_type_builder(
         let field = names::rust_identifier(&member_name);
         let field_method = field.strip_prefix("r#").unwrap_or(&field);
         let target = member_target(member)
-            .map(|target| type_expr(selected, target, context.clone()))
+            .map(|target| member_storage_type(selected, member, target, &context))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         let target_id = member_target(member).unwrap_or("smithy.api#String");
         if is_error && modeled_member_documentation(selected, member).is_none() {
@@ -14804,7 +14910,7 @@ fn render_type_builder(
             )
             .unwrap();
         } else {
-            let argument = builder_argument_type(selected, target_id, &target);
+            let argument = builder_argument_type_for_member(selected, member, target_id, &target);
             render_builder_docs(output, selected, member, &inner, member_is_required(member));
             render_deprecated_attribute(output, member, indent + 4);
             writeln!(
@@ -15112,7 +15218,7 @@ fn render_union(
         if target == "smithy.api#Unit" {
             writeln!(output, "        {variant},").unwrap();
         } else {
-            let target_type = type_expr(selected, target, context.clone());
+            let target_type = member_storage_type(selected, member, target, context);
             writeln!(output, "        {variant}({target_type}),").unwrap();
         }
     }
@@ -15127,6 +15233,7 @@ fn render_union(
         let target = member_target(member).unwrap_or("smithy.api#Unit");
         let target_name = client_documentation_type(selected, target);
         let target_type = type_expr(selected, target, context.clone());
+        let boxed = member_is_boxed(member);
         if ordered_members.len() == 1 {
             output.push_str("    #[allow(irrefutable_let_patterns)]\n");
         }
@@ -15137,9 +15244,10 @@ fn render_union(
             )
             .unwrap();
         } else {
+            let value = if boxed { "val.as_ref()" } else { "val" };
             writeln!(
                 output,
-                "    /// Tries to convert the enum instance into [__BT__{variant}__BT__]({union_path}::{variant}), extracting the inner [__BT__{target_name}__BT__]({target_type}).\n    /// Returns __BT__Err(&Self)__BT__ if it can't be converted.\n    pub fn as_{function}(&self) -> ::std::result::Result<&{target_type}, &Self> {{\n        if let {rust_name}::{variant}(val) = &self {{\n            ::std::result::Result::Ok(val)\n        }} else {{\n            ::std::result::Result::Err(self)\n        }}\n    }}\n    /// Returns true if this is a [__BT__{variant}__BT__]({union_path}::{variant}).\n    pub fn is_{function}(&self) -> bool {{\n        self.as_{function}().is_ok()\n    }}"
+                "    /// Tries to convert the enum instance into [__BT__{variant}__BT__]({union_path}::{variant}), extracting the inner [__BT__{target_name}__BT__]({target_type}).\n    /// Returns __BT__Err(&Self)__BT__ if it can't be converted.\n    pub fn as_{function}(&self) -> ::std::result::Result<&{target_type}, &Self> {{\n        if let {rust_name}::{variant}(val) = &self {{\n            ::std::result::Result::Ok({value})\n        }} else {{\n            ::std::result::Result::Err(self)\n        }}\n    }}\n    /// Returns true if this is a [__BT__{variant}__BT__]({union_path}::{variant}).\n    pub fn is_{function}(&self) -> bool {{\n        self.as_{function}().is_ok()\n    }}"
             )
             .unwrap();
         }

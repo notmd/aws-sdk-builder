@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Box recursive structure and union members
+- State: in progress
+- Changed: the model-selection transform now mirrors Smithy-RS's recursive-shape
+  boxing rule. It deterministically marks direct structure/union cycles, treats list
+  and map paths as existing indirection, and applies `Box` consistently to public
+  fields, accessors, builders, JSON deserializers, and XML deserializers. This fixes
+  the CloudWatch Logs `LogFieldType.element` recursive Rust layout without a
+  service-specific branch. A model regression covers direct recursive structures.
+- Evidence: compared the pinned Smithy-RS `RecursiveShapeBoxer.kt`, `SymbolVisitor.kt`,
+  and `JsonParserGenerator.kt` at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` compiled all selected
+  service crates and regenerated/formatted all `13,166` snapshot files without
+  generated-source parse errors.
+- Conformance: `12,997/13,168` exact, `168` mismatches, `2` missing, and `1` extra
+  (`98.57%`) versus `12,995/13,168` exact (`98.56%`) before this checkpoint.
+  CloudWatch Logs improved from `1,276/11` to `1,278/9` mismatched files.
+- Blocker: `just conformance` still exits 1 because unrelated parity gaps remain; the
+  recursive generated source now matches the reference and compiles.
+- Next action: stop after committing this compile fix, unless broader conformance
+  parity work is requested.
+
 ### Checkpoint: 2026-08-25 — Match Smithy error-correction defaults
 - State: in progress
 - Changed: shared `serde_util` correction generation now uses Smithy-RS defaults for
