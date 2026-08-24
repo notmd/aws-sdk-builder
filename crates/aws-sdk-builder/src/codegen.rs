@@ -4615,6 +4615,18 @@ fn operation_has_unsigned_payload(operation: &Value) -> bool {
     has_trait(operation, "aws.auth#unsignedPayload")
 }
 
+fn sigv4_payload_override(selected: &SelectedModel, operation: &Value) -> &'static str {
+    if operation_has_unsigned_payload(operation) {
+        "Some(::aws_sigv4::http_request::SignableBody::UnsignedPayload)"
+    } else if operation_has_input_event_stream(selected, operation) {
+        // Smithy-RS signs the initial request headers and empty event-stream
+        // prelude before the event-stream body is transmitted.
+        "Some(::aws_sigv4::http_request::SignableBody::Bytes(&[]))"
+    } else {
+        "None"
+    }
+}
+
 fn operation_requires_aws_chunked(
     selected: &SelectedModel,
     operation: &Value,
@@ -4657,15 +4669,25 @@ fn operation_has_event_stream(selected: &SelectedModel, operation: &Value) -> bo
             .get(io)
             .and_then(target_value)
             .and_then(|id| selected.model.shapes.get(id))
-            .is_some_and(|shape| {
-                members(shape).into_iter().any(|(_, member)| {
-                    has_trait(member, "smithy.api#httpPayload")
-                        && member_target(member).is_some_and(|target| {
-                            selected.model.shapes.get(target).is_some_and(|shape| {
-                                shape_is_streaming(shape)
-                                    && shape.get("type").and_then(Value::as_str) != Some("blob")
-                            })
-                        })
+            .is_some_and(|shape| shape_has_event_stream(selected, shape))
+    })
+}
+
+fn operation_has_input_event_stream(selected: &SelectedModel, operation: &Value) -> bool {
+    operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .is_some_and(|shape| shape_has_event_stream(selected, shape))
+}
+
+fn shape_has_event_stream(selected: &SelectedModel, shape: &Value) -> bool {
+    members(shape).into_iter().any(|(_, member)| {
+        has_trait(member, "smithy.api#httpPayload")
+            && member_target(member).is_some_and(|target| {
+                selected.model.shapes.get(target).is_some_and(|shape| {
+                    shape_is_streaming(shape)
+                        && shape.get("type").and_then(Value::as_str) != Some("blob")
                 })
             })
     })
@@ -5134,11 +5156,7 @@ fn render_standalone_runtime_plugin(
     let signing_config = if operation_uses_sigv4(selected, operation) {
         format!(
             "        let mut signing_options = ::aws_runtime::auth::SigningOptions::default();\n        signing_options.double_uri_encode = {double_uri_encode};\n        signing_options.content_sha256_header = {content_sha256_header};\n        signing_options.normalize_uri_path = {normalize_uri_path};\n        signing_options.payload_override = {payload_override};\n\n        cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {{\n            signing_options,\n            ..::std::default::Default::default()\n        }});\n\n",
-            payload_override = if unsigned_payload {
-                "Some(::aws_sigv4::http_request::SignableBody::UnsignedPayload)"
-            } else {
-                "None"
-            },
+            payload_override = sigv4_payload_override(selected, operation),
         )
     } else {
         String::new()
@@ -5479,8 +5497,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for {operatio
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {{
         #[allow(unused_mut)]
         let mut force_error = false;
-{extended_request_id_debug}
-        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+{extended_request_id_debug}        ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
         if (!response.status().is_success() && response.status().as_u16() != {code}) || force_error {{
@@ -16570,6 +16587,15 @@ mod tests {
         ))
         .unwrap();
         let input_selected = input_model.select(&[], true).unwrap();
+        let input_operation = operation_shape(&input_selected, "Invoke").unwrap();
+        assert!(operation_has_input_event_stream(
+            &input_selected,
+            input_operation
+        ));
+        assert_eq!(
+            sigv4_payload_override(&input_selected, input_operation),
+            "Some(::aws_sigv4::http_request::SignableBody::Bytes(&[]))"
+        );
         let mut input_modules = String::new();
         render_standalone_extra_modules(
             &mut input_modules,
@@ -16646,6 +16672,13 @@ mod tests {
             false,
         );
         assert!(!output.contains("s3_request_id::RequestIdExt"));
+        assert!(
+            output.contains("let mut force_error = false;\n        ::tracing::debug!(request_id")
+        );
+        assert!(
+            !output
+                .contains("let mut force_error = false;\n\n        ::tracing::debug!(request_id")
+        );
 
         let mut output = String::new();
         render_standalone_streaming_response_deserializer(
@@ -16656,6 +16689,9 @@ mod tests {
             true,
         );
         assert!(output.contains("s3_request_id::RequestIdExt"));
+        assert!(output.contains(
+            "s3_request_id::RequestIdExt::extended_request_id(response));\n        ::tracing::debug!(request_id"
+        ));
     }
 
     #[test]

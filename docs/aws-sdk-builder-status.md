@@ -4,6 +4,30 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Sign input event streams with an empty payload
+- State: in progress
+- Changed: SigV4 operation signing now uses Smithy-RS's model-driven
+  `Some(::aws_sigv4::http_request::SignableBody::Bytes(&[]))` payload override for
+  operations whose input contains a streaming event union. Unsigned-payload
+  operations retain their higher-priority `UnsignedPayload` override, and ordinary
+  operations retain `None`. The shared streaming response deserializer also now
+  matches Smithy-RS's spacing around request-ID logging. Focused regressions cover
+  input event-stream detection, the signing override, and both logging paths. This
+  follows the pinned Smithy-RS `SigV4AuthDecorator` and streaming response output at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: focused regressions, `just conformance` regeneration and parsing,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance formatted
+  all `13,164` generated Rust files and reported no generated-source parse errors;
+  `just conformance` exits 1 only because broader parity gaps remain.
+- Conformance: `12,758/13,168` exact, `405` mismatches -> `12,759/13,168` exact,
+  `404` mismatches, `4` missing, and `1` extra (`96.57%`). Bedrock Runtime improved
+  from `454/82` to `455/81`.
+- Blocker: remaining generic protocol, streaming, shape, and runtime parity gaps
+  remain; no blocker in this checkpoint.
+- Next action: align the next highest-impact generic protocol-serialization mismatch,
+  then regenerate and repeat the conformance verification loop.
+
 ### Checkpoint: 2026-08-25 — Match Smithy-qualified JSON union null peeks
 - State: in progress
 - Changed: JSON union deserializers now emit the fully qualified

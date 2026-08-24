@@ -3,31 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `454` matched · `82` mismatches · `0` missing · `0` extra · `84.70%` match (100.00% means fully matched)
-
-### `src/operation/invoke_model_with_bidirectional_stream.rs`
-
-```diff
---- reference/src/operation/invoke_model_with_bidirectional_stream.rs
-+++ generated/src/operation/invoke_model_with_bidirectional_stream.rs
-@@ -117,7 +117,7 @@
-         signing_options.double_uri_encode = true;
-         signing_options.content_sha256_header = false;
-         signing_options.normalize_uri_path = true;
--        signing_options.payload_override = Some(::aws_sigv4::http_request::SignableBody::Bytes(&[]));
-+        signing_options.payload_override = None;
-
-         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
-             signing_options,
-@@ -205,6 +205,7 @@
-     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
-         #[allow(unused_mut)]
-         let mut force_error = false;
-+
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-
-         // If this is an error, defer to the non-streaming parser
-```
+**Progress:** `536/536` files compared · `455` matched · `81` mismatches · `0` missing · `0` extra · `84.89%` match (100.00% means fully matched)
 
 ### `src/protocol_serde/shape_async_invoke_output_data_config.rs`
 

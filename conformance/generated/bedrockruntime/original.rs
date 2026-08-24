@@ -6484,7 +6484,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ConverseS
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -11450,7 +11449,7 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for InvokeM
         signing_options.double_uri_encode = true;
         signing_options.content_sha256_header = false;
         signing_options.normalize_uri_path = true;
-        signing_options.payload_override = None;
+        signing_options.payload_override = Some(::aws_sigv4::http_request::SignableBody::Bytes(&[]));
 
         cfg.store_put(::aws_runtime::auth::SigV4OperationSigningConfig {
             signing_options,
@@ -11528,7 +11527,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeMod
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -12356,7 +12354,6 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeMod
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
