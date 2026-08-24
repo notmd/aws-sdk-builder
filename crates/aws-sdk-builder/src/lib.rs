@@ -9,7 +9,7 @@ pub mod registry;
 
 pub use config::{Builder, OperationNames};
 pub use error::BuildError;
-pub use registry::{IntegrationTestAsset, ServiceMetadata, ServiceSource};
+pub use registry::{ServiceMetadata, ServiceSource};
 
 #[derive(Debug, Clone)]
 pub struct CompileReport {
@@ -38,7 +38,7 @@ pub fn compile<O: OperationNames>(
     compile_source(ServiceSource::new(metadata, model), operations)
 }
 
-/// Compiles a service source with optional conformance-only fixtures.
+/// Compiles a service source.
 pub fn compile_source<O: OperationNames>(
     source: ServiceSource,
     operations: O,

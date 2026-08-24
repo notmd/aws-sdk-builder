@@ -14461,9 +14461,11 @@ fn render_error_impls(
     let message_name = error_message_member(shape)
         .map(|(name, _)| names::rust_identifier(&name))
         .unwrap_or_else(|| "message".to_owned());
-    let display_name = (rust_name != terminal(name))
-        .then(|| format!("{rust_name} [{}]", terminal(name)))
-        .unwrap_or_else(|| rust_name.clone());
+    let display_name = if rust_name != terminal(name) {
+        format!("{rust_name} [{}]", terminal(name))
+    } else {
+        rust_name.clone()
+    };
 
     writeln!(output, "impl ::std::fmt::Display for {rust_name} {{").unwrap();
     writeln!(

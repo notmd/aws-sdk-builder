@@ -8,28 +8,15 @@ pub struct ServiceMetadata {
     pub sdk_version: Option<&'static str>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct IntegrationTestAsset {
-    pub path: &'static str,
-    pub bytes: &'static [u8],
-}
-
 #[derive(Debug, Clone, Copy)]
 pub struct ServiceSource {
     pub metadata: ServiceMetadata,
     pub model: &'static [u8],
-    pub protocol_tests: Option<&'static [u8]>,
-    pub integration_tests: &'static [IntegrationTestAsset],
 }
 
 impl ServiceSource {
     pub const fn new(metadata: ServiceMetadata, model: &'static [u8]) -> Self {
-        Self {
-            metadata,
-            model,
-            protocol_tests: None,
-            integration_tests: &[],
-        }
+        Self { metadata, model }
     }
 }
 

@@ -13,7 +13,6 @@ pub(crate) struct Model {
     pub(crate) service_shape_id: String,
     pub(crate) root: Value,
     pub(crate) shapes: BTreeMap<String, Value>,
-    pub(crate) protocol_tests: Vec<Value>,
 }
 
 #[derive(Debug, Clone)]
@@ -27,7 +26,6 @@ pub(crate) struct SelectedModel {
     /// intentionally kept separate because callers may request operations in a
     /// different order.
     pub(crate) operation_order: Vec<String>,
-    pub(crate) protocol_tests: Vec<Value>,
 }
 
 /// Protocols understood by the generated client layer.
@@ -103,23 +101,11 @@ impl Model {
                 });
             }
         };
-        let protocol_tests = source
-            .protocol_tests
-            .map(serde_json::from_slice::<Value>)
-            .transpose()
-            .map_err(|source| BuildError::ModelParse {
-                model: format!("{} protocol tests", entry.filename),
-                source,
-            })?
-            .and_then(|value| value.get("tests").cloned())
-            .and_then(|value| value.as_array().cloned())
-            .unwrap_or_default();
         Ok(Self {
             entry,
             service_shape_id,
             root,
             shapes,
-            protocol_tests,
         })
     }
 
@@ -221,37 +207,6 @@ impl Model {
             &self.service_shape_id,
             self.entry.filename,
         )?;
-        let selected_protocol_tests = self
-            .protocol_tests
-            .iter()
-            .filter(|test| {
-                test.get("operation")
-                    .and_then(Value::as_str)
-                    .is_none_or(|operation| {
-                        selected_ids
-                            .iter()
-                            .any(|selected| terminal_name(selected) == operation)
-                    })
-                    || test
-                        .get("shape")
-                        .and_then(Value::as_str)
-                        .is_some_and(|shape| {
-                            selected_ids.iter().any(|operation_id| {
-                                shapes
-                                    .get(operation_id)
-                                    .and_then(|operation| operation.get("errors"))
-                                    .and_then(Value::as_array)
-                                    .is_some_and(|errors| {
-                                        errors
-                                            .iter()
-                                            .filter_map(member_target)
-                                            .any(|error| error == shape)
-                                    })
-                            })
-                        })
-            })
-            .cloned()
-            .collect();
         let mut root = self.root.clone();
         root["shapes"] = Value::Object(shapes);
         let selected_shape_map = root_shape_map(&root);
@@ -265,11 +220,9 @@ impl Model {
                 service_shape_id: self.service_shape_id.clone(),
                 root,
                 shapes: selected_shape_map,
-                protocol_tests: self.protocol_tests.clone(),
             },
             operations,
             operation_order,
-            protocol_tests: selected_protocol_tests,
         })
     }
 
