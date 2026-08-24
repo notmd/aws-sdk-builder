@@ -104,7 +104,7 @@ impl DescribeManagedLoginBrandingByClientInputBuilder {
             super::super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput {
                 user_pool_id: self.user_pool_id,
                 client_id: self.client_id,
-                return_merged_resources: self.return_merged_resources.unwrap_or_default(),
+                return_merged_resources: self.return_merged_resources,
             },
         )
     }

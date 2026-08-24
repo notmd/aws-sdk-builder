@@ -116,7 +116,7 @@ impl GetOrganizationConformancePackDetailedStatusInputBuilder {
             super::super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusInput {
                 organization_conformance_pack_name: self.organization_conformance_pack_name,
                 filters: self.filters,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

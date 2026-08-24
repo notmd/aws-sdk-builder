@@ -503,7 +503,7 @@ impl AdminCreateUserInputBuilder {
             user_attributes: self.user_attributes,
             validation_data: self.validation_data,
             temporary_password: self.temporary_password,
-            force_alias_creation: self.force_alias_creation.unwrap_or_default(),
+            force_alias_creation: self.force_alias_creation,
             message_action: self.message_action,
             desired_delivery_mediums: self.desired_delivery_mediums,
             client_metadata: self.client_metadata,

@@ -73,7 +73,7 @@ impl GetLogRecordInputBuilder {
     ) -> ::std::result::Result<super::super::super::operation::get_log_record::GetLogRecordInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_record::GetLogRecordInput {
             log_record_pointer: self.log_record_pointer,
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
         })
     }
 }

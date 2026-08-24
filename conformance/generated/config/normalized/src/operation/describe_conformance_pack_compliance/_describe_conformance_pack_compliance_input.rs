@@ -115,7 +115,7 @@ impl DescribeConformancePackComplianceInputBuilder {
             super::super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput {
                 conformance_pack_name: self.conformance_pack_name,
                 filters: self.filters,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

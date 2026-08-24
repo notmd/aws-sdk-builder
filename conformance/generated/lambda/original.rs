@@ -8682,7 +8682,7 @@ impl AddLayerVersionPermissionInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
             statement_id: self.statement_id,
             action: self.action,
             principal: self.principal,
@@ -17481,7 +17481,7 @@ impl CreateFunctionInputBuilder {
             description: self.description,
             timeout: self.timeout,
             memory_size: self.memory_size,
-            publish: self.publish.unwrap_or_default(),
+            publish: self.publish,
             publish_to: self.publish_to,
             vpc_config: self.vpc_config,
             package_type: self.package_type,
@@ -27799,7 +27799,7 @@ impl DeleteLayerVersionInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_layer_version::DeleteLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_layer_version::DeleteLayerVersionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
         })
     }
 }
@@ -32839,7 +32839,7 @@ impl GetDurableExecutionInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_durable_execution::GetDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution::GetDurableExecutionInput {
             durable_execution_arn: self.durable_execution_arn,
-            include_execution_data: self.include_execution_data.unwrap_or_default(),
+            include_execution_data: self.include_execution_data,
         })
     }
 }
@@ -33920,7 +33920,7 @@ impl GetDurableExecutionHistoryInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
             durable_execution_arn: self.durable_execution_arn,
             include_execution_data: self.include_execution_data,
-            max_items: self.max_items.unwrap_or_default(),
+            max_items: self.max_items,
             marker: self.marker,
             reverse_order: self.reverse_order,
         })
@@ -34952,7 +34952,7 @@ impl GetDurableExecutionStateInputBuilder {
             durable_execution_arn: self.durable_execution_arn,
             checkpoint_token: self.checkpoint_token,
             marker: self.marker,
-            max_items: self.max_items.unwrap_or_default(),
+            max_items: self.max_items,
         })
     }
 }
@@ -44483,7 +44483,7 @@ impl GetLayerVersionInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_layer_version::GetLayerVersionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
         })
     }
 }
@@ -46196,7 +46196,7 @@ impl GetLayerVersionPolicyInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
         })
     }
 }
@@ -57282,7 +57282,7 @@ impl ListDurableExecutionsByFunctionInputBuilder {
             started_before: self.started_before,
             reverse_order: self.reverse_order,
             marker: self.marker,
-            max_items: self.max_items.unwrap_or_default(),
+            max_items: self.max_items,
         })
     }
 }
@@ -79114,7 +79114,7 @@ impl RemoveLayerVersionPermissionInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
             statement_id: self.statement_id,
             revision_id: self.revision_id,
         })
@@ -90301,9 +90301,9 @@ impl UpdateFunctionCodeInputBuilder {
             s3_object_storage_mode: self.s3_object_storage_mode,
             image_uri: self.image_uri,
             architectures: self.architectures,
-            publish: self.publish.unwrap_or_default(),
+            publish: self.publish,
             publish_to: self.publish_to,
-            dry_run: self.dry_run.unwrap_or_default(),
+            dry_run: self.dry_run,
             revision_id: self.revision_id,
             source_kms_key_arn: self.source_kms_key_arn,
         })

@@ -70,7 +70,7 @@ impl GetLayerVersionPolicyInputBuilder {
     {
         ::std::result::Result::Ok(super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
         })
     }
 }

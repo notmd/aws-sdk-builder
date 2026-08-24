@@ -35931,7 +35931,7 @@ impl ListContributorInsightsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::list_contributor_insights::ListContributorInsightsInput {
             table_name: self.table_name,
             next_token: self.next_token,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
         })
     }
 }
@@ -42867,7 +42867,7 @@ impl PutResourcePolicyInputBuilder {
             resource_arn: self.resource_arn,
             policy: self.policy,
             expected_revision_id: self.expected_revision_id,
-            confirm_remove_self_resource_access: self.confirm_remove_self_resource_access.unwrap_or_default(),
+            confirm_remove_self_resource_access: self.confirm_remove_self_resource_access,
         })
     }
 }

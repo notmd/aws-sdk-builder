@@ -109,7 +109,7 @@ impl PutEvaluationsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::put_evaluations::PutEvaluationsInput {
             evaluations: self.evaluations,
             result_token: self.result_token,
-            test_mode: self.test_mode.unwrap_or_default(),
+            test_mode: self.test_mode,
         })
     }
 }

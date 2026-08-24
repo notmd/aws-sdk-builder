@@ -1,8 +1,29 @@
 # aws-sdk-builder status and audit
 
-Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpoint
+Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpoint
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
+
+### Checkpoint: 2026-08-25 — Preserve optional defaulted operation inputs
+- State: in progress
+- Changed: operation-input builders now preserve members carrying
+  `smithy.api#default` as `Option<T>` when constructing the input. This follows
+  Smithy-RS `BuilderGenerator`: modeled defaults are applied only when the generated
+  member symbol is non-optional, while operation-input symbols remain optional. A
+  focused regression covers a defaulted boolean input member.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,345`
+  matched, `818` mismatched, `4` missing, and `1` extra (`91.93%` average match).
+  This is `+92` exact files and `-92` mismatches from the `12,253/910` checkpoint;
+  Config improved from `1,179/83` to `1,219/43`, Lambda from `940/136` to
+  `951/125`, and SESv2 from `1,060/98` to `1,069/89`. Generation and snapshot
+  parsing completed without generated-source parse errors. The command exits 1
+  only because broader parity gaps remain.
+- Verification: focused defaulted-input test, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: continue with the generic HTTP query binding serializer mismatch,
+  including collection and member-level timestamp handling.
 
 ### Checkpoint: 2026-08-25 — Fix generated event-stream Rust symbols and duplicate request IDs
 - State: in progress

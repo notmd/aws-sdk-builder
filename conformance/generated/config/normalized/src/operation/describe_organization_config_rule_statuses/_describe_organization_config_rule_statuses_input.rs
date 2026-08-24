@@ -100,7 +100,7 @@ impl DescribeOrganizationConfigRuleStatusesInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput {
                 organization_config_rule_names: self.organization_config_rule_names,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

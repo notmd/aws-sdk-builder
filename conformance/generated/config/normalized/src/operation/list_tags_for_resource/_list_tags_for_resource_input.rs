@@ -190,7 +190,7 @@ impl ListTagsForResourceInputBuilder {
     {
         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
             resource_arn: self.resource_arn,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

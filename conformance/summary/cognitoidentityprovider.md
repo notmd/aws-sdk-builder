@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1313` matched · `48` mismatches · `0` missing · `0` extra · `96.47%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1321` matched · `40` mismatches · `0` missing · `0` extra · `97.06%` match (100.00% means fully matched)
 
 ### `src/client/add_custom_attributes.rs`
 
@@ -202,70 +202,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub use client::Client;
 ```
 
-### `src/operation/admin_create_user/_admin_create_user_input.rs`
-
-```diff
---- reference/src/operation/admin_create_user/_admin_create_user_input.rs
-+++ generated/src/operation/admin_create_user/_admin_create_user_input.rs
-@@ -503,7 +503,7 @@
-             user_attributes: self.user_attributes,
-             validation_data: self.validation_data,
-             temporary_password: self.temporary_password,
--            force_alias_creation: self.force_alias_creation,
-+            force_alias_creation: self.force_alias_creation.unwrap_or_default(),
-             message_action: self.message_action,
-             desired_delivery_mediums: self.desired_delivery_mediums,
-             client_metadata: self.client_metadata,
-```
-
-### `src/operation/admin_set_user_password/_admin_set_user_password_input.rs`
-
-```diff
---- reference/src/operation/admin_set_user_password/_admin_set_user_password_input.rs
-+++ generated/src/operation/admin_set_user_password/_admin_set_user_password_input.rs
-@@ -125,7 +125,7 @@
-             user_pool_id: self.user_pool_id,
-             username: self.username,
-             password: self.password,
--            permanent: self.permanent,
-+            permanent: self.permanent.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/confirm_sign_up/_confirm_sign_up_input.rs`
-
-```diff
---- reference/src/operation/confirm_sign_up/_confirm_sign_up_input.rs
-+++ generated/src/operation/confirm_sign_up/_confirm_sign_up_input.rs
-@@ -329,7 +329,7 @@
-             secret_hash: self.secret_hash,
-             username: self.username,
-             confirmation_code: self.confirmation_code,
--            force_alias_creation: self.force_alias_creation,
-+            force_alias_creation: self.force_alias_creation.unwrap_or_default(),
-             analytics_metadata: self.analytics_metadata,
-             user_context_data: self.user_context_data,
-             client_metadata: self.client_metadata,
-```
-
-### `src/operation/create_managed_login_branding/_create_managed_login_branding_input.rs`
-
-```diff
---- reference/src/operation/create_managed_login_branding/_create_managed_login_branding_input.rs
-+++ generated/src/operation/create_managed_login_branding/_create_managed_login_branding_input.rs
-@@ -215,7 +215,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
-             user_pool_id: self.user_pool_id,
-             client_id: self.client_id,
--            use_cognito_provided_values: self.use_cognito_provided_values,
-+            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
-             settings: self.settings,
-             assets: self.assets,
-         })
-```
-
 ### `src/operation/create_user_pool_client/_create_user_pool_client_input.rs`
 
 ```diff
@@ -404,19 +340,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
      pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-@@ -1026,9 +1026,9 @@
-         ::std::result::Result::Ok(super::super::super::operation::create_user_pool_client::CreateUserPoolClientInput {
-             user_pool_id: self.user_pool_id,
-             client_name: self.client_name,
--            generate_secret: self.generate_secret,
-+            generate_secret: self.generate_secret.unwrap_or_default(),
-             client_secret: self.client_secret,
--            refresh_token_validity: self.refresh_token_validity,
-+            refresh_token_validity: self.refresh_token_validity.unwrap_or_default(),
-             access_token_validity: self.access_token_validity,
-             id_token_validity: self.id_token_validity,
-             token_validity_units: self.token_validity_units,
-@@ -1036,12 +1036,12 @@
+@@ -1036,8 +1036,8 @@
              write_attributes: self.write_attributes,
              explicit_auth_flows: self.explicit_auth_flows,
              supported_identity_providers: self.supported_identity_providers,
@@ -427,11 +351,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              default_redirect_uri: self.default_redirect_uri,
              allowed_o_auth_flows: self.allowed_o_auth_flows,
              allowed_o_auth_scopes: self.allowed_o_auth_scopes,
--            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client,
-+            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client.unwrap_or_default(),
-             analytics_configuration: self.analytics_configuration,
-             prevent_user_existence_errors: self.prevent_user_existence_errors,
-             enable_token_revocation: self.enable_token_revocation,
 @@ -1066,8 +1066,8 @@
          formatter.field("write_attributes", &self.write_attributes);
          formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
@@ -518,70 +437,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
      pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-```
-
-### `src/operation/describe_managed_login_branding/_describe_managed_login_branding_input.rs`
-
-```diff
---- reference/src/operation/describe_managed_login_branding/_describe_managed_login_branding_input.rs
-+++ generated/src/operation/describe_managed_login_branding/_describe_managed_login_branding_input.rs
-@@ -94,7 +94,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput {
-             user_pool_id: self.user_pool_id,
-             managed_login_branding_id: self.managed_login_branding_id,
--            return_merged_resources: self.return_merged_resources,
-+            return_merged_resources: self.return_merged_resources.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/describe_managed_login_branding_by_client/_describe_managed_login_branding_by_client_input.rs`
-
-```diff
---- reference/src/operation/describe_managed_login_branding_by_client/_describe_managed_login_branding_by_client_input.rs
-+++ generated/src/operation/describe_managed_login_branding_by_client/_describe_managed_login_branding_by_client_input.rs
-@@ -104,7 +104,7 @@
-             super::super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput {
-                 user_pool_id: self.user_pool_id,
-                 client_id: self.client_id,
--                return_merged_resources: self.return_merged_resources,
-+                return_merged_resources: self.return_merged_resources.unwrap_or_default(),
-             },
-         )
-     }
-```
-
-### `src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs`
-
-```diff
---- reference/src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs
-+++ generated/src/operation/update_managed_login_branding/_update_managed_login_branding_input.rs
-@@ -202,7 +202,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
-             user_pool_id: self.user_pool_id,
-             managed_login_branding_id: self.managed_login_branding_id,
--            use_cognito_provided_values: self.use_cognito_provided_values,
-+            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
-             settings: self.settings,
-             assets: self.assets,
-         })
-```
-
-### `src/operation/update_provisioned_limit/_update_provisioned_limit_input.rs`
-
-```diff
---- reference/src/operation/update_provisioned_limit/_update_provisioned_limit_input.rs
-+++ generated/src/operation/update_provisioned_limit/_update_provisioned_limit_input.rs
-@@ -72,7 +72,7 @@
-     > {
-         ::std::result::Result::Ok(super::super::super::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
-             limit_definition: self.limit_definition,
--            requested_limit_value: self.requested_limit_value,
-+            requested_limit_value: self.requested_limit_value.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/operation/update_user_pool_client/_update_user_pool_client_input.rs`
@@ -722,16 +577,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
      pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-@@ -1000,7 +1000,7 @@
-             user_pool_id: self.user_pool_id,
-             client_id: self.client_id,
-             client_name: self.client_name,
--            refresh_token_validity: self.refresh_token_validity,
-+            refresh_token_validity: self.refresh_token_validity.unwrap_or_default(),
-             access_token_validity: self.access_token_validity,
-             id_token_validity: self.id_token_validity,
-             token_validity_units: self.token_validity_units,
-@@ -1008,12 +1008,12 @@
+@@ -1008,8 +1008,8 @@
              write_attributes: self.write_attributes,
              explicit_auth_flows: self.explicit_auth_flows,
              supported_identity_providers: self.supported_identity_providers,
@@ -742,11 +588,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              default_redirect_uri: self.default_redirect_uri,
              allowed_o_auth_flows: self.allowed_o_auth_flows,
              allowed_o_auth_scopes: self.allowed_o_auth_scopes,
--            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client,
-+            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client.unwrap_or_default(),
-             analytics_configuration: self.analytics_configuration,
-             prevent_user_existence_errors: self.prevent_user_existence_errors,
-             enable_token_revocation: self.enable_token_revocation,
 @@ -1037,8 +1037,8 @@
          formatter.field("write_attributes", &self.write_attributes);
          formatter.field("explicit_auth_flows", &self.explicit_auth_flows);

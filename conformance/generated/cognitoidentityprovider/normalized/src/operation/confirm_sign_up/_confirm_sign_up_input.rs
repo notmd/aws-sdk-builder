@@ -329,7 +329,7 @@ impl ConfirmSignUpInputBuilder {
             secret_hash: self.secret_hash,
             username: self.username,
             confirmation_code: self.confirmation_code,
-            force_alias_creation: self.force_alias_creation.unwrap_or_default(),
+            force_alias_creation: self.force_alias_creation,
             analytics_metadata: self.analytics_metadata,
             user_context_data: self.user_context_data,
             client_metadata: self.client_metadata,

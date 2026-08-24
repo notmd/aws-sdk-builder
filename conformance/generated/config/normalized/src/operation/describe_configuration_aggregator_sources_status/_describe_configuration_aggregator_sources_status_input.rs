@@ -165,7 +165,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
                 configuration_aggregator_name: self.configuration_aggregator_name,
                 update_status: self.update_status,
                 next_token: self.next_token,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
             },
         )
     }

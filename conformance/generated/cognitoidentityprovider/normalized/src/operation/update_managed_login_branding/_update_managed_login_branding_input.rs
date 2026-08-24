@@ -202,7 +202,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
             user_pool_id: self.user_pool_id,
             managed_login_branding_id: self.managed_login_branding_id,
-            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
+            use_cognito_provided_values: self.use_cognito_provided_values,
             settings: self.settings,
             assets: self.assets,
         })

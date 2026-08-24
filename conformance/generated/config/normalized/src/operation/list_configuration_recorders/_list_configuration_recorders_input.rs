@@ -99,7 +99,7 @@ impl ListConfigurationRecordersInputBuilder {
     > {
         ::std::result::Result::Ok(super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersInput {
             filters: self.filters,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
             next_token: self.next_token,
         })
     }

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `431` matched · `14` mismatches · `0` missing · `0` extra · `96.85%` match (100.00% means fully matched)
+**Progress:** `445/445` files compared · `432` matched · `13` mismatches · `0` missing · `0` extra · `97.08%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -261,22 +261,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p>
      /// <p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p>
      /// <p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p>
-```
-
-### `src/operation/subscribe/_subscribe_input.rs`
-
-```diff
---- reference/src/operation/subscribe/_subscribe_input.rs
-+++ generated/src/operation/subscribe/_subscribe_input.rs
-@@ -595,7 +595,7 @@
-             protocol: self.protocol,
-             endpoint: self.endpoint,
-             attributes: self.attributes,
--            return_subscription_arn: self.return_subscription_arn,
-+            return_subscription_arn: self.return_subscription_arn.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/protocol_serde/shape_get_sms_sandbox_account_status.rs`

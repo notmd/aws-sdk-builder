@@ -10840,7 +10840,7 @@ impl InvokeModelInputBuilder {
             trace: self.trace,
             guardrail_identifier: self.guardrail_identifier,
             guardrail_version: self.guardrail_version,
-            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
+            performance_config_latency: self.performance_config_latency,
             service_tier: self.service_tier,
             request_metadata: self.request_metadata,
         })
@@ -12997,7 +12997,7 @@ impl InvokeModelWithResponseStreamInputBuilder {
             trace: self.trace,
             guardrail_identifier: self.guardrail_identifier,
             guardrail_version: self.guardrail_version,
-            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
+            performance_config_latency: self.performance_config_latency,
             service_tier: self.service_tier,
             request_metadata: self.request_metadata,
         })
@@ -14075,8 +14075,8 @@ impl ListAsyncInvokesInputBuilder {
             status_equals: self.status_equals,
             max_results: self.max_results,
             next_token: self.next_token,
-            sort_by: self.sort_by.unwrap_or_default(),
-            sort_order: self.sort_order.unwrap_or_default(),
+            sort_by: self.sort_by,
+            sort_order: self.sort_order,
         })
     }
 }

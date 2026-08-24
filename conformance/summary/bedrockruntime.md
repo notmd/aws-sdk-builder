@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `339` matched · `197` mismatches · `0` missing · `0` extra · `63.25%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `342` matched · `194` mismatches · `0` missing · `0` extra · `63.81%` match (100.00% means fully matched)
 
 ### `src/client/converse.rs`
 
@@ -490,22 +490,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/invoke_model/_invoke_model_input.rs`
-
-```diff
---- reference/src/operation/invoke_model/_invoke_model_input.rs
-+++ generated/src/operation/invoke_model/_invoke_model_input.rs
-@@ -366,7 +366,7 @@
-             trace: self.trace,
-             guardrail_identifier: self.guardrail_identifier,
-             guardrail_version: self.guardrail_version,
--            performance_config_latency: self.performance_config_latency,
-+            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
-             service_tier: self.service_tier,
-             request_metadata: self.request_metadata,
-         })
-```
-
 ### `src/operation/invoke_model_with_bidirectional_stream/_invoke_model_with_bidirectional_stream_input.rs`
 
 ```diff
@@ -687,22 +671,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          // If this is an error, defer to the non-streaming parser
 ```
 
-### `src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs`
-
-```diff
---- reference/src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs
-+++ generated/src/operation/invoke_model_with_response_stream/_invoke_model_with_response_stream_input.rs
-@@ -371,7 +371,7 @@
-             trace: self.trace,
-             guardrail_identifier: self.guardrail_identifier,
-             guardrail_version: self.guardrail_version,
--            performance_config_latency: self.performance_config_latency,
-+            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
-             service_tier: self.service_tier,
-             request_metadata: self.request_metadata,
-         })
-```
-
 ### `src/operation/invoke_model_with_response_stream.rs`
 
 ```diff
@@ -716,24 +684,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
          // If this is an error, defer to the non-streaming parser
-```
-
-### `src/operation/list_async_invokes/_list_async_invokes_input.rs`
-
-```diff
---- reference/src/operation/list_async_invokes/_list_async_invokes_input.rs
-+++ generated/src/operation/list_async_invokes/_list_async_invokes_input.rs
-@@ -176,8 +176,8 @@
-             status_equals: self.status_equals,
-             max_results: self.max_results,
-             next_token: self.next_token,
--            sort_by: self.sort_by,
--            sort_order: self.sort_order,
-+            sort_by: self.sort_by.unwrap_or_default(),
-+            sort_order: self.sort_order.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/operation/list_async_invokes.rs`

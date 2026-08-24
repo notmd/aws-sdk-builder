@@ -116,7 +116,7 @@ impl GetOrganizationConfigRuleDetailedStatusInputBuilder {
             super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput {
                 organization_config_rule_name: self.organization_config_rule_name,
                 filters: self.filters,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

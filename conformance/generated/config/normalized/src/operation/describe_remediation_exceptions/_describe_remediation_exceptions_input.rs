@@ -122,7 +122,7 @@ impl DescribeRemediationExceptionsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
             config_rule_name: self.config_rule_name,
             resource_keys: self.resource_keys,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

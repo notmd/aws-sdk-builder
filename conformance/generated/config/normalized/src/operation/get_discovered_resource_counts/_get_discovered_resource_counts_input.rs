@@ -114,7 +114,7 @@ impl GetDiscoveredResourceCountsInputBuilder {
     > {
         ::std::result::Result::Ok(super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
             resource_types: self.resource_types,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

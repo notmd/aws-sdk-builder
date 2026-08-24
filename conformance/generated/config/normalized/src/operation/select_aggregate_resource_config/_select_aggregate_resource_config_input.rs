@@ -136,8 +136,8 @@ impl SelectAggregateResourceConfigInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
             expression: self.expression,
             configuration_aggregator_name: self.configuration_aggregator_name,
-            limit: self.limit.unwrap_or_default(),
-            max_results: self.max_results.unwrap_or_default(),
+            limit: self.limit,
+            max_results: self.max_results,
             next_token: self.next_token,
         })
     }

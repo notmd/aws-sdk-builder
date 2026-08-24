@@ -94,7 +94,7 @@ impl DescribeManagedLoginBrandingInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput {
             user_pool_id: self.user_pool_id,
             managed_login_branding_id: self.managed_login_branding_id,
-            return_merged_resources: self.return_merged_resources.unwrap_or_default(),
+            return_merged_resources: self.return_merged_resources,
         })
     }
 }

@@ -73,7 +73,7 @@ impl PutConfigurationSetReputationOptionsInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput {
                 configuration_set_name: self.configuration_set_name,
-                reputation_metrics_enabled: self.reputation_metrics_enabled.unwrap_or_default(),
+                reputation_metrics_enabled: self.reputation_metrics_enabled,
             },
         )
     }

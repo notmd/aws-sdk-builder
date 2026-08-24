@@ -138,7 +138,7 @@ impl ListAggregateDiscoveredResourcesInputBuilder {
                 configuration_aggregator_name: self.configuration_aggregator_name,
                 resource_type: self.resource_type,
                 filters: self.filters,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

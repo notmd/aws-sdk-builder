@@ -176,8 +176,8 @@ impl ListAsyncInvokesInputBuilder {
             status_equals: self.status_equals,
             max_results: self.max_results,
             next_token: self.next_token,
-            sort_by: self.sort_by.unwrap_or_default(),
-            sort_order: self.sort_order.unwrap_or_default(),
+            sort_by: self.sort_by,
+            sort_order: self.sort_order,
         })
     }
 }

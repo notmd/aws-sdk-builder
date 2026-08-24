@@ -68,7 +68,7 @@ impl GetLogObjectInputBuilder {
         self,
     ) -> ::std::result::Result<super::super::super::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_object::GetLogObjectInput {
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
             log_object_pointer: self.log_object_pointer,
         })
     }

@@ -70,7 +70,7 @@ impl DescribePendingAggregationRequestsInputBuilder {
     > {
         ::std::result::Result::Ok(
             super::super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

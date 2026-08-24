@@ -81,7 +81,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
     > {
         ::std::result::Result::Ok(
             super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput {
-                dashboard_enabled: self.dashboard_enabled.unwrap_or_default(),
+                dashboard_enabled: self.dashboard_enabled,
                 subscribed_domains: self.subscribed_domains,
             },
         )

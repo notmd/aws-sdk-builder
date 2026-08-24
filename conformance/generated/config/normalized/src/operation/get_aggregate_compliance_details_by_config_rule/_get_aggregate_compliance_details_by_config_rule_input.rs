@@ -195,7 +195,7 @@ impl GetAggregateComplianceDetailsByConfigRuleInputBuilder {
                 account_id: self.account_id,
                 aws_region: self.aws_region,
                 compliance_type: self.compliance_type,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

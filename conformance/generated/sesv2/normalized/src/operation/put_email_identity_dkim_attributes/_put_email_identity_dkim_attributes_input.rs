@@ -78,7 +78,7 @@ impl PutEmailIdentityDkimAttributesInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput {
                 email_identity: self.email_identity,
-                signing_enabled: self.signing_enabled.unwrap_or_default(),
+                signing_enabled: self.signing_enabled,
             },
         )
     }

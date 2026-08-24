@@ -73,7 +73,7 @@ impl PutConfigurationSetSendingOptionsInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput {
                 configuration_set_name: self.configuration_set_name,
-                sending_enabled: self.sending_enabled.unwrap_or_default(),
+                sending_enabled: self.sending_enabled,
             },
         )
     }

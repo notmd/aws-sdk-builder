@@ -22586,7 +22586,7 @@ impl DescribeAggregateComplianceByConfigRulesInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesInput {
             configuration_aggregator_name: self.configuration_aggregator_name,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -23532,7 +23532,7 @@ impl DescribeAggregateComplianceByConformancePacksInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksInput {
             configuration_aggregator_name: self.configuration_aggregator_name,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -24432,7 +24432,7 @@ impl DescribeAggregationAuthorizationsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeAggregationAuthorizationsInput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput {
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -26293,7 +26293,7 @@ impl DescribeComplianceByResourceInputBuilder {
             resource_type: self.resource_type,
             resource_id: self.resource_id,
             compliance_types: self.compliance_types,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -27258,7 +27258,7 @@ impl DescribeConfigRuleEvaluationStatusInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput {
             config_rule_names: self.config_rule_names,
             next_token: self.next_token,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
         })
     }
 }
@@ -29160,7 +29160,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
             configuration_aggregator_name: self.configuration_aggregator_name,
             update_status: self.update_status,
             next_token: self.next_token,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
         })
     }
 }
@@ -30122,7 +30122,7 @@ impl DescribeConfigurationAggregatorsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput {
             configuration_aggregator_names: self.configuration_aggregator_names,
             next_token: self.next_token,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
         })
     }
 }
@@ -32649,7 +32649,7 @@ impl DescribeConformancePackComplianceInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput {
             conformance_pack_name: self.conformance_pack_name,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -33595,7 +33595,7 @@ impl DescribeConformancePackStatusInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput {
             conformance_pack_names: self.conformance_pack_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -34521,7 +34521,7 @@ impl DescribeConformancePacksInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_conformance_packs::DescribeConformancePacksInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_conformance_packs::DescribeConformancePacksInput {
             conformance_pack_names: self.conformance_pack_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -36694,7 +36694,7 @@ impl DescribeOrganizationConfigRuleStatusesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput {
             organization_config_rule_names: self.organization_config_rule_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -37632,7 +37632,7 @@ impl DescribeOrganizationConfigRulesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesInput {
             organization_config_rule_names: self.organization_config_rule_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -38573,7 +38573,7 @@ impl DescribeOrganizationConformancePackStatusesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesInput {
             organization_conformance_pack_names: self.organization_conformance_pack_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -39512,7 +39512,7 @@ impl DescribeOrganizationConformancePacksInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksInput {
             organization_conformance_pack_names: self.organization_conformance_pack_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -40406,7 +40406,7 @@ impl DescribePendingAggregationRequestsInputBuilder {
     /// Consumes the builder and constructs a [`DescribePendingAggregationRequestsInput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput {
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -41919,7 +41919,7 @@ impl DescribeRemediationExceptionsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsInput {
             config_rule_name: self.config_rule_name,
             resource_keys: self.resource_keys,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -42838,7 +42838,7 @@ impl DescribeRemediationExecutionStatusInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput {
             config_rule_name: self.config_rule_name,
             resource_keys: self.resource_keys,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -45551,7 +45551,7 @@ impl GetAggregateComplianceDetailsByConfigRuleInputBuilder {
             account_id: self.account_id,
             aws_region: self.aws_region,
             compliance_type: self.compliance_type,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -46598,7 +46598,7 @@ impl GetAggregateConfigRuleComplianceSummaryInputBuilder {
             configuration_aggregator_name: self.configuration_aggregator_name,
             filters: self.filters,
             group_by_key: self.group_by_key,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -47592,7 +47592,7 @@ impl GetAggregateConformancePackComplianceSummaryInputBuilder {
             configuration_aggregator_name: self.configuration_aggregator_name,
             filters: self.filters,
             group_by_key: self.group_by_key,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -48586,7 +48586,7 @@ impl GetAggregateDiscoveredResourceCountsInputBuilder {
             configuration_aggregator_name: self.configuration_aggregator_name,
             filters: self.filters,
             group_by_key: self.group_by_key,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -50287,7 +50287,7 @@ impl GetComplianceDetailsByConfigRuleInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleInput {
             config_rule_name: self.config_rule_name,
             compliance_types: self.compliance_types,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -53408,7 +53408,7 @@ impl GetConformancePackComplianceDetailsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsInput {
             conformance_pack_name: self.conformance_pack_name,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -54316,7 +54316,7 @@ impl GetConformancePackComplianceSummaryInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput {
             conformance_pack_names: self.conformance_pack_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -56597,7 +56597,7 @@ impl GetDiscoveredResourceCountsInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
             resource_types: self.resource_types,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -57609,7 +57609,7 @@ impl GetOrganizationConfigRuleDetailedStatusInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput {
             organization_config_rule_name: self.organization_config_rule_name,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -58569,7 +58569,7 @@ impl GetOrganizationConformancePackDetailedStatusInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusInput {
             organization_conformance_pack_name: self.organization_conformance_pack_name,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -60282,7 +60282,7 @@ impl GetResourceConfigHistoryInputBuilder {
             later_time: self.later_time,
             earlier_time: self.earlier_time,
             chronological_order: self.chronological_order,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -62757,7 +62757,7 @@ impl ListAggregateDiscoveredResourcesInputBuilder {
             configuration_aggregator_name: self.configuration_aggregator_name,
             resource_type: self.resource_type,
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -63707,7 +63707,7 @@ impl ListConfigurationRecordersInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersInput {
             filters: self.filters,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
             next_token: self.next_token,
         })
     }
@@ -64663,7 +64663,7 @@ impl ListConformancePackComplianceScoresInputBuilder {
             filters: self.filters,
             sort_order: self.sort_order,
             sort_by: self.sort_by,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -65587,7 +65587,7 @@ impl ListConnectorsInputBuilder {
     /// Consumes the builder and constructs a [`ListConnectorsInput`](crate::operation::list_connectors::ListConnectorsInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_connectors::ListConnectorsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_connectors::ListConnectorsInput {
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
             next_token: self.next_token,
             filters: self.filters,
         })
@@ -66602,8 +66602,8 @@ impl ListDiscoveredResourcesInputBuilder {
             resource_type: self.resource_type,
             resource_ids: self.resource_ids,
             resource_name: self.resource_name,
-            limit: self.limit.unwrap_or_default(),
-            include_deleted_resources: self.include_deleted_resources.unwrap_or_default(),
+            limit: self.limit,
+            include_deleted_resources: self.include_deleted_resources,
             next_token: self.next_token,
         })
     }
@@ -67573,7 +67573,7 @@ impl ListResourceEvaluationsInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_resource_evaluations::ListResourceEvaluationsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_resource_evaluations::ListResourceEvaluationsInput {
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -68480,7 +68480,7 @@ impl ListStoredQueriesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_stored_queries::ListStoredQueriesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_stored_queries::ListStoredQueriesInput {
             next_token: self.next_token,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
         })
     }
 }
@@ -69478,7 +69478,7 @@ impl ListTagsForResourceInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
             resource_arn: self.resource_arn,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -75936,7 +75936,7 @@ impl PutEvaluationsInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::put_evaluations::PutEvaluationsInput {
             evaluations: self.evaluations,
             result_token: self.result_token,
-            test_mode: self.test_mode.unwrap_or_default(),
+            test_mode: self.test_mode,
         })
     }
 }
@@ -84910,8 +84910,8 @@ impl SelectAggregateResourceConfigInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
             expression: self.expression,
             configuration_aggregator_name: self.configuration_aggregator_name,
-            limit: self.limit.unwrap_or_default(),
-            max_results: self.max_results.unwrap_or_default(),
+            limit: self.limit,
+            max_results: self.max_results,
             next_token: self.next_token,
         })
     }
@@ -85867,7 +85867,7 @@ impl SelectResourceConfigInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::select_resource_config::SelectResourceConfigInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::select_resource_config::SelectResourceConfigInput {
             expression: self.expression,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }
@@ -88881,7 +88881,7 @@ impl StartResourceEvaluationInputBuilder {
             resource_details: self.resource_details,
             evaluation_context: self.evaluation_context,
             evaluation_mode: self.evaluation_mode,
-            evaluation_timeout: self.evaluation_timeout.unwrap_or_default(),
+            evaluation_timeout: self.evaluation_timeout,
             client_token: self.client_token,
         })
     }

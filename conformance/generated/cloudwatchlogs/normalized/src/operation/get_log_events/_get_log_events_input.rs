@@ -262,7 +262,7 @@ impl GetLogEventsInputBuilder {
             next_token: self.next_token,
             limit: self.limit,
             start_from_head: self.start_from_head,
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
         })
     }
 }

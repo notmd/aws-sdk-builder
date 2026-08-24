@@ -69,7 +69,7 @@ impl GetDurableExecutionInputBuilder {
     {
         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution::GetDurableExecutionInput {
             durable_execution_arn: self.durable_execution_arn,
-            include_execution_data: self.include_execution_data.unwrap_or_default(),
+            include_execution_data: self.include_execution_data,
         })
     }
 }

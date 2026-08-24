@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1060` matched · `98` mismatches · `1` missing · `0` extra · `91.46%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1069` matched · `89` mismatches · `1` missing · `0` extra · `92.23%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -161,22 +161,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod lens;
 ```
 
-### `src/operation/create_contact/_create_contact_input.rs`
-
-```diff
---- reference/src/operation/create_contact/_create_contact_input.rs
-+++ generated/src/operation/create_contact/_create_contact_input.rs
-@@ -142,7 +142,7 @@
-             contact_list_name: self.contact_list_name,
-             email_address: self.email_address,
-             topic_preferences: self.topic_preferences,
--            unsubscribe_all: self.unsubscribe_all,
-+            unsubscribe_all: self.unsubscribe_all.unwrap_or_default(),
-             attributes_data: self.attributes_data,
-         })
-     }
-```
-
 ### `src/operation/get_blacklist_reports.rs`
 
 ```diff
@@ -314,102 +298,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::result::Result::Ok(())
 ```
 
-### `src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs
-+++ generated/src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs
-@@ -50,7 +50,7 @@
-     > {
-         ::std::result::Result::Ok(
-             super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput {
--                auto_warmup_enabled: self.auto_warmup_enabled,
-+                auto_warmup_enabled: self.auto_warmup_enabled.unwrap_or_default(),
-             },
-         )
-     }
-```
-
-### `src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs
-+++ generated/src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs
-@@ -59,7 +59,7 @@
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
-         ::std::result::Result::Ok(super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput {
--            sending_enabled: self.sending_enabled,
-+            sending_enabled: self.sending_enabled.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs
-+++ generated/src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs
-@@ -73,7 +73,7 @@
-         ::std::result::Result::Ok(
-             super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput {
-                 configuration_set_name: self.configuration_set_name,
--                reputation_metrics_enabled: self.reputation_metrics_enabled,
-+                reputation_metrics_enabled: self.reputation_metrics_enabled.unwrap_or_default(),
-             },
-         )
-     }
-```
-
-### `src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs
-+++ generated/src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs
-@@ -73,7 +73,7 @@
-         ::std::result::Result::Ok(
-             super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput {
-                 configuration_set_name: self.configuration_set_name,
--                sending_enabled: self.sending_enabled,
-+                sending_enabled: self.sending_enabled.unwrap_or_default(),
-             },
-         )
-     }
-```
-
-### `src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs`
-
-```diff
---- reference/src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs
-+++ generated/src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs
-@@ -81,7 +81,7 @@
-     > {
-         ::std::result::Result::Ok(
-             super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput {
--                dashboard_enabled: self.dashboard_enabled,
-+                dashboard_enabled: self.dashboard_enabled.unwrap_or_default(),
-                 subscribed_domains: self.subscribed_domains,
-             },
-         )
-```
-
-### `src/operation/put_email_identity_dkim_attributes/_put_email_identity_dkim_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_email_identity_dkim_attributes/_put_email_identity_dkim_attributes_input.rs
-+++ generated/src/operation/put_email_identity_dkim_attributes/_put_email_identity_dkim_attributes_input.rs
-@@ -78,7 +78,7 @@
-         ::std::result::Result::Ok(
-             super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput {
-                 email_identity: self.email_identity,
--                signing_enabled: self.signing_enabled,
-+                signing_enabled: self.signing_enabled.unwrap_or_default(),
-             },
-         )
-     }
-```
-
 ### `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_output.rs`
 
 ```diff
@@ -497,22 +385,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs
-+++ generated/src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs
-@@ -83,7 +83,7 @@
-         ::std::result::Result::Ok(
-             super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput {
-                 email_identity: self.email_identity,
--                email_forwarding_enabled: self.email_forwarding_enabled,
-+                email_forwarding_enabled: self.email_forwarding_enabled.unwrap_or_default(),
-             },
-         )
-     }
-```
-
 ### `src/operation/untag_resource.rs`
 
 ```diff
@@ -529,22 +401,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::result::Result::Ok(())
              }
              #[allow(clippy::unnecessary_wraps)]
-```
-
-### `src/operation/update_contact/_update_contact_input.rs`
-
-```diff
---- reference/src/operation/update_contact/_update_contact_input.rs
-+++ generated/src/operation/update_contact/_update_contact_input.rs
-@@ -142,7 +142,7 @@
-             contact_list_name: self.contact_list_name,
-             email_address: self.email_address,
-             topic_preferences: self.topic_preferences,
--            unsubscribe_all: self.unsubscribe_all,
-+            unsubscribe_all: self.unsubscribe_all.unwrap_or_default(),
-             attributes_data: self.attributes_data,
-         })
-     }
 ```
 
 ### `src/operation/update_reputation_entity_customer_managed_status.rs`

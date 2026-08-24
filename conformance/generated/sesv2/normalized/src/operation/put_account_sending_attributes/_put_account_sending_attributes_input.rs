@@ -59,7 +59,7 @@ impl PutAccountSendingAttributesInputBuilder {
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput {
-            sending_enabled: self.sending_enabled.unwrap_or_default(),
+            sending_enabled: self.sending_enabled,
         })
     }
 }

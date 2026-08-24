@@ -116,7 +116,7 @@ impl DescribeAggregateComplianceByConfigRulesInputBuilder {
             super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesInput {
                 configuration_aggregator_name: self.configuration_aggregator_name,
                 filters: self.filters,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

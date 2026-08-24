@@ -142,7 +142,7 @@ impl CreateContactInputBuilder {
             contact_list_name: self.contact_list_name,
             email_address: self.email_address,
             topic_preferences: self.topic_preferences,
-            unsubscribe_all: self.unsubscribe_all.unwrap_or_default(),
+            unsubscribe_all: self.unsubscribe_all,
             attributes_data: self.attributes_data,
         })
     }

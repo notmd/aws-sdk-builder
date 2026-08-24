@@ -91,7 +91,7 @@ impl ListResourceEvaluationsInputBuilder {
     > {
         ::std::result::Result::Ok(super::super::super::operation::list_resource_evaluations::ListResourceEvaluationsInput {
             filters: self.filters,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

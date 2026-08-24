@@ -168,7 +168,7 @@ impl PutResourcePolicyInputBuilder {
             resource_arn: self.resource_arn,
             policy: self.policy,
             expected_revision_id: self.expected_revision_id,
-            confirm_remove_self_resource_access: self.confirm_remove_self_resource_access.unwrap_or_default(),
+            confirm_remove_self_resource_access: self.confirm_remove_self_resource_access,
         })
     }
 }

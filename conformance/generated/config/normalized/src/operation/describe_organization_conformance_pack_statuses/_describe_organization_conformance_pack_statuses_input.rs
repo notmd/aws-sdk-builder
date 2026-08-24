@@ -102,7 +102,7 @@ impl DescribeOrganizationConformancePackStatusesInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesInput {
                 organization_conformance_pack_names: self.organization_conformance_pack_names,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

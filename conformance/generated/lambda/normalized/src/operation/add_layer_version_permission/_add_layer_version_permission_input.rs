@@ -180,7 +180,7 @@ impl AddLayerVersionPermissionInputBuilder {
     > {
         ::std::result::Result::Ok(super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
             statement_id: self.statement_id,
             action: self.action,
             principal: self.principal,

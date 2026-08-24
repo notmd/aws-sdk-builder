@@ -112,7 +112,7 @@ impl DescribeConfigRuleEvaluationStatusInputBuilder {
             super::super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput {
                 config_rule_names: self.config_rule_names,
                 next_token: self.next_token,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
             },
         )
     }

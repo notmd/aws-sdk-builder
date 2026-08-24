@@ -117,7 +117,7 @@ impl DescribeAggregateComplianceByConformancePacksInputBuilder {
             super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksInput {
                 configuration_aggregator_name: self.configuration_aggregator_name,
                 filters: self.filters,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

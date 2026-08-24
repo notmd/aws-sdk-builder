@@ -20314,7 +20314,7 @@ impl CreateDelegationRequestInputBuilder {
             redirect_url: self.redirect_url,
             notification_channel: self.notification_channel,
             session_duration: self.session_duration,
-            only_send_by_owner: self.only_send_by_owner.unwrap_or_default(),
+            only_send_by_owner: self.only_send_by_owner,
         })
     }
 }
@@ -22736,7 +22736,7 @@ impl CreateLoginProfileInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::create_login_profile::CreateLoginProfileInput {
             user_name: self.user_name,
             password: self.password,
-            password_reset_required: self.password_reset_required.unwrap_or_default(),
+            password_reset_required: self.password_reset_required,
         })
     }
 }
@@ -25538,7 +25538,7 @@ impl CreatePolicyVersionInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::create_policy_version::CreatePolicyVersionInput {
             policy_arn: self.policy_arn,
             policy_document: self.policy_document,
-            set_as_default: self.set_as_default.unwrap_or_default(),
+            set_as_default: self.set_as_default,
         })
     }
 }
@@ -61285,7 +61285,7 @@ impl GetDelegationRequestInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_delegation_request::GetDelegationRequestInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_delegation_request::GetDelegationRequestInput {
             delegation_request_id: self.delegation_request_id,
-            delegation_permission_check: self.delegation_permission_check.unwrap_or_default(),
+            delegation_permission_check: self.delegation_permission_check,
         })
     }
 }
@@ -94560,7 +94560,7 @@ impl ListPoliciesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_policies::ListPoliciesInput {
             scope: self.scope,
-            only_attached: self.only_attached.unwrap_or_default(),
+            only_attached: self.only_attached,
             path_prefix: self.path_prefix,
             policy_usage_filter: self.policy_usage_filter,
             marker: self.marker,
@@ -137114,11 +137114,11 @@ impl UpdateAccountPasswordPolicyInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
             minimum_password_length: self.minimum_password_length,
-            require_symbols: self.require_symbols.unwrap_or_default(),
-            require_numbers: self.require_numbers.unwrap_or_default(),
-            require_uppercase_characters: self.require_uppercase_characters.unwrap_or_default(),
-            require_lowercase_characters: self.require_lowercase_characters.unwrap_or_default(),
-            allow_users_to_change_password: self.allow_users_to_change_password.unwrap_or_default(),
+            require_symbols: self.require_symbols,
+            require_numbers: self.require_numbers,
+            require_uppercase_characters: self.require_uppercase_characters,
+            require_lowercase_characters: self.require_lowercase_characters,
+            allow_users_to_change_password: self.allow_users_to_change_password,
             max_password_age: self.max_password_age,
             password_reuse_prevention: self.password_reuse_prevention,
             hard_expiry: self.hard_expiry,

@@ -101,7 +101,7 @@ impl DescribeConfigurationAggregatorsInputBuilder {
             super::super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsInput {
                 configuration_aggregator_names: self.configuration_aggregator_names,
                 next_token: self.next_token,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
             },
         )
     }

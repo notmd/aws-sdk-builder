@@ -89,7 +89,7 @@ impl DescribeLookupTablesInputBuilder {
     {
         ::std::result::Result::Ok(super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput {
             lookup_table_name_prefix: self.lookup_table_name_prefix,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
             next_token: self.next_token,
         })
     }

@@ -123,7 +123,7 @@ impl DescribeRemediationExecutionStatusInputBuilder {
             super::super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput {
                 config_rule_name: self.config_rule_name,
                 resource_keys: self.resource_keys,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

@@ -14266,7 +14266,13 @@ fn render_type_builder(
             .map(|(_, member)| member)
             .expect("member exists");
         let target = member_target(member).unwrap_or("smithy.api#String");
-        if has_trait(member, "smithy.api#default") {
+        // Smithy keeps operation-input members optional even when the model
+        // carries a `default` trait. The default is a serialization hint for
+        // an explicitly supplied input value, not a value inserted while
+        // constructing the public operation input. Smithy-RS's
+        // `BuilderGenerator` applies a default only when the member symbol is
+        // non-optional; operation-input symbols are optional by construction.
+        if has_trait(member, "smithy.api#default") && !operation_input(&context) {
             writeln!(
                 output,
                 "{inner}        {field}: self.{field}.unwrap_or_default(),"
@@ -16396,6 +16402,51 @@ mod tests {
 
         assert_eq!(body, "::aws_smithy_types::body::SdkBody::from(\"\")");
         assert_eq!(content_type, None);
+    }
+
+    #[test]
+    fn defaulted_operation_input_members_remain_optional() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#GetInput"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#GetInput": {
+                        "type": "structure",
+                        "members": {
+                            "flag": {
+                                "target": "smithy.api#Boolean",
+                                "traits": {"smithy.api#default": false}
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let rendered = render_operation_shape_file(&selected, "Get", true);
+
+        assert!(rendered.contains("flag: self.flag,"));
+        assert!(!rendered.contains("flag: self.flag.unwrap_or_default()"));
     }
 
     #[test]

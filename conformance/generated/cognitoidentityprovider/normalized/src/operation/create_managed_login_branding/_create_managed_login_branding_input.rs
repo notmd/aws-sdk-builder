@@ -215,7 +215,7 @@ impl CreateManagedLoginBrandingInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,
-            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
+            use_cognito_provided_values: self.use_cognito_provided_values,
             settings: self.settings,
             assets: self.assets,
         })

@@ -90,7 +90,7 @@ impl SelectResourceConfigInputBuilder {
     {
         ::std::result::Result::Ok(super::super::super::operation::select_resource_config::SelectResourceConfigInput {
             expression: self.expression,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

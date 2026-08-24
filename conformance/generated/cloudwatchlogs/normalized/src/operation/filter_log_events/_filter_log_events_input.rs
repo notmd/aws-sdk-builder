@@ -380,7 +380,7 @@ impl FilterLogEventsInputBuilder {
             limit: self.limit,
             start_from_head: self.start_from_head,
             interleaved: self.interleaved,
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
         })
     }
 }

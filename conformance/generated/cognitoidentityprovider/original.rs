@@ -14326,7 +14326,7 @@ impl AdminCreateUserInputBuilder {
             user_attributes: self.user_attributes,
             validation_data: self.validation_data,
             temporary_password: self.temporary_password,
-            force_alias_creation: self.force_alias_creation.unwrap_or_default(),
+            force_alias_creation: self.force_alias_creation,
             message_action: self.message_action,
             desired_delivery_mediums: self.desired_delivery_mediums,
             client_metadata: self.client_metadata,
@@ -34213,7 +34213,7 @@ impl AdminSetUserPasswordInputBuilder {
             user_pool_id: self.user_pool_id,
             username: self.username,
             password: self.password,
-            permanent: self.permanent.unwrap_or_default(),
+            permanent: self.permanent,
         })
     }
 }
@@ -43774,7 +43774,7 @@ impl ConfirmSignUpInputBuilder {
             secret_hash: self.secret_hash,
             username: self.username,
             confirmation_code: self.confirmation_code,
-            force_alias_creation: self.force_alias_creation.unwrap_or_default(),
+            force_alias_creation: self.force_alias_creation,
             analytics_metadata: self.analytics_metadata,
             user_context_data: self.user_context_data,
             client_metadata: self.client_metadata,
@@ -46999,7 +46999,7 @@ impl CreateManagedLoginBrandingInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,
-            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
+            use_cognito_provided_values: self.use_cognito_provided_values,
             settings: self.settings,
             assets: self.assets,
         })
@@ -53077,9 +53077,9 @@ impl CreateUserPoolClientInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::create_user_pool_client::CreateUserPoolClientInput {
             user_pool_id: self.user_pool_id,
             client_name: self.client_name,
-            generate_secret: self.generate_secret.unwrap_or_default(),
+            generate_secret: self.generate_secret,
             client_secret: self.client_secret,
-            refresh_token_validity: self.refresh_token_validity.unwrap_or_default(),
+            refresh_token_validity: self.refresh_token_validity,
             access_token_validity: self.access_token_validity,
             id_token_validity: self.id_token_validity,
             token_validity_units: self.token_validity_units,
@@ -53092,7 +53092,7 @@ impl CreateUserPoolClientInputBuilder {
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
-            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client.unwrap_or_default(),
+            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client,
             analytics_configuration: self.analytics_configuration,
             prevent_user_existence_errors: self.prevent_user_existence_errors,
             enable_token_revocation: self.enable_token_revocation,
@@ -66264,7 +66264,7 @@ impl DescribeManagedLoginBrandingInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_managed_login_branding::DescribeManagedLoginBrandingInput {
             user_pool_id: self.user_pool_id,
             managed_login_branding_id: self.managed_login_branding_id,
-            return_merged_resources: self.return_merged_resources.unwrap_or_default(),
+            return_merged_resources: self.return_merged_resources,
         })
     }
 }
@@ -67025,7 +67025,7 @@ impl DescribeManagedLoginBrandingByClientInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,
-            return_merged_resources: self.return_merged_resources.unwrap_or_default(),
+            return_merged_resources: self.return_merged_resources,
         })
     }
 }
@@ -118347,7 +118347,7 @@ impl UpdateManagedLoginBrandingInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
             user_pool_id: self.user_pool_id,
             managed_login_branding_id: self.managed_login_branding_id,
-            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
+            use_cognito_provided_values: self.use_cognito_provided_values,
             settings: self.settings,
             assets: self.assets,
         })
@@ -119120,7 +119120,7 @@ impl UpdateProvisionedLimitInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_provisioned_limit::UpdateProvisionedLimitInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
             limit_definition: self.limit_definition,
-            requested_limit_value: self.requested_limit_value.unwrap_or_default(),
+            requested_limit_value: self.requested_limit_value,
         })
     }
 }
@@ -125012,7 +125012,7 @@ impl UpdateUserPoolClientInputBuilder {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,
             client_name: self.client_name,
-            refresh_token_validity: self.refresh_token_validity.unwrap_or_default(),
+            refresh_token_validity: self.refresh_token_validity,
             access_token_validity: self.access_token_validity,
             id_token_validity: self.id_token_validity,
             token_validity_units: self.token_validity_units,
@@ -125025,7 +125025,7 @@ impl UpdateUserPoolClientInputBuilder {
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
-            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client.unwrap_or_default(),
+            allowed_o_auth_flows_user_pool_client: self.allowed_o_auth_flows_user_pool_client,
             analytics_configuration: self.analytics_configuration,
             prevent_user_existence_errors: self.prevent_user_existence_errors,
             enable_token_revocation: self.enable_token_revocation,

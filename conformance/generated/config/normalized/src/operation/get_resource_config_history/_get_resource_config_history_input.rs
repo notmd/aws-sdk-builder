@@ -182,7 +182,7 @@ impl GetResourceConfigHistoryInputBuilder {
             later_time: self.later_time,
             earlier_time: self.earlier_time,
             chronological_order: self.chronological_order,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

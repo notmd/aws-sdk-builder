@@ -50,7 +50,7 @@ impl PutAccountDedicatedIpWarmupAttributesInputBuilder {
     > {
         ::std::result::Result::Ok(
             super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput {
-                auto_warmup_enabled: self.auto_warmup_enabled.unwrap_or_default(),
+                auto_warmup_enabled: self.auto_warmup_enabled,
             },
         )
     }

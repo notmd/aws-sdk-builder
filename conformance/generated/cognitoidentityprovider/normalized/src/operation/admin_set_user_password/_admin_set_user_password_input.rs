@@ -125,7 +125,7 @@ impl AdminSetUserPasswordInputBuilder {
             user_pool_id: self.user_pool_id,
             username: self.username,
             password: self.password,
-            permanent: self.permanent.unwrap_or_default(),
+            permanent: self.permanent,
         })
     }
 }

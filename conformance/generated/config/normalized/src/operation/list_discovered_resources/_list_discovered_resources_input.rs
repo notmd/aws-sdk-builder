@@ -166,8 +166,8 @@ impl ListDiscoveredResourcesInputBuilder {
             resource_type: self.resource_type,
             resource_ids: self.resource_ids,
             resource_name: self.resource_name,
-            limit: self.limit.unwrap_or_default(),
-            include_deleted_resources: self.include_deleted_resources.unwrap_or_default(),
+            limit: self.limit,
+            include_deleted_resources: self.include_deleted_resources,
             next_token: self.next_token,
         })
     }

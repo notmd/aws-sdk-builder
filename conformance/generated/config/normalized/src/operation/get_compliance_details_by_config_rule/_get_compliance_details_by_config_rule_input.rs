@@ -129,7 +129,7 @@ impl GetComplianceDetailsByConfigRuleInputBuilder {
             super::super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleInput {
                 config_rule_name: self.config_rule_name,
                 compliance_types: self.compliance_types,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

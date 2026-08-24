@@ -24539,7 +24539,7 @@ impl DeleteIntegrationInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_integration::DeleteIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_integration::DeleteIntegrationInput {
             integration_name: self.integration_name,
-            force: self.force.unwrap_or_default(),
+            force: self.force,
         })
     }
 }
@@ -45177,7 +45177,7 @@ impl DescribeLookupTablesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput {
             lookup_table_name_prefix: self.lookup_table_name_prefix,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
             next_token: self.next_token,
         })
     }
@@ -51944,7 +51944,7 @@ impl FilterLogEventsInputBuilder {
             limit: self.limit,
             start_from_head: self.start_from_head,
             interleaved: self.interleaved,
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
         })
     }
 }
@@ -58119,7 +58119,7 @@ impl GetLogEventsInputBuilder {
             next_token: self.next_token,
             limit: self.limit,
             start_from_head: self.start_from_head,
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
         })
     }
 }
@@ -60664,7 +60664,7 @@ impl GetLogObjectInputBuilder {
     /// Consumes the builder and constructs a [`GetLogObjectInput`](crate::operation::get_log_object::GetLogObjectInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_object::GetLogObjectInput {
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
             log_object_pointer: self.log_object_pointer,
         })
     }
@@ -61375,7 +61375,7 @@ impl GetLogRecordInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_log_record::GetLogRecordInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_record::GetLogRecordInput {
             log_record_pointer: self.log_record_pointer,
-            unmask: self.unmask.unwrap_or_default(),
+            unmask: self.unmask,
         })
     }
 }
@@ -74781,7 +74781,7 @@ impl ListSyslogConfigurationsInputBuilder {
             log_group_identifier: self.log_group_identifier,
             vpc_endpoint_id: self.vpc_endpoint_id,
             next_token: self.next_token,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
         })
     }
 }
@@ -87922,7 +87922,7 @@ impl PutMetricFilterInputBuilder {
             filter_name: self.filter_name,
             filter_pattern: self.filter_pattern,
             metric_transformations: self.metric_transformations,
-            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
+            apply_on_transformed_logs: self.apply_on_transformed_logs,
             field_selection_criteria: self.field_selection_criteria,
             emit_system_field_dimensions: self.emit_system_field_dimensions,
         })
@@ -92049,7 +92049,7 @@ impl PutSubscriptionFilterInputBuilder {
             destination_arn: self.destination_arn,
             role_arn: self.role_arn,
             distribution: self.distribution,
-            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
+            apply_on_transformed_logs: self.apply_on_transformed_logs,
             field_selection_criteria: self.field_selection_criteria,
             emit_system_fields: self.emit_system_fields,
         })

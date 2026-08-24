@@ -144,7 +144,7 @@ impl DescribeComplianceByResourceInputBuilder {
             resource_type: self.resource_type,
             resource_id: self.resource_id,
             compliance_types: self.compliance_types,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

@@ -99,7 +99,7 @@ impl DescribeConformancePackStatusInputBuilder {
     > {
         ::std::result::Result::Ok(super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusInput {
             conformance_pack_names: self.conformance_pack_names,
-            limit: self.limit.unwrap_or_default(),
+            limit: self.limit,
             next_token: self.next_token,
         })
     }

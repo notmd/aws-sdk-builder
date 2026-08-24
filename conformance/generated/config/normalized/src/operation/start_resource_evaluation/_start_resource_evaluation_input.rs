@@ -157,7 +157,7 @@ impl StartResourceEvaluationInputBuilder {
             resource_details: self.resource_details,
             evaluation_context: self.evaluation_context,
             evaluation_mode: self.evaluation_mode,
-            evaluation_timeout: self.evaluation_timeout.unwrap_or_default(),
+            evaluation_timeout: self.evaluation_timeout,
             client_token: self.client_token,
         })
     }

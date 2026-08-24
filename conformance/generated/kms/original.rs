@@ -12685,7 +12685,7 @@ impl CreateKeyInputBuilder {
             key_spec: self.key_spec,
             origin: self.origin,
             custom_key_store_id: self.custom_key_store_id,
-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
             tags: self.tags,
             multi_region: self.multi_region,
             xks_key_id: self.xks_key_id,
@@ -45872,7 +45872,7 @@ impl PutKeyPolicyInputBuilder {
             key_id: self.key_id,
             policy_name: self.policy_name,
             policy: self.policy,
-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
         })
     }
 }
@@ -48640,7 +48640,7 @@ impl ReplicateKeyInputBuilder {
             key_id: self.key_id,
             replica_region: self.replica_region,
             policy: self.policy,
-            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
             description: self.description,
             tags: self.tags,
         })

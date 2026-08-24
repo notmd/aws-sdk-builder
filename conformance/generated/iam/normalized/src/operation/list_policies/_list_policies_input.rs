@@ -181,7 +181,7 @@ impl ListPoliciesInputBuilder {
     ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_policies::ListPoliciesInput {
             scope: self.scope,
-            only_attached: self.only_attached.unwrap_or_default(),
+            only_attached: self.only_attached,
             path_prefix: self.path_prefix,
             policy_usage_filter: self.policy_usage_filter,
             marker: self.marker,

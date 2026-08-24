@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `591/591` files compared · `537` matched · `54` mismatches · `0` missing · `0` extra · `90.86%` match (100.00% means fully matched)
+**Progress:** `591/591` files compared · `540` matched · `51` mismatches · `0` missing · `0` extra · `91.37%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -924,52 +924,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`grant_tokens(impl Into<String>)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::grant_tokens) / [`set_grant_tokens(Option<Vec::<String>>)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::set_grant_tokens):<br>required: **false**<br><p>A list of grant tokens.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
      ///   - [`dry_run(bool)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::dry_run) / [`set_dry_run(Option<bool>)`](crate::operation::verify_mac::builders::VerifyMacFluentBuilder::set_dry_run):<br>required: **false**<br><p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p> <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p><br>
      /// - On success, responds with [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput) with field(s):
-```
-
-### `src/operation/create_key/_create_key_input.rs`
-
-```diff
---- reference/src/operation/create_key/_create_key_input.rs
-+++ generated/src/operation/create_key/_create_key_input.rs
-@@ -923,7 +923,7 @@
-             key_spec: self.key_spec,
-             origin: self.origin,
-             custom_key_store_id: self.custom_key_store_id,
--            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
-+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
-             tags: self.tags,
-             multi_region: self.multi_region,
-             xks_key_id: self.xks_key_id,
-```
-
-### `src/operation/put_key_policy/_put_key_policy_input.rs`
-
-```diff
---- reference/src/operation/put_key_policy/_put_key_policy_input.rs
-+++ generated/src/operation/put_key_policy/_put_key_policy_input.rs
-@@ -288,7 +288,7 @@
-             key_id: self.key_id,
-             policy_name: self.policy_name,
-             policy: self.policy,
--            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
-+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/replicate_key/_replicate_key_input.rs`
-
-```diff
---- reference/src/operation/replicate_key/_replicate_key_input.rs
-+++ generated/src/operation/replicate_key/_replicate_key_input.rs
-@@ -383,7 +383,7 @@
-             key_id: self.key_id,
-             replica_region: self.replica_region,
-             policy: self.policy,
--            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
-+            bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check.unwrap_or_default(),
-             description: self.description,
-             tags: self.tags,
-         })
 ```

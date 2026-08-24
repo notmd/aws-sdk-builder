@@ -114,7 +114,7 @@ impl ListSyslogConfigurationsInputBuilder {
             log_group_identifier: self.log_group_identifier,
             vpc_endpoint_id: self.vpc_endpoint_id,
             next_token: self.next_token,
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
         })
     }
 }

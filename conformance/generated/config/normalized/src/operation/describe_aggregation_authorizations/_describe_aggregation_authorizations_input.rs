@@ -70,7 +70,7 @@ impl DescribeAggregationAuthorizationsInputBuilder {
     > {
         ::std::result::Result::Ok(
             super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsInput {
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

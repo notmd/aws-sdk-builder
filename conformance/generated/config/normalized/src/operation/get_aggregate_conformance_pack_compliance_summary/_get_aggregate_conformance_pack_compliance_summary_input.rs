@@ -138,7 +138,7 @@ impl GetAggregateConformancePackComplianceSummaryInputBuilder {
                 configuration_aggregator_name: self.configuration_aggregator_name,
                 filters: self.filters,
                 group_by_key: self.group_by_key,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

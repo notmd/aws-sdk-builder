@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `940` matched · `136` mismatches · `0` missing · `1` extra · `87.28%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `951` matched · `125` mismatches · `0` missing · `1` extra · `88.30%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -179,22 +179,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self,
 ```
 
-### `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`
-
-```diff
---- reference/src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs
-+++ generated/src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs
-@@ -180,7 +180,7 @@
-     > {
-         ::std::result::Result::Ok(super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
-             layer_name: self.layer_name,
--            version_number: self.version_number,
-+            version_number: self.version_number.unwrap_or_default(),
-             statement_id: self.statement_id,
-             action: self.action,
-             principal: self.principal,
-```
-
 ### `src/operation/add_layer_version_permission.rs`
 
 ```diff
@@ -210,38 +194,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-```
-
-### `src/operation/create_function/_create_function_input.rs`
-
-```diff
---- reference/src/operation/create_function/_create_function_input.rs
-+++ generated/src/operation/create_function/_create_function_input.rs
-@@ -768,7 +768,7 @@
-             description: self.description,
-             timeout: self.timeout,
-             memory_size: self.memory_size,
--            publish: self.publish,
-+            publish: self.publish.unwrap_or_default(),
-             publish_to: self.publish_to,
-             vpc_config: self.vpc_config,
-             package_type: self.package_type,
-```
-
-### `src/operation/delete_layer_version/_delete_layer_version_input.rs`
-
-```diff
---- reference/src/operation/delete_layer_version/_delete_layer_version_input.rs
-+++ generated/src/operation/delete_layer_version/_delete_layer_version_input.rs
-@@ -70,7 +70,7 @@
-     {
-         ::std::result::Result::Ok(super::super::super::operation::delete_layer_version::DeleteLayerVersionInput {
-             layer_name: self.layer_name,
--            version_number: self.version_number,
-+            version_number: self.version_number.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/operation/delete_layer_version.rs`
@@ -261,70 +213,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          "version_number",
 ```
 
-### `src/operation/get_durable_execution/_get_durable_execution_input.rs`
-
-```diff
---- reference/src/operation/get_durable_execution/_get_durable_execution_input.rs
-+++ generated/src/operation/get_durable_execution/_get_durable_execution_input.rs
-@@ -69,7 +69,7 @@
-     {
-         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution::GetDurableExecutionInput {
-             durable_execution_arn: self.durable_execution_arn,
--            include_execution_data: self.include_execution_data,
-+            include_execution_data: self.include_execution_data.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs`
-
-```diff
---- reference/src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs
-+++ generated/src/operation/get_durable_execution_history/_get_durable_execution_history_input.rs
-@@ -135,7 +135,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
-             durable_execution_arn: self.durable_execution_arn,
-             include_execution_data: self.include_execution_data,
--            max_items: self.max_items,
-+            max_items: self.max_items.unwrap_or_default(),
-             marker: self.marker,
-             reverse_order: self.reverse_order,
-         })
-```
-
-### `src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs`
-
-```diff
---- reference/src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs
-+++ generated/src/operation/get_durable_execution_state/_get_durable_execution_state_input.rs
-@@ -116,7 +116,7 @@
-             durable_execution_arn: self.durable_execution_arn,
-             checkpoint_token: self.checkpoint_token,
-             marker: self.marker,
--            max_items: self.max_items,
-+            max_items: self.max_items.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/get_layer_version/_get_layer_version_input.rs`
-
-```diff
---- reference/src/operation/get_layer_version/_get_layer_version_input.rs
-+++ generated/src/operation/get_layer_version/_get_layer_version_input.rs
-@@ -69,7 +69,7 @@
-     ) -> ::std::result::Result<super::super::super::operation::get_layer_version::GetLayerVersionInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_layer_version::GetLayerVersionInput {
-             layer_name: self.layer_name,
--            version_number: self.version_number,
-+            version_number: self.version_number.unwrap_or_default(),
-         })
-     }
- }
-```
-
 ### `src/operation/get_layer_version.rs`
 
 ```diff
@@ -340,22 +228,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-```
-
-### `src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs`
-
-```diff
---- reference/src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs
-+++ generated/src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs
-@@ -70,7 +70,7 @@
-     {
-         ::std::result::Result::Ok(super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
-             layer_name: self.layer_name,
--            version_number: self.version_number,
-+            version_number: self.version_number.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/operation/get_layer_version_policy.rs`
@@ -435,22 +307,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          // If this is an error, defer to the non-streaming parser
 ```
 
-### `src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs`
-
-```diff
---- reference/src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs
-+++ generated/src/operation/list_durable_executions_by_function/_list_durable_executions_by_function_input.rs
-@@ -234,7 +234,7 @@
-                 started_before: self.started_before,
-                 reverse_order: self.reverse_order,
-                 marker: self.marker,
--                max_items: self.max_items,
-+                max_items: self.max_items.unwrap_or_default(),
-             },
-         )
-     }
-```
-
 ### `src/operation/list_durable_executions_by_function.rs`
 
 ```diff
@@ -510,22 +366,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::result::Result::Ok(())
 ```
 
-### `src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs`
-
-```diff
---- reference/src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs
-+++ generated/src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs
-@@ -115,7 +115,7 @@
-     > {
-         ::std::result::Result::Ok(super::super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
-             layer_name: self.layer_name,
--            version_number: self.version_number,
-+            version_number: self.version_number.unwrap_or_default(),
-             statement_id: self.statement_id,
-             revision_id: self.revision_id,
-         })
-```
-
 ### `src/operation/remove_layer_version_permission.rs`
 
 ```diff
@@ -559,25 +399,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  ::std::result::Result::Ok(())
              }
              #[allow(clippy::unnecessary_wraps)]
-```
-
-### `src/operation/update_function_code/_update_function_code_input.rs`
-
-```diff
---- reference/src/operation/update_function_code/_update_function_code_input.rs
-+++ generated/src/operation/update_function_code/_update_function_code_input.rs
-@@ -414,9 +414,9 @@
-             s3_object_storage_mode: self.s3_object_storage_mode,
-             image_uri: self.image_uri,
-             architectures: self.architectures,
--            publish: self.publish,
-+            publish: self.publish.unwrap_or_default(),
-             publish_to: self.publish_to,
--            dry_run: self.dry_run,
-+            dry_run: self.dry_run.unwrap_or_default(),
-             revision_id: self.revision_id,
-             source_kms_key_arn: self.source_kms_key_arn,
-         })
 ```
 
 ### `src/protocol_serde/shape_add_layer_version_permission.rs`

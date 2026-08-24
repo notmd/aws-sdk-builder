@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1236` matched · `49` mismatches · `2` missing · `0` extra · `96.04%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1245` matched · `40` mismatches · `2` missing · `0` extra · `96.74%` match (100.00% means fully matched)
 
 ### `src/error_meta.rs`
 
@@ -218,86 +218,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub use client::Client;
 ```
 
-### `src/operation/delete_integration/_delete_integration_input.rs`
-
-```diff
---- reference/src/operation/delete_integration/_delete_integration_input.rs
-+++ generated/src/operation/delete_integration/_delete_integration_input.rs
-@@ -73,7 +73,7 @@
-     ) -> ::std::result::Result<super::super::super::operation::delete_integration::DeleteIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::delete_integration::DeleteIntegrationInput {
-             integration_name: self.integration_name,
--            force: self.force,
-+            force: self.force.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs`
-
-```diff
---- reference/src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs
-+++ generated/src/operation/describe_lookup_tables/_describe_lookup_tables_input.rs
-@@ -89,7 +89,7 @@
-     {
-         ::std::result::Result::Ok(super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput {
-             lookup_table_name_prefix: self.lookup_table_name_prefix,
--            max_results: self.max_results,
-+            max_results: self.max_results.unwrap_or_default(),
-             next_token: self.next_token,
-         })
-     }
-```
-
-### `src/operation/filter_log_events/_filter_log_events_input.rs`
-
-```diff
---- reference/src/operation/filter_log_events/_filter_log_events_input.rs
-+++ generated/src/operation/filter_log_events/_filter_log_events_input.rs
-@@ -380,7 +380,7 @@
-             limit: self.limit,
-             start_from_head: self.start_from_head,
-             interleaved: self.interleaved,
--            unmask: self.unmask,
-+            unmask: self.unmask.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/get_log_events/_get_log_events_input.rs`
-
-```diff
---- reference/src/operation/get_log_events/_get_log_events_input.rs
-+++ generated/src/operation/get_log_events/_get_log_events_input.rs
-@@ -262,7 +262,7 @@
-             next_token: self.next_token,
-             limit: self.limit,
-             start_from_head: self.start_from_head,
--            unmask: self.unmask,
-+            unmask: self.unmask.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/get_log_object/_get_log_object_input.rs`
-
-```diff
---- reference/src/operation/get_log_object/_get_log_object_input.rs
-+++ generated/src/operation/get_log_object/_get_log_object_input.rs
-@@ -68,7 +68,7 @@
-         self,
-     ) -> ::std::result::Result<super::super::super::operation::get_log_object::GetLogObjectInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_log_object::GetLogObjectInput {
--            unmask: self.unmask,
-+            unmask: self.unmask.unwrap_or_default(),
-             log_object_pointer: self.log_object_pointer,
-         })
-     }
-```
-
 ### `src/operation/get_log_object/_get_log_object_output.rs`
 
 ```diff
@@ -500,22 +420,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/get_log_record/_get_log_record_input.rs`
-
-```diff
---- reference/src/operation/get_log_record/_get_log_record_input.rs
-+++ generated/src/operation/get_log_record/_get_log_record_input.rs
-@@ -73,7 +73,7 @@
-     ) -> ::std::result::Result<super::super::super::operation::get_log_record::GetLogRecordInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_log_record::GetLogRecordInput {
-             log_record_pointer: self.log_record_pointer,
--            unmask: self.unmask,
-+            unmask: self.unmask.unwrap_or_default(),
-         })
-     }
- }
-```
-
 ### `src/operation/get_storage_tier_policy.rs`
 
 ```diff
@@ -540,22 +444,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs`
-
-```diff
---- reference/src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs
-+++ generated/src/operation/list_syslog_configurations/_list_syslog_configurations_input.rs
-@@ -114,7 +114,7 @@
-             log_group_identifier: self.log_group_identifier,
-             vpc_endpoint_id: self.vpc_endpoint_id,
-             next_token: self.next_token,
--            max_results: self.max_results,
-+            max_results: self.max_results.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/operation/put_account_policy/builders.rs`
@@ -588,38 +476,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// <p>CloudWatch Logs provides default field indexes for all log groups in the Standard log class. Default field indexes are automatically available for the following fields:</p>
  /// <ul>
  /// <li>
-```
-
-### `src/operation/put_metric_filter/_put_metric_filter_input.rs`
-
-```diff
---- reference/src/operation/put_metric_filter/_put_metric_filter_input.rs
-+++ generated/src/operation/put_metric_filter/_put_metric_filter_input.rs
-@@ -199,7 +199,7 @@
-             filter_name: self.filter_name,
-             filter_pattern: self.filter_pattern,
-             metric_transformations: self.metric_transformations,
--            apply_on_transformed_logs: self.apply_on_transformed_logs,
-+            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
-             field_selection_criteria: self.field_selection_criteria,
-             emit_system_field_dimensions: self.emit_system_field_dimensions,
-         })
-```
-
-### `src/operation/put_subscription_filter/_put_subscription_filter_input.rs`
-
-```diff
---- reference/src/operation/put_subscription_filter/_put_subscription_filter_input.rs
-+++ generated/src/operation/put_subscription_filter/_put_subscription_filter_input.rs
-@@ -292,7 +292,7 @@
-             destination_arn: self.destination_arn,
-             role_arn: self.role_arn,
-             distribution: self.distribution,
--            apply_on_transformed_logs: self.apply_on_transformed_logs,
-+            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
-             field_selection_criteria: self.field_selection_criteria,
-             emit_system_fields: self.emit_system_fields,
-         })
 ```
 
 ### `src/operation/start_live_tail/_start_live_tail_output.rs`

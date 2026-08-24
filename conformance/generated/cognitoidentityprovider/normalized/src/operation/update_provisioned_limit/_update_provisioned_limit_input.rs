@@ -72,7 +72,7 @@ impl UpdateProvisionedLimitInputBuilder {
     > {
         ::std::result::Result::Ok(super::super::super::operation::update_provisioned_limit::UpdateProvisionedLimitInput {
             limit_definition: self.limit_definition,
-            requested_limit_value: self.requested_limit_value.unwrap_or_default(),
+            requested_limit_value: self.requested_limit_value,
         })
     }
 }

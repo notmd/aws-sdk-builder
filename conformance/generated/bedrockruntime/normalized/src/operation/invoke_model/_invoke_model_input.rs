@@ -366,7 +366,7 @@ impl InvokeModelInputBuilder {
             trace: self.trace,
             guardrail_identifier: self.guardrail_identifier,
             guardrail_version: self.guardrail_version,
-            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
+            performance_config_latency: self.performance_config_latency,
             service_tier: self.service_tier,
             request_metadata: self.request_metadata,
         })

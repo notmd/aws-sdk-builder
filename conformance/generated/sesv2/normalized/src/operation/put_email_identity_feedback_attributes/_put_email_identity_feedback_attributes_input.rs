@@ -83,7 +83,7 @@ impl PutEmailIdentityFeedbackAttributesInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput {
                 email_identity: self.email_identity,
-                email_forwarding_enabled: self.email_forwarding_enabled.unwrap_or_default(),
+                email_forwarding_enabled: self.email_forwarding_enabled,
             },
         )
     }

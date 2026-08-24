@@ -199,7 +199,7 @@ impl PutMetricFilterInputBuilder {
             filter_name: self.filter_name,
             filter_pattern: self.filter_pattern,
             metric_transformations: self.metric_transformations,
-            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
+            apply_on_transformed_logs: self.apply_on_transformed_logs,
             field_selection_criteria: self.field_selection_criteria,
             emit_system_field_dimensions: self.emit_system_field_dimensions,
         })

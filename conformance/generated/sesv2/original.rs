@@ -11551,7 +11551,7 @@ impl CreateContactInputBuilder {
             contact_list_name: self.contact_list_name,
             email_address: self.email_address,
             topic_preferences: self.topic_preferences,
-            unsubscribe_all: self.unsubscribe_all.unwrap_or_default(),
+            unsubscribe_all: self.unsubscribe_all,
             attributes_data: self.attributes_data,
         })
     }
@@ -65107,7 +65107,7 @@ impl PutAccountDedicatedIpWarmupAttributesInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountDedicatedIpWarmupAttributesInput`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput {
-            auto_warmup_enabled: self.auto_warmup_enabled.unwrap_or_default(),
+            auto_warmup_enabled: self.auto_warmup_enabled,
         })
     }
 }
@@ -67174,7 +67174,7 @@ impl PutAccountSendingAttributesInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountSendingAttributesInput`](crate::operation::put_account_sending_attributes::PutAccountSendingAttributesInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput {
-            sending_enabled: self.sending_enabled.unwrap_or_default(),
+            sending_enabled: self.sending_enabled,
         })
     }
 }
@@ -70526,7 +70526,7 @@ impl PutConfigurationSetReputationOptionsInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput {
             configuration_set_name: self.configuration_set_name,
-            reputation_metrics_enabled: self.reputation_metrics_enabled.unwrap_or_default(),
+            reputation_metrics_enabled: self.reputation_metrics_enabled,
         })
     }
 }
@@ -71203,7 +71203,7 @@ impl PutConfigurationSetSendingOptionsInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput {
             configuration_set_name: self.configuration_set_name,
-            sending_enabled: self.sending_enabled.unwrap_or_default(),
+            sending_enabled: self.sending_enabled,
         })
     }
 }
@@ -76164,7 +76164,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
     /// Consumes the builder and constructs a [`PutDeliverabilityDashboardOptionInput`](crate::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput).
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput {
-            dashboard_enabled: self.dashboard_enabled.unwrap_or_default(),
+            dashboard_enabled: self.dashboard_enabled,
             subscribed_domains: self.subscribed_domains,
         })
     }
@@ -77535,7 +77535,7 @@ impl PutEmailIdentityDkimAttributesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesInput {
             email_identity: self.email_identity,
-            signing_enabled: self.signing_enabled.unwrap_or_default(),
+            signing_enabled: self.signing_enabled,
         })
     }
 }
@@ -79158,7 +79158,7 @@ impl PutEmailIdentityFeedbackAttributesInputBuilder {
     pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput {
             email_identity: self.email_identity,
-            email_forwarding_enabled: self.email_forwarding_enabled.unwrap_or_default(),
+            email_forwarding_enabled: self.email_forwarding_enabled,
         })
     }
 }
@@ -88189,7 +88189,7 @@ impl UpdateContactInputBuilder {
             contact_list_name: self.contact_list_name,
             email_address: self.email_address,
             topic_preferences: self.topic_preferences,
-            unsubscribe_all: self.unsubscribe_all.unwrap_or_default(),
+            unsubscribe_all: self.unsubscribe_all,
             attributes_data: self.attributes_data,
         })
     }

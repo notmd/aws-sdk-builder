@@ -70,7 +70,7 @@ impl DeleteLayerVersionInputBuilder {
     {
         ::std::result::Result::Ok(super::super::super::operation::delete_layer_version::DeleteLayerVersionInput {
             layer_name: self.layer_name,
-            version_number: self.version_number.unwrap_or_default(),
+            version_number: self.version_number,
         })
     }
 }

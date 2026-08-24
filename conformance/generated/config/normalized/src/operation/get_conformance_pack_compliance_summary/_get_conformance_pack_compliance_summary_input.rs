@@ -100,7 +100,7 @@ impl GetConformancePackComplianceSummaryInputBuilder {
         ::std::result::Result::Ok(
             super::super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput {
                 conformance_pack_names: self.conformance_pack_names,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

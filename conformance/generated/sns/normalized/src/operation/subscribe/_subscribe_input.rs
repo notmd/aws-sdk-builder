@@ -595,7 +595,7 @@ impl SubscribeInputBuilder {
             protocol: self.protocol,
             endpoint: self.endpoint,
             attributes: self.attributes,
-            return_subscription_arn: self.return_subscription_arn.unwrap_or_default(),
+            return_subscription_arn: self.return_subscription_arn,
         })
     }
 }

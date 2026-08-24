@@ -151,7 +151,7 @@ impl ListConformancePackComplianceScoresInputBuilder {
                 filters: self.filters,
                 sort_order: self.sort_order,
                 sort_by: self.sort_by,
-                limit: self.limit.unwrap_or_default(),
+                limit: self.limit,
                 next_token: self.next_token,
             },
         )

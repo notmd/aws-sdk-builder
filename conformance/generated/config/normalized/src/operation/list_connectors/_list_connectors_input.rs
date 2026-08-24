@@ -95,7 +95,7 @@ impl ListConnectorsInputBuilder {
         self,
     ) -> ::std::result::Result<super::super::super::operation::list_connectors::ListConnectorsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_connectors::ListConnectorsInput {
-            max_results: self.max_results.unwrap_or_default(),
+            max_results: self.max_results,
             next_token: self.next_token,
             filters: self.filters,
         })

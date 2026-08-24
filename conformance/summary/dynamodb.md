@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `882/882` files compared · `859` matched · `23` mismatches · `0` missing · `0` extra · `97.39%` match (100.00% means fully matched)
+**Progress:** `882/882` files compared · `861` matched · `21` mismatches · `0` missing · `0` extra · `97.62%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -1031,38 +1031,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/list_contributor_insights/_list_contributor_insights_input.rs`
-
-```diff
---- reference/src/operation/list_contributor_insights/_list_contributor_insights_input.rs
-+++ generated/src/operation/list_contributor_insights/_list_contributor_insights_input.rs
-@@ -92,7 +92,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::list_contributor_insights::ListContributorInsightsInput {
-             table_name: self.table_name,
-             next_token: self.next_token,
--            max_results: self.max_results,
-+            max_results: self.max_results.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/put_resource_policy/_put_resource_policy_input.rs`
-
-```diff
---- reference/src/operation/put_resource_policy/_put_resource_policy_input.rs
-+++ generated/src/operation/put_resource_policy/_put_resource_policy_input.rs
-@@ -168,7 +168,7 @@
-             resource_arn: self.resource_arn,
-             policy: self.policy,
-             expected_revision_id: self.expected_revision_id,
--            confirm_remove_self_resource_access: self.confirm_remove_self_resource_access,
-+            confirm_remove_self_resource_access: self.confirm_remove_self_resource_access.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/protocol_serde/shape_attribute_value.rs`

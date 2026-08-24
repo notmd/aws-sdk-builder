@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `1587` matched · `39` mismatches · `0` missing · `0` extra · `97.60%` match (100.00% means fully matched)
+**Progress:** `1626/1626` files compared · `1593` matched · `33` mismatches · `0` missing · `0` extra · `97.97%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -67,70 +67,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`resource_owner(impl Into<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::resource_owner) / [`set_resource_owner(Option<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_resource_owner):<br>required: **false**<br><p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also used as the account owner of any <code>ResourcePolicy</code> included in the simulation. If the <code>ResourceOwner</code> parameter is not specified, then the owner of the resources and the resource policy defaults to the account of the identity provided in <code>CallerArn</code>. This parameter is required only if you specify a resource-based policy and account that owns the resource is different from the account that owns the simulated calling user <code>CallerArn</code>.</p><br>
      ///   - [`caller_arn(impl Into<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::caller_arn) / [`set_caller_arn(Option<String>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_caller_arn):<br>required: **false**<br><p>The ARN of the IAM user, group, or role that you want to specify as the simulated caller of the API operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user, group, or role that you specify in <code>PolicySourceArn</code>. If you include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you simulate calling the API operations as Bob, as if Bob had David's policies.</p> <p>You can specify the ARN of an IAM user, group, or role. You cannot specify the ARN of an assumed role, federated user, or a service principal.</p> <p><code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and the <code>PolicySourceArn</code> is not the ARN for an IAM user, group, or role. This is required so that the resource-based policy's <code>Principal</code> element has a value to use in evaluating the policy.</p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p><br>
      ///   - [`context_entries(ContextEntry)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::context_entries) / [`set_context_entries(Option<Vec::<ContextEntry>>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_context_entries):<br>required: **false**<br><p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p><br>
-```
-
-### `src/operation/create_delegation_request/_create_delegation_request_input.rs`
-
-```diff
---- reference/src/operation/create_delegation_request/_create_delegation_request_input.rs
-+++ generated/src/operation/create_delegation_request/_create_delegation_request_input.rs
-@@ -274,7 +274,7 @@
-             redirect_url: self.redirect_url,
-             notification_channel: self.notification_channel,
-             session_duration: self.session_duration,
--            only_send_by_owner: self.only_send_by_owner,
-+            only_send_by_owner: self.only_send_by_owner.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/create_login_profile/_create_login_profile_input.rs`
-
-```diff
---- reference/src/operation/create_login_profile/_create_login_profile_input.rs
-+++ generated/src/operation/create_login_profile/_create_login_profile_input.rs
-@@ -119,7 +119,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::create_login_profile::CreateLoginProfileInput {
-             user_name: self.user_name,
-             password: self.password,
--            password_reset_required: self.password_reset_required,
-+            password_reset_required: self.password_reset_required.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/create_policy_version/_create_policy_version_input.rs`
-
-```diff
---- reference/src/operation/create_policy_version/_create_policy_version_input.rs
-+++ generated/src/operation/create_policy_version/_create_policy_version_input.rs
-@@ -162,7 +162,7 @@
-         ::std::result::Result::Ok(super::super::super::operation::create_policy_version::CreatePolicyVersionInput {
-             policy_arn: self.policy_arn,
-             policy_document: self.policy_document,
--            set_as_default: self.set_as_default,
-+            set_as_default: self.set_as_default.unwrap_or_default(),
-         })
-     }
- }
-```
-
-### `src/operation/get_delegation_request/_get_delegation_request_input.rs`
-
-```diff
---- reference/src/operation/get_delegation_request/_get_delegation_request_input.rs
-+++ generated/src/operation/get_delegation_request/_get_delegation_request_input.rs
-@@ -79,7 +79,7 @@
-     {
-         ::std::result::Result::Ok(super::super::super::operation::get_delegation_request::GetDelegationRequestInput {
-             delegation_request_id: self.delegation_request_id,
--            delegation_permission_check: self.delegation_permission_check,
-+            delegation_permission_check: self.delegation_permission_check.unwrap_or_default(),
-         })
-     }
- }
 ```
 
 ### `src/operation/get_human_readable_summary/builders.rs`
@@ -359,22 +295,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// _Note_: No requests will be dispatched until the stream is used
 ```
 
-### `src/operation/list_policies/_list_policies_input.rs`
-
-```diff
---- reference/src/operation/list_policies/_list_policies_input.rs
-+++ generated/src/operation/list_policies/_list_policies_input.rs
-@@ -181,7 +181,7 @@
-     ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_policies::ListPoliciesInput {
-             scope: self.scope,
--            only_attached: self.only_attached,
-+            only_attached: self.only_attached.unwrap_or_default(),
-             path_prefix: self.path_prefix,
-             policy_usage_filter: self.policy_usage_filter,
-             marker: self.marker,
-```
-
 ### `src/operation/list_saml_provider_tags/builders.rs`
 
 ```diff
@@ -583,30 +503,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// Create the pagination stream
      ///
      /// _Note_: No requests will be dispatched until the stream is used
-```
-
-### `src/operation/update_account_password_policy/_update_account_password_policy_input.rs`
-
-```diff
---- reference/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
-+++ generated/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
-@@ -277,11 +277,11 @@
-     > {
-         ::std::result::Result::Ok(super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
-             minimum_password_length: self.minimum_password_length,
--            require_symbols: self.require_symbols,
--            require_numbers: self.require_numbers,
--            require_uppercase_characters: self.require_uppercase_characters,
--            require_lowercase_characters: self.require_lowercase_characters,
--            allow_users_to_change_password: self.allow_users_to_change_password,
-+            require_symbols: self.require_symbols.unwrap_or_default(),
-+            require_numbers: self.require_numbers.unwrap_or_default(),
-+            require_uppercase_characters: self.require_uppercase_characters.unwrap_or_default(),
-+            require_lowercase_characters: self.require_lowercase_characters.unwrap_or_default(),
-+            allow_users_to_change_password: self.allow_users_to_change_password.unwrap_or_default(),
-             max_password_age: self.max_password_age,
-             password_reuse_prevention: self.password_reuse_prevention,
-             hard_expiry: self.hard_expiry,
 ```
 
 ### `src/operation.rs`

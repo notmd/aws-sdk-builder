@@ -135,7 +135,7 @@ impl GetDurableExecutionHistoryInputBuilder {
         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
             durable_execution_arn: self.durable_execution_arn,
             include_execution_data: self.include_execution_data,
-            max_items: self.max_items.unwrap_or_default(),
+            max_items: self.max_items,
             marker: self.marker,
             reverse_order: self.reverse_order,
         })

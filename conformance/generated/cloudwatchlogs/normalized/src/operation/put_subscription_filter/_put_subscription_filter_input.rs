@@ -292,7 +292,7 @@ impl PutSubscriptionFilterInputBuilder {
             destination_arn: self.destination_arn,
             role_arn: self.role_arn,
             distribution: self.distribution,
-            apply_on_transformed_logs: self.apply_on_transformed_logs.unwrap_or_default(),
+            apply_on_transformed_logs: self.apply_on_transformed_logs,
             field_selection_criteria: self.field_selection_criteria,
             emit_system_fields: self.emit_system_fields,
         })
