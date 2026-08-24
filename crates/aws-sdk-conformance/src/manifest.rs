@@ -48,8 +48,6 @@ pub struct ServiceManifest {
     pub upstream_path: String,
     pub model_path: String,
     pub model_destination: String,
-    pub reference_path: String,
-    pub generated_path: String,
     pub sdk_version: String,
 }
 
@@ -91,8 +89,6 @@ impl ServicesManifest {
             return Err("services manifest must list at least one service".to_owned());
         }
         let mut keys = BTreeSet::new();
-        let mut references = BTreeSet::new();
-        let mut generated = BTreeSet::new();
         let sdk_prefix = format!("{}/", self.upstream.sdk_root.trim_end_matches('/'));
         for service in &self.services {
             if !keys.insert(service.key.clone()) {
@@ -108,20 +104,6 @@ impl ServicesManifest {
             }
             validate_relative_path("service.model_path", &service.model_path)?;
             validate_relative_path("service.model_destination", &service.model_destination)?;
-            validate_relative_path("service.reference_path", &service.reference_path)?;
-            validate_relative_path("service.generated_path", &service.generated_path)?;
-            if !references.insert(service.reference_path.clone()) {
-                return Err(format!(
-                    "duplicate reference path: {}",
-                    service.reference_path
-                ));
-            }
-            if !generated.insert(service.generated_path.clone()) {
-                return Err(format!(
-                    "duplicate generated path: {}",
-                    service.generated_path
-                ));
-            }
             if service.sdk_version.trim().is_empty() {
                 return Err(format!("service metadata is incomplete: {}", service.key));
             }
@@ -253,8 +235,6 @@ mod tests {
                 upstream_path: "sdk/s3".to_owned(),
                 model_path: "aws-models/s3.json".to_owned(),
                 model_destination: "crates/aws-sdk-builder-s3/model.json".to_owned(),
-                reference_path: "s3".to_owned(),
-                generated_path: "s3".to_owned(),
                 sdk_version: "1.0.0".to_owned(),
             }],
         }
@@ -297,8 +277,6 @@ mod tests {
             upstream_path: "sdk/dynamodb".to_owned(),
             model_path: "aws-models/dynamodb.json".to_owned(),
             model_destination: "crates/aws-sdk-builder-dynamodb/model.json".to_owned(),
-            reference_path: "dynamodb".to_owned(),
-            generated_path: "dynamodb".to_owned(),
             sdk_version: "1.0.0".to_owned(),
         });
         assert!(manifest.validate().is_err());

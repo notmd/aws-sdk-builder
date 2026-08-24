@@ -57,7 +57,7 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
                 source.display()
             ));
         }
-        let destination = staged_reference.join(&service.reference_path);
+        let destination = staged_reference.join(&service.key);
         let count =
             normalize::copy_filtered_tree(&source, &destination, &manifest.comparison.exclude)?;
         if normalize::count_files(&destination, &manifest.comparison.exclude)? != count {
@@ -68,7 +68,7 @@ pub fn run(arguments: &[OsString]) -> Result<(), String> {
         }
         let patch_count = normalize::write_reference_patches(
             &destination,
-            &staged_patches.join(&service.reference_path),
+            &staged_patches.join(&service.key),
             &manifest.comparison.exclude,
         )?;
 

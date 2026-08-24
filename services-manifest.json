@@ -31,8 +31,6 @@
       "upstream_path": "sdk/dynamodb",
       "model_path": "aws-models/dynamodb.json",
       "model_destination": "crates/aws-sdk-builder-dynamodb/model.json",
-      "reference_path": "dynamodb",
-      "generated_path": "dynamodb",
       "sdk_version": "1.122.0"
     },
     {
@@ -40,8 +38,6 @@
       "upstream_path": "sdk/iam",
       "model_path": "aws-models/iam.json",
       "model_destination": "crates/aws-sdk-builder-iam/model.json",
-      "reference_path": "iam",
-      "generated_path": "iam",
       "sdk_version": "1.121.0"
     },
     {
@@ -49,8 +45,6 @@
       "upstream_path": "sdk/kms",
       "model_path": "aws-models/kms.json",
       "model_destination": "crates/aws-sdk-builder-kms/model.json",
-      "reference_path": "kms",
-      "generated_path": "kms",
       "sdk_version": "1.116.0"
     },
     {
@@ -58,8 +52,6 @@
       "upstream_path": "sdk/lambda",
       "model_path": "aws-models/lambda.json",
       "model_destination": "crates/aws-sdk-builder-lambda/model.json",
-      "reference_path": "lambda",
-      "generated_path": "lambda",
       "sdk_version": "1.140.0"
     },
     {
@@ -67,8 +59,6 @@
       "upstream_path": "sdk/s3",
       "model_path": "aws-models/s3.json",
       "model_destination": "crates/aws-sdk-builder-s3/model.json",
-      "reference_path": "s3",
-      "generated_path": "s3",
       "sdk_version": "1.143.0"
     },
     {
@@ -76,8 +66,6 @@
       "upstream_path": "sdk/sns",
       "model_path": "aws-models/sns.json",
       "model_destination": "crates/aws-sdk-builder-sns/model.json",
-      "reference_path": "sns",
-      "generated_path": "sns",
       "sdk_version": "1.109.0"
     },
     {
@@ -85,8 +73,6 @@
       "upstream_path": "sdk/sqs",
       "model_path": "aws-models/sqs.json",
       "model_destination": "crates/aws-sdk-builder-sqs/model.json",
-      "reference_path": "sqs",
-      "generated_path": "sqs",
       "sdk_version": "1.107.0"
     },
     {
@@ -94,8 +80,6 @@
       "upstream_path": "sdk/sts",
       "model_path": "aws-models/sts.json",
       "model_destination": "crates/aws-sdk-builder-sts/model.json",
-      "reference_path": "sts",
-      "generated_path": "sts",
       "sdk_version": "1.112.0"
     }
   ]
